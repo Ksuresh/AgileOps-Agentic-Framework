@@ -1,0 +1,71 @@
+{
+  "type": "object",
+  "required": [
+    "incident_id",
+    "agents",
+    "consensus_score",
+    "rar_triggered",
+    "recommended_action",
+    "utility_score"
+  ],
+  "properties": {
+    "incident_id": {
+      "type": "string"
+    },
+    "agents": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "agent_type",
+          "claim",
+          "confidence",
+          "evidence"
+        ],
+        "properties": {
+          "agent_type": {
+            "type": "string",
+            "enum": [
+              "DevOps",
+              "SRE",
+              "FinOps",
+              "DevSecOps"
+            ]
+          },
+          "claim": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number",
+            "minimum": 0.0,
+            "maximum": 1.0
+          },
+          "evidence": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "consensus_score": {
+      "type": "number",
+      "minimum": 0.0,
+      "maximum": 1.0
+    },
+    "rar_triggered": {
+      "type": "boolean"
+    },
+    "rar_loops": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "recommended_action": {
+      "type": "string"
+    },
+    "utility_score": {
+      "type": "number"
+    }
+  }
+}
