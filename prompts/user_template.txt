@@ -1,0 +1,12 @@
+Incident ID: {incident_id}
+
+Structured Agent Outputs:
+{serialized_agent_json}
+
+Consensus Score: {consensus_score}
+RAR Activated: {rar_triggered}
+RAR Loops: {rar_loops}
+Recommended Action: {recommended_action}
+Utility Score: {utility_score}
+
+Generate a structured governance explanation using the required format.
