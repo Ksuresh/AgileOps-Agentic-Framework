@@ -49,3 +49,7 @@ Notes:
 
 ## License
 MIT (see `LICENSE`).
+
+# AgileOps Agentic Framework (AAF)
+
+[![Reproducibility Artifact](https://img.shields.io/badge/Reproducibility-Available-brightgreen)](https://github.com/Ksuresh/AgileOps-Agentic-Framework)
