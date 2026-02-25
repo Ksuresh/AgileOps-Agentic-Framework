@@ -1,0 +1,46 @@
+paper:
+  manuscript_id: Access-2025-54890
+  artifact_version: v1.0.0
+  generated_on: 2026-02-25
+experiment:
+  n_scenarios: 30
+  random_seed: 42
+  scenario_noise:
+    missing_evidence_prob: 0.12
+    contradiction_prob: 0.18
+    metric_jitter_pct: 0.1
+  thresholds:
+    tau_consensus: 0.75
+    delta_min: 0.15
+    max_rar_loops: 2
+  utility_weights:
+    w_perf: 0.4
+    w_cost: 0.3
+    w_risk: 0.3
+embeddings:
+  method: sentence_transformers
+  model: all-mpnet-base-v2
+  similarity_threshold_theta: 0.8
+llm:
+  model_id: Mistral-7B-Instruct-v0.2
+  runtime: llama.cpp
+  quantization: GGUF Q4_K_M
+  temperature: 0.0
+  top_p: 1.0
+  max_tokens: 800
+  system_prompt_enabled: true
+  external_retrieval: false
+  prompt_tuning: false
+  fine_tuning: false
+latency:
+  measure_components:
+    - telemetry_parse
+    - agent_inference
+    - consensus
+    - rar
+    - llm_explain
+    - render
+  report_percentiles:
+    - 50
+    - 95
+    - 99
