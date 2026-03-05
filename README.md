@@ -47,6 +47,18 @@ Notes:
 ## Reproducing paper tables
 - Latency statistics: `python tools/summarize_latency.py results/.../latency.csv`
 
+For a one-command, deterministic regeneration of the *paper-style summary tables*
+(latency breakdown + baseline/AAF comparisons) without requiring any external
+testbed:
+
+```bash
+python reproducibility/run_paper_results.py
+```
+
+Outputs:
+- `reproducibility/out/paper_tables.md`
+- `reproducibility/out/paper_tables.json`
+
 ## License
 MIT (see `LICENSE`).
 
