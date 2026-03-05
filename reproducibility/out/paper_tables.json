@@ -1,0 +1,523 @@
+{
+  "config": {
+    "paper": {
+      "manuscript_id": "Access-2025-54890",
+      "artifact_version": "v1.0.0",
+      "generated_on": "2026-02-25"
+    },
+    "experiment": {
+      "n_scenarios": 30,
+      "random_seed": 42,
+      "scenario_noise": {
+        "missing_evidence_prob": 0.12,
+        "contradiction_prob": 0.18,
+        "metric_jitter_pct": 0.1
+      },
+      "thresholds": {
+        "tau_consensus": 0.75,
+        "delta_min": 0.15,
+        "max_rar_loops": 2
+      },
+      "utility_weights": {
+        "w_perf": 0.4,
+        "w_cost": 0.3,
+        "w_risk": 0.3
+      }
+    },
+    "embeddings": {
+      "method": "sentence_transformers",
+      "model": "all-mpnet-base-v2",
+      "similarity_threshold_theta": 0.8
+    },
+    "llm": {
+      "model_id": "Mistral-7B-Instruct-v0.2",
+      "runtime": "llama.cpp",
+      "quantization": "GGUF Q4_K_M",
+      "temperature": 0.0,
+      "top_p": 1.0,
+      "max_tokens": 800,
+      "system_prompt_enabled": true,
+      "external_retrieval": false,
+      "prompt_tuning": false,
+      "fine_tuning": false
+    },
+    "latency": {
+      "measure_components": [
+        "telemetry_parse",
+        "agent_inference",
+        "consensus",
+        "rar",
+        "llm_explain",
+        "render"
+      ],
+      "report_percentiles": [
+        50,
+        95,
+        99
+      ]
+    }
+  },
+  "n_scenarios": 30,
+  "aaf_results": [
+    {
+      "incident_id": "SC-01",
+      "scenario_type": "Deployment failures",
+      "consensus": 0.417628967220784,
+      "rar_triggered": true,
+      "utility": 0.18500000000000005
+    },
+    {
+      "incident_id": "SC-02",
+      "scenario_type": "Deployment failures",
+      "consensus": 0.32386446869817437,
+      "rar_triggered": true,
+      "utility": 0.18500000000000005
+    },
+    {
+      "incident_id": "SC-03",
+      "scenario_type": "Deployment failures",
+      "consensus": 0.336521764728333,
+      "rar_triggered": true,
+      "utility": 0.18500000000000005
+    },
+    {
+      "incident_id": "SC-04",
+      "scenario_type": "Deployment failures",
+      "consensus": 0.32442477368027484,
+      "rar_triggered": true,
+      "utility": 0.18500000000000005
+    },
+    {
+      "incident_id": "SC-05",
+      "scenario_type": "Cost anomalies",
+      "consensus": 0.32442477368027484,
+      "rar_triggered": true,
+      "utility": 0.18500000000000005
+    },
+    {
+      "incident_id": "SC-06",
+      "scenario_type": "Cost anomalies",
+      "consensus": 0.3244247736802748,
+      "rar_triggered": true,
+      "utility": 0.18500000000000005
+    },
+    {
+      "incident_id": "SC-07",
+      "scenario_type": "Cost anomalies",
+      "consensus": 0.326521764728333,
+      "rar_triggered": true,
+      "utility": 0.18500000000000005
+    },
+    {
+      "incident_id": "SC-08",
+      "scenario_type": "Cost anomalies",
+      "consensus": 0.349488416482782,
+      "rar_triggered": true,
+      "utility": 0.18500000000000005
+    },
+    {
+      "incident_id": "SC-09",
+      "scenario_type": "Security violations",
+      "consensus": 0.341521764728333,
+      "rar_triggered": true,
+      "utility": 0.18500000000000005
+    },
+    {
+      "incident_id": "SC-10",
+      "scenario_type": "Security violations",
+      "consensus": 0.37512896722078404,
+      "rar_triggered": true,
+      "utility": 0.18500000000000005
+    },
+    {
+      "incident_id": "SC-11",
+      "scenario_type": "Security violations",
+      "consensus": 0.3075853908289108,
+      "rar_triggered": true,
+      "utility": 0.18500000000000005
+    },
+    {
+      "incident_id": "SC-12",
+      "scenario_type": "Security violations",
+      "consensus": 0.410128967220784,
+      "rar_triggered": true,
+      "utility": 0.18500000000000005
+    },
+    {
+      "incident_id": "SC-13",
+      "scenario_type": "Reliability degradations",
+      "consensus": 0.7618303524935279,
+      "rar_triggered": false,
+      "utility": 0.18500000000000005
+    },
+    {
+      "incident_id": "SC-14",
+      "scenario_type": "Reliability degradations",
+      "consensus": 0.3964934359189584,
+      "rar_triggered": true,
+      "utility": 0.18500000000000005
+    },
+    {
+      "incident_id": "SC-15",
+      "scenario_type": "Reliability degradations",
+      "consensus": 0.3038644686981744,
+      "rar_triggered": true,
+      "utility": 0.18500000000000005
+    },
+    {
+      "incident_id": "SC-16",
+      "scenario_type": "Reliability degradations",
+      "consensus": 0.626443450831176,
+      "rar_triggered": true,
+      "utility": 0.18500000000000005
+    },
+    {
+      "incident_id": "SC-17",
+      "scenario_type": "Compliance preparation",
+      "consensus": 0.5724848143423391,
+      "rar_triggered": true,
+      "utility": 0.18500000000000005
+    },
+    {
+      "incident_id": "SC-18",
+      "scenario_type": "Compliance preparation",
+      "consensus": 0.32442477368027484,
+      "rar_triggered": true,
+      "utility": 0.18500000000000005
+    },
+    {
+      "incident_id": "SC-19",
+      "scenario_type": "Compliance preparation",
+      "consensus": 0.5709741800829313,
+      "rar_triggered": true,
+      "utility": 0.18500000000000005
+    },
+    {
+      "incident_id": "SC-20",
+      "scenario_type": "Resource scaling",
+      "consensus": 0.3025853908289107,
+      "rar_triggered": true,
+      "utility": 0.18500000000000005
+    },
+    {
+      "incident_id": "SC-21",
+      "scenario_type": "Resource scaling",
+      "consensus": 0.2545479275922049,
+      "rar_triggered": true,
+      "utility": 0.18500000000000005
+    },
+    {
+      "incident_id": "SC-22",
+      "scenario_type": "Resource scaling",
+      "consensus": 0.4672268799007713,
+      "rar_triggered": true,
+      "utility": 0.18500000000000005
+    },
+    {
+      "incident_id": "SC-23",
+      "scenario_type": "Incident review",
+      "consensus": 0.29508539082891083,
+      "rar_triggered": true,
+      "utility": 0.18500000000000005
+    },
+    {
+      "incident_id": "SC-24",
+      "scenario_type": "Incident review",
+      "consensus": 0.31902176472833305,
+      "rar_triggered": true,
+      "utility": 0.18500000000000005
+    },
+    {
+      "incident_id": "SC-25",
+      "scenario_type": "Incident review",
+      "consensus": 0.5724848143423391,
+      "rar_triggered": true,
+      "utility": 0.18500000000000005
+    },
+    {
+      "incident_id": "SC-26",
+      "scenario_type": "Policy propagation",
+      "consensus": 0.33192477368027484,
+      "rar_triggered": true,
+      "utility": 0.18500000000000005
+    },
+    {
+      "incident_id": "SC-27",
+      "scenario_type": "Policy propagation",
+      "consensus": 0.4878869016623521,
+      "rar_triggered": true,
+      "utility": 0.18500000000000005
+    },
+    {
+      "incident_id": "SC-28",
+      "scenario_type": "Cost\u2013performance simulation",
+      "consensus": 0.331521764728333,
+      "rar_triggered": true,
+      "utility": 0.18500000000000005
+    },
+    {
+      "incident_id": "SC-29",
+      "scenario_type": "Cost\u2013performance simulation",
+      "consensus": 0.32258539082891075,
+      "rar_triggered": true,
+      "utility": 0.18500000000000005
+    },
+    {
+      "incident_id": "SC-30",
+      "scenario_type": "Anomaly-to-insight",
+      "consensus": 0.3175853908289108,
+      "rar_triggered": true,
+      "utility": 0.18500000000000005
+    }
+  ],
+  "latency_ms": {
+    "stage": {
+      "T-IN": [
+        48.35962346993722,
+        37.06413350757983,
+        52.103790044774236,
+        53.70074361768619,
+        29.41130441530777,
+        34.861692142356524,
+        46.8738593866052,
+        43.143562224313904,
+        45.658870276963974,
+        38.634431008381924,
+        53.18694298884776,
+        52.33345225760316,
+        46.35465785951421,
+        55.26882613853147,
+        49.72707847491718,
+        38.5819433117808,
+        48.89750658629299,
+        37.74538615303641,
+        53.17898253098109,
+        45.38062234771547,
+        44.24715614621981,
+        40.08019182700689,
+        56.06934724486185,
+        44.50195235062206,
+        42.202046293829895,
+        42.84207817589887,
+        50.27139715864813,
+        48.869730140658255,
+        49.2669539374063,
+        49.41889642526621
+      ],
+      "AG-INF": [
+        122.4972311722735,
+        86.56954826897692,
+        85.07737752009132,
+        80.82580453170492,
+        100.98530985831448,
+        108.21850932736457,
+        90.69334084706625,
+        80.45379367482835,
+        80.67481485875352,
+        101.47335830832829,
+        102.77988381396854,
+        99.95847518310325,
+        82.91631312722942,
+        95.57347465524074,
+        93.94526990888427,
+        95.38350921387908,
+        104.58714576906948,
+        95.45269723772302,
+        101.87268123931372,
+        93.25286487979336,
+        96.37658352152877,
+        101.20116398432341,
+        71.7541029400351,
+        87.79263584936204,
+        85.66774557447158,
+        83.29182233976887,
+        88.42049425770375,
+        113.37867248840499,
+        80.09178126872527,
+        105.95272479973988
+      ],
+      "CN-CHK": [
+        22.444216256113073,
+        29.85813233507824,
+        32.59514185807753,
+        34.924222822476025,
+        35.6117461888607,
+        36.06340979359959,
+        29.782012102633594,
+        29.15706514034488,
+        36.41886734691435,
+        30.647826213151117,
+        24.683725221641428,
+        25.466920322980855,
+        26.643012426991138,
+        34.4343840922957,
+        32.48334154838811,
+        35.49766944737272,
+        29.35011044514906,
+        32.57196830092193,
+        35.140747166820354,
+        29.998594031538687,
+        34.212263806565765,
+        28.059407324133417,
+        29.703203843892105,
+        29.60044158300919,
+        25.122881949260282,
+        34.3783486443207,
+        29.11828712888502,
+        31.76871765300228,
+        34.3441066239825,
+        34.15592146816469
+      ],
+      "LLM-XP": [
+        116.98346790574895,
+        107.12953724982845,
+        102.93945177463043,
+        107.37163507930745,
+        86.63338580194142,
+        89.73224910574218,
+        91.3371750006282,
+        95.53551592394089,
+        113.55708752473234,
+        96.71932018585522,
+        103.52170305289188,
+        125.16004504144024,
+        103.80419477330761,
+        117.91395083322543,
+        96.35633192787259,
+        105.74985550350758,
+        96.1447154916535,
+        104.02647332088274,
+        119.2399749732004,
+        86.1175665408187,
+        114.00406500174157,
+        111.4667892700864,
+        100.73546557151136,
+        89.74585367838894,
+        109.33047064950892,
+        101.56954405307695,
+        111.40152312647568,
+        108.68189267725242,
+        129.0629476980398,
+        105.31231240559799
+      ],
+      "OUT-GEN": [
+        20.324808023610032,
+        24.173682031860213,
+        24.30398938870965,
+        27.9494002407694,
+        26.27235598692665,
+        24.74198738927843,
+        28.2825692519026,
+        19.795958226166878,
+        21.552795095200807,
+        20.63495698750232,
+        22.352608629901543,
+        19.194604327819814,
+        25.632483029806096,
+        22.88888736928393,
+        18.893419857591496,
+        20.35014694013587,
+        24.603244311840626,
+        26.282005017262023,
+        29.98953885341372,
+        32.92435989122346,
+        24.92611018648319,
+        20.433478015898036,
+        16.777451901659813,
+        24.456676679500276,
+        20.998588495006956,
+        22.27085676742501,
+        21.641290243008616,
+        23.149469163467568,
+        27.011136738520463,
+        24.102555415825105
+      ]
+    },
+    "end_to_end": [
+      393.5326366528495,
+      337.89571136167456,
+      297.0197505862831,
+      304.771806291944,
+      278.91410225135104,
+      293.6178477583413,
+      286.96895658883585,
+      268.0858951895949,
+      356.9703243989265,
+      288.1098927032189,
+      306.52486370725114,
+      378.6909652101469,
+      285.3506612168485,
+      326.0795230885773,
+      291.4054417176536,
+      350.1503400221013,
+      303.58272260400565,
+      296.0785300298261,
+      402.3675803099586,
+      287.6740076910897,
+      313.76617866253906,
+      301.2410304214482,
+      275.0395715019602,
+      327.07077558668936,
+      333.7088321296979,
+      284.3526499804904,
+      300.8529919147212,
+      392.34038819480804,
+      319.7769262666743,
+      318.9424105145939
+    ],
+    "rar_mask_for_latency_model": [
+      true,
+      true,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false,
+      true,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false,
+      true,
+      false,
+      false,
+      false,
+      false,
+      true,
+      true,
+      false,
+      false,
+      true,
+      false,
+      false
+    ]
+  },
+  "simulated_baselines": {
+    "accuracy": {
+      "traditional": 0.5666666666666667,
+      "single_llm": 0.6666666666666666,
+      "aaf": 0.9666666666666667,
+      "aaf_no_consensus": 0.6666666666666666
+    },
+    "decision_latency_min": {
+      "traditional": {
+        "mean": 11.387322438002078,
+        "sd": 1.742684357866752
+      },
+      "single_llm": {
+        "mean": 6.996297584830089,
+        "sd": 1.500251338224783
+      },
+      "aaf": {
+        "mean": 3.853613080577311,
+        "sd": 1.2078736404404948
+      }
+    }
+  }
+}
