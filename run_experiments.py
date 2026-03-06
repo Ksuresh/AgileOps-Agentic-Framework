@@ -9,57 +9,75 @@ from scenario_generator.generate import generate_scenarios
 from pipeline import run_once
 from llm.llama_cpp_runner import run_llama
 
+
+ROOT = Path(__file__).resolve().parent
+
+
 def load_text(p: Path) -> str:
     return p.read_text(encoding="utf-8")
+
 
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--config", required=True)
-    ap.add_argument("--no-llm", action="store_true")
     ap.add_argument("--llm", action="store_true")
     ap.add_argument("--llama_bin", default="")
     ap.add_argument("--gguf", default="")
     args = ap.parse_args()
 
     cfg = yaml.safe_load(Path(args.config).read_text(encoding="utf-8"))
-    set_seed(int(cfg["experiment"]["random_seed"]))
 
-    scenarios = generate_scenarios(cfg["experiment"]["random_seed"], cfg["experiment"]["scenario_noise"])
+    seed = int(cfg["experiment"]["random_seed"])
+    set_seed(seed)
 
-    outdir = Path("results") / f"run_{int(time.time())}"
+    noise = cfg["experiment"]["scenario_noise"]
+    scenarios = generate_scenarios(seed, noise)
+
+    outdir = ROOT / "results" / f"run_{int(time.time())}"
     outdir.mkdir(parents=True, exist_ok=True)
 
-    sys_prompt = load_text(Path("prompts/system.txt"))
-    user_template = load_text(Path("prompts/user_template.txt"))
+    sys_prompt = load_text(ROOT / "prompts/system.txt")
+    user_template = load_text(ROOT / "prompts/user_template.txt")
 
     lat_rows = []
     outputs_path = outdir / "scenario_outputs.jsonl"
+
     with outputs_path.open("w", encoding="utf-8") as f:
         for sc in scenarios:
             t0 = now_ms()
 
-            # telemetry_parse (simulated)
+            # telemetry parse
             t_parse0 = now_ms()
             telemetry = sc["telemetry"]
             t_parse = now_ms() - t_parse0
 
-            # pipeline
+            # pipeline execution
             t_pipe0 = now_ms()
+
+            w = (
+                cfg["experiment"]["utility_weights"]["w_perf"],
+                cfg["experiment"]["utility_weights"]["w_cost"],
+                cfg["experiment"]["utility_weights"]["w_risk"],
+            )
+
+            assert abs(sum(w) - 1.0) < 1e-6, "Utility weights must sum to 1.0"
+
             res = run_once(
                 telemetry=telemetry,
                 thresholds=cfg["experiment"]["thresholds"],
                 lam=0.5,
-                w=(cfg["experiment"]["utility_weights"]["w_perf"],
-                   cfg["experiment"]["utility_weights"]["w_cost"],
-                   cfg["experiment"]["utility_weights"]["w_risk"])
+                w=w,
             )
+
             t_pipe = now_ms() - t_pipe0
 
-            # LLM explanation
+            # optional LLM explanation
             llm_text = ""
-            t_llm = 0.0
-            if args.llm and not args.no_llm:
+            t_llm = 0
+
+            if args.llm:
                 assert args.llama_bin and args.gguf, "Provide --llama_bin and --gguf for LLM mode"
+
                 user_prompt = user_template.format(
                     incident_id=sc["incident_id"],
                     serialized_agent_json=json.dumps(res, indent=2),
@@ -69,7 +87,9 @@ def main():
                     recommended_action=res["recommended_action"],
                     utility_score=res["utility_score"],
                 )
+
                 t_llm0 = now_ms()
+
                 llm_text = run_llama(
                     llama_bin=args.llama_bin,
                     gguf_path=args.gguf,
@@ -79,9 +99,11 @@ def main():
                     top_p=float(cfg["llm"]["top_p"]),
                     max_tokens=int(cfg["llm"]["max_tokens"]),
                 )
+
                 t_llm = now_ms() - t_llm0
 
             total = now_ms() - t0
+
             lat_rows.append({
                 "incident_id": sc["incident_id"],
                 "scenario_type": sc["scenario_type"],
@@ -100,8 +122,9 @@ def main():
                 "scenario_type": sc["scenario_type"],
                 "ground_truth": sc["ground_truth"],
                 **res,
-                "llm_output": (llm_text.strip()[:4000] if llm_text else "")
+                "llm_output": (llm_text.strip()[:4000] if llm_text else ""),
             }
+
             f.write(json.dumps(payload) + "\n")
 
     df = pd.DataFrame(lat_rows)
@@ -117,8 +140,13 @@ def main():
         "latency_total_ms_p95": float(df["total_ms"].quantile(0.95)),
         "latency_total_ms_p99": float(df["total_ms"].quantile(0.99)),
     }
-    (outdir / "metrics_summary.json").write_text(json.dumps(summary, indent=2), encoding="utf-8")
-    print("Wrote results to:", outdir)
+
+    (outdir / "metrics_summary.json").write_text(
+        json.dumps(summary, indent=2), encoding="utf-8"
+    )
+
+    print("Results written to:", outdir)
+
 
 if __name__ == "__main__":
     main()
