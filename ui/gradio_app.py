@@ -16,7 +16,7 @@ from metrics.explainability import compute_xi
 from pm_interface.prompt_router import route_prompt
 from pm_interface.decision_formatter import format_pm_decision
 from simulation.prompt_to_telemetry import build_telemetry_from_prompt_context
-
+print(">>> LOADING NEW PHASE 2 UI <<<")
 
 DEFAULT_THRESHOLDS = {
     "tau_consensus": 0.75,
