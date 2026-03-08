@@ -1,1 +1,3 @@
-"""AAF core utilities."""
+"""
+AAF package utilities.
+"""
