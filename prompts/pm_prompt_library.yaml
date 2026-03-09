@@ -1,0 +1,550 @@
+prompts:
+  - id: pm001
+    title: Release failed with latency and policy violations
+    category: cross_domain_release_governance
+    pm_goal: decide_release_readiness
+    priority: high
+    prompt: "The latest release failed, users are seeing high latency, and security flagged a policy violation. What should we do?"
+    expected_domains: [DevOps, SRE, DevSecOps]
+    expected_action: "Patch or block release"
+    expected_business_focus: "release risk"
+    notes: "Strong cross-domain governance scenario."
+
+  - id: pm002
+    title: Cloud spend increased after autoscaling changes
+    category: cost_governance
+    pm_goal: assess_cost_tradeoff
+    priority: medium
+    prompt: "Our cloud costs increased significantly after autoscaling changes. Can you analyze and recommend what we should do?"
+    expected_domains: [FinOps]
+    expected_action: "Scale adjustment"
+    expected_business_focus: "cost optimization"
+    notes: "FinOps-focused daily PM concern."
+
+  - id: pm003
+    title: Critical vulnerabilities before deployment
+    category: security_compliance_governance
+    pm_goal: decide_release_readiness
+    priority: high
+    prompt: "Security scanning detected policy violations and critical vulnerabilities in the current release. Should we proceed with deployment?"
+    expected_domains: [DevSecOps]
+    expected_action: "Patch or block release"
+    expected_business_focus: "security risk"
+    notes: "Classic release gate scenario."
+
+  - id: pm004
+    title: Slow response times and repeated timeouts
+    category: reliability_operations
+    pm_goal: assess_incident_response
+    priority: medium
+    prompt: "Users are reporting very slow response times and repeated timeouts across services. Please evaluate the situation."
+    expected_domains: [SRE]
+    expected_action: "Mitigate and monitor"
+    expected_business_focus: "service stability"
+    notes: "Reliability degradation case."
+
+  - id: pm005
+    title: Deployment instability after release
+    category: release_governance
+    pm_goal: assess_release_health
+    priority: medium
+    prompt: "The latest deployment failed and services are restarting repeatedly. The pipeline also reported configuration drift. What action should we take?"
+    expected_domains: [DevOps]
+    expected_action: "Rollback to stable deployment"
+    expected_business_focus: "deployment recovery"
+    notes: "DevOps-heavy scenario."
+
+  - id: pm006
+    title: Production Sev1 after deployment
+    category: release_governance
+    pm_goal: assess_incident_response
+    priority: high
+    prompt: "URGENT: Production is unstable after the latest deployment, and multiple services are failing. What is the recommended governance action?"
+    expected_domains: [DevOps, SRE]
+    expected_action: "Rollback to stable deployment"
+    expected_business_focus: "incident containment"
+    notes: "High urgency incident."
+
+  - id: pm007
+    title: Release passed but security objects
+    category: cross_domain_release_governance
+    pm_goal: decide_release_readiness
+    priority: high
+    prompt: "The release pipeline passed successfully, but security reported policy violations and IAM drift. Should we continue rollout?"
+    expected_domains: [DevOps, DevSecOps]
+    expected_action: "Patch or block release"
+    expected_business_focus: "governance approval"
+    notes: "Technical success but governance risk."
+
+  - id: pm008
+    title: Reliability improved but costs doubled
+    category: cross_domain_cost_reliability
+    pm_goal: assess_cost_tradeoff
+    priority: medium
+    prompt: "Performance improved after scaling changes, but infrastructure costs nearly doubled. Should we keep the current setup?"
+    expected_domains: [SRE, FinOps]
+    expected_action: "Scale adjustment"
+    expected_business_focus: "cost-performance tradeoff"
+    notes: "Good FinOps-SRE tension case."
+
+  - id: pm009
+    title: Deployment delayed and sprint at risk
+    category: pm_prioritization_escalation
+    pm_goal: assess_delivery_risk
+    priority: medium
+    prompt: "The release keeps failing validation checks and our sprint commitment is now at risk. What should I prioritize and escalate?"
+    expected_domains: [DevOps]
+    expected_action: "Rollback to stable deployment"
+    expected_business_focus: "delivery risk"
+    notes: "PM delivery-oriented prompt."
+
+  - id: pm010
+    title: Error rates climbing after configuration change
+    category: reliability_operations
+    pm_goal: assess_incident_response
+    priority: medium
+    prompt: "Error rates increased after a recent configuration change and customers are affected. What is the recommended next step?"
+    expected_domains: [SRE, DevOps]
+    expected_action: "Mitigate and monitor"
+    expected_business_focus: "customer impact"
+    notes: "Common post-change operational issue."
+
+  - id: pm011
+    title: Rising cloud spend with no visible product gain
+    category: cost_governance
+    pm_goal: assess_cost_tradeoff
+    priority: medium
+    prompt: "Cloud spending is rising week over week, but I do not see a corresponding product benefit. What should we do?"
+    expected_domains: [FinOps]
+    expected_action: "Scale adjustment"
+    expected_business_focus: "cost justification"
+    notes: "PM financial review scenario."
+
+  - id: pm012
+    title: Security wants to block release, engineering wants to proceed
+    category: cross_domain_release_governance
+    pm_goal: resolve_conflicting_signals
+    priority: high
+    prompt: "Security recommends blocking the release due to policy violations, but engineering says the build is stable. What is the governance recommendation?"
+    expected_domains: [DevSecOps, DevOps]
+    expected_action: "Patch or block release"
+    expected_business_focus: "risk arbitration"
+    notes: "Excellent defense demo prompt."
+
+  - id: pm013
+    title: Service degradation affecting SLA
+    category: reliability_operations
+    pm_goal: assess_sla_risk
+    priority: high
+    prompt: "Latency and error rates are increasing, and I am concerned we will breach our service commitments. What should we do?"
+    expected_domains: [SRE]
+    expected_action: "Mitigate and monitor"
+    expected_business_focus: "SLA protection"
+    notes: "SRE-aligned PM concern."
+
+  - id: pm014
+    title: Cost anomaly after HPA expansion
+    category: cost_governance
+    pm_goal: assess_cost_tradeoff
+    priority: medium
+    prompt: "After increasing autoscaling capacity, our cloud bill spiked unexpectedly. Should we revise scaling settings?"
+    expected_domains: [FinOps]
+    expected_action: "Scale adjustment"
+    expected_business_focus: "run-rate control"
+    notes: "Simple FinOps test case."
+
+  - id: pm015
+    title: Vulnerability found in release candidate
+    category: security_compliance_governance
+    pm_goal: decide_release_readiness
+    priority: high
+    prompt: "A critical vulnerability was found in the release candidate just before deployment. Should we move forward or stop?"
+    expected_domains: [DevSecOps]
+    expected_action: "Patch or block release"
+    expected_business_focus: "release safety"
+    notes: "High-value governance prompt."
+
+  - id: pm016
+    title: Repeated restarts after release
+    category: release_governance
+    pm_goal: assess_release_health
+    priority: medium
+    prompt: "Services are showing repeated restart loops after the latest release. What is the recommended action?"
+    expected_domains: [DevOps]
+    expected_action: "Rollback to stable deployment"
+    expected_business_focus: "deployment stability"
+    notes: "Maps well to restart loop telemetry."
+
+  - id: pm017
+    title: Unclear cross-platform instability
+    category: cross_domain_general_investigation
+    pm_goal: investigate_general_issue
+    priority: medium
+    prompt: "Something feels off across the platform after the latest release. Performance seems worse, costs look higher, and teams are concerned. Please assess the situation."
+    expected_domains: [DevOps, SRE, FinOps, DevSecOps]
+    expected_action: "Mitigate and monitor"
+    expected_business_focus: "overall platform health"
+    notes: "General investigation case."
+
+  - id: pm018
+    title: Compliance blocker before go-live
+    category: security_compliance_governance
+    pm_goal: assess_compliance_risk
+    priority: high
+    prompt: "We are preparing to go live, but compliance checks identified policy issues. What is the governance recommendation?"
+    expected_domains: [DevSecOps]
+    expected_action: "Patch or block release"
+    expected_business_focus: "compliance readiness"
+    notes: "Compliance-oriented PM case."
+
+  - id: pm019
+    title: High latency during launch window
+    category: reliability_operations
+    pm_goal: protect_launch
+    priority: high
+    prompt: "We are entering a launch window, but latency is rising and users are experiencing slow responses. What should we prioritize?"
+    expected_domains: [SRE]
+    expected_action: "Mitigate and monitor"
+    expected_business_focus: "launch protection"
+    notes: "Launch readiness scenario."
+
+  - id: pm020
+    title: Build pipeline unstable before release
+    category: release_governance
+    pm_goal: decide_release_readiness
+    priority: medium
+    prompt: "The build pipeline has been unstable for the last two release attempts. Should we hold the release?"
+    expected_domains: [DevOps]
+    expected_action: "Rollback to stable deployment"
+    expected_business_focus: "release confidence"
+    notes: "Pipeline reliability question."
+
+  - id: pm021
+    title: Security and latency concerns in release candidate
+    category: cross_domain_release_governance
+    pm_goal: decide_release_readiness
+    priority: high
+    prompt: "The release candidate passed deployment checks, but security found policy violations and performance testing shows rising latency. Should we proceed?"
+    expected_domains: [DevSecOps, SRE, DevOps]
+    expected_action: "Patch or block release"
+    expected_business_focus: "release risk"
+    notes: "Good for conflicting signals."
+
+  - id: pm022
+    title: Which issue should be prioritized today
+    category: pm_prioritization_escalation
+    pm_goal: prioritize_team_actions
+    priority: medium
+    prompt: "We have deployment instability, rising latency, and increasing cloud costs. Which issue should the team prioritize first?"
+    expected_domains: [DevOps, SRE, FinOps]
+    expected_action: "Mitigate and monitor"
+    expected_business_focus: "prioritization"
+    notes: "Good PM workflow prompt."
+
+  - id: pm023
+    title: What should be escalated to leadership
+    category: pm_prioritization_escalation
+    pm_goal: decide_escalation
+    priority: high
+    prompt: "We are seeing delivery delays, production performance concerns, and security objections before release. What should I escalate to leadership?"
+    expected_domains: [DevOps, SRE, DevSecOps]
+    expected_action: "Patch or block release"
+    expected_business_focus: "executive escalation"
+    notes: "Leadership-facing governance case."
+
+  - id: pm024
+    title: Can this release go out today
+    category: release_governance
+    pm_goal: decide_release_readiness
+    priority: high
+    prompt: "Can this release safely go out today given the recent failed deployment checks and operational concerns?"
+    expected_domains: [DevOps, SRE]
+    expected_action: "Rollback to stable deployment"
+    expected_business_focus: "same-day release decision"
+    notes: "Very realistic PM daily prompt."
+
+  - id: pm025
+    title: Is autoscaling still worth the cost
+    category: cross_domain_cost_reliability
+    pm_goal: assess_cost_tradeoff
+    priority: medium
+    prompt: "Autoscaling has improved performance, but our monthly cloud costs are much higher. Is this still worth it?"
+    expected_domains: [FinOps, SRE]
+    expected_action: "Scale adjustment"
+    expected_business_focus: "ROI of infrastructure"
+    notes: "Business-oriented tradeoff."
+
+  - id: pm026
+    title: Runtime security issue after deployment
+    category: security_compliance_governance
+    pm_goal: assess_security_response
+    priority: high
+    prompt: "A runtime security issue was detected after deployment and policy violations are being reported. What should we do now?"
+    expected_domains: [DevSecOps]
+    expected_action: "Patch or block release"
+    expected_business_focus: "containment"
+    notes: "Post-deployment security event."
+
+  - id: pm027
+    title: Are we safe to continue rollout
+    category: release_governance
+    pm_goal: decide_release_readiness
+    priority: medium
+    prompt: "The deployment is progressing, but restart loops and instability have been observed in some services. Are we safe to continue rollout?"
+    expected_domains: [DevOps]
+    expected_action: "Rollback to stable deployment"
+    expected_business_focus: "rollout control"
+    notes: "Rollout progression decision."
+
+  - id: pm028
+    title: Budget pressure and scaling concerns
+    category: cost_governance
+    pm_goal: control_budget_risk
+    priority: high
+    prompt: "We are under budget pressure, and recent scaling changes increased infrastructure costs. What action should we take?"
+    expected_domains: [FinOps]
+    expected_action: "Scale adjustment"
+    expected_business_focus: "budget adherence"
+    notes: "Finance-governed operations case."
+
+  - id: pm029
+    title: Customers affected and release under question
+    category: cross_domain_release_governance
+    pm_goal: protect_customer_experience
+    priority: high
+    prompt: "Customers are being affected after the latest release, and security concerns are also open. Should we continue or reverse course?"
+    expected_domains: [SRE, DevSecOps, DevOps]
+    expected_action: "Patch or block release"
+    expected_business_focus: "customer protection"
+    notes: "Strong leadership narrative."
+
+  - id: pm030
+    title: What should the team do in the next 24 hours
+    category: pm_prioritization_escalation
+    pm_goal: define_next_actions
+    priority: medium
+    prompt: "Given current deployment, reliability, cost, and security issues, what should the team do in the next 24 hours?"
+    expected_domains: [DevOps, SRE, FinOps, DevSecOps]
+    expected_action: "Mitigate and monitor"
+    expected_business_focus: "action planning"
+    notes: "Action-oriented PM prompt."
+
+  - id: pm031
+    title: Release blocked by compliance concerns
+    category: security_compliance_governance
+    pm_goal: assess_compliance_risk
+    priority: high
+    prompt: "Compliance controls have flagged issues with the release, and security recommends holding deployment. What is the decision?"
+    expected_domains: [DevSecOps]
+    expected_action: "Patch or block release"
+    expected_business_focus: "compliance governance"
+    notes: "Governance board style prompt."
+
+  - id: pm032
+    title: Infrastructure costs rising during growth
+    category: cost_governance
+    pm_goal: assess_scaling_strategy
+    priority: medium
+    prompt: "As traffic has grown, our infrastructure costs have risen sharply. Should we revise our scaling strategy?"
+    expected_domains: [FinOps, SRE]
+    expected_action: "Scale adjustment"
+    expected_business_focus: "scaling efficiency"
+    notes: "Growth-stage platform ops case."
+
+  - id: pm033
+    title: Repeated timeouts during customer peak hours
+    category: reliability_operations
+    pm_goal: protect_customer_experience
+    priority: high
+    prompt: "During peak customer hours, we are seeing repeated timeouts and service degradation. What should we do?"
+    expected_domains: [SRE]
+    expected_action: "Mitigate and monitor"
+    expected_business_focus: "customer experience"
+    notes: "Operationally realistic SRE prompt."
+
+  - id: pm034
+    title: Build stable but costs and latency rising
+    category: cross_domain_cost_reliability
+    pm_goal: assess_operational_tradeoff
+    priority: medium
+    prompt: "The build is stable, but latency is trending upward and costs are increasing. What governance action do you recommend?"
+    expected_domains: [SRE, FinOps]
+    expected_action: "Scale adjustment"
+    expected_business_focus: "operational balance"
+    notes: "Tradeoff-oriented case."
+
+  - id: pm035
+    title: Security exceptions requested for deadline
+    category: security_compliance_governance
+    pm_goal: assess_risk_acceptance
+    priority: high
+    prompt: "Engineering is requesting a temporary security exception to meet the release deadline. Should we allow it?"
+    expected_domains: [DevSecOps, DevOps]
+    expected_action: "Patch or block release"
+    expected_business_focus: "risk acceptance"
+    notes: "Great management governance scenario."
+
+  - id: pm036
+    title: Can we defer this operational issue
+    category: pm_prioritization_escalation
+    pm_goal: decide_deferral
+    priority: low
+    prompt: "We have moderate operational concerns, but no major customer complaints yet. Can this issue be deferred safely?"
+    expected_domains: [SRE, DevOps, FinOps, DevSecOps]
+    expected_action: "No action (observe)"
+    expected_business_focus: "deferral decision"
+    notes: "Useful low-priority scenario."
+
+  - id: pm037
+    title: Release readiness under conflicting domain advice
+    category: cross_domain_release_governance
+    pm_goal: resolve_conflicting_signals
+    priority: high
+    prompt: "DevOps says the release is ready, SRE is worried about latency, and security has policy concerns. What is the final recommendation?"
+    expected_domains: [DevOps, SRE, DevSecOps]
+    expected_action: "Patch or block release"
+    expected_business_focus: "decision arbitration"
+    notes: "Perfect governance committee scenario."
+
+  - id: pm038
+    title: Why did our sprint delivery slip
+    category: pm_prioritization_escalation
+    pm_goal: assess_delivery_risk
+    priority: medium
+    prompt: "Our sprint delivery slipped because of repeated deployment and operational issues. What should I focus on first?"
+    expected_domains: [DevOps, SRE]
+    expected_action: "Rollback to stable deployment"
+    expected_business_focus: "delivery recovery"
+    notes: "PM language, not purely technical."
+
+  - id: pm039
+    title: Cost spike after feature launch
+    category: cost_governance
+    pm_goal: assess_feature_operating_cost
+    priority: medium
+    prompt: "After launching the new feature, our operating costs increased sharply. Is this sustainable?"
+    expected_domains: [FinOps]
+    expected_action: "Scale adjustment"
+    expected_business_focus: "feature economics"
+    notes: "Product + operations bridge."
+
+  - id: pm040
+    title: Is this an incident or something we can monitor
+    category: reliability_operations
+    pm_goal: classify_operational_severity
+    priority: medium
+    prompt: "We are seeing elevated latency and some errors, but the service is still functioning. Is this an incident or something we can monitor?"
+    expected_domains: [SRE]
+    expected_action: "Mitigate and monitor"
+    expected_business_focus: "severity assessment"
+    notes: "Useful for threshold testing."
+
+  - id: pm041
+    title: Deployment drift before customer demo
+    category: release_governance
+    pm_goal: protect_business_commitment
+    priority: high
+    prompt: "We detected deployment drift before an important customer demo. Should we proceed, rollback, or hold?"
+    expected_domains: [DevOps]
+    expected_action: "Rollback to stable deployment"
+    expected_business_focus: "customer commitment"
+    notes: "Business-facing release governance."
+
+  - id: pm042
+    title: Security, cost, and reliability all deteriorating
+    category: cross_domain_general_investigation
+    pm_goal: investigate_general_issue
+    priority: high
+    prompt: "Security concerns are rising, performance is degrading, and cloud costs are climbing. Please assess the overall situation and recommend the best next step."
+    expected_domains: [DevSecOps, SRE, FinOps]
+    expected_action: "Patch or block release"
+    expected_business_focus: "multi-domain governance risk"
+    notes: "High-value integrated scenario."
+
+  - id: pm043
+    title: Should we pause rollout for operational review
+    category: release_governance
+    pm_goal: decide_release_readiness
+    priority: medium
+    prompt: "The team wants to continue rollout, but there are warning signs in reliability and deployment stability. Should we pause for review?"
+    expected_domains: [DevOps, SRE]
+    expected_action: "Rollback to stable deployment"
+    expected_business_focus: "controlled release governance"
+    notes: "Strong review board prompt."
+
+  - id: pm044
+    title: Are current infrastructure costs acceptable
+    category: cost_governance
+    pm_goal: assess_budget_health
+    priority: low
+    prompt: "Our infrastructure costs are trending upward, but performance seems stable. Are these costs acceptable or should we optimize?"
+    expected_domains: [FinOps]
+    expected_action: "Scale adjustment"
+    expected_business_focus: "cost tolerance"
+    notes: "Low urgency FinOps assessment."
+
+  - id: pm045
+    title: Compliance issue ahead of audit window
+    category: security_compliance_governance
+    pm_goal: assess_audit_readiness
+    priority: high
+    prompt: "We have identified compliance issues just before our audit window. What governance action should we take?"
+    expected_domains: [DevSecOps]
+    expected_action: "Patch or block release"
+    expected_business_focus: "audit readiness"
+    notes: "Governance and compliance heavy."
+
+  - id: pm046
+    title: What is the business impact of this release issue
+    category: pm_prioritization_escalation
+    pm_goal: assess_business_impact
+    priority: medium
+    prompt: "The release is facing deployment, latency, and security concerns. What is the likely business impact and what should I prioritize?"
+    expected_domains: [DevOps, SRE, DevSecOps]
+    expected_action: "Patch or block release"
+    expected_business_focus: "business impact"
+    notes: "Committee-friendly management framing."
+
+  - id: pm047
+    title: Can we safely monitor instead of intervening
+    category: reliability_operations
+    pm_goal: decide_intervention_level
+    priority: low
+    prompt: "Performance concerns are present but not yet severe. Can we safely monitor instead of intervening immediately?"
+    expected_domains: [SRE]
+    expected_action: "No action (observe)"
+    expected_business_focus: "minimal intervention"
+    notes: "Useful for low severity paths."
+
+  - id: pm048
+    title: Customer-facing release under security pressure
+    category: cross_domain_release_governance
+    pm_goal: protect_customer_delivery
+    priority: high
+    prompt: "We have a customer-facing release scheduled, but security flagged policy issues and engineering is under deadline pressure. What is the right governance decision?"
+    expected_domains: [DevSecOps, DevOps]
+    expected_action: "Patch or block release"
+    expected_business_focus: "customer delivery vs risk"
+    notes: "Excellent defense example."
+
+  - id: pm049
+    title: Are we spending too much to maintain stability
+    category: cross_domain_cost_reliability
+    pm_goal: assess_stability_cost_tradeoff
+    priority: medium
+    prompt: "We improved reliability, but it now costs much more to run the platform. Are we overspending to maintain stability?"
+    expected_domains: [SRE, FinOps]
+    expected_action: "Scale adjustment"
+    expected_business_focus: "stability economics"
+    notes: "Good for balanced tradeoff discussion."
+
+  - id: pm050
+    title: End-to-end governance review for today's standup
+    category: pm_prioritization_escalation
+    pm_goal: prepare_daily_governance_review
+    priority: medium
+    prompt: "Before today’s standup, I need a governance view of current deployment, reliability, cost, and security issues. What should the team focus on?"
+    expected_domains: [DevOps, SRE, FinOps, DevSecOps]
+    expected_action: "Mitigate and monitor"
+    expected_business_focus: "daily execution focus"
+    notes: "Very realistic PM daily workflow prompt."
