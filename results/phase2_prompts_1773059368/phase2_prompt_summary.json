@@ -1,0 +1,98 @@
+{
+  "n_prompts": 50,
+  "categories": [
+    "cost_governance",
+    "cross_domain_cost_reliability",
+    "cross_domain_general_investigation",
+    "cross_domain_release_governance",
+    "pm_prioritization_escalation",
+    "release_governance",
+    "reliability_operations",
+    "security_compliance_governance"
+  ],
+  "priorities": [
+    "high",
+    "low",
+    "medium"
+  ],
+  "action_match_rate": 0.44,
+  "rar_trigger_rate": 1.0,
+  "avg_rar_loops": 1.0,
+  "consensus_mean": 0.6001883671310997,
+  "consensus_p50": 0.564731023729712,
+  "consensus_p95": 0.6885310363079826,
+  "utility_mean": 0.222,
+  "xi_mean": 0.52,
+  "action_distribution": {
+    "Mitigate and monitor": 33,
+    "Patch or block release": 10,
+    "Rollback to stable deployment": 6,
+    "Scale adjustment": 1
+  },
+  "category_breakdown": [
+    {
+      "category": "cost_governance",
+      "prompts": 7,
+      "action_match_rate": 0.1429,
+      "rar_trigger_rate": 1.0,
+      "consensus_mean": 0.5784,
+      "xi_mean": 0.52
+    },
+    {
+      "category": "cross_domain_cost_reliability",
+      "prompts": 4,
+      "action_match_rate": 0.0,
+      "rar_trigger_rate": 1.0,
+      "consensus_mean": 0.5647,
+      "xi_mean": 0.52
+    },
+    {
+      "category": "cross_domain_general_investigation",
+      "prompts": 2,
+      "action_match_rate": 0.5,
+      "rar_trigger_rate": 1.0,
+      "consensus_mean": 0.5647,
+      "xi_mean": 0.52
+    },
+    {
+      "category": "cross_domain_release_governance",
+      "prompts": 7,
+      "action_match_rate": 0.5714,
+      "rar_trigger_rate": 1.0,
+      "consensus_mean": 0.6287,
+      "xi_mean": 0.52
+    },
+    {
+      "category": "pm_prioritization_escalation",
+      "prompts": 8,
+      "action_match_rate": 0.125,
+      "rar_trigger_rate": 1.0,
+      "consensus_mean": 0.5957,
+      "xi_mean": 0.52
+    },
+    {
+      "category": "release_governance",
+      "prompts": 8,
+      "action_match_rate": 0.625,
+      "rar_trigger_rate": 1.0,
+      "consensus_mean": 0.5829,
+      "xi_mean": 0.52
+    },
+    {
+      "category": "reliability_operations",
+      "prompts": 7,
+      "action_match_rate": 0.8571,
+      "rar_trigger_rate": 1.0,
+      "consensus_mean": 0.6171,
+      "xi_mean": 0.52
+    },
+    {
+      "category": "security_compliance_governance",
+      "prompts": 7,
+      "action_match_rate": 0.5714,
+      "rar_trigger_rate": 1.0,
+      "consensus_mean": 0.6319,
+      "xi_mean": 0.52
+    }
+  ]
+}

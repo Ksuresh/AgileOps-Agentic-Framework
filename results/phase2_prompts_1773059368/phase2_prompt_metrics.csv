@@ -1,0 +1,51 @@
+id,title,category,priority,expected_action,recommended_action,action_match,consensus_score,rar_triggered,rar_loops,utility_score,xi_score,expected_domain_count,actual_domain_count,domain_overlap_count
+pm001,Release failed with latency and policy violations,cross_domain_release_governance,high,Patch or block release,Rollback to stable deployment,False,0.5173540242053218,True,1,0.21700000000000003,0.52,3,4,3
+pm002,Cloud spend increased after autoscaling changes,cost_governance,medium,Scale adjustment,Mitigate and monitor,False,0.564731023729712,True,1,0.25099999999999995,0.52,1,4,1
+pm003,Critical vulnerabilities before deployment,security_compliance_governance,high,Patch or block release,Patch or block release,True,0.6760310363079829,True,1,0.13000000000000006,0.52,1,4,1
+pm004,Slow response times and repeated timeouts,reliability_operations,medium,Mitigate and monitor,Mitigate and monitor,True,0.6380843911969091,True,1,0.295,0.52,1,4,1
+pm005,Deployment instability after release,release_governance,medium,Rollback to stable deployment,Rollback to stable deployment,True,0.5937287392826325,True,1,0.265,0.52,1,4,1
+pm006,Production Sev1 after deployment,release_governance,high,Rollback to stable deployment,Mitigate and monitor,False,0.564731023729712,True,1,0.25099999999999995,0.52,2,4,2
+pm007,Release passed but security objects,cross_domain_release_governance,high,Patch or block release,Patch or block release,True,0.6885310363079826,True,1,0.07900000000000004,0.52,2,4,2
+pm008,Reliability improved but costs doubled,cross_domain_cost_reliability,medium,Scale adjustment,Mitigate and monitor,False,0.564731023729712,True,1,0.25099999999999995,0.52,2,4,2
+pm009,Deployment delayed and sprint at risk,pm_prioritization_escalation,medium,Rollback to stable deployment,Mitigate and monitor,False,0.564731023729712,True,1,0.25099999999999995,0.52,1,4,1
+pm010,Error rates climbing after configuration change,reliability_operations,medium,Mitigate and monitor,Mitigate and monitor,True,0.6380843911969091,True,1,0.295,0.52,2,4,2
+pm011,Rising cloud spend with no visible product gain,cost_governance,medium,Scale adjustment,Scale adjustment,True,0.6602196524401891,True,1,0.16300000000000003,0.52,1,4,1
+pm012,"Security wants to block release, engineering wants to proceed",cross_domain_release_governance,high,Patch or block release,Patch or block release,True,0.6885310363079826,True,1,0.07900000000000004,0.52,2,4,2
+pm013,Service degradation affecting SLA,reliability_operations,high,Mitigate and monitor,Mitigate and monitor,True,0.6380843911969091,True,1,0.295,0.52,1,4,1
+pm014,Cost anomaly after HPA expansion,cost_governance,medium,Scale adjustment,Mitigate and monitor,False,0.564731023729712,True,1,0.25099999999999995,0.52,1,4,1
+pm015,Vulnerability found in release candidate,security_compliance_governance,high,Patch or block release,Patch or block release,True,0.6760310363079829,True,1,0.13000000000000006,0.52,1,4,1
+pm016,Repeated restarts after release,release_governance,medium,Rollback to stable deployment,Rollback to stable deployment,True,0.5937287392826325,True,1,0.265,0.52,1,4,1
+pm017,Unclear cross-platform instability,cross_domain_general_investigation,medium,Mitigate and monitor,Mitigate and monitor,True,0.564731023729712,True,1,0.25099999999999995,0.52,4,4,4
+pm018,Compliance blocker before go-live,security_compliance_governance,high,Patch or block release,Mitigate and monitor,False,0.564731023729712,True,1,0.25099999999999995,0.52,1,4,1
+pm019,High latency during launch window,reliability_operations,high,Mitigate and monitor,Mitigate and monitor,True,0.6380843911969091,True,1,0.295,0.52,1,4,1
+pm020,Build pipeline unstable before release,release_governance,medium,Rollback to stable deployment,Mitigate and monitor,False,0.564731023729712,True,1,0.25099999999999995,0.52,1,4,1
+pm021,Security and latency concerns in release candidate,cross_domain_release_governance,high,Patch or block release,Patch or block release,True,0.6885310363079826,True,1,0.07900000000000004,0.52,3,4,3
+pm022,Which issue should be prioritized today,pm_prioritization_escalation,medium,Mitigate and monitor,Mitigate and monitor,True,0.564731023729712,True,1,0.25099999999999995,0.52,3,4,3
+pm023,What should be escalated to leadership,pm_prioritization_escalation,high,Patch or block release,Mitigate and monitor,False,0.564731023729712,True,1,0.25099999999999995,0.52,3,4,3
+pm024,Can this release go out today,release_governance,high,Rollback to stable deployment,Rollback to stable deployment,True,0.5937287392826325,True,1,0.265,0.52,2,4,2
+pm025,Is autoscaling still worth the cost,cross_domain_cost_reliability,medium,Scale adjustment,Mitigate and monitor,False,0.564731023729712,True,1,0.25099999999999995,0.52,2,4,2
+pm026,Runtime security issue after deployment,security_compliance_governance,high,Patch or block release,Patch or block release,True,0.6885310363079826,True,1,0.07900000000000004,0.52,1,4,1
+pm027,Are we safe to continue rollout,release_governance,medium,Rollback to stable deployment,Rollback to stable deployment,True,0.5937287392826325,True,1,0.265,0.52,1,4,1
+pm028,Budget pressure and scaling concerns,cost_governance,high,Scale adjustment,Mitigate and monitor,False,0.564731023729712,True,1,0.25099999999999995,0.52,1,4,1
+pm029,Customers affected and release under question,cross_domain_release_governance,high,Patch or block release,Mitigate and monitor,False,0.564731023729712,True,1,0.25099999999999995,0.52,3,4,3
+pm030,What should the team do in the next 24 hours,pm_prioritization_escalation,medium,Mitigate and monitor,Patch or block release,False,0.6885310363079826,True,1,0.07900000000000004,0.52,4,4,4
+pm031,Release blocked by compliance concerns,security_compliance_governance,high,Patch or block release,Mitigate and monitor,False,0.564731023729712,True,1,0.25099999999999995,0.52,1,4,1
+pm032,Infrastructure costs rising during growth,cost_governance,medium,Scale adjustment,Mitigate and monitor,False,0.564731023729712,True,1,0.25099999999999995,0.52,2,4,2
+pm033,Repeated timeouts during customer peak hours,reliability_operations,high,Mitigate and monitor,Mitigate and monitor,True,0.6380843911969091,True,1,0.295,0.52,1,4,1
+pm034,Build stable but costs and latency rising,cross_domain_cost_reliability,medium,Scale adjustment,Mitigate and monitor,False,0.564731023729712,True,1,0.25099999999999995,0.52,2,4,2
+pm035,Security exceptions requested for deadline,security_compliance_governance,high,Patch or block release,Mitigate and monitor,False,0.564731023729712,True,1,0.25099999999999995,0.52,2,4,2
+pm036,Can we defer this operational issue,pm_prioritization_escalation,low,No action (observe),Mitigate and monitor,False,0.564731023729712,True,1,0.25099999999999995,0.52,4,4,4
+pm037,Release readiness under conflicting domain advice,cross_domain_release_governance,high,Patch or block release,Mitigate and monitor,False,0.564731023729712,True,1,0.25099999999999995,0.52,3,4,3
+pm038,Why did our sprint delivery slip,pm_prioritization_escalation,medium,Rollback to stable deployment,Mitigate and monitor,False,0.564731023729712,True,1,0.25099999999999995,0.52,2,4,2
+pm039,Cost spike after feature launch,cost_governance,medium,Scale adjustment,Mitigate and monitor,False,0.564731023729712,True,1,0.25099999999999995,0.52,1,4,1
+pm040,Is this an incident or something we can monitor,reliability_operations,medium,Mitigate and monitor,Mitigate and monitor,True,0.564731023729712,True,1,0.25099999999999995,0.52,1,4,1
+pm041,Deployment drift before customer demo,release_governance,high,Rollback to stable deployment,Rollback to stable deployment,True,0.5937287392826325,True,1,0.265,0.52,1,4,1
+pm042,"Security, cost, and reliability all deteriorating",cross_domain_general_investigation,high,Patch or block release,Mitigate and monitor,False,0.564731023729712,True,1,0.25099999999999995,0.52,3,4,3
+pm043,Should we pause rollout for operational review,release_governance,medium,Rollback to stable deployment,Mitigate and monitor,False,0.564731023729712,True,1,0.25099999999999995,0.52,2,4,2
+pm044,Are current infrastructure costs acceptable,cost_governance,low,Scale adjustment,Mitigate and monitor,False,0.564731023729712,True,1,0.25099999999999995,0.52,1,4,1
+pm045,Compliance issue ahead of audit window,security_compliance_governance,high,Patch or block release,Patch or block release,True,0.6885310363079826,True,1,0.07900000000000004,0.52,1,4,1
+pm046,What is the business impact of this release issue,pm_prioritization_escalation,medium,Patch or block release,Mitigate and monitor,False,0.564731023729712,True,1,0.25099999999999995,0.52,3,4,3
+pm047,Can we safely monitor instead of intervening,reliability_operations,low,No action (observe),Mitigate and monitor,False,0.564731023729712,True,1,0.25099999999999995,0.52,1,4,1
+pm048,Customer-facing release under security pressure,cross_domain_release_governance,high,Patch or block release,Patch or block release,True,0.6885310363079826,True,1,0.07900000000000004,0.52,2,4,2
+pm049,Are we spending too much to maintain stability,cross_domain_cost_reliability,medium,Scale adjustment,Mitigate and monitor,False,0.564731023729712,True,1,0.25099999999999995,0.52,2,4,2
+pm050,End-to-end governance review for today's standup,pm_prioritization_escalation,medium,Mitigate and monitor,Patch or block release,False,0.6885310363079826,True,1,0.07900000000000004,0.52,4,4,4
