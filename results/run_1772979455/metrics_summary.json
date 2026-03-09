@@ -1,0 +1,15 @@
+{
+  "n": 30,
+  "random_seed": 42,
+  "lambda": 0.5,
+  "llm_enabled": false,
+  "embedding_method": "local_hashing_bow",
+  "embedding_model": "deterministic_sha256_token_hash",
+  "rar_trigger_rate": 0.9666666666666667,
+  "consensus_mean": 0.5378723014022779,
+  "utility_mean": 0.2106,
+  "latency_total_ms_mean": 1.1,
+  "latency_total_ms_p50": 1.0,
+  "latency_total_ms_p95": 2.0,
+  "latency_total_ms_p99": 2.0
+}
