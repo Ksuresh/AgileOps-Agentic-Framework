@@ -2,7 +2,6 @@ from __future__ import annotations
 
 import csv
 import json
-import os
 from pathlib import Path
 from typing import Any, Dict, List
 
@@ -35,9 +34,7 @@ def _load_prompt_library(path: Path = PROMPT_LIBRARY_PATH) -> List[Dict[str, Any
     elif isinstance(data, list):
         prompts = data
     else:
-        raise ValueError(
-            "Prompt library must be either a list or a dict with a 'prompts' key."
-        )
+        raise ValueError("Prompt library must be either a list or a dict with a 'prompts' key.")
 
     if not isinstance(prompts, list):
         raise ValueError("Prompt library 'prompts' must be a list.")
@@ -53,17 +50,27 @@ def _safe_get_prompt_text(item: Dict[str, Any]) -> str:
     return ""
 
 
-def _safe_get_expected_domain(item: Dict[str, Any]) -> str | None:
+def _safe_get_expected_domains(item: Dict[str, Any]) -> List[str]:
+    value = item.get("expected_domains")
+    if isinstance(value, list):
+        return [str(v).strip() for v in value if str(v).strip()]
+
     for key in ["expected_domain", "primary_domain", "domain"]:
         value = item.get(key)
         if isinstance(value, str) and value.strip():
-            return value.strip()
+            return [value.strip()]
+
     expected = item.get("expected")
     if isinstance(expected, dict):
+        value = expected.get("expected_domains")
+        if isinstance(value, list):
+            return [str(v).strip() for v in value if str(v).strip()]
+
         value = expected.get("primary_domain") or expected.get("domain")
         if isinstance(value, str) and value.strip():
-            return value.strip()
-    return None
+            return [value.strip()]
+
+    return []
 
 
 def _safe_get_expected_action(item: Dict[str, Any]) -> str | None:
@@ -71,11 +78,13 @@ def _safe_get_expected_action(item: Dict[str, Any]) -> str | None:
         value = item.get(key)
         if isinstance(value, str) and value.strip():
             return value.strip()
+
     expected = item.get("expected")
     if isinstance(expected, dict):
         value = expected.get("expected_action") or expected.get("recommended_action")
         if isinstance(value, str) and value.strip():
             return value.strip()
+
     return None
 
 
@@ -173,7 +182,8 @@ def _build_scenario_from_prompt(item: Dict[str, Any], idx: int) -> Dict[str, Any
     if not prompt:
         prompt = f"Prompt scenario {idx}"
 
-    expected_domain = _safe_get_expected_domain(item)
+    expected_domains = _safe_get_expected_domains(item)
+    expected_domain = expected_domains[0] if expected_domains else None
     expected_action = _safe_get_expected_action(item)
 
     telemetry = None
@@ -193,7 +203,7 @@ def _build_scenario_from_prompt(item: Dict[str, Any], idx: int) -> Dict[str, Any
 
     scenario_id = item.get("id") or item.get("scenario_id") or f"PM-{idx:03d}"
 
-    scenario = {
+    return {
         "scenario_id": str(scenario_id),
         "incident_id": str(scenario_id),
         "category": item.get("category", "pm_prompt"),
@@ -202,7 +212,8 @@ def _build_scenario_from_prompt(item: Dict[str, Any], idx: int) -> Dict[str, Any
         "telemetry": telemetry,
         "ground_truth": {
             "primary_domain": expected_domain,
-            "secondary_domains": item.get("secondary_domains", []),
+            "expected_domains": expected_domains,
+            "secondary_domains": expected_domains[1:] if len(expected_domains) > 1 else [],
             "root_cause": item.get("root_cause", item.get("category", "pm_prompt")),
             "recommended_action": expected_action,
             "expected_action": expected_action,
@@ -212,18 +223,23 @@ def _build_scenario_from_prompt(item: Dict[str, Any], idx: int) -> Dict[str, Any
         "lam": 0.5,
     }
 
-    return scenario
 
-
-def _domain_match(gt: str | None, pred: str | None) -> bool:
+def _domain_match(gt: Any, pred: str | None) -> bool:
     if not gt or not pred:
         return False
-    return gt.strip().lower() == pred.strip().lower()
+
+    if isinstance(gt, list):
+        expected = [str(x).strip().lower() for x in gt if str(x).strip()]
+    else:
+        expected = [str(gt).strip().lower()]
+
+    return str(pred).strip().lower() in expected
 
 
 def _normalize_action(action: str | None) -> str:
     if not action:
         return ""
+
     a = action.lower().strip()
 
     if "rollback" in a:
@@ -248,16 +264,26 @@ def _action_match(gt: str | None, pred: str | None) -> bool:
     return bool(gt and pred and _normalize_action(gt) == _normalize_action(pred))
 
 
+def _mean(values: List[float | bool]) -> float:
+    if not values:
+        return 0.0
+    return float(sum(float(v) for v in values) / len(values))
+
+
 def _summarize(rows: List[Dict[str, Any]]) -> Dict[str, Any]:
     n = len(rows)
 
     domain_matches = [
         _domain_match(
-            (r.get("ground_truth") or {}).get("primary_domain"),
+            (r.get("ground_truth") or {}).get("expected_domains")
+            or (r.get("ground_truth") or {}).get("primary_domain"),
             r.get("predicted_primary_domain"),
         )
         for r in rows
-        if (r.get("ground_truth") or {}).get("primary_domain")
+        if (
+            (r.get("ground_truth") or {}).get("expected_domains")
+            or (r.get("ground_truth") or {}).get("primary_domain")
+        )
     ]
 
     action_matches = [
@@ -271,31 +297,32 @@ def _summarize(rows: List[Dict[str, Any]]) -> Dict[str, Any]:
 
     consensus_values = [float(r.get("consensus_score", 0.0) or 0.0) for r in rows]
     utility_values = [float((r.get("utility") or {}).get("best_utility", 0.0) or 0.0) for r in rows]
+    performance_values = [float((r.get("utility") or {}).get("performance_score", 0.0) or 0.0) for r in rows]
+    cost_values = [float((r.get("utility") or {}).get("cost_efficiency_score", 0.0) or 0.0) for r in rows]
+    risk_values = [float((r.get("utility") or {}).get("risk_reduction_score", 0.0) or 0.0) for r in rows]
     xi_values = [float((r.get("explainability") or {}).get("xi", 0.0) or 0.0) for r in rows]
 
     rar_triggered = sum(1 for r in rows if (r.get("rar") or {}).get("triggered"))
     rar_accepted = sum(1 for r in rows if (r.get("rar") or {}).get("accepted"))
 
-    def mean(values: List[float | bool]) -> float:
-        if not values:
-            return 0.0
-        return float(sum(float(v) for v in values) / len(values))
-
     return {
         "n": n,
-        "domain_match_rate": mean(domain_matches),
+        "domain_match_rate": _mean(domain_matches),
         "domain_match_n": len(domain_matches),
-        "action_match_rate": mean(action_matches),
+        "action_match_rate": _mean(action_matches),
         "action_match_n": len(action_matches),
-        "consensus_mean": mean(consensus_values),
-        "utility_mean": mean(utility_values),
-        "xi_mean": mean(xi_values),
+        "consensus_mean": _mean(consensus_values),
+        "utility_mean": _mean(utility_values),
+        "performance_mean": _mean(performance_values),
+        "cost_efficiency_mean": _mean(cost_values),
+        "risk_reduction_mean": _mean(risk_values),
+        "xi_mean": _mean(xi_values),
         "rar_triggered": rar_triggered,
         "rar_accepted": rar_accepted,
         "rar_trigger_rate": float(rar_triggered / n) if n else 0.0,
         "rar_acceptance_rate_when_triggered": float(rar_accepted / rar_triggered) if rar_triggered else 0.0,
         "thresholds": DEFAULT_THRESHOLDS,
-        "utility_weights": DEFAULT_UTILITY_WEIGHTS,
+        "utility_weights": list(DEFAULT_UTILITY_WEIGHTS),
     }
 
 
@@ -310,7 +337,7 @@ def _write_csv(path: Path, rows: List[Dict[str, Any]]) -> None:
         "scenario_id",
         "category",
         "prompt",
-        "expected_domain",
+        "expected_domains",
         "predicted_domain",
         "domain_match",
         "expected_action",
@@ -336,7 +363,7 @@ def _write_csv(path: Path, rows: List[Dict[str, Any]]) -> None:
             rar = r.get("rar") or {}
             xi = r.get("explainability") or {}
 
-            expected_domain = gt.get("primary_domain")
+            expected_domains = gt.get("expected_domains") or gt.get("primary_domain")
             predicted_domain = r.get("predicted_primary_domain")
             expected_action = gt.get("expected_action")
             selected_action = utility.get("selected_action")
@@ -346,9 +373,11 @@ def _write_csv(path: Path, rows: List[Dict[str, Any]]) -> None:
                     "scenario_id": r.get("scenario_id"),
                     "category": r.get("category") or r.get("scenario_type"),
                     "prompt": r.get("prompt", ""),
-                    "expected_domain": expected_domain,
+                    "expected_domains": json.dumps(expected_domains, ensure_ascii=False)
+                    if isinstance(expected_domains, list)
+                    else expected_domains,
                     "predicted_domain": predicted_domain,
-                    "domain_match": _domain_match(expected_domain, predicted_domain),
+                    "domain_match": _domain_match(expected_domains, predicted_domain),
                     "expected_action": expected_action,
                     "selected_action": selected_action,
                     "action_match": _action_match(expected_action, selected_action),
