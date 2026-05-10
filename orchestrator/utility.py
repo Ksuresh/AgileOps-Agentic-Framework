@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from typing import Dict, Any, Tuple
+from typing import Any, Dict, Tuple
 
 
 def utility_score(
@@ -89,12 +89,10 @@ def _severity_scores(telemetry: Dict[str, Any]) -> Dict[str, float]:
         cost += 0.30
     elif cost_spike >= 8:
         cost += 0.15
-
     if hpa_scale >= 14:
         cost += 0.25
     elif hpa_scale >= 11:
         cost += 0.15
-
     if cpu_inc >= 50:
         cost += 0.20
     if mem_inc >= 40:
@@ -146,24 +144,24 @@ def _action_components(telemetry: Dict[str, Any]) -> Dict[str, Tuple[float, floa
             min(1.0, 0.40 + 0.30 * deployment + 0.20 * security),
         ),
         "Mitigate and monitor": (
-            min(1.0, 0.35 + 0.45 * reliability),
-            0.80,
-            min(1.0, 0.35 + 0.25 * reliability),
-        ),
-        "Scale adjustment": (
-            min(1.0, 0.30 + 0.35 * reliability + 0.20 * cost),
-            min(1.0, 0.45 + 0.35 * cost),
+            min(1.0, 0.30 + 0.35 * reliability),
+            0.68,
             min(1.0, 0.30 + 0.20 * reliability),
         ),
+        "Scale adjustment": (
+            min(1.0, 0.32 + 0.38 * reliability + 0.28 * cost),
+            min(1.0, 0.48 + 0.40 * cost),
+            min(1.0, 0.32 + 0.25 * reliability),
+        ),
         "Review scaling policy": (
-            min(1.0, 0.20 + 0.20 * cost),
-            min(1.0, 0.55 + 0.35 * cost),
-            min(1.0, 0.30 + 0.15 * cost),
+            min(1.0, 0.22 + 0.25 * cost),
+            min(1.0, 0.60 + 0.35 * cost),
+            min(1.0, 0.32 + 0.18 * cost),
         ),
         "Patch or block release": (
-            min(1.0, 0.20 + 0.20 * security),
+            min(1.0, 0.22 + 0.25 * security),
             0.70,
-            min(1.0, 0.45 + 0.45 * security),
+            min(1.0, 0.48 + 0.48 * security),
         ),
         "No action (observe)": (
             0.20,
@@ -173,10 +171,85 @@ def _action_components(telemetry: Dict[str, Any]) -> Dict[str, Tuple[float, floa
     }
 
 
+def _dominant_signal(severities: Dict[str, float]) -> str:
+    return max(severities, key=lambda k: severities[k])
+
+
+def _action_fit_bonus(action: str, severities: Dict[str, float]) -> float:
+    """
+    Governance action-fit adjustment.
+
+    This prevents generic low-cost actions from winning when a specific
+    governance action is required by the dominant operational signal.
+    """
+    deployment = severities["deployment"]
+    reliability = severities["reliability"]
+    cost = severities["cost"]
+    security = severities["security"]
+
+    dominant = _dominant_signal(severities)
+    bonus = 0.0
+
+    if dominant == "deployment":
+        if action == "Rollback to stable deployment":
+            bonus += 0.15
+        elif action == "Block release and fix pipeline":
+            bonus += 0.12
+        elif action == "Mitigate and monitor":
+            bonus -= 0.10
+
+    elif dominant == "reliability":
+        if action == "Mitigate and monitor":
+            bonus += 0.08
+        if action == "Scale adjustment" and reliability >= 0.55:
+            bonus += 0.16
+        if action == "Rollback to stable deployment" and deployment < 0.40:
+            bonus -= 0.06
+
+    elif dominant == "cost":
+        if action == "Scale adjustment":
+            bonus += 0.18
+        elif action == "Review scaling policy":
+            bonus += 0.15
+        elif action == "Mitigate and monitor":
+            bonus -= 0.14
+
+    elif dominant == "security":
+        if action == "Patch or block release":
+            bonus += 0.20
+        elif action in {"Rollback to stable deployment", "Mitigate and monitor"}:
+            bonus -= 0.12
+
+    # Cross-domain governance rules.
+    if deployment >= 0.50 and reliability >= 0.35:
+        if action == "Rollback to stable deployment":
+            bonus += 0.10
+        if action == "Mitigate and monitor":
+            bonus -= 0.06
+
+    if reliability >= 0.55 and cost >= 0.20:
+        if action == "Scale adjustment":
+            bonus += 0.12
+        if action == "Mitigate and monitor":
+            bonus -= 0.06
+
+    if security >= 0.20 and action == "Patch or block release":
+        bonus += 0.10
+
+    if cost >= 0.45 and reliability < 0.30:
+        if action == "Review scaling policy":
+            bonus += 0.08
+        if action == "Mitigate and monitor":
+            bonus -= 0.08
+
+    return bonus
+
+
 def choose_action_details(
     telemetry: Dict[str, Any],
     w: Tuple[float, float, float],
 ) -> Dict[str, Any]:
+    severities = _severity_scores(telemetry)
     components = _action_components(telemetry)
 
     best_action = None
@@ -186,19 +259,24 @@ def choose_action_details(
     candidates = []
 
     for action, (perf, cost_eff, risk_red) in components.items():
-        utility = utility_score(perf, cost_eff, risk_red, w)
+        base_utility = utility_score(perf, cost_eff, risk_red, w)
+        fit_bonus = _action_fit_bonus(action, severities)
+        final_utility = base_utility + fit_bonus
+
         candidate = {
             "action": action,
             "performance_score": round(float(perf), 4),
             "cost_efficiency_score": round(float(cost_eff), 4),
             "risk_reduction_score": round(float(risk_red), 4),
-            "utility": round(float(utility), 4),
+            "base_utility": round(float(base_utility), 4),
+            "action_fit_bonus": round(float(fit_bonus), 4),
+            "utility": round(float(final_utility), 4),
         }
         candidates.append(candidate)
 
-        if utility > best_utility:
+        if final_utility > best_utility:
             best_action = action
-            best_utility = utility
+            best_utility = final_utility
             best_components = (perf, cost_eff, risk_red)
 
     candidates.sort(key=lambda x: x["utility"], reverse=True)
