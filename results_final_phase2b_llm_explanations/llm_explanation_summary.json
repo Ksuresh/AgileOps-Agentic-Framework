@@ -1,0 +1,18 @@
+{
+  "n": 10,
+  "model": "gpt-4o-mini",
+  "temperature": 0.0,
+  "domain_consistency_rate": 1.0,
+  "action_consistency_rate": 1.0,
+  "evidence_coverage_mean": 1.0,
+  "unsupported_claim_risk_mean": 0.29263028556293735,
+  "xi_mean": 0.58849,
+  "readability_mean": 0.68651,
+  "evidence_clarity_mean": 0.51783,
+  "traceability_mean": 0.53375,
+  "prompt_tokens_total": 11164,
+  "completion_tokens_total": 2377,
+  "tokens_total": 13541,
+  "estimated_cost_usd_total": 0.0031008,
+  "pricing_note": "Cost estimate uses local pricing table in run_llm_explanation_eval.py; update table if model pricing changes."
+}
