@@ -1,0 +1,16 @@
+NAME                            IMAGE                                COMMAND                  SERVICE        CREATED          STATUS          PORTS
+docker-compose-carts-1          weaveworksdemos/carts:0.4.8          "/usr/local/bin/java…"   carts          48 seconds ago   Up 44 seconds   
+docker-compose-carts-db-1       mongo:3.4                            "docker-entrypoint.s…"   carts-db       48 seconds ago   Up 44 seconds   27017/tcp
+docker-compose-catalogue-1      weaveworksdemos/catalogue:0.3.5      "/app -port=80"          catalogue      48 seconds ago   Up 44 seconds   80/tcp
+docker-compose-catalogue-db-1   weaveworksdemos/catalogue-db:0.3.0   "docker-entrypoint.s…"   catalogue-db   48 seconds ago   Up 44 seconds   3306/tcp
+docker-compose-edge-router-1    weaveworksdemos/edge-router:0.1.1    "traefik"                edge-router    48 seconds ago   Up 44 seconds   0.0.0.0:80->80/tcp, [::]:80->80/tcp, 0.0.0.0:8080->8080/tcp, [::]:8080->8080/tcp
+docker-compose-front-end-1      weaveworksdemos/front-end:0.3.12     "/usr/local/bin/npm …"   front-end      48 seconds ago   Up 44 seconds   8079/tcp
+docker-compose-orders-1         weaveworksdemos/orders:0.4.7         "/usr/local/bin/java…"   orders         48 seconds ago   Up 44 seconds   
+docker-compose-orders-db-1      mongo:3.4                            "docker-entrypoint.s…"   orders-db      48 seconds ago   Up 44 seconds   27017/tcp
+docker-compose-payment-1        weaveworksdemos/payment:0.4.3        "/app -port=80"          payment        48 seconds ago   Up 44 seconds   80/tcp
+docker-compose-queue-master-1   weaveworksdemos/queue-master:0.3.1   "/usr/local/bin/java…"   queue-master   48 seconds ago   Up 44 seconds   
+docker-compose-rabbitmq-1       rabbitmq:3.6.8                       "docker-entrypoint.s…"   rabbitmq       48 seconds ago   Up 44 seconds   4369/tcp, 5671-5672/tcp, 25672/tcp
+docker-compose-shipping-1       weaveworksdemos/shipping:0.4.8       "/usr/local/bin/java…"   shipping       48 seconds ago   Up 44 seconds   
+docker-compose-user-1           weaveworksdemos/user:0.4.4           "/user -port=80"         user           48 seconds ago   Up 44 seconds   80/tcp
+docker-compose-user-db-1        weaveworksdemos/user-db:0.4.0        "/entrypoint.sh mong…"   user-db        48 seconds ago   Up 44 seconds   27017/tcp
+docker-compose-user-sim-1       weaveworksdemos/load-test:0.1.1      "/usr/local/bin/runL…"   user-sim       48 seconds ago   Up 44 seconds   8089/tcp

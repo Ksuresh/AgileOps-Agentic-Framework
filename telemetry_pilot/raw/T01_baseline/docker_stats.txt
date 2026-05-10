@@ -1,0 +1,16 @@
+CONTAINER ID   NAME                            CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O        PIDS
+a1b3d68a6891   docker-compose-catalogue-db-1   0.93%     218.9MiB / 3.827GiB   5.59%     2.81kB / 264B     20.7MB / 292MB   27
+ca2e131a2cc5   docker-compose-carts-db-1       1.48%     35.86MiB / 3.827GiB   0.91%     3.12kB / 126B     242kB / 197kB    20
+6e7a674b7bed   docker-compose-orders-db-1      2.37%     36.88MiB / 3.827GiB   0.94%     3.55kB / 126B     1.4MB / 201kB    20
+14489b9afc46   docker-compose-rabbitmq-1       1.92%     92.23MiB / 3.827GiB   2.35%     3.33kB / 126B     12MB / 381kB     145
+f6499e7f64ac   docker-compose-user-1           0.00%     15.26MiB / 3.827GiB   0.39%     5.22kB / 2.14kB   8.5MB / 0B       8
+3af099106cc9   docker-compose-payment-1        0.00%     13.06MiB / 3.827GiB   0.33%     2.74kB / 126B     7.49MB / 0B      10
+fc4c33298201   docker-compose-orders-1         153.69%   265.3MiB / 3.827GiB   6.77%     3.12kB / 126B     7.74MB / 0B      34
+d016a2ae56a0   docker-compose-queue-master-1   169.40%   367.7MiB / 3.827GiB   9.38%     3.16kB / 126B     7.31MB / 0B      21
+1b87304437ac   docker-compose-user-db-1        4.27%     61.6MiB / 3.827GiB    1.57%     5.35kB / 2.14kB   10.5MB / 111kB   18
+0c2a271e0f80   docker-compose-front-end-1      0.00%     233MiB / 3.827GiB     5.94%     2.95kB / 126B     23.7MB / 0B      21
+c0105dcf8c24   docker-compose-carts-1          301.07%   298.6MiB / 3.827GiB   7.62%     3.29kB / 126B     13MB / 0B        34
+f941f51070bf   docker-compose-user-sim-1       0.00%     4.145MiB / 3.827GiB   0.11%     2.44kB / 126B     406kB / 0B       2
+33ef7db2853f   docker-compose-shipping-1       131.23%   259.1MiB / 3.827GiB   6.61%     2.91kB / 126B     4.51MB / 0B      34
+5d051b743dc7   docker-compose-catalogue-1      0.61%     13.89MiB / 3.827GiB   0.35%     3.73kB / 284B     8.04MB / 0B      9
+71d7965b9cc9   docker-compose-edge-router-1    0.24%     26.31MiB / 3.827GiB   0.67%     6.71kB / 794B     13.8MB / 0B      15

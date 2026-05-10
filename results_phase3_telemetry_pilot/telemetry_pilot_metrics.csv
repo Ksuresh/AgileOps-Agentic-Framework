@@ -1,0 +1,4 @@
+scenario_id,scenario_type,expected_domains,predicted_domain,domain_match,expected_action,selected_action,action_match,consensus_score,rar_triggered,rar_accepted,utility,xi
+P3-T01,,"[""DevOps""]",DevOps,True,No action (observe),Block release and fix pipeline,False,0.6,True,False,0.575,0.8112
+P3-T02,,"[""SRE"", ""DevOps""]",SRE,True,Mitigate and monitor,Rollback to stable deployment,False,0.89,False,True,0.7475,0.8075
+P3-T03,,"[""FinOps""]",FinOps,True,Scale adjustment,Scale adjustment,True,0.92,False,True,0.8736,0.812
