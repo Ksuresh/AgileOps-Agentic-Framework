@@ -1,17 +1,4 @@
-"""Reproducible experiment runner for the AAF paper.
-
-This script is intentionally *self-contained* and deterministic:
-- Uses the existing synthetic scenario generator (30 scenarios by default).
-- Runs: (i) Traditional baseline (simulated PM protocol), (ii) Single-agent LLM
-  baseline (deterministic summarizer), (iii) AAF full, (iv) Ablations.
-- Writes per-scenario JSONL + aggregated CSV/Markdown tables.
-
-Why deterministic?
-The paper emphasizes fixed parameters, repeatability, and no learning.
-
-Run:
-  python -m experiments.run_all --out results
-"""
+"""Reproducible experiment runner for the AAF paper."""
 
 from __future__ import annotations
 
@@ -19,7 +6,7 @@ import argparse
 import json
 import os
 from dataclasses import asdict
-from typing import Dict, Any, List
+from typing import Any, Dict, List
 
 from scenario_generator.generate import generate_scenarios
 from pipeline import run_pipeline
@@ -34,7 +21,6 @@ from experiments.scoring import (
     compute_consensus_stats,
 )
 
-
 from baselines.traditional import run_traditional_baseline
 from baselines.single_agent_llm import run_single_agent_llm_baseline
 
@@ -43,16 +29,21 @@ def _ensure_dir(path: str) -> None:
     os.makedirs(path, exist_ok=True)
 
 
+def _dump_jsonl(path: str, rows: List[Dict[str, Any]]) -> None:
+    with open(path, "w", encoding="utf-8") as f:
+        for r in rows:
+            f.write(json.dumps(r, ensure_ascii=False) + "\n")
+
+
 def main() -> None:
-    ap = argparse.ArgumentParser()
-    ap.add_argument("--out", default="results", help="Output folder")
-    ap.add_argument("--n", type=int, default=30, help="Number of synthetic scenarios")
-    ap.add_argument("--seed", type=int, default=42, help="Deterministic seed")
-    args = ap.parse_args()
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--out", default="results", help="Output folder")
+    parser.add_argument("--n", type=int, default=30, help="Number of scenarios")
+    parser.add_argument("--seed", type=int, default=42, help="Deterministic seed")
+    args = parser.parse_args()
 
     _ensure_dir(args.out)
 
-    # The bundled generator produces 30 scenarios deterministically.
     scenarios_all: List[Dict[str, Any]] = generate_scenarios(
         seed=args.seed,
         noise={
@@ -63,80 +54,72 @@ def main() -> None:
     )
     scenarios = scenarios_all[: args.n]
 
-    # --- Run baselines
+    # Baselines
     trad_rows = run_traditional_baseline(scenarios, seed=args.seed)
     llm_rows = run_single_agent_llm_baseline(scenarios, seed=args.seed)
 
-    # --- Run AAF (full + ablations)
-    aaf_rows = []
-    aaf_no_consensus = []
-    aaf_no_rar = []
-    aaf_no_utility = []
+    # AAF full and ablations
+    aaf_rows: List[Dict[str, Any]] = []
+    aaf_no_consensus: List[Dict[str, Any]] = []
+    aaf_no_rar: List[Dict[str, Any]] = []
+    aaf_no_utility: List[Dict[str, Any]] = []
 
-    for sc in scenarios:
-        aaf_rows.append(asdict(run_pipeline(sc, mode="aaf_full")))
-        aaf_no_consensus.append(asdict(run_pipeline(sc, mode="aaf_no_consensus")))
-        aaf_no_rar.append(asdict(run_pipeline(sc, mode="aaf_no_rar")))
-        aaf_no_utility.append(asdict(run_pipeline(sc, mode="aaf_no_utility")))
+    for scenario in scenarios:
+        aaf_rows.append(asdict(run_pipeline(scenario, mode="aaf_full")))
+        aaf_no_consensus.append(asdict(run_pipeline(scenario, mode="aaf_no_consensus")))
+        aaf_no_rar.append(asdict(run_pipeline(scenario, mode="aaf_no_rar")))
+        aaf_no_utility.append(asdict(run_pipeline(scenario, mode="aaf_no_utility")))
 
-    # Persist raw rows (JSONL)
-    def dump_jsonl(name: str, rows: List[Dict[str, Any]]) -> None:
-        p = os.path.join(args.out, f"{name}.jsonl")
-        with open(p, "w", encoding="utf-8") as f:
-            for r in rows:
-                f.write(json.dumps(r, ensure_ascii=False) + "\n")
+    # Persist raw rows
+    _dump_jsonl(os.path.join(args.out, "traditional.jsonl"), trad_rows)
+    _dump_jsonl(os.path.join(args.out, "single_agent_llm.jsonl"), llm_rows)
+    _dump_jsonl(os.path.join(args.out, "aaf_full.jsonl"), aaf_rows)
+    _dump_jsonl(os.path.join(args.out, "aaf_no_consensus.jsonl"), aaf_no_consensus)
+    _dump_jsonl(os.path.join(args.out, "aaf_no_rar.jsonl"), aaf_no_rar)
+    _dump_jsonl(os.path.join(args.out, "aaf_no_utility.jsonl"), aaf_no_utility)
 
-    dump_jsonl("traditional", trad_rows)
-    dump_jsonl("single_agent_llm", llm_rows)
-    dump_jsonl("aaf_full", aaf_rows)
-    dump_jsonl("aaf_no_consensus", aaf_no_consensus)
-    dump_jsonl("aaf_no_rar", aaf_no_rar)
-    dump_jsonl("aaf_no_utility", aaf_no_utility)
-
-    # --- Aggregate metrics
-
-  summary = {
-    "traditional": {
-        "accuracy": score_primary_domain_accuracy(trad_rows),
-        "action_match": score_action_match(trad_rows),
-    },
-    "single_agent_llm": {
-        "accuracy": score_primary_domain_accuracy(llm_rows),
-        "action_match": score_action_match(llm_rows),
-    },
-    "aaf_full": {
-        "accuracy": score_primary_domain_accuracy(aaf_rows),
-        "action_match": score_action_match(aaf_rows),
-        "rar": compute_rar_stats(aaf_rows),
-        "latency": compute_latency_stats(aaf_rows),
-        "consensus": compute_consensus_stats(aaf_rows),
-        "utility": compute_utility_stats(aaf_rows),
-        "xi": compute_xi_stats(aaf_rows),
-    },
-    "aaf_no_consensus": {
-        "accuracy": score_primary_domain_accuracy(aaf_no_consensus),
-        "action_match": score_action_match(aaf_no_consensus),
-        "consensus": compute_consensus_stats(aaf_no_consensus),
-        "utility": compute_utility_stats(aaf_no_consensus),
-        "xi": compute_xi_stats(aaf_no_consensus),
-    },
-    "aaf_no_rar": {
-        "accuracy": score_primary_domain_accuracy(aaf_no_rar),
-        "action_match": score_action_match(aaf_no_rar),
-        "rar": compute_rar_stats(aaf_no_rar),
-        "consensus": compute_consensus_stats(aaf_no_rar),
-        "utility": compute_utility_stats(aaf_no_rar),
-        "xi": compute_xi_stats(aaf_no_rar),
-    },
-    "aaf_no_utility": {
-        "accuracy": score_primary_domain_accuracy(aaf_no_utility),
-        "action_match": score_action_match(aaf_no_utility),
-        "consensus": compute_consensus_stats(aaf_no_utility),
-        "utility": compute_utility_stats(aaf_no_utility),
-        "xi": compute_xi_stats(aaf_no_utility),
-    },
-}
- 
+    # Aggregate metrics
+    summary = {
+        "traditional": {
+            "accuracy": score_primary_domain_accuracy(trad_rows),
+            "action_match": score_action_match(trad_rows),
+        },
+        "single_agent_llm": {
+            "accuracy": score_primary_domain_accuracy(llm_rows),
+            "action_match": score_action_match(llm_rows),
+        },
+        "aaf_full": {
+            "accuracy": score_primary_domain_accuracy(aaf_rows),
+            "action_match": score_action_match(aaf_rows),
+            "rar": compute_rar_stats(aaf_rows),
+            "latency": compute_latency_stats(aaf_rows),
+            "consensus": compute_consensus_stats(aaf_rows),
+            "utility": compute_utility_stats(aaf_rows),
+            "xi": compute_xi_stats(aaf_rows),
+        },
+        "aaf_no_consensus": {
+            "accuracy": score_primary_domain_accuracy(aaf_no_consensus),
+            "action_match": score_action_match(aaf_no_consensus),
+            "consensus": compute_consensus_stats(aaf_no_consensus),
+            "utility": compute_utility_stats(aaf_no_consensus),
+            "xi": compute_xi_stats(aaf_no_consensus),
+        },
+        "aaf_no_rar": {
+            "accuracy": score_primary_domain_accuracy(aaf_no_rar),
+            "action_match": score_action_match(aaf_no_rar),
+            "rar": compute_rar_stats(aaf_no_rar),
+            "consensus": compute_consensus_stats(aaf_no_rar),
+            "utility": compute_utility_stats(aaf_no_rar),
+            "xi": compute_xi_stats(aaf_no_rar),
+        },
+        "aaf_no_utility": {
+            "accuracy": score_primary_domain_accuracy(aaf_no_utility),
+            "action_match": score_action_match(aaf_no_utility),
+            "consensus": compute_consensus_stats(aaf_no_utility),
+            "utility": compute_utility_stats(aaf_no_utility),
+            "xi": compute_xi_stats(aaf_no_utility),
+        },
+    }
 
     with open(os.path.join(args.out, "summary.json"), "w", encoding="utf-8") as f:
         json.dump(summary, f, indent=2)
