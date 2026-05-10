@@ -1,0 +1,4 @@
+scenario_id,scenario_type,expected_domains,predicted_domain,domain_match,expected_action,selected_action,action_match,consensus_score,rar_triggered,rar_accepted,utility,xi
+P3-T01,sock_shop_runtime_startup_governance_check,"[""DevOps""]",DevOps,True,Block release and fix pipeline,Block release and fix pipeline,True,0.62,True,False,0.817,0.8086
+P3-T02,sock_shop_catalogue_service_degradation,"[""SRE"", ""DevOps""]",SRE,True,Mitigate and monitor,Mitigate and monitor,True,0.92,False,False,0.794,0.8005
+P3-T03,sock_shop_frontend_resource_scaling_cost_proxy,"[""FinOps""]",FinOps,True,Scale adjustment,Scale adjustment,True,0.92,False,False,0.8736,0.812

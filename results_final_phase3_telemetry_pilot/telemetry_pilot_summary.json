@@ -1,0 +1,20 @@
+{
+  "n": 3,
+  "benchmark": "Sock Shop",
+  "pilot_type": "local runtime artifact telemetry pilot",
+  "domain_match_rate": 1.0,
+  "action_match_rate": 1.0,
+  "consensus_mean": 0.82,
+  "utility_mean": 0.8281999999999999,
+  "xi_mean": 0.8070333333333334,
+  "rar_triggered": 1,
+  "rar_accepted": 0,
+  "rar_trigger_rate": 0.3333333333333333,
+  "rar_acceptance_rate_when_triggered": 0.0,
+  "raw_artifact_root": "telemetry_pilot/raw",
+  "cases": [
+    "P3-T01",
+    "P3-T02",
+    "P3-T03"
+  ]
+}
