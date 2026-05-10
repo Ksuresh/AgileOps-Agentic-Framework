@@ -17,8 +17,7 @@ DEFAULT_INPUT = Path("results_final_phase2a_pm_prompts/pm_prompt_outputs.jsonl")
 DEFAULT_OUT_DIR = Path("results_phase2b_llm_explanations")
 DEFAULT_MODEL = os.getenv("OPENAI_MODEL", "gpt-4o-mini")
 
-# Update these if you use a different model/pricing.
-# Values are USD per 1M tokens. These are placeholders for reproducible local cost estimation.
+# USD per 1M tokens. Update if provider pricing changes.
 MODEL_PRICING_PER_1M = {
     "gpt-4o-mini": {
         "input": 0.15,
@@ -29,30 +28,47 @@ MODEL_PRICING_PER_1M = {
 
 SYSTEM_PROMPT = """You are a Project Manager-facing AgileOps governance assistant.
 
-Your task is to explain the governance decision using only the structured evidence provided.
+Your task is to explain the governance decision using only the structured AAF evidence provided.
 
-Rules:
+Strict rules:
 - Do not invent facts.
-- Do not introduce telemetry, incidents, risks, or causes that are not present in the input.
+- Do not introduce telemetry, incidents, risks, causes, users, teams, systems, or impacts that are not present in the input.
 - Preserve the selected action exactly as provided.
 - Preserve the predicted primary domain exactly as provided.
-- If evidence is missing or incomplete, state that it is incomplete.
-- Use clear business-facing language for Project Managers.
-- Keep the explanation concise.
+- Use the same evidence phrases from the agent outputs wherever possible.
+- If evidence is missing or incomplete, state that evidence is incomplete.
+- Do not recommend a different action.
+- Do not mention tools, dashboards, logs, or production systems unless they appear in the input.
+- Keep the explanation concise and evidence-grounded.
 """
 
 
 USER_PROMPT_TEMPLATE = """Generate a Project Manager-facing governance explanation from the structured AAF output below.
 
-Required output format:
+Use this exact output format:
 
 1. What happened
+Predicted primary domain: <copy predicted_primary_domain exactly>.
+Selected action: <copy selected_action exactly>.
+
 2. Why it happened
+Summarize the cause using only agent claims and evidence from the input.
+
 3. Cross-domain impact
+Mention only domains that appear in the agent outputs. Do not add new domains.
+
 4. Recommended governance action
+Repeat the selected action exactly: <copy selected_action exactly>.
+Explain why it is appropriate using utility values from the input.
+
 5. Confidence and uncertainty
+Mention the consensus score and RAR status from the input.
+
 6. Evidence used
+List 3 to 6 evidence items. Copy evidence phrases from the agent outputs as closely as possible.
+
 7. PM decision implication
+Give one concise sentence for the Project Manager. Do not add new facts.
 
 Structured AAF output:
 {payload_json}
@@ -145,6 +161,13 @@ def _normalize_action(action: str | None) -> str:
 def _action_consistent(text: str, selected_action: str | None) -> bool:
     if not selected_action:
         return False
+
+    text_l = text.lower()
+    action_l = str(selected_action).lower().strip()
+
+    if action_l in text_l:
+        return True
+
     return _normalize_action(selected_action) in _normalize_action(text)
 
 
@@ -186,50 +209,85 @@ def _evidence_coverage(text: str, row: Dict[str, Any]) -> float:
 
 def _unsupported_claim_risk(text: str, row: Dict[str, Any]) -> float:
     """
-    Lightweight reproducible proxy, not a full factuality judge.
+    Lightweight reproducible hallucination-risk proxy.
 
-    It flags whether the LLM introduces terms outside the expected governance vocabulary
-    and provided evidence. Lower is better.
+    Lower is better. This is not a full factuality judge; it approximates
+    whether the explanation introduces unusual vocabulary not present in the
+    structured evidence or the allowed governance vocabulary.
     """
-    allowed_terms = set(
-        [
-            "devops",
-            "sre",
-            "finops",
-            "devsecops",
-            "deployment",
-            "release",
-            "latency",
-            "error",
-            "saturation",
-            "availability",
-            "cost",
-            "scale",
-            "scaling",
-            "security",
-            "policy",
-            "compliance",
-            "cve",
-            "iam",
-            "rollback",
-            "patch",
-            "block",
-            "monitor",
-            "risk",
-            "evidence",
-            "consensus",
-            "utility",
-            "project",
-            "manager",
-            "governance",
-            "action",
-            "confidence",
-            "uncertainty",
-            "prompt",
-            "telemetry",
-            "agent",
-        ]
-    )
+    allowed_terms = {
+        "devops",
+        "sre",
+        "finops",
+        "devsecops",
+        "deployment",
+        "release",
+        "latency",
+        "error",
+        "errors",
+        "saturation",
+        "availability",
+        "cost",
+        "scale",
+        "scaled",
+        "scaling",
+        "security",
+        "policy",
+        "compliance",
+        "cve",
+        "iam",
+        "rollback",
+        "patch",
+        "block",
+        "monitor",
+        "mitigate",
+        "review",
+        "risk",
+        "risks",
+        "evidence",
+        "consensus",
+        "utility",
+        "project",
+        "manager",
+        "governance",
+        "action",
+        "confidence",
+        "uncertainty",
+        "prompt",
+        "telemetry",
+        "agent",
+        "agents",
+        "domain",
+        "domains",
+        "primary",
+        "recommended",
+        "recommendation",
+        "selected",
+        "provided",
+        "input",
+        "output",
+        "incomplete",
+        "missing",
+        "impact",
+        "operational",
+        "business",
+        "service",
+        "performance",
+        "efficiency",
+        "reduction",
+        "decision",
+        "exactly",
+        "preserve",
+        "structured",
+        "explanation",
+        "summary",
+        "cause",
+        "using",
+        "score",
+        "triggered",
+        "accepted",
+        "unresolved",
+    }
 
     for term in _evidence_terms(row):
         for token in re.findall(r"[a-z][a-z\-]+", term.lower()):
