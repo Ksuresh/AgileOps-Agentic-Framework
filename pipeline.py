@@ -191,26 +191,26 @@ def run_pipeline(scenario: Dict[str, Any], mode: Mode = "aaf_full") -> PipelineR
             if s_after < tau:
                 continue
 
-    # Utility
+        # Utility
     t_ut = time.perf_counter()
+
     if mode == "aaf_no_utility":
-    action = "defer"
-    util = 0.0
-    utility_details = {
-        "selected_action": action,
-        "best_utility": util,
-        "performance_score": 0.0,
-        "cost_efficiency_score": 0.0,
-        "risk_reduction_score": 0.0,
-        "candidates": [],
-    }
-else:
-    utility_details = choose_action_details(t_cur, w)
-    action = utility_details["selected_action"]
-    util = float(utility_details["best_utility"])
+        action = "defer"
+        util = 0.0
+        utility_details = {
+            "selected_action": action,
+            "best_utility": util,
+            "performance_score": 0.0,
+            "cost_efficiency_score": 0.0,
+            "risk_reduction_score": 0.0,
+            "candidates": [],
+        }
+    else:
+        utility_details = choose_action_details(t_cur, w)
+        action = utility_details["selected_action"]
+        util = float(utility_details["best_utility"])
 
     timings["UTL"] = (time.perf_counter() - t_ut) * 1000.0
-
     # Explanation
     t_xp = time.perf_counter()
     payload = {
