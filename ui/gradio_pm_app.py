@@ -1,296 +1,332 @@
 from __future__ import annotations
 
 import json
-import sys
-from pathlib import Path
+from typing import Any, Dict, Tuple
 
 import gradio as gr
-import yaml
 
-REPO_ROOT = Path(__file__).resolve().parents[1]
-if str(REPO_ROOT) not in sys.path:
-    sys.path.insert(0, str(REPO_ROOT))
-
-from pipeline import run_once
-from llm.deterministic_explainer import generate_explanation
-from metrics.explainability import compute_xi
-from pm_interface.prompt_router import route_prompt
-from pm_interface.decision_formatter import format_pm_decision
-from simulation.prompt_to_telemetry import build_telemetry_from_prompt_context
+from pipeline import run_pipeline
 
 
 DEFAULT_THRESHOLDS = {
-    "tau_consensus": 0.75,
-    "delta_min": 0.15,
+    "tau_consensus": 0.65,
+    "delta_min": 0.05,
     "max_rar_loops": 2,
 }
 
-DEFAULT_WEIGHTS = (0.4, 0.3, 0.3)
-DEFAULT_LAMBDA = 0.5
-
-PROMPT_LIBRARY_PATH = REPO_ROOT / "prompts" / "pm_prompt_library.yaml"
+DEFAULT_UTILITY_WEIGHTS = (0.4, 0.3, 0.3)
 
 
-def pretty_json(obj) -> str:
-    return json.dumps(obj, indent=2)
+EXAMPLE_PROMPTS = [
+    "A release went out this morning and customer checkout latency increased. Should we rollback or monitor?",
+    "Cloud spend increased after autoscaling, but the service appears stable. What should the PM do?",
+    "A critical CVE was reported for a container image included in the planned release. Can the release proceed?",
+    "The service shows high CPU saturation and rising latency during peak traffic. Should we scale?",
+    "The deployment pipeline failed a release gate because compliance evidence is missing. What is the recommended governance action?",
+]
 
 
-def load_prompt_library() -> list[dict]:
-    if not PROMPT_LIBRARY_PATH.exists():
-        return []
-    data = yaml.safe_load(PROMPT_LIBRARY_PATH.read_text(encoding="utf-8")) or {}
-    prompts = data.get("prompts", [])
-    return prompts if isinstance(prompts, list) else []
+def _prompt_to_basic_telemetry(prompt: str) -> Dict[str, Any]:
+    p = prompt.lower()
 
-
-PROMPT_LIBRARY = load_prompt_library()
-
-
-def get_categories() -> list[str]:
-    cats = sorted({p.get("category", "uncategorized") for p in PROMPT_LIBRARY})
-    return ["all"] + cats
-
-
-def get_prompt_choices(category: str) -> list[str]:
-    items = PROMPT_LIBRARY
-    if category and category != "all":
-        items = [p for p in PROMPT_LIBRARY if p.get("category") == category]
-    return [f"{p.get('id')} | {p.get('title')}" for p in items]
-
-
-def get_prompt_by_choice(choice: str) -> dict | None:
-    if not choice:
-        return None
-    prefix = choice.split("|", 1)[0].strip()
-    for p in PROMPT_LIBRARY:
-        if p.get("id") == prefix:
-            return p
-    return None
-
-
-def on_category_change(category: str):
-    choices = get_prompt_choices(category)
-    first = choices[0] if choices else None
-    prompt_text = ""
-    metadata = {}
-    if first:
-        item = get_prompt_by_choice(first)
-        if item:
-            prompt_text = item.get("prompt", "")
-            metadata = {
-                "id": item.get("id"),
-                "title": item.get("title"),
-                "category": item.get("category"),
-                "priority": item.get("priority"),
-                "expected_domains": item.get("expected_domains", []),
-                "expected_action": item.get("expected_action"),
-                "expected_business_focus": item.get("expected_business_focus"),
-                "notes": item.get("notes"),
-            }
-
-    return (
-        gr.update(choices=choices, value=first),
-        prompt_text,
-        pretty_json(metadata),
-    )
-
-
-def on_prompt_choice_change(choice: str):
-    item = get_prompt_by_choice(choice)
-    if not item:
-        return "", pretty_json({})
-    metadata = {
-        "id": item.get("id"),
-        "title": item.get("title"),
-        "category": item.get("category"),
-        "priority": item.get("priority"),
-        "expected_domains": item.get("expected_domains", []),
-        "expected_action": item.get("expected_action"),
-        "expected_business_focus": item.get("expected_business_focus"),
-        "notes": item.get("notes"),
+    telemetry = {
+        "deploy": {
+            "restart_loops": 0,
+            "config_drift": False,
+            "pipeline_failed": False,
+            "rollback_marker": False,
+            "artifact_mismatch": False,
+        },
+        "sre": {
+            "p95_latency_ms": 180.0,
+            "error_rate_pct": 0.5,
+            "saturation_pct": 55.0,
+            "availability_pct": 99.9,
+        },
+        "finops": {
+            "cost_spike_pct": 0.0,
+            "hpa_scale_to": 4,
+            "cpu_request_increase_pct": 0.0,
+            "memory_request_increase_pct": 0.0,
+        },
+        "sec": {
+            "critical_cves": 0,
+            "policy_violation": False,
+            "iam_drift": False,
+            "compliance_gap": False,
+        },
     }
-    return item.get("prompt", ""), pretty_json(metadata)
+
+    if any(k in p for k in ["deployment", "release", "rollback", "pipeline", "build", "artifact"]):
+        telemetry["deploy"]["pipeline_failed"] = "pipeline" in p or "build" in p
+        telemetry["deploy"]["rollback_marker"] = "rollback" in p or "release" in p
+        telemetry["deploy"]["artifact_mismatch"] = "artifact" in p or "image" in p
+        telemetry["deploy"]["restart_loops"] = 12 if "restart" in p or "crash" in p else 8
+
+    if any(k in p for k in ["config", "configuration", "drift"]):
+        telemetry["deploy"]["config_drift"] = True
+
+    if any(k in p for k in ["latency", "slow", "timeout", "performance"]):
+        telemetry["sre"]["p95_latency_ms"] = 650.0
+        telemetry["sre"]["availability_pct"] = 98.4
+
+    if any(k in p for k in ["error", "5xx", "failure rate", "failed requests"]):
+        telemetry["sre"]["error_rate_pct"] = 10.0
+        telemetry["sre"]["availability_pct"] = 98.0
+
+    if any(k in p for k in ["cpu", "memory", "saturation", "capacity"]):
+        telemetry["sre"]["saturation_pct"] = 90.0
+        telemetry["sre"]["p95_latency_ms"] = max(telemetry["sre"]["p95_latency_ms"], 520.0)
+
+    if any(k in p for k in ["cost", "spend", "budget", "finops", "cloud bill"]):
+        telemetry["finops"]["cost_spike_pct"] = 32.0
+        telemetry["finops"]["hpa_scale_to"] = 12
+
+    if any(k in p for k in ["scale", "autoscale", "autoscaling", "hpa", "replica"]):
+        telemetry["finops"]["hpa_scale_to"] = 14
+        telemetry["finops"]["cost_spike_pct"] = max(telemetry["finops"]["cost_spike_pct"], 24.0)
+
+    if any(k in p for k in ["over provision", "over-provision", "unused capacity"]):
+        telemetry["finops"]["cpu_request_increase_pct"] = 60.0
+        telemetry["finops"]["memory_request_increase_pct"] = 45.0
+        telemetry["finops"]["cost_spike_pct"] = max(telemetry["finops"]["cost_spike_pct"], 28.0)
+
+    if any(k in p for k in ["security", "vulnerability", "cve", "critical cve"]):
+        telemetry["sec"]["critical_cves"] = 2
+
+    if any(k in p for k in ["policy", "opa", "gatekeeper", "compliance"]):
+        telemetry["sec"]["policy_violation"] = True
+        telemetry["sec"]["compliance_gap"] = True
+
+    if any(k in p for k in ["iam", "permission", "access drift"]):
+        telemetry["sec"]["iam_drift"] = True
+
+    return telemetry
 
 
-def run_pm_governance(
-    pm_prompt: str,
+def _build_scenario(
+    prompt: str,
     tau_consensus: float,
     delta_min: float,
-    max_rar_loops: int,
     w_perf: float,
     w_cost: float,
     w_risk: float,
-    lam: float,
-):
+) -> Dict[str, Any]:
+    telemetry = None
+
     try:
-        weights = (float(w_perf), float(w_cost), float(w_risk))
-        if abs(sum(weights) - 1.0) > 1e-6:
-            raise ValueError("Utility weights must sum to 1.0")
+        from pm_interface.prompt_router import route_prompt
+        from simulation.prompt_to_telemetry import prompt_to_telemetry
 
-        route = route_prompt(pm_prompt)
-        telemetry = build_telemetry_from_prompt_context(route)
+        routed = route_prompt(prompt)
+        telemetry = prompt_to_telemetry(routed)
+    except Exception:
+        telemetry = _prompt_to_basic_telemetry(prompt)
 
-        thresholds = {
+    if not isinstance(telemetry, dict):
+        telemetry = _prompt_to_basic_telemetry(prompt)
+
+    return {
+        "scenario_id": "PM-UI-001",
+        "incident_id": "PM-UI-001",
+        "category": "pm_prompt_ui",
+        "scenario_type": "pm_prompt_ui",
+        "prompt": prompt,
+        "telemetry": telemetry,
+        "ground_truth": {
+            "primary_domain": None,
+            "secondary_domains": [],
+            "root_cause": "pm_prompt_ui",
+            "recommended_action": None,
+            "expected_action": None,
+        },
+        "thresholds": {
             "tau_consensus": float(tau_consensus),
             "delta_min": float(delta_min),
-            "max_rar_loops": int(max_rar_loops),
-        }
+            "max_rar_loops": 2,
+        },
+        "utility_weights": (
+            float(w_perf),
+            float(w_cost),
+            float(w_risk),
+        ),
+        "lam": 0.5,
+    }
 
-        result = run_once(
-            telemetry=telemetry,
-            thresholds=thresholds,
-            lam=float(lam),
-            w=weights,
-        )
 
-        payload = {
-            "incident_id": "pm-interaction",
-            "agents": result["agents"],
-            "consensus_score": result["consensus_score"],
-            "rar_triggered": result["rar_triggered"],
-            "recommended_action": result["recommended_action"],
-            "utility_score": result["utility_score"],
-        }
+def _safe_json(data: Any) -> str:
+    return json.dumps(data, indent=2, ensure_ascii=False)
 
-        explanation = generate_explanation(payload)
-        xi = compute_xi(explanation, payload)
-        pm_view = format_pm_decision(pm_prompt, route, result, explanation)
 
-        summary = {
-            "recommended_action": result["recommended_action"],
-            "consensus_score": result["consensus_score"],
-            "rar_triggered": result["rar_triggered"],
-            "rar_loops": result["rar_loops"],
-            "utility_score": result["utility_score"],
-        }
-
+def run_pm_prompt(
+    prompt: str,
+    tau_consensus: float,
+    delta_min: float,
+    w_perf: float,
+    w_cost: float,
+    w_risk: float,
+) -> Tuple[str, str, str, str, str]:
+    if not prompt or not prompt.strip():
         return (
-            pm_view,
-            pretty_json(summary),
-            pretty_json(route),
-            pretty_json(telemetry),
-            pretty_json(result["agents"]),
-            pretty_json(xi),
+            "Please enter a PM governance prompt.",
+            "{}",
+            "{}",
+            "{}",
+            "{}",
         )
 
-    except Exception as e:
-        err = {"error": str(e)}
-        msg = f"Execution failed: {e}"
-        return msg, pretty_json(err), pretty_json(err), pretty_json(err), "[]", pretty_json(err)
+    scenario = _build_scenario(
+        prompt=prompt.strip(),
+        tau_consensus=tau_consensus,
+        delta_min=delta_min,
+        w_perf=w_perf,
+        w_cost=w_cost,
+        w_risk=w_risk,
+    )
+
+    result = run_pipeline(scenario, mode="aaf_full")
+    row = result.__dict__.copy()
+
+    decision_summary = f"""
+## PM Governance Decision
+
+**Predicted Primary Domain:** {row.get("predicted_primary_domain")}
+
+**Recommended Action:** {(row.get("utility") or {}).get("selected_action")}
+
+**Consensus Score:** {row.get("consensus_score")}
+
+**RAR Triggered:** {(row.get("rar") or {}).get("triggered")}
+
+**RAR Accepted:** {(row.get("rar") or {}).get("accepted")}
+
+**Composite Utility:** {(row.get("utility") or {}).get("best_utility")}
+
+**Explainability Index:** {(row.get("explainability") or {}).get("xi")}
+
+---
+
+{row.get("explanation", "")}
+""".strip()
+
+    agents = row.get("agents", [])
+    utility = row.get("utility", {})
+    explainability = row.get("explainability", {})
+    telemetry = scenario.get("telemetry", {})
+
+    return (
+        decision_summary,
+        _safe_json(telemetry),
+        _safe_json(agents),
+        _safe_json(utility),
+        _safe_json(explainability),
+    )
 
 
-INITIAL_CATEGORY = get_categories()[0] if get_categories() else "all"
-INITIAL_CHOICES = get_prompt_choices(INITIAL_CATEGORY)
-INITIAL_CHOICE = INITIAL_CHOICES[0] if INITIAL_CHOICES else None
-INITIAL_ITEM = get_prompt_by_choice(INITIAL_CHOICE) if INITIAL_CHOICE else None
-INITIAL_PROMPT = INITIAL_ITEM.get("prompt", "") if INITIAL_ITEM else ""
-INITIAL_METADATA = {
-    "id": INITIAL_ITEM.get("id") if INITIAL_ITEM else None,
-    "title": INITIAL_ITEM.get("title") if INITIAL_ITEM else None,
-    "category": INITIAL_ITEM.get("category") if INITIAL_ITEM else None,
-    "priority": INITIAL_ITEM.get("priority") if INITIAL_ITEM else None,
-    "expected_domains": INITIAL_ITEM.get("expected_domains", []) if INITIAL_ITEM else [],
-    "expected_action": INITIAL_ITEM.get("expected_action") if INITIAL_ITEM else None,
-    "expected_business_focus": INITIAL_ITEM.get("expected_business_focus") if INITIAL_ITEM else None,
-    "notes": INITIAL_ITEM.get("notes") if INITIAL_ITEM else None,
-}
+def build_app() -> gr.Blocks:
+    with gr.Blocks(title="AgileOps Agentic Framework - PM Governance UI") as demo:
+        gr.Markdown(
+            """
+# AgileOps Agentic Framework - PM Governance UI
 
-
-with gr.Blocks(title="AAF Phase 2 – PM Governance Demo") as demo:
-    gr.Markdown(
-        """
-# AgileOps Agentic Framework – PM Prompt Mode
-
-The PM selects or edits a natural-language request.
-The system interprets it, simulates telemetry, runs multi-agent governance,
-and returns a PM-facing governance decision.
+Enter a Project Manager governance prompt. The framework routes the prompt into operational telemetry, runs DevOps/SRE/FinOps/DevSecOps agents, checks consensus, applies RAR when needed, selects a utility-based action, and returns a PM-readable explanation.
 """
-    )
+        )
 
-    with gr.Row():
-        with gr.Column(scale=2):
-            category_dropdown = gr.Dropdown(
-                label="Prompt Category",
-                choices=get_categories(),
-                value=INITIAL_CATEGORY,
+        with gr.Row():
+            prompt = gr.Textbox(
+                label="PM Governance Prompt",
+                lines=5,
+                value=EXAMPLE_PROMPTS[0],
             )
 
-            prompt_dropdown = gr.Dropdown(
-                label="Prompt Scenario",
-                choices=INITIAL_CHOICES,
-                value=INITIAL_CHOICE,
+        with gr.Row():
+            example = gr.Dropdown(
+                choices=EXAMPLE_PROMPTS,
+                value=EXAMPLE_PROMPTS[0],
+                label="Example prompts",
             )
 
-            pm_prompt_input = gr.Textbox(
-                label="PM Prompt",
-                lines=6,
-                value=INITIAL_PROMPT,
-            )
+        example.change(fn=lambda x: x, inputs=example, outputs=prompt)
 
-            run_btn = gr.Button("Run Governance Decision")
+        with gr.Accordion("Advanced Settings", open=False):
+            with gr.Row():
+                tau_consensus = gr.Slider(
+                    minimum=0.40,
+                    maximum=0.90,
+                    value=DEFAULT_THRESHOLDS["tau_consensus"],
+                    step=0.01,
+                    label="Consensus Threshold",
+                )
+                delta_min = gr.Slider(
+                    minimum=0.00,
+                    maximum=0.25,
+                    value=DEFAULT_THRESHOLDS["delta_min"],
+                    step=0.01,
+                    label="RAR Minimum Improvement",
+                )
 
-        with gr.Column(scale=1):
-            prompt_metadata_output = gr.Code(
-                label="Selected Prompt Metadata",
-                language="json",
-                value=pretty_json(INITIAL_METADATA),
-            )
+            with gr.Row():
+                w_perf = gr.Slider(
+                    minimum=0.0,
+                    maximum=1.0,
+                    value=DEFAULT_UTILITY_WEIGHTS[0],
+                    step=0.05,
+                    label="Utility Weight: Performance",
+                )
+                w_cost = gr.Slider(
+                    minimum=0.0,
+                    maximum=1.0,
+                    value=DEFAULT_UTILITY_WEIGHTS[1],
+                    step=0.05,
+                    label="Utility Weight: Cost Efficiency",
+                )
+                w_risk = gr.Slider(
+                    minimum=0.0,
+                    maximum=1.0,
+                    value=DEFAULT_UTILITY_WEIGHTS[2],
+                    step=0.05,
+                    label="Utility Weight: Risk Reduction",
+                )
 
-            tau_input = gr.Number(label="tau_consensus", value=DEFAULT_THRESHOLDS["tau_consensus"])
-            delta_input = gr.Number(label="delta_min", value=DEFAULT_THRESHOLDS["delta_min"])
-            loops_input = gr.Number(
-                label="max_rar_loops",
-                value=DEFAULT_THRESHOLDS["max_rar_loops"],
-                precision=0,
-            )
-            lam_input = gr.Number(label="lambda", value=DEFAULT_LAMBDA)
+        run_button = gr.Button("Run Governance Analysis", variant="primary")
 
-            gr.Markdown("### Utility Weights")
-            w_perf_input = gr.Number(label="w_perf", value=DEFAULT_WEIGHTS[0])
-            w_cost_input = gr.Number(label="w_cost", value=DEFAULT_WEIGHTS[1])
-            w_risk_input = gr.Number(label="w_risk", value=DEFAULT_WEIGHTS[2])
+        decision = gr.Markdown(label="PM Decision Summary")
 
-    pm_output = gr.Textbox(label="PM-Facing Decision", lines=18)
-    summary_output = gr.Code(label="Run Summary", language="json")
-    route_output = gr.Code(label="Prompt Routing", language="json")
-    telemetry_output = gr.Code(label="Simulated Telemetry", language="json")
-    agents_output = gr.Code(label="Agent Outputs", language="json")
-    xi_output = gr.Code(label="Explainability (XI)", language="json")
+        with gr.Tab("Telemetry"):
+            telemetry_out = gr.Code(label="Telemetry", language="json")
 
-    category_dropdown.change(
-        fn=on_category_change,
-        inputs=[category_dropdown],
-        outputs=[prompt_dropdown, pm_prompt_input, prompt_metadata_output],
-    )
+        with gr.Tab("Agent Outputs"):
+            agents_out = gr.Code(label="Agents", language="json")
 
-    prompt_dropdown.change(
-        fn=on_prompt_choice_change,
-        inputs=[prompt_dropdown],
-        outputs=[pm_prompt_input, prompt_metadata_output],
-    )
+        with gr.Tab("Utility"):
+            utility_out = gr.Code(label="Utility", language="json")
 
-    run_btn.click(
-        fn=run_pm_governance,
-        inputs=[
-            pm_prompt_input,
-            tau_input,
-            delta_input,
-            loops_input,
-            w_perf_input,
-            w_cost_input,
-            w_risk_input,
-            lam_input,
-        ],
-        outputs=[
-            pm_output,
-            summary_output,
-            route_output,
-            telemetry_output,
-            agents_output,
-            xi_output,
-        ],
-    )
+        with gr.Tab("Explainability"):
+            explainability_out = gr.Code(label="Explainability", language="json")
+
+        run_button.click(
+            fn=run_pm_prompt,
+            inputs=[
+                prompt,
+                tau_consensus,
+                delta_min,
+                w_perf,
+                w_cost,
+                w_risk,
+            ],
+            outputs=[
+                decision,
+                telemetry_out,
+                agents_out,
+                utility_out,
+                explainability_out,
+            ],
+        )
+
+    return demo
 
 
 if __name__ == "__main__":
-    demo.launch(server_port=7861)
+    app = build_app()
+    app.launch()
