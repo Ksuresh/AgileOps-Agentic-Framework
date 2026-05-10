@@ -179,8 +179,8 @@ def _action_fit_bonus(action: str, severities: Dict[str, float]) -> float:
     """
     Governance action-fit adjustment.
 
-    This prevents generic low-cost actions from winning when a specific
-    governance action is required by the dominant operational signal.
+    This rewards actions that fit the dominant operational signal and
+    penalizes generic actions when a specific governance action is required.
     """
     deployment = severities["deployment"]
     reliability = severities["reliability"]
@@ -190,57 +190,104 @@ def _action_fit_bonus(action: str, severities: Dict[str, float]) -> float:
     dominant = _dominant_signal(severities)
     bonus = 0.0
 
+    # ------------------------------------------------------------
+    # Deployment governance
+    # ------------------------------------------------------------
     if dominant == "deployment":
         if action == "Rollback to stable deployment":
-            bonus += 0.15
+            bonus += 0.13
         elif action == "Block release and fix pipeline":
-            bonus += 0.12
+            bonus += 0.13
         elif action == "Mitigate and monitor":
-            bonus -= 0.10
-
-    elif dominant == "reliability":
-        if action == "Mitigate and monitor":
-            bonus += 0.08
-        if action == "Scale adjustment" and reliability >= 0.55:
-            bonus += 0.16
-        if action == "Rollback to stable deployment" and deployment < 0.40:
-            bonus -= 0.06
-
-    elif dominant == "cost":
-        if action == "Scale adjustment":
-            bonus += 0.18
-        elif action == "Review scaling policy":
-            bonus += 0.15
-        elif action == "Mitigate and monitor":
-            bonus -= 0.14
-
-    elif dominant == "security":
-        if action == "Patch or block release":
-            bonus += 0.20
-        elif action in {"Rollback to stable deployment", "Mitigate and monitor"}:
             bonus -= 0.12
 
-    # Cross-domain governance rules.
+    # Pipeline gate / release evidence cases:
+    # high deployment signal but limited reliability impact should block release,
+    # not rollback.
+    if deployment >= 0.55 and reliability < 0.35:
+        if action == "Block release and fix pipeline":
+            bonus += 0.08
+        if action == "Rollback to stable deployment":
+            bonus -= 0.05
+
+    # Deployment incident with reliability impact should rollback.
     if deployment >= 0.50 and reliability >= 0.35:
         if action == "Rollback to stable deployment":
             bonus += 0.10
-        if action == "Mitigate and monitor":
-            bonus -= 0.06
-
-    if reliability >= 0.55 and cost >= 0.20:
-        if action == "Scale adjustment":
-            bonus += 0.12
-        if action == "Mitigate and monitor":
-            bonus -= 0.06
-
-    if security >= 0.20 and action == "Patch or block release":
-        bonus += 0.10
-
-    if cost >= 0.45 and reliability < 0.30:
-        if action == "Review scaling policy":
-            bonus += 0.08
+        if action == "Block release and fix pipeline":
+            bonus -= 0.03
         if action == "Mitigate and monitor":
             bonus -= 0.08
+
+    # ------------------------------------------------------------
+    # Reliability governance
+    # ------------------------------------------------------------
+    if dominant == "reliability":
+        if action == "Mitigate and monitor":
+            bonus += 0.10
+        if action == "Scale adjustment" and reliability >= 0.55:
+            bonus += 0.08
+        if action == "Rollback to stable deployment" and deployment < 0.40:
+            bonus -= 0.08
+
+    # Capacity/resource cases should scale, not only monitor.
+    if reliability >= 0.55 and cost >= 0.15:
+        if action == "Scale adjustment":
+            bonus += 0.18
+        if action == "Mitigate and monitor":
+            bonus -= 0.08
+
+    # Pure reliability degradation without cost pressure should mitigate.
+    if reliability >= 0.55 and cost < 0.15 and deployment < 0.35:
+        if action == "Mitigate and monitor":
+            bonus += 0.10
+        if action == "Scale adjustment":
+            bonus -= 0.10
+
+    # ------------------------------------------------------------
+    # Cost governance
+    # ------------------------------------------------------------
+    if dominant == "cost":
+        if action == "Scale adjustment":
+            bonus += 0.22
+        elif action == "Review scaling policy":
+            bonus += 0.13
+        elif action == "Mitigate and monitor":
+            bonus -= 0.18
+
+    # High autoscaling / over-provisioning should scale-adjust.
+    if cost >= 0.45:
+        if action == "Scale adjustment":
+            bonus += 0.10
+        if action == "Review scaling policy":
+            bonus -= 0.04
+        if action == "Mitigate and monitor":
+            bonus -= 0.12
+
+    # Moderate cost with stable reliability should review policy.
+    if 0.25 <= cost < 0.45 and reliability < 0.30:
+        if action == "Review scaling policy":
+            bonus += 0.12
+        if action == "Scale adjustment":
+            bonus -= 0.04
+
+    # ------------------------------------------------------------
+    # Security / compliance governance
+    # ------------------------------------------------------------
+    if dominant == "security":
+        if action == "Patch or block release":
+            bonus += 0.24
+        elif action in {"Rollback to stable deployment", "Mitigate and monitor"}:
+            bonus -= 0.15
+
+    # Any meaningful security/compliance signal should strongly prefer patch/block.
+    if security >= 0.20:
+        if action == "Patch or block release":
+            bonus += 0.16
+        if action == "Rollback to stable deployment":
+            bonus -= 0.10
+        if action == "Mitigate and monitor":
+            bonus -= 0.12
 
     return bonus
 
