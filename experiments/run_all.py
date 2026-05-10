@@ -26,11 +26,15 @@ from pipeline import run_pipeline
 
 from experiments.scoring import (
     score_primary_domain_accuracy,
+    score_action_match,
     compute_latency_stats,
     compute_rar_stats,
     compute_utility_stats,
     compute_xi_stats,
+    compute_consensus_stats,
 )
+
+
 from baselines.traditional import run_traditional_baseline
 from baselines.single_agent_llm import run_single_agent_llm_baseline
 
@@ -90,24 +94,49 @@ def main() -> None:
     dump_jsonl("aaf_no_utility", aaf_no_utility)
 
     # --- Aggregate metrics
-    summary = {
-        "traditional": {
-            "accuracy": score_primary_domain_accuracy(trad_rows),
-        },
-        "single_agent_llm": {
-            "accuracy": score_primary_domain_accuracy(llm_rows),
-        },
-        "aaf_full": {
-            "accuracy": score_primary_domain_accuracy(aaf_rows),
-            "rar": compute_rar_stats(aaf_rows),
-            "latency": compute_latency_stats(aaf_rows),
-            "utility": compute_utility_stats(aaf_rows),
-            "xi": compute_xi_stats(aaf_rows),
-        },
-        "aaf_no_consensus": {"accuracy": score_primary_domain_accuracy(aaf_no_consensus)},
-        "aaf_no_rar": {"accuracy": score_primary_domain_accuracy(aaf_no_rar)},
-        "aaf_no_utility": {"accuracy": score_primary_domain_accuracy(aaf_no_utility)},
-    }
+
+  summary = {
+    "traditional": {
+        "accuracy": score_primary_domain_accuracy(trad_rows),
+        "action_match": score_action_match(trad_rows),
+    },
+    "single_agent_llm": {
+        "accuracy": score_primary_domain_accuracy(llm_rows),
+        "action_match": score_action_match(llm_rows),
+    },
+    "aaf_full": {
+        "accuracy": score_primary_domain_accuracy(aaf_rows),
+        "action_match": score_action_match(aaf_rows),
+        "rar": compute_rar_stats(aaf_rows),
+        "latency": compute_latency_stats(aaf_rows),
+        "consensus": compute_consensus_stats(aaf_rows),
+        "utility": compute_utility_stats(aaf_rows),
+        "xi": compute_xi_stats(aaf_rows),
+    },
+    "aaf_no_consensus": {
+        "accuracy": score_primary_domain_accuracy(aaf_no_consensus),
+        "action_match": score_action_match(aaf_no_consensus),
+        "consensus": compute_consensus_stats(aaf_no_consensus),
+        "utility": compute_utility_stats(aaf_no_consensus),
+        "xi": compute_xi_stats(aaf_no_consensus),
+    },
+    "aaf_no_rar": {
+        "accuracy": score_primary_domain_accuracy(aaf_no_rar),
+        "action_match": score_action_match(aaf_no_rar),
+        "rar": compute_rar_stats(aaf_no_rar),
+        "consensus": compute_consensus_stats(aaf_no_rar),
+        "utility": compute_utility_stats(aaf_no_rar),
+        "xi": compute_xi_stats(aaf_no_rar),
+    },
+    "aaf_no_utility": {
+        "accuracy": score_primary_domain_accuracy(aaf_no_utility),
+        "action_match": score_action_match(aaf_no_utility),
+        "consensus": compute_consensus_stats(aaf_no_utility),
+        "utility": compute_utility_stats(aaf_no_utility),
+        "xi": compute_xi_stats(aaf_no_utility),
+    },
+}
+ 
 
     with open(os.path.join(args.out, "summary.json"), "w", encoding="utf-8") as f:
         json.dump(summary, f, indent=2)
