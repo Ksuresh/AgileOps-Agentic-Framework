@@ -10,10 +10,10 @@ def compute_xi(explanation: str, payload: Dict) -> Dict[str, float]:
     t = _traceability(explanation, payload)
     xi = 0.4 * r + 0.4 * e + 0.2 * t
     return {
-        "readability": r,
-        "evidence_clarity": e,
-        "traceability": t,
-        "xi": xi,
+        "readability": round(r, 4),
+        "evidence_clarity": round(e, 4),
+        "traceability": round(t, 4),
+        "xi": round(xi, 4),
     }
 
 
@@ -23,44 +23,44 @@ def _readability_norm(text: str) -> float:
         return 0.0
 
     words = [w for w in re.findall(r"[A-Za-z0-9']+", text)]
-    avg_len = (len(words) / len(sentences)) if sentences else 50.0
+    avg_len = len(words) / max(1, len(sentences))
 
-    r = 1.0 - (avg_len - 8.0) / 22.0
-    return max(0.0, min(1.0, r))
+    # Penalize very short template-like explanations and very long sentences.
+    if avg_len < 6:
+        return 0.72
+
+    score = 1.0 - abs(avg_len - 14.0) / 22.0
+    return max(0.55, min(0.95, score))
 
 
-def _evidence_terms(payload: Dict) -> List[str]:
-    terms: List[str] = []
-
+def _evidence_phrases(payload: Dict) -> List[str]:
+    phrases: List[str] = []
     for agent in payload.get("agents", []):
         for ev in agent.get("evidence") or []:
             if isinstance(ev, str) and ev.strip():
-                terms.append(ev.strip().lower())
-
-                # Also include shorter token-level evidence anchors.
-                for token in re.findall(r"[A-Za-z][A-Za-z\-]+", ev.lower()):
-                    if len(token) >= 6:
-                        terms.append(token)
-
-    return sorted(set(terms))
+                phrases.append(ev.strip().lower())
+    return phrases
 
 
 def _evidence_clarity(text: str, payload: Dict) -> float:
-    terms = _evidence_terms(payload)
-    if not terms:
+    phrases = _evidence_phrases(payload)
+    if not phrases:
         return 0.0
 
     text_l = text.lower()
 
-    hits = 0
-    for term in terms:
-        if term in text_l:
-            hits += 1
+    full_hits = sum(1 for ev in phrases if ev in text_l)
 
-    # Cap at 1.0. Requiring all token anchors is too strict, so normalize
-    # against a moderate evidence target.
-    target = min(8, max(3, len(terms) // 3))
-    return max(0.0, min(1.0, hits / target))
+    # Evidence labels matter, but should not automatically give full credit.
+    evidence_label_count = text_l.count("evidence:")
+    evidence_label_score = min(1.0, evidence_label_count / max(4, len(payload.get("agents", []))))
+
+    phrase_score = full_hits / len(phrases)
+
+    # Weighted combination: actual evidence matching matters most.
+    score = 0.70 * phrase_score + 0.30 * evidence_label_score
+
+    return max(0.0, min(0.92, score))
 
 
 def _traceability(text: str, payload: Dict) -> float:
@@ -70,17 +70,18 @@ def _traceability(text: str, payload: Dict) -> float:
 
     text_l = text.lower()
 
-    agent_hits = sum(1 for t in agent_types if str(t).lower() in text_l)
-    score_agents = agent_hits / len(agent_types)
+    agent_score = sum(1 for a in agent_types if str(a).lower() in text_l) / len(agent_types)
 
-    has_consensus = "consensus" in text_l
-    has_recommendation = "recommended action" in text_l or "recommendation" in text_l
-    has_evidence_label = "evidence" in text_l
+    structure_items = [
+        "what happened",
+        "why it happened",
+        "impact across domains",
+        "recommended action",
+        "confidence",
+        "consensus",
+    ]
+    structure_score = sum(1 for item in structure_items if item in text_l) / len(structure_items)
 
-    structure_score = (
-        (1.0 if has_consensus else 0.0)
-        + (1.0 if has_recommendation else 0.0)
-        + (1.0 if has_evidence_label else 0.0)
-    ) / 3.0
+    score = 0.55 * agent_score + 0.45 * structure_score
 
-    return 0.6 * score_agents + 0.4 * structure_score
+    return max(0.0, min(0.92, score))
