@@ -3,20 +3,26 @@ from __future__ import annotations
 from typing import Dict, Any, Tuple
 
 
-ACTIONS = [
-    "Rollback to stable deployment",
-    "Block release and fix pipeline",
-    "Mitigate and monitor",
-    "Scale adjustment",
-    "Review scaling policy",
-    "Patch or block release",
-    "No action (observe)",
-]
+def utility_score(
+    performance_score: float,
+    cost_efficiency_score: float,
+    risk_reduction_score: float,
+    w: Tuple[float, float, float],
+) -> float:
+    """
+    Composite utility:
+        U(a) = w_perf * performance_score
+             + w_cost * cost_efficiency_score
+             + w_risk * risk_reduction_score
 
-
-def utility_score(perf_gain: float, cost_delta: float, risk: float, w: Tuple[float, float, float]) -> float:
+    All components are normalized to [0, 1], where higher is better.
+    """
     w_perf, w_cost, w_risk = w
-    return (w_perf * perf_gain) - (w_cost * cost_delta) - (w_risk * risk)
+    return (
+        w_perf * performance_score
+        + w_cost * cost_efficiency_score
+        + w_risk * risk_reduction_score
+    )
 
 
 def _severity_scores(telemetry: Dict[str, Any]) -> Dict[str, float]:
@@ -83,10 +89,12 @@ def _severity_scores(telemetry: Dict[str, Any]) -> Dict[str, float]:
         cost += 0.30
     elif cost_spike >= 8:
         cost += 0.15
+
     if hpa_scale >= 14:
         cost += 0.25
     elif hpa_scale >= 11:
         cost += 0.15
+
     if cpu_inc >= 50:
         cost += 0.20
     if mem_inc >= 40:
@@ -112,65 +120,102 @@ def _severity_scores(telemetry: Dict[str, Any]) -> Dict[str, float]:
     }
 
 
-def _build_action_profiles(telemetry: Dict[str, Any]) -> Dict[str, Tuple[float, float, float]]:
-    scores = _severity_scores(telemetry)
+def _action_components(telemetry: Dict[str, Any]) -> Dict[str, Tuple[float, float, float]]:
+    """
+    Returns:
+        action -> (performance_score, cost_efficiency_score, risk_reduction_score)
 
-    deployment = scores["deployment"]
-    reliability = scores["reliability"]
-    cost = scores["cost"]
-    security = scores["security"]
+    Higher is better for all three components.
+    """
+    s = _severity_scores(telemetry)
 
-    # Utility profiles are intentionally governance-oriented.
-    # perf_gain, cost_delta, risk
+    deployment = s["deployment"]
+    reliability = s["reliability"]
+    cost = s["cost"]
+    security = s["security"]
+
     return {
         "Rollback to stable deployment": (
-            0.35 + 0.45 * deployment + 0.25 * reliability,
-            0.15,
-            0.20 + 0.10 * security,
+            min(1.0, 0.35 + 0.40 * deployment + 0.25 * reliability),
+            0.65,
+            min(1.0, 0.35 + 0.35 * deployment + 0.10 * security),
         ),
         "Block release and fix pipeline": (
-            0.25 + 0.55 * deployment + 0.15 * security,
-            0.10,
-            0.15,
+            min(1.0, 0.25 + 0.45 * deployment),
+            0.75,
+            min(1.0, 0.40 + 0.30 * deployment + 0.20 * security),
         ),
         "Mitigate and monitor": (
-            0.25 + 0.55 * reliability,
-            0.08,
-            0.20,
+            min(1.0, 0.35 + 0.45 * reliability),
+            0.80,
+            min(1.0, 0.35 + 0.25 * reliability),
         ),
         "Scale adjustment": (
-            0.25 + 0.35 * reliability + 0.45 * cost,
-            0.20 + 0.30 * cost,
-            0.15,
+            min(1.0, 0.30 + 0.35 * reliability + 0.20 * cost),
+            min(1.0, 0.45 + 0.35 * cost),
+            min(1.0, 0.30 + 0.20 * reliability),
         ),
         "Review scaling policy": (
-            0.15 + 0.60 * cost,
-            0.05,
-            0.12,
+            min(1.0, 0.20 + 0.20 * cost),
+            min(1.0, 0.55 + 0.35 * cost),
+            min(1.0, 0.30 + 0.15 * cost),
         ),
         "Patch or block release": (
-            0.20 + 0.55 * security,
-            0.12,
-            0.08,
+            min(1.0, 0.20 + 0.20 * security),
+            0.70,
+            min(1.0, 0.45 + 0.45 * security),
         ),
         "No action (observe)": (
-            0.10,
-            0.00,
-            0.50 * max(deployment, reliability, cost, security),
+            0.20,
+            0.95,
+            max(0.05, 0.30 - 0.20 * max(deployment, reliability, cost, security)),
         ),
     }
 
 
-def choose_action(telemetry: Dict[str, Any], w: Tuple[float, float, float]) -> Tuple[str, float]:
-    actions = _build_action_profiles(telemetry)
+def choose_action_details(
+    telemetry: Dict[str, Any],
+    w: Tuple[float, float, float],
+) -> Dict[str, Any]:
+    components = _action_components(telemetry)
 
     best_action = None
     best_utility = float("-inf")
+    best_components = (0.0, 0.0, 0.0)
 
-    for action, (perf_gain, cost_delta, risk) in actions.items():
-        u = utility_score(perf_gain, cost_delta, risk, w)
-        if u > best_utility:
+    candidates = []
+
+    for action, (perf, cost_eff, risk_red) in components.items():
+        utility = utility_score(perf, cost_eff, risk_red, w)
+        candidate = {
+            "action": action,
+            "performance_score": round(float(perf), 4),
+            "cost_efficiency_score": round(float(cost_eff), 4),
+            "risk_reduction_score": round(float(risk_red), 4),
+            "utility": round(float(utility), 4),
+        }
+        candidates.append(candidate)
+
+        if utility > best_utility:
             best_action = action
-            best_utility = u
+            best_utility = utility
+            best_components = (perf, cost_eff, risk_red)
 
-    return str(best_action), float(best_utility)
+    candidates.sort(key=lambda x: x["utility"], reverse=True)
+
+    return {
+        "selected_action": str(best_action),
+        "best_utility": round(float(best_utility), 4),
+        "performance_score": round(float(best_components[0]), 4),
+        "cost_efficiency_score": round(float(best_components[1]), 4),
+        "risk_reduction_score": round(float(best_components[2]), 4),
+        "candidates": candidates[:3],
+    }
+
+
+def choose_action(
+    telemetry: Dict[str, Any],
+    w: Tuple[float, float, float],
+) -> Tuple[str, float]:
+    details = choose_action_details(telemetry, w)
+    return details["selected_action"], float(details["best_utility"])
