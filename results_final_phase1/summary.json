@@ -1,0 +1,217 @@
+{
+  "traditional": {
+    "accuracy": {
+      "accuracy": 0.5333333333333333,
+      "n": 30.0,
+      "std": 0.09108400680852977
+    },
+    "action_match": {
+      "action_match_rate": 0.0,
+      "n": 0.0,
+      "std": 0.0
+    }
+  },
+  "single_agent_llm": {
+    "accuracy": {
+      "accuracy": 0.7,
+      "n": 30.0,
+      "std": 0.08366600265340757
+    },
+    "action_match": {
+      "action_match_rate": 0.0,
+      "n": 0.0,
+      "std": 0.0
+    }
+  },
+  "aaf_full": {
+    "accuracy": {
+      "accuracy": 0.8,
+      "n": 30.0,
+      "std": 0.07302967433402215
+    },
+    "action_match": {
+      "action_match_rate": 0.8,
+      "n": 30.0,
+      "std": 0.07302967433402215
+    },
+    "consensus": {
+      "mean": 0.744,
+      "std": 0.14623269128344732,
+      "p50": 0.62,
+      "p95": 0.92
+    },
+    "utility": {
+      "mean": 0.8126333333333334,
+      "std": 0.12220823576538895,
+      "p50": 0.8331,
+      "p95": 0.9518
+    },
+    "utility_components": {
+      "performance_mean": 0.49288333333333334,
+      "cost_efficiency_mean": 0.6832499999999999,
+      "risk_reduction_mean": 0.5183333333333333,
+      "utility_mean": 0.8126333333333334,
+      "utility_std": 0.12220823576538895
+    },
+    "xi": {
+      "mean": 0.8108733333333333,
+      "std": 0.008064941964384413,
+      "readability_mean": 0.64787,
+      "evidence_clarity_mean": 0.9193333333333334,
+      "traceability_mean": 0.92
+    },
+    "rar": {
+      "triggered": 19.0,
+      "accepted": 2.0,
+      "unresolved": 17.0,
+      "trigger_rate": 0.6333333333333333,
+      "acceptance_rate_when_triggered": 0.10526315789473684,
+      "avg_consensus_improvement": 0.10526315789473684
+    },
+    "latency": {
+      "total": {
+        "mean": 0.1648542626450459,
+        "std": 0.04287001919927375,
+        "p50": 0.14641694724559784,
+        "p95": 0.26524998247623444,
+        "p99": 0.2717080060392618
+      },
+      "no_rar": {
+        "mean": 0.14148125509646806,
+        "std": 0.04160315637094556,
+        "p50": 0.1292091328650713,
+        "p95": 0.2717080060392618,
+        "p99": 0.2717080060392618
+      },
+      "with_rar": {
+        "mean": 0.17838600385738046,
+        "std": 0.0374220473145706,
+        "p50": 0.15758303925395012,
+        "p95": 0.26524998247623444,
+        "p99": 0.26524998247623444
+      }
+    }
+  },
+  "aaf_no_consensus": {
+    "accuracy": {
+      "accuracy": 0.8,
+      "n": 30.0,
+      "std": 0.07302967433402215
+    },
+    "action_match": {
+      "action_match_rate": 0.8,
+      "n": 30.0,
+      "std": 0.07302967433402215
+    },
+    "consensus": {
+      "mean": 1.0,
+      "std": 0.0,
+      "p50": 1.0,
+      "p95": 1.0
+    },
+    "utility": {
+      "mean": 0.8126333333333334,
+      "std": 0.12220823576538895,
+      "p50": 0.8331,
+      "p95": 0.9518
+    },
+    "utility_components": {
+      "performance_mean": 0.49288333333333334,
+      "cost_efficiency_mean": 0.6832499999999999,
+      "risk_reduction_mean": 0.5183333333333333,
+      "utility_mean": 0.8126333333333334,
+      "utility_std": 0.12220823576538895
+    },
+    "xi": {
+      "mean": 0.8184,
+      "std": 0.014289296693679487,
+      "readability_mean": 0.66667,
+      "evidence_clarity_mean": 0.9193333333333334,
+      "traceability_mean": 0.92
+    }
+  },
+  "aaf_no_rar": {
+    "accuracy": {
+      "accuracy": 0.8,
+      "n": 30.0,
+      "std": 0.07302967433402215
+    },
+    "action_match": {
+      "action_match_rate": 0.8,
+      "n": 30.0,
+      "std": 0.07302967433402215
+    },
+    "consensus": {
+      "mean": 0.6773333333333333,
+      "std": 0.19184947803479221,
+      "p50": 0.62,
+      "p95": 0.92
+    },
+    "utility": {
+      "mean": 0.8126333333333334,
+      "std": 0.12220823576538895,
+      "p50": 0.8331,
+      "p95": 0.9518
+    },
+    "utility_components": {
+      "performance_mean": 0.49288333333333334,
+      "cost_efficiency_mean": 0.6832499999999999,
+      "risk_reduction_mean": 0.5183333333333333,
+      "utility_mean": 0.8126333333333334,
+      "utility_std": 0.12220823576538895
+    },
+    "xi": {
+      "mean": 0.8184,
+      "std": 0.014289296693679487,
+      "readability_mean": 0.66667,
+      "evidence_clarity_mean": 0.9193333333333334,
+      "traceability_mean": 0.92
+    },
+    "rar": {
+      "triggered": 0.0,
+      "accepted": 0.0,
+      "unresolved": 0.0,
+      "trigger_rate": 0.0,
+      "acceptance_rate_when_triggered": 0.0,
+      "avg_consensus_improvement": 0.0
+    }
+  },
+  "aaf_no_utility": {
+    "accuracy": {
+      "accuracy": 0.8,
+      "n": 30.0,
+      "std": 0.07302967433402215
+    },
+    "action_match": {
+      "action_match_rate": 0.0,
+      "n": 30.0,
+      "std": 0.0
+    },
+    "consensus": {
+      "mean": 0.744,
+      "std": 0.14623269128344732,
+      "p50": 0.62,
+      "p95": 0.92
+    },
+    "utility": {
+      "mean": 0.0,
+      "std": 0.0,
+      "p50": 0.0,
+      "p95": 0.0
+    },
+    "utility_components": {
+      "performance_mean": 0.0,
+      "cost_efficiency_mean": 0.0,
+      "risk_reduction_mean": 0.0,
+      "utility_mean": 0.0,
+      "utility_std": 0.0
+    },
+    "xi": {
+      "mean": 0.8143566666666667,
+      "std": 0.012979411474416766,
+      "readability_mean": 0.65656,
+      "evidence_clarity_mean": 0.9193333333333334,
+      "traceability_mean": 0.92
+    }
+  }
+}
