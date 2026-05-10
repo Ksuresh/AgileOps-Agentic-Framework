@@ -1,109 +1,90 @@
-"""Deterministic explanation generator (evidence-grounded).
-
-This module is a *drop-in* replacement for an actual LLM call during
-development/review.
-
-Why include it?
-- Reviewers may ask to reproduce tables quickly.
-- The repo should produce consistent outputs without external APIs.
-
-If you later run a real open-weight model (e.g., Mistral 7B via llama.cpp),
-swap this function with your inference wrapper while keeping the same prompt
-schema from Appendix A.
-"""
-
 from __future__ import annotations
 
-from typing import Dict, Any, List
+from typing import Any, Dict, List
 
 
-SYSTEM_PROMPT = (
-    "You are an operational governance assistant for Agile--DevOps environments. "
-    "Use ONLY the structured evidence provided. Do NOT speculate or introduce new facts. "
-    "Generate a structured explanation with five sections: What happened; Why; Impact; "
-    "Recommended action; Confidence. Use plain language suitable for a project manager."
-)
+NEGATIVE_MARKERS = [
+    "no material",
+    "no anomaly",
+    "no issue",
+    "within expected",
+]
+
+
+def _is_negative_claim(claim: str) -> bool:
+    c = (claim or "").lower()
+    return any(m in c for m in NEGATIVE_MARKERS)
+
+
+def _select_primary_agent(agents: List[Dict[str, Any]]) -> Dict[str, Any]:
+    active = []
+    for agent in agents:
+        claim = str(agent.get("claim", ""))
+        if not _is_negative_claim(claim):
+            active.append(agent)
+
+    candidates = active if active else agents
+    return max(candidates, key=lambda a: float(a.get("confidence", 0.0) or 0.0))
 
 
 def generate_explanation(payload: Dict[str, Any]) -> str:
-    """Produce a deterministic, evidence-only explanation."""
-    agents: List[Dict[str, Any]] = payload.get("agents", [])
-    cons = payload.get("consensus_score")
-    action = payload.get("recommended_action")
+    incident_id = payload.get("incident_id", "unknown")
+    agents: List[Dict[str, Any]] = payload.get("agents", []) or []
+    consensus = float(payload.get("consensus_score", 0.0) or 0.0)
+    rar_triggered = bool(payload.get("rar_triggered", False))
+    action = payload.get("recommended_action", "No action available")
+    utility = float(payload.get("utility_score", 0.0) or 0.0)
 
-    # Evidence is intentionally terse. The goal is to be stable, grounded, and readable.
-    devops = _agent(agents, "DevOps")
-    sre = _agent(agents, "SRE")
-    fin = _agent(agents, "FinOps")
-    sec = _agent(agents, "DevSecOps")
+    primary = _select_primary_agent(agents)
+    primary_agent = primary.get("agent_type", "Unknown Agent")
+    primary_claim = primary.get("claim", "No claim available")
 
-    happened = _first_non_empty([
-        devops.get("claim"),
-        sre.get("claim"),
-        fin.get("claim"),
-        sec.get("claim"),
-    ])
+    confidence_label = "High" if consensus >= 0.75 else "Medium" if consensus >= 0.55 else "Low"
 
-    why = _join_non_empty([
-        _reason_line("DevOps", devops),
-        _reason_line("SRE", sre),
-        _reason_line("FinOps", fin),
-        _reason_line("DevSecOps", sec),
-    ])
+    lines = []
 
-    impact = _join_non_empty([
-        _impact_line("Performance", sre),
-        _impact_line("Cost", fin),
-        _impact_line("Security/Compliance", sec),
-        _impact_line("Deployment", devops),
-    ])
+    lines.append("1. What Happened:")
+    lines.append(f"{primary_agent}: {primary_claim}")
+    lines.append("")
 
-    conf_label = "High" if (cons is not None and cons >= 0.75) else "Medium" if (cons is not None and cons >= 0.55) else "Low"
+    lines.append("2. Why It Happened:")
+    for agent in agents:
+        agent_type = agent.get("agent_type", "Unknown Agent")
+        claim = agent.get("claim", "No claim provided")
+        confidence = float(agent.get("confidence", 0.0) or 0.0)
+        evidence = agent.get("evidence", []) or []
 
-    return (
-        "1. What Happened:\n"
-        f"{happened or 'An operational anomaly was detected based on the provided evidence.'}\n\n"
-        "2. Why It Happened:\n"
-        f"{why or 'Agents reported limited or non-overlapping evidence.'}\n\n"
-        "3. Impact Across Domains:\n"
-        f"{impact or 'Impact signals were limited in the available evidence.'}\n\n"
-        "4. Recommended Action:\n"
-        f"{action or 'Defer and request additional evidence.'}\n\n"
-        "5. Confidence Level:\n"
-        f"{conf_label} confidence (consensus score: {cons:.2f})." if cons is not None else f"{conf_label} confidence."
+        lines.append(f"{agent_type}: {claim}. Confidence={confidence:.2f}.")
+        for ev in evidence[:3]:
+            lines.append(f"{agent_type} evidence: {ev}.")
+    lines.append("")
+
+    lines.append("3. Impact Across Domains:")
+    for agent in agents:
+        agent_type = agent.get("agent_type", "Unknown Agent")
+        evidence = agent.get("evidence", []) or []
+        if evidence:
+            lines.append(f"{agent_type} impact evidence: {evidence[0]}.")
+    lines.append("")
+
+    lines.append("4. Recommended Action:")
+    lines.append(
+        f"{action}. This recommendation was selected using the utility model "
+        f"with utility score {utility:.2f}."
+    )
+    lines.append("")
+
+    lines.append("5. Confidence Level:")
+    lines.append(
+        f"{confidence_label} confidence. Consensus score={consensus:.2f}. "
+        f"Re-grounding was {'triggered' if rar_triggered else 'not triggered'}."
+    )
+    lines.append("")
+
+    lines.append("6. Project Manager Interpretation:")
+    lines.append(
+        "Review the listed evidence, confirm delivery impact with the owning team, "
+        "and proceed with the recommended governance action if it aligns with release priorities."
     )
 
-
-def _agent(agents: List[Dict[str, Any]], typ: str) -> Dict[str, Any]:
-    for a in agents:
-        if a.get("agent_type") == typ:
-            return a
-    return {}
-
-
-def _first_non_empty(xs: List[str | None]) -> str:
-    for x in xs:
-        if x and x.strip():
-            return x.strip()
-    return ""
-
-
-def _join_non_empty(lines: List[str]) -> str:
-    lines = [l.strip() for l in lines if l and l.strip()]
-    return " ".join(lines)
-
-
-def _reason_line(label: str, agent: Dict[str, Any]) -> str:
-    claim = (agent.get("claim") or "").strip()
-    ev = agent.get("evidence") or []
-    ev_snip = f" Evidence: {ev[0]}." if ev else ""
-    if not claim:
-        return ""
-    return f"{label}: {claim}.{ev_snip}"
-
-
-def _impact_line(label: str, agent: Dict[str, Any]) -> str:
-    ev = agent.get("evidence") or []
-    if not ev:
-        return ""
-    return f"{label}: {ev[0]}."
+    return "\n".join(lines)
