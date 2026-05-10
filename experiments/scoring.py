@@ -5,6 +5,24 @@ from __future__ import annotations
 from typing import Dict, Any, List
 import math
 
+def compute_utility_component_stats(rows: List[Dict[str, Any]]) -> Dict[str, float]:
+    perf = [float(r.get("utility", {}).get("performance_score", 0.0)) for r in rows]
+    cost = [float(r.get("utility", {}).get("cost_efficiency_score", 0.0)) for r in rows]
+    risk = [float(r.get("utility", {}).get("risk_reduction_score", 0.0)) for r in rows]
+    util = [float(r.get("utility", {}).get("best_utility", 0.0)) for r in rows]
+
+    perf_stats = _stats(perf)
+    cost_stats = _stats(cost)
+    risk_stats = _stats(risk)
+    util_stats = _stats(util)
+
+    return {
+        "performance_mean": perf_stats["mean"],
+        "cost_efficiency_mean": cost_stats["mean"],
+        "risk_reduction_mean": risk_stats["mean"],
+        "utility_mean": util_stats["mean"],
+        "utility_std": util_stats["std"],
+    }
 
 def score_primary_domain_accuracy(rows: List[Dict[str, Any]]) -> Dict[str, float]:
     correct = 0
