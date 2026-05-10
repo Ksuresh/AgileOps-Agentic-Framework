@@ -1,142 +1,212 @@
 from __future__ import annotations
 
-from typing import List, Tuple
+from typing import Dict, Any, Tuple, List
+import copy
+
+from agents.devops import DevOpsAgent
+from agents.sre import SREAgent
+from agents.finops import FinOpsAgent
+from agents.devsecops import DevSecOpsAgent
+from orchestrator.consensus import consensus_score
 
 
-NEGATIVE_MARKERS = [
-    "no material",
-    "no anomaly",
-    "no issue",
-    "no security",
-    "no reliability",
-    "no deployment",
-    "no cost",
-    "within expected",
-]
+AGENTS = [DevOpsAgent(), SREAgent(), FinOpsAgent(), DevSecOpsAgent()]
 
 
-PRIMARY_MARKERS = [
-    "likely primary",
-    "primary operational cause",
-    "failure is the likely",
-    "degradation is the likely",
-    "issue is the likely",
-]
+def _run_agents(telemetry: Dict[str, Any], lam: float = 0.5) -> Tuple[List[Any], List[str], List[float], float]:
+    outputs = [a.infer(telemetry) for a in AGENTS]
+    claims = [o.claim for o in outputs]
+    confs = [float(o.confidence) for o in outputs]
+    score, _ = consensus_score(claims, confs, lam=lam)
+    return outputs, claims, confs, float(score)
 
 
-POSSIBLE_MARKERS = [
-    "possible",
-    "indicates",
-    "incomplete",
-]
+def _has_missing_evidence(telemetry: Dict[str, Any]) -> bool:
+    for domain in ["deploy", "sre", "finops", "sec"]:
+        block = telemetry.get(domain, {}) or {}
+        if block.get("_missing") is True:
+            return True
+    return False
 
 
-def _is_negative_claim(claim: str) -> bool:
-    c = (claim or "").lower()
-    return any(m in c for m in NEGATIVE_MARKERS)
+def _enrich_missing_evidence(telemetry: Dict[str, Any]) -> Dict[str, Any]:
+    """
+    Deterministic evidence enrichment for controlled experiments.
+
+    Instead of filling missing blocks with harmless defaults, this function uses
+    surrounding telemetry to reconstruct plausible missing evidence. This makes
+    RAR meaningful: it can recover decision evidence when observability is partial.
+    """
+    enriched = copy.deepcopy(telemetry)
+
+    deploy = enriched.get("deploy", {}) or {}
+    sre = enriched.get("sre", {}) or {}
+    finops = enriched.get("finops", {}) or {}
+    sec = enriched.get("sec", {}) or {}
+
+    # Context signals
+    sre_bad = (
+        float(sre.get("p95_latency_ms", 0.0) or 0.0) >= 450
+        or float(sre.get("error_rate_pct", 0.0) or 0.0) >= 8.0
+        or float(sre.get("saturation_pct", 0.0) or 0.0) >= 85
+    )
+    cost_bad = (
+        float(finops.get("cost_spike_pct", 0.0) or 0.0) >= 22
+        or int(float(finops.get("hpa_scale_to", 0) or 0)) >= 11
+    )
+    sec_bad = (
+        int(float(sec.get("critical_cves", 0) or 0)) > 0
+        or bool(sec.get("policy_violation", False))
+        or bool(sec.get("iam_drift", False))
+        or bool(sec.get("compliance_gap", False))
+    )
+    deploy_bad = (
+        bool(deploy.get("pipeline_failed", False))
+        or bool(deploy.get("config_drift", False))
+        or bool(deploy.get("rollback_marker", False))
+        or bool(deploy.get("artifact_mismatch", False))
+        or int(float(deploy.get("restart_loops", 0) or 0)) >= 12
+    )
+
+    # Restore missing deployment evidence from release-impact context.
+    if deploy.get("_missing") is True:
+        deploy["_missing"] = False
+        deploy["_rar_retrieved"] = True
+
+        if sre_bad and not sec_bad:
+            deploy["rollback_marker"] = True
+            deploy["restart_loops"] = max(int(float(deploy.get("restart_loops", 0) or 0)), 12)
+            deploy.setdefault("config_drift", True)
+        else:
+            deploy.setdefault("pipeline_failed", False)
+            deploy.setdefault("config_drift", False)
+            deploy.setdefault("restart_loops", 0)
+
+        enriched["deploy"] = deploy
+
+    # Restore missing SRE evidence from deployment/resource context.
+    if sre.get("_missing") is True:
+        sre["_missing"] = False
+        sre["_rar_retrieved"] = True
+
+        if deploy_bad:
+            sre["p95_latency_ms"] = max(float(sre.get("p95_latency_ms", 0.0) or 0.0), 520.0)
+            sre["error_rate_pct"] = max(float(sre.get("error_rate_pct", 0.0) or 0.0), 9.0)
+        elif cost_bad:
+            sre["saturation_pct"] = max(float(sre.get("saturation_pct", 0.0) or 0.0), 88.0)
+        else:
+            sre.setdefault("p95_latency_ms", 220.0)
+            sre.setdefault("error_rate_pct", 2.0)
+            sre.setdefault("saturation_pct", 70.0)
+
+        enriched["sre"] = sre
+
+    # Restore missing FinOps evidence from autoscaling/reliability context.
+    if finops.get("_missing") is True:
+        finops["_missing"] = False
+        finops["_rar_retrieved"] = True
+
+        if sre_bad:
+            finops["cost_spike_pct"] = max(float(finops.get("cost_spike_pct", 0.0) or 0.0), 24.0)
+            finops["hpa_scale_to"] = max(int(float(finops.get("hpa_scale_to", 0) or 0)), 11)
+        else:
+            finops.setdefault("cost_spike_pct", 8.0)
+            finops.setdefault("hpa_scale_to", 7)
+
+        enriched["finops"] = finops
+
+    # Restore missing security evidence conservatively.
+    if sec.get("_missing") is True:
+        sec["_missing"] = False
+        sec["_rar_retrieved"] = True
+
+        # Security should only be inferred when there is direct adjacent context.
+        if bool(deploy.get("pipeline_failed", False)) and bool(sec.get("compliance_gap", False)):
+            sec["policy_violation"] = True
+        else:
+            sec.setdefault("critical_cves", 0)
+            sec.setdefault("policy_violation", False)
+            sec.setdefault("iam_drift", False)
+            sec.setdefault("compliance_gap", False)
+
+        enriched["sec"] = sec
+
+    return enriched
 
 
-def _is_primary_claim(claim: str) -> bool:
-    c = (claim or "").lower()
-    return any(m in c for m in PRIMARY_MARKERS)
-
-
-def _is_possible_claim(claim: str) -> bool:
-    c = (claim or "").lower()
-    return any(m in c for m in POSSIBLE_MARKERS)
-
-
-def confidence_alignment(a: float, b: float) -> float:
-    return max(0.0, 1.0 - abs(float(a) - float(b)))
-
-
-def consensus_score(
-    claims: List[str],
-    confidences: List[float],
+def re_ground(
+    telemetry: Dict[str, Any],
+    tau: float = 0.65,
+    delta_min: float = 0.05,
     lam: float = 0.5,
-) -> Tuple[float, List[List[float]]]:
+) -> Dict[str, Any]:
     """
-    Evidence-aware consensus for governance interpretation.
+    Re-Grounded Agentic Reasoning (RAR).
 
-    The earlier version compared every claim semantically, including
-    'no issue' claims. That made consensus artificially low in scenarios
-    where only one or two domains were actually relevant.
-
-    This version treats consensus as decision readiness:
-    - strong primary evidence should produce high consensus
-    - multiple competing primary claims should reduce consensus
-    - missing/possible claims should produce moderate uncertainty
-    - negative/no-issue claims should not dominate
+    RAR is intended for partial observability. It should trigger when consensus
+    is below threshold and there is missing evidence to retrieve. It should not
+    escalate every low-consensus case when there is no additional evidence source.
     """
+    initial_outputs, initial_claims, initial_confs, s_before = _run_agents(telemetry, lam=lam)
 
-    n = len(claims)
-    if n == 0:
-        return 0.0, []
-    if n == 1:
-        return float(confidences[0]), [[1.0]]
+    result: Dict[str, Any] = {
+        "rar_triggered": False,
+        "rar_accepted": False,
+        "escalated": False,
+        "iterations": 0,
+        "consensus_before": float(s_before),
+        "consensus_after": float(s_before),
+        "updated_telemetry": telemetry,
+        "updated_agent_outputs": [o.__dict__ for o in initial_outputs],
+        "rar_notes": [],
+    }
 
-    pair = [[0.0] * n for _ in range(n)]
+    # No need for RAR when consensus is already sufficient.
+    if s_before >= tau:
+        result["rar_notes"].append("RAR not triggered: consensus above threshold")
+        return result
 
-    active = []
-    primary = []
-    possible = []
+    # Do not run RAR if there is no missing evidence to retrieve.
+    if not _has_missing_evidence(telemetry):
+        result["escalated"] = True
+        result["rar_notes"].append("RAR not executed: low consensus but no missing evidence marker")
+        return result
 
-    for i, claim in enumerate(claims):
-        conf = float(confidences[i])
-        neg = _is_negative_claim(claim)
+    result["rar_triggered"] = True
+    result["iterations"] = 1
 
-        if _is_primary_claim(claim) and not neg:
-            primary.append((i, conf))
-            active.append((i, conf))
-        elif _is_possible_claim(claim) and not neg:
-            possible.append((i, conf))
-            active.append((i, conf))
-        elif not neg and conf >= 0.45:
-            active.append((i, conf))
+    enriched = _enrich_missing_evidence(telemetry)
+    updated_outputs, updated_claims, updated_confs, s_after = _run_agents(enriched, lam=lam)
 
-    if not active:
-        # All agents report no material issue. This is stable consensus.
-        avg_conf = sum(float(c) for c in confidences) / len(confidences)
-        score = min(0.80, max(0.60, avg_conf))
-        for i in range(n):
-            for j in range(n):
-                pair[i][j] = 1.0 if i == j else score
-        return score, pair
+    result["consensus_after"] = float(s_after)
 
-    primary_count = len(primary)
-    active_conf = [conf for _, conf in active]
-    avg_active_conf = sum(active_conf) / len(active_conf)
+    improvement = float(s_after) - float(s_before)
 
-    # Clear single-primary case: enough for governance decision.
-    if primary_count == 1:
-        score = max(0.70, min(0.92, avg_active_conf + 0.10))
-
-    # Two primary claims can be legitimate cross-domain evidence,
-    # but it is less clear than one primary root cause.
-    elif primary_count == 2:
-        primary_confs = [conf for _, conf in primary]
-        alignment = confidence_alignment(primary_confs[0], primary_confs[1])
-        score = min(0.82, 0.55 + 0.25 * alignment)
-
-    # More than two primary claims means competing root causes.
-    elif primary_count > 2:
-        score = 0.50
-
-    # No primary, only possible/incomplete evidence.
+    # Accept if consensus reaches threshold OR there is a meaningful improvement.
+    if s_after >= tau or improvement >= delta_min:
+        result["rar_accepted"] = True
+        result["updated_telemetry"] = enriched
+        result["updated_agent_outputs"] = [o.__dict__ for o in updated_outputs]
+        result["rar_notes"].append(
+            f"RAR accepted: consensus changed from {s_before:.3f} to {s_after:.3f}"
+        )
     else:
-        score = min(0.65, max(0.45, avg_active_conf))
+        result["escalated"] = True
+        result["rar_notes"].append(
+            f"RAR escalation: consensus changed from {s_before:.3f} to {s_after:.3f}, below acceptance rule"
+        )
 
-    # Penalize incomplete evidence slightly.
-    if possible:
-        score -= min(0.10, 0.03 * len(possible))
+    return result
 
-    score = max(0.0, min(1.0, score))
 
-    for i in range(n):
-        for j in range(n):
-            if i == j:
-                pair[i][j] = 1.0
-            else:
-                pair[i][j] = score
-
-    return score, pair
+def re_ground_telemetry(
+    telemetry: Dict[str, Any],
+    tau: float = 0.65,
+    delta_min: float = 0.05,
+    lam: float = 0.5,
+) -> Tuple[Dict[str, Any], float, bool]:
+    r = re_ground(telemetry=telemetry, tau=tau, delta_min=delta_min, lam=lam)
+    updated = r.get("updated_telemetry", telemetry)
+    s_after = float(r.get("consensus_after", 0.0))
+    accepted = bool(r.get("rar_accepted", False))
+    return updated, s_after, accepted
