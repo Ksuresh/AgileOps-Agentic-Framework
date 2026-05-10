@@ -10,7 +10,7 @@ from agents.finops import FinOpsAgent
 from agents.devsecops import DevSecOpsAgent
 from orchestrator.consensus import consensus_score
 from orchestrator.rar import re_ground_telemetry
-from orchestrator.utility import choose_action
+from orchestrator.utility import choose_action, choose_action_details
 from llm.deterministic_explainer import generate_explanation
 from metrics.explainability import compute_xi
 
@@ -194,11 +194,21 @@ def run_pipeline(scenario: Dict[str, Any], mode: Mode = "aaf_full") -> PipelineR
     # Utility
     t_ut = time.perf_counter()
     if mode == "aaf_no_utility":
-        action, util = ("defer", 0.0)
-        candidates = []
-    else:
-        action, util = choose_action(t_cur, w)
-        candidates = []
+    action = "defer"
+    util = 0.0
+    utility_details = {
+        "selected_action": action,
+        "best_utility": util,
+        "performance_score": 0.0,
+        "cost_efficiency_score": 0.0,
+        "risk_reduction_score": 0.0,
+        "candidates": [],
+    }
+else:
+    utility_details = choose_action_details(t_cur, w)
+    action = utility_details["selected_action"]
+    util = float(utility_details["best_utility"])
+
     timings["UTL"] = (time.perf_counter() - t_ut) * 1000.0
 
     # Explanation
@@ -239,7 +249,7 @@ def run_pipeline(scenario: Dict[str, Any], mode: Mode = "aaf_full") -> PipelineR
         agents=[o.__dict__ for o in outputs],
         consensus_score=float(s),
         rar=rar_info,
-        utility={"selected_action": action, "best_utility": float(util), "candidates": candidates},
+        utility=utility_details,
         explanation=explanation,
         explainability=explainability,
         timings=timings,
