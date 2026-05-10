@@ -1,0 +1,27 @@
+{
+  "n": 50,
+  "domain_match_rate": 0.94,
+  "domain_match_n": 50,
+  "action_match_rate": 0.66,
+  "action_match_n": 50,
+  "consensus_mean": 0.6978,
+  "utility_mean": 0.7875280000000001,
+  "performance_mean": 0.42049,
+  "cost_efficiency_mean": 0.7142499999999999,
+  "risk_reduction_mean": 0.5595,
+  "xi_mean": 0.8192820000000001,
+  "rar_triggered": 33,
+  "rar_accepted": 17,
+  "rar_trigger_rate": 0.66,
+  "rar_acceptance_rate_when_triggered": 0.5151515151515151,
+  "thresholds": {
+    "tau_consensus": 0.65,
+    "delta_min": 0.05,
+    "max_rar_loops": 2
+  },
+  "utility_weights": [
+    0.4,
+    0.3,
+    0.3
+  ]
+}
