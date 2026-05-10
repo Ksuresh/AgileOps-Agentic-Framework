@@ -17,6 +17,7 @@ from experiments.scoring import (
     compute_latency_stats,
     compute_rar_stats,
     compute_utility_stats,
+    compute_utility_component_stats,
     compute_xi_stats,
     compute_consensus_stats,
 )
@@ -31,8 +32,31 @@ def _ensure_dir(path: str) -> None:
 
 def _dump_jsonl(path: str, rows: List[Dict[str, Any]]) -> None:
     with open(path, "w", encoding="utf-8") as f:
-        for r in rows:
-            f.write(json.dumps(r, ensure_ascii=False) + "\n")
+        for row in rows:
+            f.write(json.dumps(row, ensure_ascii=False) + "\n")
+
+
+def _summarize_baseline(rows: List[Dict[str, Any]]) -> Dict[str, Any]:
+    return {
+        "accuracy": score_primary_domain_accuracy(rows),
+        "action_match": score_action_match(rows),
+    }
+
+
+def _summarize_aaf(rows: List[Dict[str, Any]], include_rar: bool = False) -> Dict[str, Any]:
+    summary: Dict[str, Any] = {
+        "accuracy": score_primary_domain_accuracy(rows),
+        "action_match": score_action_match(rows),
+        "consensus": compute_consensus_stats(rows),
+        "utility": compute_utility_stats(rows),
+        "utility_components": compute_utility_component_stats(rows),
+        "xi": compute_xi_stats(rows),
+    }
+
+    if include_rar:
+        summary["rar"] = compute_rar_stats(rows)
+
+    return summary
 
 
 def main() -> None:
@@ -80,45 +104,15 @@ def main() -> None:
 
     # Aggregate metrics
     summary = {
-        "traditional": {
-            "accuracy": score_primary_domain_accuracy(trad_rows),
-            "action_match": score_action_match(trad_rows),
-        },
-        "single_agent_llm": {
-            "accuracy": score_primary_domain_accuracy(llm_rows),
-            "action_match": score_action_match(llm_rows),
-        },
+        "traditional": _summarize_baseline(trad_rows),
+        "single_agent_llm": _summarize_baseline(llm_rows),
         "aaf_full": {
-            "accuracy": score_primary_domain_accuracy(aaf_rows),
-            "action_match": score_action_match(aaf_rows),
-            "rar": compute_rar_stats(aaf_rows),
+            **_summarize_aaf(aaf_rows, include_rar=True),
             "latency": compute_latency_stats(aaf_rows),
-            "consensus": compute_consensus_stats(aaf_rows),
-            "utility": compute_utility_stats(aaf_rows),
-            "xi": compute_xi_stats(aaf_rows),
         },
-        "aaf_no_consensus": {
-            "accuracy": score_primary_domain_accuracy(aaf_no_consensus),
-            "action_match": score_action_match(aaf_no_consensus),
-            "consensus": compute_consensus_stats(aaf_no_consensus),
-            "utility": compute_utility_stats(aaf_no_consensus),
-            "xi": compute_xi_stats(aaf_no_consensus),
-        },
-        "aaf_no_rar": {
-            "accuracy": score_primary_domain_accuracy(aaf_no_rar),
-            "action_match": score_action_match(aaf_no_rar),
-            "rar": compute_rar_stats(aaf_no_rar),
-            "consensus": compute_consensus_stats(aaf_no_rar),
-            "utility": compute_utility_stats(aaf_no_rar),
-            "xi": compute_xi_stats(aaf_no_rar),
-        },
-        "aaf_no_utility": {
-            "accuracy": score_primary_domain_accuracy(aaf_no_utility),
-            "action_match": score_action_match(aaf_no_utility),
-            "consensus": compute_consensus_stats(aaf_no_utility),
-            "utility": compute_utility_stats(aaf_no_utility),
-            "xi": compute_xi_stats(aaf_no_utility),
-        },
+        "aaf_no_consensus": _summarize_aaf(aaf_no_consensus),
+        "aaf_no_rar": _summarize_aaf(aaf_no_rar, include_rar=True),
+        "aaf_no_utility": _summarize_aaf(aaf_no_utility),
     }
 
     with open(os.path.join(args.out, "summary.json"), "w", encoding="utf-8") as f:
