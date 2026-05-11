@@ -1,7 +1,9 @@
 from __future__ import annotations
 
+import argparse
 import csv
 import json
+import math
 from pathlib import Path
 from typing import Any, Dict, List
 
@@ -11,7 +13,7 @@ from pipeline import run_pipeline
 
 
 PROMPT_LIBRARY_PATH = Path("prompts/pm_prompt_library.yaml")
-OUT_DIR = Path("results_pm_prompts")
+DEFAULT_OUT_DIR = Path("results_pm_prompts")
 
 DEFAULT_THRESHOLDS = {
     "tau_consensus": 0.65,
@@ -92,9 +94,8 @@ def _prompt_to_basic_telemetry(prompt: str) -> Dict[str, Any]:
     """
     Fallback deterministic prompt-to-telemetry mapper.
 
-    If the repository's richer prompt routing modules are unavailable or their
-    interface changes, this fallback still creates a reproducible PM prompt
-    experiment. It intentionally maps only explicit prompt symptoms.
+    If richer prompt routing modules are unavailable or their interface changes,
+    this fallback still creates a reproducible PM prompt experiment.
     """
     p = prompt.lower()
 
@@ -126,7 +127,7 @@ def _prompt_to_basic_telemetry(prompt: str) -> Dict[str, Any]:
         },
     }
 
-    # DevOps / release signals
+    # DevOps / release signals.
     if any(k in p for k in ["deployment", "release", "rollback", "pipeline", "build", "artifact"]):
         telemetry["deploy"]["pipeline_failed"] = "pipeline" in p or "build" in p
         telemetry["deploy"]["rollback_marker"] = "rollback" in p or "release" in p
@@ -136,7 +137,7 @@ def _prompt_to_basic_telemetry(prompt: str) -> Dict[str, Any]:
     if any(k in p for k in ["config", "configuration", "drift"]):
         telemetry["deploy"]["config_drift"] = True
 
-    # Reliability signals
+    # Reliability signals.
     if any(k in p for k in ["latency", "slow", "timeout", "performance"]):
         telemetry["sre"]["p95_latency_ms"] = 650.0
         telemetry["sre"]["availability_pct"] = 98.4
@@ -149,7 +150,7 @@ def _prompt_to_basic_telemetry(prompt: str) -> Dict[str, Any]:
         telemetry["sre"]["saturation_pct"] = 90.0
         telemetry["sre"]["p95_latency_ms"] = max(telemetry["sre"]["p95_latency_ms"], 520.0)
 
-    # FinOps signals
+    # FinOps signals.
     if any(k in p for k in ["cost", "spend", "budget", "finops", "cloud bill"]):
         telemetry["finops"]["cost_spike_pct"] = 32.0
         telemetry["finops"]["hpa_scale_to"] = 12
@@ -163,7 +164,7 @@ def _prompt_to_basic_telemetry(prompt: str) -> Dict[str, Any]:
         telemetry["finops"]["memory_request_increase_pct"] = 45.0
         telemetry["finops"]["cost_spike_pct"] = max(telemetry["finops"]["cost_spike_pct"], 28.0)
 
-    # Security / compliance signals
+    # Security / compliance signals.
     if any(k in p for k in ["security", "vulnerability", "cve", "critical cve"]):
         telemetry["sec"]["critical_cves"] = 2
 
@@ -191,10 +192,10 @@ def _build_scenario_from_prompt(item: Dict[str, Any], idx: int) -> Dict[str, Any
     # Prefer existing project modules if available.
     try:
         from pm_interface.prompt_router import route_prompt
-        from simulation.prompt_to_telemetry import prompt_to_telemetry
+        from simulation.prompt_to_telemetry import build_telemetry_from_prompt_context
 
         routed = route_prompt(prompt)
-        telemetry = prompt_to_telemetry(routed)
+        telemetry = build_telemetry_from_prompt_context(routed)
     except Exception:
         telemetry = _prompt_to_basic_telemetry(prompt)
 
@@ -270,6 +271,97 @@ def _mean(values: List[float | bool]) -> float:
     return float(sum(float(v) for v in values) / len(values))
 
 
+def _binary_ci(successes: int, n: int) -> Dict[str, float]:
+    if n == 0:
+        return {
+            "rate": 0.0,
+            "n": 0.0,
+            "successes": 0.0,
+            "se": 0.0,
+            "ci95_low": 0.0,
+            "ci95_high": 0.0,
+        }
+
+    p = successes / n
+    se = math.sqrt((p * (1 - p)) / n)
+    return {
+        "rate": p,
+        "n": float(n),
+        "successes": float(successes),
+        "se": se,
+        "ci95_low": max(0.0, p - 1.96 * se),
+        "ci95_high": min(1.0, p + 1.96 * se),
+    }
+
+
+def _summarize_category(rows: List[Dict[str, Any]]) -> Dict[str, Any]:
+    by_category: Dict[str, List[Dict[str, Any]]] = {}
+
+    for row in rows:
+        category = str(row.get("category") or row.get("scenario_type") or "unknown")
+        by_category.setdefault(category, []).append(row)
+
+    summary: Dict[str, Any] = {}
+
+    for category, category_rows in sorted(by_category.items()):
+        domain_values = []
+        action_values = []
+
+        for row in category_rows:
+            gt = row.get("ground_truth") or {}
+            utility = row.get("utility") or {}
+
+            expected_domains = gt.get("expected_domains") or gt.get("primary_domain")
+            expected_action = gt.get("expected_action")
+            selected_action = utility.get("selected_action")
+
+            if expected_domains:
+                domain_values.append(_domain_match(expected_domains, row.get("predicted_primary_domain")))
+            if expected_action:
+                action_values.append(_action_match(expected_action, selected_action))
+
+        summary[category] = {
+            "n": len(category_rows),
+            "domain_match_rate": _mean(domain_values),
+            "action_match_rate": _mean(action_values),
+        }
+
+    return summary
+
+
+def _collect_mismatches(rows: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+    mismatches: List[Dict[str, Any]] = []
+
+    for row in rows:
+        gt = row.get("ground_truth") or {}
+        utility = row.get("utility") or {}
+
+        expected_domains = gt.get("expected_domains") or gt.get("primary_domain")
+        predicted_domain = row.get("predicted_primary_domain")
+        expected_action = gt.get("expected_action")
+        selected_action = utility.get("selected_action")
+
+        domain_match = _domain_match(expected_domains, predicted_domain)
+        action_match = _action_match(expected_action, selected_action)
+
+        if not domain_match or not action_match:
+            mismatches.append(
+                {
+                    "scenario_id": row.get("scenario_id"),
+                    "category": row.get("category"),
+                    "expected_domains": expected_domains,
+                    "predicted_domain": predicted_domain,
+                    "expected_action": expected_action,
+                    "selected_action": selected_action,
+                    "domain_match": domain_match,
+                    "action_match": action_match,
+                    "prompt": row.get("prompt", ""),
+                }
+            )
+
+    return mismatches
+
+
 def _summarize(rows: List[Dict[str, Any]]) -> Dict[str, Any]:
     n = len(rows)
 
@@ -305,12 +397,17 @@ def _summarize(rows: List[Dict[str, Any]]) -> Dict[str, Any]:
     rar_triggered = sum(1 for r in rows if (r.get("rar") or {}).get("triggered"))
     rar_accepted = sum(1 for r in rows if (r.get("rar") or {}).get("accepted"))
 
+    domain_success = sum(1 for value in domain_matches if value)
+    action_success = sum(1 for value in action_matches if value)
+
     return {
         "n": n,
         "domain_match_rate": _mean(domain_matches),
         "domain_match_n": len(domain_matches),
+        "domain_match_ci": _binary_ci(domain_success, len(domain_matches)),
         "action_match_rate": _mean(action_matches),
         "action_match_n": len(action_matches),
+        "action_match_ci": _binary_ci(action_success, len(action_matches)),
         "consensus_mean": _mean(consensus_values),
         "utility_mean": _mean(utility_values),
         "performance_mean": _mean(performance_values),
@@ -319,10 +416,17 @@ def _summarize(rows: List[Dict[str, Any]]) -> Dict[str, Any]:
         "xi_mean": _mean(xi_values),
         "rar_triggered": rar_triggered,
         "rar_accepted": rar_accepted,
+        "rar_unresolved": rar_triggered - rar_accepted,
         "rar_trigger_rate": float(rar_triggered / n) if n else 0.0,
         "rar_acceptance_rate_when_triggered": float(rar_accepted / rar_triggered) if rar_triggered else 0.0,
+        "category_breakdown": _summarize_category(rows),
+        "mismatch_count": len(_collect_mismatches(rows)),
         "thresholds": DEFAULT_THRESHOLDS,
         "utility_weights": list(DEFAULT_UTILITY_WEIGHTS),
+        "note": (
+            "Confidence intervals are descriptive uncertainty estimates for the curated "
+            "PM prompt evaluation set."
+        ),
     }
 
 
@@ -393,10 +497,25 @@ def _write_csv(path: Path, rows: List[Dict[str, Any]]) -> None:
             )
 
 
-def main() -> None:
-    OUT_DIR.mkdir(parents=True, exist_ok=True)
+def _write_mismatch_report(path: Path, mismatches: List[Dict[str, Any]]) -> None:
+    with open(path, "w", encoding="utf-8") as f:
+        json.dump(mismatches, f, indent=2)
 
-    prompt_items = _load_prompt_library()
+
+def main() -> None:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--prompts", default=str(PROMPT_LIBRARY_PATH), help="Prompt library YAML")
+    parser.add_argument("--out", default=str(DEFAULT_OUT_DIR), help="Output directory")
+    parser.add_argument("--limit", type=int, default=None, help="Optional prompt limit")
+    args = parser.parse_args()
+
+    out_dir = Path(args.out)
+    out_dir.mkdir(parents=True, exist_ok=True)
+
+    prompt_items = _load_prompt_library(Path(args.prompts))
+    if args.limit is not None:
+        prompt_items = prompt_items[: args.limit]
+
     rows: List[Dict[str, Any]] = []
 
     for idx, item in enumerate(prompt_items, start=1):
@@ -410,14 +529,16 @@ def main() -> None:
         rows.append(row)
 
     summary = _summarize(rows)
+    mismatches = _collect_mismatches(rows)
 
-    _write_jsonl(OUT_DIR / "pm_prompt_outputs.jsonl", rows)
-    _write_csv(OUT_DIR / "pm_prompt_metrics.csv", rows)
+    _write_jsonl(out_dir / "pm_prompt_outputs.jsonl", rows)
+    _write_csv(out_dir / "pm_prompt_metrics.csv", rows)
+    _write_mismatch_report(out_dir / "pm_prompt_mismatches.json", mismatches)
 
-    with open(OUT_DIR / "pm_prompt_summary.json", "w", encoding="utf-8") as f:
+    with open(out_dir / "pm_prompt_summary.json", "w", encoding="utf-8") as f:
         json.dump(summary, f, indent=2)
 
-    print(f"Wrote PM prompt results to: {OUT_DIR}")
+    print(f"Wrote PM prompt results to: {out_dir}")
     print(json.dumps(summary, indent=2))
 
 
