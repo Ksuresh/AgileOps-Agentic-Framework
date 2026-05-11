@@ -548,3 +548,660 @@ prompts:
     expected_action: "Mitigate and monitor"
     expected_business_focus: "daily execution focus"
     notes: "Very realistic PM daily workflow prompt."
+
+  - id: pm051
+    title: Release rollback after customer errors
+    category: release_governance
+    pm_goal: decide_release_readiness
+    priority: high
+    prompt: "After the latest release, customer errors increased and the team is considering rollback. What governance action should we take?"
+    expected_domains:
+      - DevOps
+      - SRE
+    expected_action: "Rollback to stable deployment"
+    expected_business_focus: release stability
+    notes: "Clear release-governance case with reliability impact."
+
+  - id: pm052
+    title: Pipeline failure before production deployment
+    category: release_governance
+    pm_goal: decide_release_readiness
+    priority: high
+    prompt: "The deployment pipeline failed before production rollout and the release artifact looks inconsistent. Should we continue or stop the release?"
+    expected_domains:
+      - DevOps
+    expected_action: "Block release and fix pipeline"
+    expected_business_focus: release readiness
+    notes: "Direct DevOps release-gate prompt."
+
+  - id: pm053
+    title: Configuration drift causing unstable release
+    category: release_governance
+    pm_goal: decide_release_readiness
+    priority: high
+    prompt: "The new release shows configuration drift and repeated service restarts. What is the recommended governance decision?"
+    expected_domains:
+      - DevOps
+      - SRE
+    expected_action: "Rollback to stable deployment"
+    expected_business_focus: release risk
+    notes: "Release instability with operational symptoms."
+
+  - id: pm054
+    title: Failed build with no customer impact
+    category: release_governance
+    pm_goal: decide_release_readiness
+    priority: medium
+    prompt: "A build gate failed, but there is no confirmed customer impact yet. What should the project team do before approving the release?"
+    expected_domains:
+      - DevOps
+    expected_action: "Block release and fix pipeline"
+    expected_business_focus: release control
+    notes: "Moderate release-control prompt."
+
+  - id: pm055
+    title: Rollback decision during launch window
+    category: release_governance
+    pm_goal: protect_launch_window
+    priority: high
+    prompt: "During the launch window, the new deployment caused restarts and failed requests. Should we rollback or continue monitoring?"
+    expected_domains:
+      - DevOps
+      - SRE
+    expected_action: "Rollback to stable deployment"
+    expected_business_focus: launch stability
+    notes: "Clear rollback-oriented PM decision."
+
+  - id: pm056
+    title: Rising latency across customer workflow
+    category: reliability_operations
+    pm_goal: protect_service_reliability
+    priority: high
+    prompt: "Latency is rising across the customer workflow and users are reporting timeouts. What should the team prioritize?"
+    expected_domains:
+      - SRE
+    expected_action: "Mitigate and monitor"
+    expected_business_focus: reliability risk
+    notes: "Direct SRE prompt."
+
+  - id: pm057
+    title: Error-rate spike with service degradation
+    category: reliability_operations
+    pm_goal: coordinate_incident_response
+    priority: high
+    prompt: "The error rate increased sharply and service availability is dropping. What governance action is appropriate?"
+    expected_domains:
+      - SRE
+    expected_action: "Mitigate and monitor"
+    expected_business_focus: incident response
+    notes: "Reliability incident prompt."
+
+  - id: pm058
+    title: Capacity pressure before traffic peak
+    category: reliability_operations
+    pm_goal: prepare_for_peak_load
+    priority: medium
+    prompt: "We are approaching a traffic peak and CPU saturation is increasing. Should we adjust capacity before the peak?"
+    expected_domains:
+      - SRE
+      - FinOps
+    expected_action: "Scale adjustment"
+    expected_business_focus: capacity readiness
+    notes: "SRE and FinOps tradeoff."
+
+  - id: pm059
+    title: Slow responses without deployment failure
+    category: reliability_operations
+    pm_goal: stabilize_customer_experience
+    priority: medium
+    prompt: "Customers are seeing slow responses, but there is no confirmed deployment failure. What should we do?"
+    expected_domains:
+      - SRE
+    expected_action: "Mitigate and monitor"
+    expected_business_focus: customer experience
+    notes: "Reliability-only prompt."
+
+  - id: pm060
+    title: Service availability below target
+    category: reliability_operations
+    pm_goal: protect_slo
+    priority: high
+    prompt: "Service availability is below target and error rates are increasing. What should the project team recommend?"
+    expected_domains:
+      - SRE
+    expected_action: "Mitigate and monitor"
+    expected_business_focus: SLO protection
+    notes: "SLO-oriented reliability prompt."
+
+  - id: pm061
+    title: Autoscaling cost increase
+    category: cost_governance
+    pm_goal: assess_cost_tradeoff
+    priority: medium
+    prompt: "Autoscaling increased the cloud bill, but reliability is currently stable. Should we revise the scaling policy?"
+    expected_domains:
+      - FinOps
+    expected_action: "Review scaling policy"
+    expected_business_focus: cost control
+    notes: "Cost governance with stable reliability."
+
+  - id: pm062
+    title: Over-provisioned resources
+    category: cost_governance
+    pm_goal: reduce_cloud_waste
+    priority: medium
+    prompt: "The platform appears over-provisioned and costs are rising without clear reliability benefits. What action should we take?"
+    expected_domains:
+      - FinOps
+    expected_action: "Scale adjustment"
+    expected_business_focus: cloud waste reduction
+    notes: "Clear FinOps prompt."
+
+  - id: pm063
+    title: Cloud budget risk before release
+    category: cost_governance
+    pm_goal: manage_budget_risk
+    priority: medium
+    prompt: "The upcoming release may require higher infrastructure capacity and could exceed the cloud budget. What should we review?"
+    expected_domains:
+      - FinOps
+      - DevOps
+    expected_action: "Review scaling policy"
+    expected_business_focus: budget risk
+    notes: "Cost and release planning prompt."
+
+  - id: pm064
+    title: HPA scale-out causing spend spike
+    category: cost_governance
+    pm_goal: assess_cost_tradeoff
+    priority: high
+    prompt: "HPA scaled several services aggressively and cloud spend spiked overnight. What governance action should we recommend?"
+    expected_domains:
+      - FinOps
+    expected_action: "Scale adjustment"
+    expected_business_focus: cost anomaly response
+    notes: "FinOps anomaly prompt."
+
+  - id: pm065
+    title: Stable service but rising cloud bill
+    category: cost_governance
+    pm_goal: optimize_operating_cost
+    priority: medium
+    prompt: "Service reliability looks stable, but the cloud bill is increasing every day. What should the PM escalate?"
+    expected_domains:
+      - FinOps
+    expected_action: "Review scaling policy"
+    expected_business_focus: cost visibility
+    notes: "Cost-control governance prompt."
+
+  - id: pm066
+    title: Critical CVE found before release
+    category: security_compliance_governance
+    pm_goal: decide_release_readiness
+    priority: high
+    prompt: "A critical CVE was found before the release approval meeting. Should we proceed with deployment?"
+    expected_domains:
+      - DevSecOps
+    expected_action: "Patch or block release"
+    expected_business_focus: security risk
+    notes: "Direct security release gate."
+
+  - id: pm067
+    title: Policy violation in release candidate
+    category: security_compliance_governance
+    pm_goal: protect_compliance
+    priority: high
+    prompt: "The release candidate triggered a policy violation in the security gate. What governance decision is appropriate?"
+    expected_domains:
+      - DevSecOps
+      - DevOps
+    expected_action: "Patch or block release"
+    expected_business_focus: compliance risk
+    notes: "Security and pipeline prompt."
+
+  - id: pm068
+    title: IAM drift before audit
+    category: security_compliance_governance
+    pm_goal: prepare_audit_response
+    priority: medium
+    prompt: "IAM drift was detected before the audit review. What should the project team do before proceeding?"
+    expected_domains:
+      - DevSecOps
+    expected_action: "Patch or block release"
+    expected_business_focus: audit readiness
+    notes: "Compliance governance prompt."
+
+  - id: pm069
+    title: Compliance gap with release pressure
+    category: security_compliance_governance
+    pm_goal: decide_release_readiness
+    priority: high
+    prompt: "The team is under pressure to release, but compliance evidence is incomplete. What should the governance recommendation be?"
+    expected_domains:
+      - DevSecOps
+      - DevOps
+    expected_action: "Patch or block release"
+    expected_business_focus: release compliance
+    notes: "PM-relevant security tradeoff."
+
+  - id: pm070
+    title: Security exception request
+    category: security_compliance_governance
+    pm_goal: evaluate_security_exception
+    priority: medium
+    prompt: "Engineering requested a security exception for the release, but policy checks are still failing. What should we recommend?"
+    expected_domains:
+      - DevSecOps
+    expected_action: "Patch or block release"
+    expected_business_focus: security exception control
+    notes: "Security exception governance prompt."
+
+  - id: pm071
+    title: Release instability and security finding
+    category: cross_domain_release_governance
+    pm_goal: decide_release_readiness
+    priority: high
+    prompt: "The release has deployment instability and a security finding. What should the PM recommend for the release decision?"
+    expected_domains:
+      - DevOps
+      - DevSecOps
+    expected_action: "Patch or block release"
+    expected_business_focus: release risk
+    notes: "Cross-domain release governance."
+
+  - id: pm072
+    title: Latency spike after release
+    category: cross_domain_release_governance
+    pm_goal: protect_release_quality
+    priority: high
+    prompt: "After the release, latency increased and some services restarted. Should we rollback or continue monitoring?"
+    expected_domains:
+      - DevOps
+      - SRE
+    expected_action: "Rollback to stable deployment"
+    expected_business_focus: release quality
+    notes: "DevOps and SRE release prompt."
+
+  - id: pm073
+    title: Release passed pipeline but failed policy
+    category: cross_domain_release_governance
+    pm_goal: decide_release_readiness
+    priority: high
+    prompt: "The deployment pipeline passed, but the policy gate failed. What is the safest governance decision?"
+    expected_domains:
+      - DevSecOps
+      - DevOps
+    expected_action: "Patch or block release"
+    expected_business_focus: release safety
+    notes: "Policy-led release decision."
+
+  - id: pm074
+    title: Customer release with reliability risk
+    category: cross_domain_release_governance
+    pm_goal: protect_customer_delivery
+    priority: high
+    prompt: "A customer release is scheduled today, but reliability tests show rising latency. What should the PM do?"
+    expected_domains:
+      - SRE
+      - DevOps
+    expected_action: "Mitigate and monitor"
+    expected_business_focus: customer delivery risk
+    notes: "Reliability-led release governance."
+
+  - id: pm075
+    title: Rollback versus patch decision
+    category: cross_domain_release_governance
+    pm_goal: resolve_release_tradeoff
+    priority: high
+    prompt: "The release introduced service restarts and security found a critical vulnerability. Should we rollback, patch, or hold the release?"
+    expected_domains:
+      - DevOps
+      - DevSecOps
+      - SRE
+    expected_action: "Patch or block release"
+    expected_business_focus: release tradeoff
+    notes: "Ambiguous but high-value governance prompt."
+
+  - id: pm076
+    title: Reliability improved but costs increased
+    category: cross_domain_cost_reliability
+    pm_goal: assess_stability_cost_tradeoff
+    priority: medium
+    prompt: "Reliability improved after scaling, but cloud cost increased sharply. What should we do next?"
+    expected_domains:
+      - SRE
+      - FinOps
+    expected_action: "Review scaling policy"
+    expected_business_focus: reliability cost balance
+    notes: "Cost-reliability tradeoff."
+
+  - id: pm077
+    title: Capacity increase under budget pressure
+    category: cross_domain_cost_reliability
+    pm_goal: manage_capacity_budget_tradeoff
+    priority: medium
+    prompt: "The SRE team wants more capacity to reduce latency, but the project is under budget pressure. What should the PM recommend?"
+    expected_domains:
+      - SRE
+      - FinOps
+    expected_action: "Scale adjustment"
+    expected_business_focus: capacity budget tradeoff
+    notes: "Balanced SRE-FinOps case."
+
+  - id: pm078
+    title: Cost reduction may affect SLO
+    category: cross_domain_cost_reliability
+    pm_goal: protect_slo_and_budget
+    priority: medium
+    prompt: "FinOps recommends reducing capacity, but SRE is concerned it may affect SLOs. What governance action is appropriate?"
+    expected_domains:
+      - FinOps
+      - SRE
+    expected_action: "Review scaling policy"
+    expected_business_focus: SLO-cost tradeoff
+    notes: "Good PM tradeoff prompt."
+
+  - id: pm079
+    title: Expensive scaling with limited reliability gain
+    category: cross_domain_cost_reliability
+    pm_goal: optimize_operational_tradeoff
+    priority: medium
+    prompt: "The system scaled out aggressively, but reliability metrics improved only slightly. Should we keep the current scaling settings?"
+    expected_domains:
+      - FinOps
+      - SRE
+    expected_action: "Review scaling policy"
+    expected_business_focus: optimization tradeoff
+    notes: "FinOps-SRE balance."
+
+  - id: pm080
+    title: Traffic surge and budget alert
+    category: cross_domain_cost_reliability
+    pm_goal: manage_peak_load_cost
+    priority: high
+    prompt: "Traffic is surging, latency is rising, and the cloud budget alert has triggered. What should we prioritize?"
+    expected_domains:
+      - SRE
+      - FinOps
+    expected_action: "Scale adjustment"
+    expected_business_focus: peak-load governance
+    notes: "High-priority tradeoff case."
+
+  - id: pm081
+    title: Daily triage across operations
+    category: pm_prioritization_escalation
+    pm_goal: prepare_daily_governance_review
+    priority: medium
+    prompt: "For daily triage, I need to know whether deployment, reliability, cost, or security needs the most attention today."
+    expected_domains:
+      - DevOps
+      - SRE
+      - FinOps
+      - DevSecOps
+    expected_action: "Mitigate and monitor"
+    expected_business_focus: daily prioritization
+    notes: "PM daily governance review."
+
+  - id: pm082
+    title: Escalation after multiple warning signals
+    category: pm_prioritization_escalation
+    pm_goal: coordinate_escalation
+    priority: high
+    prompt: "We have warning signals from deployment, reliability, and security. What should be escalated first?"
+    expected_domains:
+      - DevOps
+      - SRE
+      - DevSecOps
+    expected_action: "Mitigate and monitor"
+    expected_business_focus: escalation priority
+    notes: "Cross-domain escalation prompt."
+
+  - id: pm083
+    title: Standup focus with cost and reliability issues
+    category: pm_prioritization_escalation
+    pm_goal: prepare_daily_governance_review
+    priority: medium
+    prompt: "In standup, should we focus first on reliability degradation or the cloud-cost increase?"
+    expected_domains:
+      - SRE
+      - FinOps
+    expected_action: "Mitigate and monitor"
+    expected_business_focus: execution focus
+    notes: "PM prioritization prompt."
+
+  - id: pm084
+    title: Delivery risk summary for leadership
+    category: pm_prioritization_escalation
+    pm_goal: prepare_leadership_update
+    priority: medium
+    prompt: "Leadership wants a delivery-risk summary covering release stability, reliability, cost, and security. What is the governance view?"
+    expected_domains:
+      - DevOps
+      - SRE
+      - FinOps
+      - DevSecOps
+    expected_action: "Mitigate and monitor"
+    expected_business_focus: leadership reporting
+    notes: "Good explanation-oriented PM prompt."
+
+  - id: pm085
+    title: Decide whether to pause release train
+    category: pm_prioritization_escalation
+    pm_goal: decide_release_train_status
+    priority: high
+    prompt: "Several services show instability, costs are rising, and security has open findings. Should we pause the release train?"
+    expected_domains:
+      - DevOps
+      - SRE
+      - FinOps
+      - DevSecOps
+    expected_action: "Mitigate and monitor"
+    expected_business_focus: release train governance
+    notes: "Strong multi-domain prioritization case."
+
+  - id: pm086
+    title: Broad operational investigation
+    category: cross_domain_general_investigation
+    pm_goal: investigate_operational_state
+    priority: medium
+    prompt: "Multiple teams are reporting operational concerns, but it is unclear whether the main issue is deployment, reliability, cost, or security. Please assess."
+    expected_domains:
+      - DevOps
+      - SRE
+      - FinOps
+      - DevSecOps
+    expected_action: "Mitigate and monitor"
+    expected_business_focus: investigation support
+    notes: "General investigation prompt."
+
+  - id: pm087
+    title: Unclear post-release degradation
+    category: cross_domain_general_investigation
+    pm_goal: investigate_post_release_impact
+    priority: medium
+    prompt: "After the release, teams noticed slower performance and higher infrastructure usage, but the root cause is unclear. What should we do?"
+    expected_domains:
+      - DevOps
+      - SRE
+      - FinOps
+    expected_action: "Mitigate and monitor"
+    expected_business_focus: post-release investigation
+    notes: "General cross-domain investigation."
+
+  - id: pm088
+    title: Governance view before steering meeting
+    category: cross_domain_general_investigation
+    pm_goal: prepare_steering_update
+    priority: medium
+    prompt: "Before the steering meeting, I need a concise view of operational risks across release, reliability, cost, and security."
+    expected_domains:
+      - DevOps
+      - SRE
+      - FinOps
+      - DevSecOps
+    expected_action: "Mitigate and monitor"
+    expected_business_focus: steering update
+    notes: "Governance summary prompt."
+
+  - id: pm089
+    title: Mixed telemetry without clear owner
+    category: cross_domain_general_investigation
+    pm_goal: assign_operational_ownership
+    priority: medium
+    prompt: "The dashboards show mixed signals and no single team is sure who owns the issue. What is the likely governance direction?"
+    expected_domains:
+      - DevOps
+      - SRE
+      - FinOps
+      - DevSecOps
+    expected_action: "Mitigate and monitor"
+    expected_business_focus: ownership clarity
+    notes: "Ownership and governance prompt."
+
+  - id: pm090
+    title: General operational risk review
+    category: cross_domain_general_investigation
+    pm_goal: review_operational_risk
+    priority: medium
+    prompt: "Please review the current operational risk and identify whether release, reliability, cost, or security requires attention."
+    expected_domains:
+      - DevOps
+      - SRE
+      - FinOps
+      - DevSecOps
+    expected_action: "Mitigate and monitor"
+    expected_business_focus: operational risk review
+    notes: "Broad operational governance prompt."
+
+  - id: pm091
+    title: Security issue plus failed deployment
+    category: cross_domain_release_governance
+    pm_goal: decide_release_readiness
+    priority: high
+    prompt: "The deployment failed and security also found a policy issue. What is the safest decision for the release?"
+    expected_domains:
+      - DevOps
+      - DevSecOps
+    expected_action: "Patch or block release"
+    expected_business_focus: release safety
+    notes: "DevOps and DevSecOps conflict."
+
+  - id: pm092
+    title: Release caused cost and reliability concerns
+    category: cross_domain_cost_reliability
+    pm_goal: assess_release_operating_impact
+    priority: medium
+    prompt: "The release increased resource usage and latency at the same time. What should the PM recommend?"
+    expected_domains:
+      - DevOps
+      - SRE
+      - FinOps
+    expected_action: "Mitigate and monitor"
+    expected_business_focus: release operating impact
+    notes: "Three-domain operational prompt."
+
+  - id: pm093
+    title: Security block with customer commitment
+    category: cross_domain_release_governance
+    pm_goal: protect_customer_commitment
+    priority: high
+    prompt: "We committed to a customer release today, but the security gate is failing. What should the governance decision be?"
+    expected_domains:
+      - DevSecOps
+      - DevOps
+    expected_action: "Patch or block release"
+    expected_business_focus: customer commitment vs security
+    notes: "Security-led customer release decision."
+
+  - id: pm094
+    title: Reliability incident under cost pressure
+    category: cross_domain_cost_reliability
+    pm_goal: manage_incident_cost_tradeoff
+    priority: high
+    prompt: "We have a reliability incident, but scaling further will increase cloud spend significantly. What should be done?"
+    expected_domains:
+      - SRE
+      - FinOps
+    expected_action: "Scale adjustment"
+    expected_business_focus: incident cost tradeoff
+    notes: "High-priority SRE-FinOps case."
+
+  - id: pm095
+    title: Release health check before approval
+    category: release_governance
+    pm_goal: decide_release_readiness
+    priority: medium
+    prompt: "Before approving the release, I need to know whether deployment health is stable enough to proceed."
+    expected_domains:
+      - DevOps
+    expected_action: "Mitigate and monitor"
+    expected_business_focus: release health review
+    notes: "Release readiness observation prompt."
+
+  - id: pm096
+    title: Reliability monitoring after mitigation
+    category: reliability_operations
+    pm_goal: verify_mitigation
+    priority: medium
+    prompt: "The team applied mitigation for latency issues. Should we continue monitoring or take another action?"
+    expected_domains:
+      - SRE
+    expected_action: "Mitigate and monitor"
+    expected_business_focus: mitigation follow-up
+    notes: "Post-mitigation reliability prompt."
+
+  - id: pm097
+    title: Cost optimization after stabilization
+    category: cost_governance
+    pm_goal: optimize_after_stabilization
+    priority: medium
+    prompt: "Now that the service is stable, can we reduce excess cloud capacity to control cost?"
+    expected_domains:
+      - FinOps
+      - SRE
+    expected_action: "Scale adjustment"
+    expected_business_focus: cost optimization
+    notes: "FinOps after-stability prompt."
+
+  - id: pm098
+    title: Compliance evidence review
+    category: security_compliance_governance
+    pm_goal: verify_compliance_evidence
+    priority: medium
+    prompt: "Compliance evidence is incomplete for the release approval. What should the team do before proceeding?"
+    expected_domains:
+      - DevSecOps
+      - DevOps
+    expected_action: "Patch or block release"
+    expected_business_focus: compliance evidence
+    notes: "Compliance release control."
+
+  - id: pm099
+    title: Cross-domain operational readiness
+    category: pm_prioritization_escalation
+    pm_goal: review_release_operational_readiness
+    priority: medium
+    prompt: "For release readiness, I need one view of deployment stability, reliability, cost exposure, and security risk."
+    expected_domains:
+      - DevOps
+      - SRE
+      - FinOps
+      - DevSecOps
+    expected_action: "Mitigate and monitor"
+    expected_business_focus: operational readiness
+    notes: "Strong PM governance-readiness prompt."
+
+  - id: pm100
+    title: Final go no-go governance review
+    category: cross_domain_release_governance
+    pm_goal: decide_go_no_go
+    priority: high
+    prompt: "For the final go/no-go review, we have release instability, rising latency, cost concerns, and open security findings. What is the recommended governance decision?"
+    expected_domains:
+      - DevOps
+      - SRE
+      - FinOps
+      - DevSecOps
+    expected_action: "Patch or block release"
+    expected_business_focus: go/no-go governance
+    notes: "Comprehensive final governance prompt."
