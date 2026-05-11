@@ -2,8 +2,11 @@ from __future__ import annotations
 
 import argparse
 import csv
+import hashlib
 import json
+import math
 import os
+import random
 import re
 from pathlib import Path
 from typing import Any, Dict, List
@@ -13,9 +16,12 @@ from openai import OpenAI
 from metrics.explainability import compute_xi
 
 
-DEFAULT_INPUT = Path("results_final_phase2a_pm_prompts/pm_prompt_outputs.jsonl")
-DEFAULT_OUT_DIR = Path("results_phase2b_llm_explanations")
+DEFAULT_INPUT = Path("results_phase2a_pm_prompts_100_aligned/pm_prompt_outputs.jsonl")
+DEFAULT_OUT_DIR = Path("results_phase2b_llm_explanations_30")
 DEFAULT_MODEL = os.getenv("OPENAI_MODEL", "gpt-4o-mini")
+DEFAULT_TEMPERATURE = 0.0
+DEFAULT_LIMIT = 30
+DEFAULT_SEED = 42
 
 # USD per 1M tokens. Update if provider pricing changes.
 MODEL_PRICING_PER_1M = {
@@ -90,6 +96,34 @@ def _write_jsonl(path: Path, rows: List[Dict[str, Any]]) -> None:
             f.write(json.dumps(row, ensure_ascii=False) + "\n")
 
 
+def _binary_ci(successes: int, n: int) -> Dict[str, float]:
+    if n == 0:
+        return {
+            "rate": 0.0,
+            "n": 0.0,
+            "successes": 0.0,
+            "se": 0.0,
+            "ci95_low": 0.0,
+            "ci95_high": 0.0,
+        }
+
+    p = successes / n
+    se = math.sqrt((p * (1 - p)) / n)
+    return {
+        "rate": p,
+        "n": float(n),
+        "successes": float(successes),
+        "se": se,
+        "ci95_low": max(0.0, p - 1.96 * se),
+        "ci95_high": min(1.0, p + 1.96 * se),
+    }
+
+
+def _prompt_template_hash() -> str:
+    content = SYSTEM_PROMPT + "\n\n" + USER_PROMPT_TEMPLATE
+    return hashlib.sha256(content.encode("utf-8")).hexdigest()
+
+
 def _compact_case(row: Dict[str, Any]) -> Dict[str, Any]:
     return {
         "scenario_id": row.get("scenario_id"),
@@ -106,13 +140,63 @@ def _compact_case(row: Dict[str, Any]) -> Dict[str, Any]:
     }
 
 
-def _call_llm(client: OpenAI, model: str, payload: Dict[str, Any]) -> Dict[str, Any]:
+def _select_rows(
+    rows: List[Dict[str, Any]],
+    limit: int,
+    seed: int,
+    selection_mode: str,
+) -> List[Dict[str, Any]]:
+    if limit <= 0 or limit >= len(rows):
+        return rows
+
+    if selection_mode == "first":
+        return rows[:limit]
+
+    if selection_mode == "random":
+        rng = random.Random(seed)
+        indices = sorted(rng.sample(range(len(rows)), limit))
+        return [rows[i] for i in indices]
+
+    if selection_mode == "stratified":
+        by_category: Dict[str, List[Dict[str, Any]]] = {}
+        for row in rows:
+            category = str(row.get("category") or row.get("scenario_type") or "unknown")
+            by_category.setdefault(category, []).append(row)
+
+        rng = random.Random(seed)
+        selected: List[Dict[str, Any]] = []
+
+        categories = sorted(by_category)
+        per_category = max(1, limit // max(1, len(categories)))
+
+        for category in categories:
+            category_rows = by_category[category][:]
+            rng.shuffle(category_rows)
+            selected.extend(category_rows[:per_category])
+
+        if len(selected) < limit:
+            selected_ids = {id(row) for row in selected}
+            remaining = [row for row in rows if id(row) not in selected_ids]
+            rng.shuffle(remaining)
+            selected.extend(remaining[: limit - len(selected)])
+
+        return selected[:limit]
+
+    raise ValueError("selection_mode must be one of: first, random, stratified")
+
+
+def _call_llm(
+    client: OpenAI,
+    model: str,
+    temperature: float,
+    payload: Dict[str, Any],
+) -> Dict[str, Any]:
     payload_json = json.dumps(payload, indent=2, ensure_ascii=False)
     user_prompt = USER_PROMPT_TEMPLATE.format(payload_json=payload_json)
 
     response = client.chat.completions.create(
         model=model,
-        temperature=0.0,
+        temperature=temperature,
         messages=[
             {"role": "system", "content": SYSTEM_PROMPT},
             {"role": "user", "content": user_prompt},
@@ -209,7 +293,7 @@ def _evidence_coverage(text: str, row: Dict[str, Any]) -> float:
 
 def _unsupported_claim_risk(text: str, row: Dict[str, Any]) -> float:
     """
-    Lightweight reproducible hallucination-risk proxy.
+    Lightweight reproducible unsupported-claim proxy.
 
     Lower is better. This is not a full factuality judge; it approximates
     whether the explanation introduces unusual vocabulary not present in the
@@ -305,7 +389,6 @@ def _unsupported_claim_risk(text: str, row: Dict[str, Any]) -> float:
 
     unsupported = [w for w in words if w not in allowed_terms]
 
-    # Cap to avoid over-penalizing normal prose.
     return min(1.0, len(unsupported) / max(20, len(words)))
 
 
@@ -317,7 +400,12 @@ def _estimate_cost(model: str, prompt_tokens: int, completion_tokens: int) -> fl
     )
 
 
-def _score_output(row: Dict[str, Any], llm_text: str, model: str, token_data: Dict[str, int]) -> Dict[str, Any]:
+def _score_output(
+    row: Dict[str, Any],
+    llm_text: str,
+    model: str,
+    token_data: Dict[str, int],
+) -> Dict[str, Any]:
     utility = row.get("utility") or {}
 
     selected_action = utility.get("selected_action")
@@ -336,7 +424,7 @@ def _score_output(row: Dict[str, Any], llm_text: str, model: str, token_data: Di
         "action_consistent": _action_consistent(llm_text, selected_action),
         "evidence_coverage": _evidence_coverage(llm_text, row),
         "unsupported_claim_risk": _unsupported_claim_risk(llm_text, row),
-        "xi": xi,
+        "ces_heuristic": xi,
         "prompt_tokens": prompt_tokens,
         "completion_tokens": completion_tokens,
         "total_tokens": int(token_data.get("total_tokens", prompt_tokens + completion_tokens)),
@@ -350,26 +438,52 @@ def _mean(values: List[float | bool]) -> float:
     return float(sum(float(v) for v in values) / len(values))
 
 
-def _summarize(outputs: List[Dict[str, Any]], model: str) -> Dict[str, Any]:
+def _summarize(
+    outputs: List[Dict[str, Any]],
+    model: str,
+    temperature: float,
+    input_path: Path,
+    limit: int,
+    seed: int,
+    selection_mode: str,
+) -> Dict[str, Any]:
     scores = [o.get("scores", {}) for o in outputs]
+
+    domain_values = [bool(s.get("domain_consistent", False)) for s in scores]
+    action_values = [bool(s.get("action_consistent", False)) for s in scores]
+
+    domain_success = sum(1 for value in domain_values if value)
+    action_success = sum(1 for value in action_values if value)
 
     return {
         "n": len(outputs),
+        "input": str(input_path),
+        "case_limit": limit,
+        "selection_mode": selection_mode,
+        "seed": seed,
         "model": model,
-        "temperature": 0.0,
-        "domain_consistency_rate": _mean([s.get("domain_consistent", False) for s in scores]),
-        "action_consistency_rate": _mean([s.get("action_consistent", False) for s in scores]),
+        "temperature": temperature,
+        "prompt_template_sha256": _prompt_template_hash(),
+        "domain_consistency_rate": _mean(domain_values),
+        "domain_consistency_ci": _binary_ci(domain_success, len(domain_values)),
+        "action_consistency_rate": _mean(action_values),
+        "action_consistency_ci": _binary_ci(action_success, len(action_values)),
         "evidence_coverage_mean": _mean([s.get("evidence_coverage", 0.0) for s in scores]),
         "unsupported_claim_risk_mean": _mean([s.get("unsupported_claim_risk", 0.0) for s in scores]),
-        "xi_mean": _mean([(s.get("xi") or {}).get("xi", 0.0) for s in scores]),
-        "readability_mean": _mean([(s.get("xi") or {}).get("readability", 0.0) for s in scores]),
-        "evidence_clarity_mean": _mean([(s.get("xi") or {}).get("evidence_clarity", 0.0) for s in scores]),
-        "traceability_mean": _mean([(s.get("xi") or {}).get("traceability", 0.0) for s in scores]),
+        "ces_heuristic_mean": _mean([(s.get("ces_heuristic") or {}).get("xi", 0.0) for s in scores]),
+        "readability_mean": _mean([(s.get("ces_heuristic") or {}).get("readability", 0.0) for s in scores]),
+        "evidence_clarity_mean": _mean([(s.get("ces_heuristic") or {}).get("evidence_clarity", 0.0) for s in scores]),
+        "traceability_mean": _mean([(s.get("ces_heuristic") or {}).get("traceability", 0.0) for s in scores]),
         "prompt_tokens_total": sum(int(s.get("prompt_tokens", 0)) for s in scores),
         "completion_tokens_total": sum(int(s.get("completion_tokens", 0)) for s in scores),
         "tokens_total": sum(int(s.get("total_tokens", 0)) for s in scores),
         "estimated_cost_usd_total": sum(float(s.get("estimated_cost_usd", 0.0)) for s in scores),
         "pricing_note": "Cost estimate uses local pricing table in run_llm_explanation_eval.py; update table if model pricing changes.",
+        "interpretation_note": (
+            "This evaluation measures grounded explanation consistency from structured AAF outputs. "
+            "It should not be interpreted as open-ended LLM reasoning accuracy or production-scale validation. "
+            "CES is a heuristic composite explainability score, not a separately validated human-evaluation metric."
+        ),
     }
 
 
@@ -385,30 +499,36 @@ def _write_cost_csv(path: Path, outputs: List[Dict[str, Any]]) -> None:
         "action_consistent",
         "evidence_coverage",
         "unsupported_claim_risk",
-        "xi",
+        "ces_heuristic",
+        "readability",
+        "evidence_clarity",
+        "traceability",
     ]
 
     with open(path, "w", encoding="utf-8", newline="") as f:
         writer = csv.DictWriter(f, fieldnames=fieldnames)
         writer.writeheader()
 
-        for o in outputs:
-            s = o.get("scores", {})
-            xi = s.get("xi") or {}
+        for output in outputs:
+            scores = output.get("scores", {})
+            ces = scores.get("ces_heuristic") or {}
 
             writer.writerow(
                 {
-                    "scenario_id": o.get("scenario_id"),
-                    "model": o.get("model"),
-                    "prompt_tokens": s.get("prompt_tokens"),
-                    "completion_tokens": s.get("completion_tokens"),
-                    "total_tokens": s.get("total_tokens"),
-                    "estimated_cost_usd": s.get("estimated_cost_usd"),
-                    "domain_consistent": s.get("domain_consistent"),
-                    "action_consistent": s.get("action_consistent"),
-                    "evidence_coverage": s.get("evidence_coverage"),
-                    "unsupported_claim_risk": s.get("unsupported_claim_risk"),
-                    "xi": xi.get("xi"),
+                    "scenario_id": output.get("scenario_id"),
+                    "model": output.get("model"),
+                    "prompt_tokens": scores.get("prompt_tokens"),
+                    "completion_tokens": scores.get("completion_tokens"),
+                    "total_tokens": scores.get("total_tokens"),
+                    "estimated_cost_usd": scores.get("estimated_cost_usd"),
+                    "domain_consistent": scores.get("domain_consistent"),
+                    "action_consistent": scores.get("action_consistent"),
+                    "evidence_coverage": scores.get("evidence_coverage"),
+                    "unsupported_claim_risk": scores.get("unsupported_claim_risk"),
+                    "ces_heuristic": ces.get("xi"),
+                    "readability": ces.get("readability"),
+                    "evidence_clarity": ces.get("evidence_clarity"),
+                    "traceability": ces.get("traceability"),
                 }
             )
 
@@ -418,12 +538,20 @@ def main() -> None:
     parser.add_argument("--input", default=str(DEFAULT_INPUT))
     parser.add_argument("--out", default=str(DEFAULT_OUT_DIR))
     parser.add_argument("--model", default=DEFAULT_MODEL)
-    parser.add_argument("--limit", type=int, default=10)
+    parser.add_argument("--temperature", type=float, default=DEFAULT_TEMPERATURE)
+    parser.add_argument("--limit", type=int, default=DEFAULT_LIMIT)
+    parser.add_argument("--seed", type=int, default=DEFAULT_SEED)
+    parser.add_argument(
+        "--selection-mode",
+        choices=["first", "random", "stratified"],
+        default="stratified",
+    )
     args = parser.parse_args()
 
     input_path = Path(args.input)
     out_dir = Path(args.out)
     model = args.model
+    temperature = float(args.temperature)
 
     if not os.getenv("OPENAI_API_KEY"):
         raise RuntimeError("OPENAI_API_KEY is not set. Set it as an environment variable before running.")
@@ -431,15 +559,19 @@ def main() -> None:
     out_dir.mkdir(parents=True, exist_ok=True)
 
     rows = _load_jsonl(input_path)
-    selected_rows = rows[: args.limit]
+    selected_rows = _select_rows(
+        rows=rows,
+        limit=args.limit,
+        seed=args.seed,
+        selection_mode=args.selection_mode,
+    )
 
     client = OpenAI()
-
     outputs: List[Dict[str, Any]] = []
 
     for idx, row in enumerate(selected_rows, start=1):
         compact = _compact_case(row)
-        llm_result = _call_llm(client, model, compact)
+        llm_result = _call_llm(client, model, temperature, compact)
 
         token_data = {
             "prompt_tokens": llm_result["prompt_tokens"],
@@ -454,7 +586,7 @@ def main() -> None:
                 "index": idx,
                 "scenario_id": row.get("scenario_id"),
                 "model": model,
-                "temperature": 0.0,
+                "temperature": temperature,
                 "pm_prompt": row.get("prompt"),
                 "predicted_primary_domain": row.get("predicted_primary_domain"),
                 "selected_action": (row.get("utility") or {}).get("selected_action"),
@@ -466,7 +598,15 @@ def main() -> None:
 
         print(f"[{idx}/{len(selected_rows)}] {row.get('scenario_id')} done")
 
-    summary = _summarize(outputs, model)
+    summary = _summarize(
+        outputs=outputs,
+        model=model,
+        temperature=temperature,
+        input_path=input_path,
+        limit=args.limit,
+        seed=args.seed,
+        selection_mode=args.selection_mode,
+    )
 
     _write_jsonl(out_dir / "llm_explanation_outputs.jsonl", outputs)
     _write_cost_csv(out_dir / "llm_cost_summary.csv", outputs)
