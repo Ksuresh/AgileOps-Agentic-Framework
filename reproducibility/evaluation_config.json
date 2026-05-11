@@ -1,0 +1,45 @@
+{
+  "study_1_controlled_evaluation": {
+    "scenario_count": 120,
+    "seed": 42,
+    "scenario_source": "controlled_scenario_variants",
+    "missing_evidence_probability": 0.2,
+    "contradiction_probability": 0.1,
+    "metric_jitter_percentage": 0.05,
+    "scenario_note": "Expanded scenarios are deterministic controlled variants and are not claimed to be independent production incidents."
+  },
+  "aaf_parameters": {
+    "lambda": 0.5,
+    "tau_consensus": 0.65,
+    "delta_min": 0.05,
+    "max_rar_loops": 2
+  },
+  "utility_weights": {
+    "performance": 0.4,
+    "cost_efficiency": 0.3,
+    "risk_reduction": 0.3
+  },
+  "study_2_pm_prompt_evaluation": {
+    "prompt_count": 50,
+    "prompt_type": "curated_project_manager_governance_prompts",
+    "evaluation_note": "Prompts are curated governance-oriented prompts and are not claimed to represent all project manager communication patterns."
+  },
+  "study_2b_grounded_llm_explanation_evaluation": {
+    "case_count": 10,
+    "model": "gpt-4o-mini",
+    "temperature": 0.0,
+    "role": "explanation_generation_only",
+    "constraint": "The LLM receives structured AAF outputs and is not permitted to modify selected actions or introduce new evidence."
+  },
+  "study_3_telemetry_pilot": {
+    "benchmark": "Sock Shop",
+    "pilot_case_count": 3,
+    "pilot_type": "feasibility-oriented runtime artifact telemetry pilot",
+    "evaluation_note": "The telemetry pilot demonstrates feasibility under controlled conditions and is not production-scale validation."
+  },
+  "statistical_reporting": {
+    "confidence_interval": "95%",
+    "ci_method": "normal approximation for binary proportions",
+    "interpretation_note": "Confidence intervals are descriptive uncertainty estimates for the controlled evaluation set and should not be interpreted as production-scale generalization claims."
+  }
+}
