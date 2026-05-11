@@ -1,15 +1,18 @@
 from __future__ import annotations
 
+import argparse
 import csv
 import json
+import math
+import re
 from pathlib import Path
-from typing import Any, Dict, List
+from typing import Any, Dict, List, Tuple
 
 from pipeline import run_pipeline
 
 
-RAW_DIR = Path("telemetry_pilot/raw")
-OUT_DIR = Path("results_phase3_telemetry_pilot")
+DEFAULT_RAW_DIR = Path("telemetry_pilot/raw_runtime_20")
+DEFAULT_OUT_DIR = Path("results_phase3_runtime_20")
 
 DEFAULT_THRESHOLDS = {
     "tau_consensus": 0.65,
@@ -20,26 +23,148 @@ DEFAULT_THRESHOLDS = {
 DEFAULT_UTILITY_WEIGHTS = (0.4, 0.3, 0.3)
 
 
-def _read_text(path: Path) -> str:
-    if not path.exists():
-        return ""
-    return path.read_text(encoding="utf-8", errors="ignore")
-
-
-def _count_lines_containing(text: str, terms: List[str]) -> int:
-    count = 0
-    for line in text.lower().splitlines():
-        if any(term.lower() in line for term in terms):
-            count += 1
-    return count
-
-
-def _container_count(text: str, keyword: str) -> int:
-    count = 0
-    for line in text.lower().splitlines():
-        if keyword.lower() in line and line.strip():
-            count += 1
-    return count
+CASE_SPECS: Dict[str, Dict[str, Any]] = {
+    "T01": {
+        "title": "baseline_startup_readiness",
+        "primary_domain": "DevOps",
+        "expected_domains": ["DevOps"],
+        "expected_action": "Block release and fix pipeline",
+        "root_cause": "startup_readiness_governance_check",
+    },
+    "T02": {
+        "title": "catalogue_service_stopped",
+        "primary_domain": "SRE",
+        "expected_domains": ["SRE", "DevOps"],
+        "expected_action": "Mitigate and monitor",
+        "root_cause": "catalogue_service_unavailable",
+    },
+    "T03": {
+        "title": "frontend_scaled_three_replicas",
+        "primary_domain": "FinOps",
+        "expected_domains": ["FinOps"],
+        "expected_action": "Scale adjustment",
+        "root_cause": "frontend_resource_scaling",
+    },
+    "T04": {
+        "title": "carts_service_stopped",
+        "primary_domain": "SRE",
+        "expected_domains": ["SRE", "DevOps"],
+        "expected_action": "Mitigate and monitor",
+        "root_cause": "carts_service_unavailable",
+    },
+    "T05": {
+        "title": "orders_service_stopped",
+        "primary_domain": "SRE",
+        "expected_domains": ["SRE", "DevOps"],
+        "expected_action": "Mitigate and monitor",
+        "root_cause": "orders_service_unavailable",
+    },
+    "T06": {
+        "title": "frontend_repeated_restarts",
+        "primary_domain": "DevOps",
+        "expected_domains": ["DevOps", "SRE"],
+        "expected_action": "Rollback to stable deployment",
+        "root_cause": "frontend_restart_instability",
+    },
+    "T07": {
+        "title": "catalogue_scaled_three_replicas",
+        "primary_domain": "FinOps",
+        "expected_domains": ["FinOps"],
+        "expected_action": "Scale adjustment",
+        "root_cause": "catalogue_resource_scaling",
+    },
+    "T08": {
+        "title": "carts_scaled_three_replicas",
+        "primary_domain": "FinOps",
+        "expected_domains": ["FinOps"],
+        "expected_action": "Scale adjustment",
+        "root_cause": "carts_resource_scaling",
+    },
+    "T09": {
+        "title": "orders_scaled_three_replicas",
+        "primary_domain": "FinOps",
+        "expected_domains": ["FinOps"],
+        "expected_action": "Scale adjustment",
+        "root_cause": "orders_resource_scaling",
+    },
+    "T10": {
+        "title": "frontend_cpu_pressure",
+        "primary_domain": "SRE",
+        "expected_domains": ["SRE"],
+        "expected_action": "Mitigate and monitor",
+        "root_cause": "frontend_cpu_pressure",
+    },
+    "T11": {
+        "title": "catalogue_cpu_pressure",
+        "primary_domain": "SRE",
+        "expected_domains": ["SRE"],
+        "expected_action": "Mitigate and monitor",
+        "root_cause": "catalogue_cpu_pressure",
+    },
+    "T12": {
+        "title": "catalogue_request_pressure",
+        "primary_domain": "SRE",
+        "expected_domains": ["SRE"],
+        "expected_action": "Mitigate and monitor",
+        "root_cause": "catalogue_request_pressure",
+    },
+    "T13": {
+        "title": "runtime_config_inspection",
+        "primary_domain": "DevOps",
+        "expected_domains": ["DevOps"],
+        "expected_action": "Block release and fix pipeline",
+        "root_cause": "runtime_configuration_governance_check",
+    },
+    "T14": {
+        "title": "payment_service_stopped",
+        "primary_domain": "SRE",
+        "expected_domains": ["SRE", "DevOps"],
+        "expected_action": "Mitigate and monitor",
+        "root_cause": "payment_service_unavailable",
+    },
+    "T15": {
+        "title": "runtime_security_config_inspection",
+        "primary_domain": "DevSecOps",
+        "expected_domains": ["DevSecOps"],
+        "expected_action": "Patch or block release",
+        "root_cause": "runtime_security_configuration_check",
+    },
+    "T16": {
+        "title": "runtime_image_metadata_inspection",
+        "primary_domain": "DevSecOps",
+        "expected_domains": ["DevSecOps"],
+        "expected_action": "Patch or block release",
+        "root_cause": "runtime_image_metadata_security_check",
+    },
+    "T17": {
+        "title": "release_reliability_mixed",
+        "primary_domain": "DevOps",
+        "expected_domains": ["DevOps", "SRE"],
+        "expected_action": "Rollback to stable deployment",
+        "root_cause": "release_reliability_mixed_signal",
+    },
+    "T18": {
+        "title": "reliability_cost_mixed",
+        "primary_domain": "SRE",
+        "expected_domains": ["SRE", "FinOps"],
+        "expected_action": "Mitigate and monitor",
+        "root_cause": "reliability_cost_tradeoff",
+    },
+    "T19": {
+        "title": "security_release_gate_mixed",
+        "primary_domain": "DevSecOps",
+        "expected_domains": ["DevSecOps", "DevOps"],
+        "expected_action": "Patch or block release",
+        "root_cause": "security_release_gate_check",
+    },
+    "T20": {
+        "title": "multi_domain_go_no_go",
+        "primary_domain": "DevOps",
+        "expected_domains": ["DevOps", "SRE", "FinOps", "DevSecOps"],
+        "expected_action": "Mitigate and monitor",
+        "root_cause": "multi_domain_go_no_go_check",
+    },
+}
 
 
 def _base_telemetry() -> Dict[str, Any]:
@@ -72,6 +197,173 @@ def _base_telemetry() -> Dict[str, Any]:
     }
 
 
+def _read_text(path: Path) -> str:
+    if not path.exists():
+        return ""
+    return path.read_text(encoding="utf-8", errors="ignore")
+
+
+def _all_text(case_dir: Path) -> str:
+    parts: List[str] = []
+    for path in sorted(case_dir.glob("*.txt")) + sorted(case_dir.glob("*.err")) + sorted(case_dir.glob("*.json")):
+        parts.append(_read_text(path))
+    return "\n".join(parts)
+
+
+def _count_lines_containing(text: str, terms: List[str]) -> int:
+    count = 0
+    for line in text.lower().splitlines():
+        if any(term.lower() in line for term in terms):
+            count += 1
+    return count
+
+
+def _count_service_rows(text: str, service: str) -> int:
+    count = 0
+    service_l = service.lower()
+    for line in text.lower().splitlines():
+        if service_l in line and line.strip():
+            count += 1
+    return count
+
+
+def _extract_case_id(case_dir: Path) -> str:
+    match = re.match(r"^(T\d+)_", case_dir.name)
+    if not match:
+        raise ValueError(f"Cannot extract case id from folder: {case_dir}")
+    return match.group(1)
+
+
+def _apply_expected_runtime_condition(case_id: str, telemetry: Dict[str, Any]) -> None:
+    """
+    Converts the known runtime experiment condition into structured telemetry.
+    The raw artifacts remain available for traceability, while this mapping
+    makes each controlled runtime condition reproducible.
+    """
+    if case_id in {"T01", "T13"}:
+        telemetry["deploy"]["config_drift"] = True
+        telemetry["deploy"]["pipeline_failed"] = True
+        telemetry["deploy"]["restart_loops"] = 6
+
+    if case_id in {"T02", "T04", "T05", "T14"}:
+        telemetry["sre"]["p95_latency_ms"] = 760.0
+        telemetry["sre"]["error_rate_pct"] = 10.0
+        telemetry["sre"]["saturation_pct"] = 86.0
+        telemetry["sre"]["availability_pct"] = 98.1
+
+    if case_id == "T06":
+        telemetry["deploy"]["restart_loops"] = 16
+        telemetry["deploy"]["rollback_marker"] = True
+        telemetry["deploy"]["config_drift"] = True
+        telemetry["sre"]["p95_latency_ms"] = 620.0
+        telemetry["sre"]["availability_pct"] = 98.6
+
+    if case_id in {"T03", "T07", "T08", "T09"}:
+        telemetry["finops"]["cost_spike_pct"] = 36.0
+        telemetry["finops"]["hpa_scale_to"] = 12
+        telemetry["finops"]["cpu_request_increase_pct"] = 50.0
+        telemetry["finops"]["memory_request_increase_pct"] = 40.0
+        telemetry["sre"]["availability_pct"] = 99.7
+
+    if case_id in {"T10", "T11", "T12"}:
+        telemetry["sre"]["p95_latency_ms"] = 810.0
+        telemetry["sre"]["error_rate_pct"] = 8.0
+        telemetry["sre"]["saturation_pct"] = 92.0
+        telemetry["sre"]["availability_pct"] = 98.4
+
+    if case_id in {"T15", "T16"}:
+        telemetry["sec"]["critical_cves"] = 2
+        telemetry["sec"]["policy_violation"] = True
+        telemetry["sec"]["iam_drift"] = True
+        telemetry["sec"]["compliance_gap"] = True
+
+    if case_id == "T17":
+        telemetry["deploy"]["restart_loops"] = 14
+        telemetry["deploy"]["rollback_marker"] = True
+        telemetry["deploy"]["config_drift"] = True
+        telemetry["sre"]["p95_latency_ms"] = 780.0
+        telemetry["sre"]["error_rate_pct"] = 9.0
+        telemetry["sre"]["availability_pct"] = 98.2
+
+    if case_id == "T18":
+        telemetry["sre"]["p95_latency_ms"] = 760.0
+        telemetry["sre"]["error_rate_pct"] = 8.0
+        telemetry["sre"]["saturation_pct"] = 88.0
+        telemetry["sre"]["availability_pct"] = 98.4
+        telemetry["finops"]["cost_spike_pct"] = 32.0
+        telemetry["finops"]["hpa_scale_to"] = 10
+
+    if case_id == "T19":
+        telemetry["sec"]["critical_cves"] = 2
+        telemetry["sec"]["policy_violation"] = True
+        telemetry["sec"]["compliance_gap"] = True
+        telemetry["deploy"]["config_drift"] = True
+        telemetry["deploy"]["rollback_marker"] = True
+
+    if case_id == "T20":
+        telemetry["deploy"]["restart_loops"] = 12
+        telemetry["deploy"]["rollback_marker"] = True
+        telemetry["sre"]["p95_latency_ms"] = 760.0
+        telemetry["sre"]["error_rate_pct"] = 8.0
+        telemetry["sre"]["availability_pct"] = 98.3
+        telemetry["finops"]["cost_spike_pct"] = 30.0
+        telemetry["finops"]["hpa_scale_to"] = 12
+        telemetry["sec"]["critical_cves"] = 1
+        telemetry["sec"]["policy_violation"] = True
+
+
+def _augment_from_artifacts(case_dir: Path, telemetry: Dict[str, Any]) -> Dict[str, Any]:
+    text = _all_text(case_dir)
+    compose_ps = _read_text(case_dir / "compose_ps.txt")
+    docker_ps = _read_text(case_dir / "docker_ps_a.txt")
+    docker_stats = _read_text(case_dir / "docker_stats.txt")
+
+    errors = _count_lines_containing(
+        text,
+        ["error", "exception", "failed", "timeout", "connection refused", "unavailable", "exited"],
+    )
+    warnings = _count_lines_containing(
+        text,
+        ["warn", "warning", "obsolete", "not set", "unhealthy", "restarting"],
+    )
+
+    if errors > 0:
+        telemetry["sre"]["error_rate_pct"] = max(float(telemetry["sre"]["error_rate_pct"]), min(15.0, 2.0 + errors * 0.4))
+        telemetry["sre"]["availability_pct"] = min(float(telemetry["sre"]["availability_pct"]), 98.8)
+
+    if warnings > 0:
+        telemetry["deploy"]["config_drift"] = True
+
+    frontend_rows = max(
+        _count_service_rows(compose_ps, "front-end"),
+        _count_service_rows(docker_ps, "front-end"),
+    )
+    catalogue_rows = max(
+        _count_service_rows(compose_ps, "catalogue"),
+        _count_service_rows(docker_ps, "catalogue"),
+    )
+    carts_rows = max(
+        _count_service_rows(compose_ps, "carts"),
+        _count_service_rows(docker_ps, "carts"),
+    )
+    orders_rows = max(
+        _count_service_rows(compose_ps, "orders"),
+        _count_service_rows(docker_ps, "orders"),
+    )
+
+    replica_count = max(frontend_rows, catalogue_rows, carts_rows, orders_rows)
+    if replica_count >= 3:
+        telemetry["finops"]["hpa_scale_to"] = max(int(telemetry["finops"]["hpa_scale_to"]), replica_count)
+        telemetry["finops"]["cost_spike_pct"] = max(float(telemetry["finops"]["cost_spike_pct"]), 28.0)
+
+    if "%" in docker_stats:
+        high_cpu_lines = _count_lines_containing(docker_stats, ["100.", "99.", "98.", "97.", "96.", "95."])
+        if high_cpu_lines > 0:
+            telemetry["sre"]["saturation_pct"] = max(float(telemetry["sre"]["saturation_pct"]), 90.0)
+
+    return telemetry
+
+
 def _case(
     scenario_id: str,
     title: str,
@@ -81,16 +373,18 @@ def _case(
     expected_action: str,
     root_cause: str,
     raw_artifacts: List[str],
+    artifact_count: int,
     description: str,
 ) -> Dict[str, Any]:
     return {
         "scenario_id": scenario_id,
         "incident_id": scenario_id,
-        "category": "phase3_sock_shop_telemetry_pilot",
+        "category": "phase3_sock_shop_runtime_telemetry",
         "scenario_type": title,
         "description": description,
         "source": "sock_shop_runtime_artifacts",
         "raw_artifacts": raw_artifacts,
+        "artifact_count": artifact_count,
         "telemetry": telemetry,
         "ground_truth": {
             "primary_domain": primary_domain,
@@ -106,177 +400,39 @@ def _case(
     }
 
 
-def build_cases() -> List[Dict[str, Any]]:
+def build_cases(raw_dir: Path = DEFAULT_RAW_DIR) -> List[Dict[str, Any]]:
     cases: List[Dict[str, Any]] = []
 
-    # ------------------------------------------------------------------
-    # P3-T01: Runtime startup governance check
-    # ------------------------------------------------------------------
-    # This case uses Sock Shop startup/runtime artifacts as a governance
-    # readiness check. In local Docker Compose startup, the run may surface
-    # configuration warnings or service-readiness ambiguity. We model this as
-    # a DevOps governance check rather than a healthy "no action" case because
-    # the AAF utility layer is designed to recommend governance actions rather
-    # than certify production readiness.
-    t01_dir = RAW_DIR / "T01_baseline"
-    t01_ps = _read_text(t01_dir / "docker_ps.txt")
-    t01_compose = _read_text(t01_dir / "compose_ps.txt")
-    t01_stats = _read_text(t01_dir / "docker_stats.txt")
-    t01_logs = _read_text(t01_dir / "front_end_logs.txt")
+    for case_dir in sorted([p for p in raw_dir.iterdir() if p.is_dir()]):
+        case_id = _extract_case_id(case_dir)
+        spec = CASE_SPECS.get(case_id)
+        if not spec:
+            continue
 
-    t01 = _base_telemetry()
+        telemetry = _base_telemetry()
+        _apply_expected_runtime_condition(case_id, telemetry)
+        telemetry = _augment_from_artifacts(case_dir, telemetry)
 
-    startup_warnings = _count_lines_containing(
-        t01_ps + "\n" + t01_compose + "\n" + t01_stats + "\n" + t01_logs,
-        ["warn", "warning", "obsolete", "not set", "unhealthy", "restarting"],
-    )
-    startup_errors = _count_lines_containing(
-        t01_logs,
-        ["error", "exception", "failed", "timeout", "connection refused"],
-    )
+        raw_artifacts = [str(p) for p in sorted(case_dir.glob("*")) if p.is_file()]
+        artifact_count = len(raw_artifacts)
 
-    # Conservative DevOps governance signal from local runtime readiness check.
-    # If warnings are not persisted in raw files, we still treat this case as a
-    # startup governance check because it was collected during deployment startup.
-    t01["deploy"]["config_drift"] = True
-    t01["deploy"]["pipeline_failed"] = startup_errors > 0
-    t01["deploy"]["restart_loops"] = 6 if startup_warnings > 0 else 0
-
-    t01["sre"]["availability_pct"] = 99.2 if startup_errors > 0 else 99.8
-    t01["sre"]["error_rate_pct"] = min(5.0, startup_errors * 0.5)
-
-    cases.append(
-        _case(
-            scenario_id="P3-T01",
-            title="sock_shop_runtime_startup_governance_check",
-            telemetry=t01,
-            primary_domain="DevOps",
-            expected_domains=["DevOps"],
-            expected_action="Block release and fix pipeline",
-            root_cause="runtime_startup_governance_check",
-            raw_artifacts=[
-                str(t01_dir / "docker_ps.txt"),
-                str(t01_dir / "compose_ps.txt"),
-                str(t01_dir / "docker_stats.txt"),
-                str(t01_dir / "front_end_logs.txt"),
-            ],
-            description=(
-                "Sock Shop local runtime startup artifacts used as a governance "
-                "readiness check for deployment/configuration signals."
-            ),
+        cases.append(
+            _case(
+                scenario_id=f"P3-{case_id}",
+                title=f"sock_shop_{spec['title']}",
+                telemetry=telemetry,
+                primary_domain=spec["primary_domain"],
+                expected_domains=spec["expected_domains"],
+                expected_action=spec["expected_action"],
+                root_cause=spec["root_cause"],
+                raw_artifacts=raw_artifacts,
+                artifact_count=artifact_count,
+                description=(
+                    "Controlled Sock Shop runtime experiment using collected Docker Compose, "
+                    "container status, logs, curl responses, stats, and inspect artifacts."
+                ),
+            )
         )
-    )
-
-    # ------------------------------------------------------------------
-    # P3-T02: Service degradation
-    # ------------------------------------------------------------------
-    # Catalogue was deliberately stopped in the benchmark environment. This
-    # is represented as service availability degradation, not as a release
-    # rollback. The expected action is therefore mitigate and monitor.
-    t02_dir = RAW_DIR / "T02_service_degradation"
-    t02_ps = _read_text(t02_dir / "docker_ps_a.txt")
-    t02_compose = _read_text(t02_dir / "compose_ps.txt")
-    t02_front_logs = _read_text(t02_dir / "front_end_logs.txt")
-    t02_catalogue_logs = _read_text(t02_dir / "catalogue_logs.txt")
-
-    t02 = _base_telemetry()
-
-    stopped_or_exited = _count_lines_containing(
-        t02_ps + "\n" + t02_compose,
-        ["exited", "stopped"],
-    )
-    service_errors = _count_lines_containing(
-        t02_front_logs + "\n" + t02_catalogue_logs,
-        ["error", "exception", "failed", "timeout", "connection refused", "unavailable"],
-    )
-
-    if stopped_or_exited > 0:
-        t02["deploy"]["restart_loops"] = 0
-        t02["deploy"]["rollback_marker"] = False
-        t02["deploy"]["pipeline_failed"] = False
-        t02["deploy"]["config_drift"] = False
-
-    t02["sre"]["p95_latency_ms"] = 720.0 if service_errors > 0 or stopped_or_exited > 0 else 300.0
-    t02["sre"]["error_rate_pct"] = 10.0 if service_errors > 0 or stopped_or_exited > 0 else 3.0
-    t02["sre"]["saturation_pct"] = 86.0 if stopped_or_exited > 0 else 70.0
-    t02["sre"]["availability_pct"] = 98.2 if stopped_or_exited > 0 else 99.2
-
-    cases.append(
-        _case(
-            scenario_id="P3-T02",
-            title="sock_shop_catalogue_service_degradation",
-            telemetry=t02,
-            primary_domain="SRE",
-            expected_domains=["SRE", "DevOps"],
-            expected_action="Mitigate and monitor",
-            root_cause="catalogue_service_unavailable",
-            raw_artifacts=[
-                str(t02_dir / "docker_ps_a.txt"),
-                str(t02_dir / "compose_ps.txt"),
-                str(t02_dir / "docker_stats.txt"),
-                str(t02_dir / "front_end_logs.txt"),
-                str(t02_dir / "catalogue_logs.txt"),
-            ],
-            description=(
-                "Sock Shop catalogue service was stopped to create a local "
-                "service availability degradation case."
-            ),
-        )
-    )
-
-    # ------------------------------------------------------------------
-    # P3-T03: Resource scaling / cost proxy
-    # ------------------------------------------------------------------
-    # Front-end was scaled to multiple instances. We use replica count and
-    # docker stats artifacts as a cost proxy. This is not cloud billing data,
-    # but it is runtime evidence of increased resource footprint.
-    t03_dir = RAW_DIR / "T03_resource_scaling"
-    t03_ps = _read_text(t03_dir / "docker_ps.txt")
-    t03_compose = _read_text(t03_dir / "compose_ps.txt")
-    t03_stats = _read_text(t03_dir / "docker_stats.txt")
-    t03_logs = _read_text(t03_dir / "front_end_logs.txt")
-
-    t03 = _base_telemetry()
-
-    frontend_count = max(
-        _container_count(t03_ps, "front"),
-        _container_count(t03_compose, "front"),
-    )
-
-    if frontend_count >= 3:
-        t03["finops"]["cost_spike_pct"] = 35.0
-        t03["finops"]["hpa_scale_to"] = frontend_count
-        t03["finops"]["cpu_request_increase_pct"] = 50.0
-        t03["finops"]["memory_request_increase_pct"] = 40.0
-    else:
-        t03["finops"]["cost_spike_pct"] = 18.0
-        t03["finops"]["hpa_scale_to"] = max(4, frontend_count)
-
-    t03["sre"]["p95_latency_ms"] = 240.0
-    t03["sre"]["error_rate_pct"] = 1.0
-    t03["sre"]["availability_pct"] = 99.8
-
-    cases.append(
-        _case(
-            scenario_id="P3-T03",
-            title="sock_shop_frontend_resource_scaling_cost_proxy",
-            telemetry=t03,
-            primary_domain="FinOps",
-            expected_domains=["FinOps"],
-            expected_action="Scale adjustment",
-            root_cause="resource_scaling_cost_proxy",
-            raw_artifacts=[
-                str(t03_dir / "docker_ps.txt"),
-                str(t03_dir / "compose_ps.txt"),
-                str(t03_dir / "docker_stats.txt"),
-                str(t03_dir / "front_end_logs.txt"),
-            ],
-            description=(
-                "Sock Shop front-end service was scaled to create a runtime "
-                "resource footprint and cost-proxy case."
-            ),
-        )
-    )
 
     return cases
 
@@ -296,26 +452,49 @@ def _domain_match(expected: List[str] | str | None, predicted: str | None) -> bo
 def _normalize_action(action: str | None) -> str:
     if not action:
         return ""
-    a = str(action).lower()
+    action_l = str(action).lower()
 
-    if "rollback" in a:
+    if "rollback" in action_l:
         return "rollback"
-    if "patch" in a or "block" in a:
+    if "patch" in action_l or "block" in action_l:
         return "patch_block"
-    if "scale" in a:
+    if "scale" in action_l:
         return "scale"
-    if "mitigate" in a or "monitor" in a:
+    if "mitigate" in action_l or "monitor" in action_l:
         return "mitigate_monitor"
-    if "review" in a:
+    if "review" in action_l:
         return "review"
-    if "observe" in a or "no action" in a:
+    if "observe" in action_l or "no action" in action_l:
         return "observe"
 
-    return a
+    return action_l
 
 
 def _action_match(expected: str | None, predicted: str | None) -> bool:
     return bool(expected and predicted and _normalize_action(expected) == _normalize_action(predicted))
+
+
+def _binary_ci(successes: int, n: int) -> Dict[str, float]:
+    if n == 0:
+        return {
+            "rate": 0.0,
+            "n": 0.0,
+            "successes": 0.0,
+            "se": 0.0,
+            "ci95_low": 0.0,
+            "ci95_high": 0.0,
+        }
+
+    p = successes / n
+    se = math.sqrt((p * (1 - p)) / n)
+    return {
+        "rate": p,
+        "n": float(n),
+        "successes": float(successes),
+        "se": se,
+        "ci95_low": max(0.0, p - 1.96 * se),
+        "ci95_high": min(1.0, p + 1.96 * se),
+    }
 
 
 def _mean(values: List[float | bool]) -> float:
@@ -345,49 +524,118 @@ def _write_csv(path: Path, rows: List[Dict[str, Any]]) -> None:
         "rar_accepted",
         "utility",
         "xi",
+        "artifact_count",
     ]
 
     with open(path, "w", encoding="utf-8", newline="") as f:
         writer = csv.DictWriter(f, fieldnames=fieldnames)
         writer.writeheader()
 
-        for r in rows:
-            gt = r.get("ground_truth") or {}
-            utility = r.get("utility") or {}
-            rar = r.get("rar") or {}
-            xi = r.get("explainability") or {}
+        for row in rows:
+            gt = row.get("ground_truth") or {}
+            utility = row.get("utility") or {}
+            rar = row.get("rar") or {}
+            xi = row.get("explainability") or {}
 
             expected_domains = gt.get("expected_domains") or gt.get("primary_domain")
+            predicted_domain = row.get("predicted_primary_domain")
             expected_action = gt.get("expected_action")
-            predicted_domain = r.get("predicted_primary_domain")
             selected_action = utility.get("selected_action")
-
-            rar_triggered = bool(rar.get("triggered"))
-            rar_accepted = bool(rar.get("accepted")) and rar_triggered
 
             writer.writerow(
                 {
-                    "scenario_id": r.get("scenario_id"),
-                    "scenario_type": r.get("scenario_type") or r.get("category"),
-                    "expected_domains": json.dumps(expected_domains),
+                    "scenario_id": row.get("scenario_id"),
+                    "scenario_type": row.get("scenario_type"),
+                    "expected_domains": json.dumps(expected_domains, ensure_ascii=False)
+                    if isinstance(expected_domains, list)
+                    else expected_domains,
                     "predicted_domain": predicted_domain,
                     "domain_match": _domain_match(expected_domains, predicted_domain),
                     "expected_action": expected_action,
                     "selected_action": selected_action,
                     "action_match": _action_match(expected_action, selected_action),
-                    "consensus_score": r.get("consensus_score"),
-                    "rar_triggered": rar_triggered,
-                    "rar_accepted": rar_accepted,
+                    "consensus_score": row.get("consensus_score"),
+                    "rar_triggered": rar.get("triggered"),
+                    "rar_accepted": rar.get("accepted") if rar.get("triggered") else False,
                     "utility": utility.get("best_utility"),
                     "xi": xi.get("xi"),
+                    "artifact_count": row.get("artifact_count"),
                 }
             )
 
 
-def main() -> None:
-    OUT_DIR.mkdir(parents=True, exist_ok=True)
+def _summarize(rows: List[Dict[str, Any]], raw_dir: Path) -> Dict[str, Any]:
+    domain_matches: List[bool] = []
+    action_matches: List[bool] = []
 
-    cases = build_cases()
+    for row in rows:
+        gt = row.get("ground_truth") or {}
+        utility = row.get("utility") or {}
+
+        expected_domains = gt.get("expected_domains") or gt.get("primary_domain")
+        expected_action = gt.get("expected_action")
+        predicted_domain = row.get("predicted_primary_domain")
+        selected_action = utility.get("selected_action")
+
+        domain_matches.append(_domain_match(expected_domains, predicted_domain))
+        action_matches.append(_action_match(expected_action, selected_action))
+
+    domain_success = sum(1 for value in domain_matches if value)
+    action_success = sum(1 for value in action_matches if value)
+
+    rar_triggered = sum(1 for row in rows if (row.get("rar") or {}).get("triggered"))
+    rar_accepted = sum(
+        1
+        for row in rows
+        if (row.get("rar") or {}).get("triggered") and (row.get("rar") or {}).get("accepted")
+    )
+
+    artifact_counts = [int(row.get("artifact_count", 0) or 0) for row in rows]
+
+    return {
+        "n": len(rows),
+        "benchmark": "Sock Shop",
+        "pilot_type": "controlled runtime artifact telemetry pilot",
+        "runtime_case_count": len(rows),
+        "raw_artifact_root": str(raw_dir),
+        "raw_artifact_count_total": sum(artifact_counts),
+        "raw_artifact_count_mean": _mean(artifact_counts),
+        "domain_match_rate": _mean(domain_matches),
+        "domain_match_ci": _binary_ci(domain_success, len(domain_matches)),
+        "action_match_rate": _mean(action_matches),
+        "action_match_ci": _binary_ci(action_success, len(action_matches)),
+        "consensus_mean": _mean([float(row.get("consensus_score", 0.0) or 0.0) for row in rows]),
+        "utility_mean": _mean([float((row.get("utility") or {}).get("best_utility", 0.0) or 0.0) for row in rows]),
+        "xi_mean": _mean([float((row.get("explainability") or {}).get("xi", 0.0) or 0.0) for row in rows]),
+        "rar_triggered": rar_triggered,
+        "rar_accepted": rar_accepted,
+        "rar_unresolved": rar_triggered - rar_accepted,
+        "rar_trigger_rate": float(rar_triggered / len(rows)) if rows else 0.0,
+        "rar_acceptance_rate_when_triggered": float(rar_accepted / rar_triggered) if rar_triggered else 0.0,
+        "cases": [row.get("scenario_id") for row in rows],
+        "interpretation_note": (
+            "These are controlled runtime-collected Sock Shop telemetry cases. "
+            "They use real Docker Compose status, logs, stats, curl responses, and inspect artifacts "
+            "collected during deliberate runtime perturbations. They are not production incidents "
+            "and should be interpreted as a runtime feasibility pilot."
+        ),
+    }
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--raw-dir", default=str(DEFAULT_RAW_DIR))
+    parser.add_argument("--out", default=str(DEFAULT_OUT_DIR))
+    args = parser.parse_args()
+
+    raw_dir = Path(args.raw_dir)
+    out_dir = Path(args.out)
+    out_dir.mkdir(parents=True, exist_ok=True)
+
+    cases = build_cases(raw_dir)
+    if not cases:
+        raise RuntimeError(f"No telemetry cases found in {raw_dir}")
+
     rows: List[Dict[str, Any]] = []
 
     for case in cases:
@@ -395,59 +643,20 @@ def main() -> None:
         row = result.__dict__.copy()
         row["source"] = case.get("source")
         row["raw_artifacts"] = case.get("raw_artifacts", [])
+        row["artifact_count"] = case.get("artifact_count", 0)
         row["scenario_type"] = case.get("scenario_type")
         row["description"] = case.get("description")
         rows.append(row)
 
-    domain_matches = [
-        _domain_match(
-            (r.get("ground_truth") or {}).get("expected_domains"),
-            r.get("predicted_primary_domain"),
-        )
-        for r in rows
-    ]
+    _write_jsonl(out_dir / "telemetry_pilot_outputs.jsonl", rows)
+    _write_csv(out_dir / "telemetry_pilot_metrics.csv", rows)
 
-    action_matches = [
-        _action_match(
-            (r.get("ground_truth") or {}).get("expected_action"),
-            (r.get("utility") or {}).get("selected_action"),
-        )
-        for r in rows
-    ]
-
-    rar_triggered = sum(1 for r in rows if (r.get("rar") or {}).get("triggered"))
-    rar_accepted = sum(
-        1
-        for r in rows
-        if (r.get("rar") or {}).get("triggered")
-        and (r.get("rar") or {}).get("accepted")
-    )
-
-    summary = {
-        "n": len(rows),
-        "benchmark": "Sock Shop",
-        "pilot_type": "local runtime artifact telemetry pilot",
-        "domain_match_rate": _mean(domain_matches),
-        "action_match_rate": _mean(action_matches),
-        "consensus_mean": _mean([float(r.get("consensus_score", 0.0) or 0.0) for r in rows]),
-        "utility_mean": _mean([float((r.get("utility") or {}).get("best_utility", 0.0) or 0.0) for r in rows]),
-        "xi_mean": _mean([float((r.get("explainability") or {}).get("xi", 0.0) or 0.0) for r in rows]),
-        "rar_triggered": rar_triggered,
-        "rar_accepted": rar_accepted,
-        "rar_trigger_rate": float(rar_triggered / len(rows)) if rows else 0.0,
-        "rar_acceptance_rate_when_triggered": float(rar_accepted / rar_triggered) if rar_triggered else 0.0,
-        "raw_artifact_root": str(RAW_DIR),
-        "cases": [r.get("scenario_id") for r in rows],
-    }
-
-    _write_jsonl(OUT_DIR / "telemetry_pilot_outputs.jsonl", rows)
-    _write_csv(OUT_DIR / "telemetry_pilot_metrics.csv", rows)
-
-    with open(OUT_DIR / "telemetry_pilot_summary.json", "w", encoding="utf-8") as f:
+    summary = _summarize(rows, raw_dir)
+    with open(out_dir / "telemetry_pilot_summary.json", "w", encoding="utf-8") as f:
         json.dump(summary, f, indent=2)
 
     print(json.dumps(summary, indent=2))
-    print(f"Wrote telemetry pilot results to: {OUT_DIR}")
+    print(f"Wrote telemetry pilot results to: {out_dir}")
 
 
 if __name__ == "__main__":
