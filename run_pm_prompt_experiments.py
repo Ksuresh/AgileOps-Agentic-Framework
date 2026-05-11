@@ -131,13 +131,6 @@ def _default_acceptable_actions(
     expected_domains: List[str],
     expected_action: str | None,
 ) -> List[str]:
-    """
-    Provides controlled acceptable action sets for PM prompts.
-
-    Natural-language PM prompts often support more than one defensible
-    governance action. The primary expected action remains the stricter label,
-    while acceptable actions are used for a secondary, less brittle metric.
-    """
     actions: List[str] = []
 
     if expected_action:
@@ -184,12 +177,6 @@ def _safe_get_acceptable_actions(
 
 
 def _prompt_to_basic_telemetry(prompt: str) -> Dict[str, Any]:
-    """
-    Fallback deterministic prompt-to-telemetry mapper.
-
-    If richer prompt routing modules are unavailable or their interface changes,
-    this fallback still creates a reproducible PM prompt experiment.
-    """
     p = prompt.lower()
 
     telemetry = {
@@ -274,12 +261,11 @@ def _align_telemetry_with_prompt_expectations(
     priority: str,
 ) -> Dict[str, Any]:
     """
-    Aligns deterministic simulated telemetry with curated PM prompt labels.
+    Aligns deterministic simulated telemetry with curated prompt labels.
 
-    Phase 2A evaluates PM-facing prompt interpretation under controlled
-    conditions, not open-ended natural-language telemetry extraction. The
-    prompt library contains curated expected domains and actions, so simulated
-    evidence should reflect those labels in a reproducible way.
+    This mode is used only for controlled consistency checks. It should not be
+    interpreted as blind natural-language understanding because it uses the
+    curated expected domains and actions to shape the evidence package.
     """
     t = json.loads(json.dumps(telemetry))
 
@@ -346,9 +332,6 @@ def _align_telemetry_with_prompt_expectations(
         t["sec"]["iam_drift"] = True if high_priority else bool(t["sec"].get("iam_drift", False))
         t["sec"]["compliance_gap"] = True
 
-    # Make the curated primary domain dominant for PM prompt evaluation.
-    # This prevents generic release/reliability wording from overwhelming
-    # explicitly labeled FinOps or DevSecOps governance prompts.
     if primary_domain == "FinOps":
         t.setdefault("finops", {})
         t["finops"]["cost_spike_pct"] = max(
@@ -427,7 +410,11 @@ def _align_telemetry_with_prompt_expectations(
     return t
 
 
-def _build_scenario_from_prompt(item: Dict[str, Any], idx: int) -> Dict[str, Any]:
+def _build_scenario_from_prompt(
+    item: Dict[str, Any],
+    idx: int,
+    evidence_mode: str = "blind",
+) -> Dict[str, Any]:
     prompt = _safe_get_prompt_text(item)
     if not prompt:
         prompt = f"Prompt scenario {idx}"
@@ -451,12 +438,15 @@ def _build_scenario_from_prompt(item: Dict[str, Any], idx: int) -> Dict[str, Any
     if not isinstance(telemetry, dict):
         telemetry = _prompt_to_basic_telemetry(prompt)
 
-    telemetry = _align_telemetry_with_prompt_expectations(
-        telemetry=telemetry,
-        expected_domains=expected_domains,
-        expected_action=expected_action,
-        priority=str(item.get("priority", "medium")),
-    )
+    if evidence_mode == "aligned":
+        telemetry = _align_telemetry_with_prompt_expectations(
+            telemetry=telemetry,
+            expected_domains=expected_domains,
+            expected_action=expected_action,
+            priority=str(item.get("priority", "medium")),
+        )
+    elif evidence_mode != "blind":
+        raise ValueError("evidence_mode must be either 'blind' or 'aligned'")
 
     scenario_id = item.get("id") or item.get("scenario_id") or f"PM-{idx:03d}"
 
@@ -631,7 +621,7 @@ def _collect_mismatches(rows: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
     return mismatches
 
 
-def _summarize(rows: List[Dict[str, Any]]) -> Dict[str, Any]:
+def _summarize(rows: List[Dict[str, Any]], evidence_mode: str = "blind") -> Dict[str, Any]:
     n = len(rows)
 
     domain_matches = []
@@ -676,6 +666,7 @@ def _summarize(rows: List[Dict[str, Any]]) -> Dict[str, Any]:
 
     return {
         "n": n,
+        "evidence_mode": evidence_mode,
         "domain_match_rate": _mean(domain_matches),
         "domain_match_n": len(domain_matches),
         "domain_match_ci": _binary_ci(domain_success, len(domain_matches)),
@@ -705,9 +696,11 @@ def _summarize(rows: List[Dict[str, Any]]) -> Dict[str, Any]:
         "utility_weights": list(DEFAULT_UTILITY_WEIGHTS),
         "note": (
             "Confidence intervals are descriptive uncertainty estimates for the curated "
-            "PM prompt evaluation set. Primary action match uses the single expected "
-            "action label. Acceptable action match allows curated governance-equivalent "
-            "actions for ambiguous PM prompts."
+            "PM prompt evaluation set. In blind mode, telemetry is derived from prompt "
+            "text only. In aligned mode, curated labels are used to construct controlled "
+            "evidence packages and results should be interpreted as consistency checks. "
+            "Primary action match uses the single expected action label. Acceptable action "
+            "match allows curated governance-equivalent actions for ambiguous PM prompts."
         ),
     }
 
@@ -798,6 +791,15 @@ def main() -> None:
     parser.add_argument("--prompts", default=str(PROMPT_LIBRARY_PATH), help="Prompt library YAML")
     parser.add_argument("--out", default=str(DEFAULT_OUT_DIR), help="Output directory")
     parser.add_argument("--limit", type=int, default=None, help="Optional prompt limit")
+    parser.add_argument(
+        "--evidence-mode",
+        choices=["blind", "aligned"],
+        default="blind",
+        help=(
+            "blind uses prompt-derived telemetry only; aligned uses curated labels "
+            "to construct controlled evidence packages"
+        ),
+    )
     args = parser.parse_args()
 
     out_dir = Path(args.out)
@@ -810,7 +812,7 @@ def main() -> None:
     rows: List[Dict[str, Any]] = []
 
     for idx, item in enumerate(prompt_items, start=1):
-        scenario = _build_scenario_from_prompt(item, idx)
+        scenario = _build_scenario_from_prompt(item, idx, evidence_mode=args.evidence_mode)
         result = run_pipeline(scenario, mode="aaf_full")
         row = result.__dict__.copy()
 
@@ -818,7 +820,7 @@ def main() -> None:
         row["category"] = scenario.get("category", "pm_prompt")
         rows.append(row)
 
-    summary = _summarize(rows)
+    summary = _summarize(rows, evidence_mode=args.evidence_mode)
     mismatches = _collect_mismatches(rows)
 
     _write_jsonl(out_dir / "pm_prompt_outputs.jsonl", rows)
