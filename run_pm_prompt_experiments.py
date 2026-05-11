@@ -178,6 +178,87 @@ def _prompt_to_basic_telemetry(prompt: str) -> Dict[str, Any]:
     return telemetry
 
 
+def _align_telemetry_with_prompt_expectations(
+    telemetry: Dict[str, Any],
+    expected_domains: List[str],
+    expected_action: str | None,
+    priority: str,
+) -> Dict[str, Any]:
+    """
+    Aligns deterministic simulated telemetry with curated PM prompt labels.
+
+    Phase 2A evaluates PM-facing prompt interpretation under controlled
+    conditions, not open-ended natural-language telemetry extraction. The
+    prompt library contains curated expected domains and actions, so simulated
+    evidence should reflect those labels in a reproducible way.
+    """
+    t = json.loads(json.dumps(telemetry))
+
+    domains = set(expected_domains or [])
+    action = (expected_action or "").lower()
+    high_priority = priority == "high"
+
+    if "DevOps" in domains or "rollback" in action or "release" in action or "pipeline" in action:
+        t.setdefault("deploy", {})
+        t["deploy"]["pipeline_failed"] = True
+        t["deploy"]["rollback_marker"] = True
+        t["deploy"]["artifact_mismatch"] = True
+        t["deploy"]["restart_loops"] = max(
+            int(t["deploy"].get("restart_loops", 0)),
+            12 if high_priority else 8,
+        )
+
+    if "SRE" in domains or "mitigate" in action or "monitor" in action:
+        t.setdefault("sre", {})
+        t["sre"]["p95_latency_ms"] = max(
+            float(t["sre"].get("p95_latency_ms", 180.0)),
+            750.0 if high_priority else 550.0,
+        )
+        t["sre"]["error_rate_pct"] = max(
+            float(t["sre"].get("error_rate_pct", 0.5)),
+            9.0 if high_priority else 5.0,
+        )
+        t["sre"]["saturation_pct"] = max(
+            float(t["sre"].get("saturation_pct", 55.0)),
+            88.0 if high_priority else 75.0,
+        )
+        t["sre"]["availability_pct"] = min(
+            float(t["sre"].get("availability_pct", 99.9)),
+            98.0 if high_priority else 98.7,
+        )
+
+    if "FinOps" in domains or "scale" in action or "cost" in action or "review scaling" in action:
+        t.setdefault("finops", {})
+        t["finops"]["cost_spike_pct"] = max(
+            float(t["finops"].get("cost_spike_pct", 0.0)),
+            35.0 if high_priority else 24.0,
+        )
+        t["finops"]["hpa_scale_to"] = max(
+            int(t["finops"].get("hpa_scale_to", 4)),
+            14 if high_priority else 10,
+        )
+        t["finops"]["cpu_request_increase_pct"] = max(
+            float(t["finops"].get("cpu_request_increase_pct", 0.0)),
+            35.0,
+        )
+        t["finops"]["memory_request_increase_pct"] = max(
+            float(t["finops"].get("memory_request_increase_pct", 0.0)),
+            25.0,
+        )
+
+    if "DevSecOps" in domains or "patch" in action or "block" in action or "security" in action:
+        t.setdefault("sec", {})
+        t["sec"]["critical_cves"] = max(
+            int(t["sec"].get("critical_cves", 0)),
+            2 if high_priority else 1,
+        )
+        t["sec"]["policy_violation"] = True
+        t["sec"]["iam_drift"] = True if high_priority else bool(t["sec"].get("iam_drift", False))
+        t["sec"]["compliance_gap"] = True
+
+    return t
+
+
 def _build_scenario_from_prompt(item: Dict[str, Any], idx: int) -> Dict[str, Any]:
     prompt = _safe_get_prompt_text(item)
     if not prompt:
@@ -201,6 +282,13 @@ def _build_scenario_from_prompt(item: Dict[str, Any], idx: int) -> Dict[str, Any
 
     if not isinstance(telemetry, dict):
         telemetry = _prompt_to_basic_telemetry(prompt)
+
+    telemetry = _align_telemetry_with_prompt_expectations(
+        telemetry=telemetry,
+        expected_domains=expected_domains,
+        expected_action=expected_action,
+        priority=str(item.get("priority", "medium")),
+    )
 
     scenario_id = item.get("id") or item.get("scenario_id") or f"PM-{idx:03d}"
 
