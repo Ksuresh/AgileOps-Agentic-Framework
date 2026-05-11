@@ -1,0 +1,259 @@
+[
+    {
+        "Id": "ca2e131a2cc5f91d687c5d728b0b02d50bf89cf5e13c1160c9963c4a914e0b3c",
+        "Created": "2026-05-10T05:25:11.792734341Z",
+        "Path": "docker-entrypoint.sh",
+        "Args": [
+            "mongod"
+        ],
+        "State": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 954,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-05-11T11:05:30.180741917Z",
+            "FinishedAt": "2026-05-10T06:59:50.569995174Z"
+        },
+        "Image": "sha256:d314f7eca9d3f825d091b77c40d2f3c9d6fff4de88dde2962527353476f107ba",
+        "ResolvConfPath": "/var/lib/docker/containers/ca2e131a2cc5f91d687c5d728b0b02d50bf89cf5e13c1160c9963c4a914e0b3c/resolv.conf",
+        "HostnamePath": "/var/lib/docker/containers/ca2e131a2cc5f91d687c5d728b0b02d50bf89cf5e13c1160c9963c4a914e0b3c/hostname",
+        "HostsPath": "/var/lib/docker/containers/ca2e131a2cc5f91d687c5d728b0b02d50bf89cf5e13c1160c9963c4a914e0b3c/hosts",
+        "LogPath": "/var/lib/docker/containers/ca2e131a2cc5f91d687c5d728b0b02d50bf89cf5e13c1160c9963c4a914e0b3c/ca2e131a2cc5f91d687c5d728b0b02d50bf89cf5e13c1160c9963c4a914e0b3c-json.log",
+        "Name": "/docker-compose-carts-db-1",
+        "RestartCount": 0,
+        "Driver": "overlayfs",
+        "Platform": "linux",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "",
+        "ExecIDs": null,
+        "HostConfig": {
+            "Binds": null,
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "Type": "json-file",
+                "Config": {}
+            },
+            "NetworkMode": "docker-compose_default",
+            "PortBindings": {},
+            "RestartPolicy": {
+                "Name": "always",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": false,
+            "VolumeDriver": "",
+            "VolumesFrom": null,
+            "ConsoleSize": [
+                0,
+                0
+            ],
+            "CapAdd": [
+                "CAP_CHOWN",
+                "CAP_SETGID",
+                "CAP_SETUID"
+            ],
+            "CapDrop": [
+                "ALL"
+            ],
+            "CgroupnsMode": "private",
+            "Dns": [],
+            "DnsOptions": [],
+            "DnsSearch": [],
+            "ExtraHosts": [],
+            "GroupAdd": null,
+            "IpcMode": "private",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": false,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": true,
+            "SecurityOpt": null,
+            "Tmpfs": {
+                "/tmp": "rw,noexec,nosuid"
+            },
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 67108864,
+            "Runtime": "runc",
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 0,
+            "NanoCpus": 0,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": null,
+            "BlkioDeviceReadBps": null,
+            "BlkioDeviceWriteBps": null,
+            "BlkioDeviceReadIOps": null,
+            "BlkioDeviceWriteIOps": null,
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": null,
+            "DeviceCgroupRules": null,
+            "DeviceRequests": null,
+            "MemoryReservation": 0,
+            "MemorySwap": 0,
+            "MemorySwappiness": null,
+            "OomKillDisable": null,
+            "PidsLimit": null,
+            "Ulimits": null,
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0,
+            "MaskedPaths": [
+                "/proc/acpi",
+                "/proc/asound",
+                "/proc/interrupts",
+                "/proc/kcore",
+                "/proc/keys",
+                "/proc/latency_stats",
+                "/proc/sched_debug",
+                "/proc/scsi",
+                "/proc/timer_list",
+                "/proc/timer_stats",
+                "/sys/devices/virtual/powercap",
+                "/sys/firmware"
+            ],
+            "ReadonlyPaths": [
+                "/proc/bus",
+                "/proc/fs",
+                "/proc/irq",
+                "/proc/sys",
+                "/proc/sysrq-trigger"
+            ]
+        },
+        "Storage": {
+            "RootFS": {
+                "Snapshot": {
+                    "Name": "overlayfs"
+                }
+            }
+        },
+        "Mounts": [
+            {
+                "Type": "volume",
+                "Name": "b512d2a5922dcc3580e87bf17c8b90cbf87f66931547c310f12779a1302f08f6",
+                "Source": "/var/lib/docker/volumes/b512d2a5922dcc3580e87bf17c8b90cbf87f66931547c310f12779a1302f08f6/_data",
+                "Destination": "/data/configdb",
+                "Driver": "local",
+                "Mode": "",
+                "RW": true,
+                "Propagation": ""
+            },
+            {
+                "Type": "volume",
+                "Name": "468bbed1729ae7b0667a38c96df2269ce92a4a5e719a68392962176ab967b32f",
+                "Source": "/var/lib/docker/volumes/468bbed1729ae7b0667a38c96df2269ce92a4a5e719a68392962176ab967b32f/_data",
+                "Destination": "/data/db",
+                "Driver": "local",
+                "Mode": "",
+                "RW": true,
+                "Propagation": ""
+            }
+        ],
+        "Config": {
+            "Hostname": "carts-db",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": true,
+            "AttachStderr": true,
+            "ExposedPorts": {
+                "27017/tcp": {}
+            },
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "GOSU_VERSION=1.11",
+                "JSYAML_VERSION=3.13.0",
+                "GPG_KEYS=0C49F3730359A14518585931BC711F9BA15703C6",
+                "MONGO_PACKAGE=mongodb-org",
+                "MONGO_REPO=repo.mongodb.org",
+                "MONGO_MAJOR=3.4",
+                "MONGO_VERSION=3.4.24"
+            ],
+            "Cmd": [
+                "mongod"
+            ],
+            "Image": "mongo:3.4",
+            "Volumes": {
+                "/data/configdb": {},
+                "/data/db": {}
+            },
+            "WorkingDir": "",
+            "Entrypoint": [
+                "docker-entrypoint.sh"
+            ],
+            "Labels": {
+                "com.docker.compose.config-hash": "45709aa57f9f2084ff82e501860a02754dd2b01f9c80f016d7372370b2073797",
+                "com.docker.compose.container-number": "1",
+                "com.docker.compose.depends_on": "",
+                "com.docker.compose.image": "sha256:d314f7eca9d3f825d091b77c40d2f3c9d6fff4de88dde2962527353476f107ba",
+                "com.docker.compose.oneoff": "False",
+                "com.docker.compose.project": "docker-compose",
+                "com.docker.compose.project.config_files": "/Users/suresh/projects/AgileOps-Agentic-Framework/benchmark_apps/sock-shop/deploy/docker-compose/docker-compose.yml",
+                "com.docker.compose.project.working_dir": "/Users/suresh/projects/AgileOps-Agentic-Framework/benchmark_apps/sock-shop/deploy/docker-compose",
+                "com.docker.compose.service": "carts-db",
+                "com.docker.compose.version": "5.0.1"
+            },
+            "StopTimeout": 1
+        },
+        "NetworkSettings": {
+            "SandboxID": "7456ad5819169abd324c2d8fe59978d9fe3bd970d04becec9bfda9109076469e",
+            "SandboxKey": "/var/run/docker/netns/7456ad581916",
+            "Ports": {
+                "27017/tcp": null
+            },
+            "Networks": {
+                "docker-compose_default": {
+                    "IPAMConfig": null,
+                    "Links": null,
+                    "Aliases": [
+                        "docker-compose-carts-db-1",
+                        "carts-db"
+                    ],
+                    "DriverOpts": null,
+                    "GwPriority": 0,
+                    "NetworkID": "b1cbd8c711991613193e3018b521efdc8e67da76c4465b4997c35b7e5c3e3115",
+                    "EndpointID": "7d26223ca27fa6567e76ea67f16b7cc49e2e1d003e56f36702df66429796c9b6",
+                    "Gateway": "172.18.0.1",
+                    "IPAddress": "172.18.0.12",
+                    "MacAddress": "2e:eb:86:5a:90:15",
+                    "IPPrefixLen": 16,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "DNSNames": [
+                        "docker-compose-carts-db-1",
+                        "carts-db",
+                        "ca2e131a2cc5"
+                    ]
+                }
+            }
+        },
+        "ImageManifestDescriptor": {
+            "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+            "digest": "sha256:861affb9ba04ffbdc3390df6d2711978f10a7565767120a1cd6a1c3c26b2c66a",
+            "size": 3237,
+            "platform": {
+                "architecture": "arm64",
+                "os": "linux",
+                "variant": "v8"
+            }
+        }
+    }
+]

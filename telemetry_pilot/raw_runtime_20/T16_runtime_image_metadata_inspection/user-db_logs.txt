@@ -1,0 +1,93 @@
+time="2026-05-11T17:03:10+05:30" level=warning msg="The \"MYSQL_ROOT_PASSWORD\" variable is not set. Defaulting to a blank string."
+time="2026-05-11T17:03:10+05:30" level=warning msg="/Users/suresh/projects/benchmarks/sock-shop/deploy/docker-compose/docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+user-db-1  | 2026-05-10T05:25:18.391+0000 I CONTROL  [initandlisten] MongoDB starting : pid=1 port=27017 dbpath=/data/db-users 64-bit host=user-db
+user-db-1  | 2026-05-10T05:25:18.395+0000 I CONTROL  [initandlisten] db version v3.4.1
+user-db-1  | 2026-05-10T05:25:18.395+0000 I CONTROL  [initandlisten] git version: 5e103c4f5583e2566a45d740225dc250baacfbd7
+user-db-1  | 2026-05-10T05:25:18.395+0000 I CONTROL  [initandlisten] OpenSSL version: OpenSSL 1.0.1t  3 May 2016
+user-db-1  | 2026-05-10T05:25:18.395+0000 I CONTROL  [initandlisten] allocator: tcmalloc
+user-db-1  | 2026-05-10T05:25:18.396+0000 I CONTROL  [initandlisten] modules: none
+user-db-1  | 2026-05-10T05:25:18.396+0000 I CONTROL  [initandlisten] build environment:
+user-db-1  | 2026-05-10T05:25:18.396+0000 I CONTROL  [initandlisten]     distmod: debian81
+user-db-1  | 2026-05-10T05:25:18.396+0000 I CONTROL  [initandlisten]     distarch: x86_64
+user-db-1  | 2026-05-10T05:25:18.396+0000 I CONTROL  [initandlisten]     target_arch: x86_64
+user-db-1  | 2026-05-10T05:25:18.397+0000 I CONTROL  [initandlisten] options: { config: "/etc/mongodb.conf", storage: { dbPath: "/data/db-users", mmapv1: { smallFiles: true } } }
+user-db-1  | 2026-05-10T05:25:18.408+0000 I -        [initandlisten] Detected data files in /data/db-users created by the 'wiredTiger' storage engine, so setting the active storage engine to 'wiredTiger'.
+user-db-1  | 2026-05-10T05:25:18.409+0000 I STORAGE  [initandlisten] 
+user-db-1  | 2026-05-10T05:25:18.409+0000 I STORAGE  [initandlisten] ** WARNING: Using the XFS filesystem is strongly recommended with the WiredTiger storage engine
+user-db-1  | 2026-05-10T05:25:18.409+0000 I STORAGE  [initandlisten] **          See http://dochub.mongodb.org/core/prodnotes-filesystem
+user-db-1  | 2026-05-10T05:25:18.410+0000 I STORAGE  [initandlisten] wiredtiger_open config: create,cache_size=1447M,session_max=20000,eviction=(threads_max=4),config_base=false,statistics=(fast),log=(enabled=true,archive=true,path=journal,compressor=snappy),file_manager=(close_idle_time=100000),checkpoint=(wait=60,log_size=2GB),statistics_log=(wait=0),
+user-db-1  | 2026-05-10T05:25:20.358+0000 W STORAGE  [initandlisten] Detected configuration for non-active storage engine mmapv1 when current storage engine is wiredTiger
+user-db-1  | 2026-05-10T05:25:20.359+0000 I CONTROL  [initandlisten] 
+user-db-1  | 2026-05-10T05:25:20.360+0000 I CONTROL  [initandlisten] ** WARNING: Access control is not enabled for the database.
+user-db-1  | 2026-05-10T05:25:20.360+0000 I CONTROL  [initandlisten] **          Read and write access to data and configuration is unrestricted.
+user-db-1  | 2026-05-10T05:25:20.360+0000 I CONTROL  [initandlisten] 
+user-db-1  | 2026-05-10T05:25:20.375+0000 I CONTROL  [initandlisten] 
+user-db-1  | 2026-05-10T05:25:20.376+0000 I CONTROL  [initandlisten] ** WARNING: /sys/kernel/mm/transparent_hugepage/enabled is 'always'.
+user-db-1  | 2026-05-10T05:25:20.376+0000 I CONTROL  [initandlisten] **        We suggest setting it to 'never'
+user-db-1  | 2026-05-10T05:25:20.376+0000 I CONTROL  [initandlisten] 
+user-db-1  | 2026-05-10T05:25:20.614+0000 I FTDC     [initandlisten] Initializing full-time diagnostic data capture with directory '/data/db-users/diagnostic.data'
+user-db-1  | 2026-05-10T05:25:20.649+0000 I NETWORK  [thread1] waiting for connections on port 27017
+user-db-1  | 2026-05-10T05:25:21.180+0000 I NETWORK  [thread1] connection accepted from 172.18.0.8:35454 #1 (1 connection now open)
+user-db-1  | 2026-05-10T05:25:21.397+0000 I INDEX    [conn1] build index on: users.customers properties: { v: 2, unique: true, key: { username: 1 }, name: "username_1", ns: "users.customers", background: true }
+user-db-1  | 2026-05-10T05:25:21.425+0000 I INDEX    [conn1] build index done.  scanned 3 total records. 0 secs
+user-db-1  | 2026-05-10T05:25:21.433+0000 I COMMAND  [conn1] command users.$cmd command: createIndexes { createIndexes: "customers", indexes: [ { name: "username_1", ns: "users.customers", key: { username: 1 }, unique: true, dropDups: true, background: true } ] } numYields:1 reslen:113 locks:{ Global: { acquireCount: { r: 2, w: 2 } }, Database: { acquireCount: { w: 2, W: 2 } }, Collection: { acquireCount: { w: 2 } } } protocol:op_query 118ms
+user-db-1  | 2026-05-10T05:26:28.690+0000 I NETWORK  [thread1] connection accepted from 172.18.0.8:50274 #2 (2 connections now open)
+user-db-1  | 2026-05-10T05:26:28.946+0000 I COMMAND  [conn2] command users.customers command: find { find: "customers", filter: { username: "user" }, skip: 0, limit: 1, batchSize: 1, singleBatch: true } planSummary: IXSCAN { username: 1 } keysExamined:1 docsExamined:1 cursorExhausted:1 numYields:0 nreturned:1 reslen:350 locks:{ Global: { acquireCount: { r: 2 } }, Database: { acquireCount: { r: 1 } }, Collection: { acquireCount: { r: 1 } } } protocol:op_query 238ms
+user-db-1  | 2026-05-10T05:26:28.946+0000 I COMMAND  [conn1] command users.customers command: find { find: "customers", filter: { username: "user" }, skip: 0, limit: 1, batchSize: 1, singleBatch: true } planSummary: IXSCAN { username: 1 } keysExamined:1 docsExamined:1 cursorExhausted:1 numYields:0 nreturned:1 reslen:350 locks:{ Global: { acquireCount: { r: 2 } }, Database: { acquireCount: { r: 1 } }, Collection: { acquireCount: { r: 1 } } } protocol:op_query 238ms
+user-db-1  | 2026-05-10T05:26:35.362+0000 I COMMAND  [conn2] command users.customers command: find { find: "customers", filter: { _id: ObjectId('57a98d98e4b00679b4a830b2') }, skip: 0, limit: 1, batchSize: 1, singleBatch: true } planSummary: IDHACK keysExamined:1 docsExamined:1 cursorExhausted:1 numYields:1 nreturned:1 reslen:350 locks:{ Global: { acquireCount: { r: 4 } }, Database: { acquireCount: { r: 2 } }, Collection: { acquireCount: { r: 2 } } } protocol:op_query 123ms
+user-db-1  | 2026-05-10T05:26:35.366+0000 I COMMAND  [conn1] command users.customers command: find { find: "customers", filter: { _id: ObjectId('57a98d98e4b00679b4a830b2') }, skip: 0, limit: 1, batchSize: 1, singleBatch: true } planSummary: IDHACK keysExamined:1 docsExamined:1 cursorExhausted:1 numYields:1 nreturned:1 reslen:350 locks:{ Global: { acquireCount: { r: 4 } }, Database: { acquireCount: { r: 2 } }, Collection: { acquireCount: { r: 2 } } } protocol:op_query 123ms
+user-db-1  | 2026-05-10T05:26:35.964+0000 I NETWORK  [thread1] connection accepted from 172.18.0.8:59642 #3 (3 connections now open)
+user-db-1  | 2026-05-10T05:26:42.497+0000 I NETWORK  [thread1] connection accepted from 172.18.0.8:59644 #4 (4 connections now open)
+user-db-1  | 2026-05-10T05:26:53.873+0000 I COMMAND  [conn1] command users.addresses command: find { find: "addresses", filter: { _id: { $in: [ ObjectId('57a98d98e4b00679b4a830b0') ] } }, skip: 0 } planSummary: IXSCAN { _id: 1 } keysExamined:1 docsExamined:1 cursorExhausted:1 numYields:2 nreturned:1 reslen:239 locks:{ Global: { acquireCount: { r: 6 } }, Database: { acquireCount: { r: 3 } }, Collection: { acquireCount: { r: 3 } } } protocol:op_query 243ms
+user-db-1  | 2026-05-10T05:26:53.870+0000 I COMMAND  [conn4] command users.cards command: find { find: "cards", filter: { _id: { $in: [ ObjectId('57a98d98e4b00679b4a830b1') ] } }, skip: 0 } planSummary: IXSCAN { _id: 1 } keysExamined:1 docsExamined:1 cursorExhausted:1 numYields:1 nreturned:1 reslen:186 locks:{ Global: { acquireCount: { r: 4 } }, Database: { acquireCount: { r: 2 } }, Collection: { acquireCount: { r: 2 } } } protocol:op_query 179ms
+user-db-1  | 2026-05-10T05:40:59.116+0000 I COMMAND  [conn1] command users.customers command: find { find: "customers", filter: { username: "user" }, skip: 0, limit: 1, batchSize: 1, singleBatch: true } planSummary: IXSCAN { username: 1 } keysExamined:1 docsExamined:1 cursorExhausted:1 numYields:1 nreturned:1 reslen:350 locks:{ Global: { acquireCount: { r: 4 } }, Database: { acquireCount: { r: 2 } }, Collection: { acquireCount: { r: 2 } } } protocol:op_query 333ms
+user-db-1  | 2026-05-10T05:40:59.116+0000 I COMMAND  [conn4] command users.customers command: find { find: "customers", filter: { username: "user" }, skip: 0, limit: 1, batchSize: 1, singleBatch: true } planSummary: IXSCAN { username: 1 } keysExamined:1 docsExamined:1 cursorExhausted:1 numYields:1 nreturned:1 reslen:350 locks:{ Global: { acquireCount: { r: 4 } }, Database: { acquireCount: { r: 2 } }, Collection: { acquireCount: { r: 2 } } } protocol:op_query 333ms
+user-db-1  | 2026-05-10T05:41:38.542+0000 I COMMAND  [conn4] command users.customers command: find { find: "customers", filter: { _id: ObjectId('57a98d98e4b00679b4a830b2') }, skip: 0, limit: 1, batchSize: 1, singleBatch: true } planSummary: IDHACK keysExamined:1 docsExamined:1 cursorExhausted:1 numYields:1 nreturned:1 reslen:350 locks:{ Global: { acquireCount: { r: 4 } }, Database: { acquireCount: { r: 2 } }, Collection: { acquireCount: { r: 2 } } } protocol:op_query 198ms
+user-db-1  | 2026-05-10T05:41:38.542+0000 I COMMAND  [conn1] command users.customers command: find { find: "customers", filter: { _id: ObjectId('57a98d98e4b00679b4a830b2') }, skip: 0, limit: 1, batchSize: 1, singleBatch: true } planSummary: IDHACK keysExamined:1 docsExamined:1 cursorExhausted:1 numYields:1 nreturned:1 reslen:350 locks:{ Global: { acquireCount: { r: 4 } }, Database: { acquireCount: { r: 2 } }, Collection: { acquireCount: { r: 2 } } } protocol:op_query 198ms
+user-db-1  | 2026-05-10T05:41:59.514+0000 I NETWORK  [thread1] connection accepted from 172.18.0.8:44174 #5 (5 connections now open)
+user-db-1  | 2026-05-10T05:41:59.539+0000 I NETWORK  [thread1] connection accepted from 172.18.0.8:44162 #6 (6 connections now open)
+user-db-1  | 2026-05-10T06:59:47.341+0000 I CONTROL  [signalProcessingThread] got signal 15 (Terminated), will terminate after current cmd ends
+user-db-1  | 2026-05-10T06:59:47.514+0000 I NETWORK  [signalProcessingThread] shutdown: going to close listening sockets...
+user-db-1  | 2026-05-10T06:59:47.558+0000 I NETWORK  [signalProcessingThread] closing listening socket: 19
+user-db-1  | 2026-05-10T06:59:47.566+0000 I NETWORK  [signalProcessingThread] closing listening socket: 20
+user-db-1  | 2026-05-10T06:59:47.587+0000 I NETWORK  [signalProcessingThread] removing socket file: /tmp/mongodb-27017.sock
+user-db-1  | 2026-05-10T06:59:47.596+0000 I NETWORK  [signalProcessingThread] shutdown: going to flush diaglog...
+user-db-1  | 2026-05-10T06:59:47.916+0000 I FTDC     [signalProcessingThread] Shutting down full-time diagnostic data capture
+user-db-1  | 2026-05-11T11:05:33.404+0000 I CONTROL  [initandlisten] MongoDB starting : pid=1 port=27017 dbpath=/data/db-users 64-bit host=user-db
+user-db-1  | 2026-05-11T11:05:33.409+0000 I CONTROL  [initandlisten] db version v3.4.1
+user-db-1  | 2026-05-11T11:05:33.409+0000 I CONTROL  [initandlisten] git version: 5e103c4f5583e2566a45d740225dc250baacfbd7
+user-db-1  | 2026-05-11T11:05:33.410+0000 I CONTROL  [initandlisten] OpenSSL version: OpenSSL 1.0.1t  3 May 2016
+user-db-1  | 2026-05-11T11:05:33.410+0000 I CONTROL  [initandlisten] allocator: tcmalloc
+user-db-1  | 2026-05-11T11:05:33.410+0000 I CONTROL  [initandlisten] modules: none
+user-db-1  | 2026-05-11T11:05:33.410+0000 I CONTROL  [initandlisten] build environment:
+user-db-1  | 2026-05-11T11:05:33.410+0000 I CONTROL  [initandlisten]     distmod: debian81
+user-db-1  | 2026-05-11T11:05:33.410+0000 I CONTROL  [initandlisten]     distarch: x86_64
+user-db-1  | 2026-05-11T11:05:33.410+0000 I CONTROL  [initandlisten]     target_arch: x86_64
+user-db-1  | 2026-05-11T11:05:33.414+0000 I CONTROL  [initandlisten] options: { config: "/etc/mongodb.conf", storage: { dbPath: "/data/db-users", mmapv1: { smallFiles: true } } }
+user-db-1  | 2026-05-11T11:05:33.424+0000 W -        [initandlisten] Detected unclean shutdown - /data/db-users/mongod.lock is not empty.
+user-db-1  | 2026-05-11T11:05:33.444+0000 I -        [initandlisten] Detected data files in /data/db-users created by the 'wiredTiger' storage engine, so setting the active storage engine to 'wiredTiger'.
+user-db-1  | 2026-05-11T11:05:33.446+0000 W STORAGE  [initandlisten] Recovering data from the last clean checkpoint.
+user-db-1  | 2026-05-11T11:05:33.446+0000 I STORAGE  [initandlisten] 
+user-db-1  | 2026-05-11T11:05:33.447+0000 I STORAGE  [initandlisten] ** WARNING: Using the XFS filesystem is strongly recommended with the WiredTiger storage engine
+user-db-1  | 2026-05-11T11:05:33.448+0000 I STORAGE  [initandlisten] **          See http://dochub.mongodb.org/core/prodnotes-filesystem
+user-db-1  | 2026-05-11T11:05:33.457+0000 I STORAGE  [initandlisten] wiredtiger_open config: create,cache_size=1447M,session_max=20000,eviction=(threads_max=4),config_base=false,statistics=(fast),log=(enabled=true,archive=true,path=journal,compressor=snappy),file_manager=(close_idle_time=100000),checkpoint=(wait=60,log_size=2GB),statistics_log=(wait=0),
+user-db-1  | 2026-05-11T11:05:34.132+0000 W STORAGE  [initandlisten] Detected configuration for non-active storage engine mmapv1 when current storage engine is wiredTiger
+user-db-1  | 2026-05-11T11:05:34.132+0000 I CONTROL  [initandlisten] 
+user-db-1  | 2026-05-11T11:05:34.133+0000 I CONTROL  [initandlisten] ** WARNING: Access control is not enabled for the database.
+user-db-1  | 2026-05-11T11:05:34.133+0000 I CONTROL  [initandlisten] **          Read and write access to data and configuration is unrestricted.
+user-db-1  | 2026-05-11T11:05:34.133+0000 I CONTROL  [initandlisten] 
+user-db-1  | 2026-05-11T11:05:34.134+0000 I CONTROL  [initandlisten] 
+user-db-1  | 2026-05-11T11:05:34.134+0000 I CONTROL  [initandlisten] ** WARNING: /sys/kernel/mm/transparent_hugepage/enabled is 'always'.
+user-db-1  | 2026-05-11T11:05:34.134+0000 I CONTROL  [initandlisten] **        We suggest setting it to 'never'
+user-db-1  | 2026-05-11T11:05:34.134+0000 I CONTROL  [initandlisten] 
+user-db-1  | 2026-05-11T11:05:34.260+0000 I FTDC     [initandlisten] Initializing full-time diagnostic data capture with directory '/data/db-users/diagnostic.data'
+user-db-1  | 2026-05-11T11:05:34.309+0000 I NETWORK  [thread1] waiting for connections on port 27017
+user-db-1  | 2026-05-11T11:05:34.941+0000 I NETWORK  [thread1] connection accepted from 172.18.0.5:50950 #1 (1 connection now open)
+user-db-1  | 2026-05-11T11:05:35.123+0000 I FTDC     [ftdc] Unclean full-time diagnostic data capture shutdown detected, found interim file, some metrics may have been lost. OK
+user-db-1  | 2026-05-11T11:14:48.442+0000 I NETWORK  [thread1] connection accepted from 172.18.0.5:39724 #2 (2 connections now open)
+user-db-1  | 2026-05-11T11:14:48.592+0000 I COMMAND  [conn2] command users.customers command: find { find: "customers", filter: { username: "user" }, skip: 0, limit: 1, batchSize: 1, singleBatch: true } planSummary: IXSCAN { username: 1 } keysExamined:1 docsExamined:1 cursorExhausted:1 numYields:0 nreturned:1 reslen:350 locks:{ Global: { acquireCount: { r: 2 } }, Database: { acquireCount: { r: 1 } }, Collection: { acquireCount: { r: 1 } } } protocol:op_query 118ms
+user-db-1  | 2026-05-11T11:14:48.592+0000 I COMMAND  [conn1] command users.customers command: find { find: "customers", filter: { username: "user" }, skip: 0, limit: 1, batchSize: 1, singleBatch: true } planSummary: IXSCAN { username: 1 } keysExamined:1 docsExamined:1 cursorExhausted:1 numYields:0 nreturned:1 reslen:350 locks:{ Global: { acquireCount: { r: 2 } }, Database: { acquireCount: { r: 1 } }, Collection: { acquireCount: { r: 1 } } } protocol:op_query 131ms
+user-db-1  | 2026-05-11T11:14:53.431+0000 I NETWORK  [thread1] connection accepted from 172.18.0.5:38514 #3 (3 connections now open)
+user-db-1  | 2026-05-11T11:14:53.432+0000 I NETWORK  [thread1] connection accepted from 172.18.0.5:38512 #4 (4 connections now open)
+user-db-1  | 2026-05-11T11:28:54.058+0000 I NETWORK  [thread1] connection accepted from 172.18.0.5:60714 #5 (5 connections now open)
+user-db-1  | 2026-05-11T11:28:54.061+0000 I NETWORK  [thread1] connection accepted from 172.18.0.5:60718 #6 (6 connections now open)

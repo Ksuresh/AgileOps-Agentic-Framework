@@ -1,0 +1,237 @@
+[
+    {
+        "Id": "a1b3d68a6891dcab30c7b2ddb3bcbdb283f3f0d128c8907bd9257631eb4ca4a6",
+        "Created": "2026-05-10T05:25:11.910839258Z",
+        "Path": "docker-entrypoint.sh",
+        "Args": [
+            "mysqld"
+        ],
+        "State": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 1029,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-05-11T11:05:30.180398792Z",
+            "FinishedAt": "2026-05-10T06:59:49.565457549Z"
+        },
+        "Image": "sha256:7ba74ec9adf88f6625b8d85d3323d1ee5232b39877e1590021ea485cf9457251",
+        "ResolvConfPath": "/var/lib/docker/containers/a1b3d68a6891dcab30c7b2ddb3bcbdb283f3f0d128c8907bd9257631eb4ca4a6/resolv.conf",
+        "HostnamePath": "/var/lib/docker/containers/a1b3d68a6891dcab30c7b2ddb3bcbdb283f3f0d128c8907bd9257631eb4ca4a6/hostname",
+        "HostsPath": "/var/lib/docker/containers/a1b3d68a6891dcab30c7b2ddb3bcbdb283f3f0d128c8907bd9257631eb4ca4a6/hosts",
+        "LogPath": "/var/lib/docker/containers/a1b3d68a6891dcab30c7b2ddb3bcbdb283f3f0d128c8907bd9257631eb4ca4a6/a1b3d68a6891dcab30c7b2ddb3bcbdb283f3f0d128c8907bd9257631eb4ca4a6-json.log",
+        "Name": "/docker-compose-catalogue-db-1",
+        "RestartCount": 0,
+        "Driver": "overlayfs",
+        "Platform": "linux",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "",
+        "ExecIDs": null,
+        "HostConfig": {
+            "Binds": null,
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "Type": "json-file",
+                "Config": {}
+            },
+            "NetworkMode": "docker-compose_default",
+            "PortBindings": {},
+            "RestartPolicy": {
+                "Name": "always",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": false,
+            "VolumeDriver": "",
+            "VolumesFrom": null,
+            "ConsoleSize": [
+                0,
+                0
+            ],
+            "CapAdd": null,
+            "CapDrop": null,
+            "CgroupnsMode": "private",
+            "Dns": [],
+            "DnsOptions": [],
+            "DnsSearch": [],
+            "ExtraHosts": [],
+            "GroupAdd": null,
+            "IpcMode": "private",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": false,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": false,
+            "SecurityOpt": null,
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 67108864,
+            "Runtime": "runc",
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 0,
+            "NanoCpus": 0,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": null,
+            "BlkioDeviceReadBps": null,
+            "BlkioDeviceWriteBps": null,
+            "BlkioDeviceReadIOps": null,
+            "BlkioDeviceWriteIOps": null,
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": null,
+            "DeviceCgroupRules": null,
+            "DeviceRequests": null,
+            "MemoryReservation": 0,
+            "MemorySwap": 0,
+            "MemorySwappiness": null,
+            "OomKillDisable": null,
+            "PidsLimit": null,
+            "Ulimits": null,
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0,
+            "MaskedPaths": [
+                "/proc/acpi",
+                "/proc/asound",
+                "/proc/interrupts",
+                "/proc/kcore",
+                "/proc/keys",
+                "/proc/latency_stats",
+                "/proc/sched_debug",
+                "/proc/scsi",
+                "/proc/timer_list",
+                "/proc/timer_stats",
+                "/sys/devices/virtual/powercap",
+                "/sys/firmware"
+            ],
+            "ReadonlyPaths": [
+                "/proc/bus",
+                "/proc/fs",
+                "/proc/irq",
+                "/proc/sys",
+                "/proc/sysrq-trigger"
+            ]
+        },
+        "Storage": {
+            "RootFS": {
+                "Snapshot": {
+                    "Name": "overlayfs"
+                }
+            }
+        },
+        "Mounts": [
+            {
+                "Type": "volume",
+                "Name": "06e9d056995dfa202e4d079b2330c547927b5b165ef0db2c99d982838a8268e8",
+                "Source": "/var/lib/docker/volumes/06e9d056995dfa202e4d079b2330c547927b5b165ef0db2c99d982838a8268e8/_data",
+                "Destination": "/var/lib/mysql",
+                "Driver": "local",
+                "Mode": "",
+                "RW": true,
+                "Propagation": ""
+            }
+        ],
+        "Config": {
+            "Hostname": "catalogue-db",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": true,
+            "AttachStderr": true,
+            "ExposedPorts": {
+                "3306/tcp": {}
+            },
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "MYSQL_ALLOW_EMPTY_PASSWORD=true",
+                "MYSQL_DATABASE=socksdb",
+                "MYSQL_ROOT_PASSWORD=",
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "GOSU_VERSION=1.7",
+                "MYSQL_MAJOR=5.7",
+                "MYSQL_VERSION=5.7.17-1debian8"
+            ],
+            "Cmd": [
+                "mysqld"
+            ],
+            "Image": "weaveworksdemos/catalogue-db:0.3.0",
+            "Volumes": {
+                "/var/lib/mysql": {}
+            },
+            "WorkingDir": "",
+            "Entrypoint": [
+                "docker-entrypoint.sh"
+            ],
+            "Labels": {
+                "com.docker.compose.config-hash": "9784754966d5212d701b3cbd6ae2328a3ef5d2fd7c5e7809a414610be573493c",
+                "com.docker.compose.container-number": "1",
+                "com.docker.compose.depends_on": "",
+                "com.docker.compose.image": "sha256:7ba74ec9adf88f6625b8d85d3323d1ee5232b39877e1590021ea485cf9457251",
+                "com.docker.compose.oneoff": "False",
+                "com.docker.compose.project": "docker-compose",
+                "com.docker.compose.project.config_files": "/Users/suresh/projects/AgileOps-Agentic-Framework/benchmark_apps/sock-shop/deploy/docker-compose/docker-compose.yml",
+                "com.docker.compose.project.working_dir": "/Users/suresh/projects/AgileOps-Agentic-Framework/benchmark_apps/sock-shop/deploy/docker-compose",
+                "com.docker.compose.service": "catalogue-db",
+                "com.docker.compose.version": "5.0.1"
+            },
+            "StopTimeout": 1
+        },
+        "NetworkSettings": {
+            "SandboxID": "9f2d87865717dfb6be47aac84510e96f79bcb22e06d5eae3ac125950d8b3fb1c",
+            "SandboxKey": "/var/run/docker/netns/9f2d87865717",
+            "Ports": {
+                "3306/tcp": null
+            },
+            "Networks": {
+                "docker-compose_default": {
+                    "IPAMConfig": null,
+                    "Links": null,
+                    "Aliases": [
+                        "docker-compose-catalogue-db-1",
+                        "catalogue-db"
+                    ],
+                    "DriverOpts": null,
+                    "GwPriority": 0,
+                    "NetworkID": "b1cbd8c711991613193e3018b521efdc8e67da76c4465b4997c35b7e5c3e3115",
+                    "EndpointID": "6c4e6a1d864af3dc8d3fbc7bf834230f9d02c0a4f9d20ce08fb3b0ca9a93ce21",
+                    "Gateway": "172.18.0.1",
+                    "IPAddress": "172.18.0.15",
+                    "MacAddress": "42:f1:bb:50:78:95",
+                    "IPPrefixLen": 16,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "DNSNames": [
+                        "docker-compose-catalogue-db-1",
+                        "catalogue-db",
+                        "a1b3d68a6891"
+                    ]
+                }
+            }
+        },
+        "ImageManifestDescriptor": {
+            "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+            "digest": "sha256:7ba74ec9adf88f6625b8d85d3323d1ee5232b39877e1590021ea485cf9457251",
+            "size": 2824,
+            "platform": {
+                "architecture": "amd64",
+                "os": "linux"
+            }
+        }
+    }
+]

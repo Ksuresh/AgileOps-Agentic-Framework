@@ -1,0 +1,47 @@
+time="2026-05-11T16:58:39+05:30" level=warning msg="The \"MYSQL_ROOT_PASSWORD\" variable is not set. Defaulting to a blank string."
+time="2026-05-11T16:58:39+05:30" level=warning msg="/Users/suresh/projects/benchmarks/sock-shop/deploy/docker-compose/docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+payment-1  | ts=2026-05-10T05:25:17Z caller=main.go:70 transport=HTTP port=80
+payment-1  | ts=2026-05-10T05:42:30Z caller=logging.go:29 method=Authorise result=true took=3µs
+payment-1  | ts=2026-05-10T05:42:30Z caller=logging.go:29 method=Authorise result=true took=96µs
+payment-1  | ts=2026-05-10T05:42:54Z caller=logging.go:29 method=Authorise result=true took=3µs
+payment-1  | ts=2026-05-10T05:42:54Z caller=logging.go:29 method=Authorise result=true took=6µs
+payment-1  | ts=2026-05-10T05:43:25Z caller=logging.go:29 method=Authorise result=true took=6.633ms
+payment-1  | ts=2026-05-10T05:43:25Z caller=logging.go:29 method=Authorise result=true took=183µs
+payment-1  | ts=2026-05-10T05:43:40Z caller=logging.go:29 method=Authorise result=true took=8µs
+payment-1  | ts=2026-05-10T05:43:40Z caller=logging.go:29 method=Authorise result=true took=349µs
+payment-1  | ts=2026-05-10T05:43:47Z caller=logging.go:29 method=Authorise result=true took=39µs
+payment-1  | ts=2026-05-10T05:43:47Z caller=logging.go:29 method=Authorise result=true took=5µs
+payment-1  | ts=2026-05-10T05:43:50Z caller=logging.go:29 method=Authorise result=true took=30µs
+payment-1  | ts=2026-05-10T05:43:50Z caller=logging.go:29 method=Authorise result=true took=33µs
+payment-1  | ts=2026-05-10T05:43:55Z caller=logging.go:29 method=Authorise result=true took=43µs
+payment-1  | ts=2026-05-10T05:43:55Z caller=logging.go:29 method=Authorise result=true took=7µs
+payment-1  | ts=2026-05-10T05:43:58Z caller=logging.go:29 method=Authorise result=true took=11µs
+payment-1  | ts=2026-05-10T05:43:58Z caller=logging.go:29 method=Authorise result=true took=3µs
+payment-1  | ts=2026-05-10T05:44:01Z caller=logging.go:29 method=Authorise result=true took=13µs
+payment-1  | ts=2026-05-10T05:44:01Z caller=logging.go:29 method=Authorise result=true took=3µs
+payment-1  | ts=2026-05-10T05:44:05Z caller=logging.go:29 method=Authorise result=true took=8µs
+payment-1  | ts=2026-05-10T05:44:05Z caller=logging.go:29 method=Authorise result=true took=7µs
+payment-1  | ts=2026-05-10T06:59:47Z caller=main.go:81 exit=terminated
+payment-1  | ts=2026-05-11T11:05:30Z caller=main.go:70 transport=HTTP port=80
+payment-1  | ts=2026-05-11T11:14:56Z caller=logging.go:29 method=Authorise result=true took=83µs
+payment-1  | ts=2026-05-11T11:14:56Z caller=logging.go:29 method=Authorise result=true took=31µs
+payment-1  | ts=2026-05-11T11:15:01Z caller=logging.go:29 method=Authorise result=true took=4µs
+payment-1  | ts=2026-05-11T11:15:01Z caller=logging.go:29 method=Authorise result=true took=3µs
+payment-1  | ts=2026-05-11T11:15:02Z caller=logging.go:29 method=Authorise result=true took=63µs
+payment-1  | ts=2026-05-11T11:15:02Z caller=logging.go:29 method=Authorise result=true took=2µs
+payment-1  | ts=2026-05-11T11:15:03Z caller=logging.go:29 method=Authorise result=true took=4µs
+payment-1  | ts=2026-05-11T11:15:03Z caller=logging.go:29 method=Authorise result=true took=3µs
+payment-1  | ts=2026-05-11T11:15:04Z caller=logging.go:29 method=Authorise result=true took=3µs
+payment-1  | ts=2026-05-11T11:15:04Z caller=logging.go:29 method=Authorise result=true took=5µs
+payment-1  | ts=2026-05-11T11:15:05Z caller=logging.go:29 method=Authorise result=true took=3µs
+payment-1  | ts=2026-05-11T11:15:05Z caller=logging.go:29 method=Authorise result=true took=3µs
+payment-1  | ts=2026-05-11T11:15:06Z caller=logging.go:29 method=Authorise result=true took=7µs
+payment-1  | ts=2026-05-11T11:15:06Z caller=logging.go:29 method=Authorise result=true took=2µs
+payment-1  | ts=2026-05-11T11:15:06Z caller=logging.go:29 method=Authorise result=true took=4µs
+payment-1  | ts=2026-05-11T11:15:06Z caller=logging.go:29 method=Authorise result=true took=8µs
+payment-1  | ts=2026-05-11T11:15:07Z caller=logging.go:29 method=Authorise result=true took=18µs
+payment-1  | ts=2026-05-11T11:15:07Z caller=logging.go:29 method=Authorise result=true took=6µs
+payment-1  | ts=2026-05-11T11:15:07Z caller=logging.go:29 method=Authorise result=true took=6µs
+payment-1  | ts=2026-05-11T11:15:07Z caller=logging.go:29 method=Authorise result=true took=40µs
+payment-1  | ts=2026-05-11T11:15:08Z caller=logging.go:29 method=Authorise result=true took=3µs
+payment-1  | ts=2026-05-11T11:15:08Z caller=logging.go:29 method=Authorise result=true took=13µs

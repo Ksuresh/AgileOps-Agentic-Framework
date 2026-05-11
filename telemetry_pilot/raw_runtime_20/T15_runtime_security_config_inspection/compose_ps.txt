@@ -1,0 +1,18 @@
+time="2026-05-11T17:02:59+05:30" level=warning msg="The \"MYSQL_ROOT_PASSWORD\" variable is not set. Defaulting to a blank string."
+time="2026-05-11T17:02:59+05:30" level=warning msg="/Users/suresh/projects/benchmarks/sock-shop/deploy/docker-compose/docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+NAME                            IMAGE                                COMMAND                  SERVICE        CREATED        STATUS              PORTS
+docker-compose-carts-1          weaveworksdemos/carts:0.4.8          "/usr/local/bin/java…"   carts          30 hours ago   Up 3 minutes        
+docker-compose-carts-db-1       mongo:3.4                            "docker-entrypoint.s…"   carts-db       30 hours ago   Up 27 minutes       27017/tcp
+docker-compose-catalogue-1      weaveworksdemos/catalogue:0.3.5      "/app -port=80"          catalogue      30 hours ago   Up 4 minutes        80/tcp
+docker-compose-catalogue-db-1   weaveworksdemos/catalogue-db:0.3.0   "docker-entrypoint.s…"   catalogue-db   30 hours ago   Up 27 minutes       3306/tcp
+docker-compose-edge-router-1    weaveworksdemos/edge-router:0.1.1    "traefik"                edge-router    30 hours ago   Up 27 minutes       0.0.0.0:80->80/tcp, [::]:80->80/tcp, 0.0.0.0:8080->8080/tcp, [::]:8080->8080/tcp
+docker-compose-front-end-1      weaveworksdemos/front-end:0.3.12     "/usr/local/bin/npm …"   front-end      30 hours ago   Up 3 minutes        8079/tcp
+docker-compose-orders-1         weaveworksdemos/orders:0.4.7         "/usr/local/bin/java…"   orders         30 hours ago   Up 3 minutes        
+docker-compose-orders-db-1      mongo:3.4                            "docker-entrypoint.s…"   orders-db      30 hours ago   Up 27 minutes       27017/tcp
+docker-compose-payment-1        weaveworksdemos/payment:0.4.3        "/app -port=80"          payment        30 hours ago   Up 8 seconds        80/tcp
+docker-compose-queue-master-1   weaveworksdemos/queue-master:0.3.1   "/usr/local/bin/java…"   queue-master   30 hours ago   Up 27 minutes       
+docker-compose-rabbitmq-1       rabbitmq:3.6.8                       "docker-entrypoint.s…"   rabbitmq       30 hours ago   Up 27 minutes       4369/tcp, 5671-5672/tcp, 25672/tcp
+docker-compose-shipping-1       weaveworksdemos/shipping:0.4.8       "/usr/local/bin/java…"   shipping       30 hours ago   Up 27 minutes       
+docker-compose-user-1           weaveworksdemos/user:0.4.4           "/user -port=80"         user           30 hours ago   Up 27 minutes       80/tcp
+docker-compose-user-db-1        weaveworksdemos/user-db:0.4.0        "/entrypoint.sh mong…"   user-db        30 hours ago   Up 27 minutes       27017/tcp
+docker-compose-user-sim-1       weaveworksdemos/load-test:0.1.1      "/usr/local/bin/runL…"   user-sim       30 hours ago   Up About a minute   8089/tcp

@@ -1,0 +1,21 @@
+scenario_id,scenario_type,expected_domains,predicted_domain,domain_match,expected_action,selected_action,action_match,consensus_score,rar_triggered,rar_accepted,utility,xi,artifact_count
+P3-T01,sock_shop_baseline_startup_readiness,"[""DevOps""]",DevOps,True,Block release and fix pipeline,Rollback to stable deployment,False,0.8,False,False,0.9155,0.84,37
+P3-T02,sock_shop_catalogue_service_stopped,"[""SRE"", ""DevOps""]",SRE,True,Mitigate and monitor,Mitigate and monitor,True,0.92,False,False,0.814,0.801,36
+P3-T03,sock_shop_frontend_scaled_three_replicas,"[""FinOps""]",SRE,False,Scale adjustment,Scale adjustment,True,0.8,False,False,1.2813,0.8089,37
+P3-T04,sock_shop_carts_service_stopped,"[""SRE"", ""DevOps""]",SRE,True,Mitigate and monitor,Mitigate and monitor,True,0.92,False,False,0.814,0.8015,36
+P3-T05,sock_shop_orders_service_stopped,"[""SRE"", ""DevOps""]",SRE,True,Mitigate and monitor,Mitigate and monitor,True,0.92,False,False,0.814,0.8015,36
+P3-T06,sock_shop_frontend_repeated_restarts,"[""DevOps"", ""SRE""]",DevOps,True,Rollback to stable deployment,Rollback to stable deployment,True,0.8,False,False,0.8387,0.84,37
+P3-T07,sock_shop_catalogue_scaled_three_replicas,"[""FinOps""]",SRE,False,Scale adjustment,Scale adjustment,True,0.8,False,False,1.2813,0.8089,37
+P3-T08,sock_shop_carts_scaled_three_replicas,"[""FinOps""]",SRE,False,Scale adjustment,Scale adjustment,True,0.8,False,False,1.2246,0.8059,37
+P3-T09,sock_shop_orders_scaled_three_replicas,"[""FinOps""]",SRE,False,Scale adjustment,Scale adjustment,True,0.8,False,False,1.2813,0.8089,37
+P3-T10,sock_shop_frontend_cpu_pressure,"[""SRE""]",SRE,True,Mitigate and monitor,Mitigate and monitor,True,0.92,False,False,0.814,0.8025,37
+P3-T11,sock_shop_catalogue_cpu_pressure,"[""SRE""]",SRE,True,Mitigate and monitor,Mitigate and monitor,True,0.92,False,False,0.814,0.8025,37
+P3-T12,sock_shop_catalogue_request_pressure,"[""SRE""]",SRE,True,Mitigate and monitor,Mitigate and monitor,True,0.92,False,False,0.814,0.8025,37
+P3-T13,sock_shop_runtime_config_inspection,"[""DevOps""]",DevOps,True,Block release and fix pipeline,Rollback to stable deployment,False,0.8,False,False,0.8105,0.84,37
+P3-T14,sock_shop_payment_service_stopped,"[""SRE"", ""DevOps""]",SRE,True,Mitigate and monitor,Mitigate and monitor,True,0.92,False,False,0.814,0.8015,36
+P3-T15,sock_shop_runtime_security_config_inspection,"[""DevSecOps""]",SRE,False,Patch or block release,Patch or block release,True,0.8,False,False,1.086,0.807,37
+P3-T16,sock_shop_runtime_image_metadata_inspection,"[""DevSecOps""]",SRE,False,Patch or block release,Patch or block release,True,0.8,False,False,1.086,0.807,37
+P3-T17,sock_shop_release_reliability_mixed,"[""DevOps"", ""SRE""]",DevOps,True,Rollback to stable deployment,Rollback to stable deployment,True,0.8,False,False,0.8387,0.84,36
+P3-T18,sock_shop_reliability_cost_mixed,"[""SRE"", ""FinOps""]",SRE,True,Mitigate and monitor,Scale adjustment,False,0.89,False,False,0.9246,0.832,36
+P3-T19,sock_shop_security_release_gate_mixed,"[""DevSecOps"", ""DevOps""]",SRE,False,Patch or block release,Patch or block release,True,0.77,False,False,1.0494,0.84,37
+P3-T20,sock_shop_multi_domain_go_no_go,"[""DevOps"", ""SRE"", ""FinOps"", ""DevSecOps""]",DevOps,True,Mitigate and monitor,Scale adjustment,False,0.47,True,False,0.9254,0.84,36

@@ -1,0 +1,122 @@
+time="2026-05-11T17:01:43+05:30" level=warning msg="The \"MYSQL_ROOT_PASSWORD\" variable is not set. Defaulting to a blank string."
+time="2026-05-11T17:01:43+05:30" level=warning msg="/Users/suresh/projects/benchmarks/sock-shop/deploy/docker-compose/docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+catalogue-1  | ts=2026-05-11T11:28:57Z caller=logging.go:62 method=Get id=d3588630-ad8e-49df-bbd7-3167f7efb246 sock=d3588630-ad8e-49df-bbd7-3167f7efb246 err=null took=747µs
+catalogue-1  | ts=2026-05-11T11:28:58Z caller=logging.go:62 method=Get id=819e1fbf-8b7e-4f6d-811f-693534916a8b sock=819e1fbf-8b7e-4f6d-811f-693534916a8b err=null took=894µs
+catalogue-1  | ts=2026-05-11T11:28:58Z caller=logging.go:36 method=List tags= order=id pageNum=1 pageSize=10 result=9 err=null took=1.466ms
+catalogue-1  | ts=2026-05-11T11:28:58Z caller=logging.go:36 method=List tags= order=id pageNum=1 pageSize=10 result=9 err=null took=818µs
+catalogue-1  | ts=2026-05-11T11:28:58Z caller=logging.go:62 method=Get id=819e1fbf-8b7e-4f6d-811f-693534916a8b sock=819e1fbf-8b7e-4f6d-811f-693534916a8b err=null took=913µs
+catalogue-1  | ts=2026-05-11T11:28:58Z caller=logging.go:62 method=Get id=zzz4f044-b040-410d-8ead-4de0446aec7e sock=zzz4f044-b040-410d-8ead-4de0446aec7e err=null took=643µs
+catalogue-1  | ts=2026-05-11T11:28:58Z caller=logging.go:36 method=List tags= order=id pageNum=1 pageSize=10 result=9 err=null took=709µs
+catalogue-1  | ts=2026-05-11T11:28:58Z caller=logging.go:36 method=List tags= order=id pageNum=1 pageSize=10 result=9 err=null took=877µs
+catalogue-1  | ts=2026-05-11T11:28:58Z caller=logging.go:62 method=Get id=3395a43e-2d88-40de-b95f-e00e1502085b sock=3395a43e-2d88-40de-b95f-e00e1502085b err=null took=847µs
+catalogue-1  | ts=2026-05-11T11:28:58Z caller=logging.go:62 method=Get id=d3588630-ad8e-49df-bbd7-3167f7efb246 sock=d3588630-ad8e-49df-bbd7-3167f7efb246 err=null took=671µs
+catalogue-1  | ts=2026-05-11T11:28:59Z caller=logging.go:36 method=List tags= order=id pageNum=1 pageSize=10 result=9 err=null took=880µs
+catalogue-1  | ts=2026-05-11T11:28:59Z caller=logging.go:62 method=Get id=d3588630-ad8e-49df-bbd7-3167f7efb246 sock=d3588630-ad8e-49df-bbd7-3167f7efb246 err=null took=887µs
+catalogue-1  | ts=2026-05-11T11:28:59Z caller=logging.go:36 method=List tags= order=id pageNum=1 pageSize=10 result=9 err=null took=925µs
+catalogue-1  | ts=2026-05-11T11:29:00Z caller=logging.go:36 method=List tags= order=id pageNum=1 pageSize=10 result=9 err=null took=9.873ms
+catalogue-1  | ts=2026-05-11T11:29:00Z caller=logging.go:74 method=Tags result=11 err=null took=993µs
+catalogue-1  | ts=2026-05-11T11:29:23Z caller=logging.go:36 method=List tags= order=id pageNum=1 pageSize=10 result=9 err=null took=10.211ms
+catalogue-1  | ts=2026-05-11T11:29:23Z caller=logging.go:74 method=Tags result=11 err=null took=665µs
+catalogue-1  | ts=2026-05-11T11:29:56Z caller=logging.go:36 method=List tags= order=id pageNum=1 pageSize=10 result=9 err=null took=8.905ms
+catalogue-1  | ts=2026-05-11T11:29:56Z caller=logging.go:74 method=Tags result=11 err=null took=719µs
+catalogue-1  | ts=2026-05-11T11:30:05Z caller=logging.go:36 method=List tags= order=id pageNum=1 pageSize=10 result=9 err=null took=4.55ms
+catalogue-1  | ts=2026-05-11T11:30:05Z caller=logging.go:36 method=List tags= order=id pageNum=1 pageSize=10 result=9 err=null took=1.17ms
+catalogue-1  | ts=2026-05-11T11:30:07Z caller=logging.go:62 method=Get id=d3588630-ad8e-49df-bbd7-3167f7efb246 sock=d3588630-ad8e-49df-bbd7-3167f7efb246 err=null took=2.987ms
+catalogue-1  | ts=2026-05-11T11:30:07Z caller=logging.go:62 method=Get id=zzz4f044-b040-410d-8ead-4de0446aec7e sock=zzz4f044-b040-410d-8ead-4de0446aec7e err=null took=3.307ms
+catalogue-1  | ts=2026-05-11T11:30:12Z caller=logging.go:36 method=List tags= order=id pageNum=1 pageSize=10 result=9 err=null took=5.679ms
+catalogue-1  | ts=2026-05-11T11:30:12Z caller=logging.go:36 method=List tags= order=id pageNum=1 pageSize=10 result=9 err=null took=7.392ms
+catalogue-1  | ts=2026-05-11T11:30:12Z caller=logging.go:62 method=Get id=819e1fbf-8b7e-4f6d-811f-693534916a8b sock=819e1fbf-8b7e-4f6d-811f-693534916a8b err=null took=7.236ms
+catalogue-1  | ts=2026-05-11T11:30:12Z caller=logging.go:62 method=Get id=3395a43e-2d88-40de-b95f-e00e1502085b sock=3395a43e-2d88-40de-b95f-e00e1502085b err=null took=5.001ms
+catalogue-1  | ts=2026-05-11T11:30:13Z caller=logging.go:36 method=List tags= order=id pageNum=1 pageSize=10 result=9 err=null took=7.167ms
+catalogue-1  | ts=2026-05-11T11:30:13Z caller=logging.go:36 method=List tags= order=id pageNum=1 pageSize=10 result=9 err=null took=8.784ms
+catalogue-1  | ts=2026-05-11T11:30:13Z caller=logging.go:62 method=Get id=zzz4f044-b040-410d-8ead-4de0446aec7e sock=zzz4f044-b040-410d-8ead-4de0446aec7e err=null took=830µs
+catalogue-1  | ts=2026-05-11T11:30:13Z caller=logging.go:62 method=Get id=a0a4f044-b040-410d-8ead-4de0446aec7e sock=a0a4f044-b040-410d-8ead-4de0446aec7e err=null took=1.231ms
+catalogue-1  | ts=2026-05-11T11:30:14Z caller=logging.go:36 method=List tags= order=id pageNum=1 pageSize=10 result=9 err=null took=1.139ms
+catalogue-1  | ts=2026-05-11T11:30:14Z caller=logging.go:36 method=List tags= order=id pageNum=1 pageSize=10 result=9 err=null took=1.194ms
+catalogue-1  | ts=2026-05-11T11:30:14Z caller=logging.go:62 method=Get id=808a2de1-1aaa-4c25-a9b9-6612e8f29a38 sock=808a2de1-1aaa-4c25-a9b9-6612e8f29a38 err=null took=963µs
+catalogue-1  | ts=2026-05-11T11:30:14Z caller=logging.go:62 method=Get id=a0a4f044-b040-410d-8ead-4de0446aec7e sock=a0a4f044-b040-410d-8ead-4de0446aec7e err=null took=860µs
+catalogue-1  | ts=2026-05-11T11:30:15Z caller=logging.go:36 method=List tags= order=id pageNum=1 pageSize=10 result=9 err=null took=4.186ms
+catalogue-1  | ts=2026-05-11T11:30:15Z caller=logging.go:36 method=List tags= order=id pageNum=1 pageSize=10 result=9 err=null took=4.226ms
+catalogue-1  | ts=2026-05-11T11:30:15Z caller=logging.go:62 method=Get id=819e1fbf-8b7e-4f6d-811f-693534916a8b sock=819e1fbf-8b7e-4f6d-811f-693534916a8b err=null took=2.028ms
+catalogue-1  | ts=2026-05-11T11:30:15Z caller=logging.go:62 method=Get id=d3588630-ad8e-49df-bbd7-3167f7efb246 sock=d3588630-ad8e-49df-bbd7-3167f7efb246 err=null took=1.339ms
+catalogue-1  | ts=2026-05-11T11:30:15Z caller=logging.go:36 method=List tags= order=id pageNum=1 pageSize=10 result=9 err=null took=983µs
+catalogue-1  | ts=2026-05-11T11:30:15Z caller=logging.go:36 method=List tags= order=id pageNum=1 pageSize=10 result=9 err=null took=762µs
+catalogue-1  | ts=2026-05-11T11:30:15Z caller=logging.go:62 method=Get id=819e1fbf-8b7e-4f6d-811f-693534916a8b sock=819e1fbf-8b7e-4f6d-811f-693534916a8b err=null took=815µs
+catalogue-1  | ts=2026-05-11T11:30:15Z caller=logging.go:62 method=Get id=510a0d7e-8e83-4193-b483-e27e09ddc34d sock=510a0d7e-8e83-4193-b483-e27e09ddc34d err=null took=982µs
+catalogue-1  | ts=2026-05-11T11:30:16Z caller=logging.go:36 method=List tags= order=id pageNum=1 pageSize=10 result=9 err=null took=7.919ms
+catalogue-1  | ts=2026-05-11T11:30:16Z caller=logging.go:36 method=List tags= order=id pageNum=1 pageSize=10 result=9 err=null took=4.669ms
+catalogue-1  | ts=2026-05-11T11:30:16Z caller=logging.go:62 method=Get id=819e1fbf-8b7e-4f6d-811f-693534916a8b sock=819e1fbf-8b7e-4f6d-811f-693534916a8b err=null took=819µs
+catalogue-1  | ts=2026-05-11T11:30:16Z caller=logging.go:62 method=Get id=837ab141-399e-4c1f-9abc-bace40296bac sock=837ab141-399e-4c1f-9abc-bace40296bac err=null took=823µs
+catalogue-1  | ts=2026-05-11T11:30:16Z caller=logging.go:36 method=List tags= order=id pageNum=1 pageSize=10 result=9 err=null took=1.625ms
+catalogue-1  | ts=2026-05-11T11:30:16Z caller=logging.go:36 method=List tags= order=id pageNum=1 pageSize=10 result=9 err=null took=925µs
+catalogue-1  | ts=2026-05-11T11:30:17Z caller=logging.go:62 method=Get id=d3588630-ad8e-49df-bbd7-3167f7efb246 sock=d3588630-ad8e-49df-bbd7-3167f7efb246 err=null took=1.13ms
+catalogue-1  | ts=2026-05-11T11:30:17Z caller=logging.go:62 method=Get id=a0a4f044-b040-410d-8ead-4de0446aec7e sock=a0a4f044-b040-410d-8ead-4de0446aec7e err=null took=1.145ms
+catalogue-1  | ts=2026-05-11T11:30:17Z caller=logging.go:36 method=List tags= order=id pageNum=1 pageSize=10 result=9 err=null took=3.158ms
+catalogue-1  | ts=2026-05-11T11:30:17Z caller=logging.go:36 method=List tags= order=id pageNum=1 pageSize=10 result=9 err=null took=2.895ms
+catalogue-1  | ts=2026-05-11T11:30:17Z caller=logging.go:62 method=Get id=d3588630-ad8e-49df-bbd7-3167f7efb246 sock=d3588630-ad8e-49df-bbd7-3167f7efb246 err=null took=583µs
+catalogue-1  | ts=2026-05-11T11:30:17Z caller=logging.go:62 method=Get id=510a0d7e-8e83-4193-b483-e27e09ddc34d sock=510a0d7e-8e83-4193-b483-e27e09ddc34d err=null took=772µs
+catalogue-1  | ts=2026-05-11T11:30:18Z caller=logging.go:36 method=List tags= order=id pageNum=1 pageSize=10 result=9 err=null took=855µs
+catalogue-1  | ts=2026-05-11T11:30:18Z caller=logging.go:36 method=List tags= order=id pageNum=1 pageSize=10 result=9 err=null took=1.002ms
+catalogue-1  | ts=2026-05-11T11:30:18Z caller=logging.go:62 method=Get id=837ab141-399e-4c1f-9abc-bace40296bac sock=837ab141-399e-4c1f-9abc-bace40296bac err=null took=1.221ms
+catalogue-1  | ts=2026-05-11T11:30:18Z caller=logging.go:62 method=Get id=510a0d7e-8e83-4193-b483-e27e09ddc34d sock=510a0d7e-8e83-4193-b483-e27e09ddc34d err=null took=1.353ms
+catalogue-1  | ts=2026-05-11T11:30:18Z caller=logging.go:36 method=List tags= order=id pageNum=1 pageSize=10 result=9 err=null took=2.246ms
+catalogue-1  | ts=2026-05-11T11:30:18Z caller=logging.go:36 method=List tags= order=id pageNum=1 pageSize=10 result=9 err=null took=2.658ms
+catalogue-1  | ts=2026-05-11T11:30:19Z caller=logging.go:62 method=Get id=03fef6ac-1896-4ce8-bd69-b798f85c6e0b sock=03fef6ac-1896-4ce8-bd69-b798f85c6e0b err=null took=3.739ms
+catalogue-1  | ts=2026-05-11T11:30:19Z caller=logging.go:62 method=Get id=510a0d7e-8e83-4193-b483-e27e09ddc34d sock=510a0d7e-8e83-4193-b483-e27e09ddc34d err=null took=2.057ms
+catalogue-1  | ts=2026-05-11T11:30:20Z caller=logging.go:36 method=List tags= order=id pageNum=1 pageSize=10 result=9 err=null took=3.864ms
+catalogue-1  | ts=2026-05-11T11:30:20Z caller=logging.go:36 method=List tags= order=id pageNum=1 pageSize=10 result=9 err=null took=5.866ms
+catalogue-1  | ts=2026-05-11T11:30:21Z caller=logging.go:36 method=List tags= order=id pageNum=1 pageSize=10 result=9 err=null took=1.826ms
+catalogue-1  | ts=2026-05-11T11:30:21Z caller=logging.go:74 method=Tags result=11 err=null took=1.997ms
+catalogue-1  | ts=2026-05-11T11:30:44Z caller=logging.go:36 method=List tags= order=id pageNum=1 pageSize=10 result=9 err=null took=17.188ms
+catalogue-1  | ts=2026-05-11T11:30:44Z caller=logging.go:74 method=Tags result=11 err=null took=5.658ms
+catalogue-1  | ts=2026-05-11T11:31:13Z caller=logging.go:36 method=List tags= order=id pageNum=1 pageSize=10 result=9 err=null took=8.159ms
+catalogue-1  | ts=2026-05-11T11:31:14Z caller=logging.go:74 method=Tags result=11 err=null took=1.206ms
+catalogue-1  | ts=2026-05-11T11:31:27Z caller=logging.go:36 method=List tags= order=id pageNum=1 pageSize=10 result=9 err=null took=3.671ms
+catalogue-1  | ts=2026-05-11T11:31:27Z caller=logging.go:36 method=List tags= order=id pageNum=1 pageSize=10 result=9 err=null took=1.758ms
+catalogue-1  | ts=2026-05-11T11:31:27Z caller=logging.go:62 method=Get id=3395a43e-2d88-40de-b95f-e00e1502085b sock=3395a43e-2d88-40de-b95f-e00e1502085b err=null took=1.336ms
+catalogue-1  | ts=2026-05-11T11:31:27Z caller=logging.go:62 method=Get id=837ab141-399e-4c1f-9abc-bace40296bac sock=837ab141-399e-4c1f-9abc-bace40296bac err=null took=731µs
+catalogue-1  | ts=2026-05-11T11:31:28Z caller=logging.go:36 method=List tags= order=id pageNum=1 pageSize=10 result=9 err=null took=2.044ms
+catalogue-1  | ts=2026-05-11T11:31:28Z caller=logging.go:36 method=List tags= order=id pageNum=1 pageSize=10 result=9 err=null took=2.341ms
+catalogue-1  | ts=2026-05-11T11:31:28Z caller=logging.go:62 method=Get id=a0a4f044-b040-410d-8ead-4de0446aec7e sock=a0a4f044-b040-410d-8ead-4de0446aec7e err=null took=916µs
+catalogue-1  | ts=2026-05-11T11:31:28Z caller=logging.go:62 method=Get id=510a0d7e-8e83-4193-b483-e27e09ddc34d sock=510a0d7e-8e83-4193-b483-e27e09ddc34d err=null took=796µs
+catalogue-1  | ts=2026-05-11T11:31:28Z caller=logging.go:36 method=List tags= order=id pageNum=1 pageSize=10 result=9 err=null took=1.168ms
+catalogue-1  | ts=2026-05-11T11:31:28Z caller=logging.go:36 method=List tags= order=id pageNum=1 pageSize=10 result=9 err=null took=1.116ms
+catalogue-1  | ts=2026-05-11T11:31:29Z caller=logging.go:62 method=Get id=zzz4f044-b040-410d-8ead-4de0446aec7e sock=zzz4f044-b040-410d-8ead-4de0446aec7e err=null took=940µs
+catalogue-1  | ts=2026-05-11T11:31:29Z caller=logging.go:62 method=Get id=837ab141-399e-4c1f-9abc-bace40296bac sock=837ab141-399e-4c1f-9abc-bace40296bac err=null took=1.571ms
+catalogue-1  | ts=2026-05-11T11:31:29Z caller=logging.go:36 method=List tags= order=id pageNum=1 pageSize=10 result=9 err=null took=2.296ms
+catalogue-1  | ts=2026-05-11T11:31:29Z caller=logging.go:36 method=List tags= order=id pageNum=1 pageSize=10 result=9 err=null took=3.241ms
+catalogue-1  | ts=2026-05-11T11:31:30Z caller=logging.go:62 method=Get id=03fef6ac-1896-4ce8-bd69-b798f85c6e0b sock=03fef6ac-1896-4ce8-bd69-b798f85c6e0b err=null took=1.205ms
+catalogue-1  | ts=2026-05-11T11:31:30Z caller=logging.go:62 method=Get id=819e1fbf-8b7e-4f6d-811f-693534916a8b sock=819e1fbf-8b7e-4f6d-811f-693534916a8b err=null took=1.135ms
+catalogue-1  | ts=2026-05-11T11:31:30Z caller=logging.go:36 method=List tags= order=id pageNum=1 pageSize=10 result=9 err=null took=9.435ms
+catalogue-1  | ts=2026-05-11T11:31:30Z caller=logging.go:36 method=List tags= order=id pageNum=1 pageSize=10 result=9 err=null took=8.884ms
+catalogue-1  | ts=2026-05-11T11:31:31Z caller=logging.go:62 method=Get id=a0a4f044-b040-410d-8ead-4de0446aec7e sock=a0a4f044-b040-410d-8ead-4de0446aec7e err=null took=940µs
+catalogue-1  | ts=2026-05-11T11:31:31Z caller=logging.go:62 method=Get id=837ab141-399e-4c1f-9abc-bace40296bac sock=837ab141-399e-4c1f-9abc-bace40296bac err=null took=738µs
+catalogue-1  | ts=2026-05-11T11:31:31Z caller=logging.go:36 method=List tags= order=id pageNum=1 pageSize=10 result=9 err=null took=919µs
+catalogue-1  | ts=2026-05-11T11:31:31Z caller=logging.go:36 method=List tags= order=id pageNum=1 pageSize=10 result=9 err=null took=1.591ms
+catalogue-1  | ts=2026-05-11T11:31:31Z caller=logging.go:62 method=Get id=03fef6ac-1896-4ce8-bd69-b798f85c6e0b sock=03fef6ac-1896-4ce8-bd69-b798f85c6e0b err=null took=872µs
+catalogue-1  | ts=2026-05-11T11:31:31Z caller=logging.go:62 method=Get id=510a0d7e-8e83-4193-b483-e27e09ddc34d sock=510a0d7e-8e83-4193-b483-e27e09ddc34d err=null took=986µs
+catalogue-1  | ts=2026-05-11T11:31:32Z caller=logging.go:36 method=List tags= order=id pageNum=1 pageSize=10 result=9 err=null took=9.495ms
+catalogue-1  | ts=2026-05-11T11:31:32Z caller=logging.go:36 method=List tags= order=id pageNum=1 pageSize=10 result=9 err=null took=9.52ms
+catalogue-1  | ts=2026-05-11T11:31:32Z caller=logging.go:62 method=Get id=510a0d7e-8e83-4193-b483-e27e09ddc34d sock=510a0d7e-8e83-4193-b483-e27e09ddc34d err=null took=1.546ms
+catalogue-1  | ts=2026-05-11T11:31:32Z caller=logging.go:62 method=Get id=819e1fbf-8b7e-4f6d-811f-693534916a8b sock=819e1fbf-8b7e-4f6d-811f-693534916a8b err=null took=1.286ms
+catalogue-1  | ts=2026-05-11T11:31:34Z caller=logging.go:36 method=List tags= order=id pageNum=1 pageSize=10 result=9 err=null took=4.912ms
+catalogue-1  | ts=2026-05-11T11:31:34Z caller=logging.go:36 method=List tags= order=id pageNum=1 pageSize=10 result=9 err=null took=6.508ms
+catalogue-1  | ts=2026-05-11T11:31:34Z caller=logging.go:62 method=Get id=a0a4f044-b040-410d-8ead-4de0446aec7e sock=a0a4f044-b040-410d-8ead-4de0446aec7e err=null took=1.227ms
+catalogue-1  | ts=2026-05-11T11:31:34Z caller=logging.go:62 method=Get id=03fef6ac-1896-4ce8-bd69-b798f85c6e0b sock=03fef6ac-1896-4ce8-bd69-b798f85c6e0b err=null took=1.465ms
+catalogue-1  | ts=2026-05-11T11:31:35Z caller=logging.go:36 method=List tags= order=id pageNum=1 pageSize=10 result=9 err=null took=2.184ms
+catalogue-1  | ts=2026-05-11T11:31:35Z caller=logging.go:36 method=List tags= order=id pageNum=1 pageSize=10 result=9 err=null took=2.296ms
+catalogue-1  | ts=2026-05-11T11:31:35Z caller=logging.go:62 method=Get id=a0a4f044-b040-410d-8ead-4de0446aec7e sock=a0a4f044-b040-410d-8ead-4de0446aec7e err=null took=1.012ms
+catalogue-1  | ts=2026-05-11T11:31:35Z caller=logging.go:62 method=Get id=03fef6ac-1896-4ce8-bd69-b798f85c6e0b sock=03fef6ac-1896-4ce8-bd69-b798f85c6e0b err=null took=1.007ms
+catalogue-1  | ts=2026-05-11T11:31:35Z caller=logging.go:36 method=List tags= order=id pageNum=1 pageSize=10 result=9 err=null took=917µs
+catalogue-1  | ts=2026-05-11T11:31:35Z caller=logging.go:36 method=List tags= order=id pageNum=1 pageSize=10 result=9 err=null took=888µs
+catalogue-1  | ts=2026-05-11T11:31:36Z caller=logging.go:62 method=Get id=a0a4f044-b040-410d-8ead-4de0446aec7e sock=a0a4f044-b040-410d-8ead-4de0446aec7e err=null took=2.062ms
+catalogue-1  | ts=2026-05-11T11:31:36Z caller=logging.go:62 method=Get id=d3588630-ad8e-49df-bbd7-3167f7efb246 sock=d3588630-ad8e-49df-bbd7-3167f7efb246 err=null took=1.758ms
+catalogue-1  | ts=2026-05-11T11:31:36Z caller=logging.go:36 method=List tags= order=id pageNum=1 pageSize=10 result=9 err=null took=2.477ms
+catalogue-1  | ts=2026-05-11T11:31:36Z caller=logging.go:36 method=List tags= order=id pageNum=1 pageSize=10 result=9 err=null took=3.663ms
+catalogue-1  | ts=2026-05-11T11:31:36Z caller=logging.go:62 method=Get id=3395a43e-2d88-40de-b95f-e00e1502085b sock=3395a43e-2d88-40de-b95f-e00e1502085b err=null took=981µs
+catalogue-1  | ts=2026-05-11T11:31:36Z caller=logging.go:62 method=Get id=d3588630-ad8e-49df-bbd7-3167f7efb246 sock=d3588630-ad8e-49df-bbd7-3167f7efb246 err=null took=1.412ms
+catalogue-1  | ts=2026-05-11T11:31:37Z caller=logging.go:36 method=List tags= order=id pageNum=1 pageSize=10 result=9 err=null took=893µs
+catalogue-1  | ts=2026-05-11T11:31:37Z caller=logging.go:36 method=List tags= order=id pageNum=1 pageSize=10 result=9 err=null took=1.046ms
+catalogue-1  | ts=2026-05-11T11:31:37Z caller=logging.go:62 method=Get id=819e1fbf-8b7e-4f6d-811f-693534916a8b sock=819e1fbf-8b7e-4f6d-811f-693534916a8b err=null took=868µs
+catalogue-1  | ts=2026-05-11T11:31:42Z caller=logging.go:36 method=List tags= order=id pageNum=1 pageSize=10 result=9 err=null took=4.362ms
+catalogue-1  | ts=2026-05-11T11:31:42Z caller=logging.go:74 method=Tags result=11 err=null took=631µs

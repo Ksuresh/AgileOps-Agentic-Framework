@@ -1,0 +1,264 @@
+[
+    {
+        "Id": "71d7965b9cc9ac2c9ff648c86682651a35c181c00aa5db2430c7b1cd95383980",
+        "Created": "2026-05-10T05:25:11.7770318Z",
+        "Path": "traefik",
+        "Args": [],
+        "State": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 972,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-05-11T11:05:30.153460792Z",
+            "FinishedAt": "2026-05-10T06:59:48.044160257Z"
+        },
+        "Image": "sha256:72855b1ab6ec5b8b7e03429af9fa04a2a87f97a8c139724afc75a47970fa6438",
+        "ResolvConfPath": "/var/lib/docker/containers/71d7965b9cc9ac2c9ff648c86682651a35c181c00aa5db2430c7b1cd95383980/resolv.conf",
+        "HostnamePath": "/var/lib/docker/containers/71d7965b9cc9ac2c9ff648c86682651a35c181c00aa5db2430c7b1cd95383980/hostname",
+        "HostsPath": "/var/lib/docker/containers/71d7965b9cc9ac2c9ff648c86682651a35c181c00aa5db2430c7b1cd95383980/hosts",
+        "LogPath": "/var/lib/docker/containers/71d7965b9cc9ac2c9ff648c86682651a35c181c00aa5db2430c7b1cd95383980/71d7965b9cc9ac2c9ff648c86682651a35c181c00aa5db2430c7b1cd95383980-json.log",
+        "Name": "/docker-compose-edge-router-1",
+        "RestartCount": 0,
+        "Driver": "overlayfs",
+        "Platform": "linux",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "",
+        "ExecIDs": null,
+        "HostConfig": {
+            "Binds": null,
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "Type": "json-file",
+                "Config": {}
+            },
+            "NetworkMode": "docker-compose_default",
+            "PortBindings": {
+                "80/tcp": [
+                    {
+                        "HostIp": "",
+                        "HostPort": "80"
+                    }
+                ],
+                "8080/tcp": [
+                    {
+                        "HostIp": "",
+                        "HostPort": "8080"
+                    }
+                ]
+            },
+            "RestartPolicy": {
+                "Name": "always",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": false,
+            "VolumeDriver": "",
+            "VolumesFrom": null,
+            "ConsoleSize": [
+                0,
+                0
+            ],
+            "CapAdd": [
+                "CAP_CHOWN",
+                "CAP_DAC_OVERRIDE",
+                "CAP_NET_BIND_SERVICE",
+                "CAP_SETGID",
+                "CAP_SETUID"
+            ],
+            "CapDrop": [
+                "ALL"
+            ],
+            "CgroupnsMode": "private",
+            "Dns": [],
+            "DnsOptions": [],
+            "DnsSearch": [],
+            "ExtraHosts": [],
+            "GroupAdd": null,
+            "IpcMode": "private",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": false,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": true,
+            "SecurityOpt": null,
+            "Tmpfs": {
+                "/var/run": "rw,noexec,nosuid"
+            },
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 67108864,
+            "Runtime": "runc",
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 0,
+            "NanoCpus": 0,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": null,
+            "BlkioDeviceReadBps": null,
+            "BlkioDeviceWriteBps": null,
+            "BlkioDeviceReadIOps": null,
+            "BlkioDeviceWriteIOps": null,
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": null,
+            "DeviceCgroupRules": null,
+            "DeviceRequests": null,
+            "MemoryReservation": 0,
+            "MemorySwap": 0,
+            "MemorySwappiness": null,
+            "OomKillDisable": null,
+            "PidsLimit": null,
+            "Ulimits": null,
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0,
+            "MaskedPaths": [
+                "/proc/acpi",
+                "/proc/asound",
+                "/proc/interrupts",
+                "/proc/kcore",
+                "/proc/keys",
+                "/proc/latency_stats",
+                "/proc/sched_debug",
+                "/proc/scsi",
+                "/proc/timer_list",
+                "/proc/timer_stats",
+                "/sys/devices/virtual/powercap",
+                "/sys/firmware"
+            ],
+            "ReadonlyPaths": [
+                "/proc/bus",
+                "/proc/fs",
+                "/proc/irq",
+                "/proc/sys",
+                "/proc/sysrq-trigger"
+            ]
+        },
+        "Storage": {
+            "RootFS": {
+                "Snapshot": {
+                    "Name": "overlayfs"
+                }
+            }
+        },
+        "Mounts": [],
+        "Config": {
+            "Hostname": "edge-router",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": true,
+            "AttachStderr": true,
+            "ExposedPorts": {
+                "80/tcp": {},
+                "8080/tcp": {}
+            },
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+            ],
+            "Cmd": null,
+            "Image": "weaveworksdemos/edge-router:0.1.1",
+            "Volumes": null,
+            "WorkingDir": "",
+            "Entrypoint": [
+                "traefik"
+            ],
+            "Labels": {
+                "com.docker.compose.config-hash": "89f846c6bb117732c59754772caa3a7874a4fdf9edc875a9537cea319dab210a",
+                "com.docker.compose.container-number": "1",
+                "com.docker.compose.depends_on": "",
+                "com.docker.compose.image": "sha256:72855b1ab6ec5b8b7e03429af9fa04a2a87f97a8c139724afc75a47970fa6438",
+                "com.docker.compose.oneoff": "False",
+                "com.docker.compose.project": "docker-compose",
+                "com.docker.compose.project.config_files": "/Users/suresh/projects/AgileOps-Agentic-Framework/benchmark_apps/sock-shop/deploy/docker-compose/docker-compose.yml",
+                "com.docker.compose.project.working_dir": "/Users/suresh/projects/AgileOps-Agentic-Framework/benchmark_apps/sock-shop/deploy/docker-compose",
+                "com.docker.compose.service": "edge-router",
+                "com.docker.compose.version": "5.0.1",
+                "org.label-schema.description": "A modern reverse-proxy",
+                "org.label-schema.docker.schema-version": "1.0",
+                "org.label-schema.name": "Traefik",
+                "org.label-schema.url": "https://traefik.io",
+                "org.label-schema.vendor": "Containous",
+                "org.label-schema.version": "v1.1.2"
+            },
+            "StopTimeout": 1
+        },
+        "NetworkSettings": {
+            "SandboxID": "9b5f5490ec42136be91e533e9d30df96da8d65e61d7c77e96eca19334638da90",
+            "SandboxKey": "/var/run/docker/netns/9b5f5490ec42",
+            "Ports": {
+                "80/tcp": [
+                    {
+                        "HostIp": "0.0.0.0",
+                        "HostPort": "80"
+                    },
+                    {
+                        "HostIp": "::",
+                        "HostPort": "80"
+                    }
+                ],
+                "8080/tcp": [
+                    {
+                        "HostIp": "0.0.0.0",
+                        "HostPort": "8080"
+                    },
+                    {
+                        "HostIp": "::",
+                        "HostPort": "8080"
+                    }
+                ]
+            },
+            "Networks": {
+                "docker-compose_default": {
+                    "IPAMConfig": null,
+                    "Links": null,
+                    "Aliases": [
+                        "docker-compose-edge-router-1",
+                        "edge-router"
+                    ],
+                    "DriverOpts": null,
+                    "GwPriority": 0,
+                    "NetworkID": "b1cbd8c711991613193e3018b521efdc8e67da76c4465b4997c35b7e5c3e3115",
+                    "EndpointID": "76b61cd28471a0b82f7e028a0cf90547edc479201914229a72c0b89ddb8b1308",
+                    "Gateway": "172.18.0.1",
+                    "IPAddress": "172.18.0.8",
+                    "MacAddress": "4a:48:ed:3b:de:5e",
+                    "IPPrefixLen": 16,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "DNSNames": [
+                        "docker-compose-edge-router-1",
+                        "edge-router",
+                        "71d7965b9cc9"
+                    ]
+                }
+            }
+        },
+        "ImageManifestDescriptor": {
+            "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+            "digest": "sha256:72855b1ab6ec5b8b7e03429af9fa04a2a87f97a8c139724afc75a47970fa6438",
+            "size": 1363,
+            "platform": {
+                "architecture": "amd64",
+                "os": "linux"
+            }
+        }
+    }
+]

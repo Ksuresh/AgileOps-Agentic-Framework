@@ -1,0 +1,16 @@
+CONTAINER ID   NAME                            CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+a1b3d68a6891   docker-compose-catalogue-db-1   0.08%     54.1MiB / 3.827GiB    1.38%     147kB / 626kB     35.9MB / 71.6MB   31
+ca2e131a2cc5   docker-compose-carts-db-1       0.17%     29.57MiB / 3.827GiB   0.75%     383kB / 406kB     26.8MB / 7.41MB   23
+6e7a674b7bed   docker-compose-orders-db-1      0.16%     23.54MiB / 3.827GiB   0.60%     96.1kB / 60.8kB   18.1MB / 6.78MB   23
+14489b9afc46   docker-compose-rabbitmq-1       0.59%     55.71MiB / 3.827GiB   1.42%     47kB / 42.7kB     31.8MB / 34MB     145
+f6499e7f64ac   docker-compose-user-1           0.09%     31.07MiB / 3.827GiB   0.79%     832kB / 800kB     10.3MB / 885kB    13
+3af099106cc9   docker-compose-payment-1        0.08%     11.34MiB / 3.827GiB   0.29%     66.2kB / 21.9kB   9.48MB / 303kB    9
+fc4c33298201   docker-compose-orders-1         0.14%     441.4MiB / 3.827GiB   11.26%    180kB / 266kB     19.4MB / 0B       53
+d016a2ae56a0   docker-compose-queue-master-1   0.36%     487.8MiB / 3.827GiB   12.45%    40kB / 15.1kB     37.7MB / 196MB    98
+1b87304437ac   docker-compose-user-db-1        0.42%     97.8MiB / 3.827GiB    2.50%     382kB / 537kB     38.9MB / 9.28MB   23
+0c2a271e0f80   docker-compose-front-end-1      100.57%   303.2MiB / 3.827GiB   7.74%     911kB / 3.29MB    2.79MB / 0B       22
+c0105dcf8c24   docker-compose-carts-1          0.11%     429.2MiB / 3.827GiB   10.95%    345kB / 328kB     44.3MB / 0B       53
+f941f51070bf   docker-compose-user-sim-1       0.00%     7.039MiB / 3.827GiB   0.18%     872B / 126B       233kB / 0B        2
+33ef7db2853f   docker-compose-shipping-1       0.11%     354.1MiB / 3.827GiB   9.03%     66.3kB / 58.6kB   37.4MB / 82.4MB   53
+5d051b743dc7   docker-compose-catalogue-1      100.02%   17.27MiB / 3.827GiB   0.44%     594kB / 573kB     6.59MB / 0B       14
+71d7965b9cc9   docker-compose-edge-router-1    0.11%     30.79MiB / 3.827GiB   0.79%     6.31MB / 6.37MB   15.6MB / 1.99MB   15

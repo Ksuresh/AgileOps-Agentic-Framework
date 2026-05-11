@@ -1,0 +1,122 @@
+time="2026-05-11T16:59:24+05:30" level=warning msg="The \"MYSQL_ROOT_PASSWORD\" variable is not set. Defaulting to a blank string."
+time="2026-05-11T16:59:24+05:30" level=warning msg="/Users/suresh/projects/benchmarks/sock-shop/deploy/docker-compose/docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+user-1  | ts=2026-05-11T11:28:54Z caller=middlewares.go:75 method=GetUsers id=57a98d98e4b00679b4a830b2 result=1 took=1.071ms
+user-1  | ts=2026-05-11T11:28:54Z caller=middlewares.go:104 method=GetAddresses id=57a98d98e4b00679b4a830b0 result=1 took=994µs
+user-1  | ts=2026-05-11T11:28:54Z caller=middlewares.go:134 method=GetCards id=57a98d98e4b00679b4a830b1 result=1 took=582µs
+user-1  | ts=2026-05-11T11:28:54Z caller=middlewares.go:75 method=GetUsers id=57a98d98e4b00679b4a830b2 result=1 took=1.172ms
+user-1  | ts=2026-05-11T11:28:54Z caller=middlewares.go:134 method=GetCards id=57a98d98e4b00679b4a830b1 result=1 took=1.298ms
+user-1  | ts=2026-05-11T11:28:54Z caller=middlewares.go:104 method=GetAddresses id=57a98d98e4b00679b4a830b0 result=1 took=1.595ms
+user-1  | ts=2026-05-11T11:28:54Z caller=middlewares.go:75 method=GetUsers id=57a98d98e4b00679b4a830b2 result=1 took=2.204ms
+user-1  | ts=2026-05-11T11:28:54Z caller=middlewares.go:34 method=Login took=1.12ms
+user-1  | ts=2026-05-11T11:28:54Z caller=middlewares.go:34 method=Login took=1.093ms
+user-1  | ts=2026-05-11T11:28:55Z caller=middlewares.go:75 method=GetUsers id=57a98d98e4b00679b4a830b2 result=1 took=446µs
+user-1  | ts=2026-05-11T11:28:55Z caller=middlewares.go:75 method=GetUsers id=57a98d98e4b00679b4a830b2 result=1 took=258µs
+user-1  | ts=2026-05-11T11:28:55Z caller=middlewares.go:75 method=GetUsers id=57a98d98e4b00679b4a830b2 result=1 took=476µs
+user-1  | ts=2026-05-11T11:28:55Z caller=middlewares.go:75 method=GetUsers id=57a98d98e4b00679b4a830b2 result=1 took=332µs
+user-1  | ts=2026-05-11T11:28:55Z caller=middlewares.go:75 method=GetUsers id=57a98d98e4b00679b4a830b2 result=1 took=468µs
+user-1  | ts=2026-05-11T11:28:55Z caller=middlewares.go:75 method=GetUsers id=57a98d98e4b00679b4a830b2 result=1 took=476µs
+user-1  | ts=2026-05-11T11:28:55Z caller=middlewares.go:134 method=GetCards id=57a98d98e4b00679b4a830b1 result=1 took=1.083ms
+user-1  | ts=2026-05-11T11:28:55Z caller=middlewares.go:104 method=GetAddresses id=57a98d98e4b00679b4a830b0 result=1 took=1.569ms
+user-1  | ts=2026-05-11T11:28:55Z caller=middlewares.go:134 method=GetCards id=57a98d98e4b00679b4a830b1 result=1 took=1.161ms
+user-1  | ts=2026-05-11T11:28:55Z caller=middlewares.go:104 method=GetAddresses id=57a98d98e4b00679b4a830b0 result=1 took=1.014ms
+user-1  | ts=2026-05-11T11:28:55Z caller=middlewares.go:75 method=GetUsers id=57a98d98e4b00679b4a830b2 result=1 took=1.455ms
+user-1  | ts=2026-05-11T11:28:55Z caller=middlewares.go:75 method=GetUsers id=57a98d98e4b00679b4a830b2 result=1 took=2.167ms
+user-1  | ts=2026-05-11T11:28:55Z caller=middlewares.go:34 method=Login took=1.111ms
+user-1  | ts=2026-05-11T11:28:55Z caller=middlewares.go:34 method=Login took=936µs
+user-1  | ts=2026-05-11T11:28:55Z caller=middlewares.go:75 method=GetUsers id=57a98d98e4b00679b4a830b2 result=1 took=839µs
+user-1  | ts=2026-05-11T11:28:55Z caller=middlewares.go:75 method=GetUsers id=57a98d98e4b00679b4a830b2 result=1 took=441µs
+user-1  | ts=2026-05-11T11:28:55Z caller=middlewares.go:75 method=GetUsers id=57a98d98e4b00679b4a830b2 result=1 took=279µs
+user-1  | ts=2026-05-11T11:28:55Z caller=middlewares.go:75 method=GetUsers id=57a98d98e4b00679b4a830b2 result=1 took=309µs
+user-1  | ts=2026-05-11T11:28:55Z caller=middlewares.go:75 method=GetUsers id=57a98d98e4b00679b4a830b2 result=1 took=242µs
+user-1  | ts=2026-05-11T11:28:55Z caller=middlewares.go:75 method=GetUsers id=57a98d98e4b00679b4a830b2 result=1 took=424µs
+user-1  | ts=2026-05-11T11:28:55Z caller=middlewares.go:104 method=GetAddresses id=57a98d98e4b00679b4a830b0 result=1 took=1.166ms
+user-1  | ts=2026-05-11T11:28:55Z caller=middlewares.go:134 method=GetCards id=57a98d98e4b00679b4a830b1 result=1 took=1.268ms
+user-1  | ts=2026-05-11T11:28:55Z caller=middlewares.go:134 method=GetCards id=57a98d98e4b00679b4a830b1 result=1 took=872µs
+user-1  | ts=2026-05-11T11:28:55Z caller=middlewares.go:75 method=GetUsers id=57a98d98e4b00679b4a830b2 result=1 took=945µs
+user-1  | ts=2026-05-11T11:28:55Z caller=middlewares.go:75 method=GetUsers id=57a98d98e4b00679b4a830b2 result=1 took=1.061ms
+user-1  | ts=2026-05-11T11:28:55Z caller=middlewares.go:104 method=GetAddresses id=57a98d98e4b00679b4a830b0 result=1 took=1.285ms
+user-1  | ts=2026-05-11T11:28:56Z caller=middlewares.go:34 method=Login took=1.181ms
+user-1  | ts=2026-05-11T11:28:56Z caller=middlewares.go:34 method=Login took=4.96ms
+user-1  | ts=2026-05-11T11:28:56Z caller=middlewares.go:75 method=GetUsers id=57a98d98e4b00679b4a830b2 result=1 took=550µs
+user-1  | ts=2026-05-11T11:28:56Z caller=middlewares.go:75 method=GetUsers id=57a98d98e4b00679b4a830b2 result=1 took=938µs
+user-1  | ts=2026-05-11T11:28:56Z caller=middlewares.go:75 method=GetUsers id=57a98d98e4b00679b4a830b2 result=1 took=459µs
+user-1  | ts=2026-05-11T11:28:56Z caller=middlewares.go:75 method=GetUsers id=57a98d98e4b00679b4a830b2 result=1 took=593µs
+user-1  | ts=2026-05-11T11:28:56Z caller=middlewares.go:75 method=GetUsers id=57a98d98e4b00679b4a830b2 result=1 took=434µs
+user-1  | ts=2026-05-11T11:28:56Z caller=middlewares.go:75 method=GetUsers id=57a98d98e4b00679b4a830b2 result=1 took=261µs
+user-1  | ts=2026-05-11T11:28:56Z caller=middlewares.go:104 method=GetAddresses id=57a98d98e4b00679b4a830b0 result=1 took=3.094ms
+user-1  | ts=2026-05-11T11:28:56Z caller=middlewares.go:104 method=GetAddresses id=57a98d98e4b00679b4a830b0 result=1 took=3.067ms
+user-1  | ts=2026-05-11T11:28:56Z caller=middlewares.go:75 method=GetUsers id=57a98d98e4b00679b4a830b2 result=1 took=7.618ms
+user-1  | ts=2026-05-11T11:28:56Z caller=middlewares.go:134 method=GetCards id=57a98d98e4b00679b4a830b1 result=1 took=6.646ms
+user-1  | ts=2026-05-11T11:28:56Z caller=middlewares.go:134 method=GetCards id=57a98d98e4b00679b4a830b1 result=1 took=6.961ms
+user-1  | ts=2026-05-11T11:28:56Z caller=middlewares.go:75 method=GetUsers id=57a98d98e4b00679b4a830b2 result=1 took=6.881ms
+user-1  | ts=2026-05-11T11:28:56Z caller=middlewares.go:34 method=Login took=988µs
+user-1  | ts=2026-05-11T11:28:56Z caller=middlewares.go:34 method=Login took=642µs
+user-1  | ts=2026-05-11T11:28:57Z caller=middlewares.go:75 method=GetUsers id=57a98d98e4b00679b4a830b2 result=1 took=482µs
+user-1  | ts=2026-05-11T11:28:57Z caller=middlewares.go:75 method=GetUsers id=57a98d98e4b00679b4a830b2 result=1 took=336µs
+user-1  | ts=2026-05-11T11:28:57Z caller=middlewares.go:75 method=GetUsers id=57a98d98e4b00679b4a830b2 result=1 took=319µs
+user-1  | ts=2026-05-11T11:28:57Z caller=middlewares.go:134 method=GetCards id=57a98d98e4b00679b4a830b1 result=1 took=421µs
+user-1  | ts=2026-05-11T11:28:57Z caller=middlewares.go:104 method=GetAddresses id=57a98d98e4b00679b4a830b0 result=1 took=426µs
+user-1  | ts=2026-05-11T11:28:57Z caller=middlewares.go:75 method=GetUsers id=57a98d98e4b00679b4a830b2 result=1 took=539µs
+user-1  | ts=2026-05-11T11:28:57Z caller=middlewares.go:75 method=GetUsers id=57a98d98e4b00679b4a830b2 result=1 took=266µs
+user-1  | ts=2026-05-11T11:28:57Z caller=middlewares.go:75 method=GetUsers id=57a98d98e4b00679b4a830b2 result=1 took=505µs
+user-1  | ts=2026-05-11T11:28:57Z caller=middlewares.go:75 method=GetUsers id=57a98d98e4b00679b4a830b2 result=1 took=500µs
+user-1  | ts=2026-05-11T11:28:57Z caller=middlewares.go:75 method=GetUsers id=57a98d98e4b00679b4a830b2 result=1 took=364µs
+user-1  | ts=2026-05-11T11:28:57Z caller=middlewares.go:134 method=GetCards id=57a98d98e4b00679b4a830b1 result=1 took=568µs
+user-1  | ts=2026-05-11T11:28:57Z caller=middlewares.go:104 method=GetAddresses id=57a98d98e4b00679b4a830b0 result=1 took=601µs
+user-1  | ts=2026-05-11T11:28:57Z caller=middlewares.go:34 method=Login took=884µs
+user-1  | ts=2026-05-11T11:28:57Z caller=middlewares.go:34 method=Login took=930µs
+user-1  | ts=2026-05-11T11:28:57Z caller=middlewares.go:75 method=GetUsers id=57a98d98e4b00679b4a830b2 result=1 took=1.098ms
+user-1  | ts=2026-05-11T11:28:57Z caller=middlewares.go:75 method=GetUsers id=57a98d98e4b00679b4a830b2 result=1 took=445µs
+user-1  | ts=2026-05-11T11:28:57Z caller=middlewares.go:75 method=GetUsers id=57a98d98e4b00679b4a830b2 result=1 took=506µs
+user-1  | ts=2026-05-11T11:28:57Z caller=middlewares.go:75 method=GetUsers id=57a98d98e4b00679b4a830b2 result=1 took=645µs
+user-1  | ts=2026-05-11T11:28:57Z caller=middlewares.go:134 method=GetCards id=57a98d98e4b00679b4a830b1 result=1 took=581µs
+user-1  | ts=2026-05-11T11:28:57Z caller=middlewares.go:104 method=GetAddresses id=57a98d98e4b00679b4a830b0 result=1 took=711µs
+user-1  | ts=2026-05-11T11:28:57Z caller=middlewares.go:75 method=GetUsers id=57a98d98e4b00679b4a830b2 result=1 took=696µs
+user-1  | ts=2026-05-11T11:28:57Z caller=middlewares.go:75 method=GetUsers id=57a98d98e4b00679b4a830b2 result=1 took=607µs
+user-1  | ts=2026-05-11T11:28:57Z caller=middlewares.go:75 method=GetUsers id=57a98d98e4b00679b4a830b2 result=1 took=603µs
+user-1  | ts=2026-05-11T11:28:57Z caller=middlewares.go:104 method=GetAddresses id=57a98d98e4b00679b4a830b0 result=1 took=2.41ms
+user-1  | ts=2026-05-11T11:28:57Z caller=middlewares.go:75 method=GetUsers id=57a98d98e4b00679b4a830b2 result=1 took=2.613ms
+user-1  | ts=2026-05-11T11:28:57Z caller=middlewares.go:134 method=GetCards id=57a98d98e4b00679b4a830b1 result=1 took=2.958ms
+user-1  | ts=2026-05-11T11:28:57Z caller=middlewares.go:34 method=Login took=1.154ms
+user-1  | ts=2026-05-11T11:28:57Z caller=middlewares.go:34 method=Login took=943µs
+user-1  | ts=2026-05-11T11:28:58Z caller=middlewares.go:75 method=GetUsers id=57a98d98e4b00679b4a830b2 result=1 took=544µs
+user-1  | ts=2026-05-11T11:28:58Z caller=middlewares.go:75 method=GetUsers id=57a98d98e4b00679b4a830b2 result=1 took=682µs
+user-1  | ts=2026-05-11T11:28:58Z caller=middlewares.go:75 method=GetUsers id=57a98d98e4b00679b4a830b2 result=1 took=990µs
+user-1  | ts=2026-05-11T11:28:58Z caller=middlewares.go:75 method=GetUsers id=57a98d98e4b00679b4a830b2 result=1 took=530µs
+user-1  | ts=2026-05-11T11:28:58Z caller=middlewares.go:75 method=GetUsers id=57a98d98e4b00679b4a830b2 result=1 took=538µs
+user-1  | ts=2026-05-11T11:28:58Z caller=middlewares.go:75 method=GetUsers id=57a98d98e4b00679b4a830b2 result=1 took=597µs
+user-1  | ts=2026-05-11T11:28:58Z caller=middlewares.go:104 method=GetAddresses id=57a98d98e4b00679b4a830b0 result=1 took=745µs
+user-1  | ts=2026-05-11T11:28:58Z caller=middlewares.go:134 method=GetCards id=57a98d98e4b00679b4a830b1 result=1 took=569µs
+user-1  | ts=2026-05-11T11:28:58Z caller=middlewares.go:75 method=GetUsers id=57a98d98e4b00679b4a830b2 result=1 took=762µs
+user-1  | ts=2026-05-11T11:28:58Z caller=middlewares.go:104 method=GetAddresses id=57a98d98e4b00679b4a830b0 result=1 took=454µs
+user-1  | ts=2026-05-11T11:28:58Z caller=middlewares.go:134 method=GetCards id=57a98d98e4b00679b4a830b1 result=1 took=484µs
+user-1  | ts=2026-05-11T11:28:58Z caller=middlewares.go:75 method=GetUsers id=57a98d98e4b00679b4a830b2 result=1 took=779µs
+user-1  | ts=2026-05-11T11:28:58Z caller=middlewares.go:34 method=Login took=1.442ms
+user-1  | ts=2026-05-11T11:28:58Z caller=middlewares.go:34 method=Login took=2.803ms
+user-1  | ts=2026-05-11T11:28:58Z caller=middlewares.go:75 method=GetUsers id=57a98d98e4b00679b4a830b2 result=1 took=503µs
+user-1  | ts=2026-05-11T11:28:58Z caller=middlewares.go:75 method=GetUsers id=57a98d98e4b00679b4a830b2 result=1 took=286µs
+user-1  | ts=2026-05-11T11:28:58Z caller=middlewares.go:75 method=GetUsers id=57a98d98e4b00679b4a830b2 result=1 took=539µs
+user-1  | ts=2026-05-11T11:28:58Z caller=middlewares.go:75 method=GetUsers id=57a98d98e4b00679b4a830b2 result=1 took=599µs
+user-1  | ts=2026-05-11T11:28:58Z caller=middlewares.go:75 method=GetUsers id=57a98d98e4b00679b4a830b2 result=1 took=695µs
+user-1  | ts=2026-05-11T11:28:58Z caller=middlewares.go:75 method=GetUsers id=57a98d98e4b00679b4a830b2 result=1 took=866µs
+user-1  | ts=2026-05-11T11:28:58Z caller=middlewares.go:104 method=GetAddresses id=57a98d98e4b00679b4a830b0 result=1 took=3.813ms
+user-1  | ts=2026-05-11T11:28:58Z caller=middlewares.go:104 method=GetAddresses id=57a98d98e4b00679b4a830b0 result=1 took=4.031ms
+user-1  | ts=2026-05-11T11:28:58Z caller=middlewares.go:75 method=GetUsers id=57a98d98e4b00679b4a830b2 result=1 took=5.77ms
+user-1  | ts=2026-05-11T11:28:58Z caller=middlewares.go:75 method=GetUsers id=57a98d98e4b00679b4a830b2 result=1 took=6.609ms
+user-1  | ts=2026-05-11T11:28:58Z caller=middlewares.go:134 method=GetCards id=57a98d98e4b00679b4a830b1 result=1 took=3.713ms
+user-1  | ts=2026-05-11T11:28:58Z caller=middlewares.go:134 method=GetCards id=57a98d98e4b00679b4a830b1 result=1 took=2.217ms
+user-1  | ts=2026-05-11T11:28:58Z caller=middlewares.go:34 method=Login took=1.137ms
+user-1  | ts=2026-05-11T11:28:58Z caller=middlewares.go:34 method=Login took=749µs
+user-1  | ts=2026-05-11T11:28:58Z caller=middlewares.go:75 method=GetUsers id=57a98d98e4b00679b4a830b2 result=1 took=558µs
+user-1  | ts=2026-05-11T11:28:58Z caller=middlewares.go:75 method=GetUsers id=57a98d98e4b00679b4a830b2 result=1 took=449µs
+user-1  | ts=2026-05-11T11:28:58Z caller=middlewares.go:75 method=GetUsers id=57a98d98e4b00679b4a830b2 result=1 took=305µs
+user-1  | ts=2026-05-11T11:28:58Z caller=middlewares.go:75 method=GetUsers id=57a98d98e4b00679b4a830b2 result=1 took=426µs
+user-1  | ts=2026-05-11T11:28:58Z caller=middlewares.go:134 method=GetCards id=57a98d98e4b00679b4a830b1 result=1 took=8.105ms
+user-1  | ts=2026-05-11T11:28:58Z caller=middlewares.go:75 method=GetUsers id=57a98d98e4b00679b4a830b2 result=1 took=8.371ms
+user-1  | ts=2026-05-11T11:28:58Z caller=middlewares.go:104 method=GetAddresses id=57a98d98e4b00679b4a830b0 result=1 took=865µs
+user-1  | ts=2026-05-11T11:28:58Z caller=middlewares.go:75 method=GetUsers id=57a98d98e4b00679b4a830b2 result=1 took=528µs
+user-1  | ts=2026-05-11T11:28:58Z caller=middlewares.go:75 method=GetUsers id=57a98d98e4b00679b4a830b2 result=1 took=475µs
+user-1  | ts=2026-05-11T11:28:59Z caller=middlewares.go:34 method=Login took=987µs
+user-1  | ts=2026-05-11T11:28:59Z caller=middlewares.go:104 method=GetAddresses id=57a98d98e4b00679b4a830b0 result=1 took=408µs
+user-1  | ts=2026-05-11T11:28:59Z caller=middlewares.go:75 method=GetUsers id=57a98d98e4b00679b4a830b2 result=1 took=308µs
+user-1  | ts=2026-05-11T11:28:59Z caller=middlewares.go:134 method=GetCards id=57a98d98e4b00679b4a830b1 result=1 took=261µs

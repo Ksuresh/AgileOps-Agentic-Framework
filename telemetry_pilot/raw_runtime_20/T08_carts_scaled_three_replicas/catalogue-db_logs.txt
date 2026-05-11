@@ -1,0 +1,122 @@
+time="2026-05-11T17:00:48+05:30" level=warning msg="The \"MYSQL_ROOT_PASSWORD\" variable is not set. Defaulting to a blank string."
+time="2026-05-11T17:00:48+05:30" level=warning msg="/Users/suresh/projects/benchmarks/sock-shop/deploy/docker-compose/docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+catalogue-db-1  | 2026-05-10T05:25:43.336274Z 0 [Note] Shutting down plugin 'INNODB_FT_CONFIG'
+catalogue-db-1  | 2026-05-10T05:25:43.336308Z 0 [Note] Shutting down plugin 'INNODB_FT_BEING_DELETED'
+catalogue-db-1  | 2026-05-10T05:25:43.336338Z 0 [Note] Shutting down plugin 'INNODB_FT_DELETED'
+catalogue-db-1  | 2026-05-10T05:25:43.336373Z 0 [Note] Shutting down plugin 'INNODB_FT_DEFAULT_STOPWORD'
+catalogue-db-1  | 2026-05-10T05:25:43.336408Z 0 [Note] Shutting down plugin 'INNODB_METRICS'
+catalogue-db-1  | 2026-05-10T05:25:43.336439Z 0 [Note] Shutting down plugin 'INNODB_TEMP_TABLE_INFO'
+catalogue-db-1  | 2026-05-10T05:25:43.336475Z 0 [Note] Shutting down plugin 'INNODB_BUFFER_POOL_STATS'
+catalogue-db-1  | 2026-05-10T05:25:43.336518Z 0 [Note] Shutting down plugin 'INNODB_BUFFER_PAGE_LRU'
+catalogue-db-1  | 2026-05-10T05:25:43.336558Z 0 [Note] Shutting down plugin 'INNODB_BUFFER_PAGE'
+catalogue-db-1  | 2026-05-10T05:25:43.336597Z 0 [Note] Shutting down plugin 'INNODB_CMP_PER_INDEX_RESET'
+catalogue-db-1  | 2026-05-10T05:25:43.336620Z 0 [Note] Shutting down plugin 'INNODB_CMP_PER_INDEX'
+catalogue-db-1  | 2026-05-10T05:25:43.336640Z 0 [Note] Shutting down plugin 'INNODB_CMPMEM_RESET'
+catalogue-db-1  | 2026-05-10T05:25:43.336669Z 0 [Note] Shutting down plugin 'INNODB_CMPMEM'
+catalogue-db-1  | 2026-05-10T05:25:43.336692Z 0 [Note] Shutting down plugin 'INNODB_CMP_RESET'
+catalogue-db-1  | 2026-05-10T05:25:43.336712Z 0 [Note] Shutting down plugin 'INNODB_CMP'
+catalogue-db-1  | 2026-05-10T05:25:43.336733Z 0 [Note] Shutting down plugin 'INNODB_LOCK_WAITS'
+catalogue-db-1  | 2026-05-10T05:25:43.336753Z 0 [Note] Shutting down plugin 'INNODB_LOCKS'
+catalogue-db-1  | 2026-05-10T05:25:43.336776Z 0 [Note] Shutting down plugin 'INNODB_TRX'
+catalogue-db-1  | 2026-05-10T05:25:43.336808Z 0 [Note] Shutting down plugin 'InnoDB'
+catalogue-db-1  | 2026-05-10T05:25:43.339414Z 0 [Note] InnoDB: FTS optimize thread exiting.
+catalogue-db-1  | 2026-05-10T05:25:43.342912Z 0 [Note] InnoDB: Starting shutdown...
+catalogue-db-1  | 2026-05-10T05:25:43.445884Z 0 [Note] InnoDB: Dumping buffer pool(s) to /var/lib/mysql/ib_buffer_pool
+catalogue-db-1  | 2026-05-10T05:25:43.447148Z 0 [Note] InnoDB: Buffer pool(s) dump completed at 260510  5:25:43
+catalogue-db-1  | 2026-05-10T05:25:45.084991Z 0 [Note] InnoDB: Shutdown completed; log sequence number 12203720
+catalogue-db-1  | 2026-05-10T05:25:45.093895Z 0 [Note] InnoDB: Removed temporary tablespace data file: "ibtmp1"
+catalogue-db-1  | 2026-05-10T05:25:45.094243Z 0 [Note] Shutting down plugin 'MRG_MYISAM'
+catalogue-db-1  | 2026-05-10T05:25:45.094481Z 0 [Note] Shutting down plugin 'MyISAM'
+catalogue-db-1  | 2026-05-10T05:25:45.095377Z 0 [Note] Shutting down plugin 'CSV'
+catalogue-db-1  | 2026-05-10T05:25:45.095629Z 0 [Note] Shutting down plugin 'MEMORY'
+catalogue-db-1  | 2026-05-10T05:25:45.095881Z 0 [Note] Shutting down plugin 'PERFORMANCE_SCHEMA'
+catalogue-db-1  | 2026-05-10T05:25:45.096222Z 0 [Note] Shutting down plugin 'sha256_password'
+catalogue-db-1  | 2026-05-10T05:25:45.096271Z 0 [Note] Shutting down plugin 'mysql_native_password'
+catalogue-db-1  | 2026-05-10T05:25:45.101930Z 0 [Note] Shutting down plugin 'binlog'
+catalogue-db-1  | 2026-05-10T05:25:45.115953Z 0 [Note] mysqld: Shutdown complete
+catalogue-db-1  | 
+catalogue-db-1  | 
+catalogue-db-1  | MySQL init process done. Ready for start up.
+catalogue-db-1  | 
+catalogue-db-1  | 2026-05-10T05:25:46.361253Z 0 [Warning] TIMESTAMP with implicit DEFAULT value is deprecated. Please use --explicit_defaults_for_timestamp server option (see documentation for more details).
+catalogue-db-1  | 2026-05-10T05:25:46.379789Z 0 [Note] mysqld (mysqld 5.7.17) starting as process 1 ...
+catalogue-db-1  | 2026-05-10T05:25:46.450603Z 0 [Note] InnoDB: PUNCH HOLE support available
+catalogue-db-1  | 2026-05-10T05:25:46.454498Z 0 [Note] InnoDB: Mutexes and rw_locks use GCC atomic builtins
+catalogue-db-1  | 2026-05-10T05:25:46.454570Z 0 [Note] InnoDB: Uses event mutexes
+catalogue-db-1  | 2026-05-10T05:25:46.454612Z 0 [Note] InnoDB: GCC builtin __atomic_thread_fence() is used for memory barrier
+catalogue-db-1  | 2026-05-10T05:25:46.454659Z 0 [Note] InnoDB: Compressed tables use zlib 1.2.3
+catalogue-db-1  | 2026-05-10T05:25:46.455304Z 0 [Note] InnoDB: Using Linux native AIO
+catalogue-db-1  | 2026-05-10T05:25:46.463006Z 0 [Note] InnoDB: Number of pools: 1
+catalogue-db-1  | 2026-05-10T05:25:46.466817Z 0 [Note] InnoDB: Using CPU crc32 instructions
+catalogue-db-1  | 2026-05-10T05:25:46.484990Z 0 [Note] InnoDB: Initializing buffer pool, total size = 128M, instances = 1, chunk size = 128M
+catalogue-db-1  | 2026-05-10T05:25:46.518451Z 0 [Note] InnoDB: Completed initialization of buffer pool
+catalogue-db-1  | 2026-05-10T05:25:46.574519Z 0 [Note] InnoDB: If the mysqld execution user is authorized, page cleaner thread priority can be changed. See the man page of setpriority().
+catalogue-db-1  | 2026-05-10T05:25:46.653025Z 0 [Note] InnoDB: Highest supported file format is Barracuda.
+catalogue-db-1  | 2026-05-10T05:25:46.829467Z 0 [Note] InnoDB: Creating shared tablespace for temporary tables
+catalogue-db-1  | 2026-05-10T05:25:46.833038Z 0 [Note] InnoDB: Setting file './ibtmp1' size to 12 MB. Physically writing the file full; Please wait ...
+catalogue-db-1  | 2026-05-10T05:25:46.908314Z 0 [Note] InnoDB: File './ibtmp1' size is now 12 MB.
+catalogue-db-1  | 2026-05-10T05:25:46.919413Z 0 [Note] InnoDB: 96 redo rollback segment(s) found. 96 redo rollback segment(s) are active.
+catalogue-db-1  | 2026-05-10T05:25:46.919503Z 0 [Note] InnoDB: 32 non-redo rollback segment(s) are active.
+catalogue-db-1  | 2026-05-10T05:25:46.931078Z 0 [Note] InnoDB: Waiting for purge to start
+catalogue-db-1  | 2026-05-10T05:25:47.042065Z 0 [Note] InnoDB: 5.7.17 started; log sequence number 12203720
+catalogue-db-1  | 2026-05-10T05:25:47.051272Z 0 [Note] InnoDB: Loading buffer pool(s) from /var/lib/mysql/ib_buffer_pool
+catalogue-db-1  | 2026-05-10T05:25:47.072394Z 0 [Note] Plugin 'FEDERATED' is disabled.
+catalogue-db-1  | 2026-05-10T05:25:47.111585Z 0 [Note] InnoDB: Buffer pool(s) load completed at 260510  5:25:47
+catalogue-db-1  | 2026-05-10T05:25:47.254308Z 0 [Warning] Failed to set up SSL because of the following SSL library error: SSL context is not usable without certificate and private key
+catalogue-db-1  | 2026-05-10T05:25:47.269377Z 0 [Note] Server hostname (bind-address): '*'; port: 3306
+catalogue-db-1  | 2026-05-10T05:25:47.271311Z 0 [Note] IPv6 is available.
+catalogue-db-1  | 2026-05-10T05:25:47.272280Z 0 [Note]   - '::' resolves to '::';
+catalogue-db-1  | 2026-05-10T05:25:47.273210Z 0 [Note] Server socket created on IP: '::'.
+catalogue-db-1  | 2026-05-10T05:25:47.329228Z 0 [Warning] 'db' entry 'sys mysql.sys@localhost' ignored in --skip-name-resolve mode.
+catalogue-db-1  | 2026-05-10T05:25:47.330046Z 0 [Warning] 'proxies_priv' entry '@ root@localhost' ignored in --skip-name-resolve mode.
+catalogue-db-1  | 2026-05-10T05:25:47.355638Z 0 [Warning] 'tables_priv' entry 'sys_config mysql.sys@localhost' ignored in --skip-name-resolve mode.
+catalogue-db-1  | 2026-05-10T05:25:47.452920Z 0 [Note] Event Scheduler: Loaded 0 events
+catalogue-db-1  | 2026-05-10T05:25:47.456979Z 0 [Note] Executing 'SELECT * FROM INFORMATION_SCHEMA.TABLES;' to get a list of tables using the deprecated partition engine. You may use the startup option '--disable-partition-engine-check' to skip this check. 
+catalogue-db-1  | 2026-05-10T05:25:47.457061Z 0 [Note] Beginning of list of non-natively partitioned tables
+catalogue-db-1  | 2026-05-10T05:25:47.757144Z 0 [Note] End of list of non-natively partitioned tables
+catalogue-db-1  | 2026-05-10T05:25:47.764920Z 0 [Note] mysqld: ready for connections.
+catalogue-db-1  | Version: '5.7.17'  socket: '/var/run/mysqld/mysqld.sock'  port: 3306  MySQL Community Server (GPL)
+catalogue-db-1  | 2026-05-11T11:05:34.059529Z 0 [Warning] TIMESTAMP with implicit DEFAULT value is deprecated. Please use --explicit_defaults_for_timestamp server option (see documentation for more details).
+catalogue-db-1  | 2026-05-11T11:05:34.067068Z 0 [Note] mysqld (mysqld 5.7.17) starting as process 1 ...
+catalogue-db-1  | 2026-05-11T11:05:34.145575Z 0 [Note] InnoDB: PUNCH HOLE support available
+catalogue-db-1  | 2026-05-11T11:05:34.148349Z 0 [Note] InnoDB: Mutexes and rw_locks use GCC atomic builtins
+catalogue-db-1  | 2026-05-11T11:05:34.148377Z 0 [Note] InnoDB: Uses event mutexes
+catalogue-db-1  | 2026-05-11T11:05:34.148394Z 0 [Note] InnoDB: GCC builtin __atomic_thread_fence() is used for memory barrier
+catalogue-db-1  | 2026-05-11T11:05:34.148407Z 0 [Note] InnoDB: Compressed tables use zlib 1.2.3
+catalogue-db-1  | 2026-05-11T11:05:34.148611Z 0 [Note] InnoDB: Using Linux native AIO
+catalogue-db-1  | 2026-05-11T11:05:34.162287Z 0 [Note] InnoDB: Number of pools: 1
+catalogue-db-1  | 2026-05-11T11:05:34.175540Z 0 [Note] InnoDB: Using CPU crc32 instructions
+catalogue-db-1  | 2026-05-11T11:05:34.205969Z 0 [Note] InnoDB: Initializing buffer pool, total size = 128M, instances = 1, chunk size = 128M
+catalogue-db-1  | 2026-05-11T11:05:34.231509Z 0 [Note] InnoDB: Completed initialization of buffer pool
+catalogue-db-1  | 2026-05-11T11:05:34.238108Z 0 [Note] InnoDB: If the mysqld execution user is authorized, page cleaner thread priority can be changed. See the man page of setpriority().
+catalogue-db-1  | 2026-05-11T11:05:34.293264Z 0 [Note] InnoDB: Highest supported file format is Barracuda.
+catalogue-db-1  | 2026-05-11T11:05:34.308416Z 0 [Note] InnoDB: Log scan progressed past the checkpoint lsn 12203739
+catalogue-db-1  | 2026-05-11T11:05:34.308719Z 0 [Note] InnoDB: Doing recovery: scanned up to log sequence number 12203748
+catalogue-db-1  | 2026-05-11T11:05:34.309082Z 0 [Note] InnoDB: Doing recovery: scanned up to log sequence number 12203748
+catalogue-db-1  | 2026-05-11T11:05:34.309205Z 0 [Note] InnoDB: Database was not shutdown normally!
+catalogue-db-1  | 2026-05-11T11:05:34.309229Z 0 [Note] InnoDB: Starting crash recovery.
+catalogue-db-1  | 2026-05-11T11:05:34.795602Z 0 [Note] InnoDB: Removed temporary tablespace data file: "ibtmp1"
+catalogue-db-1  | 2026-05-11T11:05:34.796465Z 0 [Note] InnoDB: Creating shared tablespace for temporary tables
+catalogue-db-1  | 2026-05-11T11:05:34.797983Z 0 [Note] InnoDB: Setting file './ibtmp1' size to 12 MB. Physically writing the file full; Please wait ...
+catalogue-db-1  | 2026-05-11T11:05:34.825609Z 0 [Note] InnoDB: File './ibtmp1' size is now 12 MB.
+catalogue-db-1  | 2026-05-11T11:05:34.845054Z 0 [Note] InnoDB: 96 redo rollback segment(s) found. 96 redo rollback segment(s) are active.
+catalogue-db-1  | 2026-05-11T11:05:34.846370Z 0 [Note] InnoDB: 32 non-redo rollback segment(s) are active.
+catalogue-db-1  | 2026-05-11T11:05:34.930194Z 0 [Note] InnoDB: Waiting for purge to start
+catalogue-db-1  | 2026-05-11T11:05:34.982971Z 0 [Note] InnoDB: 5.7.17 started; log sequence number 12203748
+catalogue-db-1  | 2026-05-11T11:05:34.994826Z 0 [Note] Plugin 'FEDERATED' is disabled.
+catalogue-db-1  | 2026-05-11T11:05:35.013483Z 0 [Note] InnoDB: Loading buffer pool(s) from /var/lib/mysql/ib_buffer_pool
+catalogue-db-1  | 2026-05-11T11:05:35.140514Z 0 [Note] InnoDB: Buffer pool(s) load completed at 260511 11:05:35
+catalogue-db-1  | 2026-05-11T11:05:35.195980Z 0 [Warning] Failed to set up SSL because of the following SSL library error: SSL context is not usable without certificate and private key
+catalogue-db-1  | 2026-05-11T11:05:35.206015Z 0 [Note] Server hostname (bind-address): '*'; port: 3306
+catalogue-db-1  | 2026-05-11T11:05:35.207286Z 0 [Note] IPv6 is available.
+catalogue-db-1  | 2026-05-11T11:05:35.208865Z 0 [Note]   - '::' resolves to '::';
+catalogue-db-1  | 2026-05-11T11:05:35.210542Z 0 [Note] Server socket created on IP: '::'.
+catalogue-db-1  | 2026-05-11T11:05:35.301965Z 0 [Warning] 'db' entry 'sys mysql.sys@localhost' ignored in --skip-name-resolve mode.
+catalogue-db-1  | 2026-05-11T11:05:35.302817Z 0 [Warning] 'proxies_priv' entry '@ root@localhost' ignored in --skip-name-resolve mode.
+catalogue-db-1  | 2026-05-11T11:05:35.380269Z 0 [Warning] 'tables_priv' entry 'sys_config mysql.sys@localhost' ignored in --skip-name-resolve mode.
+catalogue-db-1  | 2026-05-11T11:05:35.962959Z 0 [Note] Event Scheduler: Loaded 0 events
+catalogue-db-1  | 2026-05-11T11:05:35.965459Z 0 [Note] Executing 'SELECT * FROM INFORMATION_SCHEMA.TABLES;' to get a list of tables using the deprecated partition engine. You may use the startup option '--disable-partition-engine-check' to skip this check. 
+catalogue-db-1  | 2026-05-11T11:05:35.965599Z 0 [Note] Beginning of list of non-natively partitioned tables
+catalogue-db-1  | 2026-05-11T11:05:36.408436Z 0 [Note] End of list of non-natively partitioned tables
+catalogue-db-1  | 2026-05-11T11:05:36.409547Z 0 [Note] mysqld: ready for connections.
+catalogue-db-1  | Version: '5.7.17'  socket: '/var/run/mysqld/mysqld.sock'  port: 3306  MySQL Community Server (GPL)

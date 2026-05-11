@@ -1,0 +1,122 @@
+time="2026-05-11T17:03:49+05:30" level=warning msg="The \"MYSQL_ROOT_PASSWORD\" variable is not set. Defaulting to a blank string."
+time="2026-05-11T17:03:49+05:30" level=warning msg="/Users/suresh/projects/benchmarks/sock-shop/deploy/docker-compose/docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+queue-master-1  | 	at com.github.dockerjava.jaxrs.async.AbstractCallbackNotifier.call(AbstractCallbackNotifier.java:24) ~[docker-java-3.0.0.jar!/:na]
+queue-master-1  | 	at java.util.concurrent.FutureTask.run(FutureTask.java:266) ~[na:1.8.0_111-internal]
+queue-master-1  | 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142) ~[na:1.8.0_111-internal]
+queue-master-1  | 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617) ~[na:1.8.0_111-internal]
+queue-master-1  | 	... 1 common frames omitted
+queue-master-1  | 
+queue-master-1  | Received shipment task: 57a98d98e4b00679b4a830b2
+queue-master-1  | 2026-05-11 11:15:04.637  INFO 7 --- [pool-7-thread-1] w.weave.socks.queuemaster.DockerSpawner  : Spawning new container
+queue-master-1  | Received shipment task: 57a98d98e4b00679b4a830b2
+queue-master-1  | 2026-05-11 11:15:04.648  INFO 7 --- [pool-7-thread-2] w.weave.socks.queuemaster.DockerSpawner  : Spawning new container
+queue-master-1  | Received shipment task: 57a98d98e4b00679b4a830b2
+queue-master-1  | 2026-05-11 11:15:04.671  INFO 7 --- [pool-7-thread-3] w.weave.socks.queuemaster.DockerSpawner  : Spawning new container
+queue-master-1  | Received shipment task: 57a98d98e4b00679b4a830b2
+queue-master-1  | 2026-05-11 11:15:04.688  INFO 7 --- [pool-7-thread-4] w.weave.socks.queuemaster.DockerSpawner  : Spawning new container
+queue-master-1  | Received shipment task: 57a98d98e4b00679b4a830b2
+queue-master-1  | 2026-05-11 11:15:04.698  INFO 7 --- [pool-7-thread-5] w.weave.socks.queuemaster.DockerSpawner  : Spawning new container
+queue-master-1  | Received shipment task: 57a98d98e4b00679b4a830b2
+queue-master-1  | 2026-05-11 11:15:04.715  INFO 7 --- [pool-7-thread-6] w.weave.socks.queuemaster.DockerSpawner  : Spawning new container
+queue-master-1  | Received shipment task: 57a98d98e4b00679b4a830b2
+queue-master-1  | 2026-05-11 11:15:04.741  INFO 7 --- [pool-7-thread-7] w.weave.socks.queuemaster.DockerSpawner  : Spawning new container
+queue-master-1  | Received shipment task: 57a98d98e4b00679b4a830b2
+queue-master-1  | 2026-05-11 11:15:04.787  INFO 7 --- [pool-7-thread-8] w.weave.socks.queuemaster.DockerSpawner  : Spawning new container
+queue-master-1  | Received shipment task: 57a98d98e4b00679b4a830b2
+queue-master-1  | 2026-05-11 11:15:04.800  INFO 7 --- [pool-7-thread-9] w.weave.socks.queuemaster.DockerSpawner  : Spawning new container
+queue-master-1  | Received shipment task: 57a98d98e4b00679b4a830b2
+queue-master-1  | 2026-05-11 11:15:04.805 ERROR 7 --- [pool-7-thread-6] w.weave.socks.queuemaster.DockerSpawner  : Exception trying to launch/remove worker container. javax.ws.rs.ProcessingException: Could not initialize class org.newsclub.net.unix.NativeUnixSocket
+queue-master-1  | 2026-05-11 11:15:04.805  INFO 7 --- [ool-7-thread-10] w.weave.socks.queuemaster.DockerSpawner  : Spawning new container
+queue-master-1  | Received shipment task: 57a98d98e4b00679b4a830b2
+queue-master-1  | 2026-05-11 11:15:05.099  INFO 7 --- [ool-7-thread-11] w.weave.socks.queuemaster.DockerSpawner  : Spawning new container
+queue-master-1  | Received shipment task: 57a98d98e4b00679b4a830b2
+queue-master-1  | 2026-05-11 11:15:05.102  INFO 7 --- [ool-7-thread-12] w.weave.socks.queuemaster.DockerSpawner  : Spawning new container
+queue-master-1  | Received shipment task: 57a98d98e4b00679b4a830b2
+queue-master-1  | 2026-05-11 11:15:06.085  INFO 7 --- [ool-7-thread-13] w.weave.socks.queuemaster.DockerSpawner  : Spawning new container
+queue-master-1  | Received shipment task: 57a98d98e4b00679b4a830b2
+queue-master-1  | 2026-05-11 11:15:06.093  INFO 7 --- [ool-7-thread-14] w.weave.socks.queuemaster.DockerSpawner  : Spawning new container
+queue-master-1  | Received shipment task: 57a98d98e4b00679b4a830b2
+queue-master-1  | 2026-05-11 11:15:06.906  INFO 7 --- [ool-7-thread-15] w.weave.socks.queuemaster.DockerSpawner  : Spawning new container
+queue-master-1  | Received shipment task: 57a98d98e4b00679b4a830b2
+queue-master-1  | 2026-05-11 11:15:06.911  INFO 7 --- [ool-7-thread-16] w.weave.socks.queuemaster.DockerSpawner  : Spawning new container
+queue-master-1  | Received shipment task: 57a98d98e4b00679b4a830b2
+queue-master-1  | 2026-05-11 11:15:07.385  INFO 7 --- [ool-7-thread-17] w.weave.socks.queuemaster.DockerSpawner  : Spawning new container
+queue-master-1  | Received shipment task: 57a98d98e4b00679b4a830b2
+queue-master-1  | 2026-05-11 11:15:07.394  INFO 7 --- [ool-7-thread-18] w.weave.socks.queuemaster.DockerSpawner  : Spawning new container
+queue-master-1  | Received shipment task: 57a98d98e4b00679b4a830b2
+queue-master-1  | 2026-05-11 11:15:07.833  INFO 7 --- [ool-7-thread-19] w.weave.socks.queuemaster.DockerSpawner  : Spawning new container
+queue-master-1  | Received shipment task: 57a98d98e4b00679b4a830b2
+queue-master-1  | 2026-05-11 11:15:07.845  INFO 7 --- [ool-7-thread-20] w.weave.socks.queuemaster.DockerSpawner  : Spawning new container
+queue-master-1  | Received shipment task: 57a98d98e4b00679b4a830b2
+queue-master-1  | 2026-05-11 11:15:08.453  INFO 7 --- [ool-7-thread-21] w.weave.socks.queuemaster.DockerSpawner  : Spawning new container
+queue-master-1  | Received shipment task: 57a98d98e4b00679b4a830b2
+queue-master-1  | 2026-05-11 11:15:08.474  INFO 7 --- [ool-7-thread-22] w.weave.socks.queuemaster.DockerSpawner  : Spawning new container
+queue-master-1  | Received shipment task: 57a98d98e4b00679b4a830b2
+queue-master-1  | 2026-05-11 11:30:10.666  INFO 7 --- [ool-7-thread-23] w.weave.socks.queuemaster.DockerSpawner  : Spawning new container
+queue-master-1  | Received shipment task: 57a98d98e4b00679b4a830b2
+queue-master-1  | 2026-05-11 11:30:10.706  INFO 7 --- [ool-7-thread-24] w.weave.socks.queuemaster.DockerSpawner  : Spawning new container
+queue-master-1  | Received shipment task: 57a98d98e4b00679b4a830b2
+queue-master-1  | Received shipment task: 57a98d98e4b00679b4a830b2
+queue-master-1  | 2026-05-11 11:30:13.117  INFO 7 --- [ool-7-thread-25] w.weave.socks.queuemaster.DockerSpawner  : Spawning new container
+queue-master-1  | 2026-05-11 11:30:13.122  INFO 7 --- [ool-7-thread-26] w.weave.socks.queuemaster.DockerSpawner  : Spawning new container
+queue-master-1  | Received shipment task: 57a98d98e4b00679b4a830b2
+queue-master-1  | 2026-05-11 11:30:14.163  INFO 7 --- [ool-7-thread-27] w.weave.socks.queuemaster.DockerSpawner  : Spawning new container
+queue-master-1  | Received shipment task: 57a98d98e4b00679b4a830b2
+queue-master-1  | 2026-05-11 11:30:14.167  INFO 7 --- [ool-7-thread-28] w.weave.socks.queuemaster.DockerSpawner  : Spawning new container
+queue-master-1  | Received shipment task: 57a98d98e4b00679b4a830b2
+queue-master-1  | 2026-05-11 11:30:14.862  INFO 7 --- [ool-7-thread-29] w.weave.socks.queuemaster.DockerSpawner  : Spawning new container
+queue-master-1  | Received shipment task: 57a98d98e4b00679b4a830b2
+queue-master-1  | 2026-05-11 11:30:14.868  INFO 7 --- [ool-7-thread-30] w.weave.socks.queuemaster.DockerSpawner  : Spawning new container
+queue-master-1  | Received shipment task: 57a98d98e4b00679b4a830b2
+queue-master-1  | Received shipment task: 57a98d98e4b00679b4a830b2
+queue-master-1  | 2026-05-11 11:30:15.717  INFO 7 --- [ool-7-thread-31] w.weave.socks.queuemaster.DockerSpawner  : Spawning new container
+queue-master-1  | 2026-05-11 11:30:15.719  INFO 7 --- [ool-7-thread-32] w.weave.socks.queuemaster.DockerSpawner  : Spawning new container
+queue-master-1  | Received shipment task: 57a98d98e4b00679b4a830b2
+queue-master-1  | 2026-05-11 11:30:16.152  INFO 7 --- [ool-7-thread-33] w.weave.socks.queuemaster.DockerSpawner  : Spawning new container
+queue-master-1  | Received shipment task: 57a98d98e4b00679b4a830b2
+queue-master-1  | 2026-05-11 11:30:16.156  INFO 7 --- [ool-7-thread-34] w.weave.socks.queuemaster.DockerSpawner  : Spawning new container
+queue-master-1  | Received shipment task: 57a98d98e4b00679b4a830b2
+queue-master-1  | 2026-05-11 11:30:16.728  INFO 7 --- [ool-7-thread-35] w.weave.socks.queuemaster.DockerSpawner  : Spawning new container
+queue-master-1  | Received shipment task: 57a98d98e4b00679b4a830b2
+queue-master-1  | 2026-05-11 11:30:16.826  INFO 7 --- [ool-7-thread-36] w.weave.socks.queuemaster.DockerSpawner  : Spawning new container
+queue-master-1  | Received shipment task: 57a98d98e4b00679b4a830b2
+queue-master-1  | 2026-05-11 11:30:17.632  INFO 7 --- [ool-7-thread-37] w.weave.socks.queuemaster.DockerSpawner  : Spawning new container
+queue-master-1  | Received shipment task: 57a98d98e4b00679b4a830b2
+queue-master-1  | 2026-05-11 11:30:17.639  INFO 7 --- [ool-7-thread-38] w.weave.socks.queuemaster.DockerSpawner  : Spawning new container
+queue-master-1  | Received shipment task: 57a98d98e4b00679b4a830b2
+queue-master-1  | 2026-05-11 11:30:18.202  INFO 7 --- [ool-7-thread-39] w.weave.socks.queuemaster.DockerSpawner  : Spawning new container
+queue-master-1  | Received shipment task: 57a98d98e4b00679b4a830b2
+queue-master-1  | 2026-05-11 11:30:18.215  INFO 7 --- [ool-7-thread-40] w.weave.socks.queuemaster.DockerSpawner  : Spawning new container
+queue-master-1  | Received shipment task: 57a98d98e4b00679b4a830b2
+queue-master-1  | Received shipment task: 57a98d98e4b00679b4a830b2
+queue-master-1  | 2026-05-11 11:30:18.851  INFO 7 --- [ool-7-thread-41] w.weave.socks.queuemaster.DockerSpawner  : Spawning new container
+queue-master-1  | 2026-05-11 11:30:18.857  INFO 7 --- [ool-7-thread-42] w.weave.socks.queuemaster.DockerSpawner  : Spawning new container
+queue-master-1  | Received shipment task: 57a98d98e4b00679b4a830b2
+queue-master-1  | Received shipment task: 57a98d98e4b00679b4a830b2
+queue-master-1  | 2026-05-11 11:31:28.182  INFO 7 --- [ool-7-thread-43] w.weave.socks.queuemaster.DockerSpawner  : Spawning new container
+queue-master-1  | 2026-05-11 11:31:28.191  INFO 7 --- [ool-7-thread-44] w.weave.socks.queuemaster.DockerSpawner  : Spawning new container
+queue-master-1  | Received shipment task: 57a98d98e4b00679b4a830b2
+queue-master-1  | 2026-05-11 11:31:28.849  INFO 7 --- [ool-7-thread-45] w.weave.socks.queuemaster.DockerSpawner  : Spawning new container
+queue-master-1  | Received shipment task: 57a98d98e4b00679b4a830b2
+queue-master-1  | 2026-05-11 11:31:28.860  INFO 7 --- [ool-7-thread-46] w.weave.socks.queuemaster.DockerSpawner  : Spawning new container
+queue-master-1  | Received shipment task: 57a98d98e4b00679b4a830b2
+queue-master-1  | 2026-05-11 11:31:29.642  INFO 7 --- [ool-7-thread-47] w.weave.socks.queuemaster.DockerSpawner  : Spawning new container
+queue-master-1  | Received shipment task: 57a98d98e4b00679b4a830b2
+queue-master-1  | 2026-05-11 11:31:29.649  INFO 7 --- [ool-7-thread-48] w.weave.socks.queuemaster.DockerSpawner  : Spawning new container
+queue-master-1  | Received shipment task: 57a98d98e4b00679b4a830b2
+queue-master-1  | Received shipment task: 57a98d98e4b00679b4a830b2
+queue-master-1  | 2026-05-11 11:31:30.762  INFO 7 --- [ool-7-thread-49] w.weave.socks.queuemaster.DockerSpawner  : Spawning new container
+queue-master-1  | 2026-05-11 11:31:30.770  INFO 7 --- [ool-7-thread-50] w.weave.socks.queuemaster.DockerSpawner  : Spawning new container
+queue-master-1  | Received shipment task: 57a98d98e4b00679b4a830b2
+queue-master-1  | Received shipment task: 57a98d98e4b00679b4a830b2
+queue-master-1  | 2026-05-11 11:31:31.394  INFO 7 --- [pool-7-thread-6] w.weave.socks.queuemaster.DockerSpawner  : Spawning new container
+queue-master-1  | Received shipment task: 57a98d98e4b00679b4a830b2
+queue-master-1  | Received shipment task: 57a98d98e4b00679b4a830b2
+queue-master-1  | Received shipment task: 57a98d98e4b00679b4a830b2
+queue-master-1  | Received shipment task: 57a98d98e4b00679b4a830b2
+queue-master-1  | Received shipment task: 57a98d98e4b00679b4a830b2
+queue-master-1  | Received shipment task: 57a98d98e4b00679b4a830b2
+queue-master-1  | Received shipment task: 57a98d98e4b00679b4a830b2
+queue-master-1  | Received shipment task: 57a98d98e4b00679b4a830b2
+queue-master-1  | Received shipment task: 57a98d98e4b00679b4a830b2
+queue-master-1  | Received shipment task: 57a98d98e4b00679b4a830b2

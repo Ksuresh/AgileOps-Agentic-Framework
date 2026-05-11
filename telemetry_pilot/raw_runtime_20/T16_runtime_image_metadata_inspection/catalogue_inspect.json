@@ -1,0 +1,234 @@
+[
+    {
+        "Id": "5d051b743dc7afa6fb1b59ba20a1ac4e1f3f02171450938618d4d72f17f2c0e4",
+        "Created": "2026-05-10T05:25:11.778148883Z",
+        "Path": "/app",
+        "Args": [
+            "-port=80"
+        ],
+        "State": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 2807,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-05-11T11:28:18.799747967Z",
+            "FinishedAt": "2026-05-11T11:28:05.599229752Z"
+        },
+        "Image": "sha256:0147a65b7116569439eefb1a6dbed455fe022464ef70e0c3cab75bc4a226b39b",
+        "ResolvConfPath": "/var/lib/docker/containers/5d051b743dc7afa6fb1b59ba20a1ac4e1f3f02171450938618d4d72f17f2c0e4/resolv.conf",
+        "HostnamePath": "/var/lib/docker/containers/5d051b743dc7afa6fb1b59ba20a1ac4e1f3f02171450938618d4d72f17f2c0e4/hostname",
+        "HostsPath": "/var/lib/docker/containers/5d051b743dc7afa6fb1b59ba20a1ac4e1f3f02171450938618d4d72f17f2c0e4/hosts",
+        "LogPath": "/var/lib/docker/containers/5d051b743dc7afa6fb1b59ba20a1ac4e1f3f02171450938618d4d72f17f2c0e4/5d051b743dc7afa6fb1b59ba20a1ac4e1f3f02171450938618d4d72f17f2c0e4-json.log",
+        "Name": "/docker-compose-catalogue-1",
+        "RestartCount": 0,
+        "Driver": "overlayfs",
+        "Platform": "linux",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "",
+        "ExecIDs": null,
+        "HostConfig": {
+            "Binds": null,
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "Type": "json-file",
+                "Config": {}
+            },
+            "NetworkMode": "docker-compose_default",
+            "PortBindings": {},
+            "RestartPolicy": {
+                "Name": "always",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": false,
+            "VolumeDriver": "",
+            "VolumesFrom": null,
+            "ConsoleSize": [
+                0,
+                0
+            ],
+            "CapAdd": [
+                "CAP_NET_BIND_SERVICE"
+            ],
+            "CapDrop": [
+                "ALL"
+            ],
+            "CgroupnsMode": "private",
+            "Dns": [],
+            "DnsOptions": [],
+            "DnsSearch": [],
+            "ExtraHosts": [],
+            "GroupAdd": null,
+            "IpcMode": "private",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": false,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": true,
+            "SecurityOpt": null,
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 67108864,
+            "Runtime": "runc",
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 0,
+            "NanoCpus": 0,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": null,
+            "BlkioDeviceReadBps": null,
+            "BlkioDeviceWriteBps": null,
+            "BlkioDeviceReadIOps": null,
+            "BlkioDeviceWriteIOps": null,
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": null,
+            "DeviceCgroupRules": null,
+            "DeviceRequests": null,
+            "MemoryReservation": 0,
+            "MemorySwap": 0,
+            "MemorySwappiness": null,
+            "OomKillDisable": null,
+            "PidsLimit": null,
+            "Ulimits": null,
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0,
+            "MaskedPaths": [
+                "/proc/acpi",
+                "/proc/asound",
+                "/proc/interrupts",
+                "/proc/kcore",
+                "/proc/keys",
+                "/proc/latency_stats",
+                "/proc/sched_debug",
+                "/proc/scsi",
+                "/proc/timer_list",
+                "/proc/timer_stats",
+                "/sys/devices/virtual/powercap",
+                "/sys/firmware"
+            ],
+            "ReadonlyPaths": [
+                "/proc/bus",
+                "/proc/fs",
+                "/proc/irq",
+                "/proc/sys",
+                "/proc/sysrq-trigger"
+            ]
+        },
+        "Storage": {
+            "RootFS": {
+                "Snapshot": {
+                    "Name": "overlayfs"
+                }
+            }
+        },
+        "Mounts": [],
+        "Config": {
+            "Hostname": "catalogue",
+            "Domainname": "",
+            "User": "myuser",
+            "AttachStdin": false,
+            "AttachStdout": true,
+            "AttachStderr": true,
+            "ExposedPorts": {
+                "80/tcp": {}
+            },
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "SERVICE_USER=myuser",
+                "SERVICE_UID=10001",
+                "SERVICE_GROUP=mygroup",
+                "SERVICE_GID=10001"
+            ],
+            "Cmd": [
+                "/app",
+                "-port=80"
+            ],
+            "Image": "weaveworksdemos/catalogue:0.3.5",
+            "Volumes": null,
+            "WorkingDir": "/",
+            "Entrypoint": null,
+            "Labels": {
+                "com.docker.compose.config-hash": "b93ffb8e5bfe15794af13a47a547b7eb29c095ba186d0672786c1e8ca094d7d1",
+                "com.docker.compose.container-number": "1",
+                "com.docker.compose.depends_on": "",
+                "com.docker.compose.image": "sha256:0147a65b7116569439eefb1a6dbed455fe022464ef70e0c3cab75bc4a226b39b",
+                "com.docker.compose.oneoff": "False",
+                "com.docker.compose.project": "docker-compose",
+                "com.docker.compose.project.config_files": "/Users/suresh/projects/AgileOps-Agentic-Framework/benchmark_apps/sock-shop/deploy/docker-compose/docker-compose.yml",
+                "com.docker.compose.project.working_dir": "/Users/suresh/projects/AgileOps-Agentic-Framework/benchmark_apps/sock-shop/deploy/docker-compose",
+                "com.docker.compose.service": "catalogue",
+                "com.docker.compose.version": "5.0.1",
+                "org.label-schema.build-date": "2017-03-22T09:05:57+0000",
+                "org.label-schema.description": "REST API for Catalogue service",
+                "org.label-schema.name": "Socks Shop: Catalogue",
+                "org.label-schema.schema-version": "1.0",
+                "org.label-schema.url": "https://github.com/microservices-demo/catalogue",
+                "org.label-schema.vcs-ref": "93452255c62cac6e44f5d86376d7cb3c5409e162",
+                "org.label-schema.vcs-url": "github.com:microservices-demo/catalogue.git",
+                "org.label-schema.vendor": "Weaveworks",
+                "org.label-schema.version": "0.0.2-SNAPSHOT"
+            },
+            "StopTimeout": 1
+        },
+        "NetworkSettings": {
+            "SandboxID": "e135cf4c807a5b9c36133e5add92f4aa3d048ba717308d41bd5755fa2e860fd6",
+            "SandboxKey": "/var/run/docker/netns/e135cf4c807a",
+            "Ports": {
+                "80/tcp": null
+            },
+            "Networks": {
+                "docker-compose_default": {
+                    "IPAMConfig": null,
+                    "Links": null,
+                    "Aliases": [
+                        "docker-compose-catalogue-1",
+                        "catalogue"
+                    ],
+                    "DriverOpts": null,
+                    "GwPriority": 0,
+                    "NetworkID": "b1cbd8c711991613193e3018b521efdc8e67da76c4465b4997c35b7e5c3e3115",
+                    "EndpointID": "44321a4e979fa16915ed648a349e31c146967c787d4da1dd8ad23764194691ea",
+                    "Gateway": "172.18.0.1",
+                    "IPAddress": "172.18.0.4",
+                    "MacAddress": "16:c3:47:3a:37:33",
+                    "IPPrefixLen": 16,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "DNSNames": [
+                        "docker-compose-catalogue-1",
+                        "catalogue",
+                        "5d051b743dc7"
+                    ]
+                }
+            }
+        },
+        "ImageManifestDescriptor": {
+            "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+            "digest": "sha256:0147a65b7116569439eefb1a6dbed455fe022464ef70e0c3cab75bc4a226b39b",
+            "size": 1371,
+            "platform": {
+                "architecture": "amd64",
+                "os": "linux"
+            }
+        }
+    }
+]

@@ -1,0 +1,17 @@
+CONTAINER ID   NAME                            CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+d77de0adee40   docker-compose-front-end-2      1.89%     225.8MiB / 3.827GiB   5.76%     998B / 126B       0B / 0B           21
+557b01f59b32   docker-compose-front-end-3      1.89%     225.2MiB / 3.827GiB   5.75%     956B / 126B       0B / 0B           21
+a1b3d68a6891   docker-compose-catalogue-db-1   0.16%     56.7MiB / 3.827GiB    1.45%     179kB / 755kB     36MB / 71.6MB     31
+ca2e131a2cc5   docker-compose-carts-db-1       0.47%     29.55MiB / 3.827GiB   0.75%     503kB / 530kB     26.8MB / 8.04MB   20
+6e7a674b7bed   docker-compose-orders-db-1      0.49%     25.56MiB / 3.827GiB   0.65%     100kB / 62.9kB    18.1MB / 7.12MB   23
+14489b9afc46   docker-compose-rabbitmq-1       4.28%     56.04MiB / 3.827GiB   1.43%     49.4kB / 44.3kB   31.8MB / 34MB     145
+f6499e7f64ac   docker-compose-user-1           0.00%     35.51MiB / 3.827GiB   0.91%     1.04MB / 1MB      10.4MB / 885kB    13
+3af099106cc9   docker-compose-payment-1        0.00%     14.05MiB / 3.827GiB   0.36%     4.79kB / 1.59kB   4.25MB / 0B       8
+fc4c33298201   docker-compose-orders-1         0.37%     439.3MiB / 3.827GiB   11.21%    251kB / 341kB     19.4MB / 0B       53
+d016a2ae56a0   docker-compose-queue-master-1   0.60%     487.8MiB / 3.827GiB   12.45%    42.2kB / 15.8kB   37.8MB / 196MB    98
+1b87304437ac   docker-compose-user-db-1        1.47%     100.7MiB / 3.827GiB   2.57%     475kB / 670kB     38.9MB / 9.4MB    23
+0c2a271e0f80   docker-compose-front-end-1      0.00%     248.9MiB / 3.827GiB   6.35%     2.98kB / 11kB     7.77MB / 0B       21
+f941f51070bf   docker-compose-user-sim-1       0.00%     5.156MiB / 3.827GiB   0.13%     1.29kB / 126B     0B / 0B           2
+33ef7db2853f   docker-compose-shipping-1       0.30%     354.9MiB / 3.827GiB   9.06%     69.3kB / 60.6kB   38.3MB / 82.4MB   53
+5d051b743dc7   docker-compose-catalogue-1      0.18%     8.254MiB / 3.827GiB   0.21%     1.88kB / 748B     1.93MB / 0B       8
+71d7965b9cc9   docker-compose-edge-router-1    0.22%     32.71MiB / 3.827GiB   0.83%     7.93MB / 8MB      16MB / 1.99MB     15

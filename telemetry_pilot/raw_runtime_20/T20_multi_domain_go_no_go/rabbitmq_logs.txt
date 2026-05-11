@@ -1,0 +1,122 @@
+time="2026-05-11T17:04:43+05:30" level=warning msg="The \"MYSQL_ROOT_PASSWORD\" variable is not set. Defaulting to a blank string."
+time="2026-05-11T17:04:43+05:30" level=warning msg="/Users/suresh/projects/benchmarks/sock-shop/deploy/docker-compose/docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+rabbitmq-1  | 
+rabbitmq-1  | =INFO REPORT==== 10-May-2026::05:25:42 ===
+rabbitmq-1  | Setting permissions for 'guest' in '/' to '.*', '.*', '.*'
+rabbitmq-1  | 
+rabbitmq-1  | =INFO REPORT==== 10-May-2026::05:25:42 ===
+rabbitmq-1  | msg_store_transient: using rabbit_msg_store_ets_index to provide index
+rabbitmq-1  | 
+rabbitmq-1  | =INFO REPORT==== 10-May-2026::05:25:42 ===
+rabbitmq-1  | msg_store_persistent: using rabbit_msg_store_ets_index to provide index
+rabbitmq-1  | 
+rabbitmq-1  | =WARNING REPORT==== 10-May-2026::05:25:42 ===
+rabbitmq-1  | msg_store_persistent: rebuilding indices from scratch
+rabbitmq-1  | 
+rabbitmq-1  | =INFO REPORT==== 10-May-2026::05:25:42 ===
+rabbitmq-1  | started TCP Listener on [::]:5672
+rabbitmq-1  |  completed with 0 plugins.
+rabbitmq-1  | 
+rabbitmq-1  | =INFO REPORT==== 10-May-2026::05:25:42 ===
+rabbitmq-1  | Server startup complete; 0 plugins started.
+rabbitmq-1  | 
+rabbitmq-1  | =INFO REPORT==== 10-May-2026::05:29:28 ===
+rabbitmq-1  | accepting AMQP connection <0.395.0> (172.18.0.9:58612 -> 172.18.0.5:5672)
+rabbitmq-1  | 
+rabbitmq-1  | =ERROR REPORT==== 10-May-2026::05:29:38 ===
+rabbitmq-1  | closing AMQP connection <0.395.0> (172.18.0.9:58612 -> 172.18.0.5:5672):
+rabbitmq-1  | {handshake_timeout,frame_header}
+rabbitmq-1  | 
+rabbitmq-1  | =INFO REPORT==== 10-May-2026::05:29:59 ===
+rabbitmq-1  | accepting AMQP connection <0.402.0> (172.18.0.9:38158 -> 172.18.0.5:5672)
+rabbitmq-1  | 
+rabbitmq-1  | =INFO REPORT==== 10-May-2026::05:29:59 ===
+rabbitmq-1  | connection <0.402.0> (172.18.0.9:38158 -> 172.18.0.5:5672): user 'guest' authenticated and granted access to vhost '/'
+rabbitmq-1  | 
+rabbitmq-1  | =INFO REPORT==== 10-May-2026::05:42:56 ===
+rabbitmq-1  | accepting AMQP connection <0.437.0> (172.18.0.13:53908 -> 172.18.0.5:5672)
+rabbitmq-1  | 
+rabbitmq-1  | =INFO REPORT==== 10-May-2026::05:42:56 ===
+rabbitmq-1  | connection <0.437.0> (172.18.0.13:53908 -> 172.18.0.5:5672): user 'guest' authenticated and granted access to vhost '/'
+rabbitmq-1  | 
+rabbitmq-1  | =INFO REPORT==== 11-May-2026::11:05:50 ===
+rabbitmq-1  | Starting RabbitMQ 3.6.8 on Erlang 19.3
+rabbitmq-1  | Copyright (C) 2007-2016 Pivotal Software, Inc.
+rabbitmq-1  | Licensed under the MPL.  See http://www.rabbitmq.com/
+rabbitmq-1  | 
+rabbitmq-1  |               RabbitMQ 3.6.8. Copyright (C) 2007-2016 Pivotal Software, Inc.
+rabbitmq-1  |   ##  ##      Licensed under the MPL.  See http://www.rabbitmq.com/
+rabbitmq-1  |   ##  ##
+rabbitmq-1  |   ##########  Logs: tty
+rabbitmq-1  |   ######  ##        tty
+rabbitmq-1  |   ##########
+rabbitmq-1  |               Starting broker...
+rabbitmq-1  | 
+rabbitmq-1  | =INFO REPORT==== 11-May-2026::11:05:50 ===
+rabbitmq-1  | node           : rabbit@rabbitmq
+rabbitmq-1  | home dir       : /var/lib/rabbitmq
+rabbitmq-1  | config file(s) : /etc/rabbitmq/rabbitmq.config
+rabbitmq-1  | cookie hash    : u7TawoiFvbuFau3tX+aSDg==
+rabbitmq-1  | log            : tty
+rabbitmq-1  | sasl log       : tty
+rabbitmq-1  | database dir   : /var/lib/rabbitmq/mnesia/rabbit@rabbitmq
+rabbitmq-1  | 
+rabbitmq-1  | =INFO REPORT==== 11-May-2026::11:05:57 ===
+rabbitmq-1  | Memory limit set to 1567MB of 3918MB total.
+rabbitmq-1  | 
+rabbitmq-1  | =INFO REPORT==== 11-May-2026::11:05:57 ===
+rabbitmq-1  | Disk free limit set to 50MB
+rabbitmq-1  | 
+rabbitmq-1  | =INFO REPORT==== 11-May-2026::11:05:58 ===
+rabbitmq-1  | Limiting to approx 1048476 file handles (943626 sockets)
+rabbitmq-1  | 
+rabbitmq-1  | =INFO REPORT==== 11-May-2026::11:05:58 ===
+rabbitmq-1  | FHC read buffering:  OFF
+rabbitmq-1  | FHC write buffering: ON
+rabbitmq-1  | 
+rabbitmq-1  | =INFO REPORT==== 11-May-2026::11:05:58 ===
+rabbitmq-1  | Waiting for Mnesia tables for 30000 ms, 9 retries left
+rabbitmq-1  | 
+rabbitmq-1  | =INFO REPORT==== 11-May-2026::11:05:58 ===
+rabbitmq-1  | Waiting for Mnesia tables for 30000 ms, 9 retries left
+rabbitmq-1  | 
+rabbitmq-1  | =INFO REPORT==== 11-May-2026::11:05:58 ===
+rabbitmq-1  | Priority queues enabled, real BQ is rabbit_variable_queue
+rabbitmq-1  | 
+rabbitmq-1  | =INFO REPORT==== 11-May-2026::11:05:58 ===
+rabbitmq-1  | Starting rabbit_node_monitor
+rabbitmq-1  | 
+rabbitmq-1  | =INFO REPORT==== 11-May-2026::11:05:58 ===
+rabbitmq-1  | msg_store_transient: using rabbit_msg_store_ets_index to provide index
+rabbitmq-1  | 
+rabbitmq-1  | =INFO REPORT==== 11-May-2026::11:05:58 ===
+rabbitmq-1  | msg_store_persistent: using rabbit_msg_store_ets_index to provide index
+rabbitmq-1  | 
+rabbitmq-1  | =WARNING REPORT==== 11-May-2026::11:05:58 ===
+rabbitmq-1  | msg_store_persistent: rebuilding indices from scratch
+rabbitmq-1  | 
+rabbitmq-1  | =INFO REPORT==== 11-May-2026::11:05:58 ===
+rabbitmq-1  | started TCP Listener on [::]:5672
+rabbitmq-1  |  completed with 0 plugins.
+rabbitmq-1  | 
+rabbitmq-1  | =INFO REPORT==== 11-May-2026::11:05:58 ===
+rabbitmq-1  | Server startup complete; 0 plugins started.
+rabbitmq-1  | 
+rabbitmq-1  | =INFO REPORT==== 11-May-2026::11:08:19 ===
+rabbitmq-1  | accepting AMQP connection <0.302.0> (172.18.0.14:45536 -> 172.18.0.6:5672)
+rabbitmq-1  | 
+rabbitmq-1  | =WARNING REPORT==== 11-May-2026::11:08:24 ===
+rabbitmq-1  | closing AMQP connection <0.302.0> (172.18.0.14:45536 -> 172.18.0.6:5672):
+rabbitmq-1  | client unexpectedly closed TCP connection
+rabbitmq-1  | 
+rabbitmq-1  | =INFO REPORT==== 11-May-2026::11:08:26 ===
+rabbitmq-1  | accepting AMQP connection <0.306.0> (172.18.0.14:53692 -> 172.18.0.6:5672)
+rabbitmq-1  | 
+rabbitmq-1  | =INFO REPORT==== 11-May-2026::11:08:32 ===
+rabbitmq-1  | connection <0.306.0> (172.18.0.14:53692 -> 172.18.0.6:5672): user 'guest' authenticated and granted access to vhost '/'
+rabbitmq-1  | 
+rabbitmq-1  | =INFO REPORT==== 11-May-2026::11:14:58 ===
+rabbitmq-1  | accepting AMQP connection <0.329.0> (172.18.0.11:54700 -> 172.18.0.6:5672)
+rabbitmq-1  | 
+rabbitmq-1  | =INFO REPORT==== 11-May-2026::11:14:58 ===
+rabbitmq-1  | connection <0.329.0> (172.18.0.11:54700 -> 172.18.0.6:5672): user 'guest' authenticated and granted access to vhost '/'

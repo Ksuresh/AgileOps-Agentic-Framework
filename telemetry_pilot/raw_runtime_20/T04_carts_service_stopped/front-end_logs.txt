@@ -1,0 +1,122 @@
+time="2026-05-11T16:59:00+05:30" level=warning msg="The \"MYSQL_ROOT_PASSWORD\" variable is not set. Defaulting to a blank string."
+time="2026-05-11T16:59:01+05:30" level=warning msg="/Users/suresh/projects/benchmarks/sock-shop/deploy/docker-compose/docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+front-end-1  | 
+front-end-1  | POST to carts: http://carts/carts/57a98d98e4b00679b4a830b2/items body: {"itemId":"819e1fbf-8b7e-4f6d-811f-693534916a8b","unitPrice":14}
+front-end-1  | [0mPOST /cart [31m500 [0m14.122 ms - 167[0m
+front-end-1  | [0mPOST /cart [31m500 [0m18.504 ms - 167[0m
+front-end-1  | Request received with body: {}
+front-end-1  | Request received with body: {}
+front-end-1  | Received response: "{\"firstName\":\"User\",\"lastName\":\"Name\",\"username\":\"user\",\"id\":\"57a98d98e4b00679b4a830b2\",\"_links\":{\"addresses\":{\"href\":\"http://user/customers/57a98d98e4b00679b4a830b2/addresses\"},\"cards\":{\"href\":\"http://user/customers/57a98d98e4b00679b4a830b2/cards\"},\"customer\":{\"href\":\"http://user/customers/57a98d98e4b00679b4a830b2\"},\"self\":{\"href\":\"http://user/customers/57a98d98e4b00679b4a830b2\"}}}\n"
+front-end-1  | GET Request to: http://user/customers/57a98d98e4b00679b4a830b2/addresses
+front-end-1  | GET Request to: http://user/customers/57a98d98e4b00679b4a830b2/cards
+front-end-1  | Received response: "{\"firstName\":\"User\",\"lastName\":\"Name\",\"username\":\"user\",\"id\":\"57a98d98e4b00679b4a830b2\",\"_links\":{\"addresses\":{\"href\":\"http://user/customers/57a98d98e4b00679b4a830b2/addresses\"},\"cards\":{\"href\":\"http://user/customers/57a98d98e4b00679b4a830b2/cards\"},\"customer\":{\"href\":\"http://user/customers/57a98d98e4b00679b4a830b2\"},\"self\":{\"href\":\"http://user/customers/57a98d98e4b00679b4a830b2\"}}}\n"
+front-end-1  | GET Request to: http://user/customers/57a98d98e4b00679b4a830b2/addresses
+front-end-1  | GET Request to: http://user/customers/57a98d98e4b00679b4a830b2/cards
+front-end-1  | Received response: "{\"_embedded\":{\"address\":[{\"street\":\"Whitelees Road\",\"number\":\"246\",\"country\":\"United Kingdom\",\"city\":\"Glasgow\",\"postcode\":\"G67 3DL\",\"id\":\"57a98d98e4b00679b4a830b0\",\"_links\":{\"address\":{\"href\":\"http://user/addresses/57a98d98e4b00679b4a830b0\"},\"self\":{\"href\":\"http://user/addresses/57a98d98e4b00679b4a830b0\"}}}]}}\n"
+front-end-1  | Received response: "{\"_embedded\":{\"card\":[{\"longNum\":\"5544154011345918\",\"expires\":\"08/19\",\"ccv\":\"958\",\"id\":\"57a98d98e4b00679b4a830b1\",\"_links\":{\"card\":{\"href\":\"http://user/cards/57a98d98e4b00679b4a830b1\"},\"self\":{\"href\":\"http://user/cards/57a98d98e4b00679b4a830b1\"}}}]}}\n"
+front-end-1  | Received response: "{\"_embedded\":{\"card\":[{\"longNum\":\"5544154011345918\",\"expires\":\"08/19\",\"ccv\":\"958\",\"id\":\"57a98d98e4b00679b4a830b1\",\"_links\":{\"card\":{\"href\":\"http://user/cards/57a98d98e4b00679b4a830b1\"},\"self\":{\"href\":\"http://user/cards/57a98d98e4b00679b4a830b1\"}}}]}}\n"
+front-end-1  | [ undefined, undefined ]
+front-end-1  | Posting Order: {"customer":"http://user/customers/57a98d98e4b00679b4a830b2","address":"http://user/addresses/57a98d98e4b00679b4a830b0","card":"http://user/cards/57a98d98e4b00679b4a830b1","items":"http://carts/carts/57a98d98e4b00679b4a830b2/items"}
+front-end-1  | Received response: "{\"_embedded\":{\"address\":[{\"street\":\"Whitelees Road\",\"number\":\"246\",\"country\":\"United Kingdom\",\"city\":\"Glasgow\",\"postcode\":\"G67 3DL\",\"id\":\"57a98d98e4b00679b4a830b0\",\"_links\":{\"address\":{\"href\":\"http://user/addresses/57a98d98e4b00679b4a830b0\"},\"self\":{\"href\":\"http://user/addresses/57a98d98e4b00679b4a830b0\"}}}]}}\n"
+front-end-1  | [ undefined, undefined ]
+front-end-1  | Posting Order: {"customer":"http://user/customers/57a98d98e4b00679b4a830b2","address":"http://user/addresses/57a98d98e4b00679b4a830b0","card":"http://user/cards/57a98d98e4b00679b4a830b1","items":"http://carts/carts/57a98d98e4b00679b4a830b2/items"}
+front-end-1  | Order response: {"statusCode":500,"body":{"timestamp":1778498938590,"status":500,"error":"Internal Server Error","exception":"java.lang.IllegalStateException","message":"Unable to create order due to unspecified IO error.","path":"/orders"},"headers":{"x-application-context":"orders:80","content-type":"application/json;charset=UTF-8","transfer-encoding":"chunked","date":"Mon, 11 May 2026 11:28:58 GMT","connection":"close"},"request":{"uri":{"protocol":"http:","slashes":true,"auth":null,"host":"orders","port":80,"hostname":"orders","hash":null,"search":null,"query":null,"pathname":"/orders","path":"/orders","href":"http://orders/orders"},"method":"POST","headers":{"accept":"application/json","content-type":"application/json","content-length":232}}}
+front-end-1  | Order response: {"timestamp":1778498938590,"status":500,"error":"Internal Server Error","exception":"java.lang.IllegalStateException","message":"Unable to create order due to unspecified IO error.","path":"/orders"}
+front-end-1  | Order response: {"statusCode":500,"body":{"timestamp":1778498938589,"status":500,"error":"Internal Server Error","exception":"java.lang.IllegalStateException","message":"Unable to create order due to unspecified IO error.","path":"/orders"},"headers":{"x-application-context":"orders:80","content-type":"application/json;charset=UTF-8","transfer-encoding":"chunked","date":"Mon, 11 May 2026 11:28:58 GMT","connection":"close"},"request":{"uri":{"protocol":"http:","slashes":true,"auth":null,"host":"orders","port":80,"hostname":"orders","hash":null,"search":null,"query":null,"pathname":"/orders","path":"/orders","href":"http://orders/orders"},"method":"POST","headers":{"accept":"application/json","content-type":"application/json","content-length":232}}}
+front-end-1  | Order response: {"timestamp":1778498938589,"status":500,"error":"Internal Server Error","exception":"java.lang.IllegalStateException","message":"Unable to create order due to unspecified IO error.","path":"/orders"}
+front-end-1  | [0mPOST /orders [31m500 [0m133.072 ms - -[0m
+front-end-1  | [0mPOST /orders [31m500 [0m131.957 ms - -[0m
+front-end-1  | [0mGET /catalogue [32m200 [0m4.990 ms - -[0m
+front-end-1  | [0mGET /catalogue [32m200 [0m9.870 ms - -[0m
+front-end-1  | Received login request
+front-end-1  | Received login request
+front-end-1  | {"user":{"firstName":"User","lastName":"Name","username":"user","id":"57a98d98e4b00679b4a830b2","_links":{"addresses":{"href":"http://user/customers/57a98d98e4b00679b4a830b2/addresses"},"cards":{"href":"http://user/customers/57a98d98e4b00679b4a830b2/cards"},"customer":{"href":"http://user/customers/57a98d98e4b00679b4a830b2"},"self":{"href":"http://user/customers/57a98d98e4b00679b4a830b2"}}}}
+front-end-1  | 
+front-end-1  | 57a98d98e4b00679b4a830b2
+front-end-1  | Merging carts for customer id: 57a98d98e4b00679b4a830b2 and session id: 3COTogENlKlnTQgokUVeo0TTtIP9OxCp
+front-end-1  | {"user":{"firstName":"User","lastName":"Name","username":"user","id":"57a98d98e4b00679b4a830b2","_links":{"addresses":{"href":"http://user/customers/57a98d98e4b00679b4a830b2/addresses"},"cards":{"href":"http://user/customers/57a98d98e4b00679b4a830b2/cards"},"customer":{"href":"http://user/customers/57a98d98e4b00679b4a830b2"},"self":{"href":"http://user/customers/57a98d98e4b00679b4a830b2"}}}}
+front-end-1  | 
+front-end-1  | 57a98d98e4b00679b4a830b2
+front-end-1  | Merging carts for customer id: 57a98d98e4b00679b4a830b2 and session id: NnPMKzuWKrU3WKx__E6znFxiDRg1ae7t
+front-end-1  | { [Error: getaddrinfo ENOTFOUND carts carts:80]
+front-end-1  |   code: 'ENOTFOUND',
+front-end-1  |   errno: 'ENOTFOUND',
+front-end-1  |   syscall: 'getaddrinfo',
+front-end-1  |   hostname: 'carts',
+front-end-1  |   host: 'carts',
+front-end-1  |   port: 80 }
+front-end-1  | Carts merged.
+front-end-1  | Sent cookies.
+front-end-1  | [0mGET /login [32m200 [0m14.738 ms - 13[0m
+front-end-1  | { [Error: getaddrinfo ENOTFOUND carts carts:80]
+front-end-1  |   code: 'ENOTFOUND',
+front-end-1  |   errno: 'ENOTFOUND',
+front-end-1  |   syscall: 'getaddrinfo',
+front-end-1  |   hostname: 'carts',
+front-end-1  |   host: 'carts',
+front-end-1  |   port: 80 }
+front-end-1  | Carts merged.
+front-end-1  | Sent cookies.
+front-end-1  | [0mGET /login [32m200 [0m12.310 ms - 13[0m
+front-end-1  | Attempting to delete cart for user: 57a98d98e4b00679b4a830b2
+front-end-1  | Attempting to delete cart for user: 57a98d98e4b00679b4a830b2
+front-end-1  | [0mDELETE /cart [31m500 [0m6.620 ms - 167[0m
+front-end-1  | [0mDELETE /cart [31m500 [0m5.105 ms - 167[0m
+front-end-1  | Attempting to add to cart: {"id":"3395a43e-2d88-40de-b95f-e00e1502085b","quantity":1}
+front-end-1  | Attempting to add to cart: {"id":"d3588630-ad8e-49df-bbd7-3167f7efb246","quantity":1}
+front-end-1  | {"id":"3395a43e-2d88-40de-b95f-e00e1502085b","name":"Colourful","description":"proident occaecat irure et excepteur labore minim nisi amet irure","imageUrl":["/catalogue/images/colourful_socks.jpg","/catalogue/images/colourful_socks.jpg"],"price":18,"count":438,"tag":["brown","blue"]}
+front-end-1  | 
+front-end-1  | POST to carts: http://carts/carts/57a98d98e4b00679b4a830b2/items body: {"itemId":"3395a43e-2d88-40de-b95f-e00e1502085b","unitPrice":18}
+front-end-1  | {"id":"d3588630-ad8e-49df-bbd7-3167f7efb246","name":"YouTube.sock","description":"We were not paid to sell this sock. It's just a bit geeky.","imageUrl":["/catalogue/images/youtube_1.jpeg","/catalogue/images/youtube_2.jpeg"],"price":10.99,"count":801,"tag":["geek","formal"]}
+front-end-1  | 
+front-end-1  | POST to carts: http://carts/carts/57a98d98e4b00679b4a830b2/items body: {"itemId":"d3588630-ad8e-49df-bbd7-3167f7efb246","unitPrice":10.99}
+front-end-1  | [0mPOST /cart [31m500 [0m14.107 ms - 167[0m
+front-end-1  | [0mPOST /cart [31m500 [0m21.282 ms - 167[0m
+front-end-1  | Request received with body: {}
+front-end-1  | Received response: "{\"firstName\":\"User\",\"lastName\":\"Name\",\"username\":\"user\",\"id\":\"57a98d98e4b00679b4a830b2\",\"_links\":{\"addresses\":{\"href\":\"http://user/customers/57a98d98e4b00679b4a830b2/addresses\"},\"cards\":{\"href\":\"http://user/customers/57a98d98e4b00679b4a830b2/cards\"},\"customer\":{\"href\":\"http://user/customers/57a98d98e4b00679b4a830b2\"},\"self\":{\"href\":\"http://user/customers/57a98d98e4b00679b4a830b2\"}}}\n"
+front-end-1  | GET Request to: http://user/customers/57a98d98e4b00679b4a830b2/addresses
+front-end-1  | GET Request to: http://user/customers/57a98d98e4b00679b4a830b2/cards
+front-end-1  | Request received with body: {}
+front-end-1  | Received response: "{\"_embedded\":{\"address\":[{\"street\":\"Whitelees Road\",\"number\":\"246\",\"country\":\"United Kingdom\",\"city\":\"Glasgow\",\"postcode\":\"G67 3DL\",\"id\":\"57a98d98e4b00679b4a830b0\",\"_links\":{\"address\":{\"href\":\"http://user/addresses/57a98d98e4b00679b4a830b0\"},\"self\":{\"href\":\"http://user/addresses/57a98d98e4b00679b4a830b0\"}}}]}}\n"
+front-end-1  | Received response: "{\"_embedded\":{\"card\":[{\"longNum\":\"5544154011345918\",\"expires\":\"08/19\",\"ccv\":\"958\",\"id\":\"57a98d98e4b00679b4a830b1\",\"_links\":{\"card\":{\"href\":\"http://user/cards/57a98d98e4b00679b4a830b1\"},\"self\":{\"href\":\"http://user/cards/57a98d98e4b00679b4a830b1\"}}}]}}\n"
+front-end-1  | [ undefined, undefined ]
+front-end-1  | Posting Order: {"customer":"http://user/customers/57a98d98e4b00679b4a830b2","address":"http://user/addresses/57a98d98e4b00679b4a830b0","card":"http://user/cards/57a98d98e4b00679b4a830b1","items":"http://carts/carts/57a98d98e4b00679b4a830b2/items"}
+front-end-1  | Received response: "{\"firstName\":\"User\",\"lastName\":\"Name\",\"username\":\"user\",\"id\":\"57a98d98e4b00679b4a830b2\",\"_links\":{\"addresses\":{\"href\":\"http://user/customers/57a98d98e4b00679b4a830b2/addresses\"},\"cards\":{\"href\":\"http://user/customers/57a98d98e4b00679b4a830b2/cards\"},\"customer\":{\"href\":\"http://user/customers/57a98d98e4b00679b4a830b2\"},\"self\":{\"href\":\"http://user/customers/57a98d98e4b00679b4a830b2\"}}}\n"
+front-end-1  | GET Request to: http://user/customers/57a98d98e4b00679b4a830b2/addresses
+front-end-1  | GET Request to: http://user/customers/57a98d98e4b00679b4a830b2/cards
+front-end-1  | Received response: "{\"_embedded\":{\"card\":[{\"longNum\":\"5544154011345918\",\"expires\":\"08/19\",\"ccv\":\"958\",\"id\":\"57a98d98e4b00679b4a830b1\",\"_links\":{\"card\":{\"href\":\"http://user/cards/57a98d98e4b00679b4a830b1\"},\"self\":{\"href\":\"http://user/cards/57a98d98e4b00679b4a830b1\"}}}]}}\n"
+front-end-1  | Received response: "{\"_embedded\":{\"address\":[{\"street\":\"Whitelees Road\",\"number\":\"246\",\"country\":\"United Kingdom\",\"city\":\"Glasgow\",\"postcode\":\"G67 3DL\",\"id\":\"57a98d98e4b00679b4a830b0\",\"_links\":{\"address\":{\"href\":\"http://user/addresses/57a98d98e4b00679b4a830b0\"},\"self\":{\"href\":\"http://user/addresses/57a98d98e4b00679b4a830b0\"}}}]}}\n"
+front-end-1  | [ undefined, undefined ]
+front-end-1  | Posting Order: {"customer":"http://user/customers/57a98d98e4b00679b4a830b2","address":"http://user/addresses/57a98d98e4b00679b4a830b0","card":"http://user/cards/57a98d98e4b00679b4a830b1","items":"http://carts/carts/57a98d98e4b00679b4a830b2/items"}
+front-end-1  | Order response: {"statusCode":500,"body":{"timestamp":1778498938983,"status":500,"error":"Internal Server Error","exception":"java.lang.IllegalStateException","message":"Unable to create order due to unspecified IO error.","path":"/orders"},"headers":{"x-application-context":"orders:80","content-type":"application/json;charset=UTF-8","transfer-encoding":"chunked","date":"Mon, 11 May 2026 11:28:58 GMT","connection":"close"},"request":{"uri":{"protocol":"http:","slashes":true,"auth":null,"host":"orders","port":80,"hostname":"orders","hash":null,"search":null,"query":null,"pathname":"/orders","path":"/orders","href":"http://orders/orders"},"method":"POST","headers":{"accept":"application/json","content-type":"application/json","content-length":232}}}
+front-end-1  | Order response: {"timestamp":1778498938983,"status":500,"error":"Internal Server Error","exception":"java.lang.IllegalStateException","message":"Unable to create order due to unspecified IO error.","path":"/orders"}
+front-end-1  | [0mPOST /orders [31m500 [0m141.578 ms - -[0m
+front-end-1  | [0mGET /catalogue [32m200 [0m4.122 ms - -[0m
+front-end-1  | Received login request
+front-end-1  | {"user":{"firstName":"User","lastName":"Name","username":"user","id":"57a98d98e4b00679b4a830b2","_links":{"addresses":{"href":"http://user/customers/57a98d98e4b00679b4a830b2/addresses"},"cards":{"href":"http://user/customers/57a98d98e4b00679b4a830b2/cards"},"customer":{"href":"http://user/customers/57a98d98e4b00679b4a830b2"},"self":{"href":"http://user/customers/57a98d98e4b00679b4a830b2"}}}}
+front-end-1  | 
+front-end-1  | 57a98d98e4b00679b4a830b2
+front-end-1  | Merging carts for customer id: 57a98d98e4b00679b4a830b2 and session id: 3COTogENlKlnTQgokUVeo0TTtIP9OxCp
+front-end-1  | { [Error: getaddrinfo ENOTFOUND carts carts:80]
+front-end-1  |   code: 'ENOTFOUND',
+front-end-1  |   errno: 'ENOTFOUND',
+front-end-1  |   syscall: 'getaddrinfo',
+front-end-1  |   hostname: 'carts',
+front-end-1  |   host: 'carts',
+front-end-1  |   port: 80 }
+front-end-1  | Carts merged.
+front-end-1  | Sent cookies.
+front-end-1  | [0mGET /login [32m200 [0m11.411 ms - 13[0m
+front-end-1  | Attempting to delete cart for user: 57a98d98e4b00679b4a830b2
+front-end-1  | [0mDELETE /cart [31m500 [0m9.969 ms - 167[0m
+front-end-1  | Order response: {"statusCode":500,"body":{"timestamp":1778498939158,"status":500,"error":"Internal Server Error","exception":"java.lang.IllegalStateException","message":"Unable to create order due to unspecified IO error.","path":"/orders"},"headers":{"x-application-context":"orders:80","content-type":"application/json;charset=UTF-8","transfer-encoding":"chunked","date":"Mon, 11 May 2026 11:28:59 GMT","connection":"close"},"request":{"uri":{"protocol":"http:","slashes":true,"auth":null,"host":"orders","port":80,"hostname":"orders","hash":null,"search":null,"query":null,"pathname":"/orders","path":"/orders","href":"http://orders/orders"},"method":"POST","headers":{"accept":"application/json","content-type":"application/json","content-length":232}}}
+front-end-1  | Order response: {"timestamp":1778498939158,"status":500,"error":"Internal Server Error","exception":"java.lang.IllegalStateException","message":"Unable to create order due to unspecified IO error.","path":"/orders"}
+front-end-1  | [0mPOST /orders [31m500 [0m283.651 ms - -[0m
+front-end-1  | Attempting to add to cart: {"id":"d3588630-ad8e-49df-bbd7-3167f7efb246","quantity":1}
+front-end-1  | {"id":"d3588630-ad8e-49df-bbd7-3167f7efb246","name":"YouTube.sock","description":"We were not paid to sell this sock. It's just a bit geeky.","imageUrl":["/catalogue/images/youtube_1.jpeg","/catalogue/images/youtube_2.jpeg"],"price":10.99,"count":801,"tag":["geek","formal"]}
+front-end-1  | 
+front-end-1  | POST to carts: http://carts/carts/57a98d98e4b00679b4a830b2/items body: {"itemId":"d3588630-ad8e-49df-bbd7-3167f7efb246","unitPrice":10.99}
+front-end-1  | [0mPOST /cart [31m500 [0m11.302 ms - 167[0m
+front-end-1  | [0mGET /catalogue [32m200 [0m5.035 ms - -[0m
+front-end-1  | [0mGET /catalogue [32m200 [0m27.406 ms - -[0m
+front-end-1  | [0mGET /tags [32m200 [0m6.215 ms - -[0m

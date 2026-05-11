@@ -1,0 +1,122 @@
+time="2026-05-11T16:58:15+05:30" level=warning msg="The \"MYSQL_ROOT_PASSWORD\" variable is not set. Defaulting to a blank string."
+time="2026-05-11T16:58:15+05:30" level=warning msg="/Users/suresh/projects/benchmarks/sock-shop/deploy/docker-compose/docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+front-end-1  | Order response: {"id":"6a01ba3bb3071500064f7f6c","customerId":"57a98d98e4b00679b4a830b2","customer":{"id":null,"firstName":"User","lastName":"Name","username":"user","addresses":[],"cards":[]},"address":{"id":null,"number":"246","street":"Whitelees Road","city":"Glasgow","postcode":"G67 3DL","country":"United Kingdom"},"card":{"id":null,"longNum":"5544154011345918","expires":"08/19","ccv":"958"},"items":[{"id":"6a01ba3bad277b000711024d","itemId":"510a0d7e-8e83-4193-b483-e27e09ddc34d","quantity":1,"unitPrice":15}],"shipment":{"id":"95fb7160-3bc1-4465-a779-bd8b24c628d0","name":"57a98d98e4b00679b4a830b2"},"date":"2026-05-11T11:15:07.393+0000","total":19.99}
+front-end-1  | [0mPOST /orders [32m201 [0m173.547 ms - -[0m
+front-end-1  | [0mGET /catalogue [32m200 [0m10.488 ms - -[0m
+front-end-1  | [0mGET /catalogue [32m200 [0m15.075 ms - -[0m
+front-end-1  | Received login request
+front-end-1  | Received login request
+front-end-1  | {"user":{"firstName":"User","lastName":"Name","username":"user","id":"57a98d98e4b00679b4a830b2","_links":{"addresses":{"href":"http://user/customers/57a98d98e4b00679b4a830b2/addresses"},"cards":{"href":"http://user/customers/57a98d98e4b00679b4a830b2/cards"},"customer":{"href":"http://user/customers/57a98d98e4b00679b4a830b2"},"self":{"href":"http://user/customers/57a98d98e4b00679b4a830b2"}}}}
+front-end-1  | 
+front-end-1  | 57a98d98e4b00679b4a830b2
+front-end-1  | Merging carts for customer id: 57a98d98e4b00679b4a830b2 and session id: FzzkE9xlJLgjo9_ZdGz2P26r0d1hDiZm
+front-end-1  | {"user":{"firstName":"User","lastName":"Name","username":"user","id":"57a98d98e4b00679b4a830b2","_links":{"addresses":{"href":"http://user/customers/57a98d98e4b00679b4a830b2/addresses"},"cards":{"href":"http://user/customers/57a98d98e4b00679b4a830b2/cards"},"customer":{"href":"http://user/customers/57a98d98e4b00679b4a830b2"},"self":{"href":"http://user/customers/57a98d98e4b00679b4a830b2"}}}}
+front-end-1  | 
+front-end-1  | 57a98d98e4b00679b4a830b2
+front-end-1  | Merging carts for customer id: 57a98d98e4b00679b4a830b2 and session id: ZX5uQocmGtCWG83ofvVN2EGzDfar-XWk
+front-end-1  | Carts merged.
+front-end-1  | Sent cookies.
+front-end-1  | Carts merged.
+front-end-1  | Sent cookies.
+front-end-1  | [0mGET /login [32m200 [0m73.156 ms - 13[0m
+front-end-1  | [0mGET /login [32m200 [0m70.435 ms - 13[0m
+front-end-1  | Attempting to delete cart for user: 57a98d98e4b00679b4a830b2
+front-end-1  | Attempting to delete cart for user: 57a98d98e4b00679b4a830b2
+front-end-1  | User cart deleted with status: 202
+front-end-1  | User cart deleted with status: 202
+front-end-1  | [0mDELETE /cart [32m202 [0m18.158 ms - -[0m
+front-end-1  | [0mDELETE /cart [32m202 [0m22.617 ms - -[0m
+front-end-1  | Attempting to add to cart: {"id":"d3588630-ad8e-49df-bbd7-3167f7efb246","quantity":1}
+front-end-1  | Attempting to add to cart: {"id":"3395a43e-2d88-40de-b95f-e00e1502085b","quantity":1}
+front-end-1  | {"id":"3395a43e-2d88-40de-b95f-e00e1502085b","name":"Colourful","description":"proident occaecat irure et excepteur labore minim nisi amet irure","imageUrl":["/catalogue/images/colourful_socks.jpg","/catalogue/images/colourful_socks.jpg"],"price":18,"count":438,"tag":["brown","blue"]}
+front-end-1  | 
+front-end-1  | POST to carts: http://carts/carts/57a98d98e4b00679b4a830b2/items body: {"itemId":"3395a43e-2d88-40de-b95f-e00e1502085b","unitPrice":18}
+front-end-1  | {"id":"d3588630-ad8e-49df-bbd7-3167f7efb246","name":"YouTube.sock","description":"We were not paid to sell this sock. It's just a bit geeky.","imageUrl":["/catalogue/images/youtube_1.jpeg","/catalogue/images/youtube_2.jpeg"],"price":10.99,"count":801,"tag":["geek","formal"]}
+front-end-1  | 
+front-end-1  | POST to carts: http://carts/carts/57a98d98e4b00679b4a830b2/items body: {"itemId":"d3588630-ad8e-49df-bbd7-3167f7efb246","unitPrice":10.99}
+front-end-1  | [0mPOST /cart [32m201 [0m38.673 ms - -[0m
+front-end-1  | [0mPOST /cart [32m201 [0m47.615 ms - -[0m
+front-end-1  | Request received with body: {}
+front-end-1  | Received response: "{\"firstName\":\"User\",\"lastName\":\"Name\",\"username\":\"user\",\"id\":\"57a98d98e4b00679b4a830b2\",\"_links\":{\"addresses\":{\"href\":\"http://user/customers/57a98d98e4b00679b4a830b2/addresses\"},\"cards\":{\"href\":\"http://user/customers/57a98d98e4b00679b4a830b2/cards\"},\"customer\":{\"href\":\"http://user/customers/57a98d98e4b00679b4a830b2\"},\"self\":{\"href\":\"http://user/customers/57a98d98e4b00679b4a830b2\"}}}\n"
+front-end-1  | GET Request to: http://user/customers/57a98d98e4b00679b4a830b2/addresses
+front-end-1  | GET Request to: http://user/customers/57a98d98e4b00679b4a830b2/cards
+front-end-1  | Request received with body: {}
+front-end-1  | Received response: "{\"_embedded\":{\"address\":[{\"street\":\"Whitelees Road\",\"number\":\"246\",\"country\":\"United Kingdom\",\"city\":\"Glasgow\",\"postcode\":\"G67 3DL\",\"id\":\"57a98d98e4b00679b4a830b0\",\"_links\":{\"address\":{\"href\":\"http://user/addresses/57a98d98e4b00679b4a830b0\"},\"self\":{\"href\":\"http://user/addresses/57a98d98e4b00679b4a830b0\"}}}]}}\n"
+front-end-1  | Received response: "{\"_embedded\":{\"card\":[{\"longNum\":\"5544154011345918\",\"expires\":\"08/19\",\"ccv\":\"958\",\"id\":\"57a98d98e4b00679b4a830b1\",\"_links\":{\"card\":{\"href\":\"http://user/cards/57a98d98e4b00679b4a830b1\"},\"self\":{\"href\":\"http://user/cards/57a98d98e4b00679b4a830b1\"}}}]}}\n"
+front-end-1  | [ undefined, undefined ]
+front-end-1  | Posting Order: {"customer":"http://user/customers/57a98d98e4b00679b4a830b2","address":"http://user/addresses/57a98d98e4b00679b4a830b0","card":"http://user/cards/57a98d98e4b00679b4a830b1","items":"http://carts/carts/57a98d98e4b00679b4a830b2/items"}
+front-end-1  | Received response: "{\"firstName\":\"User\",\"lastName\":\"Name\",\"username\":\"user\",\"id\":\"57a98d98e4b00679b4a830b2\",\"_links\":{\"addresses\":{\"href\":\"http://user/customers/57a98d98e4b00679b4a830b2/addresses\"},\"cards\":{\"href\":\"http://user/customers/57a98d98e4b00679b4a830b2/cards\"},\"customer\":{\"href\":\"http://user/customers/57a98d98e4b00679b4a830b2\"},\"self\":{\"href\":\"http://user/customers/57a98d98e4b00679b4a830b2\"}}}\n"
+front-end-1  | GET Request to: http://user/customers/57a98d98e4b00679b4a830b2/addresses
+front-end-1  | GET Request to: http://user/customers/57a98d98e4b00679b4a830b2/cards
+front-end-1  | Received response: "{\"_embedded\":{\"address\":[{\"street\":\"Whitelees Road\",\"number\":\"246\",\"country\":\"United Kingdom\",\"city\":\"Glasgow\",\"postcode\":\"G67 3DL\",\"id\":\"57a98d98e4b00679b4a830b0\",\"_links\":{\"address\":{\"href\":\"http://user/addresses/57a98d98e4b00679b4a830b0\"},\"self\":{\"href\":\"http://user/addresses/57a98d98e4b00679b4a830b0\"}}}]}}\n"
+front-end-1  | Received response: "{\"_embedded\":{\"card\":[{\"longNum\":\"5544154011345918\",\"expires\":\"08/19\",\"ccv\":\"958\",\"id\":\"57a98d98e4b00679b4a830b1\",\"_links\":{\"card\":{\"href\":\"http://user/cards/57a98d98e4b00679b4a830b1\"},\"self\":{\"href\":\"http://user/cards/57a98d98e4b00679b4a830b1\"}}}]}}\n"
+front-end-1  | [ undefined, undefined ]
+front-end-1  | Posting Order: {"customer":"http://user/customers/57a98d98e4b00679b4a830b2","address":"http://user/addresses/57a98d98e4b00679b4a830b0","card":"http://user/cards/57a98d98e4b00679b4a830b1","items":"http://carts/carts/57a98d98e4b00679b4a830b2/items"}
+front-end-1  | Order response: {"statusCode":201,"body":{"id":"6a01ba3bb3071500064f7f6d","customerId":"57a98d98e4b00679b4a830b2","customer":{"id":null,"firstName":"User","lastName":"Name","username":"user","addresses":[],"cards":[]},"address":{"id":null,"number":"246","street":"Whitelees Road","city":"Glasgow","postcode":"G67 3DL","country":"United Kingdom"},"card":{"id":null,"longNum":"5544154011345918","expires":"08/19","ccv":"958"},"items":[{"id":"6a01ba3bad277b0007110251","itemId":"d3588630-ad8e-49df-bbd7-3167f7efb246","quantity":1,"unitPrice":10.99}],"shipment":{"id":"505e935f-dcee-4cf1-ab27-6fdb49a63cfc","name":"57a98d98e4b00679b4a830b2"},"date":"2026-05-11T11:15:07.841+0000","total":15.98},"headers":{"x-application-context":"orders:80","content-type":"application/json;charset=UTF-8","transfer-encoding":"chunked","date":"Mon, 11 May 2026 11:15:07 GMT","connection":"close"},"request":{"uri":{"protocol":"http:","slashes":true,"auth":null,"host":"orders","port":80,"hostname":"orders","hash":null,"search":null,"query":null,"pathname":"/orders","path":"/orders","href":"http://orders/orders"},"method":"POST","headers":{"accept":"application/json","content-type":"application/json","content-length":232}}}
+front-end-1  | Order response: {"id":"6a01ba3bb3071500064f7f6d","customerId":"57a98d98e4b00679b4a830b2","customer":{"id":null,"firstName":"User","lastName":"Name","username":"user","addresses":[],"cards":[]},"address":{"id":null,"number":"246","street":"Whitelees Road","city":"Glasgow","postcode":"G67 3DL","country":"United Kingdom"},"card":{"id":null,"longNum":"5544154011345918","expires":"08/19","ccv":"958"},"items":[{"id":"6a01ba3bad277b0007110251","itemId":"d3588630-ad8e-49df-bbd7-3167f7efb246","quantity":1,"unitPrice":10.99}],"shipment":{"id":"505e935f-dcee-4cf1-ab27-6fdb49a63cfc","name":"57a98d98e4b00679b4a830b2"},"date":"2026-05-11T11:15:07.841+0000","total":15.98}
+front-end-1  | [0mPOST /orders [32m201 [0m119.761 ms - -[0m
+front-end-1  | Order response: {"statusCode":201,"body":{"id":"6a01ba3bb3071500064f7f6e","customerId":"57a98d98e4b00679b4a830b2","customer":{"id":null,"firstName":"User","lastName":"Name","username":"user","addresses":[],"cards":[]},"address":{"id":null,"number":"246","street":"Whitelees Road","city":"Glasgow","postcode":"G67 3DL","country":"United Kingdom"},"card":{"id":null,"longNum":"5544154011345918","expires":"08/19","ccv":"958"},"items":[{"id":"6a01ba3bad277b0007110251","itemId":"d3588630-ad8e-49df-bbd7-3167f7efb246","quantity":1,"unitPrice":10.99}],"shipment":{"id":"24ca3934-cc3b-44f3-a92e-9618c272308f","name":"57a98d98e4b00679b4a830b2"},"date":"2026-05-11T11:15:07.844+0000","total":15.98},"headers":{"x-application-context":"orders:80","content-type":"application/json;charset=UTF-8","transfer-encoding":"chunked","date":"Mon, 11 May 2026 11:15:07 GMT","connection":"close"},"request":{"uri":{"protocol":"http:","slashes":true,"auth":null,"host":"orders","port":80,"hostname":"orders","hash":null,"search":null,"query":null,"pathname":"/orders","path":"/orders","href":"http://orders/orders"},"method":"POST","headers":{"accept":"application/json","content-type":"application/json","content-length":232}}}
+front-end-1  | Order response: {"id":"6a01ba3bb3071500064f7f6e","customerId":"57a98d98e4b00679b4a830b2","customer":{"id":null,"firstName":"User","lastName":"Name","username":"user","addresses":[],"cards":[]},"address":{"id":null,"number":"246","street":"Whitelees Road","city":"Glasgow","postcode":"G67 3DL","country":"United Kingdom"},"card":{"id":null,"longNum":"5544154011345918","expires":"08/19","ccv":"958"},"items":[{"id":"6a01ba3bad277b0007110251","itemId":"d3588630-ad8e-49df-bbd7-3167f7efb246","quantity":1,"unitPrice":10.99}],"shipment":{"id":"24ca3934-cc3b-44f3-a92e-9618c272308f","name":"57a98d98e4b00679b4a830b2"},"date":"2026-05-11T11:15:07.844+0000","total":15.98}
+front-end-1  | [0mPOST /orders [32m201 [0m109.334 ms - -[0m
+front-end-1  | [0mGET /catalogue [32m200 [0m7.732 ms - -[0m
+front-end-1  | [0mGET /catalogue [32m200 [0m4.203 ms - -[0m
+front-end-1  | Received login request
+front-end-1  | Received login request
+front-end-1  | {"user":{"firstName":"User","lastName":"Name","username":"user","id":"57a98d98e4b00679b4a830b2","_links":{"addresses":{"href":"http://user/customers/57a98d98e4b00679b4a830b2/addresses"},"cards":{"href":"http://user/customers/57a98d98e4b00679b4a830b2/cards"},"customer":{"href":"http://user/customers/57a98d98e4b00679b4a830b2"},"self":{"href":"http://user/customers/57a98d98e4b00679b4a830b2"}}}}
+front-end-1  | 
+front-end-1  | 57a98d98e4b00679b4a830b2
+front-end-1  | Merging carts for customer id: 57a98d98e4b00679b4a830b2 and session id: ZX5uQocmGtCWG83ofvVN2EGzDfar-XWk
+front-end-1  | {"user":{"firstName":"User","lastName":"Name","username":"user","id":"57a98d98e4b00679b4a830b2","_links":{"addresses":{"href":"http://user/customers/57a98d98e4b00679b4a830b2/addresses"},"cards":{"href":"http://user/customers/57a98d98e4b00679b4a830b2/cards"},"customer":{"href":"http://user/customers/57a98d98e4b00679b4a830b2"},"self":{"href":"http://user/customers/57a98d98e4b00679b4a830b2"}}}}
+front-end-1  | 
+front-end-1  | 57a98d98e4b00679b4a830b2
+front-end-1  | Merging carts for customer id: 57a98d98e4b00679b4a830b2 and session id: FzzkE9xlJLgjo9_ZdGz2P26r0d1hDiZm
+front-end-1  | Carts merged.
+front-end-1  | Sent cookies.
+front-end-1  | [0mGET /login [32m200 [0m38.471 ms - 13[0m
+front-end-1  | Carts merged.
+front-end-1  | Sent cookies.
+front-end-1  | [0mGET /login [32m200 [0m47.075 ms - 13[0m
+front-end-1  | Attempting to delete cart for user: 57a98d98e4b00679b4a830b2
+front-end-1  | Attempting to delete cart for user: 57a98d98e4b00679b4a830b2
+front-end-1  | User cart deleted with status: 202
+front-end-1  | User cart deleted with status: 202
+front-end-1  | [0mDELETE /cart [32m202 [0m22.662 ms - -[0m
+front-end-1  | [0mDELETE /cart [32m202 [0m19.926 ms - -[0m
+front-end-1  | Attempting to add to cart: {"id":"a0a4f044-b040-410d-8ead-4de0446aec7e","quantity":1}
+front-end-1  | Attempting to add to cart: {"id":"zzz4f044-b040-410d-8ead-4de0446aec7e","quantity":1}
+front-end-1  | {"id":"zzz4f044-b040-410d-8ead-4de0446aec7e","name":"Classic","description":"Keep it simple.","imageUrl":["/catalogue/images/classic.jpg","/catalogue/images/classic2.jpg"],"price":12,"count":127,"tag":["brown","green"]}
+front-end-1  | 
+front-end-1  | POST to carts: http://carts/carts/57a98d98e4b00679b4a830b2/items body: {"itemId":"zzz4f044-b040-410d-8ead-4de0446aec7e","unitPrice":12}
+front-end-1  | {"id":"a0a4f044-b040-410d-8ead-4de0446aec7e","name":"Nerd leg","description":"For all those leg lovers out there. A perfect example of a swivel chair trained calf. Meticulously trained on a diet of sitting and Pina Coladas. Phwarr...","imageUrl":["/catalogue/images/bit_of_leg_1.jpeg","/catalogue/images/bit_of_leg_2.jpeg"],"price":7.99,"count":115,"tag":["blue","skin"]}
+front-end-1  | 
+front-end-1  | POST to carts: http://carts/carts/57a98d98e4b00679b4a830b2/items body: {"itemId":"a0a4f044-b040-410d-8ead-4de0446aec7e","unitPrice":7.99}
+front-end-1  | [0mPOST /cart [32m201 [0m78.236 ms - -[0m
+front-end-1  | [0mPOST /cart [32m201 [0m91.492 ms - -[0m
+front-end-1  | Request received with body: {}
+front-end-1  | Request received with body: {}
+front-end-1  | Received response: "{\"firstName\":\"User\",\"lastName\":\"Name\",\"username\":\"user\",\"id\":\"57a98d98e4b00679b4a830b2\",\"_links\":{\"addresses\":{\"href\":\"http://user/customers/57a98d98e4b00679b4a830b2/addresses\"},\"cards\":{\"href\":\"http://user/customers/57a98d98e4b00679b4a830b2/cards\"},\"customer\":{\"href\":\"http://user/customers/57a98d98e4b00679b4a830b2\"},\"self\":{\"href\":\"http://user/customers/57a98d98e4b00679b4a830b2\"}}}\n"
+front-end-1  | GET Request to: http://user/customers/57a98d98e4b00679b4a830b2/addresses
+front-end-1  | GET Request to: http://user/customers/57a98d98e4b00679b4a830b2/cards
+front-end-1  | Received response: "{\"firstName\":\"User\",\"lastName\":\"Name\",\"username\":\"user\",\"id\":\"57a98d98e4b00679b4a830b2\",\"_links\":{\"addresses\":{\"href\":\"http://user/customers/57a98d98e4b00679b4a830b2/addresses\"},\"cards\":{\"href\":\"http://user/customers/57a98d98e4b00679b4a830b2/cards\"},\"customer\":{\"href\":\"http://user/customers/57a98d98e4b00679b4a830b2\"},\"self\":{\"href\":\"http://user/customers/57a98d98e4b00679b4a830b2\"}}}\n"
+front-end-1  | GET Request to: http://user/customers/57a98d98e4b00679b4a830b2/addresses
+front-end-1  | GET Request to: http://user/customers/57a98d98e4b00679b4a830b2/cards
+front-end-1  | Received response: "{\"_embedded\":{\"address\":[{\"street\":\"Whitelees Road\",\"number\":\"246\",\"country\":\"United Kingdom\",\"city\":\"Glasgow\",\"postcode\":\"G67 3DL\",\"id\":\"57a98d98e4b00679b4a830b0\",\"_links\":{\"address\":{\"href\":\"http://user/addresses/57a98d98e4b00679b4a830b0\"},\"self\":{\"href\":\"http://user/addresses/57a98d98e4b00679b4a830b0\"}}}]}}\n"
+front-end-1  | Received response: "{\"_embedded\":{\"card\":[{\"longNum\":\"5544154011345918\",\"expires\":\"08/19\",\"ccv\":\"958\",\"id\":\"57a98d98e4b00679b4a830b1\",\"_links\":{\"card\":{\"href\":\"http://user/cards/57a98d98e4b00679b4a830b1\"},\"self\":{\"href\":\"http://user/cards/57a98d98e4b00679b4a830b1\"}}}]}}\n"
+front-end-1  | [ undefined, undefined ]
+front-end-1  | Posting Order: {"customer":"http://user/customers/57a98d98e4b00679b4a830b2","address":"http://user/addresses/57a98d98e4b00679b4a830b0","card":"http://user/cards/57a98d98e4b00679b4a830b1","items":"http://carts/carts/57a98d98e4b00679b4a830b2/items"}
+front-end-1  | Received response: "{\"_embedded\":{\"address\":[{\"street\":\"Whitelees Road\",\"number\":\"246\",\"country\":\"United Kingdom\",\"city\":\"Glasgow\",\"postcode\":\"G67 3DL\",\"id\":\"57a98d98e4b00679b4a830b0\",\"_links\":{\"address\":{\"href\":\"http://user/addresses/57a98d98e4b00679b4a830b0\"},\"self\":{\"href\":\"http://user/addresses/57a98d98e4b00679b4a830b0\"}}}]}}\n"
+front-end-1  | Received response: "{\"_embedded\":{\"card\":[{\"longNum\":\"5544154011345918\",\"expires\":\"08/19\",\"ccv\":\"958\",\"id\":\"57a98d98e4b00679b4a830b1\",\"_links\":{\"card\":{\"href\":\"http://user/cards/57a98d98e4b00679b4a830b1\"},\"self\":{\"href\":\"http://user/cards/57a98d98e4b00679b4a830b1\"}}}]}}\n"
+front-end-1  | [ undefined, undefined ]
+front-end-1  | Posting Order: {"customer":"http://user/customers/57a98d98e4b00679b4a830b2","address":"http://user/addresses/57a98d98e4b00679b4a830b0","card":"http://user/cards/57a98d98e4b00679b4a830b1","items":"http://carts/carts/57a98d98e4b00679b4a830b2/items"}
+front-end-1  | Order response: {"statusCode":201,"body":{"id":"6a01ba3cb3071500064f7f6f","customerId":"57a98d98e4b00679b4a830b2","customer":{"id":null,"firstName":"User","lastName":"Name","username":"user","addresses":[],"cards":[]},"address":{"id":null,"number":"246","street":"Whitelees Road","city":"Glasgow","postcode":"G67 3DL","country":"United Kingdom"},"card":{"id":null,"longNum":"5544154011345918","expires":"08/19","ccv":"958"},"items":[{"id":"6a01ba3cad277b0007110257","itemId":"zzz4f044-b040-410d-8ead-4de0446aec7e","quantity":1,"unitPrice":12},{"id":"6a01ba3cad277b0007110258","itemId":"a0a4f044-b040-410d-8ead-4de0446aec7e","quantity":1,"unitPrice":7.99}],"shipment":{"id":"afb6588a-0ccd-4030-a507-684d30808640","name":"57a98d98e4b00679b4a830b2"},"date":"2026-05-11T11:15:08.459+0000","total":24.98},"headers":{"x-application-context":"orders:80","content-type":"application/json;charset=UTF-8","transfer-encoding":"chunked","date":"Mon, 11 May 2026 11:15:08 GMT","connection":"close"},"request":{"uri":{"protocol":"http:","slashes":true,"auth":null,"host":"orders","port":80,"hostname":"orders","hash":null,"search":null,"query":null,"pathname":"/orders","path":"/orders","href":"http://orders/orders"},"method":"POST","headers":{"accept":"application/json","content-type":"application/json","content-length":232}}}
+front-end-1  | Order response: {"id":"6a01ba3cb3071500064f7f6f","customerId":"57a98d98e4b00679b4a830b2","customer":{"id":null,"firstName":"User","lastName":"Name","username":"user","addresses":[],"cards":[]},"address":{"id":null,"number":"246","street":"Whitelees Road","city":"Glasgow","postcode":"G67 3DL","country":"United Kingdom"},"card":{"id":null,"longNum":"5544154011345918","expires":"08/19","ccv":"958"},"items":[{"id":"6a01ba3cad277b0007110257","itemId":"zzz4f044-b040-410d-8ead-4de0446aec7e","quantity":1,"unitPrice":12},{"id":"6a01ba3cad277b0007110258","itemId":"a0a4f044-b040-410d-8ead-4de0446aec7e","quantity":1,"unitPrice":7.99}],"shipment":{"id":"afb6588a-0ccd-4030-a507-684d30808640","name":"57a98d98e4b00679b4a830b2"},"date":"2026-05-11T11:15:08.459+0000","total":24.98}
+front-end-1  | [0mPOST /orders [32m201 [0m311.321 ms - -[0m
+front-end-1  | Order response: {"statusCode":201,"body":{"id":"6a01ba3cb3071500064f7f70","customerId":"57a98d98e4b00679b4a830b2","customer":{"id":null,"firstName":"User","lastName":"Name","username":"user","addresses":[],"cards":[]},"address":{"id":null,"number":"246","street":"Whitelees Road","city":"Glasgow","postcode":"G67 3DL","country":"United Kingdom"},"card":{"id":null,"longNum":"5544154011345918","expires":"08/19","ccv":"958"},"items":[{"id":"6a01ba3cad277b0007110257","itemId":"zzz4f044-b040-410d-8ead-4de0446aec7e","quantity":1,"unitPrice":12},{"id":"6a01ba3cad277b0007110258","itemId":"a0a4f044-b040-410d-8ead-4de0446aec7e","quantity":1,"unitPrice":7.99}],"shipment":{"id":"285eac0a-1530-44fd-86d3-b3e20aee4d8e","name":"57a98d98e4b00679b4a830b2"},"date":"2026-05-11T11:15:08.483+0000","total":24.98},"headers":{"x-application-context":"orders:80","content-type":"application/json;charset=UTF-8","transfer-encoding":"chunked","date":"Mon, 11 May 2026 11:15:08 GMT","connection":"close"},"request":{"uri":{"protocol":"http:","slashes":true,"auth":null,"host":"orders","port":80,"hostname":"orders","hash":null,"search":null,"query":null,"pathname":"/orders","path":"/orders","href":"http://orders/orders"},"method":"POST","headers":{"accept":"application/json","content-type":"application/json","content-length":232}}}
+front-end-1  | Order response: {"id":"6a01ba3cb3071500064f7f70","customerId":"57a98d98e4b00679b4a830b2","customer":{"id":null,"firstName":"User","lastName":"Name","username":"user","addresses":[],"cards":[]},"address":{"id":null,"number":"246","street":"Whitelees Road","city":"Glasgow","postcode":"G67 3DL","country":"United Kingdom"},"card":{"id":null,"longNum":"5544154011345918","expires":"08/19","ccv":"958"},"items":[{"id":"6a01ba3cad277b0007110257","itemId":"zzz4f044-b040-410d-8ead-4de0446aec7e","quantity":1,"unitPrice":12},{"id":"6a01ba3cad277b0007110258","itemId":"a0a4f044-b040-410d-8ead-4de0446aec7e","quantity":1,"unitPrice":7.99}],"shipment":{"id":"285eac0a-1530-44fd-86d3-b3e20aee4d8e","name":"57a98d98e4b00679b4a830b2"},"date":"2026-05-11T11:15:08.483+0000","total":24.98}
+front-end-1  | [0mPOST /orders [32m201 [0m312.242 ms - -[0m
+front-end-1  | [0mGET /catalogue [32m200 [0m11.562 ms - -[0m
+front-end-1  | [0mGET /catalogue [32m200 [0m10.348 ms - -[0m
+front-end-1  | [0mGET /catalogue [32m200 [0m215.036 ms - -[0m
+front-end-1  | [0mGET /tags [32m200 [0m79.540 ms - -[0m
+front-end-1  | [0mGET /catalogue [31m500 [0m254.073 ms - 183[0m
+front-end-1  | [0mGET /tags [31m500 [0m29.829 ms - 183[0m

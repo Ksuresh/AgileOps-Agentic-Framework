@@ -1,0 +1,243 @@
+[
+    {
+        "Id": "d016a2ae56a0735c011fd9849a6378753756484e2ba5ceecdfe265d3033248eb",
+        "Created": "2026-05-10T05:25:11.779350508Z",
+        "Path": "/usr/local/bin/java.sh",
+        "Args": [
+            "-jar",
+            "./app.jar",
+            "--port=80"
+        ],
+        "State": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 1006,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-05-11T11:05:30.172493209Z",
+            "FinishedAt": "2026-05-10T06:59:49.549246632Z"
+        },
+        "Image": "sha256:6292d3095f4c7aeed8d863527f8ef6d7a75d3128f20fc61e57f398c100142712",
+        "ResolvConfPath": "/var/lib/docker/containers/d016a2ae56a0735c011fd9849a6378753756484e2ba5ceecdfe265d3033248eb/resolv.conf",
+        "HostnamePath": "/var/lib/docker/containers/d016a2ae56a0735c011fd9849a6378753756484e2ba5ceecdfe265d3033248eb/hostname",
+        "HostsPath": "/var/lib/docker/containers/d016a2ae56a0735c011fd9849a6378753756484e2ba5ceecdfe265d3033248eb/hosts",
+        "LogPath": "/var/lib/docker/containers/d016a2ae56a0735c011fd9849a6378753756484e2ba5ceecdfe265d3033248eb/d016a2ae56a0735c011fd9849a6378753756484e2ba5ceecdfe265d3033248eb-json.log",
+        "Name": "/docker-compose-queue-master-1",
+        "RestartCount": 0,
+        "Driver": "overlayfs",
+        "Platform": "linux",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "",
+        "ExecIDs": null,
+        "HostConfig": {
+            "Binds": [
+                "/var/run/docker.sock:/var/run/docker.sock:rw"
+            ],
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "Type": "json-file",
+                "Config": {}
+            },
+            "NetworkMode": "docker-compose_default",
+            "PortBindings": {},
+            "RestartPolicy": {
+                "Name": "always",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": false,
+            "VolumeDriver": "",
+            "VolumesFrom": null,
+            "ConsoleSize": [
+                0,
+                0
+            ],
+            "CapAdd": [
+                "CAP_NET_BIND_SERVICE"
+            ],
+            "CapDrop": [
+                "ALL"
+            ],
+            "CgroupnsMode": "private",
+            "Dns": [],
+            "DnsOptions": [],
+            "DnsSearch": [],
+            "ExtraHosts": [],
+            "GroupAdd": null,
+            "IpcMode": "private",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": false,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": true,
+            "SecurityOpt": null,
+            "Tmpfs": {
+                "/tmp": "rw,noexec,nosuid"
+            },
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 67108864,
+            "Runtime": "runc",
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 0,
+            "NanoCpus": 0,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": null,
+            "BlkioDeviceReadBps": null,
+            "BlkioDeviceWriteBps": null,
+            "BlkioDeviceReadIOps": null,
+            "BlkioDeviceWriteIOps": null,
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": null,
+            "DeviceCgroupRules": null,
+            "DeviceRequests": null,
+            "MemoryReservation": 0,
+            "MemorySwap": 0,
+            "MemorySwappiness": null,
+            "OomKillDisable": null,
+            "PidsLimit": null,
+            "Ulimits": null,
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0,
+            "MaskedPaths": [
+                "/proc/acpi",
+                "/proc/asound",
+                "/proc/interrupts",
+                "/proc/kcore",
+                "/proc/keys",
+                "/proc/latency_stats",
+                "/proc/sched_debug",
+                "/proc/scsi",
+                "/proc/timer_list",
+                "/proc/timer_stats",
+                "/sys/devices/virtual/powercap",
+                "/sys/firmware"
+            ],
+            "ReadonlyPaths": [
+                "/proc/bus",
+                "/proc/fs",
+                "/proc/irq",
+                "/proc/sys",
+                "/proc/sysrq-trigger"
+            ]
+        },
+        "Storage": {
+            "RootFS": {
+                "Snapshot": {
+                    "Name": "overlayfs"
+                }
+            }
+        },
+        "Mounts": [
+            {
+                "Type": "bind",
+                "Source": "/var/run/docker.sock",
+                "Destination": "/var/run/docker.sock",
+                "Mode": "rw",
+                "RW": true,
+                "Propagation": "rprivate"
+            }
+        ],
+        "Config": {
+            "Hostname": "queue-master",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": true,
+            "AttachStderr": true,
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/lib/jvm/java-1.8-openjdk/jre/bin:/usr/lib/jvm/java-1.8-openjdk/bin",
+                "LANG=C.UTF-8",
+                "JAVA_HOME=/usr/lib/jvm/java-1.8-openjdk",
+                "JAVA_VERSION=8u111",
+                "JAVA_ALPINE_VERSION=8.111.14-r0",
+                "SERVICE_USER=myuser",
+                "SERVICE_UID=10001",
+                "SERVICE_GROUP=mygroup",
+                "SERVICE_GID=10001",
+                "JAVA_OPTS=-Djava.security.egd=file:/dev/urandom"
+            ],
+            "Cmd": null,
+            "Image": "weaveworksdemos/queue-master:0.3.1",
+            "Volumes": null,
+            "WorkingDir": "/usr/src/app",
+            "Entrypoint": [
+                "/usr/local/bin/java.sh",
+                "-jar",
+                "./app.jar",
+                "--port=80"
+            ],
+            "Labels": {
+                "com.docker.compose.config-hash": "4cb1394a5e4e889a37dbfc19779a4b765e2773168f32fb4294fd88e5cc826d7a",
+                "com.docker.compose.container-number": "1",
+                "com.docker.compose.depends_on": "",
+                "com.docker.compose.image": "sha256:6292d3095f4c7aeed8d863527f8ef6d7a75d3128f20fc61e57f398c100142712",
+                "com.docker.compose.oneoff": "False",
+                "com.docker.compose.project": "docker-compose",
+                "com.docker.compose.project.config_files": "/Users/suresh/projects/AgileOps-Agentic-Framework/benchmark_apps/sock-shop/deploy/docker-compose/docker-compose.yml",
+                "com.docker.compose.project.working_dir": "/Users/suresh/projects/AgileOps-Agentic-Framework/benchmark_apps/sock-shop/deploy/docker-compose",
+                "com.docker.compose.service": "queue-master",
+                "com.docker.compose.version": "5.0.1"
+            },
+            "StopTimeout": 1
+        },
+        "NetworkSettings": {
+            "SandboxID": "def1f12bcb92f6a1f46b2cc35e942fec57974812654faf51ad1977e283678934",
+            "SandboxKey": "/var/run/docker/netns/def1f12bcb92",
+            "Ports": {},
+            "Networks": {
+                "docker-compose_default": {
+                    "IPAMConfig": null,
+                    "Links": null,
+                    "Aliases": [
+                        "docker-compose-queue-master-1",
+                        "queue-master"
+                    ],
+                    "DriverOpts": null,
+                    "GwPriority": 0,
+                    "NetworkID": "b1cbd8c711991613193e3018b521efdc8e67da76c4465b4997c35b7e5c3e3115",
+                    "EndpointID": "68af63c10596a5a61c87c5f5ace2e925f429dba62e4371075c15e07687007354",
+                    "Gateway": "172.18.0.1",
+                    "IPAddress": "172.18.0.14",
+                    "MacAddress": "d2:98:98:04:ad:60",
+                    "IPPrefixLen": 16,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "DNSNames": [
+                        "docker-compose-queue-master-1",
+                        "queue-master",
+                        "d016a2ae56a0"
+                    ]
+                }
+            }
+        },
+        "ImageManifestDescriptor": {
+            "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+            "digest": "sha256:6292d3095f4c7aeed8d863527f8ef6d7a75d3128f20fc61e57f398c100142712",
+            "size": 1990,
+            "platform": {
+                "architecture": "amd64",
+                "os": "linux"
+            }
+        }
+    }
+]

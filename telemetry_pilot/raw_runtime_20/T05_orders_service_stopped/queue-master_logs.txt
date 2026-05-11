@@ -1,0 +1,122 @@
+time="2026-05-11T16:59:24+05:30" level=warning msg="The \"MYSQL_ROOT_PASSWORD\" variable is not set. Defaulting to a blank string."
+time="2026-05-11T16:59:24+05:30" level=warning msg="/Users/suresh/projects/benchmarks/sock-shop/deploy/docker-compose/docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+queue-master-1  | 	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:141) ~[httpclient-4.5.2.jar!/:4.5.2]
+queue-master-1  | 	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:353) ~[httpclient-4.5.2.jar!/:4.5.2]
+queue-master-1  | 	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:380) ~[httpclient-4.5.2.jar!/:4.5.2]
+queue-master-1  | 	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236) ~[httpclient-4.5.2.jar!/:4.5.2]
+queue-master-1  | 	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:184) ~[httpclient-4.5.2.jar!/:4.5.2]
+queue-master-1  | 	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:88) ~[httpclient-4.5.2.jar!/:4.5.2]
+queue-master-1  | 	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110) ~[httpclient-4.5.2.jar!/:4.5.2]
+queue-master-1  | 	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:184) ~[httpclient-4.5.2.jar!/:4.5.2]
+queue-master-1  | 	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:71) ~[httpclient-4.5.2.jar!/:4.5.2]
+queue-master-1  | 	at com.github.dockerjava.jaxrs.connector.ApacheConnector.apply(ApacheConnector.java:437) ~[docker-java-3.0.0.jar!/:na]
+queue-master-1  | 	at org.glassfish.jersey.client.ClientRuntime.invoke(ClientRuntime.java:246) ~[jersey-client-2.11.jar!/:na]
+queue-master-1  | 	at org.glassfish.jersey.client.JerseyInvocation$2.call(JerseyInvocation.java:683) ~[jersey-client-2.11.jar!/:na]
+queue-master-1  | 	at org.glassfish.jersey.internal.Errors.process(Errors.java:315) ~[jersey-common-2.11.jar!/:na]
+queue-master-1  | 	at org.glassfish.jersey.internal.Errors.process(Errors.java:297) ~[jersey-common-2.11.jar!/:na]
+queue-master-1  | 	at org.glassfish.jersey.internal.Errors.process(Errors.java:228) ~[jersey-common-2.11.jar!/:na]
+queue-master-1  | 	at org.glassfish.jersey.process.internal.RequestScope.runInScope(RequestScope.java:424) ~[jersey-common-2.11.jar!/:na]
+queue-master-1  | 	at org.glassfish.jersey.client.JerseyInvocation.invoke(JerseyInvocation.java:679) ~[jersey-client-2.11.jar!/:na]
+queue-master-1  | 	at org.glassfish.jersey.client.JerseyInvocation$Builder.method(JerseyInvocation.java:435) ~[jersey-client-2.11.jar!/:na]
+queue-master-1  | 	at org.glassfish.jersey.client.JerseyInvocation$Builder.post(JerseyInvocation.java:338) ~[jersey-client-2.11.jar!/:na]
+queue-master-1  | 	at com.github.dockerjava.jaxrs.async.POSTCallbackNotifier.response(POSTCallbackNotifier.java:29) ~[docker-java-3.0.0.jar!/:na]
+queue-master-1  | 	at com.github.dockerjava.jaxrs.async.AbstractCallbackNotifier.call(AbstractCallbackNotifier.java:50) [docker-java-3.0.0.jar!/:na]
+queue-master-1  | 	at com.github.dockerjava.jaxrs.async.AbstractCallbackNotifier.call(AbstractCallbackNotifier.java:24) [docker-java-3.0.0.jar!/:na]
+queue-master-1  | 	at java.util.concurrent.FutureTask.run(FutureTask.java:266) [na:1.8.0_111-internal]
+queue-master-1  | 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142) [na:1.8.0_111-internal]
+queue-master-1  | 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617) [na:1.8.0_111-internal]
+queue-master-1  | 	at java.lang.Thread.run(Thread.java:745) [na:1.8.0_111-internal]
+queue-master-1  | 
+queue-master-1  | 2026-05-11 11:15:04.598  WARN 7 --- [enerContainer-1] s.a.r.l.ConditionalRejectingErrorHandler : Execution of Rabbit message listener failed.
+queue-master-1  | 
+queue-master-1  | org.springframework.amqp.rabbit.listener.exception.ListenerExecutionFailedException: Listener method 'handleMessage' threw exception
+queue-master-1  | 	at org.springframework.amqp.rabbit.listener.adapter.MessageListenerAdapter.invokeListenerMethod(MessageListenerAdapter.java:395) ~[spring-rabbit-1.6.1.RELEASE.jar!/:na]
+queue-master-1  | 	at org.springframework.amqp.rabbit.listener.adapter.MessageListenerAdapter.onMessage(MessageListenerAdapter.java:298) ~[spring-rabbit-1.6.1.RELEASE.jar!/:na]
+queue-master-1  | 	at org.springframework.amqp.rabbit.listener.AbstractMessageListenerContainer.doInvokeListener(AbstractMessageListenerContainer.java:777) ~[spring-rabbit-1.6.1.RELEASE.jar!/:na]
+queue-master-1  | 	at org.springframework.amqp.rabbit.listener.AbstractMessageListenerContainer.invokeListener(AbstractMessageListenerContainer.java:700) ~[spring-rabbit-1.6.1.RELEASE.jar!/:na]
+queue-master-1  | 	at org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer.access$001(SimpleMessageListenerContainer.java:95) [spring-rabbit-1.6.1.RELEASE.jar!/:na]
+queue-master-1  | 	at org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer$1.invokeListener(SimpleMessageListenerContainer.java:187) ~[spring-rabbit-1.6.1.RELEASE.jar!/:na]
+queue-master-1  | 	at org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer.invokeListener(SimpleMessageListenerContainer.java:1187) [spring-rabbit-1.6.1.RELEASE.jar!/:na]
+queue-master-1  | 	at org.springframework.amqp.rabbit.listener.AbstractMessageListenerContainer.executeListener(AbstractMessageListenerContainer.java:681) ~[spring-rabbit-1.6.1.RELEASE.jar!/:na]
+queue-master-1  | 	at org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer.doReceiveAndExecute(SimpleMessageListenerContainer.java:1165) [spring-rabbit-1.6.1.RELEASE.jar!/:na]
+queue-master-1  | 	at org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer.receiveAndExecute(SimpleMessageListenerContainer.java:1149) [spring-rabbit-1.6.1.RELEASE.jar!/:na]
+queue-master-1  | 	at org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer.access$1100(SimpleMessageListenerContainer.java:95) [spring-rabbit-1.6.1.RELEASE.jar!/:na]
+queue-master-1  | 	at org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer$AsyncMessageProcessingConsumer.run(SimpleMessageListenerContainer.java:1312) [spring-rabbit-1.6.1.RELEASE.jar!/:na]
+queue-master-1  | 	at java.lang.Thread.run(Thread.java:745) [na:1.8.0_111-internal]
+queue-master-1  | Caused by: java.lang.NoClassDefFoundError: Could not initialize class org.newsclub.net.unix.NativeUnixSocket
+queue-master-1  | 	at org.newsclub.net.unix.AFUNIXSocketImpl.connect(AFUNIXSocketImpl.java:134) ~[unix-socket-factory-2015-01-27T15-02-14.jar!/:na]
+queue-master-1  | 	at org.newsclub.net.unix.AFUNIXSocket.connect(AFUNIXSocket.java:97) ~[unix-socket-factory-2015-01-27T15-02-14.jar!/:na]
+queue-master-1  | 	at com.github.dockerjava.jaxrs.ApacheUnixSocket.connect(ApacheUnixSocket.java:62) ~[docker-java-3.0.0.jar!/:na]
+queue-master-1  | 	at com.github.dockerjava.jaxrs.UnixConnectionSocketFactory.connectSocket(UnixConnectionSocketFactory.java:73) ~[docker-java-3.0.0.jar!/:na]
+queue-master-1  | 	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:141) ~[httpclient-4.5.2.jar!/:4.5.2]
+queue-master-1  | 	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:353) ~[httpclient-4.5.2.jar!/:4.5.2]
+queue-master-1  | 	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:380) ~[httpclient-4.5.2.jar!/:4.5.2]
+queue-master-1  | 	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236) ~[httpclient-4.5.2.jar!/:4.5.2]
+queue-master-1  | 	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:184) ~[httpclient-4.5.2.jar!/:4.5.2]
+queue-master-1  | 	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:88) ~[httpclient-4.5.2.jar!/:4.5.2]
+queue-master-1  | 	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110) ~[httpclient-4.5.2.jar!/:4.5.2]
+queue-master-1  | 	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:184) ~[httpclient-4.5.2.jar!/:4.5.2]
+queue-master-1  | 	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:71) ~[httpclient-4.5.2.jar!/:4.5.2]
+queue-master-1  | 	at com.github.dockerjava.jaxrs.connector.ApacheConnector.apply(ApacheConnector.java:437) ~[docker-java-3.0.0.jar!/:na]
+queue-master-1  | 	at org.glassfish.jersey.client.ClientRuntime.invoke(ClientRuntime.java:246) ~[jersey-client-2.11.jar!/:na]
+queue-master-1  | 	at org.glassfish.jersey.client.JerseyInvocation$2.call(JerseyInvocation.java:683) ~[jersey-client-2.11.jar!/:na]
+queue-master-1  | 	at org.glassfish.jersey.internal.Errors.process(Errors.java:315) ~[jersey-common-2.11.jar!/:na]
+queue-master-1  | 	at org.glassfish.jersey.internal.Errors.process(Errors.java:297) ~[jersey-common-2.11.jar!/:na]
+queue-master-1  | 	at org.glassfish.jersey.internal.Errors.process(Errors.java:228) ~[jersey-common-2.11.jar!/:na]
+queue-master-1  | 	at org.glassfish.jersey.process.internal.RequestScope.runInScope(RequestScope.java:424) ~[jersey-common-2.11.jar!/:na]
+queue-master-1  | 	at org.glassfish.jersey.client.JerseyInvocation.invoke(JerseyInvocation.java:679) ~[jersey-client-2.11.jar!/:na]
+queue-master-1  | 	at org.glassfish.jersey.client.JerseyInvocation$Builder.method(JerseyInvocation.java:435) ~[jersey-client-2.11.jar!/:na]
+queue-master-1  | 	at org.glassfish.jersey.client.JerseyInvocation$Builder.post(JerseyInvocation.java:338) ~[jersey-client-2.11.jar!/:na]
+queue-master-1  | 	at com.github.dockerjava.jaxrs.async.POSTCallbackNotifier.response(POSTCallbackNotifier.java:29) ~[docker-java-3.0.0.jar!/:na]
+queue-master-1  | 	at com.github.dockerjava.jaxrs.async.AbstractCallbackNotifier.call(AbstractCallbackNotifier.java:50) ~[docker-java-3.0.0.jar!/:na]
+queue-master-1  | 	at com.github.dockerjava.jaxrs.async.AbstractCallbackNotifier.call(AbstractCallbackNotifier.java:24) ~[docker-java-3.0.0.jar!/:na]
+queue-master-1  | 	at java.util.concurrent.FutureTask.run(FutureTask.java:266) ~[na:1.8.0_111-internal]
+queue-master-1  | 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142) ~[na:1.8.0_111-internal]
+queue-master-1  | 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617) ~[na:1.8.0_111-internal]
+queue-master-1  | 	... 1 common frames omitted
+queue-master-1  | 
+queue-master-1  | Received shipment task: 57a98d98e4b00679b4a830b2
+queue-master-1  | 2026-05-11 11:15:04.637  INFO 7 --- [pool-7-thread-1] w.weave.socks.queuemaster.DockerSpawner  : Spawning new container
+queue-master-1  | Received shipment task: 57a98d98e4b00679b4a830b2
+queue-master-1  | 2026-05-11 11:15:04.648  INFO 7 --- [pool-7-thread-2] w.weave.socks.queuemaster.DockerSpawner  : Spawning new container
+queue-master-1  | Received shipment task: 57a98d98e4b00679b4a830b2
+queue-master-1  | 2026-05-11 11:15:04.671  INFO 7 --- [pool-7-thread-3] w.weave.socks.queuemaster.DockerSpawner  : Spawning new container
+queue-master-1  | Received shipment task: 57a98d98e4b00679b4a830b2
+queue-master-1  | 2026-05-11 11:15:04.688  INFO 7 --- [pool-7-thread-4] w.weave.socks.queuemaster.DockerSpawner  : Spawning new container
+queue-master-1  | Received shipment task: 57a98d98e4b00679b4a830b2
+queue-master-1  | 2026-05-11 11:15:04.698  INFO 7 --- [pool-7-thread-5] w.weave.socks.queuemaster.DockerSpawner  : Spawning new container
+queue-master-1  | Received shipment task: 57a98d98e4b00679b4a830b2
+queue-master-1  | 2026-05-11 11:15:04.715  INFO 7 --- [pool-7-thread-6] w.weave.socks.queuemaster.DockerSpawner  : Spawning new container
+queue-master-1  | Received shipment task: 57a98d98e4b00679b4a830b2
+queue-master-1  | 2026-05-11 11:15:04.741  INFO 7 --- [pool-7-thread-7] w.weave.socks.queuemaster.DockerSpawner  : Spawning new container
+queue-master-1  | Received shipment task: 57a98d98e4b00679b4a830b2
+queue-master-1  | 2026-05-11 11:15:04.787  INFO 7 --- [pool-7-thread-8] w.weave.socks.queuemaster.DockerSpawner  : Spawning new container
+queue-master-1  | Received shipment task: 57a98d98e4b00679b4a830b2
+queue-master-1  | 2026-05-11 11:15:04.800  INFO 7 --- [pool-7-thread-9] w.weave.socks.queuemaster.DockerSpawner  : Spawning new container
+queue-master-1  | Received shipment task: 57a98d98e4b00679b4a830b2
+queue-master-1  | 2026-05-11 11:15:04.805 ERROR 7 --- [pool-7-thread-6] w.weave.socks.queuemaster.DockerSpawner  : Exception trying to launch/remove worker container. javax.ws.rs.ProcessingException: Could not initialize class org.newsclub.net.unix.NativeUnixSocket
+queue-master-1  | 2026-05-11 11:15:04.805  INFO 7 --- [ool-7-thread-10] w.weave.socks.queuemaster.DockerSpawner  : Spawning new container
+queue-master-1  | Received shipment task: 57a98d98e4b00679b4a830b2
+queue-master-1  | 2026-05-11 11:15:05.099  INFO 7 --- [ool-7-thread-11] w.weave.socks.queuemaster.DockerSpawner  : Spawning new container
+queue-master-1  | Received shipment task: 57a98d98e4b00679b4a830b2
+queue-master-1  | 2026-05-11 11:15:05.102  INFO 7 --- [ool-7-thread-12] w.weave.socks.queuemaster.DockerSpawner  : Spawning new container
+queue-master-1  | Received shipment task: 57a98d98e4b00679b4a830b2
+queue-master-1  | 2026-05-11 11:15:06.085  INFO 7 --- [ool-7-thread-13] w.weave.socks.queuemaster.DockerSpawner  : Spawning new container
+queue-master-1  | Received shipment task: 57a98d98e4b00679b4a830b2
+queue-master-1  | 2026-05-11 11:15:06.093  INFO 7 --- [ool-7-thread-14] w.weave.socks.queuemaster.DockerSpawner  : Spawning new container
+queue-master-1  | Received shipment task: 57a98d98e4b00679b4a830b2
+queue-master-1  | 2026-05-11 11:15:06.906  INFO 7 --- [ool-7-thread-15] w.weave.socks.queuemaster.DockerSpawner  : Spawning new container
+queue-master-1  | Received shipment task: 57a98d98e4b00679b4a830b2
+queue-master-1  | 2026-05-11 11:15:06.911  INFO 7 --- [ool-7-thread-16] w.weave.socks.queuemaster.DockerSpawner  : Spawning new container
+queue-master-1  | Received shipment task: 57a98d98e4b00679b4a830b2
+queue-master-1  | 2026-05-11 11:15:07.385  INFO 7 --- [ool-7-thread-17] w.weave.socks.queuemaster.DockerSpawner  : Spawning new container
+queue-master-1  | Received shipment task: 57a98d98e4b00679b4a830b2
+queue-master-1  | 2026-05-11 11:15:07.394  INFO 7 --- [ool-7-thread-18] w.weave.socks.queuemaster.DockerSpawner  : Spawning new container
+queue-master-1  | Received shipment task: 57a98d98e4b00679b4a830b2
+queue-master-1  | 2026-05-11 11:15:07.833  INFO 7 --- [ool-7-thread-19] w.weave.socks.queuemaster.DockerSpawner  : Spawning new container
+queue-master-1  | Received shipment task: 57a98d98e4b00679b4a830b2
+queue-master-1  | 2026-05-11 11:15:07.845  INFO 7 --- [ool-7-thread-20] w.weave.socks.queuemaster.DockerSpawner  : Spawning new container
+queue-master-1  | Received shipment task: 57a98d98e4b00679b4a830b2
+queue-master-1  | 2026-05-11 11:15:08.453  INFO 7 --- [ool-7-thread-21] w.weave.socks.queuemaster.DockerSpawner  : Spawning new container
+queue-master-1  | Received shipment task: 57a98d98e4b00679b4a830b2
+queue-master-1  | 2026-05-11 11:15:08.474  INFO 7 --- [ool-7-thread-22] w.weave.socks.queuemaster.DockerSpawner  : Spawning new container

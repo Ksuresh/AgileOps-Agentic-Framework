@@ -1,0 +1,1 @@
+{"message":"getaddrinfo ENOTFOUND catalogue catalogue:80","error":{"code":"ENOTFOUND","errno":"ENOTFOUND","syscall":"getaddrinfo","hostname":"catalogue","host":"catalogue","port":80}}

@@ -1,0 +1,241 @@
+[
+    {
+        "Id": "c0105dcf8c240309045954ce839da5a41722a008015b608fe9ea161bf83db7b5",
+        "Created": "2026-05-10T05:25:11.7792813Z",
+        "Path": "/usr/local/bin/java.sh",
+        "Args": [
+            "-jar",
+            "./app.jar",
+            "--port=80"
+        ],
+        "State": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 1022,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-05-11T11:05:30.167706084Z",
+            "FinishedAt": "2026-05-10T06:59:49.120131382Z"
+        },
+        "Image": "sha256:434d2f5a6e0e8beef1f253fe96f45b8437a703125fc003434c5282ecf8969a4f",
+        "ResolvConfPath": "/var/lib/docker/containers/c0105dcf8c240309045954ce839da5a41722a008015b608fe9ea161bf83db7b5/resolv.conf",
+        "HostnamePath": "/var/lib/docker/containers/c0105dcf8c240309045954ce839da5a41722a008015b608fe9ea161bf83db7b5/hostname",
+        "HostsPath": "/var/lib/docker/containers/c0105dcf8c240309045954ce839da5a41722a008015b608fe9ea161bf83db7b5/hosts",
+        "LogPath": "/var/lib/docker/containers/c0105dcf8c240309045954ce839da5a41722a008015b608fe9ea161bf83db7b5/c0105dcf8c240309045954ce839da5a41722a008015b608fe9ea161bf83db7b5-json.log",
+        "Name": "/docker-compose-carts-1",
+        "RestartCount": 0,
+        "Driver": "overlayfs",
+        "Platform": "linux",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "",
+        "ExecIDs": null,
+        "HostConfig": {
+            "Binds": null,
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "Type": "json-file",
+                "Config": {}
+            },
+            "NetworkMode": "docker-compose_default",
+            "PortBindings": {},
+            "RestartPolicy": {
+                "Name": "always",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": false,
+            "VolumeDriver": "",
+            "VolumesFrom": null,
+            "ConsoleSize": [
+                0,
+                0
+            ],
+            "CapAdd": [
+                "CAP_NET_BIND_SERVICE"
+            ],
+            "CapDrop": [
+                "ALL"
+            ],
+            "CgroupnsMode": "private",
+            "Dns": [],
+            "DnsOptions": [],
+            "DnsSearch": [],
+            "ExtraHosts": [],
+            "GroupAdd": null,
+            "IpcMode": "private",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": false,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": true,
+            "SecurityOpt": null,
+            "Tmpfs": {
+                "/tmp": "rw,noexec,nosuid"
+            },
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 67108864,
+            "Runtime": "runc",
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 0,
+            "NanoCpus": 0,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": null,
+            "BlkioDeviceReadBps": null,
+            "BlkioDeviceWriteBps": null,
+            "BlkioDeviceReadIOps": null,
+            "BlkioDeviceWriteIOps": null,
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": null,
+            "DeviceCgroupRules": null,
+            "DeviceRequests": null,
+            "MemoryReservation": 0,
+            "MemorySwap": 0,
+            "MemorySwappiness": null,
+            "OomKillDisable": null,
+            "PidsLimit": null,
+            "Ulimits": null,
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0,
+            "MaskedPaths": [
+                "/proc/acpi",
+                "/proc/asound",
+                "/proc/interrupts",
+                "/proc/kcore",
+                "/proc/keys",
+                "/proc/latency_stats",
+                "/proc/sched_debug",
+                "/proc/scsi",
+                "/proc/timer_list",
+                "/proc/timer_stats",
+                "/sys/devices/virtual/powercap",
+                "/sys/firmware"
+            ],
+            "ReadonlyPaths": [
+                "/proc/bus",
+                "/proc/fs",
+                "/proc/irq",
+                "/proc/sys",
+                "/proc/sysrq-trigger"
+            ]
+        },
+        "Storage": {
+            "RootFS": {
+                "Snapshot": {
+                    "Name": "overlayfs"
+                }
+            }
+        },
+        "Mounts": [],
+        "Config": {
+            "Hostname": "carts",
+            "Domainname": "",
+            "User": "myuser",
+            "AttachStdin": false,
+            "AttachStdout": true,
+            "AttachStderr": true,
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "JAVA_OPTS=-Xms64m -Xmx128m -XX:+UseG1GC -Djava.security.egd=file:/dev/urandom -Dspring.zipkin.enabled=false",
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/lib/jvm/java-1.8-openjdk/jre/bin:/usr/lib/jvm/java-1.8-openjdk/bin",
+                "LANG=C.UTF-8",
+                "JAVA_HOME=/usr/lib/jvm/java-1.8-openjdk",
+                "JAVA_VERSION=8u111",
+                "JAVA_ALPINE_VERSION=8.111.14-r0",
+                "SERVICE_USER=myuser",
+                "SERVICE_UID=10001",
+                "SERVICE_GROUP=mygroup",
+                "SERVICE_GID=10001"
+            ],
+            "Cmd": null,
+            "Image": "weaveworksdemos/carts:0.4.8",
+            "Volumes": null,
+            "WorkingDir": "/usr/src/app",
+            "Entrypoint": [
+                "/usr/local/bin/java.sh",
+                "-jar",
+                "./app.jar",
+                "--port=80"
+            ],
+            "Labels": {
+                "com.docker.compose.config-hash": "7061e1a122ecfde85d9f5786753b0b9e8af66172d60ab6a2addd2cac05395276",
+                "com.docker.compose.container-number": "1",
+                "com.docker.compose.depends_on": "",
+                "com.docker.compose.image": "sha256:434d2f5a6e0e8beef1f253fe96f45b8437a703125fc003434c5282ecf8969a4f",
+                "com.docker.compose.oneoff": "False",
+                "com.docker.compose.project": "docker-compose",
+                "com.docker.compose.project.config_files": "/Users/suresh/projects/AgileOps-Agentic-Framework/benchmark_apps/sock-shop/deploy/docker-compose/docker-compose.yml",
+                "com.docker.compose.project.working_dir": "/Users/suresh/projects/AgileOps-Agentic-Framework/benchmark_apps/sock-shop/deploy/docker-compose",
+                "com.docker.compose.service": "carts",
+                "com.docker.compose.version": "5.0.1",
+                "org.label-schema.build-date": "2017-03-16T14:35:03+0000",
+                "org.label-schema.description": "REST API for Cart service",
+                "org.label-schema.name": "Socks Shop: Cart",
+                "org.label-schema.schema-version": "1.0",
+                "org.label-schema.url": "https://github.com/microservices-demo/carts",
+                "org.label-schema.vcs-ref": "d0a55c9f483269034ab9f2473c1a738b2d7d422b",
+                "org.label-schema.vcs-url": "github.com:microservices-demo/carts.git",
+                "org.label-schema.vendor": "Weaveworks",
+                "org.label-schema.version": "0.0.2-SNAPSHOT"
+            },
+            "StopTimeout": 1
+        },
+        "NetworkSettings": {
+            "SandboxID": "e2ae26f343d33783d4fff81b1ef062322a84cf54ecb9c8b96c42d163d62ca63f",
+            "SandboxKey": "/var/run/docker/netns/e2ae26f343d3",
+            "Ports": {},
+            "Networks": {
+                "docker-compose_default": {
+                    "IPAMConfig": null,
+                    "Links": null,
+                    "Aliases": [
+                        "docker-compose-carts-1",
+                        "carts"
+                    ],
+                    "DriverOpts": null,
+                    "GwPriority": 0,
+                    "NetworkID": "b1cbd8c711991613193e3018b521efdc8e67da76c4465b4997c35b7e5c3e3115",
+                    "EndpointID": "e5349d2a8017cf97b93ec1ca75d6156806038c53c9733e73505adc8357693893",
+                    "Gateway": "172.18.0.1",
+                    "IPAddress": "172.18.0.7",
+                    "MacAddress": "76:e8:d6:eb:f2:f6",
+                    "IPPrefixLen": 16,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "DNSNames": [
+                        "docker-compose-carts-1",
+                        "carts",
+                        "c0105dcf8c24"
+                    ]
+                }
+            }
+        },
+        "ImageManifestDescriptor": {
+            "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+            "digest": "sha256:434d2f5a6e0e8beef1f253fe96f45b8437a703125fc003434c5282ecf8969a4f",
+            "size": 2202,
+            "platform": {
+                "architecture": "amd64",
+                "os": "linux"
+            }
+        }
+    }
+]

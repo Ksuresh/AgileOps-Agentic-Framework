@@ -1,0 +1,87 @@
+time="2026-05-11T17:02:26+05:30" level=warning msg="The \"MYSQL_ROOT_PASSWORD\" variable is not set. Defaulting to a blank string."
+time="2026-05-11T17:02:26+05:30" level=warning msg="/Users/suresh/projects/benchmarks/sock-shop/deploy/docker-compose/docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+carts-db-1  | 2026-05-10T05:25:16.907+0000 I CONTROL  [initandlisten] MongoDB starting : pid=1 port=27017 dbpath=/data/db 64-bit host=carts-db
+carts-db-1  | 2026-05-10T05:25:16.908+0000 I CONTROL  [initandlisten] db version v3.4.24
+carts-db-1  | 2026-05-10T05:25:16.908+0000 I CONTROL  [initandlisten] git version: 865b4f6a96d0f5425e39a18337105f33e8db504d
+carts-db-1  | 2026-05-10T05:25:16.908+0000 I CONTROL  [initandlisten] OpenSSL version: OpenSSL 1.0.2g  1 Mar 2016
+carts-db-1  | 2026-05-10T05:25:16.908+0000 I CONTROL  [initandlisten] allocator: tcmalloc
+carts-db-1  | 2026-05-10T05:25:16.908+0000 I CONTROL  [initandlisten] modules: none
+carts-db-1  | 2026-05-10T05:25:16.908+0000 I CONTROL  [initandlisten] build environment:
+carts-db-1  | 2026-05-10T05:25:16.908+0000 I CONTROL  [initandlisten]     distmod: ubuntu1604
+carts-db-1  | 2026-05-10T05:25:16.908+0000 I CONTROL  [initandlisten]     distarch: aarch64
+carts-db-1  | 2026-05-10T05:25:16.908+0000 I CONTROL  [initandlisten]     target_arch: aarch64
+carts-db-1  | 2026-05-10T05:25:16.908+0000 I CONTROL  [initandlisten] options: {}
+carts-db-1  | 2026-05-10T05:25:16.914+0000 I STORAGE  [initandlisten] 
+carts-db-1  | 2026-05-10T05:25:16.914+0000 I STORAGE  [initandlisten] ** WARNING: Using the XFS filesystem is strongly recommended with the WiredTiger storage engine
+carts-db-1  | 2026-05-10T05:25:16.914+0000 I STORAGE  [initandlisten] **          See http://dochub.mongodb.org/core/prodnotes-filesystem
+carts-db-1  | 2026-05-10T05:25:16.914+0000 I STORAGE  [initandlisten] wiredtiger_open config: create,cache_size=1447M,session_max=20000,eviction=(threads_min=4,threads_max=4),config_base=false,statistics=(fast),log=(enabled=true,archive=true,path=journal,compressor=snappy),file_manager=(close_idle_time=100000),checkpoint=(wait=60,log_size=2GB),statistics_log=(wait=0),verbose=(recovery_progress),
+carts-db-1  | 2026-05-10T05:25:17.298+0000 I CONTROL  [initandlisten] 
+carts-db-1  | 2026-05-10T05:25:17.299+0000 I CONTROL  [initandlisten] ** WARNING: Access control is not enabled for the database.
+carts-db-1  | 2026-05-10T05:25:17.299+0000 I CONTROL  [initandlisten] **          Read and write access to data and configuration is unrestricted.
+carts-db-1  | 2026-05-10T05:25:17.299+0000 I CONTROL  [initandlisten] 
+carts-db-1  | 2026-05-10T05:25:17.299+0000 I CONTROL  [initandlisten] 
+carts-db-1  | 2026-05-10T05:25:17.299+0000 I CONTROL  [initandlisten] ** WARNING: /sys/kernel/mm/transparent_hugepage/enabled is 'always'.
+carts-db-1  | 2026-05-10T05:25:17.299+0000 I CONTROL  [initandlisten] **        We suggest setting it to 'never'
+carts-db-1  | 2026-05-10T05:25:17.299+0000 I CONTROL  [initandlisten] 
+carts-db-1  | 2026-05-10T05:25:17.527+0000 I FTDC     [initandlisten] Initializing full-time diagnostic data capture with directory '/data/db/diagnostic.data'
+carts-db-1  | 2026-05-10T05:25:17.634+0000 I INDEX    [initandlisten] build index on: admin.system.version properties: { v: 2, key: { version: 1 }, name: "incompatible_with_version_32", ns: "admin.system.version" }
+carts-db-1  | 2026-05-10T05:25:17.634+0000 I INDEX    [initandlisten] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+carts-db-1  | 2026-05-10T05:25:17.642+0000 I INDEX    [initandlisten] build index done.  scanned 0 total records. 0 secs
+carts-db-1  | 2026-05-10T05:25:17.643+0000 I COMMAND  [initandlisten] setting featureCompatibilityVersion to 3.4
+carts-db-1  | 2026-05-10T05:25:17.646+0000 I NETWORK  [thread1] waiting for connections on port 27017
+carts-db-1  | 2026-05-10T05:28:06.240+0000 I NETWORK  [thread1] connection accepted from 172.18.0.6:36568 #1 (1 connection now open)
+carts-db-1  | 2026-05-10T05:41:10.303+0000 I NETWORK  [thread1] connection accepted from 172.18.0.6:35334 #2 (2 connections now open)
+carts-db-1  | 2026-05-10T05:41:10.330+0000 I NETWORK  [thread1] connection accepted from 172.18.0.6:35332 #3 (3 connections now open)
+carts-db-1  | 2026-05-10T05:41:20.070+0000 I WRITE    [conn2] remove data.cart query: { _id: ObjectId('6a001a7f1006b500071312ef') } planSummary: IDHACK keysExamined:1 docsExamined:1 ndeleted:0 writeConflicts:1 numYields:1 locks:{ Global: { acquireCount: { r: 2, w: 2 } }, Database: { acquireCount: { w: 2 } }, Collection: { acquireCount: { w: 2 } } } 321ms
+carts-db-1  | 2026-05-10T05:41:20.074+0000 I COMMAND  [conn2] command data.$cmd command: delete { delete: "cart", ordered: false, deletes: [ { q: { _id: ObjectId('6a001a7f1006b500071312ef') }, limit: 0 } ] } numYields:0 reslen:44 locks:{ Global: { acquireCount: { r: 2, w: 2 } }, Database: { acquireCount: { w: 2 } }, Collection: { acquireCount: { w: 2 } } } protocol:op_query 327ms
+carts-db-1  | 2026-05-10T05:57:45.109+0000 I COMMAND  [ftdc] serverStatus was very slow: { after basic: 672, after asserts: 672, after backgroundFlushing: 672, after connections: 672, after dur: 772, after extra_info: 788, after globalLock: 898, after locks: 898, after network: 898, after opLatencies: 898, after opcounters: 898, after opcountersRepl: 898, after repl: 931, after security: 931, after storageEngine: 931, after tcmalloc: 1018, after transportSecurity: 1018, after wiredTiger: 1028, at end: 1059 }
+carts-db-1  | 2026-05-10T06:59:47.196+0000 I CONTROL  [signalProcessingThread] got signal 15 (Terminated), will terminate after current cmd ends
+carts-db-1  | 2026-05-10T06:59:47.248+0000 I NETWORK  [signalProcessingThread] shutdown: going to close listening sockets...
+carts-db-1  | 2026-05-10T06:59:47.250+0000 I NETWORK  [signalProcessingThread] closing listening socket: 7
+carts-db-1  | 2026-05-10T06:59:47.250+0000 I NETWORK  [signalProcessingThread] closing listening socket: 8
+carts-db-1  | 2026-05-10T06:59:47.257+0000 I NETWORK  [signalProcessingThread] removing socket file: /tmp/mongodb-27017.sock
+carts-db-1  | 2026-05-10T06:59:47.257+0000 I NETWORK  [signalProcessingThread] shutdown: going to flush diaglog...
+carts-db-1  | 2026-05-10T06:59:47.281+0000 I FTDC     [signalProcessingThread] Shutting down full-time diagnostic data capture
+carts-db-1  | 2026-05-10T06:59:47.418+0000 I STORAGE  [signalProcessingThread] WiredTigerKVEngine shutting down
+carts-db-1  | 2026-05-10T06:59:47.437+0000 I NETWORK  [thread1] Port 27017 is no longer valid
+carts-db-1  | 2026-05-10T06:59:48.241+0000 I STORAGE  [signalProcessingThread] shutdown: removing fs lock...
+carts-db-1  | 2026-05-10T06:59:48.265+0000 I CONTROL  [signalProcessingThread] now exiting
+carts-db-1  | 2026-05-10T06:59:48.337+0000 I CONTROL  [signalProcessingThread] shutting down with code:0
+carts-db-1  | 2026-05-11T11:05:31.739+0000 I CONTROL  [initandlisten] MongoDB starting : pid=1 port=27017 dbpath=/data/db 64-bit host=carts-db
+carts-db-1  | 2026-05-11T11:05:31.754+0000 I CONTROL  [initandlisten] db version v3.4.24
+carts-db-1  | 2026-05-11T11:05:31.754+0000 I CONTROL  [initandlisten] git version: 865b4f6a96d0f5425e39a18337105f33e8db504d
+carts-db-1  | 2026-05-11T11:05:31.754+0000 I CONTROL  [initandlisten] OpenSSL version: OpenSSL 1.0.2g  1 Mar 2016
+carts-db-1  | 2026-05-11T11:05:31.754+0000 I CONTROL  [initandlisten] allocator: tcmalloc
+carts-db-1  | 2026-05-11T11:05:31.754+0000 I CONTROL  [initandlisten] modules: none
+carts-db-1  | 2026-05-11T11:05:31.754+0000 I CONTROL  [initandlisten] build environment:
+carts-db-1  | 2026-05-11T11:05:31.754+0000 I CONTROL  [initandlisten]     distmod: ubuntu1604
+carts-db-1  | 2026-05-11T11:05:31.754+0000 I CONTROL  [initandlisten]     distarch: aarch64
+carts-db-1  | 2026-05-11T11:05:31.754+0000 I CONTROL  [initandlisten]     target_arch: aarch64
+carts-db-1  | 2026-05-11T11:05:31.754+0000 I CONTROL  [initandlisten] options: {}
+carts-db-1  | 2026-05-11T11:05:31.760+0000 I -        [initandlisten] Detected data files in /data/db created by the 'wiredTiger' storage engine, so setting the active storage engine to 'wiredTiger'.
+carts-db-1  | 2026-05-11T11:05:31.760+0000 I STORAGE  [initandlisten] 
+carts-db-1  | 2026-05-11T11:05:31.760+0000 I STORAGE  [initandlisten] ** WARNING: Using the XFS filesystem is strongly recommended with the WiredTiger storage engine
+carts-db-1  | 2026-05-11T11:05:31.760+0000 I STORAGE  [initandlisten] **          See http://dochub.mongodb.org/core/prodnotes-filesystem
+carts-db-1  | 2026-05-11T11:05:31.760+0000 I STORAGE  [initandlisten] wiredtiger_open config: create,cache_size=1447M,session_max=20000,eviction=(threads_min=4,threads_max=4),config_base=false,statistics=(fast),log=(enabled=true,archive=true,path=journal,compressor=snappy),file_manager=(close_idle_time=100000),checkpoint=(wait=60,log_size=2GB),statistics_log=(wait=0),verbose=(recovery_progress),
+carts-db-1  | 2026-05-11T11:05:32.665+0000 I STORAGE  [initandlisten] WiredTiger message [1778497532:665623][1:0xffff9c15e000], txn-recover: Main recovery loop: starting at 1/67200
+carts-db-1  | 2026-05-11T11:05:32.878+0000 I STORAGE  [initandlisten] WiredTiger message [1778497532:878825][1:0xffff9c15e000], txn-recover: Recovering log 1 through 2
+carts-db-1  | 2026-05-11T11:05:32.963+0000 I STORAGE  [initandlisten] WiredTiger message [1778497532:963188][1:0xffff9c15e000], txn-recover: Recovering log 2 through 2
+carts-db-1  | 2026-05-11T11:05:33.474+0000 I CONTROL  [initandlisten] 
+carts-db-1  | 2026-05-11T11:05:33.479+0000 I CONTROL  [initandlisten] ** WARNING: Access control is not enabled for the database.
+carts-db-1  | 2026-05-11T11:05:33.480+0000 I CONTROL  [initandlisten] **          Read and write access to data and configuration is unrestricted.
+carts-db-1  | 2026-05-11T11:05:33.480+0000 I CONTROL  [initandlisten] 
+carts-db-1  | 2026-05-11T11:05:33.483+0000 I CONTROL  [initandlisten] 
+carts-db-1  | 2026-05-11T11:05:33.483+0000 I CONTROL  [initandlisten] ** WARNING: /sys/kernel/mm/transparent_hugepage/enabled is 'always'.
+carts-db-1  | 2026-05-11T11:05:33.483+0000 I CONTROL  [initandlisten] **        We suggest setting it to 'never'
+carts-db-1  | 2026-05-11T11:05:33.483+0000 I CONTROL  [initandlisten] 
+carts-db-1  | 2026-05-11T11:05:33.551+0000 I FTDC     [initandlisten] Initializing full-time diagnostic data capture with directory '/data/db/diagnostic.data'
+carts-db-1  | 2026-05-11T11:05:33.559+0000 I NETWORK  [thread1] waiting for connections on port 27017
+carts-db-1  | 2026-05-11T11:07:05.777+0000 I NETWORK  [thread1] connection accepted from 172.18.0.7:59998 #1 (1 connection now open)
+carts-db-1  | 2026-05-11T11:14:50.482+0000 I NETWORK  [thread1] connection accepted from 172.18.0.7:55638 #2 (2 connections now open)
+carts-db-1  | 2026-05-11T11:14:50.486+0000 I NETWORK  [thread1] connection accepted from 172.18.0.7:55636 #3 (3 connections now open)
+carts-db-1  | 2026-05-11T11:28:51.818+0000 I -        [conn1] end connection 172.18.0.7:59998 (3 connections now open)
+carts-db-1  | 2026-05-11T11:28:51.818+0000 I -        [conn2] end connection 172.18.0.7:55638 (3 connections now open)
+carts-db-1  | 2026-05-11T11:28:51.818+0000 I -        [conn3] end connection 172.18.0.7:55636 (3 connections now open)
+carts-db-1  | 2026-05-11T11:29:18.478+0000 I NETWORK  [thread1] connection accepted from 172.18.0.16:34690 #4 (1 connection now open)
+carts-db-1  | 2026-05-11T11:30:06.237+0000 I NETWORK  [thread1] connection accepted from 172.18.0.16:39910 #5 (2 connections now open)
+carts-db-1  | 2026-05-11T11:30:06.238+0000 I NETWORK  [thread1] connection accepted from 172.18.0.16:39912 #6 (3 connections now open)

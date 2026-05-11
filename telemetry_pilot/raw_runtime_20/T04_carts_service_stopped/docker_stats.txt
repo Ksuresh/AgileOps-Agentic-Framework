@@ -1,0 +1,14 @@
+CONTAINER ID   NAME                            CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O         PIDS
+a1b3d68a6891   docker-compose-catalogue-db-1   0.18%     153.1MiB / 3.827GiB   3.91%     60.9kB / 234kB    35.9MB / 33.6MB   29
+ca2e131a2cc5   docker-compose-carts-db-1       0.26%     53.1MiB / 3.827GiB    1.35%     148kB / 162kB     25.7MB / 4MB      20
+6e7a674b7bed   docker-compose-orders-db-1      0.62%     40.16MiB / 3.827GiB   1.02%     52.3kB / 44.7kB   16.9MB / 5.46MB   23
+14489b9afc46   docker-compose-rabbitmq-1       5.70%     83.52MiB / 3.827GiB   2.13%     28.4kB / 23.6kB   30.2MB / 6.06MB   145
+f6499e7f64ac   docker-compose-user-1           0.13%     26.5MiB / 3.827GiB    0.68%     426kB / 409kB     9.43MB / 53.2kB   13
+3af099106cc9   docker-compose-payment-1        0.00%     12.64MiB / 3.827GiB   0.32%     24.9kB / 7.44kB   7.96MB / 0B       9
+fc4c33298201   docker-compose-orders-1         2.76%     465.4MiB / 3.827GiB   11.88%    183kB / 213kB     40MB / 6.75MB     54
+d016a2ae56a0   docker-compose-queue-master-1   0.26%     614.6MiB / 3.827GiB   15.68%    21.8kB / 10.7kB   28MB / 50.3MB     70
+1b87304437ac   docker-compose-user-db-1        1.09%     117.6MiB / 3.827GiB   3.00%     204kB / 279kB     38.9MB / 3.78MB   23
+0c2a271e0f80   docker-compose-front-end-1      0.13%     286.8MiB / 3.827GiB   7.32%     692kB / 2.99MB    28.1MB / 37.7MB   21
+33ef7db2853f   docker-compose-shipping-1       0.35%     397.6MiB / 3.827GiB   10.15%    30kB / 25.5kB     24MB / 26.3MB     53
+5d051b743dc7   docker-compose-catalogue-1      0.00%     16.94MiB / 3.827GiB   0.43%     139kB / 129kB     6.3MB / 0B        8
+71d7965b9cc9   docker-compose-edge-router-1    0.08%     27.57MiB / 3.827GiB   0.70%     3.01MB / 3.04MB   14.9MB / 549kB    15

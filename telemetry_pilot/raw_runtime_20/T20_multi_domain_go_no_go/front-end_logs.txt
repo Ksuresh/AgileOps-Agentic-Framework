@@ -1,0 +1,150 @@
+time="2026-05-11T17:04:42+05:30" level=warning msg="The \"MYSQL_ROOT_PASSWORD\" variable is not set. Defaulting to a blank string."
+time="2026-05-11T17:04:42+05:30" level=warning msg="/Users/suresh/projects/benchmarks/sock-shop/deploy/docker-compose/docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+front-end-3  | npm info it worked if it ends with ok
+front-end-3  | npm info using npm@2.15.11
+front-end-3  | npm info using node@v4.8.0
+front-end-3  | npm info prestart microservices-demo-front-end@0.0.1
+front-end-3  | npm info start microservices-demo-front-end@0.0.1
+front-end-3  | 
+front-end-3  | > microservices-demo-front-end@0.0.1 start /usr/src/app
+front-end-3  | > node server.js
+front-end-3  | 
+front-end-3  | Using local session manager
+front-end-3  | Warning: connect.session() MemoryStore is not
+front-end-3  | designed for a production environment, as it will leak
+front-end-3  | memory, and will not scale past a single process.
+front-end-3  | App now running in production mode on port 8079
+front-end-1  | [0mGET /catalogue [31m500 [0m18.390 ms - 183[0m
+front-end-1  | [0mGET /catalogue [31m500 [0m37.686 ms - 183[0m
+front-end-1  | [0mGET /catalogue [31m500 [0m27.743 ms - 183[0m
+front-end-1  | [0mGET /catalogue [31m500 [0m12.644 ms - 183[0m
+front-end-1  | [0mGET /catalogue [31m500 [0m14.851 ms - 183[0m
+front-end-1  | [0mGET /catalogue [31m500 [0m20.833 ms - 183[0m
+front-end-1  | [0mGET /catalogue [31m500 [0m18.069 ms - 183[0m
+front-end-1  | [0mGET /catalogue [31m500 [0m14.216 ms - 183[0m
+front-end-1  | [0mGET /catalogue [31m500 [0m15.965 ms - 183[0m
+front-end-1  | [0mGET /catalogue [31m500 [0m13.935 ms - 183[0m
+front-end-1  | [0mGET /catalogue [31m500 [0m10.023 ms - 183[0m
+front-end-1  | [0mGET /catalogue [31m500 [0m10.507 ms - 183[0m
+front-end-1  | [0mGET /catalogue [31m500 [0m10.825 ms - 183[0m
+front-end-1  | [0mGET /catalogue [31m500 [0m17.904 ms - 183[0m
+front-end-1  | [0mGET /catalogue [31m500 [0m12.116 ms - 183[0m
+front-end-1  | [0mGET /catalogue [31m500 [0m15.901 ms - 183[0m
+front-end-1  | [0mGET /catalogue [31m500 [0m21.935 ms - 183[0m
+front-end-1  | [0mGET /catalogue [31m500 [0m19.319 ms - 183[0m
+front-end-1  | [0mGET /catalogue [31m500 [0m11.630 ms - 183[0m
+front-end-1  | [0mGET /catalogue [31m500 [0m14.904 ms - 183[0m
+front-end-1  | [0mGET /catalogue [31m500 [0m11.114 ms - 183[0m
+front-end-1  | [0mGET /catalogue [31m500 [0m14.956 ms - 183[0m
+front-end-1  | [0mGET /catalogue [31m500 [0m14.414 ms - 183[0m
+front-end-1  | [0mGET /catalogue [31m500 [0m11.434 ms - 183[0m
+front-end-1  | [0mGET /catalogue [31m500 [0m9.136 ms - 183[0m
+front-end-1  | [0mGET /catalogue [31m500 [0m11.917 ms - 183[0m
+front-end-1  | [0mGET /catalogue [31m500 [0m20.118 ms - 183[0m
+front-end-1  | [0mGET /catalogue [31m500 [0m15.228 ms - 183[0m
+front-end-1  | [0mGET /catalogue [31m500 [0m11.659 ms - 183[0m
+front-end-2  | npm info it worked if it ends with ok
+front-end-2  | npm info using npm@2.15.11
+front-end-2  | npm info using node@v4.8.0
+front-end-2  | npm info prestart microservices-demo-front-end@0.0.1
+front-end-2  | npm info start microservices-demo-front-end@0.0.1
+front-end-2  | 
+front-end-2  | > microservices-demo-front-end@0.0.1 start /usr/src/app
+front-end-2  | > node server.js
+front-end-2  | 
+front-end-2  | Using local session manager
+front-end-2  | Warning: connect.session() MemoryStore is not
+front-end-2  | designed for a production environment, as it will leak
+front-end-2  | memory, and will not scale past a single process.
+front-end-1  | [0mGET /catalogue [31m500 [0m11.466 ms - 183[0m
+front-end-1  | [0mGET /catalogue [31m500 [0m11.224 ms - 183[0m
+front-end-1  | [0mGET /catalogue [31m500 [0m12.734 ms - 183[0m
+front-end-1  | [0mGET /catalogue [31m500 [0m11.143 ms - 183[0m
+front-end-1  | [0mGET /catalogue [31m500 [0m11.831 ms - 183[0m
+front-end-1  | [0mGET /catalogue [31m500 [0m10.300 ms - 183[0m
+front-end-2  | App now running in production mode on port 8079
+front-end-1  | [0mGET /catalogue [31m500 [0m11.487 ms - 183[0m
+front-end-1  | [0mGET /catalogue [31m500 [0m9.059 ms - 183[0m
+front-end-1  | [0mGET /catalogue [31m500 [0m36.250 ms - 183[0m
+front-end-1  | [0mGET /catalogue [31m500 [0m32.411 ms - 183[0m
+front-end-1  | [0mGET /catalogue [31m500 [0m19.653 ms - 183[0m
+front-end-1  | [0mGET /catalogue [31m500 [0m13.527 ms - 183[0m
+front-end-1  | [0mGET /catalogue [31m500 [0m42.673 ms - 183[0m
+front-end-1  | [0mGET /catalogue [31m500 [0m27.835 ms - 183[0m
+front-end-1  | [0mGET /catalogue [31m500 [0m25.393 ms - 183[0m
+front-end-1  | [0mGET /catalogue [31m500 [0m26.889 ms - 183[0m
+front-end-1  | [0mGET /catalogue [31m500 [0m15.511 ms - 183[0m
+front-end-1  | [0mGET /catalogue [31m500 [0m11.549 ms - 183[0m
+front-end-1  | [0mGET /catalogue [31m500 [0m10.605 ms - 183[0m
+front-end-1  | [0mGET /catalogue [31m500 [0m14.952 ms - 183[0m
+front-end-1  | [0mGET /catalogue [31m500 [0m14.680 ms - 183[0m
+front-end-1  | [0mGET /catalogue [31m500 [0m16.838 ms - 183[0m
+front-end-1  | [0mGET /catalogue [31m500 [0m15.046 ms - 183[0m
+front-end-1  | [0mGET /catalogue [31m500 [0m10.206 ms - 183[0m
+front-end-1  | [0mGET /catalogue [31m500 [0m21.491 ms - 183[0m
+front-end-1  | [0mGET /catalogue [31m500 [0m22.531 ms - 183[0m
+front-end-1  | [0mGET /catalogue [31m500 [0m30.850 ms - 183[0m
+front-end-1  | [0mGET /catalogue [31m500 [0m19.072 ms - 183[0m
+front-end-1  | [0mGET /catalogue [31m500 [0m18.201 ms - 183[0m
+front-end-1  | [0mGET /catalogue [31m500 [0m20.504 ms - 183[0m
+front-end-1  | [0mGET /catalogue [31m500 [0m11.457 ms - 183[0m
+front-end-1  | [0mGET /catalogue [31m500 [0m8.284 ms - 183[0m
+front-end-1  | [0mGET /catalogue [31m500 [0m23.296 ms - 183[0m
+front-end-1  | [0mGET /catalogue [31m500 [0m17.962 ms - 183[0m
+front-end-1  | [0mGET /catalogue [31m500 [0m26.135 ms - 183[0m
+front-end-1  | [0mGET /catalogue [31m500 [0m30.355 ms - 183[0m
+front-end-1  | [0mGET /catalogue [31m500 [0m20.817 ms - 183[0m
+front-end-1  | [0mGET /catalogue [31m500 [0m14.663 ms - 183[0m
+front-end-1  | [0mGET /catalogue [31m500 [0m26.311 ms - 183[0m
+front-end-1  | [0mGET /catalogue [31m500 [0m21.624 ms - 183[0m
+front-end-1  | [0mGET /catalogue [31m500 [0m16.537 ms - 183[0m
+front-end-1  | [0mGET /catalogue [31m500 [0m15.307 ms - 183[0m
+front-end-1  | [0mGET /catalogue [31m500 [0m11.713 ms - 183[0m
+front-end-1  | [0mGET /catalogue [31m500 [0m17.874 ms - 183[0m
+front-end-1  | [0mGET /catalogue [31m500 [0m17.391 ms - 183[0m
+front-end-1  | [0mGET /catalogue [31m500 [0m18.552 ms - 183[0m
+front-end-1  | [0mGET /catalogue [31m500 [0m17.050 ms - 183[0m
+front-end-1  | [0mGET /catalogue [31m500 [0m13.851 ms - 183[0m
+front-end-1  | [0mGET /catalogue [31m500 [0m13.525 ms - 183[0m
+front-end-1  | [0mGET /catalogue [31m500 [0m20.255 ms - 183[0m
+front-end-1  | [0mGET /catalogue [31m500 [0m45.914 ms - 183[0m
+front-end-1  | [0mGET /catalogue [31m500 [0m31.348 ms - 183[0m
+front-end-1  | [0mGET /catalogue [31m500 [0m23.389 ms - 183[0m
+front-end-1  | [0mGET /catalogue [31m500 [0m26.731 ms - 183[0m
+front-end-1  | [0mGET /catalogue [31m500 [0m28.150 ms - 183[0m
+front-end-1  | [0mGET /catalogue [31m500 [0m14.014 ms - 183[0m
+front-end-1  | [0mGET /catalogue [31m500 [0m29.815 ms - 183[0m
+front-end-1  | [0mGET /catalogue [31m500 [0m22.858 ms - 183[0m
+front-end-1  | [0mGET /catalogue [31m500 [0m34.714 ms - 183[0m
+front-end-1  | [0mGET /catalogue [31m500 [0m25.149 ms - 183[0m
+front-end-1  | [0mGET /catalogue [31m500 [0m9.754 ms - 183[0m
+front-end-1  | [0mGET /catalogue [31m500 [0m8.457 ms - 183[0m
+front-end-1  | [0mGET /catalogue [31m500 [0m12.215 ms - 183[0m
+front-end-1  | [0mGET /catalogue [31m500 [0m8.431 ms - 183[0m
+front-end-1  | [0mGET /catalogue [31m500 [0m10.301 ms - 183[0m
+front-end-1  | [0mGET /catalogue [31m500 [0m14.693 ms - 183[0m
+front-end-1  | [0mGET /catalogue [31m500 [0m11.625 ms - 183[0m
+front-end-1  | [0mGET /catalogue [31m500 [0m11.692 ms - 183[0m
+front-end-1  | [0mGET /catalogue [31m500 [0m21.646 ms - 183[0m
+front-end-1  | [0mGET /catalogue [31m500 [0m25.700 ms - 183[0m
+front-end-1  | [0mGET /catalogue [31m500 [0m22.001 ms - 183[0m
+front-end-1  | [0mGET /catalogue [31m500 [0m45.076 ms - 183[0m
+front-end-1  | [0mGET /catalogue [31m500 [0m14.458 ms - 183[0m
+front-end-1  | [0mGET /catalogue [31m500 [0m10.788 ms - 183[0m
+front-end-1  | [0mGET /catalogue [31m500 [0m36.948 ms - 183[0m
+front-end-1  | [0mGET /catalogue [31m500 [0m14.245 ms - 183[0m
+front-end-1  | [0mGET /catalogue [31m500 [0m20.411 ms - 183[0m
+front-end-1  | [0mGET /catalogue [31m500 [0m10.911 ms - 183[0m
+front-end-1  | [0mGET /catalogue [31m500 [0m12.352 ms - 183[0m
+front-end-1  | [0mGET /catalogue [31m500 [0m13.873 ms - 183[0m
+front-end-1  | [0mGET /catalogue [31m500 [0m11.088 ms - 183[0m
+front-end-1  | [0mGET /catalogue [31m500 [0m10.007 ms - 183[0m
+front-end-1  | [0mGET /catalogue [31m500 [0m11.313 ms - 183[0m
+front-end-1  | [0mGET /catalogue [31m500 [0m20.385 ms - 183[0m
+front-end-1  | [0mGET /catalogue [31m500 [0m9.166 ms - 183[0m
+front-end-1  | [0mGET /catalogue [31m500 [0m8.805 ms - 183[0m
+front-end-1  | [0mGET /catalogue [31m500 [0m13.901 ms - 183[0m
+front-end-1  | [0mGET /catalogue [31m500 [0m134.682 ms - 183[0m
+front-end-1  | [0mGET /catalogue [31m500 [0m159.758 ms - 183[0m
+front-end-1  | [0mGET /catalogue [31m500 [0m26.274 ms - 183[0m
+front-end-1  | [0mGET /tags [31m500 [0m17.265 ms - 183[0m
