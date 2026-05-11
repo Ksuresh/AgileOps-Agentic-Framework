@@ -1,0 +1,107 @@
+{
+  "n": 100,
+  "evidence_mode": "aligned",
+  "domain_match_rate": 1.0,
+  "domain_match_n": 100,
+  "domain_match_ci": {
+    "rate": 1.0,
+    "n": 100.0,
+    "successes": 100.0,
+    "se": 0.0,
+    "ci95_low": 1.0,
+    "ci95_high": 1.0
+  },
+  "primary_action_match_rate": 0.54,
+  "primary_action_match_n": 100,
+  "primary_action_match_ci": {
+    "rate": 0.54,
+    "n": 100.0,
+    "successes": 54.0,
+    "se": 0.04983974317750845,
+    "ci95_low": 0.4423141033720835,
+    "ci95_high": 0.6376858966279166
+  },
+  "acceptable_action_match_rate": 1.0,
+  "acceptable_action_match_n": 100,
+  "acceptable_action_match_ci": {
+    "rate": 1.0,
+    "n": 100.0,
+    "successes": 100.0,
+    "se": 0.0,
+    "ci95_low": 1.0,
+    "ci95_high": 1.0
+  },
+  "consensus_mean": 0.7726999999999999,
+  "utility_mean": 0.9729009999999999,
+  "performance_mean": 0.76468,
+  "cost_efficiency_mean": 0.6969,
+  "risk_reduction_mean": 0.6741499999999999,
+  "xi_mean": 0.81597,
+  "rar_triggered": 21,
+  "rar_accepted": 0,
+  "rar_unresolved": 21,
+  "rar_trigger_rate": 0.21,
+  "rar_acceptance_rate_when_triggered": 0.0,
+  "category_breakdown": {
+    "cost_governance": {
+      "n": 13,
+      "domain_match_rate": 1.0,
+      "primary_action_match_rate": 1.0,
+      "acceptable_action_match_rate": 1.0
+    },
+    "cross_domain_cost_reliability": {
+      "n": 11,
+      "domain_match_rate": 1.0,
+      "primary_action_match_rate": 0.8181818181818182,
+      "acceptable_action_match_rate": 1.0
+    },
+    "cross_domain_general_investigation": {
+      "n": 7,
+      "domain_match_rate": 1.0,
+      "primary_action_match_rate": 0.14285714285714285,
+      "acceptable_action_match_rate": 1.0
+    },
+    "cross_domain_release_governance": {
+      "n": 15,
+      "domain_match_rate": 1.0,
+      "primary_action_match_rate": 0.4666666666666667,
+      "acceptable_action_match_rate": 1.0
+    },
+    "pm_prioritization_escalation": {
+      "n": 14,
+      "domain_match_rate": 1.0,
+      "primary_action_match_rate": 0.14285714285714285,
+      "acceptable_action_match_rate": 1.0
+    },
+    "release_governance": {
+      "n": 14,
+      "domain_match_rate": 1.0,
+      "primary_action_match_rate": 0.5714285714285714,
+      "acceptable_action_match_rate": 1.0
+    },
+    "reliability_operations": {
+      "n": 13,
+      "domain_match_rate": 1.0,
+      "primary_action_match_rate": 0.07692307692307693,
+      "acceptable_action_match_rate": 1.0
+    },
+    "security_compliance_governance": {
+      "n": 13,
+      "domain_match_rate": 1.0,
+      "primary_action_match_rate": 1.0,
+      "acceptable_action_match_rate": 1.0
+    }
+  },
+  "mismatch_count": 0,
+  "thresholds": {
+    "tau_consensus": 0.65,
+    "delta_min": 0.05,
+    "max_rar_loops": 2
+  },
+  "utility_weights": [
+    0.4,
+    0.3,
+    0.3
+  ],
+  "note": "Confidence intervals are descriptive uncertainty estimates for the curated PM prompt evaluation set. In blind mode, telemetry is derived from prompt text only. In aligned mode, curated labels are used to construct controlled evidence packages and results should be interpreted as consistency checks. Primary action match uses the single expected action label. Acceptable action match allows curated governance-equivalent actions for ambiguous PM prompts."
+}

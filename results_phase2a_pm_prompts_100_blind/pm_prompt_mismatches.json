@@ -1,0 +1,396 @@
+[
+  {
+    "scenario_id": "pm002",
+    "category": "cost_governance",
+    "expected_domains": [
+      "FinOps"
+    ],
+    "predicted_domain": "SRE",
+    "expected_action": "Scale adjustment",
+    "acceptable_actions": [
+      "Scale adjustment"
+    ],
+    "selected_action": "Mitigate and monitor",
+    "domain_match": false,
+    "primary_action_match": false,
+    "acceptable_action_match": false,
+    "prompt": "Our cloud costs increased significantly after autoscaling changes. Can you analyze and recommend what we should do?"
+  },
+  {
+    "scenario_id": "pm009",
+    "category": "pm_prioritization_escalation",
+    "expected_domains": [
+      "DevOps"
+    ],
+    "predicted_domain": "SRE",
+    "expected_action": "Rollback to stable deployment",
+    "acceptable_actions": [
+      "Rollback to stable deployment",
+      "Block release and fix pipeline"
+    ],
+    "selected_action": "Mitigate and monitor",
+    "domain_match": false,
+    "primary_action_match": false,
+    "acceptable_action_match": false,
+    "prompt": "The release keeps failing validation checks and our sprint commitment is now at risk. What should I prioritize and escalate?"
+  },
+  {
+    "scenario_id": "pm014",
+    "category": "cost_governance",
+    "expected_domains": [
+      "FinOps"
+    ],
+    "predicted_domain": "SRE",
+    "expected_action": "Scale adjustment",
+    "acceptable_actions": [
+      "Scale adjustment"
+    ],
+    "selected_action": "Mitigate and monitor",
+    "domain_match": false,
+    "primary_action_match": false,
+    "acceptable_action_match": false,
+    "prompt": "After increasing autoscaling capacity, our cloud bill spiked unexpectedly. Should we revise scaling settings?"
+  },
+  {
+    "scenario_id": "pm018",
+    "category": "security_compliance_governance",
+    "expected_domains": [
+      "DevSecOps"
+    ],
+    "predicted_domain": "SRE",
+    "expected_action": "Patch or block release",
+    "acceptable_actions": [
+      "Patch or block release"
+    ],
+    "selected_action": "Mitigate and monitor",
+    "domain_match": false,
+    "primary_action_match": false,
+    "acceptable_action_match": false,
+    "prompt": "We are preparing to go live, but compliance checks identified policy issues. What is the governance recommendation?"
+  },
+  {
+    "scenario_id": "pm020",
+    "category": "release_governance",
+    "expected_domains": [
+      "DevOps"
+    ],
+    "predicted_domain": "SRE",
+    "expected_action": "Rollback to stable deployment",
+    "acceptable_actions": [
+      "Rollback to stable deployment",
+      "Block release and fix pipeline"
+    ],
+    "selected_action": "Mitigate and monitor",
+    "domain_match": false,
+    "primary_action_match": false,
+    "acceptable_action_match": false,
+    "prompt": "The build pipeline has been unstable for the last two release attempts. Should we hold the release?"
+  },
+  {
+    "scenario_id": "pm028",
+    "category": "cost_governance",
+    "expected_domains": [
+      "FinOps"
+    ],
+    "predicted_domain": "SRE",
+    "expected_action": "Scale adjustment",
+    "acceptable_actions": [
+      "Scale adjustment"
+    ],
+    "selected_action": "Mitigate and monitor",
+    "domain_match": false,
+    "primary_action_match": false,
+    "acceptable_action_match": false,
+    "prompt": "We are under budget pressure, and recent scaling changes increased infrastructure costs. What action should we take?"
+  },
+  {
+    "scenario_id": "pm031",
+    "category": "security_compliance_governance",
+    "expected_domains": [
+      "DevSecOps"
+    ],
+    "predicted_domain": "SRE",
+    "expected_action": "Patch or block release",
+    "acceptable_actions": [
+      "Patch or block release"
+    ],
+    "selected_action": "Mitigate and monitor",
+    "domain_match": false,
+    "primary_action_match": false,
+    "acceptable_action_match": false,
+    "prompt": "Compliance controls have flagged issues with the release, and security recommends holding deployment. What is the decision?"
+  },
+  {
+    "scenario_id": "pm035",
+    "category": "security_compliance_governance",
+    "expected_domains": [
+      "DevSecOps",
+      "DevOps"
+    ],
+    "predicted_domain": "SRE",
+    "expected_action": "Patch or block release",
+    "acceptable_actions": [
+      "Patch or block release",
+      "Rollback to stable deployment"
+    ],
+    "selected_action": "Mitigate and monitor",
+    "domain_match": false,
+    "primary_action_match": false,
+    "acceptable_action_match": false,
+    "prompt": "Engineering is requesting a temporary security exception to meet the release deadline. Should we allow it?"
+  },
+  {
+    "scenario_id": "pm039",
+    "category": "cost_governance",
+    "expected_domains": [
+      "FinOps"
+    ],
+    "predicted_domain": "SRE",
+    "expected_action": "Scale adjustment",
+    "acceptable_actions": [
+      "Scale adjustment"
+    ],
+    "selected_action": "Mitigate and monitor",
+    "domain_match": false,
+    "primary_action_match": false,
+    "acceptable_action_match": false,
+    "prompt": "After launching the new feature, our operating costs increased sharply. Is this sustainable?"
+  },
+  {
+    "scenario_id": "pm044",
+    "category": "cost_governance",
+    "expected_domains": [
+      "FinOps"
+    ],
+    "predicted_domain": "SRE",
+    "expected_action": "Scale adjustment",
+    "acceptable_actions": [
+      "Scale adjustment"
+    ],
+    "selected_action": "Mitigate and monitor",
+    "domain_match": false,
+    "primary_action_match": false,
+    "acceptable_action_match": false,
+    "prompt": "Our infrastructure costs are trending upward, but performance seems stable. Are these costs acceptable or should we optimize?"
+  },
+  {
+    "scenario_id": "pm054",
+    "category": "release_governance",
+    "expected_domains": [
+      "DevOps"
+    ],
+    "predicted_domain": "SRE",
+    "expected_action": "Block release and fix pipeline",
+    "acceptable_actions": [
+      "Block release and fix pipeline",
+      "Rollback to stable deployment"
+    ],
+    "selected_action": "Mitigate and monitor",
+    "domain_match": false,
+    "primary_action_match": false,
+    "acceptable_action_match": false,
+    "prompt": "A build gate failed, but there is no confirmed customer impact yet. What should the project team do before approving the release?"
+  },
+  {
+    "scenario_id": "pm061",
+    "category": "cost_governance",
+    "expected_domains": [
+      "FinOps"
+    ],
+    "predicted_domain": "SRE",
+    "expected_action": "Review scaling policy",
+    "acceptable_actions": [
+      "Review scaling policy"
+    ],
+    "selected_action": "Mitigate and monitor",
+    "domain_match": false,
+    "primary_action_match": false,
+    "acceptable_action_match": false,
+    "prompt": "Autoscaling increased the cloud bill, but reliability is currently stable. Should we revise the scaling policy?"
+  },
+  {
+    "scenario_id": "pm062",
+    "category": "cost_governance",
+    "expected_domains": [
+      "FinOps"
+    ],
+    "predicted_domain": "SRE",
+    "expected_action": "Scale adjustment",
+    "acceptable_actions": [
+      "Scale adjustment"
+    ],
+    "selected_action": "Mitigate and monitor",
+    "domain_match": false,
+    "primary_action_match": false,
+    "acceptable_action_match": false,
+    "prompt": "The platform appears over-provisioned and costs are rising without clear reliability benefits. What action should we take?"
+  },
+  {
+    "scenario_id": "pm063",
+    "category": "cost_governance",
+    "expected_domains": [
+      "FinOps",
+      "DevOps"
+    ],
+    "predicted_domain": "SRE",
+    "expected_action": "Review scaling policy",
+    "acceptable_actions": [
+      "Review scaling policy",
+      "Rollback to stable deployment",
+      "Block release and fix pipeline"
+    ],
+    "selected_action": "Mitigate and monitor",
+    "domain_match": false,
+    "primary_action_match": false,
+    "acceptable_action_match": false,
+    "prompt": "The upcoming release may require higher infrastructure capacity and could exceed the cloud budget. What should we review?"
+  },
+  {
+    "scenario_id": "pm065",
+    "category": "cost_governance",
+    "expected_domains": [
+      "FinOps"
+    ],
+    "predicted_domain": "SRE",
+    "expected_action": "Review scaling policy",
+    "acceptable_actions": [
+      "Review scaling policy"
+    ],
+    "selected_action": "Mitigate and monitor",
+    "domain_match": false,
+    "primary_action_match": false,
+    "acceptable_action_match": false,
+    "prompt": "Service reliability looks stable, but the cloud bill is increasing every day. What should the PM escalate?"
+  },
+  {
+    "scenario_id": "pm069",
+    "category": "security_compliance_governance",
+    "expected_domains": [
+      "DevSecOps",
+      "DevOps"
+    ],
+    "predicted_domain": "SRE",
+    "expected_action": "Patch or block release",
+    "acceptable_actions": [
+      "Patch or block release",
+      "Rollback to stable deployment"
+    ],
+    "selected_action": "Mitigate and monitor",
+    "domain_match": false,
+    "primary_action_match": false,
+    "acceptable_action_match": false,
+    "prompt": "The team is under pressure to release, but compliance evidence is incomplete. What should the governance recommendation be?"
+  },
+  {
+    "scenario_id": "pm070",
+    "category": "security_compliance_governance",
+    "expected_domains": [
+      "DevSecOps"
+    ],
+    "predicted_domain": "SRE",
+    "expected_action": "Patch or block release",
+    "acceptable_actions": [
+      "Patch or block release"
+    ],
+    "selected_action": "Mitigate and monitor",
+    "domain_match": false,
+    "primary_action_match": false,
+    "acceptable_action_match": false,
+    "prompt": "Engineering requested a security exception for the release, but policy checks are still failing. What should we recommend?"
+  },
+  {
+    "scenario_id": "pm071",
+    "category": "cross_domain_release_governance",
+    "expected_domains": [
+      "DevOps",
+      "DevSecOps"
+    ],
+    "predicted_domain": "SRE",
+    "expected_action": "Patch or block release",
+    "acceptable_actions": [
+      "Patch or block release",
+      "Rollback to stable deployment"
+    ],
+    "selected_action": "Mitigate and monitor",
+    "domain_match": false,
+    "primary_action_match": false,
+    "acceptable_action_match": false,
+    "prompt": "The release has deployment instability and a security finding. What should the PM recommend for the release decision?"
+  },
+  {
+    "scenario_id": "pm073",
+    "category": "cross_domain_release_governance",
+    "expected_domains": [
+      "DevSecOps",
+      "DevOps"
+    ],
+    "predicted_domain": "SRE",
+    "expected_action": "Patch or block release",
+    "acceptable_actions": [
+      "Patch or block release",
+      "Rollback to stable deployment"
+    ],
+    "selected_action": "Mitigate and monitor",
+    "domain_match": false,
+    "primary_action_match": false,
+    "acceptable_action_match": false,
+    "prompt": "The deployment pipeline passed, but the policy gate failed. What is the safest governance decision?"
+  },
+  {
+    "scenario_id": "pm093",
+    "category": "cross_domain_release_governance",
+    "expected_domains": [
+      "DevSecOps",
+      "DevOps"
+    ],
+    "predicted_domain": "SRE",
+    "expected_action": "Patch or block release",
+    "acceptable_actions": [
+      "Patch or block release",
+      "Rollback to stable deployment"
+    ],
+    "selected_action": "Mitigate and monitor",
+    "domain_match": false,
+    "primary_action_match": false,
+    "acceptable_action_match": false,
+    "prompt": "We committed to a customer release today, but the security gate is failing. What should the governance decision be?"
+  },
+  {
+    "scenario_id": "pm095",
+    "category": "release_governance",
+    "expected_domains": [
+      "DevOps"
+    ],
+    "predicted_domain": "SRE",
+    "expected_action": "Mitigate and monitor",
+    "acceptable_actions": [
+      "Mitigate and monitor",
+      "Rollback to stable deployment",
+      "Block release and fix pipeline"
+    ],
+    "selected_action": "Mitigate and monitor",
+    "domain_match": false,
+    "primary_action_match": true,
+    "acceptable_action_match": true,
+    "prompt": "Before approving the release, I need to know whether deployment health is stable enough to proceed."
+  },
+  {
+    "scenario_id": "pm098",
+    "category": "security_compliance_governance",
+    "expected_domains": [
+      "DevSecOps",
+      "DevOps"
+    ],
+    "predicted_domain": "SRE",
+    "expected_action": "Patch or block release",
+    "acceptable_actions": [
+      "Patch or block release",
+      "Rollback to stable deployment"
+    ],
+    "selected_action": "Mitigate and monitor",
+    "domain_match": false,
+    "primary_action_match": false,
+    "acceptable_action_match": false,
+    "prompt": "Compliance evidence is incomplete for the release approval. What should the team do before proceeding?"
+  }
+]
