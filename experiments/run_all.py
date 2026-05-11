@@ -68,15 +68,28 @@ def main() -> None:
 
     _ensure_dir(args.out)
 
+    # The generator returns the original 30 controlled scenarios by default.
+    # When --n is greater than 30, target_n expands the controlled scenario set
+    # using deterministic severity and cross-domain variants.
     scenarios_all: List[Dict[str, Any]] = generate_scenarios(
         seed=args.seed,
         noise={
             "missing_evidence_prob": 0.20,
             "contradiction_prob": 0.10,
             "metric_jitter_pct": 0.05,
+            "target_n": max(args.n, 30),
         },
     )
     scenarios = scenarios_all[: args.n]
+
+    if len(scenarios) < args.n:
+        raise ValueError(
+            f"Requested {args.n} scenarios, but generator returned only {len(scenarios)}."
+        )
+
+    # Persist scenario definitions for reproducibility.
+    with open(os.path.join(args.out, "scenarios.json"), "w", encoding="utf-8") as f:
+        json.dump(scenarios, f, indent=2)
 
     # Baselines
     trad_rows = run_traditional_baseline(scenarios, seed=args.seed)
@@ -94,7 +107,7 @@ def main() -> None:
         aaf_no_rar.append(asdict(run_pipeline(scenario, mode="aaf_no_rar")))
         aaf_no_utility.append(asdict(run_pipeline(scenario, mode="aaf_no_utility")))
 
-    # Persist raw rows
+    # Persist raw rows.
     _dump_jsonl(os.path.join(args.out, "traditional.jsonl"), trad_rows)
     _dump_jsonl(os.path.join(args.out, "single_agent_llm.jsonl"), llm_rows)
     _dump_jsonl(os.path.join(args.out, "aaf_full.jsonl"), aaf_rows)
@@ -102,8 +115,24 @@ def main() -> None:
     _dump_jsonl(os.path.join(args.out, "aaf_no_rar.jsonl"), aaf_no_rar)
     _dump_jsonl(os.path.join(args.out, "aaf_no_utility.jsonl"), aaf_no_utility)
 
-    # Aggregate metrics
+    # Aggregate metrics.
     summary = {
+        "experiment": {
+            "n_requested": args.n,
+            "n_evaluated": len(scenarios),
+            "seed": args.seed,
+            "scenario_source": "controlled_scenario_variants",
+            "note": (
+                "Expanded scenarios are deterministic controlled variants, "
+                "not independent production incidents."
+            ),
+        },
+        "parameters": {
+            "missing_evidence_prob": 0.20,
+            "contradiction_prob": 0.10,
+            "metric_jitter_pct": 0.05,
+            "target_n": max(args.n, 30),
+        },
         "traditional": _summarize_baseline(trad_rows),
         "single_agent_llm": _summarize_baseline(llm_rows),
         "aaf_full": {
@@ -123,6 +152,7 @@ def main() -> None:
     write_tables(args.out, summary)
 
     print(f"Wrote results to: {args.out}")
+    print(f"Evaluated scenarios: {len(scenarios)}")
 
 
 if __name__ == "__main__":
