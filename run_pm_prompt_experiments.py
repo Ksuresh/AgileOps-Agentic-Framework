@@ -90,6 +90,99 @@ def _safe_get_expected_action(item: Dict[str, Any]) -> str | None:
     return None
 
 
+def _normalize_action(action: str | None) -> str:
+    if not action:
+        return ""
+
+    a = action.lower().strip()
+
+    if "rollback" in a:
+        return "rollback"
+    if "patch" in a or "block" in a or "security" in a:
+        return "patch_block"
+    if "scale" in a or "scaling" in a:
+        return "scale"
+    if "mitigate" in a or "monitor" in a:
+        return "mitigate_monitor"
+    if "review" in a:
+        return "review"
+    if "observe" in a or "no action" in a:
+        return "observe"
+    if "defer" in a:
+        return "defer"
+
+    return a
+
+
+def _dedupe_actions(actions: List[str]) -> List[str]:
+    seen = set()
+    unique: List[str] = []
+
+    for action in actions:
+        normalized = _normalize_action(action)
+        if normalized and normalized not in seen:
+            seen.add(normalized)
+            unique.append(action)
+
+    return unique
+
+
+def _default_acceptable_actions(
+    expected_domains: List[str],
+    expected_action: str | None,
+) -> List[str]:
+    """
+    Provides controlled acceptable action sets for PM prompts.
+
+    Natural-language PM prompts often support more than one defensible
+    governance action. The primary expected action remains the stricter label,
+    while acceptable actions are used for a secondary, less brittle metric.
+    """
+    actions: List[str] = []
+
+    if expected_action:
+        actions.append(expected_action)
+
+    domains = set(expected_domains or [])
+
+    if "DevSecOps" in domains:
+        actions.append("Patch or block release")
+
+    if "DevOps" in domains:
+        actions.append("Rollback to stable deployment")
+        actions.append("Block release and fix pipeline")
+
+    if "SRE" in domains:
+        actions.append("Mitigate and monitor")
+        actions.append("Scale adjustment")
+
+    if "FinOps" in domains:
+        actions.append("Scale adjustment")
+        actions.append("Review scaling policy")
+
+    return _dedupe_actions(actions)
+
+
+def _safe_get_acceptable_actions(
+    item: Dict[str, Any],
+    expected_domains: List[str],
+    expected_action: str | None,
+) -> List[str]:
+    actions = _default_acceptable_actions(expected_domains, expected_action)
+
+    value = item.get("acceptable_actions")
+    if isinstance(value, list):
+        actions.extend(str(v).strip() for v in value if str(v).strip())
+
+    expected = item.get("expected")
+    if isinstance(expected, dict):
+        value = expected.get("acceptable_actions")
+        if isinstance(value, list):
+            actions.extend(str(v).strip() for v in value if str(v).strip())
+
+    return _dedupe_actions(actions)
+
+
 def _prompt_to_basic_telemetry(prompt: str) -> Dict[str, Any]:
     """
     Fallback deterministic prompt-to-telemetry mapper.
@@ -267,6 +360,7 @@ def _build_scenario_from_prompt(item: Dict[str, Any], idx: int) -> Dict[str, Any
     expected_domains = _safe_get_expected_domains(item)
     expected_domain = expected_domains[0] if expected_domains else None
     expected_action = _safe_get_expected_action(item)
+    acceptable_actions = _safe_get_acceptable_actions(item, expected_domains, expected_action)
 
     telemetry = None
 
@@ -306,6 +400,7 @@ def _build_scenario_from_prompt(item: Dict[str, Any], idx: int) -> Dict[str, Any
             "root_cause": item.get("root_cause", item.get("category", "pm_prompt")),
             "recommended_action": expected_action,
             "expected_action": expected_action,
+            "acceptable_actions": acceptable_actions,
         },
         "thresholds": DEFAULT_THRESHOLDS.copy(),
         "utility_weights": DEFAULT_UTILITY_WEIGHTS,
@@ -325,32 +420,29 @@ def _domain_match(gt: Any, pred: str | None) -> bool:
     return str(pred).strip().lower() in expected
 
 
-def _normalize_action(action: str | None) -> str:
-    if not action:
-        return ""
-
-    a = action.lower().strip()
-
-    if "rollback" in a:
-        return "rollback"
-    if "patch" in a or "block" in a or "security" in a:
-        return "patch_block"
-    if "scale" in a or "scaling" in a:
-        return "scale"
-    if "mitigate" in a or "monitor" in a:
-        return "mitigate_monitor"
-    if "review" in a:
-        return "review"
-    if "observe" in a or "no action" in a:
-        return "observe"
-    if "defer" in a:
-        return "defer"
-
-    return a
-
-
-def _action_match(gt: str | None, pred: str | None) -> bool:
+def _primary_action_match(gt: str | None, pred: str | None) -> bool:
     return bool(gt and pred and _normalize_action(gt) == _normalize_action(pred))
+
+
+def _acceptable_action_match(
+    gt: str | None,
+    pred: str | None,
+    acceptable_actions: List[str] | None = None,
+) -> bool:
+    if not pred:
+        return False
+
+    candidates: List[str] = []
+    if gt:
+        candidates.append(gt)
+    if acceptable_actions:
+        candidates.extend(acceptable_actions)
+
+    if not candidates:
+        return False
+
+    pred_norm = _normalize_action(pred)
+    return any(_normalize_action(candidate) == pred_norm for candidate in candidates)
 
 
 def _mean(values: List[float | bool]) -> float:
@@ -393,7 +485,8 @@ def _summarize_category(rows: List[Dict[str, Any]]) -> Dict[str, Any]:
 
     for category, category_rows in sorted(by_category.items()):
         domain_values = []
-        action_values = []
+        primary_action_values = []
+        acceptable_action_values = []
 
         for row in category_rows:
             gt = row.get("ground_truth") or {}
@@ -401,17 +494,22 @@ def _summarize_category(rows: List[Dict[str, Any]]) -> Dict[str, Any]:
 
             expected_domains = gt.get("expected_domains") or gt.get("primary_domain")
             expected_action = gt.get("expected_action")
+            acceptable_actions = gt.get("acceptable_actions") or []
             selected_action = utility.get("selected_action")
 
             if expected_domains:
                 domain_values.append(_domain_match(expected_domains, row.get("predicted_primary_domain")))
             if expected_action:
-                action_values.append(_action_match(expected_action, selected_action))
+                primary_action_values.append(_primary_action_match(expected_action, selected_action))
+                acceptable_action_values.append(
+                    _acceptable_action_match(expected_action, selected_action, acceptable_actions)
+                )
 
         summary[category] = {
             "n": len(category_rows),
             "domain_match_rate": _mean(domain_values),
-            "action_match_rate": _mean(action_values),
+            "primary_action_match_rate": _mean(primary_action_values),
+            "acceptable_action_match_rate": _mean(acceptable_action_values),
         }
 
     return summary
@@ -427,12 +525,18 @@ def _collect_mismatches(rows: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
         expected_domains = gt.get("expected_domains") or gt.get("primary_domain")
         predicted_domain = row.get("predicted_primary_domain")
         expected_action = gt.get("expected_action")
+        acceptable_actions = gt.get("acceptable_actions") or []
         selected_action = utility.get("selected_action")
 
         domain_match = _domain_match(expected_domains, predicted_domain)
-        action_match = _action_match(expected_action, selected_action)
+        primary_action_match = _primary_action_match(expected_action, selected_action)
+        acceptable_action_match = _acceptable_action_match(
+            expected_action,
+            selected_action,
+            acceptable_actions,
+        )
 
-        if not domain_match or not action_match:
+        if not domain_match or not acceptable_action_match:
             mismatches.append(
                 {
                     "scenario_id": row.get("scenario_id"),
@@ -440,9 +544,11 @@ def _collect_mismatches(rows: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
                     "expected_domains": expected_domains,
                     "predicted_domain": predicted_domain,
                     "expected_action": expected_action,
+                    "acceptable_actions": acceptable_actions,
                     "selected_action": selected_action,
                     "domain_match": domain_match,
-                    "action_match": action_match,
+                    "primary_action_match": primary_action_match,
+                    "acceptable_action_match": acceptable_action_match,
                     "prompt": row.get("prompt", ""),
                 }
             )
@@ -453,27 +559,27 @@ def _collect_mismatches(rows: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
 def _summarize(rows: List[Dict[str, Any]]) -> Dict[str, Any]:
     n = len(rows)
 
-    domain_matches = [
-        _domain_match(
-            (r.get("ground_truth") or {}).get("expected_domains")
-            or (r.get("ground_truth") or {}).get("primary_domain"),
-            r.get("predicted_primary_domain"),
-        )
-        for r in rows
-        if (
-            (r.get("ground_truth") or {}).get("expected_domains")
-            or (r.get("ground_truth") or {}).get("primary_domain")
-        )
-    ]
+    domain_matches = []
+    primary_action_matches = []
+    acceptable_action_matches = []
 
-    action_matches = [
-        _action_match(
-            (r.get("ground_truth") or {}).get("expected_action"),
-            (r.get("utility") or {}).get("selected_action"),
-        )
-        for r in rows
-        if (r.get("ground_truth") or {}).get("expected_action")
-    ]
+    for row in rows:
+        gt = row.get("ground_truth") or {}
+        utility = row.get("utility") or {}
+
+        expected_domains = gt.get("expected_domains") or gt.get("primary_domain")
+        expected_action = gt.get("expected_action")
+        acceptable_actions = gt.get("acceptable_actions") or []
+        selected_action = utility.get("selected_action")
+
+        if expected_domains:
+            domain_matches.append(_domain_match(expected_domains, row.get("predicted_primary_domain")))
+
+        if expected_action:
+            primary_action_matches.append(_primary_action_match(expected_action, selected_action))
+            acceptable_action_matches.append(
+                _acceptable_action_match(expected_action, selected_action, acceptable_actions)
+            )
 
     consensus_values = [float(r.get("consensus_score", 0.0) or 0.0) for r in rows]
     utility_values = [float((r.get("utility") or {}).get("best_utility", 0.0) or 0.0) for r in rows]
@@ -483,19 +589,30 @@ def _summarize(rows: List[Dict[str, Any]]) -> Dict[str, Any]:
     xi_values = [float((r.get("explainability") or {}).get("xi", 0.0) or 0.0) for r in rows]
 
     rar_triggered = sum(1 for r in rows if (r.get("rar") or {}).get("triggered"))
-    rar_accepted = sum(1 for r in rows if (r.get("rar") or {}).get("accepted"))
+    rar_accepted = sum(
+        1
+        for r in rows
+        if (r.get("rar") or {}).get("triggered") and (r.get("rar") or {}).get("accepted")
+    )
 
     domain_success = sum(1 for value in domain_matches if value)
-    action_success = sum(1 for value in action_matches if value)
+    primary_action_success = sum(1 for value in primary_action_matches if value)
+    acceptable_action_success = sum(1 for value in acceptable_action_matches if value)
 
     return {
         "n": n,
         "domain_match_rate": _mean(domain_matches),
         "domain_match_n": len(domain_matches),
         "domain_match_ci": _binary_ci(domain_success, len(domain_matches)),
-        "action_match_rate": _mean(action_matches),
-        "action_match_n": len(action_matches),
-        "action_match_ci": _binary_ci(action_success, len(action_matches)),
+        "primary_action_match_rate": _mean(primary_action_matches),
+        "primary_action_match_n": len(primary_action_matches),
+        "primary_action_match_ci": _binary_ci(primary_action_success, len(primary_action_matches)),
+        "acceptable_action_match_rate": _mean(acceptable_action_matches),
+        "acceptable_action_match_n": len(acceptable_action_matches),
+        "acceptable_action_match_ci": _binary_ci(
+            acceptable_action_success,
+            len(acceptable_action_matches),
+        ),
         "consensus_mean": _mean(consensus_values),
         "utility_mean": _mean(utility_values),
         "performance_mean": _mean(performance_values),
@@ -513,7 +630,9 @@ def _summarize(rows: List[Dict[str, Any]]) -> Dict[str, Any]:
         "utility_weights": list(DEFAULT_UTILITY_WEIGHTS),
         "note": (
             "Confidence intervals are descriptive uncertainty estimates for the curated "
-            "PM prompt evaluation set."
+            "PM prompt evaluation set. Primary action match uses the single expected "
+            "action label. Acceptable action match allows curated governance-equivalent "
+            "actions for ambiguous PM prompts."
         ),
     }
 
@@ -533,8 +652,10 @@ def _write_csv(path: Path, rows: List[Dict[str, Any]]) -> None:
         "predicted_domain",
         "domain_match",
         "expected_action",
+        "acceptable_actions",
         "selected_action",
-        "action_match",
+        "primary_action_match",
+        "acceptable_action_match",
         "consensus_score",
         "rar_triggered",
         "rar_accepted",
@@ -549,33 +670,40 @@ def _write_csv(path: Path, rows: List[Dict[str, Any]]) -> None:
         writer = csv.DictWriter(f, fieldnames=fieldnames)
         writer.writeheader()
 
-        for r in rows:
-            gt = r.get("ground_truth") or {}
-            utility = r.get("utility") or {}
-            rar = r.get("rar") or {}
-            xi = r.get("explainability") or {}
+        for row in rows:
+            gt = row.get("ground_truth") or {}
+            utility = row.get("utility") or {}
+            rar = row.get("rar") or {}
+            xi = row.get("explainability") or {}
 
             expected_domains = gt.get("expected_domains") or gt.get("primary_domain")
-            predicted_domain = r.get("predicted_primary_domain")
+            predicted_domain = row.get("predicted_primary_domain")
             expected_action = gt.get("expected_action")
+            acceptable_actions = gt.get("acceptable_actions") or []
             selected_action = utility.get("selected_action")
 
             writer.writerow(
                 {
-                    "scenario_id": r.get("scenario_id"),
-                    "category": r.get("category") or r.get("scenario_type"),
-                    "prompt": r.get("prompt", ""),
+                    "scenario_id": row.get("scenario_id"),
+                    "category": row.get("category") or row.get("scenario_type"),
+                    "prompt": row.get("prompt", ""),
                     "expected_domains": json.dumps(expected_domains, ensure_ascii=False)
                     if isinstance(expected_domains, list)
                     else expected_domains,
                     "predicted_domain": predicted_domain,
                     "domain_match": _domain_match(expected_domains, predicted_domain),
                     "expected_action": expected_action,
+                    "acceptable_actions": json.dumps(acceptable_actions, ensure_ascii=False),
                     "selected_action": selected_action,
-                    "action_match": _action_match(expected_action, selected_action),
-                    "consensus_score": r.get("consensus_score"),
+                    "primary_action_match": _primary_action_match(expected_action, selected_action),
+                    "acceptable_action_match": _acceptable_action_match(
+                        expected_action,
+                        selected_action,
+                        acceptable_actions,
+                    ),
+                    "consensus_score": row.get("consensus_score"),
                     "rar_triggered": rar.get("triggered"),
-                    "rar_accepted": rar.get("accepted"),
+                    "rar_accepted": rar.get("accepted") if rar.get("triggered") else False,
                     "utility": utility.get("best_utility"),
                     "performance_score": utility.get("performance_score"),
                     "cost_efficiency_score": utility.get("cost_efficiency_score"),
