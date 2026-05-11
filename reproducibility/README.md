@@ -1,6 +1,6 @@
 # Expanded Controlled Evaluation: 120 Scenarios
 
-This folder contains the expanded controlled evaluation results for the AgileOps Agentic Framework (AAF).
+This folder contains the expanded controlled evaluation results for the AgileOps Agentic Framework (AAF).   
 
 ## Scope
 
