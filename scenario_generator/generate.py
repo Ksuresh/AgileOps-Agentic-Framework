@@ -110,20 +110,119 @@ def _apply_missing_or_noise(
     return s
 
 
+def _add_variant_noise(
+    scenario: Dict[str, Any],
+    rng: random.Random,
+) -> Dict[str, Any]:
+    """
+    Creates deterministic scenario variants for expanded evaluation.
+
+    The function changes severity, adds controlled cross-domain ambiguity,
+    and preserves the intended primary-domain ground truth. This is meant to
+    enlarge the controlled evaluation set without pretending that the variants
+    are independent production incidents.
+    """
+    base = copy.deepcopy(scenario)
+    telemetry = base["telemetry"]
+    primary = base["ground_truth"]["primary_domain"]
+    secondary = base["ground_truth"].setdefault("secondary_domains", [])
+
+    severity_multiplier = 1.0 + rng.uniform(-0.20, 0.35)
+
+    if primary == "SRE":
+        telemetry["sre"]["p95_latency_ms"] = round(
+            float(telemetry["sre"]["p95_latency_ms"]) * severity_multiplier, 3
+        )
+        telemetry["sre"]["error_rate_pct"] = round(
+            float(telemetry["sre"]["error_rate_pct"]) * severity_multiplier, 3
+        )
+        telemetry["sre"]["saturation_pct"] = min(
+            99.0,
+            round(float(telemetry["sre"]["saturation_pct"]) * severity_multiplier, 3),
+        )
+
+    elif primary == "FinOps":
+        telemetry["finops"]["cost_spike_pct"] = round(
+            float(telemetry["finops"]["cost_spike_pct"]) * severity_multiplier, 3
+        )
+        telemetry["finops"]["hpa_scale_to"] = max(
+            1,
+            int(round(float(telemetry["finops"]["hpa_scale_to"]) * severity_multiplier)),
+        )
+
+    elif primary == "DevOps":
+        telemetry["deploy"]["restart_loops"] = max(
+            int(telemetry["deploy"].get("restart_loops", 0)),
+            int(round(rng.uniform(3, 22))),
+        )
+        if rng.random() < 0.35:
+            telemetry["deploy"]["config_drift"] = True
+        if rng.random() < 0.35:
+            telemetry["deploy"]["rollback_marker"] = True
+
+    elif primary == "DevSecOps":
+        telemetry["sec"]["critical_cves"] = max(
+            int(telemetry["sec"].get("critical_cves", 0)),
+            int(rng.choice([0, 1, 2, 3])),
+        )
+        if rng.random() < 0.50:
+            telemetry["sec"]["policy_violation"] = True
+        if rng.random() < 0.25:
+            telemetry["sec"]["compliance_gap"] = True
+
+    # Add controlled cross-domain ambiguity to make the expanded evaluation less trivial.
+    if rng.random() < 0.35:
+        telemetry["sre"]["p95_latency_ms"] = max(
+            float(telemetry["sre"]["p95_latency_ms"]),
+            round(rng.uniform(350, 850), 3),
+        )
+        telemetry["sre"]["error_rate_pct"] = max(
+            float(telemetry["sre"]["error_rate_pct"]),
+            round(rng.uniform(2.0, 9.0), 3),
+        )
+        if primary != "SRE" and "SRE" not in secondary:
+            secondary.append("SRE")
+
+    if rng.random() < 0.25:
+        telemetry["finops"]["cost_spike_pct"] = max(
+            float(telemetry["finops"]["cost_spike_pct"]),
+            round(rng.uniform(12.0, 38.0), 3),
+        )
+        telemetry["finops"]["hpa_scale_to"] = max(
+            int(telemetry["finops"]["hpa_scale_to"]),
+            int(rng.choice([8, 10, 12, 14, 16])),
+        )
+        if primary != "FinOps" and "FinOps" not in secondary:
+            secondary.append("FinOps")
+
+    if rng.random() < 0.20:
+        telemetry["sec"]["policy_violation"] = True
+        if primary != "DevSecOps" and "DevSecOps" not in secondary:
+            secondary.append("DevSecOps")
+
+    return base
+
+
 def generate_scenarios(seed: int = 42, noise: Dict[str, Any] | None = None) -> List[Dict[str, Any]]:
     """
-    Generates 30 deterministic governance scenarios.
+    Generates deterministic governance scenarios.
 
-    Design principle:
-    - Each scenario has a clear primary domain.
+    By default, this function returns the original 30 controlled scenarios.
+    When noise["target_n"] is greater than 30, it expands the evaluation set
+    with deterministic severity and cross-domain variants.
+
+    Design principles:
+    - Each scenario has a defined primary domain.
     - Secondary impacts may exist, but they do not override the root cause.
     - Ground truth is assigned by scenario design, not by random threshold priority.
+    - Expanded variants are controlled scenario variants, not production incidents.
     """
     noise = noise or {}
     rng = random.Random(seed)
 
     missing_p = float(noise.get("missing_evidence_prob", 0.20))
     jitter_pct = float(noise.get("metric_jitter_pct", 0.05))
+    target_n = int(noise.get("target_n", 30))
 
     scenarios: List[Dict[str, Any]] = []
 
@@ -226,7 +325,11 @@ def generate_scenarios(seed: int = 42, noise: Dict[str, Any] | None = None) -> L
         "over_provisioned_resources",
         "Scale adjustment",
         {
-            "finops": {"cost_spike_pct": 28.0, "cpu_request_increase_pct": 60.0, "memory_request_increase_pct": 45.0},
+            "finops": {
+                "cost_spike_pct": 28.0,
+                "cpu_request_increase_pct": 60.0,
+                "memory_request_increase_pct": 45.0,
+            },
         },
         [],
         "medium",
@@ -544,6 +647,25 @@ def generate_scenarios(seed: int = 42, noise: Dict[str, Any] | None = None) -> L
         ["SRE", "FinOps"],
         "high",
     )
+
+    if len(scenarios) >= target_n:
+        return scenarios[:target_n]
+
+    base_scenarios = copy.deepcopy(scenarios)
+    variation_idx = 1
+
+    while len(scenarios) < target_n:
+        base_index = (len(scenarios) - len(base_scenarios)) % len(base_scenarios)
+        variant = _add_variant_noise(base_scenarios[base_index], rng)
+
+        variant["scenario_id"] = f"TC-{len(scenarios) + 1:03d}"
+        variant["incident_id"] = variant["scenario_id"]
+        variant["category"] = f"{variant['category']}_variant"
+        variant["scenario_type"] = variant["category"]
+        variant["variant_id"] = variation_idx
+        variation_idx += 1
+
+        scenarios.append(_apply_missing_or_noise(variant, rng, missing_p, jitter_pct))
 
     return scenarios
 
