@@ -1,0 +1,40 @@
+{
+  "n": 30,
+  "input": "results_phase2a_pm_prompts_100_aligned/pm_prompt_outputs.jsonl",
+  "case_limit": 30,
+  "selection_mode": "stratified",
+  "seed": 42,
+  "model": "gpt-4o-mini",
+  "temperature": 0.0,
+  "prompt_template_sha256": "59f71d95a8d34454b6111407b1dec9fec7765f5dbcccd14bc8f69bb6b25339e8",
+  "domain_consistency_rate": 1.0,
+  "domain_consistency_ci": {
+    "rate": 1.0,
+    "n": 30.0,
+    "successes": 30.0,
+    "se": 0.0,
+    "ci95_low": 1.0,
+    "ci95_high": 1.0
+  },
+  "action_consistency_rate": 1.0,
+  "action_consistency_ci": {
+    "rate": 1.0,
+    "n": 30.0,
+    "successes": 30.0,
+    "se": 0.0,
+    "ci95_low": 1.0,
+    "ci95_high": 1.0
+  },
+  "evidence_coverage_mean": 1.0,
+  "unsupported_claim_risk_mean": 0.2805518783090131,
+  "ces_heuristic_mean": 0.5730966666666667,
+  "readability_mean": 0.6755133333333333,
+  "evidence_clarity_mean": 0.47662666666666664,
+  "traceability_mean": 0.5612499999999999,
+  "prompt_tokens_total": 34059,
+  "completion_tokens_total": 7628,
+  "tokens_total": 41687,
+  "estimated_cost_usd_total": 0.009685649999999999,
+  "pricing_note": "Cost estimate uses local pricing table in run_llm_explanation_eval.py; update table if model pricing changes.",
+  "interpretation_note": "This evaluation measures grounded explanation consistency from structured AAF outputs. It should not be interpreted as open-ended LLM reasoning accuracy or production-scale validation. CES is a heuristic composite explainability score, not a separately validated human-evaluation metric."
+}
