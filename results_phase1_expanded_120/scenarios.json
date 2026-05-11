@@ -1,0 +1,6567 @@
+[
+  {
+    "scenario_id": "TC-01",
+    "incident_id": "TC-01",
+    "category": "deployment_failure",
+    "scenario_type": "deployment_failure",
+    "priority": "high",
+    "telemetry": {
+      "deploy": {
+        "restart_loops": 0,
+        "config_drift": false,
+        "pipeline_failed": true,
+        "rollback_marker": true,
+        "artifact_mismatch": true
+      },
+      "sre": {
+        "p95_latency_ms": 456.274,
+        "error_rate_pct": 7.62,
+        "saturation_pct": 53.763,
+        "availability_pct": 97.135
+      },
+      "finops": {
+        "cost_spike_pct": 0.0,
+        "hpa_scale_to": 4.071,
+        "cpu_request_increase_pct": 0.0,
+        "memory_request_increase_pct": 0.0
+      },
+      "sec": {
+        "critical_cves": 0,
+        "policy_violation": false,
+        "iam_drift": false,
+        "compliance_gap": false
+      }
+    },
+    "ground_truth": {
+      "primary_domain": "DevOps",
+      "secondary_domains": [
+        "SRE"
+      ],
+      "root_cause": "bad_image_tag",
+      "recommended_action": "Rollback to stable deployment",
+      "expected_action": "Rollback to stable deployment"
+    },
+    "thresholds": {
+      "tau_consensus": 0.65,
+      "delta_min": 0.05,
+      "max_rar_loops": 2
+    },
+    "utility_weights": [
+      0.4,
+      0.3,
+      0.3
+    ],
+    "lam": 0.5
+  },
+  {
+    "scenario_id": "TC-02",
+    "incident_id": "TC-02",
+    "category": "deployment_failure",
+    "scenario_type": "deployment_failure",
+    "priority": "high",
+    "telemetry": {
+      "deploy": {
+        "restart_loops": 12,
+        "config_drift": true,
+        "pipeline_failed": false,
+        "rollback_marker": true,
+        "artifact_mismatch": false
+      },
+      "sre": {
+        "p95_latency_ms": 371.662,
+        "error_rate_pct": 5.831,
+        "saturation_pct": 55.029,
+        "availability_pct": 95.17
+      },
+      "finops": {
+        "cost_spike_pct": 0.0,
+        "hpa_scale_to": 4.06,
+        "cpu_request_increase_pct": 0.0,
+        "memory_request_increase_pct": 0.0
+      },
+      "sec": {
+        "critical_cves": 0,
+        "policy_violation": false,
+        "iam_drift": false,
+        "compliance_gap": false
+      }
+    },
+    "ground_truth": {
+      "primary_domain": "DevOps",
+      "secondary_domains": [
+        "SRE"
+      ],
+      "root_cause": "configuration_drift",
+      "recommended_action": "Rollback to stable deployment",
+      "expected_action": "Rollback to stable deployment"
+    },
+    "thresholds": {
+      "tau_consensus": 0.65,
+      "delta_min": 0.05,
+      "max_rar_loops": 2
+    },
+    "utility_weights": [
+      0.4,
+      0.3,
+      0.3
+    ],
+    "lam": 0.5
+  },
+  {
+    "scenario_id": "TC-03",
+    "incident_id": "TC-03",
+    "category": "deployment_failure",
+    "scenario_type": "deployment_failure",
+    "priority": "medium",
+    "telemetry": {
+      "deploy": {
+        "restart_loops": 0,
+        "config_drift": false,
+        "pipeline_failed": true,
+        "rollback_marker": false,
+        "artifact_mismatch": true,
+        "_missing": true
+      },
+      "sre": {
+        "p95_latency_ms": 185.57,
+        "error_rate_pct": 0.475,
+        "saturation_pct": 56.682,
+        "availability_pct": 101.879
+      },
+      "finops": {
+        "cost_spike_pct": 0.0,
+        "hpa_scale_to": 3.862,
+        "cpu_request_increase_pct": 0.0,
+        "memory_request_increase_pct": 0.0
+      },
+      "sec": {
+        "critical_cves": 0,
+        "policy_violation": false,
+        "iam_drift": false,
+        "compliance_gap": false
+      }
+    },
+    "ground_truth": {
+      "primary_domain": "DevOps",
+      "secondary_domains": [],
+      "root_cause": "failed_pipeline_gate",
+      "recommended_action": "Block release and fix pipeline",
+      "expected_action": "Block release and fix pipeline"
+    },
+    "thresholds": {
+      "tau_consensus": 0.65,
+      "delta_min": 0.05,
+      "max_rar_loops": 2
+    },
+    "utility_weights": [
+      0.4,
+      0.3,
+      0.3
+    ],
+    "lam": 0.5
+  },
+  {
+    "scenario_id": "TC-04",
+    "incident_id": "TC-04",
+    "category": "deployment_failure",
+    "scenario_type": "deployment_failure",
+    "priority": "high",
+    "telemetry": {
+      "deploy": {
+        "restart_loops": 18,
+        "config_drift": false,
+        "pipeline_failed": false,
+        "rollback_marker": true,
+        "artifact_mismatch": false
+      },
+      "sre": {
+        "p95_latency_ms": 512.667,
+        "error_rate_pct": 9.844,
+        "saturation_pct": 53.705,
+        "availability_pct": 95.339
+      },
+      "finops": {
+        "cost_spike_pct": 11.951,
+        "hpa_scale_to": 6.737,
+        "cpu_request_increase_pct": 0.0,
+        "memory_request_increase_pct": 0.0
+      },
+      "sec": {
+        "critical_cves": 0,
+        "policy_violation": false,
+        "iam_drift": false,
+        "compliance_gap": false
+      }
+    },
+    "ground_truth": {
+      "primary_domain": "DevOps",
+      "secondary_domains": [
+        "SRE",
+        "FinOps"
+      ],
+      "root_cause": "container_restart_after_release",
+      "recommended_action": "Rollback to stable deployment",
+      "expected_action": "Rollback to stable deployment"
+    },
+    "thresholds": {
+      "tau_consensus": 0.65,
+      "delta_min": 0.05,
+      "max_rar_loops": 2
+    },
+    "utility_weights": [
+      0.4,
+      0.3,
+      0.3
+    ],
+    "lam": 0.5
+  },
+  {
+    "scenario_id": "TC-05",
+    "incident_id": "TC-05",
+    "category": "cost_anomaly",
+    "scenario_type": "cost_anomaly",
+    "priority": "high",
+    "telemetry": {
+      "deploy": {
+        "restart_loops": 0,
+        "config_drift": false,
+        "pipeline_failed": false,
+        "rollback_marker": false,
+        "artifact_mismatch": false
+      },
+      "sre": {
+        "p95_latency_ms": 212.701,
+        "error_rate_pct": 1.039,
+        "saturation_pct": 54.239,
+        "availability_pct": 96.826
+      },
+      "finops": {
+        "cost_spike_pct": 38.278,
+        "hpa_scale_to": 16.258,
+        "cpu_request_increase_pct": 0.0,
+        "memory_request_increase_pct": 0.0
+      },
+      "sec": {
+        "critical_cves": 0,
+        "policy_violation": false,
+        "iam_drift": false,
+        "compliance_gap": false
+      }
+    },
+    "ground_truth": {
+      "primary_domain": "FinOps",
+      "secondary_domains": [],
+      "root_cause": "autoscaling_cost_spike",
+      "recommended_action": "Scale adjustment",
+      "expected_action": "Scale adjustment"
+    },
+    "thresholds": {
+      "tau_consensus": 0.65,
+      "delta_min": 0.05,
+      "max_rar_loops": 2
+    },
+    "utility_weights": [
+      0.4,
+      0.3,
+      0.3
+    ],
+    "lam": 0.5
+  },
+  {
+    "scenario_id": "TC-06",
+    "incident_id": "TC-06",
+    "category": "cost_anomaly",
+    "scenario_type": "cost_anomaly",
+    "priority": "medium",
+    "telemetry": {
+      "deploy": {
+        "restart_loops": 0,
+        "config_drift": false,
+        "pipeline_failed": false,
+        "rollback_marker": false,
+        "artifact_mismatch": false
+      },
+      "sre": {
+        "p95_latency_ms": 186.597,
+        "error_rate_pct": 0.494,
+        "saturation_pct": 54.744,
+        "availability_pct": 103.238
+      },
+      "finops": {
+        "cost_spike_pct": 27.055,
+        "hpa_scale_to": 3.942,
+        "cpu_request_increase_pct": 61.021,
+        "memory_request_increase_pct": 45.908
+      },
+      "sec": {
+        "critical_cves": 0,
+        "policy_violation": false,
+        "iam_drift": false,
+        "compliance_gap": false
+      }
+    },
+    "ground_truth": {
+      "primary_domain": "FinOps",
+      "secondary_domains": [],
+      "root_cause": "over_provisioned_resources",
+      "recommended_action": "Scale adjustment",
+      "expected_action": "Scale adjustment"
+    },
+    "thresholds": {
+      "tau_consensus": 0.65,
+      "delta_min": 0.05,
+      "max_rar_loops": 2
+    },
+    "utility_weights": [
+      0.4,
+      0.3,
+      0.3
+    ],
+    "lam": 0.5
+  },
+  {
+    "scenario_id": "TC-07",
+    "incident_id": "TC-07",
+    "category": "cost_anomaly",
+    "scenario_type": "cost_anomaly",
+    "priority": "medium",
+    "telemetry": {
+      "deploy": {
+        "restart_loops": 0,
+        "config_drift": false,
+        "pipeline_failed": false,
+        "rollback_marker": false,
+        "artifact_mismatch": false
+      },
+      "sre": {
+        "p95_latency_ms": 172.285,
+        "error_rate_pct": 0.507,
+        "saturation_pct": 42.143,
+        "availability_pct": 97.351
+      },
+      "finops": {
+        "cost_spike_pct": 21.917,
+        "hpa_scale_to": 10.747,
+        "cpu_request_increase_pct": 0.0,
+        "memory_request_increase_pct": 0.0
+      },
+      "sec": {
+        "critical_cves": 0,
+        "policy_violation": false,
+        "iam_drift": false,
+        "compliance_gap": false
+      }
+    },
+    "ground_truth": {
+      "primary_domain": "FinOps",
+      "secondary_domains": [],
+      "root_cause": "unused_capacity",
+      "recommended_action": "Scale adjustment",
+      "expected_action": "Scale adjustment"
+    },
+    "thresholds": {
+      "tau_consensus": 0.65,
+      "delta_min": 0.05,
+      "max_rar_loops": 2
+    },
+    "utility_weights": [
+      0.4,
+      0.3,
+      0.3
+    ],
+    "lam": 0.5
+  },
+  {
+    "scenario_id": "TC-08",
+    "incident_id": "TC-08",
+    "category": "cost_anomaly",
+    "scenario_type": "cost_anomaly",
+    "priority": "high",
+    "telemetry": {
+      "deploy": {
+        "restart_loops": 0,
+        "config_drift": true,
+        "pipeline_failed": false,
+        "rollback_marker": false,
+        "artifact_mismatch": false
+      },
+      "sre": {
+        "p95_latency_ms": 176.837,
+        "error_rate_pct": 0.513,
+        "saturation_pct": 52.558,
+        "availability_pct": 103.115
+      },
+      "finops": {
+        "cost_spike_pct": 36.068,
+        "hpa_scale_to": 13.862,
+        "cpu_request_increase_pct": 0.0,
+        "memory_request_increase_pct": 0.0
+      },
+      "sec": {
+        "critical_cves": 0,
+        "policy_violation": false,
+        "iam_drift": false,
+        "compliance_gap": false
+      }
+    },
+    "ground_truth": {
+      "primary_domain": "FinOps",
+      "secondary_domains": [
+        "DevOps"
+      ],
+      "root_cause": "cost_increase_after_scaling_policy",
+      "recommended_action": "Review scaling policy",
+      "expected_action": "Review scaling policy"
+    },
+    "thresholds": {
+      "tau_consensus": 0.65,
+      "delta_min": 0.05,
+      "max_rar_loops": 2
+    },
+    "utility_weights": [
+      0.4,
+      0.3,
+      0.3
+    ],
+    "lam": 0.5
+  },
+  {
+    "scenario_id": "TC-09",
+    "incident_id": "TC-09",
+    "category": "security_violation",
+    "scenario_type": "security_violation",
+    "priority": "high",
+    "telemetry": {
+      "deploy": {
+        "restart_loops": 0,
+        "config_drift": false,
+        "pipeline_failed": false,
+        "rollback_marker": false,
+        "artifact_mismatch": false
+      },
+      "sre": {
+        "p95_latency_ms": 183.922,
+        "error_rate_pct": 0.486,
+        "saturation_pct": 54.996,
+        "availability_pct": 103.743
+      },
+      "finops": {
+        "cost_spike_pct": 0.0,
+        "hpa_scale_to": 3.857,
+        "cpu_request_increase_pct": 0.0,
+        "memory_request_increase_pct": 0.0
+      },
+      "sec": {
+        "critical_cves": 2,
+        "policy_violation": false,
+        "iam_drift": false,
+        "compliance_gap": false
+      }
+    },
+    "ground_truth": {
+      "primary_domain": "DevSecOps",
+      "secondary_domains": [],
+      "root_cause": "critical_vulnerability",
+      "recommended_action": "Patch or block release",
+      "expected_action": "Patch or block release"
+    },
+    "thresholds": {
+      "tau_consensus": 0.65,
+      "delta_min": 0.05,
+      "max_rar_loops": 2
+    },
+    "utility_weights": [
+      0.4,
+      0.3,
+      0.3
+    ],
+    "lam": 0.5
+  },
+  {
+    "scenario_id": "TC-10",
+    "incident_id": "TC-10",
+    "category": "security_violation",
+    "scenario_type": "security_violation",
+    "priority": "high",
+    "telemetry": {
+      "deploy": {
+        "restart_loops": 0,
+        "config_drift": false,
+        "pipeline_failed": true,
+        "rollback_marker": false,
+        "artifact_mismatch": false
+      },
+      "sre": {
+        "p95_latency_ms": 184.446,
+        "error_rate_pct": 0.496,
+        "saturation_pct": 55.459,
+        "availability_pct": 98.521
+      },
+      "finops": {
+        "cost_spike_pct": 0.0,
+        "hpa_scale_to": 3.855,
+        "cpu_request_increase_pct": 0.0,
+        "memory_request_increase_pct": 0.0
+      },
+      "sec": {
+        "critical_cves": 0,
+        "policy_violation": true,
+        "iam_drift": false,
+        "compliance_gap": false
+      }
+    },
+    "ground_truth": {
+      "primary_domain": "DevSecOps",
+      "secondary_domains": [
+        "DevOps"
+      ],
+      "root_cause": "policy_as_code_violation",
+      "recommended_action": "Patch or block release",
+      "expected_action": "Patch or block release"
+    },
+    "thresholds": {
+      "tau_consensus": 0.65,
+      "delta_min": 0.05,
+      "max_rar_loops": 2
+    },
+    "utility_weights": [
+      0.4,
+      0.3,
+      0.3
+    ],
+    "lam": 0.5
+  },
+  {
+    "scenario_id": "TC-11",
+    "incident_id": "TC-11",
+    "category": "security_violation",
+    "scenario_type": "security_violation",
+    "priority": "high",
+    "telemetry": {
+      "deploy": {
+        "restart_loops": 0,
+        "config_drift": false,
+        "pipeline_failed": false,
+        "rollback_marker": false,
+        "artifact_mismatch": false
+      },
+      "sre": {
+        "p95_latency_ms": 173.751,
+        "error_rate_pct": 0.483,
+        "saturation_pct": 55.993,
+        "availability_pct": 100.863
+      },
+      "finops": {
+        "cost_spike_pct": 0.0,
+        "hpa_scale_to": 4.038,
+        "cpu_request_increase_pct": 0.0,
+        "memory_request_increase_pct": 0.0
+      },
+      "sec": {
+        "critical_cves": 0,
+        "policy_violation": false,
+        "iam_drift": true,
+        "compliance_gap": false
+      }
+    },
+    "ground_truth": {
+      "primary_domain": "DevSecOps",
+      "secondary_domains": [],
+      "root_cause": "iam_drift_detected",
+      "recommended_action": "Patch or block release",
+      "expected_action": "Patch or block release"
+    },
+    "thresholds": {
+      "tau_consensus": 0.65,
+      "delta_min": 0.05,
+      "max_rar_loops": 2
+    },
+    "utility_weights": [
+      0.4,
+      0.3,
+      0.3
+    ],
+    "lam": 0.5
+  },
+  {
+    "scenario_id": "TC-12",
+    "incident_id": "TC-12",
+    "category": "security_violation",
+    "scenario_type": "security_violation",
+    "priority": "medium",
+    "telemetry": {
+      "deploy": {
+        "restart_loops": 0,
+        "config_drift": false,
+        "pipeline_failed": false,
+        "rollback_marker": false,
+        "artifact_mismatch": false
+      },
+      "sre": {
+        "p95_latency_ms": 187.964,
+        "error_rate_pct": 0.509,
+        "saturation_pct": 52.88,
+        "availability_pct": 103.744
+      },
+      "finops": {
+        "cost_spike_pct": 0.0,
+        "hpa_scale_to": 4.107,
+        "cpu_request_increase_pct": 0.0,
+        "memory_request_increase_pct": 0.0
+      },
+      "sec": {
+        "critical_cves": 0,
+        "policy_violation": true,
+        "iam_drift": false,
+        "compliance_gap": true,
+        "_missing": true
+      }
+    },
+    "ground_truth": {
+      "primary_domain": "DevSecOps",
+      "secondary_domains": [],
+      "root_cause": "compliance_control_failure",
+      "recommended_action": "Patch or block release",
+      "expected_action": "Patch or block release"
+    },
+    "thresholds": {
+      "tau_consensus": 0.65,
+      "delta_min": 0.05,
+      "max_rar_loops": 2
+    },
+    "utility_weights": [
+      0.4,
+      0.3,
+      0.3
+    ],
+    "lam": 0.5
+  },
+  {
+    "scenario_id": "TC-13",
+    "incident_id": "TC-13",
+    "category": "reliability_degradation",
+    "scenario_type": "reliability_degradation",
+    "priority": "high",
+    "telemetry": {
+      "deploy": {
+        "restart_loops": 0,
+        "config_drift": false,
+        "pipeline_failed": false,
+        "rollback_marker": false,
+        "artifact_mismatch": false
+      },
+      "sre": {
+        "p95_latency_ms": 940.843,
+        "error_rate_pct": 4.15,
+        "saturation_pct": 78.107,
+        "availability_pct": 99.906
+      },
+      "finops": {
+        "cost_spike_pct": 0.0,
+        "hpa_scale_to": 4.165,
+        "cpu_request_increase_pct": 0.0,
+        "memory_request_increase_pct": 0.0
+      },
+      "sec": {
+        "critical_cves": 0,
+        "policy_violation": false,
+        "iam_drift": false,
+        "compliance_gap": false
+      }
+    },
+    "ground_truth": {
+      "primary_domain": "SRE",
+      "secondary_domains": [],
+      "root_cause": "latency_spike",
+      "recommended_action": "Mitigate and monitor",
+      "expected_action": "Mitigate and monitor"
+    },
+    "thresholds": {
+      "tau_consensus": 0.65,
+      "delta_min": 0.05,
+      "max_rar_loops": 2
+    },
+    "utility_weights": [
+      0.4,
+      0.3,
+      0.3
+    ],
+    "lam": 0.5
+  },
+  {
+    "scenario_id": "TC-14",
+    "incident_id": "TC-14",
+    "category": "reliability_degradation",
+    "scenario_type": "reliability_degradation",
+    "priority": "high",
+    "telemetry": {
+      "deploy": {
+        "restart_loops": 0,
+        "config_drift": false,
+        "pipeline_failed": false,
+        "rollback_marker": false,
+        "artifact_mismatch": false
+      },
+      "sre": {
+        "p95_latency_ms": 424.577,
+        "error_rate_pct": 13.514,
+        "saturation_pct": 56.444,
+        "availability_pct": 100.293,
+        "_missing": true
+      },
+      "finops": {
+        "cost_spike_pct": 0.0,
+        "hpa_scale_to": 4.012,
+        "cpu_request_increase_pct": 0.0,
+        "memory_request_increase_pct": 0.0
+      },
+      "sec": {
+        "critical_cves": 0,
+        "policy_violation": false,
+        "iam_drift": false,
+        "compliance_gap": false
+      }
+    },
+    "ground_truth": {
+      "primary_domain": "SRE",
+      "secondary_domains": [],
+      "root_cause": "error_rate_spike",
+      "recommended_action": "Mitigate and monitor",
+      "expected_action": "Mitigate and monitor"
+    },
+    "thresholds": {
+      "tau_consensus": 0.65,
+      "delta_min": 0.05,
+      "max_rar_loops": 2
+    },
+    "utility_weights": [
+      0.4,
+      0.3,
+      0.3
+    ],
+    "lam": 0.5
+  },
+  {
+    "scenario_id": "TC-15",
+    "incident_id": "TC-15",
+    "category": "reliability_degradation",
+    "scenario_type": "reliability_degradation",
+    "priority": "high",
+    "telemetry": {
+      "deploy": {
+        "restart_loops": 0,
+        "config_drift": false,
+        "pipeline_failed": false,
+        "rollback_marker": false,
+        "artifact_mismatch": false
+      },
+      "sre": {
+        "p95_latency_ms": 674.617,
+        "error_rate_pct": 0.517,
+        "saturation_pct": 92.191,
+        "availability_pct": 95.484,
+        "_missing": true
+      },
+      "finops": {
+        "cost_spike_pct": 10.378,
+        "hpa_scale_to": 7.313,
+        "cpu_request_increase_pct": 0.0,
+        "memory_request_increase_pct": 0.0
+      },
+      "sec": {
+        "critical_cves": 0,
+        "policy_violation": false,
+        "iam_drift": false,
+        "compliance_gap": false
+      }
+    },
+    "ground_truth": {
+      "primary_domain": "SRE",
+      "secondary_domains": [
+        "FinOps"
+      ],
+      "root_cause": "resource_saturation",
+      "recommended_action": "Scale adjustment",
+      "expected_action": "Scale adjustment"
+    },
+    "thresholds": {
+      "tau_consensus": 0.65,
+      "delta_min": 0.05,
+      "max_rar_loops": 2
+    },
+    "utility_weights": [
+      0.4,
+      0.3,
+      0.3
+    ],
+    "lam": 0.5
+  },
+  {
+    "scenario_id": "TC-16",
+    "incident_id": "TC-16",
+    "category": "reliability_degradation",
+    "scenario_type": "reliability_degradation",
+    "priority": "high",
+    "telemetry": {
+      "deploy": {
+        "restart_loops": 0,
+        "config_drift": false,
+        "pipeline_failed": false,
+        "rollback_marker": false,
+        "artifact_mismatch": false
+      },
+      "sre": {
+        "p95_latency_ms": 529.562,
+        "error_rate_pct": 8.978,
+        "saturation_pct": 55.274,
+        "availability_pct": 95.209
+      },
+      "finops": {
+        "cost_spike_pct": 0.0,
+        "hpa_scale_to": 3.969,
+        "cpu_request_increase_pct": 0.0,
+        "memory_request_increase_pct": 0.0
+      },
+      "sec": {
+        "critical_cves": 0,
+        "policy_violation": false,
+        "iam_drift": false,
+        "compliance_gap": false
+      }
+    },
+    "ground_truth": {
+      "primary_domain": "SRE",
+      "secondary_domains": [],
+      "root_cause": "availability_drop",
+      "recommended_action": "Mitigate and monitor",
+      "expected_action": "Mitigate and monitor"
+    },
+    "thresholds": {
+      "tau_consensus": 0.65,
+      "delta_min": 0.05,
+      "max_rar_loops": 2
+    },
+    "utility_weights": [
+      0.4,
+      0.3,
+      0.3
+    ],
+    "lam": 0.5
+  },
+  {
+    "scenario_id": "TC-17",
+    "incident_id": "TC-17",
+    "category": "compliance_preparation",
+    "scenario_type": "compliance_preparation",
+    "priority": "medium",
+    "telemetry": {
+      "deploy": {
+        "restart_loops": 0,
+        "config_drift": false,
+        "pipeline_failed": false,
+        "rollback_marker": false,
+        "artifact_mismatch": false
+      },
+      "sre": {
+        "p95_latency_ms": 174.621,
+        "error_rate_pct": 0.491,
+        "saturation_pct": 57.723,
+        "availability_pct": 101.397
+      },
+      "finops": {
+        "cost_spike_pct": 0.0,
+        "hpa_scale_to": 4.007,
+        "cpu_request_increase_pct": 0.0,
+        "memory_request_increase_pct": 0.0
+      },
+      "sec": {
+        "critical_cves": 0,
+        "policy_violation": false,
+        "iam_drift": false,
+        "compliance_gap": true
+      }
+    },
+    "ground_truth": {
+      "primary_domain": "DevSecOps",
+      "secondary_domains": [],
+      "root_cause": "audit_log_gap",
+      "recommended_action": "Patch or block release",
+      "expected_action": "Patch or block release"
+    },
+    "thresholds": {
+      "tau_consensus": 0.65,
+      "delta_min": 0.05,
+      "max_rar_loops": 2
+    },
+    "utility_weights": [
+      0.4,
+      0.3,
+      0.3
+    ],
+    "lam": 0.5
+  },
+  {
+    "scenario_id": "TC-18",
+    "incident_id": "TC-18",
+    "category": "compliance_preparation",
+    "scenario_type": "compliance_preparation",
+    "priority": "medium",
+    "telemetry": {
+      "deploy": {
+        "restart_loops": 0,
+        "config_drift": false,
+        "pipeline_failed": false,
+        "rollback_marker": false,
+        "artifact_mismatch": false
+      },
+      "sre": {
+        "p95_latency_ms": 181.59,
+        "error_rate_pct": 0.487,
+        "saturation_pct": 53.461,
+        "availability_pct": 95.614
+      },
+      "finops": {
+        "cost_spike_pct": 0.0,
+        "hpa_scale_to": 3.892,
+        "cpu_request_increase_pct": 0.0,
+        "memory_request_increase_pct": 0.0
+      },
+      "sec": {
+        "critical_cves": 0,
+        "policy_violation": false,
+        "iam_drift": true,
+        "compliance_gap": true,
+        "_missing": true
+      }
+    },
+    "ground_truth": {
+      "primary_domain": "DevSecOps",
+      "secondary_domains": [],
+      "root_cause": "iam_policy_mismatch",
+      "recommended_action": "Patch or block release",
+      "expected_action": "Patch or block release"
+    },
+    "thresholds": {
+      "tau_consensus": 0.65,
+      "delta_min": 0.05,
+      "max_rar_loops": 2
+    },
+    "utility_weights": [
+      0.4,
+      0.3,
+      0.3
+    ],
+    "lam": 0.5
+  },
+  {
+    "scenario_id": "TC-19",
+    "incident_id": "TC-19",
+    "category": "compliance_preparation",
+    "scenario_type": "compliance_preparation",
+    "priority": "medium",
+    "telemetry": {
+      "deploy": {
+        "restart_loops": 0,
+        "config_drift": false,
+        "pipeline_failed": true,
+        "rollback_marker": false,
+        "artifact_mismatch": false
+      },
+      "sre": {
+        "p95_latency_ms": 176.013,
+        "error_rate_pct": 0.499,
+        "saturation_pct": 55.216,
+        "availability_pct": 102.131
+      },
+      "finops": {
+        "cost_spike_pct": 0.0,
+        "hpa_scale_to": 4.03,
+        "cpu_request_increase_pct": 0.0,
+        "memory_request_increase_pct": 0.0
+      },
+      "sec": {
+        "critical_cves": 0,
+        "policy_violation": false,
+        "iam_drift": false,
+        "compliance_gap": true
+      }
+    },
+    "ground_truth": {
+      "primary_domain": "DevSecOps",
+      "secondary_domains": [
+        "DevOps"
+      ],
+      "root_cause": "release_evidence_missing",
+      "recommended_action": "Block release and fix pipeline",
+      "expected_action": "Block release and fix pipeline"
+    },
+    "thresholds": {
+      "tau_consensus": 0.65,
+      "delta_min": 0.05,
+      "max_rar_loops": 2
+    },
+    "utility_weights": [
+      0.4,
+      0.3,
+      0.3
+    ],
+    "lam": 0.5
+  },
+  {
+    "scenario_id": "TC-20",
+    "incident_id": "TC-20",
+    "category": "resource_scaling",
+    "scenario_type": "resource_scaling",
+    "priority": "high",
+    "telemetry": {
+      "deploy": {
+        "restart_loops": 0,
+        "config_drift": false,
+        "pipeline_failed": false,
+        "rollback_marker": false,
+        "artifact_mismatch": false
+      },
+      "sre": {
+        "p95_latency_ms": 671.603,
+        "error_rate_pct": 0.508,
+        "saturation_pct": 90.66,
+        "availability_pct": 99.012,
+        "_missing": true
+      },
+      "finops": {
+        "cost_spike_pct": 18.655,
+        "hpa_scale_to": 10.51,
+        "cpu_request_increase_pct": 0.0,
+        "memory_request_increase_pct": 0.0
+      },
+      "sec": {
+        "critical_cves": 0,
+        "policy_violation": false,
+        "iam_drift": false,
+        "compliance_gap": false
+      }
+    },
+    "ground_truth": {
+      "primary_domain": "SRE",
+      "secondary_domains": [
+        "FinOps"
+      ],
+      "root_cause": "capacity_exhaustion",
+      "recommended_action": "Scale adjustment",
+      "expected_action": "Scale adjustment"
+    },
+    "thresholds": {
+      "tau_consensus": 0.65,
+      "delta_min": 0.05,
+      "max_rar_loops": 2
+    },
+    "utility_weights": [
+      0.4,
+      0.3,
+      0.3
+    ],
+    "lam": 0.5
+  },
+  {
+    "scenario_id": "TC-21",
+    "incident_id": "TC-21",
+    "category": "resource_scaling",
+    "scenario_type": "resource_scaling",
+    "priority": "medium",
+    "telemetry": {
+      "deploy": {
+        "restart_loops": 0,
+        "config_drift": false,
+        "pipeline_failed": false,
+        "rollback_marker": false,
+        "artifact_mismatch": false
+      },
+      "sre": {
+        "p95_latency_ms": 195.711,
+        "error_rate_pct": 0.48,
+        "saturation_pct": 43.612,
+        "availability_pct": 100.262
+      },
+      "finops": {
+        "cost_spike_pct": 30.849,
+        "hpa_scale_to": 15.494,
+        "cpu_request_increase_pct": 0.0,
+        "memory_request_increase_pct": 0.0,
+        "_missing": true
+      },
+      "sec": {
+        "critical_cves": 0,
+        "policy_violation": false,
+        "iam_drift": false,
+        "compliance_gap": false
+      }
+    },
+    "ground_truth": {
+      "primary_domain": "FinOps",
+      "secondary_domains": [
+        "SRE"
+      ],
+      "root_cause": "unnecessary_scale_out",
+      "recommended_action": "Scale adjustment",
+      "expected_action": "Scale adjustment"
+    },
+    "thresholds": {
+      "tau_consensus": 0.65,
+      "delta_min": 0.05,
+      "max_rar_loops": 2
+    },
+    "utility_weights": [
+      0.4,
+      0.3,
+      0.3
+    ],
+    "lam": 0.5
+  },
+  {
+    "scenario_id": "TC-22",
+    "incident_id": "TC-22",
+    "category": "resource_scaling",
+    "scenario_type": "resource_scaling",
+    "priority": "medium",
+    "telemetry": {
+      "deploy": {
+        "restart_loops": 0,
+        "config_drift": false,
+        "pipeline_failed": false,
+        "rollback_marker": false,
+        "artifact_mismatch": false
+      },
+      "sre": {
+        "p95_latency_ms": 477.529,
+        "error_rate_pct": 0.525,
+        "saturation_pct": 90.957,
+        "availability_pct": 104.585
+      },
+      "finops": {
+        "cost_spike_pct": 12.512,
+        "hpa_scale_to": 8.279,
+        "cpu_request_increase_pct": 0.0,
+        "memory_request_increase_pct": 0.0
+      },
+      "sec": {
+        "critical_cves": 0,
+        "policy_violation": false,
+        "iam_drift": false,
+        "compliance_gap": false
+      }
+    },
+    "ground_truth": {
+      "primary_domain": "SRE",
+      "secondary_domains": [
+        "FinOps"
+      ],
+      "root_cause": "high_cpu_trend",
+      "recommended_action": "Scale adjustment",
+      "expected_action": "Scale adjustment"
+    },
+    "thresholds": {
+      "tau_consensus": 0.65,
+      "delta_min": 0.05,
+      "max_rar_loops": 2
+    },
+    "utility_weights": [
+      0.4,
+      0.3,
+      0.3
+    ],
+    "lam": 0.5
+  },
+  {
+    "scenario_id": "TC-23",
+    "incident_id": "TC-23",
+    "category": "incident_review",
+    "scenario_type": "incident_review",
+    "priority": "high",
+    "telemetry": {
+      "deploy": {
+        "restart_loops": 14,
+        "config_drift": false,
+        "pipeline_failed": true,
+        "rollback_marker": true,
+        "artifact_mismatch": false
+      },
+      "sre": {
+        "p95_latency_ms": 752.479,
+        "error_rate_pct": 11.47,
+        "saturation_pct": 54.334,
+        "availability_pct": 104.748
+      },
+      "finops": {
+        "cost_spike_pct": 0.0,
+        "hpa_scale_to": 4.114,
+        "cpu_request_increase_pct": 0.0,
+        "memory_request_increase_pct": 0.0
+      },
+      "sec": {
+        "critical_cves": 0,
+        "policy_violation": false,
+        "iam_drift": false,
+        "compliance_gap": false
+      }
+    },
+    "ground_truth": {
+      "primary_domain": "DevOps",
+      "secondary_domains": [
+        "SRE"
+      ],
+      "root_cause": "failed_deployment_caused_incident",
+      "recommended_action": "Rollback to stable deployment",
+      "expected_action": "Rollback to stable deployment"
+    },
+    "thresholds": {
+      "tau_consensus": 0.65,
+      "delta_min": 0.05,
+      "max_rar_loops": 2
+    },
+    "utility_weights": [
+      0.4,
+      0.3,
+      0.3
+    ],
+    "lam": 0.5
+  },
+  {
+    "scenario_id": "TC-24",
+    "incident_id": "TC-24",
+    "category": "incident_review",
+    "scenario_type": "incident_review",
+    "priority": "high",
+    "telemetry": {
+      "deploy": {
+        "restart_loops": 0,
+        "config_drift": false,
+        "pipeline_failed": false,
+        "rollback_marker": false,
+        "artifact_mismatch": false
+      },
+      "sre": {
+        "p95_latency_ms": 713.689,
+        "error_rate_pct": 13.072,
+        "saturation_pct": 87.878,
+        "availability_pct": 96.451
+      },
+      "finops": {
+        "cost_spike_pct": 15.675,
+        "hpa_scale_to": 9.422,
+        "cpu_request_increase_pct": 0.0,
+        "memory_request_increase_pct": 0.0
+      },
+      "sec": {
+        "critical_cves": 0,
+        "policy_violation": false,
+        "iam_drift": false,
+        "compliance_gap": false
+      }
+    },
+    "ground_truth": {
+      "primary_domain": "SRE",
+      "secondary_domains": [
+        "FinOps"
+      ],
+      "root_cause": "cascading_service_errors",
+      "recommended_action": "Mitigate and monitor",
+      "expected_action": "Mitigate and monitor"
+    },
+    "thresholds": {
+      "tau_consensus": 0.65,
+      "delta_min": 0.05,
+      "max_rar_loops": 2
+    },
+    "utility_weights": [
+      0.4,
+      0.3,
+      0.3
+    ],
+    "lam": 0.5
+  },
+  {
+    "scenario_id": "TC-25",
+    "incident_id": "TC-25",
+    "category": "incident_review",
+    "scenario_type": "incident_review",
+    "priority": "high",
+    "telemetry": {
+      "deploy": {
+        "restart_loops": 0,
+        "config_drift": false,
+        "pipeline_failed": false,
+        "rollback_marker": false,
+        "artifact_mismatch": false
+      },
+      "sre": {
+        "p95_latency_ms": 391.844,
+        "error_rate_pct": 6.051,
+        "saturation_pct": 55.016,
+        "availability_pct": 103.424
+      },
+      "finops": {
+        "cost_spike_pct": 0.0,
+        "hpa_scale_to": 4.184,
+        "cpu_request_increase_pct": 0.0,
+        "memory_request_increase_pct": 0.0
+      },
+      "sec": {
+        "critical_cves": 0,
+        "policy_violation": true,
+        "iam_drift": true,
+        "compliance_gap": false
+      }
+    },
+    "ground_truth": {
+      "primary_domain": "DevSecOps",
+      "secondary_domains": [
+        "SRE"
+      ],
+      "root_cause": "security_policy_triggered_incident",
+      "recommended_action": "Patch or block release",
+      "expected_action": "Patch or block release"
+    },
+    "thresholds": {
+      "tau_consensus": 0.65,
+      "delta_min": 0.05,
+      "max_rar_loops": 2
+    },
+    "utility_weights": [
+      0.4,
+      0.3,
+      0.3
+    ],
+    "lam": 0.5
+  },
+  {
+    "scenario_id": "TC-26",
+    "incident_id": "TC-26",
+    "category": "policy_propagation",
+    "scenario_type": "policy_propagation",
+    "priority": "medium",
+    "telemetry": {
+      "deploy": {
+        "restart_loops": 0,
+        "config_drift": false,
+        "pipeline_failed": false,
+        "rollback_marker": false,
+        "artifact_mismatch": false
+      },
+      "sre": {
+        "p95_latency_ms": 183.154,
+        "error_rate_pct": 0.487,
+        "saturation_pct": 52.909,
+        "availability_pct": 103.799
+      },
+      "finops": {
+        "cost_spike_pct": 0.0,
+        "hpa_scale_to": 4.038,
+        "cpu_request_increase_pct": 0.0,
+        "memory_request_increase_pct": 0.0
+      },
+      "sec": {
+        "critical_cves": 0,
+        "policy_violation": true,
+        "iam_drift": false,
+        "compliance_gap": true
+      }
+    },
+    "ground_truth": {
+      "primary_domain": "DevSecOps",
+      "secondary_domains": [],
+      "root_cause": "policy_version_drift",
+      "recommended_action": "Patch or block release",
+      "expected_action": "Patch or block release"
+    },
+    "thresholds": {
+      "tau_consensus": 0.65,
+      "delta_min": 0.05,
+      "max_rar_loops": 2
+    },
+    "utility_weights": [
+      0.4,
+      0.3,
+      0.3
+    ],
+    "lam": 0.5
+  },
+  {
+    "scenario_id": "TC-27",
+    "incident_id": "TC-27",
+    "category": "policy_propagation",
+    "scenario_type": "policy_propagation",
+    "priority": "medium",
+    "telemetry": {
+      "deploy": {
+        "restart_loops": 0,
+        "config_drift": true,
+        "pipeline_failed": true,
+        "rollback_marker": false,
+        "artifact_mismatch": false
+      },
+      "sre": {
+        "p95_latency_ms": 180.41,
+        "error_rate_pct": 0.522,
+        "saturation_pct": 53.373,
+        "availability_pct": 102.06
+      },
+      "finops": {
+        "cost_spike_pct": 0.0,
+        "hpa_scale_to": 3.958,
+        "cpu_request_increase_pct": 0.0,
+        "memory_request_increase_pct": 0.0
+      },
+      "sec": {
+        "critical_cves": 0,
+        "policy_violation": true,
+        "iam_drift": false,
+        "compliance_gap": false
+      }
+    },
+    "ground_truth": {
+      "primary_domain": "DevOps",
+      "secondary_domains": [
+        "DevSecOps"
+      ],
+      "root_cause": "missed_policy_update_in_pipeline",
+      "recommended_action": "Block release and fix pipeline",
+      "expected_action": "Block release and fix pipeline"
+    },
+    "thresholds": {
+      "tau_consensus": 0.65,
+      "delta_min": 0.05,
+      "max_rar_loops": 2
+    },
+    "utility_weights": [
+      0.4,
+      0.3,
+      0.3
+    ],
+    "lam": 0.5
+  },
+  {
+    "scenario_id": "TC-28",
+    "incident_id": "TC-28",
+    "category": "cost_performance_simulation",
+    "scenario_type": "cost_performance_simulation",
+    "priority": "medium",
+    "telemetry": {
+      "deploy": {
+        "restart_loops": 0,
+        "config_drift": false,
+        "pipeline_failed": false,
+        "rollback_marker": false,
+        "artifact_mismatch": false
+      },
+      "sre": {
+        "p95_latency_ms": 215.289,
+        "error_rate_pct": 0.957,
+        "saturation_pct": 57.758,
+        "availability_pct": 104.88
+      },
+      "finops": {
+        "cost_spike_pct": 31.488,
+        "hpa_scale_to": 12.445,
+        "cpu_request_increase_pct": 0.0,
+        "memory_request_increase_pct": 0.0
+      },
+      "sec": {
+        "critical_cves": 0,
+        "policy_violation": false,
+        "iam_drift": false,
+        "compliance_gap": false
+      }
+    },
+    "ground_truth": {
+      "primary_domain": "FinOps",
+      "secondary_domains": [
+        "SRE"
+      ],
+      "root_cause": "budget_pressure_with_stable_slo",
+      "recommended_action": "Review scaling policy",
+      "expected_action": "Review scaling policy"
+    },
+    "thresholds": {
+      "tau_consensus": 0.65,
+      "delta_min": 0.05,
+      "max_rar_loops": 2
+    },
+    "utility_weights": [
+      0.4,
+      0.3,
+      0.3
+    ],
+    "lam": 0.5
+  },
+  {
+    "scenario_id": "TC-29",
+    "incident_id": "TC-29",
+    "category": "cost_performance_simulation",
+    "scenario_type": "cost_performance_simulation",
+    "priority": "high",
+    "telemetry": {
+      "deploy": {
+        "restart_loops": 0,
+        "config_drift": false,
+        "pipeline_failed": false,
+        "rollback_marker": false,
+        "artifact_mismatch": false
+      },
+      "sre": {
+        "p95_latency_ms": 851.231,
+        "error_rate_pct": 7.265,
+        "saturation_pct": 88.826,
+        "availability_pct": 96.481
+      },
+      "finops": {
+        "cost_spike_pct": 20.667,
+        "hpa_scale_to": 10.204,
+        "cpu_request_increase_pct": 0.0,
+        "memory_request_increase_pct": 0.0
+      },
+      "sec": {
+        "critical_cves": 0,
+        "policy_violation": false,
+        "iam_drift": false,
+        "compliance_gap": false
+      }
+    },
+    "ground_truth": {
+      "primary_domain": "SRE",
+      "secondary_domains": [
+        "FinOps"
+      ],
+      "root_cause": "performance_risk_requires_capacity",
+      "recommended_action": "Scale adjustment",
+      "expected_action": "Scale adjustment"
+    },
+    "thresholds": {
+      "tau_consensus": 0.65,
+      "delta_min": 0.05,
+      "max_rar_loops": 2
+    },
+    "utility_weights": [
+      0.4,
+      0.3,
+      0.3
+    ],
+    "lam": 0.5
+  },
+  {
+    "scenario_id": "TC-30",
+    "incident_id": "TC-30",
+    "category": "anomaly_to_insight",
+    "scenario_type": "anomaly_to_insight",
+    "priority": "high",
+    "telemetry": {
+      "deploy": {
+        "restart_loops": 10,
+        "config_drift": true,
+        "pipeline_failed": false,
+        "rollback_marker": true,
+        "artifact_mismatch": false
+      },
+      "sre": {
+        "p95_latency_ms": 570.469,
+        "error_rate_pct": 9.285,
+        "saturation_pct": 53.897,
+        "availability_pct": 101.532
+      },
+      "finops": {
+        "cost_spike_pct": 18.79,
+        "hpa_scale_to": 8.671,
+        "cpu_request_increase_pct": 0.0,
+        "memory_request_increase_pct": 0.0
+      },
+      "sec": {
+        "critical_cves": 0,
+        "policy_violation": false,
+        "iam_drift": false,
+        "compliance_gap": false
+      }
+    },
+    "ground_truth": {
+      "primary_domain": "DevOps",
+      "secondary_domains": [
+        "SRE",
+        "FinOps"
+      ],
+      "root_cause": "release_change_triggered_multi_signal_anomaly",
+      "recommended_action": "Rollback to stable deployment",
+      "expected_action": "Rollback to stable deployment"
+    },
+    "thresholds": {
+      "tau_consensus": 0.65,
+      "delta_min": 0.05,
+      "max_rar_loops": 2
+    },
+    "utility_weights": [
+      0.4,
+      0.3,
+      0.3
+    ],
+    "lam": 0.5
+  },
+  {
+    "scenario_id": "TC-031",
+    "incident_id": "TC-031",
+    "category": "deployment_failure_variant",
+    "scenario_type": "deployment_failure_variant",
+    "priority": "high",
+    "telemetry": {
+      "deploy": {
+        "restart_loops": 14,
+        "config_drift": false,
+        "pipeline_failed": true,
+        "rollback_marker": true,
+        "artifact_mismatch": true
+      },
+      "sre": {
+        "p95_latency_ms": 474.768,
+        "error_rate_pct": 7.884,
+        "saturation_pct": 51.571,
+        "availability_pct": 96.393
+      },
+      "finops": {
+        "cost_spike_pct": 0.0,
+        "hpa_scale_to": 3.869,
+        "cpu_request_increase_pct": 0.0,
+        "memory_request_increase_pct": 0.0
+      },
+      "sec": {
+        "critical_cves": 0,
+        "policy_violation": false,
+        "iam_drift": false,
+        "compliance_gap": false
+      }
+    },
+    "ground_truth": {
+      "primary_domain": "DevOps",
+      "secondary_domains": [
+        "SRE"
+      ],
+      "root_cause": "bad_image_tag",
+      "recommended_action": "Rollback to stable deployment",
+      "expected_action": "Rollback to stable deployment"
+    },
+    "thresholds": {
+      "tau_consensus": 0.65,
+      "delta_min": 0.05,
+      "max_rar_loops": 2
+    },
+    "utility_weights": [
+      0.4,
+      0.3,
+      0.3
+    ],
+    "lam": 0.5,
+    "variant_id": 1
+  },
+  {
+    "scenario_id": "TC-032",
+    "incident_id": "TC-032",
+    "category": "deployment_failure_variant",
+    "scenario_type": "deployment_failure_variant",
+    "priority": "high",
+    "telemetry": {
+      "deploy": {
+        "restart_loops": 13,
+        "config_drift": true,
+        "pipeline_failed": false,
+        "rollback_marker": true,
+        "artifact_mismatch": false
+      },
+      "sre": {
+        "p95_latency_ms": 798.084,
+        "error_rate_pct": 8.035,
+        "saturation_pct": 52.979,
+        "availability_pct": 93.345
+      },
+      "finops": {
+        "cost_spike_pct": 0.0,
+        "hpa_scale_to": 4.18,
+        "cpu_request_increase_pct": 0.0,
+        "memory_request_increase_pct": 0.0
+      },
+      "sec": {
+        "critical_cves": 0,
+        "policy_violation": false,
+        "iam_drift": false,
+        "compliance_gap": false
+      }
+    },
+    "ground_truth": {
+      "primary_domain": "DevOps",
+      "secondary_domains": [
+        "SRE"
+      ],
+      "root_cause": "configuration_drift",
+      "recommended_action": "Rollback to stable deployment",
+      "expected_action": "Rollback to stable deployment"
+    },
+    "thresholds": {
+      "tau_consensus": 0.65,
+      "delta_min": 0.05,
+      "max_rar_loops": 2
+    },
+    "utility_weights": [
+      0.4,
+      0.3,
+      0.3
+    ],
+    "lam": 0.5,
+    "variant_id": 2
+  },
+  {
+    "scenario_id": "TC-033",
+    "incident_id": "TC-033",
+    "category": "deployment_failure_variant",
+    "scenario_type": "deployment_failure_variant",
+    "priority": "medium",
+    "telemetry": {
+      "deploy": {
+        "restart_loops": 5,
+        "config_drift": false,
+        "pipeline_failed": true,
+        "rollback_marker": false,
+        "artifact_mismatch": true,
+        "_missing": true
+      },
+      "sre": {
+        "p95_latency_ms": 193.547,
+        "error_rate_pct": 0.492,
+        "saturation_pct": 59.381,
+        "availability_pct": 105.045
+      },
+      "finops": {
+        "cost_spike_pct": 0.0,
+        "hpa_scale_to": 3.678,
+        "cpu_request_increase_pct": 0.0,
+        "memory_request_increase_pct": 0.0
+      },
+      "sec": {
+        "critical_cves": 0,
+        "policy_violation": true,
+        "iam_drift": false,
+        "compliance_gap": false
+      }
+    },
+    "ground_truth": {
+      "primary_domain": "DevOps",
+      "secondary_domains": [
+        "DevSecOps"
+      ],
+      "root_cause": "failed_pipeline_gate",
+      "recommended_action": "Block release and fix pipeline",
+      "expected_action": "Block release and fix pipeline"
+    },
+    "thresholds": {
+      "tau_consensus": 0.65,
+      "delta_min": 0.05,
+      "max_rar_loops": 2
+    },
+    "utility_weights": [
+      0.4,
+      0.3,
+      0.3
+    ],
+    "lam": 0.5,
+    "variant_id": 3
+  },
+  {
+    "scenario_id": "TC-034",
+    "incident_id": "TC-034",
+    "category": "deployment_failure_variant",
+    "scenario_type": "deployment_failure_variant",
+    "priority": "high",
+    "telemetry": {
+      "deploy": {
+        "restart_loops": 19,
+        "config_drift": false,
+        "pipeline_failed": false,
+        "rollback_marker": true,
+        "artifact_mismatch": false
+      },
+      "sre": {
+        "p95_latency_ms": 528.897,
+        "error_rate_pct": 9.805,
+        "saturation_pct": 52.659,
+        "availability_pct": 98.155
+      },
+      "finops": {
+        "cost_spike_pct": 33.731,
+        "hpa_scale_to": 13.333,
+        "cpu_request_increase_pct": 0.0,
+        "memory_request_increase_pct": 0.0
+      },
+      "sec": {
+        "critical_cves": 0,
+        "policy_violation": false,
+        "iam_drift": false,
+        "compliance_gap": false
+      }
+    },
+    "ground_truth": {
+      "primary_domain": "DevOps",
+      "secondary_domains": [
+        "SRE",
+        "FinOps"
+      ],
+      "root_cause": "container_restart_after_release",
+      "recommended_action": "Rollback to stable deployment",
+      "expected_action": "Rollback to stable deployment"
+    },
+    "thresholds": {
+      "tau_consensus": 0.65,
+      "delta_min": 0.05,
+      "max_rar_loops": 2
+    },
+    "utility_weights": [
+      0.4,
+      0.3,
+      0.3
+    ],
+    "lam": 0.5,
+    "variant_id": 4
+  },
+  {
+    "scenario_id": "TC-035",
+    "incident_id": "TC-035",
+    "category": "cost_anomaly_variant",
+    "scenario_type": "cost_anomaly_variant",
+    "priority": "high",
+    "telemetry": {
+      "deploy": {
+        "restart_loops": 0,
+        "config_drift": false,
+        "pipeline_failed": false,
+        "rollback_marker": false,
+        "artifact_mismatch": false
+      },
+      "sre": {
+        "p95_latency_ms": 700.202,
+        "error_rate_pct": 4.613,
+        "saturation_pct": 56.79,
+        "availability_pct": 93.714
+      },
+      "finops": {
+        "cost_spike_pct": 53.336,
+        "hpa_scale_to": 21.484,
+        "cpu_request_increase_pct": 0.0,
+        "memory_request_increase_pct": 0.0
+      },
+      "sec": {
+        "critical_cves": 0,
+        "policy_violation": false,
+        "iam_drift": false,
+        "compliance_gap": false
+      }
+    },
+    "ground_truth": {
+      "primary_domain": "FinOps",
+      "secondary_domains": [
+        "SRE"
+      ],
+      "root_cause": "autoscaling_cost_spike",
+      "recommended_action": "Scale adjustment",
+      "expected_action": "Scale adjustment"
+    },
+    "thresholds": {
+      "tau_consensus": 0.65,
+      "delta_min": 0.05,
+      "max_rar_loops": 2
+    },
+    "utility_weights": [
+      0.4,
+      0.3,
+      0.3
+    ],
+    "lam": 0.5,
+    "variant_id": 5
+  },
+  {
+    "scenario_id": "TC-036",
+    "incident_id": "TC-036",
+    "category": "cost_anomaly_variant",
+    "scenario_type": "cost_anomaly_variant",
+    "priority": "medium",
+    "telemetry": {
+      "deploy": {
+        "restart_loops": 0,
+        "config_drift": false,
+        "pipeline_failed": false,
+        "rollback_marker": false,
+        "artifact_mismatch": false
+      },
+      "sre": {
+        "p95_latency_ms": 188.026,
+        "error_rate_pct": 0.482,
+        "saturation_pct": 55.887,
+        "availability_pct": 98.094
+      },
+      "finops": {
+        "cost_spike_pct": 27.432,
+        "hpa_scale_to": 4.015,
+        "cpu_request_increase_pct": 62.36,
+        "memory_request_increase_pct": 47.019
+      },
+      "sec": {
+        "critical_cves": 0,
+        "policy_violation": false,
+        "iam_drift": false,
+        "compliance_gap": false
+      }
+    },
+    "ground_truth": {
+      "primary_domain": "FinOps",
+      "secondary_domains": [],
+      "root_cause": "over_provisioned_resources",
+      "recommended_action": "Scale adjustment",
+      "expected_action": "Scale adjustment"
+    },
+    "thresholds": {
+      "tau_consensus": 0.65,
+      "delta_min": 0.05,
+      "max_rar_loops": 2
+    },
+    "utility_weights": [
+      0.4,
+      0.3,
+      0.3
+    ],
+    "lam": 0.5,
+    "variant_id": 6
+  },
+  {
+    "scenario_id": "TC-037",
+    "incident_id": "TC-037",
+    "category": "cost_anomaly_variant",
+    "scenario_type": "cost_anomaly_variant",
+    "priority": "medium",
+    "telemetry": {
+      "deploy": {
+        "restart_loops": 0,
+        "config_drift": false,
+        "pipeline_failed": false,
+        "rollback_marker": false,
+        "artifact_mismatch": false
+      },
+      "sre": {
+        "p95_latency_ms": 697.109,
+        "error_rate_pct": 4.225,
+        "saturation_pct": 41.339,
+        "availability_pct": 96.459
+      },
+      "finops": {
+        "cost_spike_pct": 21.71,
+        "hpa_scale_to": 10.775,
+        "cpu_request_increase_pct": 0.0,
+        "memory_request_increase_pct": 0.0
+      },
+      "sec": {
+        "critical_cves": 0,
+        "policy_violation": false,
+        "iam_drift": false,
+        "compliance_gap": false
+      }
+    },
+    "ground_truth": {
+      "primary_domain": "FinOps",
+      "secondary_domains": [
+        "SRE"
+      ],
+      "root_cause": "unused_capacity",
+      "recommended_action": "Scale adjustment",
+      "expected_action": "Scale adjustment"
+    },
+    "thresholds": {
+      "tau_consensus": 0.65,
+      "delta_min": 0.05,
+      "max_rar_loops": 2
+    },
+    "utility_weights": [
+      0.4,
+      0.3,
+      0.3
+    ],
+    "lam": 0.5,
+    "variant_id": 7
+  },
+  {
+    "scenario_id": "TC-038",
+    "incident_id": "TC-038",
+    "category": "cost_anomaly_variant",
+    "scenario_type": "cost_anomaly_variant",
+    "priority": "high",
+    "telemetry": {
+      "deploy": {
+        "restart_loops": 0,
+        "config_drift": true,
+        "pipeline_failed": false,
+        "rollback_marker": false,
+        "artifact_mismatch": false
+      },
+      "sre": {
+        "p95_latency_ms": 177.685,
+        "error_rate_pct": 0.487,
+        "saturation_pct": 51.438,
+        "availability_pct": 102.392
+      },
+      "finops": {
+        "cost_spike_pct": 42.629,
+        "hpa_scale_to": 16.248,
+        "cpu_request_increase_pct": 0.0,
+        "memory_request_increase_pct": 0.0
+      },
+      "sec": {
+        "critical_cves": 0,
+        "policy_violation": false,
+        "iam_drift": false,
+        "compliance_gap": false
+      }
+    },
+    "ground_truth": {
+      "primary_domain": "FinOps",
+      "secondary_domains": [
+        "DevOps"
+      ],
+      "root_cause": "cost_increase_after_scaling_policy",
+      "recommended_action": "Review scaling policy",
+      "expected_action": "Review scaling policy"
+    },
+    "thresholds": {
+      "tau_consensus": 0.65,
+      "delta_min": 0.05,
+      "max_rar_loops": 2
+    },
+    "utility_weights": [
+      0.4,
+      0.3,
+      0.3
+    ],
+    "lam": 0.5,
+    "variant_id": 8
+  },
+  {
+    "scenario_id": "TC-039",
+    "incident_id": "TC-039",
+    "category": "security_violation_variant",
+    "scenario_type": "security_violation_variant",
+    "priority": "high",
+    "telemetry": {
+      "deploy": {
+        "restart_loops": 0,
+        "config_drift": false,
+        "pipeline_failed": false,
+        "rollback_marker": false,
+        "artifact_mismatch": false
+      },
+      "sre": {
+        "p95_latency_ms": 192.235,
+        "error_rate_pct": 0.473,
+        "saturation_pct": 53.953,
+        "availability_pct": 106.923
+      },
+      "finops": {
+        "cost_spike_pct": 0.0,
+        "hpa_scale_to": 3.682,
+        "cpu_request_increase_pct": 0.0,
+        "memory_request_increase_pct": 0.0
+      },
+      "sec": {
+        "critical_cves": 2,
+        "policy_violation": true,
+        "iam_drift": false,
+        "compliance_gap": false
+      }
+    },
+    "ground_truth": {
+      "primary_domain": "DevSecOps",
+      "secondary_domains": [],
+      "root_cause": "critical_vulnerability",
+      "recommended_action": "Patch or block release",
+      "expected_action": "Patch or block release"
+    },
+    "thresholds": {
+      "tau_consensus": 0.65,
+      "delta_min": 0.05,
+      "max_rar_loops": 2
+    },
+    "utility_weights": [
+      0.4,
+      0.3,
+      0.3
+    ],
+    "lam": 0.5,
+    "variant_id": 9
+  },
+  {
+    "scenario_id": "TC-040",
+    "incident_id": "TC-040",
+    "category": "security_violation_variant",
+    "scenario_type": "security_violation_variant",
+    "priority": "high",
+    "telemetry": {
+      "deploy": {
+        "restart_loops": 0,
+        "config_drift": false,
+        "pipeline_failed": true,
+        "rollback_marker": false,
+        "artifact_mismatch": false
+      },
+      "sre": {
+        "p95_latency_ms": 179.26,
+        "error_rate_pct": 0.511,
+        "saturation_pct": 56.546,
+        "availability_pct": 98.172
+      },
+      "finops": {
+        "cost_spike_pct": 30.05,
+        "hpa_scale_to": 8.334,
+        "cpu_request_increase_pct": 0.0,
+        "memory_request_increase_pct": 0.0
+      },
+      "sec": {
+        "critical_cves": 1,
+        "policy_violation": true,
+        "iam_drift": false,
+        "compliance_gap": false
+      }
+    },
+    "ground_truth": {
+      "primary_domain": "DevSecOps",
+      "secondary_domains": [
+        "DevOps",
+        "FinOps"
+      ],
+      "root_cause": "policy_as_code_violation",
+      "recommended_action": "Patch or block release",
+      "expected_action": "Patch or block release"
+    },
+    "thresholds": {
+      "tau_consensus": 0.65,
+      "delta_min": 0.05,
+      "max_rar_loops": 2
+    },
+    "utility_weights": [
+      0.4,
+      0.3,
+      0.3
+    ],
+    "lam": 0.5,
+    "variant_id": 10
+  },
+  {
+    "scenario_id": "TC-041",
+    "incident_id": "TC-041",
+    "category": "security_violation_variant",
+    "scenario_type": "security_violation_variant",
+    "priority": "high",
+    "telemetry": {
+      "deploy": {
+        "restart_loops": 0,
+        "config_drift": false,
+        "pipeline_failed": false,
+        "rollback_marker": false,
+        "artifact_mismatch": false
+      },
+      "sre": {
+        "p95_latency_ms": 179.495,
+        "error_rate_pct": 0.485,
+        "saturation_pct": 58.217,
+        "availability_pct": 103.321
+      },
+      "finops": {
+        "cost_spike_pct": 0.0,
+        "hpa_scale_to": 3.941,
+        "cpu_request_increase_pct": 0.0,
+        "memory_request_increase_pct": 0.0
+      },
+      "sec": {
+        "critical_cves": 2,
+        "policy_violation": false,
+        "iam_drift": true,
+        "compliance_gap": false
+      }
+    },
+    "ground_truth": {
+      "primary_domain": "DevSecOps",
+      "secondary_domains": [],
+      "root_cause": "iam_drift_detected",
+      "recommended_action": "Patch or block release",
+      "expected_action": "Patch or block release"
+    },
+    "thresholds": {
+      "tau_consensus": 0.65,
+      "delta_min": 0.05,
+      "max_rar_loops": 2
+    },
+    "utility_weights": [
+      0.4,
+      0.3,
+      0.3
+    ],
+    "lam": 0.5,
+    "variant_id": 11
+  },
+  {
+    "scenario_id": "TC-042",
+    "incident_id": "TC-042",
+    "category": "security_violation_variant",
+    "scenario_type": "security_violation_variant",
+    "priority": "medium",
+    "telemetry": {
+      "deploy": {
+        "restart_loops": 0,
+        "config_drift": false,
+        "pipeline_failed": false,
+        "rollback_marker": false,
+        "artifact_mismatch": false
+      },
+      "sre": {
+        "p95_latency_ms": 472.801,
+        "error_rate_pct": 4.32,
+        "saturation_pct": 53.972,
+        "availability_pct": 99.223
+      },
+      "finops": {
+        "cost_spike_pct": 0.0,
+        "hpa_scale_to": 4.125,
+        "cpu_request_increase_pct": 0.0,
+        "memory_request_increase_pct": 0.0
+      },
+      "sec": {
+        "critical_cves": 1,
+        "policy_violation": true,
+        "iam_drift": false,
+        "compliance_gap": true,
+        "_missing": true
+      }
+    },
+    "ground_truth": {
+      "primary_domain": "DevSecOps",
+      "secondary_domains": [
+        "SRE"
+      ],
+      "root_cause": "compliance_control_failure",
+      "recommended_action": "Patch or block release",
+      "expected_action": "Patch or block release"
+    },
+    "thresholds": {
+      "tau_consensus": 0.65,
+      "delta_min": 0.05,
+      "max_rar_loops": 2
+    },
+    "utility_weights": [
+      0.4,
+      0.3,
+      0.3
+    ],
+    "lam": 0.5,
+    "variant_id": 12
+  },
+  {
+    "scenario_id": "TC-043",
+    "incident_id": "TC-043",
+    "category": "reliability_degradation_variant",
+    "scenario_type": "reliability_degradation_variant",
+    "priority": "high",
+    "telemetry": {
+      "deploy": {
+        "restart_loops": 0,
+        "config_drift": false,
+        "pipeline_failed": false,
+        "rollback_marker": false,
+        "artifact_mismatch": false
+      },
+      "sre": {
+        "p95_latency_ms": 1253.321,
+        "error_rate_pct": 5.321,
+        "saturation_pct": 94.108,
+        "availability_pct": 98.425
+      },
+      "finops": {
+        "cost_spike_pct": 0.0,
+        "hpa_scale_to": 4.312,
+        "cpu_request_increase_pct": 0.0,
+        "memory_request_increase_pct": 0.0
+      },
+      "sec": {
+        "critical_cves": 0,
+        "policy_violation": false,
+        "iam_drift": false,
+        "compliance_gap": false
+      }
+    },
+    "ground_truth": {
+      "primary_domain": "SRE",
+      "secondary_domains": [],
+      "root_cause": "latency_spike",
+      "recommended_action": "Mitigate and monitor",
+      "expected_action": "Mitigate and monitor"
+    },
+    "thresholds": {
+      "tau_consensus": 0.65,
+      "delta_min": 0.05,
+      "max_rar_loops": 2
+    },
+    "utility_weights": [
+      0.4,
+      0.3,
+      0.3
+    ],
+    "lam": 0.5,
+    "variant_id": 13
+  },
+  {
+    "scenario_id": "TC-044",
+    "incident_id": "TC-044",
+    "category": "reliability_degradation_variant",
+    "scenario_type": "reliability_degradation_variant",
+    "priority": "high",
+    "telemetry": {
+      "deploy": {
+        "restart_loops": 0,
+        "config_drift": false,
+        "pipeline_failed": false,
+        "rollback_marker": false,
+        "artifact_mismatch": false
+      },
+      "sre": {
+        "p95_latency_ms": 462.0,
+        "error_rate_pct": 15.121,
+        "saturation_pct": 63.961,
+        "availability_pct": 102.541,
+        "_missing": true
+      },
+      "finops": {
+        "cost_spike_pct": 18.308,
+        "hpa_scale_to": 14.587,
+        "cpu_request_increase_pct": 0.0,
+        "memory_request_increase_pct": 0.0
+      },
+      "sec": {
+        "critical_cves": 0,
+        "policy_violation": false,
+        "iam_drift": false,
+        "compliance_gap": false
+      }
+    },
+    "ground_truth": {
+      "primary_domain": "SRE",
+      "secondary_domains": [
+        "FinOps"
+      ],
+      "root_cause": "error_rate_spike",
+      "recommended_action": "Mitigate and monitor",
+      "expected_action": "Mitigate and monitor"
+    },
+    "thresholds": {
+      "tau_consensus": 0.65,
+      "delta_min": 0.05,
+      "max_rar_loops": 2
+    },
+    "utility_weights": [
+      0.4,
+      0.3,
+      0.3
+    ],
+    "lam": 0.5,
+    "variant_id": 14
+  },
+  {
+    "scenario_id": "TC-045",
+    "incident_id": "TC-045",
+    "category": "reliability_degradation_variant",
+    "scenario_type": "reliability_degradation_variant",
+    "priority": "high",
+    "telemetry": {
+      "deploy": {
+        "restart_loops": 0,
+        "config_drift": false,
+        "pipeline_failed": false,
+        "rollback_marker": false,
+        "artifact_mismatch": false
+      },
+      "sre": {
+        "p95_latency_ms": 741.097,
+        "error_rate_pct": 0.572,
+        "saturation_pct": 98.552,
+        "availability_pct": 93.932,
+        "_missing": true
+      },
+      "finops": {
+        "cost_spike_pct": 24.023,
+        "hpa_scale_to": 13.69,
+        "cpu_request_increase_pct": 0.0,
+        "memory_request_increase_pct": 0.0
+      },
+      "sec": {
+        "critical_cves": 0,
+        "policy_violation": true,
+        "iam_drift": false,
+        "compliance_gap": false
+      }
+    },
+    "ground_truth": {
+      "primary_domain": "SRE",
+      "secondary_domains": [
+        "FinOps",
+        "DevSecOps"
+      ],
+      "root_cause": "resource_saturation",
+      "recommended_action": "Scale adjustment",
+      "expected_action": "Scale adjustment"
+    },
+    "thresholds": {
+      "tau_consensus": 0.65,
+      "delta_min": 0.05,
+      "max_rar_loops": 2
+    },
+    "utility_weights": [
+      0.4,
+      0.3,
+      0.3
+    ],
+    "lam": 0.5,
+    "variant_id": 15
+  },
+  {
+    "scenario_id": "TC-046",
+    "incident_id": "TC-046",
+    "category": "reliability_degradation_variant",
+    "scenario_type": "reliability_degradation_variant",
+    "priority": "high",
+    "telemetry": {
+      "deploy": {
+        "restart_loops": 0,
+        "config_drift": false,
+        "pipeline_failed": false,
+        "rollback_marker": false,
+        "artifact_mismatch": false
+      },
+      "sre": {
+        "p95_latency_ms": 576.398,
+        "error_rate_pct": 9.649,
+        "saturation_pct": 60.005,
+        "availability_pct": 99.49
+      },
+      "finops": {
+        "cost_spike_pct": 35.645,
+        "hpa_scale_to": 9.52,
+        "cpu_request_increase_pct": 0.0,
+        "memory_request_increase_pct": 0.0
+      },
+      "sec": {
+        "critical_cves": 0,
+        "policy_violation": false,
+        "iam_drift": false,
+        "compliance_gap": false
+      }
+    },
+    "ground_truth": {
+      "primary_domain": "SRE",
+      "secondary_domains": [
+        "FinOps"
+      ],
+      "root_cause": "availability_drop",
+      "recommended_action": "Mitigate and monitor",
+      "expected_action": "Mitigate and monitor"
+    },
+    "thresholds": {
+      "tau_consensus": 0.65,
+      "delta_min": 0.05,
+      "max_rar_loops": 2
+    },
+    "utility_weights": [
+      0.4,
+      0.3,
+      0.3
+    ],
+    "lam": 0.5,
+    "variant_id": 16
+  },
+  {
+    "scenario_id": "TC-047",
+    "incident_id": "TC-047",
+    "category": "compliance_preparation_variant",
+    "scenario_type": "compliance_preparation_variant",
+    "priority": "medium",
+    "telemetry": {
+      "deploy": {
+        "restart_loops": 0,
+        "config_drift": false,
+        "pipeline_failed": false,
+        "rollback_marker": false,
+        "artifact_mismatch": false
+      },
+      "sre": {
+        "p95_latency_ms": 178.434,
+        "error_rate_pct": 0.505,
+        "saturation_pct": 55.782,
+        "availability_pct": 99.481
+      },
+      "finops": {
+        "cost_spike_pct": 0.0,
+        "hpa_scale_to": 4.179,
+        "cpu_request_increase_pct": 0.0,
+        "memory_request_increase_pct": 0.0
+      },
+      "sec": {
+        "critical_cves": 1,
+        "policy_violation": true,
+        "iam_drift": false,
+        "compliance_gap": true
+      }
+    },
+    "ground_truth": {
+      "primary_domain": "DevSecOps",
+      "secondary_domains": [],
+      "root_cause": "audit_log_gap",
+      "recommended_action": "Patch or block release",
+      "expected_action": "Patch or block release"
+    },
+    "thresholds": {
+      "tau_consensus": 0.65,
+      "delta_min": 0.05,
+      "max_rar_loops": 2
+    },
+    "utility_weights": [
+      0.4,
+      0.3,
+      0.3
+    ],
+    "lam": 0.5,
+    "variant_id": 17
+  },
+  {
+    "scenario_id": "TC-048",
+    "incident_id": "TC-048",
+    "category": "compliance_preparation_variant",
+    "scenario_type": "compliance_preparation_variant",
+    "priority": "medium",
+    "telemetry": {
+      "deploy": {
+        "restart_loops": 0,
+        "config_drift": false,
+        "pipeline_failed": false,
+        "rollback_marker": false,
+        "artifact_mismatch": false
+      },
+      "sre": {
+        "p95_latency_ms": 186.969,
+        "error_rate_pct": 0.49,
+        "saturation_pct": 51.008,
+        "availability_pct": 95.927
+      },
+      "finops": {
+        "cost_spike_pct": 32.603,
+        "hpa_scale_to": 15.31,
+        "cpu_request_increase_pct": 0.0,
+        "memory_request_increase_pct": 0.0
+      },
+      "sec": {
+        "critical_cves": 1,
+        "policy_violation": true,
+        "iam_drift": true,
+        "compliance_gap": true,
+        "_missing": true
+      }
+    },
+    "ground_truth": {
+      "primary_domain": "DevSecOps",
+      "secondary_domains": [
+        "FinOps"
+      ],
+      "root_cause": "iam_policy_mismatch",
+      "recommended_action": "Patch or block release",
+      "expected_action": "Patch or block release"
+    },
+    "thresholds": {
+      "tau_consensus": 0.65,
+      "delta_min": 0.05,
+      "max_rar_loops": 2
+    },
+    "utility_weights": [
+      0.4,
+      0.3,
+      0.3
+    ],
+    "lam": 0.5,
+    "variant_id": 18
+  },
+  {
+    "scenario_id": "TC-049",
+    "incident_id": "TC-049",
+    "category": "compliance_preparation_variant",
+    "scenario_type": "compliance_preparation_variant",
+    "priority": "medium",
+    "telemetry": {
+      "deploy": {
+        "restart_loops": 0,
+        "config_drift": false,
+        "pipeline_failed": true,
+        "rollback_marker": false,
+        "artifact_mismatch": false
+      },
+      "sre": {
+        "p95_latency_ms": 180.128,
+        "error_rate_pct": 0.522,
+        "saturation_pct": 53.946,
+        "availability_pct": 105.279
+      },
+      "finops": {
+        "cost_spike_pct": 0.0,
+        "hpa_scale_to": 4.023,
+        "cpu_request_increase_pct": 0.0,
+        "memory_request_increase_pct": 0.0
+      },
+      "sec": {
+        "critical_cves": 3,
+        "policy_violation": false,
+        "iam_drift": false,
+        "compliance_gap": true
+      }
+    },
+    "ground_truth": {
+      "primary_domain": "DevSecOps",
+      "secondary_domains": [
+        "DevOps"
+      ],
+      "root_cause": "release_evidence_missing",
+      "recommended_action": "Block release and fix pipeline",
+      "expected_action": "Block release and fix pipeline"
+    },
+    "thresholds": {
+      "tau_consensus": 0.65,
+      "delta_min": 0.05,
+      "max_rar_loops": 2
+    },
+    "utility_weights": [
+      0.4,
+      0.3,
+      0.3
+    ],
+    "lam": 0.5,
+    "variant_id": 19
+  },
+  {
+    "scenario_id": "TC-050",
+    "incident_id": "TC-050",
+    "category": "resource_scaling_variant",
+    "scenario_type": "resource_scaling_variant",
+    "priority": "high",
+    "telemetry": {
+      "deploy": {
+        "restart_loops": 0,
+        "config_drift": false,
+        "pipeline_failed": false,
+        "rollback_marker": false,
+        "artifact_mismatch": false
+      },
+      "sre": {
+        "p95_latency_ms": 857.84,
+        "error_rate_pct": 0.655,
+        "saturation_pct": 97.38,
+        "availability_pct": 98.956,
+        "_missing": true
+      },
+      "finops": {
+        "cost_spike_pct": 34.311,
+        "hpa_scale_to": 9.988,
+        "cpu_request_increase_pct": 0.0,
+        "memory_request_increase_pct": 0.0
+      },
+      "sec": {
+        "critical_cves": 0,
+        "policy_violation": false,
+        "iam_drift": false,
+        "compliance_gap": false
+      }
+    },
+    "ground_truth": {
+      "primary_domain": "SRE",
+      "secondary_domains": [
+        "FinOps"
+      ],
+      "root_cause": "capacity_exhaustion",
+      "recommended_action": "Scale adjustment",
+      "expected_action": "Scale adjustment"
+    },
+    "thresholds": {
+      "tau_consensus": 0.65,
+      "delta_min": 0.05,
+      "max_rar_loops": 2
+    },
+    "utility_weights": [
+      0.4,
+      0.3,
+      0.3
+    ],
+    "lam": 0.5,
+    "variant_id": 20
+  },
+  {
+    "scenario_id": "TC-051",
+    "incident_id": "TC-051",
+    "category": "resource_scaling_variant",
+    "scenario_type": "resource_scaling_variant",
+    "priority": "medium",
+    "telemetry": {
+      "deploy": {
+        "restart_loops": 0,
+        "config_drift": false,
+        "pipeline_failed": false,
+        "rollback_marker": false,
+        "artifact_mismatch": false
+      },
+      "sre": {
+        "p95_latency_ms": 189.665,
+        "error_rate_pct": 0.468,
+        "saturation_pct": 43.204,
+        "availability_pct": 100.815
+      },
+      "finops": {
+        "cost_spike_pct": 33.89,
+        "hpa_scale_to": 16.959,
+        "cpu_request_increase_pct": 0.0,
+        "memory_request_increase_pct": 0.0,
+        "_missing": true
+      },
+      "sec": {
+        "critical_cves": 0,
+        "policy_violation": false,
+        "iam_drift": false,
+        "compliance_gap": false
+      }
+    },
+    "ground_truth": {
+      "primary_domain": "FinOps",
+      "secondary_domains": [
+        "SRE"
+      ],
+      "root_cause": "unnecessary_scale_out",
+      "recommended_action": "Scale adjustment",
+      "expected_action": "Scale adjustment"
+    },
+    "thresholds": {
+      "tau_consensus": 0.65,
+      "delta_min": 0.05,
+      "max_rar_loops": 2
+    },
+    "utility_weights": [
+      0.4,
+      0.3,
+      0.3
+    ],
+    "lam": 0.5,
+    "variant_id": 21
+  },
+  {
+    "scenario_id": "TC-052",
+    "incident_id": "TC-052",
+    "category": "resource_scaling_variant",
+    "scenario_type": "resource_scaling_variant",
+    "priority": "medium",
+    "telemetry": {
+      "deploy": {
+        "restart_loops": 0,
+        "config_drift": false,
+        "pipeline_failed": false,
+        "rollback_marker": false,
+        "artifact_mismatch": false
+      },
+      "sre": {
+        "p95_latency_ms": 439.046,
+        "error_rate_pct": 0.485,
+        "saturation_pct": 83.226,
+        "availability_pct": 107.157,
+        "_missing": true
+      },
+      "finops": {
+        "cost_spike_pct": 12.3,
+        "hpa_scale_to": 8.447,
+        "cpu_request_increase_pct": 0.0,
+        "memory_request_increase_pct": 0.0
+      },
+      "sec": {
+        "critical_cves": 0,
+        "policy_violation": false,
+        "iam_drift": false,
+        "compliance_gap": false
+      }
+    },
+    "ground_truth": {
+      "primary_domain": "SRE",
+      "secondary_domains": [
+        "FinOps"
+      ],
+      "root_cause": "high_cpu_trend",
+      "recommended_action": "Scale adjustment",
+      "expected_action": "Scale adjustment"
+    },
+    "thresholds": {
+      "tau_consensus": 0.65,
+      "delta_min": 0.05,
+      "max_rar_loops": 2
+    },
+    "utility_weights": [
+      0.4,
+      0.3,
+      0.3
+    ],
+    "lam": 0.5,
+    "variant_id": 22
+  },
+  {
+    "scenario_id": "TC-053",
+    "incident_id": "TC-053",
+    "category": "incident_review_variant",
+    "scenario_type": "incident_review_variant",
+    "priority": "high",
+    "telemetry": {
+      "deploy": {
+        "restart_loops": 17,
+        "config_drift": false,
+        "pipeline_failed": true,
+        "rollback_marker": true,
+        "artifact_mismatch": false,
+        "_missing": true
+      },
+      "sre": {
+        "p95_latency_ms": 759.762,
+        "error_rate_pct": 12.021,
+        "saturation_pct": 56.141,
+        "availability_pct": 102.614
+      },
+      "finops": {
+        "cost_spike_pct": 0.0,
+        "hpa_scale_to": 4.033,
+        "cpu_request_increase_pct": 0.0,
+        "memory_request_increase_pct": 0.0
+      },
+      "sec": {
+        "critical_cves": 0,
+        "policy_violation": false,
+        "iam_drift": false,
+        "compliance_gap": false
+      }
+    },
+    "ground_truth": {
+      "primary_domain": "DevOps",
+      "secondary_domains": [
+        "SRE"
+      ],
+      "root_cause": "failed_deployment_caused_incident",
+      "recommended_action": "Rollback to stable deployment",
+      "expected_action": "Rollback to stable deployment"
+    },
+    "thresholds": {
+      "tau_consensus": 0.65,
+      "delta_min": 0.05,
+      "max_rar_loops": 2
+    },
+    "utility_weights": [
+      0.4,
+      0.3,
+      0.3
+    ],
+    "lam": 0.5,
+    "variant_id": 23
+  },
+  {
+    "scenario_id": "TC-054",
+    "incident_id": "TC-054",
+    "category": "incident_review_variant",
+    "scenario_type": "incident_review_variant",
+    "priority": "high",
+    "telemetry": {
+      "deploy": {
+        "restart_loops": 0,
+        "config_drift": false,
+        "pipeline_failed": false,
+        "rollback_marker": false,
+        "artifact_mismatch": false
+      },
+      "sre": {
+        "p95_latency_ms": 749.72,
+        "error_rate_pct": 14.125,
+        "saturation_pct": 96.841,
+        "availability_pct": 94.915,
+        "_missing": true
+      },
+      "finops": {
+        "cost_spike_pct": 36.19,
+        "hpa_scale_to": 13.653,
+        "cpu_request_increase_pct": 0.0,
+        "memory_request_increase_pct": 0.0
+      },
+      "sec": {
+        "critical_cves": 0,
+        "policy_violation": true,
+        "iam_drift": false,
+        "compliance_gap": false
+      }
+    },
+    "ground_truth": {
+      "primary_domain": "SRE",
+      "secondary_domains": [
+        "FinOps",
+        "DevSecOps"
+      ],
+      "root_cause": "cascading_service_errors",
+      "recommended_action": "Mitigate and monitor",
+      "expected_action": "Mitigate and monitor"
+    },
+    "thresholds": {
+      "tau_consensus": 0.65,
+      "delta_min": 0.05,
+      "max_rar_loops": 2
+    },
+    "utility_weights": [
+      0.4,
+      0.3,
+      0.3
+    ],
+    "lam": 0.5,
+    "variant_id": 24
+  },
+  {
+    "scenario_id": "TC-055",
+    "incident_id": "TC-055",
+    "category": "incident_review_variant",
+    "scenario_type": "incident_review_variant",
+    "priority": "high",
+    "telemetry": {
+      "deploy": {
+        "restart_loops": 0,
+        "config_drift": false,
+        "pipeline_failed": false,
+        "rollback_marker": false,
+        "artifact_mismatch": false
+      },
+      "sre": {
+        "p95_latency_ms": 396.01,
+        "error_rate_pct": 6.227,
+        "saturation_pct": 53.507,
+        "availability_pct": 103.657
+      },
+      "finops": {
+        "cost_spike_pct": 18.362,
+        "hpa_scale_to": 15.908,
+        "cpu_request_increase_pct": 0.0,
+        "memory_request_increase_pct": 0.0
+      },
+      "sec": {
+        "critical_cves": 0,
+        "policy_violation": true,
+        "iam_drift": true,
+        "compliance_gap": false
+      }
+    },
+    "ground_truth": {
+      "primary_domain": "DevSecOps",
+      "secondary_domains": [
+        "SRE",
+        "FinOps"
+      ],
+      "root_cause": "security_policy_triggered_incident",
+      "recommended_action": "Patch or block release",
+      "expected_action": "Patch or block release"
+    },
+    "thresholds": {
+      "tau_consensus": 0.65,
+      "delta_min": 0.05,
+      "max_rar_loops": 2
+    },
+    "utility_weights": [
+      0.4,
+      0.3,
+      0.3
+    ],
+    "lam": 0.5,
+    "variant_id": 25
+  },
+  {
+    "scenario_id": "TC-056",
+    "incident_id": "TC-056",
+    "category": "policy_propagation_variant",
+    "scenario_type": "policy_propagation_variant",
+    "priority": "medium",
+    "telemetry": {
+      "deploy": {
+        "restart_loops": 0,
+        "config_drift": false,
+        "pipeline_failed": false,
+        "rollback_marker": false,
+        "artifact_mismatch": false
+      },
+      "sre": {
+        "p95_latency_ms": 693.095,
+        "error_rate_pct": 3.09,
+        "saturation_pct": 50.436,
+        "availability_pct": 101.6
+      },
+      "finops": {
+        "cost_spike_pct": 13.649,
+        "hpa_scale_to": 8.288,
+        "cpu_request_increase_pct": 0.0,
+        "memory_request_increase_pct": 0.0
+      },
+      "sec": {
+        "critical_cves": 0,
+        "policy_violation": true,
+        "iam_drift": false,
+        "compliance_gap": true
+      }
+    },
+    "ground_truth": {
+      "primary_domain": "DevSecOps",
+      "secondary_domains": [
+        "SRE",
+        "FinOps"
+      ],
+      "root_cause": "policy_version_drift",
+      "recommended_action": "Patch or block release",
+      "expected_action": "Patch or block release"
+    },
+    "thresholds": {
+      "tau_consensus": 0.65,
+      "delta_min": 0.05,
+      "max_rar_loops": 2
+    },
+    "utility_weights": [
+      0.4,
+      0.3,
+      0.3
+    ],
+    "lam": 0.5,
+    "variant_id": 26
+  },
+  {
+    "scenario_id": "TC-057",
+    "incident_id": "TC-057",
+    "category": "policy_propagation_variant",
+    "scenario_type": "policy_propagation_variant",
+    "priority": "medium",
+    "telemetry": {
+      "deploy": {
+        "restart_loops": 14,
+        "config_drift": true,
+        "pipeline_failed": true,
+        "rollback_marker": true,
+        "artifact_mismatch": false
+      },
+      "sre": {
+        "p95_latency_ms": 442.042,
+        "error_rate_pct": 3.132,
+        "saturation_pct": 53.88,
+        "availability_pct": 105.369
+      },
+      "finops": {
+        "cost_spike_pct": 0.0,
+        "hpa_scale_to": 3.934,
+        "cpu_request_increase_pct": 0.0,
+        "memory_request_increase_pct": 0.0
+      },
+      "sec": {
+        "critical_cves": 0,
+        "policy_violation": true,
+        "iam_drift": false,
+        "compliance_gap": false
+      }
+    },
+    "ground_truth": {
+      "primary_domain": "DevOps",
+      "secondary_domains": [
+        "DevSecOps",
+        "SRE"
+      ],
+      "root_cause": "missed_policy_update_in_pipeline",
+      "recommended_action": "Block release and fix pipeline",
+      "expected_action": "Block release and fix pipeline"
+    },
+    "thresholds": {
+      "tau_consensus": 0.65,
+      "delta_min": 0.05,
+      "max_rar_loops": 2
+    },
+    "utility_weights": [
+      0.4,
+      0.3,
+      0.3
+    ],
+    "lam": 0.5,
+    "variant_id": 27
+  },
+  {
+    "scenario_id": "TC-058",
+    "incident_id": "TC-058",
+    "category": "cost_performance_simulation_variant",
+    "scenario_type": "cost_performance_simulation_variant",
+    "priority": "medium",
+    "telemetry": {
+      "deploy": {
+        "restart_loops": 0,
+        "config_drift": false,
+        "pipeline_failed": false,
+        "rollback_marker": false,
+        "artifact_mismatch": false
+      },
+      "sre": {
+        "p95_latency_ms": 223.673,
+        "error_rate_pct": 0.979,
+        "saturation_pct": 58.357,
+        "availability_pct": 99.907
+      },
+      "finops": {
+        "cost_spike_pct": 29.094,
+        "hpa_scale_to": 12.209,
+        "cpu_request_increase_pct": 0.0,
+        "memory_request_increase_pct": 0.0,
+        "_missing": true
+      },
+      "sec": {
+        "critical_cves": 0,
+        "policy_violation": false,
+        "iam_drift": false,
+        "compliance_gap": false
+      }
+    },
+    "ground_truth": {
+      "primary_domain": "FinOps",
+      "secondary_domains": [
+        "SRE"
+      ],
+      "root_cause": "budget_pressure_with_stable_slo",
+      "recommended_action": "Review scaling policy",
+      "expected_action": "Review scaling policy"
+    },
+    "thresholds": {
+      "tau_consensus": 0.65,
+      "delta_min": 0.05,
+      "max_rar_loops": 2
+    },
+    "utility_weights": [
+      0.4,
+      0.3,
+      0.3
+    ],
+    "lam": 0.5,
+    "variant_id": 28
+  },
+  {
+    "scenario_id": "TC-059",
+    "incident_id": "TC-059",
+    "category": "cost_performance_simulation_variant",
+    "scenario_type": "cost_performance_simulation_variant",
+    "priority": "high",
+    "telemetry": {
+      "deploy": {
+        "restart_loops": 0,
+        "config_drift": false,
+        "pipeline_failed": false,
+        "rollback_marker": false,
+        "artifact_mismatch": false
+      },
+      "sre": {
+        "p95_latency_ms": 920.487,
+        "error_rate_pct": 8.184,
+        "saturation_pct": 100.334,
+        "availability_pct": 96.401
+      },
+      "finops": {
+        "cost_spike_pct": 24.451,
+        "hpa_scale_to": 13.787,
+        "cpu_request_increase_pct": 0.0,
+        "memory_request_increase_pct": 0.0
+      },
+      "sec": {
+        "critical_cves": 0,
+        "policy_violation": false,
+        "iam_drift": false,
+        "compliance_gap": false
+      }
+    },
+    "ground_truth": {
+      "primary_domain": "SRE",
+      "secondary_domains": [
+        "FinOps"
+      ],
+      "root_cause": "performance_risk_requires_capacity",
+      "recommended_action": "Scale adjustment",
+      "expected_action": "Scale adjustment"
+    },
+    "thresholds": {
+      "tau_consensus": 0.65,
+      "delta_min": 0.05,
+      "max_rar_loops": 2
+    },
+    "utility_weights": [
+      0.4,
+      0.3,
+      0.3
+    ],
+    "lam": 0.5,
+    "variant_id": 29
+  },
+  {
+    "scenario_id": "TC-060",
+    "incident_id": "TC-060",
+    "category": "anomaly_to_insight_variant",
+    "scenario_type": "anomaly_to_insight_variant",
+    "priority": "high",
+    "telemetry": {
+      "deploy": {
+        "restart_loops": 16,
+        "config_drift": true,
+        "pipeline_failed": false,
+        "rollback_marker": true,
+        "artifact_mismatch": false
+      },
+      "sre": {
+        "p95_latency_ms": 559.888,
+        "error_rate_pct": 9.121,
+        "saturation_pct": 56.431,
+        "availability_pct": 100.559
+      },
+      "finops": {
+        "cost_spike_pct": 18.817,
+        "hpa_scale_to": 9.094,
+        "cpu_request_increase_pct": 0.0,
+        "memory_request_increase_pct": 0.0
+      },
+      "sec": {
+        "critical_cves": 0,
+        "policy_violation": false,
+        "iam_drift": false,
+        "compliance_gap": false
+      }
+    },
+    "ground_truth": {
+      "primary_domain": "DevOps",
+      "secondary_domains": [
+        "SRE",
+        "FinOps"
+      ],
+      "root_cause": "release_change_triggered_multi_signal_anomaly",
+      "recommended_action": "Rollback to stable deployment",
+      "expected_action": "Rollback to stable deployment"
+    },
+    "thresholds": {
+      "tau_consensus": 0.65,
+      "delta_min": 0.05,
+      "max_rar_loops": 2
+    },
+    "utility_weights": [
+      0.4,
+      0.3,
+      0.3
+    ],
+    "lam": 0.5,
+    "variant_id": 30
+  },
+  {
+    "scenario_id": "TC-061",
+    "incident_id": "TC-061",
+    "category": "deployment_failure_variant",
+    "scenario_type": "deployment_failure_variant",
+    "priority": "high",
+    "telemetry": {
+      "deploy": {
+        "restart_loops": 10,
+        "config_drift": false,
+        "pipeline_failed": true,
+        "rollback_marker": true,
+        "artifact_mismatch": true,
+        "_missing": true
+      },
+      "sre": {
+        "p95_latency_ms": 465.32,
+        "error_rate_pct": 7.332,
+        "saturation_pct": 56.307,
+        "availability_pct": 98.193
+      },
+      "finops": {
+        "cost_spike_pct": 25.595,
+        "hpa_scale_to": 11.59,
+        "cpu_request_increase_pct": 0.0,
+        "memory_request_increase_pct": 0.0
+      },
+      "sec": {
+        "critical_cves": 0,
+        "policy_violation": false,
+        "iam_drift": false,
+        "compliance_gap": false
+      }
+    },
+    "ground_truth": {
+      "primary_domain": "DevOps",
+      "secondary_domains": [
+        "SRE",
+        "FinOps"
+      ],
+      "root_cause": "bad_image_tag",
+      "recommended_action": "Rollback to stable deployment",
+      "expected_action": "Rollback to stable deployment"
+    },
+    "thresholds": {
+      "tau_consensus": 0.65,
+      "delta_min": 0.05,
+      "max_rar_loops": 2
+    },
+    "utility_weights": [
+      0.4,
+      0.3,
+      0.3
+    ],
+    "lam": 0.5,
+    "variant_id": 31
+  },
+  {
+    "scenario_id": "TC-062",
+    "incident_id": "TC-062",
+    "category": "deployment_failure_variant",
+    "scenario_type": "deployment_failure_variant",
+    "priority": "high",
+    "telemetry": {
+      "deploy": {
+        "restart_loops": 12,
+        "config_drift": true,
+        "pipeline_failed": false,
+        "rollback_marker": true,
+        "artifact_mismatch": false
+      },
+      "sre": {
+        "p95_latency_ms": 384.102,
+        "error_rate_pct": 6.111,
+        "saturation_pct": 53.619,
+        "availability_pct": 95.658
+      },
+      "finops": {
+        "cost_spike_pct": 0.0,
+        "hpa_scale_to": 4.231,
+        "cpu_request_increase_pct": 0.0,
+        "memory_request_increase_pct": 0.0
+      },
+      "sec": {
+        "critical_cves": 0,
+        "policy_violation": false,
+        "iam_drift": false,
+        "compliance_gap": false
+      }
+    },
+    "ground_truth": {
+      "primary_domain": "DevOps",
+      "secondary_domains": [
+        "SRE"
+      ],
+      "root_cause": "configuration_drift",
+      "recommended_action": "Rollback to stable deployment",
+      "expected_action": "Rollback to stable deployment"
+    },
+    "thresholds": {
+      "tau_consensus": 0.65,
+      "delta_min": 0.05,
+      "max_rar_loops": 2
+    },
+    "utility_weights": [
+      0.4,
+      0.3,
+      0.3
+    ],
+    "lam": 0.5,
+    "variant_id": 32
+  },
+  {
+    "scenario_id": "TC-063",
+    "incident_id": "TC-063",
+    "category": "deployment_failure_variant",
+    "scenario_type": "deployment_failure_variant",
+    "priority": "medium",
+    "telemetry": {
+      "deploy": {
+        "restart_loops": 18,
+        "config_drift": false,
+        "pipeline_failed": true,
+        "rollback_marker": false,
+        "artifact_mismatch": true,
+        "_missing": true
+      },
+      "sre": {
+        "p95_latency_ms": 181.832,
+        "error_rate_pct": 0.479,
+        "saturation_pct": 59.51,
+        "availability_pct": 101.773
+      },
+      "finops": {
+        "cost_spike_pct": 0.0,
+        "hpa_scale_to": 3.877,
+        "cpu_request_increase_pct": 0.0,
+        "memory_request_increase_pct": 0.0
+      },
+      "sec": {
+        "critical_cves": 0,
+        "policy_violation": false,
+        "iam_drift": false,
+        "compliance_gap": false
+      }
+    },
+    "ground_truth": {
+      "primary_domain": "DevOps",
+      "secondary_domains": [],
+      "root_cause": "failed_pipeline_gate",
+      "recommended_action": "Block release and fix pipeline",
+      "expected_action": "Block release and fix pipeline"
+    },
+    "thresholds": {
+      "tau_consensus": 0.65,
+      "delta_min": 0.05,
+      "max_rar_loops": 2
+    },
+    "utility_weights": [
+      0.4,
+      0.3,
+      0.3
+    ],
+    "lam": 0.5,
+    "variant_id": 33
+  },
+  {
+    "scenario_id": "TC-064",
+    "incident_id": "TC-064",
+    "category": "deployment_failure_variant",
+    "scenario_type": "deployment_failure_variant",
+    "priority": "high",
+    "telemetry": {
+      "deploy": {
+        "restart_loops": 18,
+        "config_drift": true,
+        "pipeline_failed": false,
+        "rollback_marker": true,
+        "artifact_mismatch": false,
+        "_missing": true
+      },
+      "sre": {
+        "p95_latency_ms": 511.282,
+        "error_rate_pct": 10.251,
+        "saturation_pct": 53.067,
+        "availability_pct": 99.995
+      },
+      "finops": {
+        "cost_spike_pct": 33.104,
+        "hpa_scale_to": 8.122,
+        "cpu_request_increase_pct": 0.0,
+        "memory_request_increase_pct": 0.0
+      },
+      "sec": {
+        "critical_cves": 0,
+        "policy_violation": false,
+        "iam_drift": false,
+        "compliance_gap": false
+      }
+    },
+    "ground_truth": {
+      "primary_domain": "DevOps",
+      "secondary_domains": [
+        "SRE",
+        "FinOps"
+      ],
+      "root_cause": "container_restart_after_release",
+      "recommended_action": "Rollback to stable deployment",
+      "expected_action": "Rollback to stable deployment"
+    },
+    "thresholds": {
+      "tau_consensus": 0.65,
+      "delta_min": 0.05,
+      "max_rar_loops": 2
+    },
+    "utility_weights": [
+      0.4,
+      0.3,
+      0.3
+    ],
+    "lam": 0.5,
+    "variant_id": 34
+  },
+  {
+    "scenario_id": "TC-065",
+    "incident_id": "TC-065",
+    "category": "cost_anomaly_variant",
+    "scenario_type": "cost_anomaly_variant",
+    "priority": "high",
+    "telemetry": {
+      "deploy": {
+        "restart_loops": 0,
+        "config_drift": false,
+        "pipeline_failed": false,
+        "rollback_marker": false,
+        "artifact_mismatch": false
+      },
+      "sre": {
+        "p95_latency_ms": 211.785,
+        "error_rate_pct": 1.062,
+        "saturation_pct": 53.751,
+        "availability_pct": 98.325
+      },
+      "finops": {
+        "cost_spike_pct": 47.241,
+        "hpa_scale_to": 20.936,
+        "cpu_request_increase_pct": 0.0,
+        "memory_request_increase_pct": 0.0
+      },
+      "sec": {
+        "critical_cves": 0,
+        "policy_violation": false,
+        "iam_drift": false,
+        "compliance_gap": false
+      }
+    },
+    "ground_truth": {
+      "primary_domain": "FinOps",
+      "secondary_domains": [],
+      "root_cause": "autoscaling_cost_spike",
+      "recommended_action": "Scale adjustment",
+      "expected_action": "Scale adjustment"
+    },
+    "thresholds": {
+      "tau_consensus": 0.65,
+      "delta_min": 0.05,
+      "max_rar_loops": 2
+    },
+    "utility_weights": [
+      0.4,
+      0.3,
+      0.3
+    ],
+    "lam": 0.5,
+    "variant_id": 35
+  },
+  {
+    "scenario_id": "TC-066",
+    "incident_id": "TC-066",
+    "category": "cost_anomaly_variant",
+    "scenario_type": "cost_anomaly_variant",
+    "priority": "medium",
+    "telemetry": {
+      "deploy": {
+        "restart_loops": 0,
+        "config_drift": false,
+        "pipeline_failed": false,
+        "rollback_marker": false,
+        "artifact_mismatch": false
+      },
+      "sre": {
+        "p95_latency_ms": 184.358,
+        "error_rate_pct": 0.485,
+        "saturation_pct": 55.941,
+        "availability_pct": 105.916
+      },
+      "finops": {
+        "cost_spike_pct": 32.48,
+        "hpa_scale_to": 4.768,
+        "cpu_request_increase_pct": 58.387,
+        "memory_request_increase_pct": 46.51
+      },
+      "sec": {
+        "critical_cves": 0,
+        "policy_violation": false,
+        "iam_drift": false,
+        "compliance_gap": false
+      }
+    },
+    "ground_truth": {
+      "primary_domain": "FinOps",
+      "secondary_domains": [],
+      "root_cause": "over_provisioned_resources",
+      "recommended_action": "Scale adjustment",
+      "expected_action": "Scale adjustment"
+    },
+    "thresholds": {
+      "tau_consensus": 0.65,
+      "delta_min": 0.05,
+      "max_rar_loops": 2
+    },
+    "utility_weights": [
+      0.4,
+      0.3,
+      0.3
+    ],
+    "lam": 0.5,
+    "variant_id": 36
+  },
+  {
+    "scenario_id": "TC-067",
+    "incident_id": "TC-067",
+    "category": "cost_anomaly_variant",
+    "scenario_type": "cost_anomaly_variant",
+    "priority": "medium",
+    "telemetry": {
+      "deploy": {
+        "restart_loops": 0,
+        "config_drift": false,
+        "pipeline_failed": false,
+        "rollback_marker": false,
+        "artifact_mismatch": false
+      },
+      "sre": {
+        "p95_latency_ms": 174.589,
+        "error_rate_pct": 0.526,
+        "saturation_pct": 41.906,
+        "availability_pct": 99.24
+      },
+      "finops": {
+        "cost_spike_pct": 30.749,
+        "hpa_scale_to": 13.364,
+        "cpu_request_increase_pct": 0.0,
+        "memory_request_increase_pct": 0.0
+      },
+      "sec": {
+        "critical_cves": 0,
+        "policy_violation": true,
+        "iam_drift": false,
+        "compliance_gap": false
+      }
+    },
+    "ground_truth": {
+      "primary_domain": "FinOps",
+      "secondary_domains": [
+        "DevSecOps"
+      ],
+      "root_cause": "unused_capacity",
+      "recommended_action": "Scale adjustment",
+      "expected_action": "Scale adjustment"
+    },
+    "thresholds": {
+      "tau_consensus": 0.65,
+      "delta_min": 0.05,
+      "max_rar_loops": 2
+    },
+    "utility_weights": [
+      0.4,
+      0.3,
+      0.3
+    ],
+    "lam": 0.5,
+    "variant_id": 37
+  },
+  {
+    "scenario_id": "TC-068",
+    "incident_id": "TC-068",
+    "category": "cost_anomaly_variant",
+    "scenario_type": "cost_anomaly_variant",
+    "priority": "high",
+    "telemetry": {
+      "deploy": {
+        "restart_loops": 0,
+        "config_drift": true,
+        "pipeline_failed": false,
+        "rollback_marker": false,
+        "artifact_mismatch": false
+      },
+      "sre": {
+        "p95_latency_ms": 171.001,
+        "error_rate_pct": 0.491,
+        "saturation_pct": 54.507,
+        "availability_pct": 104.349
+      },
+      "finops": {
+        "cost_spike_pct": 30.919,
+        "hpa_scale_to": 12.495,
+        "cpu_request_increase_pct": 0.0,
+        "memory_request_increase_pct": 0.0
+      },
+      "sec": {
+        "critical_cves": 0,
+        "policy_violation": false,
+        "iam_drift": false,
+        "compliance_gap": false
+      }
+    },
+    "ground_truth": {
+      "primary_domain": "FinOps",
+      "secondary_domains": [
+        "DevOps"
+      ],
+      "root_cause": "cost_increase_after_scaling_policy",
+      "recommended_action": "Review scaling policy",
+      "expected_action": "Review scaling policy"
+    },
+    "thresholds": {
+      "tau_consensus": 0.65,
+      "delta_min": 0.05,
+      "max_rar_loops": 2
+    },
+    "utility_weights": [
+      0.4,
+      0.3,
+      0.3
+    ],
+    "lam": 0.5,
+    "variant_id": 38
+  },
+  {
+    "scenario_id": "TC-069",
+    "incident_id": "TC-069",
+    "category": "security_violation_variant",
+    "scenario_type": "security_violation_variant",
+    "priority": "high",
+    "telemetry": {
+      "deploy": {
+        "restart_loops": 0,
+        "config_drift": false,
+        "pipeline_failed": false,
+        "rollback_marker": false,
+        "artifact_mismatch": false
+      },
+      "sre": {
+        "p95_latency_ms": 610.78,
+        "error_rate_pct": 2.633,
+        "saturation_pct": 56.043,
+        "availability_pct": 103.295
+      },
+      "finops": {
+        "cost_spike_pct": 0.0,
+        "hpa_scale_to": 4.05,
+        "cpu_request_increase_pct": 0.0,
+        "memory_request_increase_pct": 0.0
+      },
+      "sec": {
+        "critical_cves": 2,
+        "policy_violation": false,
+        "iam_drift": false,
+        "compliance_gap": false
+      }
+    },
+    "ground_truth": {
+      "primary_domain": "DevSecOps",
+      "secondary_domains": [
+        "SRE"
+      ],
+      "root_cause": "critical_vulnerability",
+      "recommended_action": "Patch or block release",
+      "expected_action": "Patch or block release"
+    },
+    "thresholds": {
+      "tau_consensus": 0.65,
+      "delta_min": 0.05,
+      "max_rar_loops": 2
+    },
+    "utility_weights": [
+      0.4,
+      0.3,
+      0.3
+    ],
+    "lam": 0.5,
+    "variant_id": 39
+  },
+  {
+    "scenario_id": "TC-070",
+    "incident_id": "TC-070",
+    "category": "security_violation_variant",
+    "scenario_type": "security_violation_variant",
+    "priority": "high",
+    "telemetry": {
+      "deploy": {
+        "restart_loops": 0,
+        "config_drift": false,
+        "pipeline_failed": true,
+        "rollback_marker": false,
+        "artifact_mismatch": false
+      },
+      "sre": {
+        "p95_latency_ms": 185.662,
+        "error_rate_pct": 0.505,
+        "saturation_pct": 56.816,
+        "availability_pct": 94.078
+      },
+      "finops": {
+        "cost_spike_pct": 0.0,
+        "hpa_scale_to": 3.854,
+        "cpu_request_increase_pct": 0.0,
+        "memory_request_increase_pct": 0.0
+      },
+      "sec": {
+        "critical_cves": 2,
+        "policy_violation": true,
+        "iam_drift": false,
+        "compliance_gap": false
+      }
+    },
+    "ground_truth": {
+      "primary_domain": "DevSecOps",
+      "secondary_domains": [
+        "DevOps"
+      ],
+      "root_cause": "policy_as_code_violation",
+      "recommended_action": "Patch or block release",
+      "expected_action": "Patch or block release"
+    },
+    "thresholds": {
+      "tau_consensus": 0.65,
+      "delta_min": 0.05,
+      "max_rar_loops": 2
+    },
+    "utility_weights": [
+      0.4,
+      0.3,
+      0.3
+    ],
+    "lam": 0.5,
+    "variant_id": 40
+  },
+  {
+    "scenario_id": "TC-071",
+    "incident_id": "TC-071",
+    "category": "security_violation_variant",
+    "scenario_type": "security_violation_variant",
+    "priority": "high",
+    "telemetry": {
+      "deploy": {
+        "restart_loops": 0,
+        "config_drift": false,
+        "pipeline_failed": false,
+        "rollback_marker": false,
+        "artifact_mismatch": false
+      },
+      "sre": {
+        "p95_latency_ms": 698.471,
+        "error_rate_pct": 7.466,
+        "saturation_pct": 53.414,
+        "availability_pct": 103.774
+      },
+      "finops": {
+        "cost_spike_pct": 0.0,
+        "hpa_scale_to": 3.983,
+        "cpu_request_increase_pct": 0.0,
+        "memory_request_increase_pct": 0.0
+      },
+      "sec": {
+        "critical_cves": 2,
+        "policy_violation": true,
+        "iam_drift": true,
+        "compliance_gap": true
+      }
+    },
+    "ground_truth": {
+      "primary_domain": "DevSecOps",
+      "secondary_domains": [
+        "SRE"
+      ],
+      "root_cause": "iam_drift_detected",
+      "recommended_action": "Patch or block release",
+      "expected_action": "Patch or block release"
+    },
+    "thresholds": {
+      "tau_consensus": 0.65,
+      "delta_min": 0.05,
+      "max_rar_loops": 2
+    },
+    "utility_weights": [
+      0.4,
+      0.3,
+      0.3
+    ],
+    "lam": 0.5,
+    "variant_id": 41
+  },
+  {
+    "scenario_id": "TC-072",
+    "incident_id": "TC-072",
+    "category": "security_violation_variant",
+    "scenario_type": "security_violation_variant",
+    "priority": "medium",
+    "telemetry": {
+      "deploy": {
+        "restart_loops": 0,
+        "config_drift": false,
+        "pipeline_failed": false,
+        "rollback_marker": false,
+        "artifact_mismatch": false
+      },
+      "sre": {
+        "p95_latency_ms": 194.176,
+        "error_rate_pct": 0.497,
+        "saturation_pct": 54.597,
+        "availability_pct": 103.556
+      },
+      "finops": {
+        "cost_spike_pct": 0.0,
+        "hpa_scale_to": 4.208,
+        "cpu_request_increase_pct": 0.0,
+        "memory_request_increase_pct": 0.0
+      },
+      "sec": {
+        "critical_cves": 1,
+        "policy_violation": true,
+        "iam_drift": false,
+        "compliance_gap": true,
+        "_missing": true
+      }
+    },
+    "ground_truth": {
+      "primary_domain": "DevSecOps",
+      "secondary_domains": [],
+      "root_cause": "compliance_control_failure",
+      "recommended_action": "Patch or block release",
+      "expected_action": "Patch or block release"
+    },
+    "thresholds": {
+      "tau_consensus": 0.65,
+      "delta_min": 0.05,
+      "max_rar_loops": 2
+    },
+    "utility_weights": [
+      0.4,
+      0.3,
+      0.3
+    ],
+    "lam": 0.5,
+    "variant_id": 42
+  },
+  {
+    "scenario_id": "TC-073",
+    "incident_id": "TC-073",
+    "category": "reliability_degradation_variant",
+    "scenario_type": "reliability_degradation_variant",
+    "priority": "high",
+    "telemetry": {
+      "deploy": {
+        "restart_loops": 0,
+        "config_drift": false,
+        "pipeline_failed": false,
+        "rollback_marker": false,
+        "artifact_mismatch": false
+      },
+      "sre": {
+        "p95_latency_ms": 865.131,
+        "error_rate_pct": 3.811,
+        "saturation_pct": 70.619,
+        "availability_pct": 98.565
+      },
+      "finops": {
+        "cost_spike_pct": 0.0,
+        "hpa_scale_to": 3.963,
+        "cpu_request_increase_pct": 0.0,
+        "memory_request_increase_pct": 0.0
+      },
+      "sec": {
+        "critical_cves": 0,
+        "policy_violation": false,
+        "iam_drift": false,
+        "compliance_gap": false
+      }
+    },
+    "ground_truth": {
+      "primary_domain": "SRE",
+      "secondary_domains": [],
+      "root_cause": "latency_spike",
+      "recommended_action": "Mitigate and monitor",
+      "expected_action": "Mitigate and monitor"
+    },
+    "thresholds": {
+      "tau_consensus": 0.65,
+      "delta_min": 0.05,
+      "max_rar_loops": 2
+    },
+    "utility_weights": [
+      0.4,
+      0.3,
+      0.3
+    ],
+    "lam": 0.5,
+    "variant_id": 43
+  },
+  {
+    "scenario_id": "TC-074",
+    "incident_id": "TC-074",
+    "category": "reliability_degradation_variant",
+    "scenario_type": "reliability_degradation_variant",
+    "priority": "high",
+    "telemetry": {
+      "deploy": {
+        "restart_loops": 0,
+        "config_drift": false,
+        "pipeline_failed": false,
+        "rollback_marker": false,
+        "artifact_mismatch": false
+      },
+      "sre": {
+        "p95_latency_ms": 477.213,
+        "error_rate_pct": 15.388,
+        "saturation_pct": 62.891,
+        "availability_pct": 104.147,
+        "_missing": true
+      },
+      "finops": {
+        "cost_spike_pct": 0.0,
+        "hpa_scale_to": 4.179,
+        "cpu_request_increase_pct": 0.0,
+        "memory_request_increase_pct": 0.0
+      },
+      "sec": {
+        "critical_cves": 0,
+        "policy_violation": false,
+        "iam_drift": false,
+        "compliance_gap": false
+      }
+    },
+    "ground_truth": {
+      "primary_domain": "SRE",
+      "secondary_domains": [],
+      "root_cause": "error_rate_spike",
+      "recommended_action": "Mitigate and monitor",
+      "expected_action": "Mitigate and monitor"
+    },
+    "thresholds": {
+      "tau_consensus": 0.65,
+      "delta_min": 0.05,
+      "max_rar_loops": 2
+    },
+    "utility_weights": [
+      0.4,
+      0.3,
+      0.3
+    ],
+    "lam": 0.5,
+    "variant_id": 44
+  },
+  {
+    "scenario_id": "TC-075",
+    "incident_id": "TC-075",
+    "category": "reliability_degradation_variant",
+    "scenario_type": "reliability_degradation_variant",
+    "priority": "high",
+    "telemetry": {
+      "deploy": {
+        "restart_loops": 0,
+        "config_drift": false,
+        "pipeline_failed": false,
+        "rollback_marker": false,
+        "artifact_mismatch": false
+      },
+      "sre": {
+        "p95_latency_ms": 876.465,
+        "error_rate_pct": 2.858,
+        "saturation_pct": 102.834,
+        "availability_pct": 92.005,
+        "_missing": true
+      },
+      "finops": {
+        "cost_spike_pct": 10.33,
+        "hpa_scale_to": 7.438,
+        "cpu_request_increase_pct": 0.0,
+        "memory_request_increase_pct": 0.0
+      },
+      "sec": {
+        "critical_cves": 0,
+        "policy_violation": false,
+        "iam_drift": false,
+        "compliance_gap": false
+      }
+    },
+    "ground_truth": {
+      "primary_domain": "SRE",
+      "secondary_domains": [
+        "FinOps"
+      ],
+      "root_cause": "resource_saturation",
+      "recommended_action": "Scale adjustment",
+      "expected_action": "Scale adjustment"
+    },
+    "thresholds": {
+      "tau_consensus": 0.65,
+      "delta_min": 0.05,
+      "max_rar_loops": 2
+    },
+    "utility_weights": [
+      0.4,
+      0.3,
+      0.3
+    ],
+    "lam": 0.5,
+    "variant_id": 45
+  },
+  {
+    "scenario_id": "TC-076",
+    "incident_id": "TC-076",
+    "category": "reliability_degradation_variant",
+    "scenario_type": "reliability_degradation_variant",
+    "priority": "high",
+    "telemetry": {
+      "deploy": {
+        "restart_loops": 0,
+        "config_drift": false,
+        "pipeline_failed": false,
+        "rollback_marker": false,
+        "artifact_mismatch": false
+      },
+      "sre": {
+        "p95_latency_ms": 668.732,
+        "error_rate_pct": 10.341,
+        "saturation_pct": 65.92,
+        "availability_pct": 94.67
+      },
+      "finops": {
+        "cost_spike_pct": 0.0,
+        "hpa_scale_to": 4.11,
+        "cpu_request_increase_pct": 0.0,
+        "memory_request_increase_pct": 0.0
+      },
+      "sec": {
+        "critical_cves": 0,
+        "policy_violation": false,
+        "iam_drift": false,
+        "compliance_gap": false
+      }
+    },
+    "ground_truth": {
+      "primary_domain": "SRE",
+      "secondary_domains": [],
+      "root_cause": "availability_drop",
+      "recommended_action": "Mitigate and monitor",
+      "expected_action": "Mitigate and monitor"
+    },
+    "thresholds": {
+      "tau_consensus": 0.65,
+      "delta_min": 0.05,
+      "max_rar_loops": 2
+    },
+    "utility_weights": [
+      0.4,
+      0.3,
+      0.3
+    ],
+    "lam": 0.5,
+    "variant_id": 46
+  },
+  {
+    "scenario_id": "TC-077",
+    "incident_id": "TC-077",
+    "category": "compliance_preparation_variant",
+    "scenario_type": "compliance_preparation_variant",
+    "priority": "medium",
+    "telemetry": {
+      "deploy": {
+        "restart_loops": 0,
+        "config_drift": false,
+        "pipeline_failed": false,
+        "rollback_marker": false,
+        "artifact_mismatch": false
+      },
+      "sre": {
+        "p95_latency_ms": 167.491,
+        "error_rate_pct": 0.477,
+        "saturation_pct": 58.528,
+        "availability_pct": 106.174
+      },
+      "finops": {
+        "cost_spike_pct": 0.0,
+        "hpa_scale_to": 3.94,
+        "cpu_request_increase_pct": 0.0,
+        "memory_request_increase_pct": 0.0
+      },
+      "sec": {
+        "critical_cves": 2,
+        "policy_violation": true,
+        "iam_drift": false,
+        "compliance_gap": true
+      }
+    },
+    "ground_truth": {
+      "primary_domain": "DevSecOps",
+      "secondary_domains": [],
+      "root_cause": "audit_log_gap",
+      "recommended_action": "Patch or block release",
+      "expected_action": "Patch or block release"
+    },
+    "thresholds": {
+      "tau_consensus": 0.65,
+      "delta_min": 0.05,
+      "max_rar_loops": 2
+    },
+    "utility_weights": [
+      0.4,
+      0.3,
+      0.3
+    ],
+    "lam": 0.5,
+    "variant_id": 47
+  },
+  {
+    "scenario_id": "TC-078",
+    "incident_id": "TC-078",
+    "category": "compliance_preparation_variant",
+    "scenario_type": "compliance_preparation_variant",
+    "priority": "medium",
+    "telemetry": {
+      "deploy": {
+        "restart_loops": 0,
+        "config_drift": false,
+        "pipeline_failed": false,
+        "rollback_marker": false,
+        "artifact_mismatch": false
+      },
+      "sre": {
+        "p95_latency_ms": 772.866,
+        "error_rate_pct": 7.888,
+        "saturation_pct": 53.676,
+        "availability_pct": 98.468
+      },
+      "finops": {
+        "cost_spike_pct": 0.0,
+        "hpa_scale_to": 4.035,
+        "cpu_request_increase_pct": 0.0,
+        "memory_request_increase_pct": 0.0
+      },
+      "sec": {
+        "critical_cves": 1,
+        "policy_violation": false,
+        "iam_drift": true,
+        "compliance_gap": true,
+        "_missing": true
+      }
+    },
+    "ground_truth": {
+      "primary_domain": "DevSecOps",
+      "secondary_domains": [
+        "SRE"
+      ],
+      "root_cause": "iam_policy_mismatch",
+      "recommended_action": "Patch or block release",
+      "expected_action": "Patch or block release"
+    },
+    "thresholds": {
+      "tau_consensus": 0.65,
+      "delta_min": 0.05,
+      "max_rar_loops": 2
+    },
+    "utility_weights": [
+      0.4,
+      0.3,
+      0.3
+    ],
+    "lam": 0.5,
+    "variant_id": 48
+  },
+  {
+    "scenario_id": "TC-079",
+    "incident_id": "TC-079",
+    "category": "compliance_preparation_variant",
+    "scenario_type": "compliance_preparation_variant",
+    "priority": "medium",
+    "telemetry": {
+      "deploy": {
+        "restart_loops": 0,
+        "config_drift": false,
+        "pipeline_failed": true,
+        "rollback_marker": false,
+        "artifact_mismatch": false
+      },
+      "sre": {
+        "p95_latency_ms": 175.595,
+        "error_rate_pct": 0.513,
+        "saturation_pct": 55.289,
+        "availability_pct": 98.138
+      },
+      "finops": {
+        "cost_spike_pct": 0.0,
+        "hpa_scale_to": 4.21,
+        "cpu_request_increase_pct": 0.0,
+        "memory_request_increase_pct": 0.0
+      },
+      "sec": {
+        "critical_cves": 0,
+        "policy_violation": true,
+        "iam_drift": false,
+        "compliance_gap": true
+      }
+    },
+    "ground_truth": {
+      "primary_domain": "DevSecOps",
+      "secondary_domains": [
+        "DevOps"
+      ],
+      "root_cause": "release_evidence_missing",
+      "recommended_action": "Block release and fix pipeline",
+      "expected_action": "Block release and fix pipeline"
+    },
+    "thresholds": {
+      "tau_consensus": 0.65,
+      "delta_min": 0.05,
+      "max_rar_loops": 2
+    },
+    "utility_weights": [
+      0.4,
+      0.3,
+      0.3
+    ],
+    "lam": 0.5,
+    "variant_id": 49
+  },
+  {
+    "scenario_id": "TC-080",
+    "incident_id": "TC-080",
+    "category": "resource_scaling_variant",
+    "scenario_type": "resource_scaling_variant",
+    "priority": "high",
+    "telemetry": {
+      "deploy": {
+        "restart_loops": 0,
+        "config_drift": false,
+        "pipeline_failed": false,
+        "rollback_marker": false,
+        "artifact_mismatch": false
+      },
+      "sre": {
+        "p95_latency_ms": 728.363,
+        "error_rate_pct": 0.547,
+        "saturation_pct": 100.363,
+        "availability_pct": 98.916,
+        "_missing": true
+      },
+      "finops": {
+        "cost_spike_pct": 19.419,
+        "hpa_scale_to": 10.062,
+        "cpu_request_increase_pct": 0.0,
+        "memory_request_increase_pct": 0.0
+      },
+      "sec": {
+        "critical_cves": 0,
+        "policy_violation": true,
+        "iam_drift": false,
+        "compliance_gap": false
+      }
+    },
+    "ground_truth": {
+      "primary_domain": "SRE",
+      "secondary_domains": [
+        "FinOps",
+        "DevSecOps"
+      ],
+      "root_cause": "capacity_exhaustion",
+      "recommended_action": "Scale adjustment",
+      "expected_action": "Scale adjustment"
+    },
+    "thresholds": {
+      "tau_consensus": 0.65,
+      "delta_min": 0.05,
+      "max_rar_loops": 2
+    },
+    "utility_weights": [
+      0.4,
+      0.3,
+      0.3
+    ],
+    "lam": 0.5,
+    "variant_id": 50
+  },
+  {
+    "scenario_id": "TC-081",
+    "incident_id": "TC-081",
+    "category": "resource_scaling_variant",
+    "scenario_type": "resource_scaling_variant",
+    "priority": "medium",
+    "telemetry": {
+      "deploy": {
+        "restart_loops": 0,
+        "config_drift": false,
+        "pipeline_failed": false,
+        "rollback_marker": false,
+        "artifact_mismatch": false
+      },
+      "sre": {
+        "p95_latency_ms": 197.617,
+        "error_rate_pct": 0.47,
+        "saturation_pct": 43.636,
+        "availability_pct": 99.562
+      },
+      "finops": {
+        "cost_spike_pct": 36.306,
+        "hpa_scale_to": 17.306,
+        "cpu_request_increase_pct": 0.0,
+        "memory_request_increase_pct": 0.0,
+        "_missing": true
+      },
+      "sec": {
+        "critical_cves": 0,
+        "policy_violation": false,
+        "iam_drift": false,
+        "compliance_gap": false
+      }
+    },
+    "ground_truth": {
+      "primary_domain": "FinOps",
+      "secondary_domains": [
+        "SRE"
+      ],
+      "root_cause": "unnecessary_scale_out",
+      "recommended_action": "Scale adjustment",
+      "expected_action": "Scale adjustment"
+    },
+    "thresholds": {
+      "tau_consensus": 0.65,
+      "delta_min": 0.05,
+      "max_rar_loops": 2
+    },
+    "utility_weights": [
+      0.4,
+      0.3,
+      0.3
+    ],
+    "lam": 0.5,
+    "variant_id": 51
+  },
+  {
+    "scenario_id": "TC-082",
+    "incident_id": "TC-082",
+    "category": "resource_scaling_variant",
+    "scenario_type": "resource_scaling_variant",
+    "priority": "medium",
+    "telemetry": {
+      "deploy": {
+        "restart_loops": 0,
+        "config_drift": false,
+        "pipeline_failed": false,
+        "rollback_marker": false,
+        "artifact_mismatch": false
+      },
+      "sre": {
+        "p95_latency_ms": 629.288,
+        "error_rate_pct": 0.663,
+        "saturation_pct": 101.273,
+        "availability_pct": 102.625
+      },
+      "finops": {
+        "cost_spike_pct": 12.277,
+        "hpa_scale_to": 8.076,
+        "cpu_request_increase_pct": 0.0,
+        "memory_request_increase_pct": 0.0
+      },
+      "sec": {
+        "critical_cves": 0,
+        "policy_violation": false,
+        "iam_drift": false,
+        "compliance_gap": false
+      }
+    },
+    "ground_truth": {
+      "primary_domain": "SRE",
+      "secondary_domains": [
+        "FinOps"
+      ],
+      "root_cause": "high_cpu_trend",
+      "recommended_action": "Scale adjustment",
+      "expected_action": "Scale adjustment"
+    },
+    "thresholds": {
+      "tau_consensus": 0.65,
+      "delta_min": 0.05,
+      "max_rar_loops": 2
+    },
+    "utility_weights": [
+      0.4,
+      0.3,
+      0.3
+    ],
+    "lam": 0.5,
+    "variant_id": 52
+  },
+  {
+    "scenario_id": "TC-083",
+    "incident_id": "TC-083",
+    "category": "incident_review_variant",
+    "scenario_type": "incident_review_variant",
+    "priority": "high",
+    "telemetry": {
+      "deploy": {
+        "restart_loops": 14,
+        "config_drift": false,
+        "pipeline_failed": true,
+        "rollback_marker": true,
+        "artifact_mismatch": false
+      },
+      "sre": {
+        "p95_latency_ms": 765.272,
+        "error_rate_pct": 11.368,
+        "saturation_pct": 56.364,
+        "availability_pct": 109.369
+      },
+      "finops": {
+        "cost_spike_pct": 13.456,
+        "hpa_scale_to": 16.665,
+        "cpu_request_increase_pct": 0.0,
+        "memory_request_increase_pct": 0.0
+      },
+      "sec": {
+        "critical_cves": 0,
+        "policy_violation": false,
+        "iam_drift": false,
+        "compliance_gap": false
+      }
+    },
+    "ground_truth": {
+      "primary_domain": "DevOps",
+      "secondary_domains": [
+        "SRE",
+        "FinOps"
+      ],
+      "root_cause": "failed_deployment_caused_incident",
+      "recommended_action": "Rollback to stable deployment",
+      "expected_action": "Rollback to stable deployment"
+    },
+    "thresholds": {
+      "tau_consensus": 0.65,
+      "delta_min": 0.05,
+      "max_rar_loops": 2
+    },
+    "utility_weights": [
+      0.4,
+      0.3,
+      0.3
+    ],
+    "lam": 0.5,
+    "variant_id": 53
+  },
+  {
+    "scenario_id": "TC-084",
+    "incident_id": "TC-084",
+    "category": "incident_review_variant",
+    "scenario_type": "incident_review_variant",
+    "priority": "high",
+    "telemetry": {
+      "deploy": {
+        "restart_loops": 0,
+        "config_drift": false,
+        "pipeline_failed": false,
+        "rollback_marker": false,
+        "artifact_mismatch": false
+      },
+      "sre": {
+        "p95_latency_ms": 615.058,
+        "error_rate_pct": 10.771,
+        "saturation_pct": 73.642,
+        "availability_pct": 93.81
+      },
+      "finops": {
+        "cost_spike_pct": 24.363,
+        "hpa_scale_to": 9.055,
+        "cpu_request_increase_pct": 0.0,
+        "memory_request_increase_pct": 0.0
+      },
+      "sec": {
+        "critical_cves": 0,
+        "policy_violation": false,
+        "iam_drift": false,
+        "compliance_gap": false
+      }
+    },
+    "ground_truth": {
+      "primary_domain": "SRE",
+      "secondary_domains": [
+        "FinOps"
+      ],
+      "root_cause": "cascading_service_errors",
+      "recommended_action": "Mitigate and monitor",
+      "expected_action": "Mitigate and monitor"
+    },
+    "thresholds": {
+      "tau_consensus": 0.65,
+      "delta_min": 0.05,
+      "max_rar_loops": 2
+    },
+    "utility_weights": [
+      0.4,
+      0.3,
+      0.3
+    ],
+    "lam": 0.5,
+    "variant_id": 54
+  },
+  {
+    "scenario_id": "TC-085",
+    "incident_id": "TC-085",
+    "category": "incident_review_variant",
+    "scenario_type": "incident_review_variant",
+    "priority": "high",
+    "telemetry": {
+      "deploy": {
+        "restart_loops": 0,
+        "config_drift": false,
+        "pipeline_failed": false,
+        "rollback_marker": false,
+        "artifact_mismatch": false
+      },
+      "sre": {
+        "p95_latency_ms": 379.36,
+        "error_rate_pct": 5.835,
+        "saturation_pct": 55.882,
+        "availability_pct": 98.972
+      },
+      "finops": {
+        "cost_spike_pct": 0.0,
+        "hpa_scale_to": 4.381,
+        "cpu_request_increase_pct": 0.0,
+        "memory_request_increase_pct": 0.0
+      },
+      "sec": {
+        "critical_cves": 2,
+        "policy_violation": true,
+        "iam_drift": true,
+        "compliance_gap": false
+      }
+    },
+    "ground_truth": {
+      "primary_domain": "DevSecOps",
+      "secondary_domains": [
+        "SRE"
+      ],
+      "root_cause": "security_policy_triggered_incident",
+      "recommended_action": "Patch or block release",
+      "expected_action": "Patch or block release"
+    },
+    "thresholds": {
+      "tau_consensus": 0.65,
+      "delta_min": 0.05,
+      "max_rar_loops": 2
+    },
+    "utility_weights": [
+      0.4,
+      0.3,
+      0.3
+    ],
+    "lam": 0.5,
+    "variant_id": 55
+  },
+  {
+    "scenario_id": "TC-086",
+    "incident_id": "TC-086",
+    "category": "policy_propagation_variant",
+    "scenario_type": "policy_propagation_variant",
+    "priority": "medium",
+    "telemetry": {
+      "deploy": {
+        "restart_loops": 0,
+        "config_drift": false,
+        "pipeline_failed": false,
+        "rollback_marker": false,
+        "artifact_mismatch": false
+      },
+      "sre": {
+        "p95_latency_ms": 174.96,
+        "error_rate_pct": 0.47,
+        "saturation_pct": 53.532,
+        "availability_pct": 105.605
+      },
+      "finops": {
+        "cost_spike_pct": 0.0,
+        "hpa_scale_to": 4.103,
+        "cpu_request_increase_pct": 0.0,
+        "memory_request_increase_pct": 0.0
+      },
+      "sec": {
+        "critical_cves": 1,
+        "policy_violation": true,
+        "iam_drift": false,
+        "compliance_gap": true
+      }
+    },
+    "ground_truth": {
+      "primary_domain": "DevSecOps",
+      "secondary_domains": [],
+      "root_cause": "policy_version_drift",
+      "recommended_action": "Patch or block release",
+      "expected_action": "Patch or block release"
+    },
+    "thresholds": {
+      "tau_consensus": 0.65,
+      "delta_min": 0.05,
+      "max_rar_loops": 2
+    },
+    "utility_weights": [
+      0.4,
+      0.3,
+      0.3
+    ],
+    "lam": 0.5,
+    "variant_id": 56
+  },
+  {
+    "scenario_id": "TC-087",
+    "incident_id": "TC-087",
+    "category": "policy_propagation_variant",
+    "scenario_type": "policy_propagation_variant",
+    "priority": "medium",
+    "telemetry": {
+      "deploy": {
+        "restart_loops": 5,
+        "config_drift": true,
+        "pipeline_failed": true,
+        "rollback_marker": true,
+        "artifact_mismatch": false
+      },
+      "sre": {
+        "p95_latency_ms": 172.209,
+        "error_rate_pct": 0.517,
+        "saturation_pct": 53.903,
+        "availability_pct": 97.035
+      },
+      "finops": {
+        "cost_spike_pct": 0.0,
+        "hpa_scale_to": 3.844,
+        "cpu_request_increase_pct": 0.0,
+        "memory_request_increase_pct": 0.0
+      },
+      "sec": {
+        "critical_cves": 0,
+        "policy_violation": true,
+        "iam_drift": false,
+        "compliance_gap": false
+      }
+    },
+    "ground_truth": {
+      "primary_domain": "DevOps",
+      "secondary_domains": [
+        "DevSecOps"
+      ],
+      "root_cause": "missed_policy_update_in_pipeline",
+      "recommended_action": "Block release and fix pipeline",
+      "expected_action": "Block release and fix pipeline"
+    },
+    "thresholds": {
+      "tau_consensus": 0.65,
+      "delta_min": 0.05,
+      "max_rar_loops": 2
+    },
+    "utility_weights": [
+      0.4,
+      0.3,
+      0.3
+    ],
+    "lam": 0.5,
+    "variant_id": 57
+  },
+  {
+    "scenario_id": "TC-088",
+    "incident_id": "TC-088",
+    "category": "cost_performance_simulation_variant",
+    "scenario_type": "cost_performance_simulation_variant",
+    "priority": "medium",
+    "telemetry": {
+      "deploy": {
+        "restart_loops": 0,
+        "config_drift": false,
+        "pipeline_failed": false,
+        "rollback_marker": false,
+        "artifact_mismatch": false
+      },
+      "sre": {
+        "p95_latency_ms": 222.466,
+        "error_rate_pct": 0.986,
+        "saturation_pct": 55.286,
+        "availability_pct": 108.674
+      },
+      "finops": {
+        "cost_spike_pct": 24.165,
+        "hpa_scale_to": 9.519,
+        "cpu_request_increase_pct": 0.0,
+        "memory_request_increase_pct": 0.0
+      },
+      "sec": {
+        "critical_cves": 0,
+        "policy_violation": false,
+        "iam_drift": false,
+        "compliance_gap": false
+      }
+    },
+    "ground_truth": {
+      "primary_domain": "FinOps",
+      "secondary_domains": [
+        "SRE"
+      ],
+      "root_cause": "budget_pressure_with_stable_slo",
+      "recommended_action": "Review scaling policy",
+      "expected_action": "Review scaling policy"
+    },
+    "thresholds": {
+      "tau_consensus": 0.65,
+      "delta_min": 0.05,
+      "max_rar_loops": 2
+    },
+    "utility_weights": [
+      0.4,
+      0.3,
+      0.3
+    ],
+    "lam": 0.5,
+    "variant_id": 58
+  },
+  {
+    "scenario_id": "TC-089",
+    "incident_id": "TC-089",
+    "category": "cost_performance_simulation_variant",
+    "scenario_type": "cost_performance_simulation_variant",
+    "priority": "high",
+    "telemetry": {
+      "deploy": {
+        "restart_loops": 0,
+        "config_drift": false,
+        "pipeline_failed": false,
+        "rollback_marker": false,
+        "artifact_mismatch": false
+      },
+      "sre": {
+        "p95_latency_ms": 903.945,
+        "error_rate_pct": 7.961,
+        "saturation_pct": 101.983,
+        "availability_pct": 97.621
+      },
+      "finops": {
+        "cost_spike_pct": 21.353,
+        "hpa_scale_to": 10.632,
+        "cpu_request_increase_pct": 0.0,
+        "memory_request_increase_pct": 0.0
+      },
+      "sec": {
+        "critical_cves": 0,
+        "policy_violation": true,
+        "iam_drift": false,
+        "compliance_gap": false
+      }
+    },
+    "ground_truth": {
+      "primary_domain": "SRE",
+      "secondary_domains": [
+        "FinOps",
+        "DevSecOps"
+      ],
+      "root_cause": "performance_risk_requires_capacity",
+      "recommended_action": "Scale adjustment",
+      "expected_action": "Scale adjustment"
+    },
+    "thresholds": {
+      "tau_consensus": 0.65,
+      "delta_min": 0.05,
+      "max_rar_loops": 2
+    },
+    "utility_weights": [
+      0.4,
+      0.3,
+      0.3
+    ],
+    "lam": 0.5,
+    "variant_id": 59
+  },
+  {
+    "scenario_id": "TC-090",
+    "incident_id": "TC-090",
+    "category": "anomaly_to_insight_variant",
+    "scenario_type": "anomaly_to_insight_variant",
+    "priority": "high",
+    "telemetry": {
+      "deploy": {
+        "restart_loops": 13,
+        "config_drift": true,
+        "pipeline_failed": false,
+        "rollback_marker": true,
+        "artifact_mismatch": false,
+        "_missing": true
+      },
+      "sre": {
+        "p95_latency_ms": 571.037,
+        "error_rate_pct": 9.662,
+        "saturation_pct": 53.085,
+        "availability_pct": 103.841
+      },
+      "finops": {
+        "cost_spike_pct": 19.389,
+        "hpa_scale_to": 8.944,
+        "cpu_request_increase_pct": 0.0,
+        "memory_request_increase_pct": 0.0
+      },
+      "sec": {
+        "critical_cves": 0,
+        "policy_violation": true,
+        "iam_drift": false,
+        "compliance_gap": false
+      }
+    },
+    "ground_truth": {
+      "primary_domain": "DevOps",
+      "secondary_domains": [
+        "SRE",
+        "FinOps",
+        "DevSecOps"
+      ],
+      "root_cause": "release_change_triggered_multi_signal_anomaly",
+      "recommended_action": "Rollback to stable deployment",
+      "expected_action": "Rollback to stable deployment"
+    },
+    "thresholds": {
+      "tau_consensus": 0.65,
+      "delta_min": 0.05,
+      "max_rar_loops": 2
+    },
+    "utility_weights": [
+      0.4,
+      0.3,
+      0.3
+    ],
+    "lam": 0.5,
+    "variant_id": 60
+  },
+  {
+    "scenario_id": "TC-091",
+    "incident_id": "TC-091",
+    "category": "deployment_failure_variant",
+    "scenario_type": "deployment_failure_variant",
+    "priority": "high",
+    "telemetry": {
+      "deploy": {
+        "restart_loops": 15,
+        "config_drift": true,
+        "pipeline_failed": true,
+        "rollback_marker": true,
+        "artifact_mismatch": true,
+        "_missing": true
+      },
+      "sre": {
+        "p95_latency_ms": 453.943,
+        "error_rate_pct": 7.943,
+        "saturation_pct": 54.11,
+        "availability_pct": 98.449
+      },
+      "finops": {
+        "cost_spike_pct": 0.0,
+        "hpa_scale_to": 4.219,
+        "cpu_request_increase_pct": 0.0,
+        "memory_request_increase_pct": 0.0
+      },
+      "sec": {
+        "critical_cves": 0,
+        "policy_violation": false,
+        "iam_drift": false,
+        "compliance_gap": false
+      }
+    },
+    "ground_truth": {
+      "primary_domain": "DevOps",
+      "secondary_domains": [
+        "SRE"
+      ],
+      "root_cause": "bad_image_tag",
+      "recommended_action": "Rollback to stable deployment",
+      "expected_action": "Rollback to stable deployment"
+    },
+    "thresholds": {
+      "tau_consensus": 0.65,
+      "delta_min": 0.05,
+      "max_rar_loops": 2
+    },
+    "utility_weights": [
+      0.4,
+      0.3,
+      0.3
+    ],
+    "lam": 0.5,
+    "variant_id": 61
+  },
+  {
+    "scenario_id": "TC-092",
+    "incident_id": "TC-092",
+    "category": "deployment_failure_variant",
+    "scenario_type": "deployment_failure_variant",
+    "priority": "high",
+    "telemetry": {
+      "deploy": {
+        "restart_loops": 18,
+        "config_drift": true,
+        "pipeline_failed": false,
+        "rollback_marker": true,
+        "artifact_mismatch": false,
+        "_missing": true
+      },
+      "sre": {
+        "p95_latency_ms": 589.274,
+        "error_rate_pct": 6.109,
+        "saturation_pct": 52.774,
+        "availability_pct": 96.065
+      },
+      "finops": {
+        "cost_spike_pct": 0.0,
+        "hpa_scale_to": 4.093,
+        "cpu_request_increase_pct": 0.0,
+        "memory_request_increase_pct": 0.0
+      },
+      "sec": {
+        "critical_cves": 0,
+        "policy_violation": false,
+        "iam_drift": false,
+        "compliance_gap": false
+      }
+    },
+    "ground_truth": {
+      "primary_domain": "DevOps",
+      "secondary_domains": [
+        "SRE"
+      ],
+      "root_cause": "configuration_drift",
+      "recommended_action": "Rollback to stable deployment",
+      "expected_action": "Rollback to stable deployment"
+    },
+    "thresholds": {
+      "tau_consensus": 0.65,
+      "delta_min": 0.05,
+      "max_rar_loops": 2
+    },
+    "utility_weights": [
+      0.4,
+      0.3,
+      0.3
+    ],
+    "lam": 0.5,
+    "variant_id": 62
+  },
+  {
+    "scenario_id": "TC-093",
+    "incident_id": "TC-093",
+    "category": "deployment_failure_variant",
+    "scenario_type": "deployment_failure_variant",
+    "priority": "medium",
+    "telemetry": {
+      "deploy": {
+        "restart_loops": 12,
+        "config_drift": true,
+        "pipeline_failed": true,
+        "rollback_marker": true,
+        "artifact_mismatch": true,
+        "_missing": true
+      },
+      "sre": {
+        "p95_latency_ms": 773.382,
+        "error_rate_pct": 4.293,
+        "saturation_pct": 56.329,
+        "availability_pct": 101.262
+      },
+      "finops": {
+        "cost_spike_pct": 0.0,
+        "hpa_scale_to": 3.73,
+        "cpu_request_increase_pct": 0.0,
+        "memory_request_increase_pct": 0.0
+      },
+      "sec": {
+        "critical_cves": 0,
+        "policy_violation": false,
+        "iam_drift": false,
+        "compliance_gap": false
+      }
+    },
+    "ground_truth": {
+      "primary_domain": "DevOps",
+      "secondary_domains": [
+        "SRE"
+      ],
+      "root_cause": "failed_pipeline_gate",
+      "recommended_action": "Block release and fix pipeline",
+      "expected_action": "Block release and fix pipeline"
+    },
+    "thresholds": {
+      "tau_consensus": 0.65,
+      "delta_min": 0.05,
+      "max_rar_loops": 2
+    },
+    "utility_weights": [
+      0.4,
+      0.3,
+      0.3
+    ],
+    "lam": 0.5,
+    "variant_id": 63
+  },
+  {
+    "scenario_id": "TC-094",
+    "incident_id": "TC-094",
+    "category": "deployment_failure_variant",
+    "scenario_type": "deployment_failure_variant",
+    "priority": "high",
+    "telemetry": {
+      "deploy": {
+        "restart_loops": 18,
+        "config_drift": false,
+        "pipeline_failed": false,
+        "rollback_marker": true,
+        "artifact_mismatch": false
+      },
+      "sre": {
+        "p95_latency_ms": 520.694,
+        "error_rate_pct": 10.244,
+        "saturation_pct": 55.71,
+        "availability_pct": 93.75
+      },
+      "finops": {
+        "cost_spike_pct": 12.05,
+        "hpa_scale_to": 6.495,
+        "cpu_request_increase_pct": 0.0,
+        "memory_request_increase_pct": 0.0
+      },
+      "sec": {
+        "critical_cves": 0,
+        "policy_violation": false,
+        "iam_drift": false,
+        "compliance_gap": false
+      }
+    },
+    "ground_truth": {
+      "primary_domain": "DevOps",
+      "secondary_domains": [
+        "SRE",
+        "FinOps"
+      ],
+      "root_cause": "container_restart_after_release",
+      "recommended_action": "Rollback to stable deployment",
+      "expected_action": "Rollback to stable deployment"
+    },
+    "thresholds": {
+      "tau_consensus": 0.65,
+      "delta_min": 0.05,
+      "max_rar_loops": 2
+    },
+    "utility_weights": [
+      0.4,
+      0.3,
+      0.3
+    ],
+    "lam": 0.5,
+    "variant_id": 64
+  },
+  {
+    "scenario_id": "TC-095",
+    "incident_id": "TC-095",
+    "category": "cost_anomaly_variant",
+    "scenario_type": "cost_anomaly_variant",
+    "priority": "high",
+    "telemetry": {
+      "deploy": {
+        "restart_loops": 0,
+        "config_drift": false,
+        "pipeline_failed": false,
+        "rollback_marker": false,
+        "artifact_mismatch": false
+      },
+      "sre": {
+        "p95_latency_ms": 210.078,
+        "error_rate_pct": 1.069,
+        "saturation_pct": 55.938,
+        "availability_pct": 98.473
+      },
+      "finops": {
+        "cost_spike_pct": 40.153,
+        "hpa_scale_to": 17.406,
+        "cpu_request_increase_pct": 0.0,
+        "memory_request_increase_pct": 0.0
+      },
+      "sec": {
+        "critical_cves": 0,
+        "policy_violation": false,
+        "iam_drift": false,
+        "compliance_gap": false
+      }
+    },
+    "ground_truth": {
+      "primary_domain": "FinOps",
+      "secondary_domains": [],
+      "root_cause": "autoscaling_cost_spike",
+      "recommended_action": "Scale adjustment",
+      "expected_action": "Scale adjustment"
+    },
+    "thresholds": {
+      "tau_consensus": 0.65,
+      "delta_min": 0.05,
+      "max_rar_loops": 2
+    },
+    "utility_weights": [
+      0.4,
+      0.3,
+      0.3
+    ],
+    "lam": 0.5,
+    "variant_id": 65
+  },
+  {
+    "scenario_id": "TC-096",
+    "incident_id": "TC-096",
+    "category": "cost_anomaly_variant",
+    "scenario_type": "cost_anomaly_variant",
+    "priority": "medium",
+    "telemetry": {
+      "deploy": {
+        "restart_loops": 0,
+        "config_drift": false,
+        "pipeline_failed": false,
+        "rollback_marker": false,
+        "artifact_mismatch": false
+      },
+      "sre": {
+        "p95_latency_ms": 181.264,
+        "error_rate_pct": 0.516,
+        "saturation_pct": 54.669,
+        "availability_pct": 100.415
+      },
+      "finops": {
+        "cost_spike_pct": 26.931,
+        "hpa_scale_to": 3.831,
+        "cpu_request_increase_pct": 63.123,
+        "memory_request_increase_pct": 44.077
+      },
+      "sec": {
+        "critical_cves": 0,
+        "policy_violation": true,
+        "iam_drift": false,
+        "compliance_gap": false
+      }
+    },
+    "ground_truth": {
+      "primary_domain": "FinOps",
+      "secondary_domains": [
+        "DevSecOps"
+      ],
+      "root_cause": "over_provisioned_resources",
+      "recommended_action": "Scale adjustment",
+      "expected_action": "Scale adjustment"
+    },
+    "thresholds": {
+      "tau_consensus": 0.65,
+      "delta_min": 0.05,
+      "max_rar_loops": 2
+    },
+    "utility_weights": [
+      0.4,
+      0.3,
+      0.3
+    ],
+    "lam": 0.5,
+    "variant_id": 66
+  },
+  {
+    "scenario_id": "TC-097",
+    "incident_id": "TC-097",
+    "category": "cost_anomaly_variant",
+    "scenario_type": "cost_anomaly_variant",
+    "priority": "medium",
+    "telemetry": {
+      "deploy": {
+        "restart_loops": 0,
+        "config_drift": false,
+        "pipeline_failed": false,
+        "rollback_marker": false,
+        "artifact_mismatch": false
+      },
+      "sre": {
+        "p95_latency_ms": 170.161,
+        "error_rate_pct": 0.49,
+        "saturation_pct": 43.539,
+        "availability_pct": 99.99
+      },
+      "finops": {
+        "cost_spike_pct": 28.453,
+        "hpa_scale_to": 15.465,
+        "cpu_request_increase_pct": 0.0,
+        "memory_request_increase_pct": 0.0
+      },
+      "sec": {
+        "critical_cves": 0,
+        "policy_violation": true,
+        "iam_drift": false,
+        "compliance_gap": false
+      }
+    },
+    "ground_truth": {
+      "primary_domain": "FinOps",
+      "secondary_domains": [
+        "DevSecOps"
+      ],
+      "root_cause": "unused_capacity",
+      "recommended_action": "Scale adjustment",
+      "expected_action": "Scale adjustment"
+    },
+    "thresholds": {
+      "tau_consensus": 0.65,
+      "delta_min": 0.05,
+      "max_rar_loops": 2
+    },
+    "utility_weights": [
+      0.4,
+      0.3,
+      0.3
+    ],
+    "lam": 0.5,
+    "variant_id": 67
+  },
+  {
+    "scenario_id": "TC-098",
+    "incident_id": "TC-098",
+    "category": "cost_anomaly_variant",
+    "scenario_type": "cost_anomaly_variant",
+    "priority": "high",
+    "telemetry": {
+      "deploy": {
+        "restart_loops": 0,
+        "config_drift": true,
+        "pipeline_failed": false,
+        "rollback_marker": false,
+        "artifact_mismatch": false
+      },
+      "sre": {
+        "p95_latency_ms": 175.934,
+        "error_rate_pct": 0.515,
+        "saturation_pct": 51.557,
+        "availability_pct": 106.297
+      },
+      "finops": {
+        "cost_spike_pct": 33.462,
+        "hpa_scale_to": 13.436,
+        "cpu_request_increase_pct": 0.0,
+        "memory_request_increase_pct": 0.0
+      },
+      "sec": {
+        "critical_cves": 0,
+        "policy_violation": false,
+        "iam_drift": false,
+        "compliance_gap": false
+      }
+    },
+    "ground_truth": {
+      "primary_domain": "FinOps",
+      "secondary_domains": [
+        "DevOps"
+      ],
+      "root_cause": "cost_increase_after_scaling_policy",
+      "recommended_action": "Review scaling policy",
+      "expected_action": "Review scaling policy"
+    },
+    "thresholds": {
+      "tau_consensus": 0.65,
+      "delta_min": 0.05,
+      "max_rar_loops": 2
+    },
+    "utility_weights": [
+      0.4,
+      0.3,
+      0.3
+    ],
+    "lam": 0.5,
+    "variant_id": 68
+  },
+  {
+    "scenario_id": "TC-099",
+    "incident_id": "TC-099",
+    "category": "security_violation_variant",
+    "scenario_type": "security_violation_variant",
+    "priority": "high",
+    "telemetry": {
+      "deploy": {
+        "restart_loops": 0,
+        "config_drift": false,
+        "pipeline_failed": false,
+        "rollback_marker": false,
+        "artifact_mismatch": false
+      },
+      "sre": {
+        "p95_latency_ms": 179.324,
+        "error_rate_pct": 0.493,
+        "saturation_pct": 57.053,
+        "availability_pct": 104.309
+      },
+      "finops": {
+        "cost_spike_pct": 16.509,
+        "hpa_scale_to": 16.553,
+        "cpu_request_increase_pct": 0.0,
+        "memory_request_increase_pct": 0.0
+      },
+      "sec": {
+        "critical_cves": 2,
+        "policy_violation": true,
+        "iam_drift": false,
+        "compliance_gap": false
+      }
+    },
+    "ground_truth": {
+      "primary_domain": "DevSecOps",
+      "secondary_domains": [
+        "FinOps"
+      ],
+      "root_cause": "critical_vulnerability",
+      "recommended_action": "Patch or block release",
+      "expected_action": "Patch or block release"
+    },
+    "thresholds": {
+      "tau_consensus": 0.65,
+      "delta_min": 0.05,
+      "max_rar_loops": 2
+    },
+    "utility_weights": [
+      0.4,
+      0.3,
+      0.3
+    ],
+    "lam": 0.5,
+    "variant_id": 69
+  },
+  {
+    "scenario_id": "TC-100",
+    "incident_id": "TC-100",
+    "category": "security_violation_variant",
+    "scenario_type": "security_violation_variant",
+    "priority": "high",
+    "telemetry": {
+      "deploy": {
+        "restart_loops": 0,
+        "config_drift": false,
+        "pipeline_failed": true,
+        "rollback_marker": false,
+        "artifact_mismatch": false
+      },
+      "sre": {
+        "p95_latency_ms": 192.386,
+        "error_rate_pct": 0.492,
+        "saturation_pct": 54.885,
+        "availability_pct": 97.279
+      },
+      "finops": {
+        "cost_spike_pct": 0.0,
+        "hpa_scale_to": 3.694,
+        "cpu_request_increase_pct": 0.0,
+        "memory_request_increase_pct": 0.0
+      },
+      "sec": {
+        "critical_cves": 1,
+        "policy_violation": true,
+        "iam_drift": false,
+        "compliance_gap": true,
+        "_missing": true
+      }
+    },
+    "ground_truth": {
+      "primary_domain": "DevSecOps",
+      "secondary_domains": [
+        "DevOps"
+      ],
+      "root_cause": "policy_as_code_violation",
+      "recommended_action": "Patch or block release",
+      "expected_action": "Patch or block release"
+    },
+    "thresholds": {
+      "tau_consensus": 0.65,
+      "delta_min": 0.05,
+      "max_rar_loops": 2
+    },
+    "utility_weights": [
+      0.4,
+      0.3,
+      0.3
+    ],
+    "lam": 0.5,
+    "variant_id": 70
+  },
+  {
+    "scenario_id": "TC-101",
+    "incident_id": "TC-101",
+    "category": "security_violation_variant",
+    "scenario_type": "security_violation_variant",
+    "priority": "high",
+    "telemetry": {
+      "deploy": {
+        "restart_loops": 0,
+        "config_drift": false,
+        "pipeline_failed": false,
+        "rollback_marker": false,
+        "artifact_mismatch": false
+      },
+      "sre": {
+        "p95_latency_ms": 173.214,
+        "error_rate_pct": 0.489,
+        "saturation_pct": 58.266,
+        "availability_pct": 96.012
+      },
+      "finops": {
+        "cost_spike_pct": 0.0,
+        "hpa_scale_to": 3.896,
+        "cpu_request_increase_pct": 0.0,
+        "memory_request_increase_pct": 0.0
+      },
+      "sec": {
+        "critical_cves": 1,
+        "policy_violation": true,
+        "iam_drift": true,
+        "compliance_gap": false
+      }
+    },
+    "ground_truth": {
+      "primary_domain": "DevSecOps",
+      "secondary_domains": [],
+      "root_cause": "iam_drift_detected",
+      "recommended_action": "Patch or block release",
+      "expected_action": "Patch or block release"
+    },
+    "thresholds": {
+      "tau_consensus": 0.65,
+      "delta_min": 0.05,
+      "max_rar_loops": 2
+    },
+    "utility_weights": [
+      0.4,
+      0.3,
+      0.3
+    ],
+    "lam": 0.5,
+    "variant_id": 71
+  },
+  {
+    "scenario_id": "TC-102",
+    "incident_id": "TC-102",
+    "category": "security_violation_variant",
+    "scenario_type": "security_violation_variant",
+    "priority": "medium",
+    "telemetry": {
+      "deploy": {
+        "restart_loops": 0,
+        "config_drift": false,
+        "pipeline_failed": false,
+        "rollback_marker": false,
+        "artifact_mismatch": false
+      },
+      "sre": {
+        "p95_latency_ms": 180.65,
+        "error_rate_pct": 0.53,
+        "saturation_pct": 53.392,
+        "availability_pct": 98.727
+      },
+      "finops": {
+        "cost_spike_pct": 0.0,
+        "hpa_scale_to": 4.001,
+        "cpu_request_increase_pct": 0.0,
+        "memory_request_increase_pct": 0.0
+      },
+      "sec": {
+        "critical_cves": 1,
+        "policy_violation": true,
+        "iam_drift": false,
+        "compliance_gap": true,
+        "_missing": true
+      }
+    },
+    "ground_truth": {
+      "primary_domain": "DevSecOps",
+      "secondary_domains": [],
+      "root_cause": "compliance_control_failure",
+      "recommended_action": "Patch or block release",
+      "expected_action": "Patch or block release"
+    },
+    "thresholds": {
+      "tau_consensus": 0.65,
+      "delta_min": 0.05,
+      "max_rar_loops": 2
+    },
+    "utility_weights": [
+      0.4,
+      0.3,
+      0.3
+    ],
+    "lam": 0.5,
+    "variant_id": 72
+  },
+  {
+    "scenario_id": "TC-103",
+    "incident_id": "TC-103",
+    "category": "reliability_degradation_variant",
+    "scenario_type": "reliability_degradation_variant",
+    "priority": "high",
+    "telemetry": {
+      "deploy": {
+        "restart_loops": 0,
+        "config_drift": false,
+        "pipeline_failed": false,
+        "rollback_marker": false,
+        "artifact_mismatch": false
+      },
+      "sre": {
+        "p95_latency_ms": 918.793,
+        "error_rate_pct": 3.702,
+        "saturation_pct": 73.01,
+        "availability_pct": 99.979
+      },
+      "finops": {
+        "cost_spike_pct": 0.0,
+        "hpa_scale_to": 4.188,
+        "cpu_request_increase_pct": 0.0,
+        "memory_request_increase_pct": 0.0
+      },
+      "sec": {
+        "critical_cves": 0,
+        "policy_violation": true,
+        "iam_drift": false,
+        "compliance_gap": false
+      }
+    },
+    "ground_truth": {
+      "primary_domain": "SRE",
+      "secondary_domains": [
+        "DevSecOps"
+      ],
+      "root_cause": "latency_spike",
+      "recommended_action": "Mitigate and monitor",
+      "expected_action": "Mitigate and monitor"
+    },
+    "thresholds": {
+      "tau_consensus": 0.65,
+      "delta_min": 0.05,
+      "max_rar_loops": 2
+    },
+    "utility_weights": [
+      0.4,
+      0.3,
+      0.3
+    ],
+    "lam": 0.5,
+    "variant_id": 73
+  },
+  {
+    "scenario_id": "TC-104",
+    "incident_id": "TC-104",
+    "category": "reliability_degradation_variant",
+    "scenario_type": "reliability_degradation_variant",
+    "priority": "high",
+    "telemetry": {
+      "deploy": {
+        "restart_loops": 0,
+        "config_drift": false,
+        "pipeline_failed": false,
+        "rollback_marker": false,
+        "artifact_mismatch": false
+      },
+      "sre": {
+        "p95_latency_ms": 576.046,
+        "error_rate_pct": 18.594,
+        "saturation_pct": 77.389,
+        "availability_pct": 98.613,
+        "_missing": true
+      },
+      "finops": {
+        "cost_spike_pct": 0.0,
+        "hpa_scale_to": 4.03,
+        "cpu_request_increase_pct": 0.0,
+        "memory_request_increase_pct": 0.0
+      },
+      "sec": {
+        "critical_cves": 0,
+        "policy_violation": false,
+        "iam_drift": false,
+        "compliance_gap": false
+      }
+    },
+    "ground_truth": {
+      "primary_domain": "SRE",
+      "secondary_domains": [],
+      "root_cause": "error_rate_spike",
+      "recommended_action": "Mitigate and monitor",
+      "expected_action": "Mitigate and monitor"
+    },
+    "thresholds": {
+      "tau_consensus": 0.65,
+      "delta_min": 0.05,
+      "max_rar_loops": 2
+    },
+    "utility_weights": [
+      0.4,
+      0.3,
+      0.3
+    ],
+    "lam": 0.5,
+    "variant_id": 74
+  },
+  {
+    "scenario_id": "TC-105",
+    "incident_id": "TC-105",
+    "category": "reliability_degradation_variant",
+    "scenario_type": "reliability_degradation_variant",
+    "priority": "high",
+    "telemetry": {
+      "deploy": {
+        "restart_loops": 0,
+        "config_drift": false,
+        "pipeline_failed": false,
+        "rollback_marker": false,
+        "artifact_mismatch": false
+      },
+      "sre": {
+        "p95_latency_ms": 680.976,
+        "error_rate_pct": 0.561,
+        "saturation_pct": 96.9,
+        "availability_pct": 93.512,
+        "_missing": true
+      },
+      "finops": {
+        "cost_spike_pct": 9.905,
+        "hpa_scale_to": 7.093,
+        "cpu_request_increase_pct": 0.0,
+        "memory_request_increase_pct": 0.0
+      },
+      "sec": {
+        "critical_cves": 0,
+        "policy_violation": false,
+        "iam_drift": false,
+        "compliance_gap": false
+      }
+    },
+    "ground_truth": {
+      "primary_domain": "SRE",
+      "secondary_domains": [
+        "FinOps"
+      ],
+      "root_cause": "resource_saturation",
+      "recommended_action": "Scale adjustment",
+      "expected_action": "Scale adjustment"
+    },
+    "thresholds": {
+      "tau_consensus": 0.65,
+      "delta_min": 0.05,
+      "max_rar_loops": 2
+    },
+    "utility_weights": [
+      0.4,
+      0.3,
+      0.3
+    ],
+    "lam": 0.5,
+    "variant_id": 75
+  },
+  {
+    "scenario_id": "TC-106",
+    "incident_id": "TC-106",
+    "category": "reliability_degradation_variant",
+    "scenario_type": "reliability_degradation_variant",
+    "priority": "high",
+    "telemetry": {
+      "deploy": {
+        "restart_loops": 0,
+        "config_drift": false,
+        "pipeline_failed": false,
+        "rollback_marker": false,
+        "artifact_mismatch": false
+      },
+      "sre": {
+        "p95_latency_ms": 689.756,
+        "error_rate_pct": 11.894,
+        "saturation_pct": 76.375,
+        "availability_pct": 98.692
+      },
+      "finops": {
+        "cost_spike_pct": 0.0,
+        "hpa_scale_to": 3.82,
+        "cpu_request_increase_pct": 0.0,
+        "memory_request_increase_pct": 0.0
+      },
+      "sec": {
+        "critical_cves": 0,
+        "policy_violation": false,
+        "iam_drift": false,
+        "compliance_gap": false
+      }
+    },
+    "ground_truth": {
+      "primary_domain": "SRE",
+      "secondary_domains": [],
+      "root_cause": "availability_drop",
+      "recommended_action": "Mitigate and monitor",
+      "expected_action": "Mitigate and monitor"
+    },
+    "thresholds": {
+      "tau_consensus": 0.65,
+      "delta_min": 0.05,
+      "max_rar_loops": 2
+    },
+    "utility_weights": [
+      0.4,
+      0.3,
+      0.3
+    ],
+    "lam": 0.5,
+    "variant_id": 76
+  },
+  {
+    "scenario_id": "TC-107",
+    "incident_id": "TC-107",
+    "category": "compliance_preparation_variant",
+    "scenario_type": "compliance_preparation_variant",
+    "priority": "medium",
+    "telemetry": {
+      "deploy": {
+        "restart_loops": 0,
+        "config_drift": false,
+        "pipeline_failed": false,
+        "rollback_marker": false,
+        "artifact_mismatch": false
+      },
+      "sre": {
+        "p95_latency_ms": 170.547,
+        "error_rate_pct": 0.471,
+        "saturation_pct": 57.287,
+        "availability_pct": 100.693
+      },
+      "finops": {
+        "cost_spike_pct": 0.0,
+        "hpa_scale_to": 3.879,
+        "cpu_request_increase_pct": 0.0,
+        "memory_request_increase_pct": 0.0
+      },
+      "sec": {
+        "critical_cves": 3,
+        "policy_violation": true,
+        "iam_drift": false,
+        "compliance_gap": true
+      }
+    },
+    "ground_truth": {
+      "primary_domain": "DevSecOps",
+      "secondary_domains": [],
+      "root_cause": "audit_log_gap",
+      "recommended_action": "Patch or block release",
+      "expected_action": "Patch or block release"
+    },
+    "thresholds": {
+      "tau_consensus": 0.65,
+      "delta_min": 0.05,
+      "max_rar_loops": 2
+    },
+    "utility_weights": [
+      0.4,
+      0.3,
+      0.3
+    ],
+    "lam": 0.5,
+    "variant_id": 77
+  },
+  {
+    "scenario_id": "TC-108",
+    "incident_id": "TC-108",
+    "category": "compliance_preparation_variant",
+    "scenario_type": "compliance_preparation_variant",
+    "priority": "medium",
+    "telemetry": {
+      "deploy": {
+        "restart_loops": 0,
+        "config_drift": false,
+        "pipeline_failed": false,
+        "rollback_marker": false,
+        "artifact_mismatch": false
+      },
+      "sre": {
+        "p95_latency_ms": 188.31,
+        "error_rate_pct": 0.48,
+        "saturation_pct": 56.124,
+        "availability_pct": 93.458
+      },
+      "finops": {
+        "cost_spike_pct": 0.0,
+        "hpa_scale_to": 4.066,
+        "cpu_request_increase_pct": 0.0,
+        "memory_request_increase_pct": 0.0
+      },
+      "sec": {
+        "critical_cves": 3,
+        "policy_violation": true,
+        "iam_drift": true,
+        "compliance_gap": true,
+        "_missing": true
+      }
+    },
+    "ground_truth": {
+      "primary_domain": "DevSecOps",
+      "secondary_domains": [],
+      "root_cause": "iam_policy_mismatch",
+      "recommended_action": "Patch or block release",
+      "expected_action": "Patch or block release"
+    },
+    "thresholds": {
+      "tau_consensus": 0.65,
+      "delta_min": 0.05,
+      "max_rar_loops": 2
+    },
+    "utility_weights": [
+      0.4,
+      0.3,
+      0.3
+    ],
+    "lam": 0.5,
+    "variant_id": 78
+  },
+  {
+    "scenario_id": "TC-109",
+    "incident_id": "TC-109",
+    "category": "compliance_preparation_variant",
+    "scenario_type": "compliance_preparation_variant",
+    "priority": "medium",
+    "telemetry": {
+      "deploy": {
+        "restart_loops": 0,
+        "config_drift": false,
+        "pipeline_failed": true,
+        "rollback_marker": false,
+        "artifact_mismatch": false
+      },
+      "sre": {
+        "p95_latency_ms": 168.396,
+        "error_rate_pct": 0.513,
+        "saturation_pct": 54.478,
+        "availability_pct": 100.935
+      },
+      "finops": {
+        "cost_spike_pct": 0.0,
+        "hpa_scale_to": 4.072,
+        "cpu_request_increase_pct": 0.0,
+        "memory_request_increase_pct": 0.0
+      },
+      "sec": {
+        "critical_cves": 1,
+        "policy_violation": true,
+        "iam_drift": false,
+        "compliance_gap": true
+      }
+    },
+    "ground_truth": {
+      "primary_domain": "DevSecOps",
+      "secondary_domains": [
+        "DevOps"
+      ],
+      "root_cause": "release_evidence_missing",
+      "recommended_action": "Block release and fix pipeline",
+      "expected_action": "Block release and fix pipeline"
+    },
+    "thresholds": {
+      "tau_consensus": 0.65,
+      "delta_min": 0.05,
+      "max_rar_loops": 2
+    },
+    "utility_weights": [
+      0.4,
+      0.3,
+      0.3
+    ],
+    "lam": 0.5,
+    "variant_id": 79
+  },
+  {
+    "scenario_id": "TC-110",
+    "incident_id": "TC-110",
+    "category": "resource_scaling_variant",
+    "scenario_type": "resource_scaling_variant",
+    "priority": "high",
+    "telemetry": {
+      "deploy": {
+        "restart_loops": 0,
+        "config_drift": false,
+        "pipeline_failed": false,
+        "rollback_marker": false,
+        "artifact_mismatch": false
+      },
+      "sre": {
+        "p95_latency_ms": 831.403,
+        "error_rate_pct": 0.604,
+        "saturation_pct": 95.173,
+        "availability_pct": 101.345,
+        "_missing": true
+      },
+      "finops": {
+        "cost_spike_pct": 18.653,
+        "hpa_scale_to": 10.391,
+        "cpu_request_increase_pct": 0.0,
+        "memory_request_increase_pct": 0.0
+      },
+      "sec": {
+        "critical_cves": 0,
+        "policy_violation": false,
+        "iam_drift": false,
+        "compliance_gap": false
+      }
+    },
+    "ground_truth": {
+      "primary_domain": "SRE",
+      "secondary_domains": [
+        "FinOps"
+      ],
+      "root_cause": "capacity_exhaustion",
+      "recommended_action": "Scale adjustment",
+      "expected_action": "Scale adjustment"
+    },
+    "thresholds": {
+      "tau_consensus": 0.65,
+      "delta_min": 0.05,
+      "max_rar_loops": 2
+    },
+    "utility_weights": [
+      0.4,
+      0.3,
+      0.3
+    ],
+    "lam": 0.5,
+    "variant_id": 80
+  },
+  {
+    "scenario_id": "TC-111",
+    "incident_id": "TC-111",
+    "category": "resource_scaling_variant",
+    "scenario_type": "resource_scaling_variant",
+    "priority": "medium",
+    "telemetry": {
+      "deploy": {
+        "restart_loops": 0,
+        "config_drift": false,
+        "pipeline_failed": false,
+        "rollback_marker": false,
+        "artifact_mismatch": false
+      },
+      "sre": {
+        "p95_latency_ms": 195.539,
+        "error_rate_pct": 0.462,
+        "saturation_pct": 45.151,
+        "availability_pct": 99.781
+      },
+      "finops": {
+        "cost_spike_pct": 33.537,
+        "hpa_scale_to": 15.912,
+        "cpu_request_increase_pct": 0.0,
+        "memory_request_increase_pct": 0.0,
+        "_missing": true
+      },
+      "sec": {
+        "critical_cves": 0,
+        "policy_violation": false,
+        "iam_drift": false,
+        "compliance_gap": false
+      }
+    },
+    "ground_truth": {
+      "primary_domain": "FinOps",
+      "secondary_domains": [
+        "SRE"
+      ],
+      "root_cause": "unnecessary_scale_out",
+      "recommended_action": "Scale adjustment",
+      "expected_action": "Scale adjustment"
+    },
+    "thresholds": {
+      "tau_consensus": 0.65,
+      "delta_min": 0.05,
+      "max_rar_loops": 2
+    },
+    "utility_weights": [
+      0.4,
+      0.3,
+      0.3
+    ],
+    "lam": 0.5,
+    "variant_id": 81
+  },
+  {
+    "scenario_id": "TC-112",
+    "incident_id": "TC-112",
+    "category": "resource_scaling_variant",
+    "scenario_type": "resource_scaling_variant",
+    "priority": "medium",
+    "telemetry": {
+      "deploy": {
+        "restart_loops": 0,
+        "config_drift": false,
+        "pipeline_failed": false,
+        "rollback_marker": false,
+        "artifact_mismatch": false
+      },
+      "sre": {
+        "p95_latency_ms": 475.829,
+        "error_rate_pct": 6.043,
+        "saturation_pct": 89.975,
+        "availability_pct": 107.657
+      },
+      "finops": {
+        "cost_spike_pct": 12.523,
+        "hpa_scale_to": 7.966,
+        "cpu_request_increase_pct": 0.0,
+        "memory_request_increase_pct": 0.0
+      },
+      "sec": {
+        "critical_cves": 0,
+        "policy_violation": false,
+        "iam_drift": false,
+        "compliance_gap": false
+      }
+    },
+    "ground_truth": {
+      "primary_domain": "SRE",
+      "secondary_domains": [
+        "FinOps"
+      ],
+      "root_cause": "high_cpu_trend",
+      "recommended_action": "Scale adjustment",
+      "expected_action": "Scale adjustment"
+    },
+    "thresholds": {
+      "tau_consensus": 0.65,
+      "delta_min": 0.05,
+      "max_rar_loops": 2
+    },
+    "utility_weights": [
+      0.4,
+      0.3,
+      0.3
+    ],
+    "lam": 0.5,
+    "variant_id": 82
+  },
+  {
+    "scenario_id": "TC-113",
+    "incident_id": "TC-113",
+    "category": "incident_review_variant",
+    "scenario_type": "incident_review_variant",
+    "priority": "high",
+    "telemetry": {
+      "deploy": {
+        "restart_loops": 14,
+        "config_drift": false,
+        "pipeline_failed": true,
+        "rollback_marker": true,
+        "artifact_mismatch": false
+      },
+      "sre": {
+        "p95_latency_ms": 738.129,
+        "error_rate_pct": 12.043,
+        "saturation_pct": 55.523,
+        "availability_pct": 105.017
+      },
+      "finops": {
+        "cost_spike_pct": 0.0,
+        "hpa_scale_to": 4.247,
+        "cpu_request_increase_pct": 0.0,
+        "memory_request_increase_pct": 0.0
+      },
+      "sec": {
+        "critical_cves": 0,
+        "policy_violation": true,
+        "iam_drift": false,
+        "compliance_gap": false
+      }
+    },
+    "ground_truth": {
+      "primary_domain": "DevOps",
+      "secondary_domains": [
+        "SRE",
+        "DevSecOps"
+      ],
+      "root_cause": "failed_deployment_caused_incident",
+      "recommended_action": "Rollback to stable deployment",
+      "expected_action": "Rollback to stable deployment"
+    },
+    "thresholds": {
+      "tau_consensus": 0.65,
+      "delta_min": 0.05,
+      "max_rar_loops": 2
+    },
+    "utility_weights": [
+      0.4,
+      0.3,
+      0.3
+    ],
+    "lam": 0.5,
+    "variant_id": 83
+  },
+  {
+    "scenario_id": "TC-114",
+    "incident_id": "TC-114",
+    "category": "incident_review_variant",
+    "scenario_type": "incident_review_variant",
+    "priority": "high",
+    "telemetry": {
+      "deploy": {
+        "restart_loops": 0,
+        "config_drift": false,
+        "pipeline_failed": false,
+        "rollback_marker": false,
+        "artifact_mismatch": false
+      },
+      "sre": {
+        "p95_latency_ms": 768.531,
+        "error_rate_pct": 13.884,
+        "saturation_pct": 89.123,
+        "availability_pct": 100.948,
+        "_missing": true
+      },
+      "finops": {
+        "cost_spike_pct": 15.569,
+        "hpa_scale_to": 9.809,
+        "cpu_request_increase_pct": 0.0,
+        "memory_request_increase_pct": 0.0
+      },
+      "sec": {
+        "critical_cves": 0,
+        "policy_violation": false,
+        "iam_drift": false,
+        "compliance_gap": false
+      }
+    },
+    "ground_truth": {
+      "primary_domain": "SRE",
+      "secondary_domains": [
+        "FinOps"
+      ],
+      "root_cause": "cascading_service_errors",
+      "recommended_action": "Mitigate and monitor",
+      "expected_action": "Mitigate and monitor"
+    },
+    "thresholds": {
+      "tau_consensus": 0.65,
+      "delta_min": 0.05,
+      "max_rar_loops": 2
+    },
+    "utility_weights": [
+      0.4,
+      0.3,
+      0.3
+    ],
+    "lam": 0.5,
+    "variant_id": 84
+  },
+  {
+    "scenario_id": "TC-115",
+    "incident_id": "TC-115",
+    "category": "incident_review_variant",
+    "scenario_type": "incident_review_variant",
+    "priority": "high",
+    "telemetry": {
+      "deploy": {
+        "restart_loops": 0,
+        "config_drift": false,
+        "pipeline_failed": false,
+        "rollback_marker": false,
+        "artifact_mismatch": false
+      },
+      "sre": {
+        "p95_latency_ms": 397.136,
+        "error_rate_pct": 6.082,
+        "saturation_pct": 52.954,
+        "availability_pct": 101.385
+      },
+      "finops": {
+        "cost_spike_pct": 0.0,
+        "hpa_scale_to": 4.185,
+        "cpu_request_increase_pct": 0.0,
+        "memory_request_increase_pct": 0.0
+      },
+      "sec": {
+        "critical_cves": 1,
+        "policy_violation": true,
+        "iam_drift": true,
+        "compliance_gap": false,
+        "_missing": true
+      }
+    },
+    "ground_truth": {
+      "primary_domain": "DevSecOps",
+      "secondary_domains": [
+        "SRE"
+      ],
+      "root_cause": "security_policy_triggered_incident",
+      "recommended_action": "Patch or block release",
+      "expected_action": "Patch or block release"
+    },
+    "thresholds": {
+      "tau_consensus": 0.65,
+      "delta_min": 0.05,
+      "max_rar_loops": 2
+    },
+    "utility_weights": [
+      0.4,
+      0.3,
+      0.3
+    ],
+    "lam": 0.5,
+    "variant_id": 85
+  },
+  {
+    "scenario_id": "TC-116",
+    "incident_id": "TC-116",
+    "category": "policy_propagation_variant",
+    "scenario_type": "policy_propagation_variant",
+    "priority": "medium",
+    "telemetry": {
+      "deploy": {
+        "restart_loops": 0,
+        "config_drift": false,
+        "pipeline_failed": false,
+        "rollback_marker": false,
+        "artifact_mismatch": false
+      },
+      "sre": {
+        "p95_latency_ms": 665.132,
+        "error_rate_pct": 6.121,
+        "saturation_pct": 52.899,
+        "availability_pct": 105.119
+      },
+      "finops": {
+        "cost_spike_pct": 0.0,
+        "hpa_scale_to": 4.222,
+        "cpu_request_increase_pct": 0.0,
+        "memory_request_increase_pct": 0.0
+      },
+      "sec": {
+        "critical_cves": 0,
+        "policy_violation": true,
+        "iam_drift": false,
+        "compliance_gap": true
+      }
+    },
+    "ground_truth": {
+      "primary_domain": "DevSecOps",
+      "secondary_domains": [
+        "SRE"
+      ],
+      "root_cause": "policy_version_drift",
+      "recommended_action": "Patch or block release",
+      "expected_action": "Patch or block release"
+    },
+    "thresholds": {
+      "tau_consensus": 0.65,
+      "delta_min": 0.05,
+      "max_rar_loops": 2
+    },
+    "utility_weights": [
+      0.4,
+      0.3,
+      0.3
+    ],
+    "lam": 0.5,
+    "variant_id": 86
+  },
+  {
+    "scenario_id": "TC-117",
+    "incident_id": "TC-117",
+    "category": "policy_propagation_variant",
+    "scenario_type": "policy_propagation_variant",
+    "priority": "medium",
+    "telemetry": {
+      "deploy": {
+        "restart_loops": 4,
+        "config_drift": true,
+        "pipeline_failed": true,
+        "rollback_marker": false,
+        "artifact_mismatch": false,
+        "_missing": true
+      },
+      "sre": {
+        "p95_latency_ms": 177.15,
+        "error_rate_pct": 0.547,
+        "saturation_pct": 52.548,
+        "availability_pct": 101.026
+      },
+      "finops": {
+        "cost_spike_pct": 28.497,
+        "hpa_scale_to": 12.018,
+        "cpu_request_increase_pct": 0.0,
+        "memory_request_increase_pct": 0.0
+      },
+      "sec": {
+        "critical_cves": 0,
+        "policy_violation": true,
+        "iam_drift": false,
+        "compliance_gap": false
+      }
+    },
+    "ground_truth": {
+      "primary_domain": "DevOps",
+      "secondary_domains": [
+        "DevSecOps",
+        "FinOps"
+      ],
+      "root_cause": "missed_policy_update_in_pipeline",
+      "recommended_action": "Block release and fix pipeline",
+      "expected_action": "Block release and fix pipeline"
+    },
+    "thresholds": {
+      "tau_consensus": 0.65,
+      "delta_min": 0.05,
+      "max_rar_loops": 2
+    },
+    "utility_weights": [
+      0.4,
+      0.3,
+      0.3
+    ],
+    "lam": 0.5,
+    "variant_id": 87
+  },
+  {
+    "scenario_id": "TC-118",
+    "incident_id": "TC-118",
+    "category": "cost_performance_simulation_variant",
+    "scenario_type": "cost_performance_simulation_variant",
+    "priority": "medium",
+    "telemetry": {
+      "deploy": {
+        "restart_loops": 0,
+        "config_drift": false,
+        "pipeline_failed": false,
+        "rollback_marker": false,
+        "artifact_mismatch": false
+      },
+      "sre": {
+        "p95_latency_ms": 513.193,
+        "error_rate_pct": 4.529,
+        "saturation_pct": 56.761,
+        "availability_pct": 105.695
+      },
+      "finops": {
+        "cost_spike_pct": 28.932,
+        "hpa_scale_to": 12.316,
+        "cpu_request_increase_pct": 0.0,
+        "memory_request_increase_pct": 0.0
+      },
+      "sec": {
+        "critical_cves": 0,
+        "policy_violation": false,
+        "iam_drift": false,
+        "compliance_gap": false
+      }
+    },
+    "ground_truth": {
+      "primary_domain": "FinOps",
+      "secondary_domains": [
+        "SRE"
+      ],
+      "root_cause": "budget_pressure_with_stable_slo",
+      "recommended_action": "Review scaling policy",
+      "expected_action": "Review scaling policy"
+    },
+    "thresholds": {
+      "tau_consensus": 0.65,
+      "delta_min": 0.05,
+      "max_rar_loops": 2
+    },
+    "utility_weights": [
+      0.4,
+      0.3,
+      0.3
+    ],
+    "lam": 0.5,
+    "variant_id": 88
+  },
+  {
+    "scenario_id": "TC-119",
+    "incident_id": "TC-119",
+    "category": "cost_performance_simulation_variant",
+    "scenario_type": "cost_performance_simulation_variant",
+    "priority": "high",
+    "telemetry": {
+      "deploy": {
+        "restart_loops": 0,
+        "config_drift": false,
+        "pipeline_failed": false,
+        "rollback_marker": false,
+        "artifact_mismatch": false
+      },
+      "sre": {
+        "p95_latency_ms": 813.293,
+        "error_rate_pct": 6.728,
+        "saturation_pct": 86.09,
+        "availability_pct": 100.17
+      },
+      "finops": {
+        "cost_spike_pct": 20.986,
+        "hpa_scale_to": 10.174,
+        "cpu_request_increase_pct": 0.0,
+        "memory_request_increase_pct": 0.0
+      },
+      "sec": {
+        "critical_cves": 0,
+        "policy_violation": false,
+        "iam_drift": false,
+        "compliance_gap": false
+      }
+    },
+    "ground_truth": {
+      "primary_domain": "SRE",
+      "secondary_domains": [
+        "FinOps"
+      ],
+      "root_cause": "performance_risk_requires_capacity",
+      "recommended_action": "Scale adjustment",
+      "expected_action": "Scale adjustment"
+    },
+    "thresholds": {
+      "tau_consensus": 0.65,
+      "delta_min": 0.05,
+      "max_rar_loops": 2
+    },
+    "utility_weights": [
+      0.4,
+      0.3,
+      0.3
+    ],
+    "lam": 0.5,
+    "variant_id": 89
+  },
+  {
+    "scenario_id": "TC-120",
+    "incident_id": "TC-120",
+    "category": "anomaly_to_insight_variant",
+    "scenario_type": "anomaly_to_insight_variant",
+    "priority": "high",
+    "telemetry": {
+      "deploy": {
+        "restart_loops": 17,
+        "config_drift": true,
+        "pipeline_failed": false,
+        "rollback_marker": true,
+        "artifact_mismatch": false
+      },
+      "sre": {
+        "p95_latency_ms": 573.505,
+        "error_rate_pct": 8.889,
+        "saturation_pct": 53.92,
+        "availability_pct": 104.217
+      },
+      "finops": {
+        "cost_spike_pct": 18.376,
+        "hpa_scale_to": 9.095,
+        "cpu_request_increase_pct": 0.0,
+        "memory_request_increase_pct": 0.0
+      },
+      "sec": {
+        "critical_cves": 0,
+        "policy_violation": true,
+        "iam_drift": false,
+        "compliance_gap": false
+      }
+    },
+    "ground_truth": {
+      "primary_domain": "DevOps",
+      "secondary_domains": [
+        "SRE",
+        "FinOps",
+        "DevSecOps"
+      ],
+      "root_cause": "release_change_triggered_multi_signal_anomaly",
+      "recommended_action": "Rollback to stable deployment",
+      "expected_action": "Rollback to stable deployment"
+    },
+    "thresholds": {
+      "tau_consensus": 0.65,
+      "delta_min": 0.05,
+      "max_rar_loops": 2
+    },
+    "utility_weights": [
+      0.4,
+      0.3,
+      0.3
+    ],
+    "lam": 0.5,
+    "variant_id": 90
+  }
+]

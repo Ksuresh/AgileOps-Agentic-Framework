@@ -1,0 +1,4 @@
+TOTAL mean(ms): 0.16
+TOTAL p50(ms): 0.15
+TOTAL p95(ms): 0.25
+TOTAL p99(ms): 0.36

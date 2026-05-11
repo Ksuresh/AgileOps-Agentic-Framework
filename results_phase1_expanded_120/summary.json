@@ -1,0 +1,230 @@
+{
+  "experiment": {
+    "n_requested": 120,
+    "n_evaluated": 120,
+    "seed": 42,
+    "scenario_source": "controlled_scenario_variants",
+    "note": "Expanded scenarios are deterministic controlled variants, not independent production incidents."
+  },
+  "parameters": {
+    "missing_evidence_prob": 0.2,
+    "contradiction_prob": 0.1,
+    "metric_jitter_pct": 0.05,
+    "target_n": 120
+  },
+  "traditional": {
+    "accuracy": {
+      "accuracy": 0.6333333333333333,
+      "n": 120.0,
+      "std": 0.04399073976628701
+    },
+    "action_match": {
+      "action_match_rate": 0.0,
+      "n": 0.0,
+      "std": 0.0
+    }
+  },
+  "single_agent_llm": {
+    "accuracy": {
+      "accuracy": 0.6916666666666667,
+      "n": 120.0,
+      "std": 0.042156838995281345
+    },
+    "action_match": {
+      "action_match_rate": 0.0,
+      "n": 0.0,
+      "std": 0.0
+    }
+  },
+  "aaf_full": {
+    "accuracy": {
+      "accuracy": 0.875,
+      "n": 120.0,
+      "std": 0.030190368221227996
+    },
+    "action_match": {
+      "action_match_rate": 0.85,
+      "n": 120.0,
+      "std": 0.03259601202601325
+    },
+    "consensus": {
+      "mean": 0.8121666666666667,
+      "std": 0.1357060753573284,
+      "p50": 0.89,
+      "p95": 0.92
+    },
+    "utility": {
+      "mean": 0.8667816666666667,
+      "std": 0.12748670975395393,
+      "p50": 0.8845,
+      "p95": 1.0494
+    },
+    "utility_components": {
+      "performance_mean": 0.5302,
+      "cost_efficiency_mean": 0.6836666666666668,
+      "risk_reduction_mean": 0.5758708333333333,
+      "utility_mean": 0.8667816666666667,
+      "utility_std": 0.12748670975395393
+    },
+    "xi": {
+      "mean": 0.8146683333333333,
+      "std": 0.013224434350432098,
+      "readability_mean": 0.6588816666666666,
+      "evidence_clarity_mean": 0.9177866666666666,
+      "traceability_mean": 0.92
+    },
+    "rar": {
+      "triggered": 66.0,
+      "accepted": 29.0,
+      "unresolved": 37.0,
+      "trigger_rate": 0.55,
+      "acceptance_rate_when_triggered": 0.4393939393939394,
+      "avg_consensus_improvement": 0.2200757575757576
+    },
+    "latency": {
+      "total": {
+        "mean": 0.1619948559285452,
+        "std": 0.04744988518590962,
+        "p50": 0.14958297833800316,
+        "p95": 0.24870806373655796,
+        "p99": 0.35600014962255955
+      },
+      "no_rar": {
+        "mean": 0.1369954509384654,
+        "std": 0.0428723110950893,
+        "p50": 0.12458302080631256,
+        "p95": 0.1769170630723238,
+        "p99": 0.42437505908310413
+      },
+      "with_rar": {
+        "mean": 0.1824489145567923,
+        "std": 0.04074391270612241,
+        "p50": 0.17108279280364513,
+        "p95": 0.27187494561076164,
+        "p99": 0.35600014962255955
+      }
+    }
+  },
+  "aaf_no_consensus": {
+    "accuracy": {
+      "accuracy": 0.8083333333333333,
+      "n": 120.0,
+      "std": 0.0359317124969429
+    },
+    "action_match": {
+      "action_match_rate": 0.85,
+      "n": 120.0,
+      "std": 0.03259601202601325
+    },
+    "consensus": {
+      "mean": 1.0,
+      "std": 0.0,
+      "p50": 1.0,
+      "p95": 1.0
+    },
+    "utility": {
+      "mean": 0.8663875,
+      "std": 0.1273735409222941,
+      "p50": 0.879,
+      "p95": 1.0494
+    },
+    "utility_components": {
+      "performance_mean": 0.5295583333333334,
+      "cost_efficiency_mean": 0.6836666666666668,
+      "risk_reduction_mean": 0.5754125,
+      "utility_mean": 0.8663875,
+      "utility_std": 0.1273735409222941
+    },
+    "xi": {
+      "mean": 0.8226733333333333,
+      "std": 0.015464721860486905,
+      "readability_mean": 0.6773058333333334,
+      "evidence_clarity_mean": 0.919375,
+      "traceability_mean": 0.92
+    }
+  },
+  "aaf_no_rar": {
+    "accuracy": {
+      "accuracy": 0.8083333333333333,
+      "n": 120.0,
+      "std": 0.0359317124969429
+    },
+    "action_match": {
+      "action_match_rate": 0.85,
+      "n": 120.0,
+      "std": 0.03259601202601325
+    },
+    "consensus": {
+      "mean": 0.691125,
+      "std": 0.19927207374592157,
+      "p50": 0.62,
+      "p95": 0.92
+    },
+    "utility": {
+      "mean": 0.8663875,
+      "std": 0.1273735409222941,
+      "p50": 0.879,
+      "p95": 1.0494
+    },
+    "utility_components": {
+      "performance_mean": 0.5295583333333334,
+      "cost_efficiency_mean": 0.6836666666666668,
+      "risk_reduction_mean": 0.5754125,
+      "utility_mean": 0.8663875,
+      "utility_std": 0.1273735409222941
+    },
+    "xi": {
+      "mean": 0.8226733333333333,
+      "std": 0.015464721860486905,
+      "readability_mean": 0.6773058333333334,
+      "evidence_clarity_mean": 0.919375,
+      "traceability_mean": 0.92
+    },
+    "rar": {
+      "triggered": 0.0,
+      "accepted": 0.0,
+      "unresolved": 0.0,
+      "trigger_rate": 0.0,
+      "acceptance_rate_when_triggered": 0.0,
+      "avg_consensus_improvement": 0.0
+    }
+  },
+  "aaf_no_utility": {
+    "accuracy": {
+      "accuracy": 0.875,
+      "n": 120.0,
+      "std": 0.030190368221227996
+    },
+    "action_match": {
+      "action_match_rate": 0.0,
+      "n": 120.0,
+      "std": 0.0
+    },
+    "consensus": {
+      "mean": 0.8121666666666667,
+      "std": 0.1357060753573284,
+      "p50": 0.89,
+      "p95": 0.92
+    },
+    "utility": {
+      "mean": 0.0,
+      "std": 0.0,
+      "p50": 0.0,
+      "p95": 0.0
+    },
+    "utility_components": {
+      "performance_mean": 0.0,
+      "cost_efficiency_mean": 0.0,
+      "risk_reduction_mean": 0.0,
+      "utility_mean": 0.0,
+      "utility_std": 0.0
+    },
+    "xi": {
+      "mean": 0.8172108333333334,
+      "std": 0.015369221384709817,
+      "readability_mean": 0.6652466666666667,
+      "evidence_clarity_mean": 0.9177866666666666,
+      "traceability_mean": 0.92
+    }
+  }
+}
