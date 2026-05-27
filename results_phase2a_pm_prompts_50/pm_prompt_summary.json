@@ -1,0 +1,106 @@
+{
+  "n": 50,
+  "domain_match_rate": 0.78,
+  "domain_match_n": 50,
+  "domain_match_ci": {
+    "rate": 0.78,
+    "n": 50.0,
+    "successes": 39.0,
+    "se": 0.05858327406350723,
+    "ci95_low": 0.6651767828355258,
+    "ci95_high": 0.8948232171644742
+  },
+  "primary_action_match_rate": 0.4,
+  "primary_action_match_n": 50,
+  "primary_action_match_ci": {
+    "rate": 0.4,
+    "n": 50.0,
+    "successes": 20.0,
+    "se": 0.06928203230275509,
+    "ci95_low": 0.2642072166866001,
+    "ci95_high": 0.5357927833134
+  },
+  "acceptable_action_match_rate": 0.88,
+  "acceptable_action_match_n": 50,
+  "acceptable_action_match_ci": {
+    "rate": 0.88,
+    "n": 50.0,
+    "successes": 44.0,
+    "se": 0.04595650117230423,
+    "ci95_low": 0.7899252577022837,
+    "ci95_high": 0.9700747422977163
+  },
+  "consensus_mean": 0.7496,
+  "utility_mean": 0.906854,
+  "performance_mean": 0.76875,
+  "cost_efficiency_mean": 0.66435,
+  "risk_reduction_mean": 0.67012,
+  "xi_mean": 0.819462,
+  "rar_triggered": 14,
+  "rar_accepted": 0,
+  "rar_unresolved": 14,
+  "rar_trigger_rate": 0.28,
+  "rar_acceptance_rate_when_triggered": 0.0,
+  "category_breakdown": {
+    "cost_governance": {
+      "n": 7,
+      "domain_match_rate": 0.42857142857142855,
+      "primary_action_match_rate": 0.42857142857142855,
+      "acceptable_action_match_rate": 0.42857142857142855
+    },
+    "cross_domain_cost_reliability": {
+      "n": 4,
+      "domain_match_rate": 1.0,
+      "primary_action_match_rate": 1.0,
+      "acceptable_action_match_rate": 1.0
+    },
+    "cross_domain_general_investigation": {
+      "n": 2,
+      "domain_match_rate": 0.5,
+      "primary_action_match_rate": 0.0,
+      "acceptable_action_match_rate": 1.0
+    },
+    "cross_domain_release_governance": {
+      "n": 7,
+      "domain_match_rate": 1.0,
+      "primary_action_match_rate": 0.42857142857142855,
+      "acceptable_action_match_rate": 1.0
+    },
+    "pm_prioritization_escalation": {
+      "n": 8,
+      "domain_match_rate": 1.0,
+      "primary_action_match_rate": 0.25,
+      "acceptable_action_match_rate": 1.0
+    },
+    "release_governance": {
+      "n": 8,
+      "domain_match_rate": 1.0,
+      "primary_action_match_rate": 0.5,
+      "acceptable_action_match_rate": 1.0
+    },
+    "reliability_operations": {
+      "n": 7,
+      "domain_match_rate": 1.0,
+      "primary_action_match_rate": 0.0,
+      "acceptable_action_match_rate": 1.0
+    },
+    "security_compliance_governance": {
+      "n": 7,
+      "domain_match_rate": 0.14285714285714285,
+      "primary_action_match_rate": 0.5714285714285714,
+      "acceptable_action_match_rate": 0.7142857142857143
+    }
+  },
+  "mismatch_count": 11,
+  "thresholds": {
+    "tau_consensus": 0.65,
+    "delta_min": 0.05,
+    "max_rar_loops": 2
+  },
+  "utility_weights": [
+    0.4,
+    0.3,
+    0.3
+  ],
+  "note": "Confidence intervals are descriptive uncertainty estimates for the curated PM prompt evaluation set. Primary action match uses the single expected action label. Acceptable action match allows curated governance-equivalent actions for ambiguous PM prompts."
+}

@@ -1,0 +1,193 @@
+[
+  {
+    "scenario_id": "pm002",
+    "category": "cost_governance",
+    "expected_domains": [
+      "FinOps"
+    ],
+    "predicted_domain": "SRE",
+    "expected_action": "Scale adjustment",
+    "acceptable_actions": [
+      "Scale adjustment"
+    ],
+    "selected_action": "Mitigate and monitor",
+    "domain_match": false,
+    "primary_action_match": false,
+    "acceptable_action_match": false,
+    "prompt": "Our cloud costs increased significantly after autoscaling changes. Can you analyze and recommend what we should do?"
+  },
+  {
+    "scenario_id": "pm003",
+    "category": "security_compliance_governance",
+    "expected_domains": [
+      "DevSecOps"
+    ],
+    "predicted_domain": "DevOps",
+    "expected_action": "Patch or block release",
+    "acceptable_actions": [
+      "Patch or block release"
+    ],
+    "selected_action": "Block release and fix pipeline",
+    "domain_match": false,
+    "primary_action_match": true,
+    "acceptable_action_match": true,
+    "prompt": "Security scanning detected policy violations and critical vulnerabilities in the current release. Should we proceed with deployment?"
+  },
+  {
+    "scenario_id": "pm014",
+    "category": "cost_governance",
+    "expected_domains": [
+      "FinOps"
+    ],
+    "predicted_domain": "SRE",
+    "expected_action": "Scale adjustment",
+    "acceptable_actions": [
+      "Scale adjustment"
+    ],
+    "selected_action": "Mitigate and monitor",
+    "domain_match": false,
+    "primary_action_match": false,
+    "acceptable_action_match": false,
+    "prompt": "After increasing autoscaling capacity, our cloud bill spiked unexpectedly. Should we revise scaling settings?"
+  },
+  {
+    "scenario_id": "pm015",
+    "category": "security_compliance_governance",
+    "expected_domains": [
+      "DevSecOps"
+    ],
+    "predicted_domain": "DevOps",
+    "expected_action": "Patch or block release",
+    "acceptable_actions": [
+      "Patch or block release"
+    ],
+    "selected_action": "Block release and fix pipeline",
+    "domain_match": false,
+    "primary_action_match": true,
+    "acceptable_action_match": true,
+    "prompt": "A critical vulnerability was found in the release candidate just before deployment. Should we move forward or stop?"
+  },
+  {
+    "scenario_id": "pm018",
+    "category": "security_compliance_governance",
+    "expected_domains": [
+      "DevSecOps"
+    ],
+    "predicted_domain": "DevOps",
+    "expected_action": "Patch or block release",
+    "acceptable_actions": [
+      "Patch or block release"
+    ],
+    "selected_action": "Rollback to stable deployment",
+    "domain_match": false,
+    "primary_action_match": false,
+    "acceptable_action_match": false,
+    "prompt": "We are preparing to go live, but compliance checks identified policy issues. What is the governance recommendation?"
+  },
+  {
+    "scenario_id": "pm026",
+    "category": "security_compliance_governance",
+    "expected_domains": [
+      "DevSecOps"
+    ],
+    "predicted_domain": "DevOps",
+    "expected_action": "Patch or block release",
+    "acceptable_actions": [
+      "Patch or block release"
+    ],
+    "selected_action": "Block release and fix pipeline",
+    "domain_match": false,
+    "primary_action_match": true,
+    "acceptable_action_match": true,
+    "prompt": "A runtime security issue was detected after deployment and policy violations are being reported. What should we do now?"
+  },
+  {
+    "scenario_id": "pm031",
+    "category": "security_compliance_governance",
+    "expected_domains": [
+      "DevSecOps"
+    ],
+    "predicted_domain": "DevOps",
+    "expected_action": "Patch or block release",
+    "acceptable_actions": [
+      "Patch or block release"
+    ],
+    "selected_action": "Rollback to stable deployment",
+    "domain_match": false,
+    "primary_action_match": false,
+    "acceptable_action_match": false,
+    "prompt": "Compliance controls have flagged issues with the release, and security recommends holding deployment. What is the decision?"
+  },
+  {
+    "scenario_id": "pm039",
+    "category": "cost_governance",
+    "expected_domains": [
+      "FinOps"
+    ],
+    "predicted_domain": "SRE",
+    "expected_action": "Scale adjustment",
+    "acceptable_actions": [
+      "Scale adjustment"
+    ],
+    "selected_action": "Mitigate and monitor",
+    "domain_match": false,
+    "primary_action_match": false,
+    "acceptable_action_match": false,
+    "prompt": "After launching the new feature, our operating costs increased sharply. Is this sustainable?"
+  },
+  {
+    "scenario_id": "pm042",
+    "category": "cross_domain_general_investigation",
+    "expected_domains": [
+      "DevSecOps",
+      "SRE",
+      "FinOps"
+    ],
+    "predicted_domain": "DevOps",
+    "expected_action": "Patch or block release",
+    "acceptable_actions": [
+      "Patch or block release",
+      "Mitigate and monitor",
+      "Scale adjustment"
+    ],
+    "selected_action": "Scale adjustment",
+    "domain_match": false,
+    "primary_action_match": false,
+    "acceptable_action_match": true,
+    "prompt": "Security concerns are rising, performance is degrading, and cloud costs are climbing. Please assess the overall situation and recommend the best next step."
+  },
+  {
+    "scenario_id": "pm044",
+    "category": "cost_governance",
+    "expected_domains": [
+      "FinOps"
+    ],
+    "predicted_domain": "SRE",
+    "expected_action": "Scale adjustment",
+    "acceptable_actions": [
+      "Scale adjustment"
+    ],
+    "selected_action": "Mitigate and monitor",
+    "domain_match": false,
+    "primary_action_match": false,
+    "acceptable_action_match": false,
+    "prompt": "Our infrastructure costs are trending upward, but performance seems stable. Are these costs acceptable or should we optimize?"
+  },
+  {
+    "scenario_id": "pm045",
+    "category": "security_compliance_governance",
+    "expected_domains": [
+      "DevSecOps"
+    ],
+    "predicted_domain": "DevOps",
+    "expected_action": "Patch or block release",
+    "acceptable_actions": [
+      "Patch or block release"
+    ],
+    "selected_action": "Block release and fix pipeline",
+    "domain_match": false,
+    "primary_action_match": true,
+    "acceptable_action_match": true,
+    "prompt": "We have identified compliance issues just before our audit window. What governance action should we take?"
+  }
+]
