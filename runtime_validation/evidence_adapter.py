@@ -11,6 +11,8 @@ import re
 from pathlib import Path
 from typing import Any, Dict, Optional
 
+import yaml
+
 
 def _read(path: Path) -> str:
     try:
@@ -48,34 +50,80 @@ def _parse_stats(text: str) -> Dict[str, Any]:
     }
 
 
+def _normalise_service_name(name: str) -> str:
+    value = str(name or "").strip().lstrip("/")
+    value = re.sub(r"^(?:docker-compose|sock-shop)-", "", value)
+    value = re.sub(r"-\d+$", "", value)
+    return value
+
+
 def _parse_ps(text: str) -> Dict[str, Any]:
-    lower = text.lower()
-    rows = [ln for ln in text.splitlines() if ln.strip()]
-    if rows and ("name" in rows[0].lower() or "container" in rows[0].lower()):
-        rows = rows[1:]
+    observed = []
+    exited = []
+    restarting = []
+    unhealthy = []
+
+    for line in text.splitlines():
+        raw = line.strip()
+        if not raw or raw.startswith("time=") or " level=warning " in raw:
+            continue
+        if raw.upper().startswith("NAME ") or raw.upper().startswith("CONTAINER "):
+            continue
+        parts = re.split(r"\s{2,}", raw)
+        if len(parts) < 2:
+            continue
+        if len(parts) >= 6:
+            service = _normalise_service_name(parts[3])
+            status = parts[5]
+        else:
+            service = _normalise_service_name(parts[0])
+            status = parts[-1]
+
+        status_lower = status.lower()
+        row = {"service": service, "status": status, "raw": line}
+        observed.append(row)
+        if "exited" in status_lower:
+            m = re.search(r"exited\s*\((-?\d+)\)", status_lower)
+            row["exit_code"] = int(m.group(1)) if m else None
+            exited.append(row)
+        if "restarting" in status_lower:
+            restarting.append(row)
+        if "unhealthy" in status_lower:
+            unhealthy.append(row)
+
     return {
-        "observed_container_rows": len(rows),
-        "unhealthy_rows": len(re.findall(r"\bunhealthy\b", lower)),
-        "exited_rows_raw": len(re.findall(r"\bexited\b", lower)),
-        "restarting_rows": len(re.findall(r"\brestarting\b", lower)),
+        "observed_container_rows": len(observed),
+        "unhealthy_rows": len(unhealthy),
+        "exited_rows_raw": len(exited),
+        "restarting_rows": len(restarting),
+        "exited": exited,
     }
 
 
-def _inspect_process_states(root: Path) -> Dict[str, Any]:
-    """Classify container exits without using intervention labels.
+def _compose_restart_policies(text: str) -> Dict[str, str]:
+    if not text.strip():
+        return {}
+    try:
+        payload = yaml.safe_load(text) or {}
+    except yaml.YAMLError:
+        return {}
+    services = payload.get("services", {}) if isinstance(payload, dict) else {}
+    if not isinstance(services, dict):
+        return {}
+    policies: Dict[str, str] = {}
+    for name, spec in services.items():
+        if isinstance(spec, dict):
+            policies[_normalise_service_name(str(name))] = str(spec.get("restart", "") or "").strip().lower()
+    return policies
 
-    A clean exit (code 0) from a service configured with Docker restart policy
-    `no` is treated as an expected one-shot completion, not an availability
-    failure. This is important for benchmark load generators such as Sock
-    Shop's user-sim, which intentionally terminates after its configured run.
-    Exits from continuously-running services, non-zero exits, OOM kills, and
-    restarting states remain operational problems.
-    """
+
+def _inspect_process_states(root: Path) -> Dict[str, Any]:
     unexpected_exited = 0
     expected_completed = 0
     restarting = 0
     inspected = 0
     restart_counts = []
+    restart_policy_by_service: Dict[str, str] = {}
 
     for path in sorted(root.glob("inspect/*.json")):
         try:
@@ -89,7 +137,11 @@ def _inspect_process_states(root: Path) -> Dict[str, Any]:
             inspected += 1
             state = item.get("State", {}) or {}
             host = item.get("HostConfig", {}) or {}
-            restart_policy = (host.get("RestartPolicy", {}) or {}).get("Name", "")
+            config = item.get("Config", {}) or {}
+            labels = config.get("Labels", {}) or {}
+            service = _normalise_service_name(labels.get("com.docker.compose.service") or item.get("Name") or path.stem)
+            restart_policy = str((host.get("RestartPolicy", {}) or {}).get("Name", "") or "").lower()
+            restart_policy_by_service[service] = restart_policy
             status = str(state.get("Status", "")).lower()
             exit_code = state.get("ExitCode")
             oom = bool(state.get("OOMKilled", False))
@@ -97,11 +149,10 @@ def _inspect_process_states(root: Path) -> Dict[str, Any]:
                 restart_counts.append(int(item.get("RestartCount", 0) or 0))
             except (TypeError, ValueError):
                 pass
-
             if status == "restarting":
                 restarting += 1
             elif status == "exited":
-                if exit_code == 0 and not oom and str(restart_policy).lower() in {"", "no"}:
+                if exit_code == 0 and not oom and restart_policy in {"", "no"}:
                     expected_completed += 1
                 else:
                     unexpected_exited += 1
@@ -112,7 +163,23 @@ def _inspect_process_states(root: Path) -> Dict[str, Any]:
         "expected_completed": expected_completed,
         "restarting": restarting,
         "restart_count_max": max(restart_counts) if restart_counts else None,
+        "restart_policy_by_service": restart_policy_by_service,
     }
+
+
+def _classify_exited_rows(ps: Dict[str, Any], compose_policies: Dict[str, str], inspect_policies: Dict[str, str]) -> Dict[str, int]:
+    continuous_policies = {"always", "unless-stopped", "on-failure"}
+    unexpected = 0
+    expected = 0
+    for row in ps.get("exited", []):
+        service = _normalise_service_name(row.get("service", ""))
+        policy = compose_policies.get(service, inspect_policies.get(service, ""))
+        exit_code = row.get("exit_code")
+        if policy in continuous_policies or (exit_code is not None and int(exit_code) != 0):
+            unexpected += 1
+        else:
+            expected += 1
+    return {"unexpected": unexpected, "expected": expected}
 
 
 def derive_observables(case_dir: str | Path) -> Dict[str, Any]:
@@ -122,25 +189,29 @@ def derive_observables(case_dir: str | Path) -> Dict[str, Any]:
     stats = _parse_stats(_read(p / "docker_stats.txt"))
     logs = _read_glob(p, "logs/*.log")
     config = _read(p / "compose_resolved.yaml")
+    compose_policies = _compose_restart_policies(config)
+    classified = _classify_exited_rows(ps, compose_policies, states["restart_policy_by_service"])
 
-    # Prefer inspect-derived exit classification when inspect data exists.
-    exited_rows = states["unexpected_exited"] if states["inspected_containers"] else ps["exited_rows_raw"]
+    if ps["exited_rows_raw"]:
+        exited_rows = classified["unexpected"]
+        expected_completed_rows = classified["expected"]
+    else:
+        exited_rows = states["unexpected_exited"]
+        expected_completed_rows = states["expected_completed"]
     restarting_rows = max(ps["restarting_rows"], states["restarting"])
 
     return {
         "availability_proxy": {
             "unhealthy_rows": ps["unhealthy_rows"],
             "exited_rows": exited_rows,
-            "expected_completed_rows": states["expected_completed"],
+            "expected_completed_rows": expected_completed_rows,
             "restarting_rows": restarting_rows,
-            "source": "docker compose process state + docker inspect exit classification",
+            "source": "docker compose process state + resolved restart policy + docker inspect",
         },
         "restart_count_max": states["restart_count_max"],
         "resource_observation": stats,
         "container_footprint": ps["observed_container_rows"],
-        "error_log_line_count": sum(
-            1 for ln in logs.splitlines() if re.search(r"\b(error|fatal|panic|exception)\b", ln, re.I)
-        ),
+        "error_log_line_count": sum(1 for ln in logs.splitlines() if re.search(r"\b(error|fatal|panic|exception)\b", ln, re.I)),
         "artifact_presence": {
             "logs": bool(logs.strip()),
             "inspect": states["inspected_containers"] > 0,
@@ -177,50 +248,34 @@ def to_aaf_telemetry(observables: Dict[str, Any], baseline: Optional[Dict[str, A
         "_evidence": {
             "p95_latency_ms": _ev("missing", "request latency instrumentation not present"),
             "error_rate_pct": _ev("missing", "request error instrumentation not present"),
-            "saturation_pct": _ev(
-                "proxy" if resource.get("max_cpu_pct") is not None else "missing",
-                "docker stats max CPU percentage",
-                "Container CPU proxy, not SLO saturation",
-            ),
-            "availability_pct": _ev(
-                "proxy",
-                "docker compose process state + docker inspect exit classification",
-                "Binary process-state proxy; expected clean one-shot completions are excluded; not time-window SLO availability",
-            ),
+            "saturation_pct": _ev("proxy" if resource.get("max_cpu_pct") is not None else "missing", "docker stats max CPU percentage", "Container CPU proxy, not SLO saturation"),
+            "availability_pct": _ev("proxy", "docker compose process state + resolved restart policy", "Binary process-state proxy; clean completion is excluded only for non-continuous services; not time-window SLO availability"),
         },
     }
-    finops = {
-        "_evidence": {
-            "cost_spike_pct": _ev("missing", "no monetary billing source"),
-            "hpa_scale_to": _ev("missing", "Docker Compose footprint is not Kubernetes HPA"),
-            "cpu_request_increase_pct": _ev("missing", "resource request history not collected"),
-            "memory_request_increase_pct": _ev("missing", "resource request history not collected"),
-        }
-    }
+    finops = {"_evidence": {
+        "cost_spike_pct": _ev("missing", "no monetary billing source"),
+        "hpa_scale_to": _ev("missing", "Docker Compose footprint is not Kubernetes HPA"),
+        "cpu_request_increase_pct": _ev("missing", "resource request history not collected"),
+        "memory_request_increase_pct": _ev("missing", "resource request history not collected"),
+    }}
     if baseline and isinstance(footprint, (int, float)):
         base_fp = baseline.get("container_footprint")
         if isinstance(base_fp, (int, float)) and base_fp > 0:
             finops["cost_spike_pct"] = 100.0 * (footprint - base_fp) / base_fp
-            finops["_evidence"]["cost_spike_pct"] = _ev(
-                "proxy",
-                "container footprint relative to healthy baseline",
-                "Resource-footprint proxy only; not monetary cost",
-            )
-    sec = {
-        "_evidence": {
-            "critical_cves": _ev("missing", "security scanner evidence absent"),
-            "policy_violation": _ev("missing", "policy-as-code evidence absent"),
-            "iam_drift": _ev("missing", "IAM evidence absent"),
-            "compliance_gap": _ev("missing", "compliance evidence absent"),
-        }
-    }
+            finops["_evidence"]["cost_spike_pct"] = _ev("proxy", "container footprint relative to healthy baseline", "Resource-footprint proxy only; not monetary cost")
+    sec = {"_evidence": {
+        "critical_cves": _ev("missing", "security scanner evidence absent"),
+        "policy_violation": _ev("missing", "policy-as-code evidence absent"),
+        "iam_drift": _ev("missing", "IAM evidence absent"),
+        "compliance_gap": _ev("missing", "compliance evidence absent"),
+    }}
     return {
         "deploy": deploy,
         "sre": sre,
         "finops": finops,
         "sec": sec,
         "_runtime_observables": observables,
-        "_evidence_schema_version": "2.1",
+        "_evidence_schema_version": "2.2",
     }
 
 
