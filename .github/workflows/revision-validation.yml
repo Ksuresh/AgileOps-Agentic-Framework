@@ -1,0 +1,54 @@
+name: Revision Validation
+
+on:
+  push:
+    branches:
+      - revision/post-review-2026
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  regression:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          pip install pytest pyyaml
+
+      - name: Compile Python sources
+        run: |
+          python -m compileall agents evidence orchestrator runtime_validation evaluation benchmark
+
+      - name: Run regression tests
+        run: |
+          pytest -q
+
+      - name: Dry-run runtime cases
+        run: |
+          python runtime_validation/run_runtime_case.py RT-01 --repetition 1
+          python runtime_validation/run_runtime_case.py RT-02 --repetition 1
+          python runtime_validation/run_runtime_case.py RT-09 --repetition 1
+
+      - name: Import smoke test
+        run: |
+          python - <<'PY'
+          from agents.devops import DevOpsAgent
+          from agents.sre import SREAgent
+          from agents.finops import FinOpsAgent
+          from agents.devsecops import DevSecOpsAgent
+          from orchestrator.rar import re_ground
+          from runtime_validation.evidence_adapter import to_aaf_telemetry
+          print('imports-ok')
+          PY
