@@ -82,3 +82,35 @@ def test_stopped_continuous_service_remains_availability_failure(tmp_path):
     assert obs["availability_proxy"]["exited_rows"] == 1
     telemetry = to_aaf_telemetry(obs)
     assert telemetry["sre"]["availability_pct"] == 0.0
+
+
+def test_stopped_continuous_service_detected_from_compose_when_stopped_container_is_not_inspected(tmp_path):
+    """Mirrors RT-02: compose PS retains the stopped service even if ps -q does not."""
+    (tmp_path / "inspect").mkdir()
+    (tmp_path / "compose_ps.txt").write_text(
+        "NAME                IMAGE                         COMMAND  SERVICE    CREATED  STATUS                     PORTS\n"
+        "sock-catalogue-1    weaveworksdemos/catalogue    x        catalogue  1m ago   Exited (0) 10 seconds ago\n"
+        "sock-user-sim-1     weaveworksdemos/load-test    x        user-sim   1m ago   Exited (0) 5 seconds ago\n",
+        encoding="utf-8",
+    )
+    (tmp_path / "compose_resolved.yaml").write_text(
+        "services:\n"
+        "  catalogue:\n"
+        "    image: weaveworksdemos/catalogue\n"
+        "    restart: always\n"
+        "  user-sim:\n"
+        "    image: weaveworksdemos/load-test\n",
+        encoding="utf-8",
+    )
+    (tmp_path / "docker_stats.txt").write_text("", encoding="utf-8")
+
+    obs = derive_observables(tmp_path)
+    assert obs["availability_proxy"]["exited_rows"] == 1
+    assert obs["availability_proxy"]["expected_completed_rows"] == 1
+    telemetry = to_aaf_telemetry(obs)
+    assert telemetry["sre"]["availability_pct"] == 0.0
+    gate = materiality_gate(telemetry)
+    assert gate["decision"] == "act"
+    assert gate["active_domains"] == ["reliability"]
+    decision = choose_action_details(telemetry, (0.4, 0.3, 0.3))
+    assert decision["selected_action"] == "Mitigate and monitor"
