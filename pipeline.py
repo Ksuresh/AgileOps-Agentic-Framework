@@ -11,6 +11,7 @@ from agents.devsecops import DevSecOpsAgent
 from orchestrator.consensus import consensus_score
 from orchestrator.rar import re_ground_telemetry
 from orchestrator.utility import choose_action, choose_action_details
+from orchestrator.decision_baselines import choose_dominant_domain_action
 from llm.deterministic_explainer import generate_explanation
 from metrics.explainability import compute_xi
 
@@ -31,51 +32,29 @@ def run_once(
     lam: float,
     w: Tuple[float, float, float],
 ) -> Dict[str, Any]:
-    """
-    Core reproducibility execution path.
-
-    Steps:
-    1. Run all domain agents
-    2. Compute consensus
-    3. Trigger RAR if consensus is below threshold
-    4. Re-run agents if RAR accepted
-    5. Select recommended action from telemetry-aware utility
-    """
     outputs, claims, confs = _run_agents(telemetry)
     s, _ = consensus_score(claims, confs, lam=lam)
-
     tau = float(thresholds["tau_consensus"])
     delta_min = float(thresholds["delta_min"])
     max_loops = int(thresholds.get("max_rar_loops", 2))
-
     rar_triggered = False
     loops = 0
     t = telemetry
-
     while s < tau and loops < max_loops:
         rar_triggered = True
         loops += 1
-
         t_updated, s_after, accepted = re_ground_telemetry(
-            telemetry=t,
-            tau=tau,
-            delta_min=delta_min,
-            lam=lam,
+            telemetry=t, tau=tau, delta_min=delta_min, lam=lam,
         )
-
         t = t_updated
         outputs, claims, confs = _run_agents(t)
         s_recomputed, _ = consensus_score(claims, confs, lam=lam)
         s = float(s_recomputed)
-
         if not accepted:
             break
-
         if s_after < tau:
             continue
-
     action, util = choose_action(t, w)
-
     return {
         "agents": [o.__dict__ for o in outputs],
         "consensus_score": float(s),
@@ -85,9 +64,6 @@ def run_once(
         "utility_score": float(util),
     }
 
-
-# ---------------------------------------------------------------------------
-# Paper-friendly wrapper (modes, timings, XI)
 
 Mode = Literal["aaf_full", "aaf_no_consensus", "aaf_no_rar", "aaf_no_utility"]
 
@@ -108,18 +84,8 @@ class PipelineResult:
 
 
 def run_pipeline(scenario: Dict[str, Any], mode: Mode = "aaf_full") -> PipelineResult:
-    """
-    Paper-oriented pipeline runner.
-
-    Adds:
-    - stage timings
-    - deterministic explanation
-    - explainability index
-    - ablation modes
-    """
     t0 = time.perf_counter()
     timings: Dict[str, float] = {}
-
     telemetry = scenario.get("telemetry", {})
     thresholds = scenario.get(
         "thresholds",
@@ -128,17 +94,14 @@ def run_pipeline(scenario: Dict[str, Any], mode: Mode = "aaf_full") -> PipelineR
     lam = float(scenario.get("lam", 0.5))
     w = tuple(scenario.get("utility_weights", (0.4, 0.3, 0.3)))  # type: ignore
 
-    # T-IN
     t_in = time.perf_counter()
     _ = dict(telemetry)
     timings["T-IN"] = (time.perf_counter() - t_in) * 1000.0
 
-    # AG-INF
     t_ag = time.perf_counter()
     outputs, claims, confs = _run_agents(telemetry)
     timings["AG-INF"] = (time.perf_counter() - t_ag) * 1000.0
 
-    # CN-CHK
     t_cn = time.perf_counter()
     if mode == "aaf_no_consensus":
         s = 1.0
@@ -146,7 +109,6 @@ def run_pipeline(scenario: Dict[str, Any], mode: Mode = "aaf_full") -> PipelineR
         s, _ = consensus_score(claims, confs, lam=lam)
     timings["CN-CHK"] = (time.perf_counter() - t_cn) * 1000.0
 
-    # RAR
     rar_info = {
         "triggered": False,
         "accepted": True,
@@ -155,11 +117,9 @@ def run_pipeline(scenario: Dict[str, Any], mode: Mode = "aaf_full") -> PipelineR
         "loops": 0,
     }
     timings["RAR"] = 0.0
-
     tau = float(thresholds.get("tau_consensus", 0.75))
     delta_min = float(thresholds.get("delta_min", 0.15))
     max_loops = int(thresholds.get("max_rar_loops", 2))
-
     t_cur = telemetry
 
     if mode != "aaf_no_rar":
@@ -167,35 +127,25 @@ def run_pipeline(scenario: Dict[str, Any], mode: Mode = "aaf_full") -> PipelineR
         while s < tau and loops < max_loops:
             loops += 1
             rar_info["triggered"] = True
-
             t_rar = time.perf_counter()
             t_updated, s_after, accepted = re_ground_telemetry(
-                telemetry=t_cur,
-                tau=tau,
-                delta_min=delta_min,
-                lam=lam,
+                telemetry=t_cur, tau=tau, delta_min=delta_min, lam=lam,
             )
             timings["RAR"] += (time.perf_counter() - t_rar) * 1000.0
-
             t_cur = t_updated
             outputs, claims, confs = _run_agents(t_cur)
             s, _ = consensus_score(claims, confs, lam=lam)
-
             rar_info["accepted"] = bool(accepted)
             rar_info["after"] = float(s)
             rar_info["loops"] = loops
-
             if not accepted:
                 break
-
             if s_after < tau:
                 continue
 
-        # Utility
     t_ut = time.perf_counter()
-
     if mode == "aaf_no_utility":
-        action = "defer"
+        action, severity, dominant_domain = choose_dominant_domain_action(t_cur)
         util = 0.0
         utility_details = {
             "selected_action": action,
@@ -204,14 +154,17 @@ def run_pipeline(scenario: Dict[str, Any], mode: Mode = "aaf_full") -> PipelineR
             "cost_efficiency_score": 0.0,
             "risk_reduction_score": 0.0,
             "candidates": [],
+            "selection_method": "dominant_domain_severity_baseline",
+            "dominant_domain": dominant_domain,
+            "dominant_severity": severity,
         }
     else:
         utility_details = choose_action_details(t_cur, w)
         action = utility_details["selected_action"]
         util = float(utility_details["best_utility"])
-
+        utility_details["selection_method"] = "multi_objective_utility"
     timings["UTL"] = (time.perf_counter() - t_ut) * 1000.0
-    # Explanation
+
     t_xp = time.perf_counter()
     payload = {
         "incident_id": scenario.get("scenario_id", scenario.get("incident_id")),
@@ -232,13 +185,10 @@ def run_pipeline(scenario: Dict[str, Any], mode: Mode = "aaf_full") -> PipelineR
     explanation = generate_explanation(payload)
     timings["LLM-XP"] = (time.perf_counter() - t_xp) * 1000.0
 
-    # Output generation / explainability
     t_out = time.perf_counter()
     explainability = compute_xi(explanation, payload)
     timings["OUT-GEN"] = (time.perf_counter() - t_out) * 1000.0
-
     timings["TOTAL"] = (time.perf_counter() - t0) * 1000.0
-
     pred = _predict_primary_domain(outputs)
 
     return PipelineResult(
@@ -257,18 +207,13 @@ def run_pipeline(scenario: Dict[str, Any], mode: Mode = "aaf_full") -> PipelineR
 
 
 def _predict_primary_domain(outputs: list) -> str | None:
-    """
-    Pick the agent with highest confidence among non-trivial claims.
-    """
     filtered = []
     for o in outputs:
         claim = (o.claim or "").lower()
         if claim.startswith("no ") or "no issue" in claim or "no violation" in claim:
             continue
         filtered.append(o)
-
     if not filtered:
         filtered = outputs
-
     best = max(filtered, key=lambda x: float(x.confidence))
     return getattr(best, "agent_type", None)
