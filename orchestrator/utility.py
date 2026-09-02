@@ -30,18 +30,15 @@ def _action_fit_bonus(action: str, s: Dict[str, float]) -> float:
     bonus = 0.0
     if dominant == "deployment":
         if action in {"Rollback to stable deployment", "Block release and fix pipeline"}: bonus += 0.13
-        elif action == "Mitigate and monitor": bonus -= 0.12
     if deployment >= 0.55 and reliability < 0.35:
         if action == "Block release and fix pipeline": bonus += 0.08
         if action == "Rollback to stable deployment": bonus -= 0.05
     if deployment >= 0.50 and reliability >= 0.35:
         if action == "Rollback to stable deployment": bonus += 0.10
         if action == "Block release and fix pipeline": bonus -= 0.03
-        if action == "Mitigate and monitor": bonus -= 0.08
     if dominant == "reliability":
         if action == "Mitigate and monitor": bonus += 0.10
         if action == "Scale adjustment" and reliability >= 0.55: bonus += 0.08
-        if action == "Rollback to stable deployment" and deployment < 0.40: bonus -= 0.08
     if reliability >= 0.55 and cost >= 0.15:
         if action == "Scale adjustment": bonus += 0.18
         if action == "Mitigate and monitor": bonus -= 0.08
@@ -51,36 +48,81 @@ def _action_fit_bonus(action: str, s: Dict[str, float]) -> float:
     if dominant == "cost":
         if action == "Scale adjustment": bonus += 0.22
         elif action == "Review scaling policy": bonus += 0.13
-        elif action == "Mitigate and monitor": bonus -= 0.18
     if cost >= 0.45:
         if action == "Scale adjustment": bonus += 0.10
         if action == "Review scaling policy": bonus -= 0.04
-        if action == "Mitigate and monitor": bonus -= 0.12
     if 0.25 <= cost < 0.45 and reliability < 0.30:
         if action == "Review scaling policy": bonus += 0.12
         if action == "Scale adjustment": bonus -= 0.04
-    if dominant == "security":
-        if action == "Patch or block release": bonus += 0.24
-        elif action in {"Rollback to stable deployment", "Mitigate and monitor"}: bonus -= 0.15
     if security >= 0.20:
-        if action == "Patch or block release": bonus += 0.16
-        if action == "Rollback to stable deployment": bonus -= 0.10
-        if action == "Mitigate and monitor": bonus -= 0.12
+        if action == "Patch or block release": bonus += 0.24
     return bonus
+
+
+def _evidence_supported_actions(severities: Dict[str, float]) -> set[str]:
+    """Return actions that are causally plausible given material domain signals.
+
+    Utility optimization is a ranking stage, not an anomaly detector. The old
+    implementation allowed every action to compete even when its causal domain
+    had no material evidence, which could select an active intervention for a
+    healthy case simply because of generic utility constants. This constraint
+    separates evidence sufficiency/materiality from preference optimization.
+    """
+    active = {name for name, value in severities.items() if float(value) > 0.0}
+    if not active:
+        return {"No action (observe)"}
+
+    allowed: set[str] = set()
+    if "deployment" in active:
+        allowed.update({"Rollback to stable deployment", "Block release and fix pipeline"})
+    if "reliability" in active:
+        allowed.add("Mitigate and monitor")
+        if "cost" in active:
+            allowed.add("Scale adjustment")
+    if "cost" in active:
+        allowed.update({"Scale adjustment", "Review scaling policy"})
+    if "security" in active:
+        allowed.add("Patch or block release")
+    return allowed
 
 
 def choose_action_details(telemetry: Dict[str, Any], w: Tuple[float, float, float]) -> Dict[str, Any]:
     severities = severity_scores(telemetry)
     components = _action_components(telemetry)
+    allowed = _evidence_supported_actions(severities)
     candidates = []
+    rejected = []
+
     for action, (perf, cost_eff, risk_red) in components.items():
+        if action not in allowed:
+            rejected.append(action)
+            continue
         base = utility_score(perf, cost_eff, risk_red, w)
         bonus = _action_fit_bonus(action, severities)
         final = base + bonus
-        candidates.append({"action": action, "performance_score": round(float(perf),4), "cost_efficiency_score": round(float(cost_eff),4), "risk_reduction_score": round(float(risk_red),4), "base_utility": round(float(base),4), "action_fit_bonus": round(float(bonus),4), "utility": round(float(final),4)})
+        candidates.append({
+            "action": action,
+            "performance_score": round(float(perf), 4),
+            "cost_efficiency_score": round(float(cost_eff), 4),
+            "risk_reduction_score": round(float(risk_red), 4),
+            "base_utility": round(float(base), 4),
+            "action_fit_bonus": round(float(bonus), 4),
+            "utility": round(float(final), 4),
+        })
+
     candidates.sort(key=lambda x: x["utility"], reverse=True)
     best = candidates[0]
-    return {"selected_action": best["action"], "best_utility": best["utility"], "performance_score": best["performance_score"], "cost_efficiency_score": best["cost_efficiency_score"], "risk_reduction_score": best["risk_reduction_score"], "candidates": candidates[:3]}
+    return {
+        "selected_action": best["action"],
+        "best_utility": best["utility"],
+        "performance_score": best["performance_score"],
+        "cost_efficiency_score": best["cost_efficiency_score"],
+        "risk_reduction_score": best["risk_reduction_score"],
+        "candidates": candidates[:3],
+        "eligible_actions": sorted(allowed),
+        "ineligible_actions": sorted(rejected),
+        "constraint_basis": "provenance-backed material domain signals",
+    }
 
 
 def choose_action(telemetry: Dict[str, Any], w: Tuple[float, float, float]) -> Tuple[str, float]:
