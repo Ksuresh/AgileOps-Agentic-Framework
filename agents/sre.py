@@ -42,7 +42,9 @@ class SREAgent(BaseAgent):
                 evidence.append(f"Saturation elevated: {sat:.0f}%{provenance_suffix(sat_ev)}"); score += 0.15
         if availability_ev.usable:
             availability = float(availability_ev.value)
-            if availability < 99.0:
+            if availability < 95.0:
+                evidence.append(f"Severe availability indicator drop: {availability:.2f}%{provenance_suffix(availability_ev)}"); score += 0.35
+            elif availability < 99.0:
                 evidence.append(f"Availability indicator dropped to {availability:.2f}%{provenance_suffix(availability_ev)}"); score += 0.25
 
         if score >= 0.60:
