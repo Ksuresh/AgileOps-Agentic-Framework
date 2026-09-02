@@ -2,9 +2,9 @@ from __future__ import annotations
 
 """Transform preserved runtime artifacts into auditable AAF evidence.
 
-Scientific constraint: this adapter must never read intervention oracle labels.
-It only reads runtime artifacts/observables. Unknown values remain missing; the
-adapter does not invent latency, error-rate, cost, CVE, or policy measurements.
+Scientific constraint: this adapter never reads intervention oracle labels.
+Unknown values remain explicitly missing; proxy measurements are labelled and
+must not be described as direct measurements in the manuscript.
 """
 
 import json
@@ -26,7 +26,6 @@ def _pct(value: str) -> Optional[float]:
 
 
 def _parse_stats(text: str) -> Dict[str, Any]:
-    """Best-effort parser for docker stats --no-stream table output."""
     rows = []
     for line in text.splitlines():
         if not line.strip() or line.lower().startswith("container"):
@@ -39,27 +38,19 @@ def _parse_stats(text: str) -> Dict[str, Any]:
         rows.append({"raw": line, "cpu_pct": cpu, "memory_pct": mem})
     cpus = [r["cpu_pct"] for r in rows if r["cpu_pct"] is not None]
     mems = [r["memory_pct"] for r in rows if r["memory_pct"] is not None]
-    return {
-        "container_rows": len(rows),
-        "max_cpu_pct": max(cpus) if cpus else None,
-        "max_memory_pct": max(mems) if mems else None,
-    }
+    return {"container_rows": len(rows), "max_cpu_pct": max(cpus) if cpus else None, "max_memory_pct": max(mems) if mems else None}
 
 
 def _parse_ps(text: str) -> Dict[str, Any]:
     lower = text.lower()
-    unhealthy = len(re.findall(r"\bunhealthy\b", lower))
-    exited = len(re.findall(r"\bexited\b", lower))
-    restarting = len(re.findall(r"\brestarting\b", lower))
-    # Count table rows conservatively; this is a footprint observable, not cost.
     rows = [ln for ln in text.splitlines() if ln.strip()]
     if rows and ("name" in rows[0].lower() or "container" in rows[0].lower()):
         rows = rows[1:]
     return {
         "observed_container_rows": len(rows),
-        "unhealthy_rows": unhealthy,
-        "exited_rows": exited,
-        "restarting_rows": restarting,
+        "unhealthy_rows": len(re.findall(r"\bunhealthy\b", lower)),
+        "exited_rows": len(re.findall(r"\bexited\b", lower)),
+        "restarting_rows": len(re.findall(r"\brestarting\b", lower)),
     }
 
 
@@ -70,93 +61,74 @@ def derive_observables(case_dir: str | Path) -> Dict[str, Any]:
     logs = _read(p / "service_logs.txt")
     inspect = _read(p / "container_inspect.json")
     config = _read(p / "compose_config.txt")
-
     restart_counts = [int(x) for x in re.findall(r'"RestartCount"\s*:\s*(\d+)', inspect)]
-    error_lines = sum(1 for ln in logs.splitlines() if re.search(r"\b(error|fatal|panic|exception)\b", ln, re.I))
-
     return {
-        "availability_proxy": {
-            "unhealthy_rows": ps["unhealthy_rows"],
-            "exited_rows": ps["exited_rows"],
-            "restarting_rows": ps["restarting_rows"],
-            "source": "docker/compose process state",
-        },
+        "availability_proxy": {**{k: ps[k] for k in ("unhealthy_rows", "exited_rows", "restarting_rows")}, "source": "docker/compose process state"},
         "restart_count_max": max(restart_counts) if restart_counts else None,
         "resource_observation": stats,
         "container_footprint": ps["observed_container_rows"],
-        "error_log_line_count": error_lines,
-        "artifact_presence": {
-            "logs": bool(logs.strip()),
-            "inspect": bool(inspect.strip()),
-            "compose_config": bool(config.strip()),
-            "stats": bool(_read(p / "docker_stats.txt").strip()),
-        },
+        "error_log_line_count": sum(1 for ln in logs.splitlines() if re.search(r"\b(error|fatal|panic|exception)\b", ln, re.I)),
+        "artifact_presence": {"logs": bool(logs.strip()), "inspect": bool(inspect.strip()), "compose_config": bool(config.strip()), "stats": bool(_read(p / "docker_stats.txt").strip())},
     }
 
 
-def to_aaf_telemetry(observables: Dict[str, Any], baseline: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
-    """Map only defensible observables into the current AAF schema.
+def _ev(status: str, source: str, note: str = "") -> Dict[str, str]:
+    return {"status": status, "source": source, "note": note}
 
-    Fields without a direct measurement are marked missing rather than imputed.
-    This intentionally exposes schema gaps that should be fixed before the
-    runtime study is reported.
-    """
+
+def to_aaf_telemetry(observables: Dict[str, Any], baseline: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
     av = observables.get("availability_proxy", {})
     restart = observables.get("restart_count_max")
     resource = observables.get("resource_observation", {})
     footprint = observables.get("container_footprint")
-
     service_problem = any((av.get("unhealthy_rows", 0), av.get("exited_rows", 0), av.get("restarting_rows", 0)))
 
     deploy: Dict[str, Any] = {
-        "pipeline_failed": False,
-        "config_drift": False,
-        "rollback_marker": False,
-        "artifact_mismatch": False,
-        "restart_loops": restart or 0,
-        "_provenance": {"restart_loops": "container inspect RestartCount" if restart is not None else "unobserved"},
+        "restart_loops": restart,
+        "_evidence": {
+            "restart_loops": _ev("measured" if restart is not None else "missing", "docker inspect RestartCount"),
+            "pipeline_failed": _ev("missing", "CI/CD evidence not collected by generic Docker collector"),
+            "config_drift": _ev("missing", "configuration-diff evidence not yet classified"),
+            "rollback_marker": _ev("missing", "release metadata not collected"),
+            "artifact_mismatch": _ev("missing", "release/image expectation evidence not collected"),
+        },
     }
 
-    # Current SRE agent requires latency/error/saturation/availability numbers.
-    # Docker state alone cannot justify latency/error percentages. Only resource
-    # saturation is populated when docker stats supplies a percentage.
     sre: Dict[str, Any] = {
-        "p95_latency_ms": 0.0,
-        "error_rate_pct": 0.0,
-        "saturation_pct": resource.get("max_cpu_pct") or 0.0,
+        "saturation_pct": resource.get("max_cpu_pct"),
         "availability_pct": 0.0 if service_problem else 99.9,
-        "_provenance": {
-            "p95_latency_ms": "unobserved; neutral placeholder required by legacy schema",
-            "error_rate_pct": "unobserved; neutral placeholder required by legacy schema",
-            "saturation_pct": "max docker CPU percentage proxy" if resource.get("max_cpu_pct") is not None else "unobserved",
-            "availability_pct": "binary process-state proxy; not measured SLO availability",
+        "_evidence": {
+            "p95_latency_ms": _ev("missing", "request latency instrumentation not present"),
+            "error_rate_pct": _ev("missing", "request-count/error-count instrumentation not present"),
+            "saturation_pct": _ev("proxy" if resource.get("max_cpu_pct") is not None else "missing", "docker stats max CPU percentage", "Host/container CPU percentage proxy, not an SLO saturation measurement"),
+            "availability_pct": _ev("proxy", "docker/compose process state", "Binary process-state proxy, not time-window SLO availability"),
         },
     }
 
     finops: Dict[str, Any] = {
-        "cost_spike_pct": 0.0,
-        "hpa_scale_to": 0,
-        "cpu_request_increase_pct": 0.0,
-        "memory_request_increase_pct": 0.0,
-        "_provenance": {"cost_spike_pct": "unobserved; no cloud billing data"},
+        "_evidence": {
+            "cost_spike_pct": _ev("missing", "no monetary billing source"),
+            "hpa_scale_to": _ev("missing", "Docker Compose footprint is not Kubernetes HPA"),
+            "cpu_request_increase_pct": _ev("missing", "resource request history not collected"),
+            "memory_request_increase_pct": _ev("missing", "resource request history not collected"),
+        }
     }
-    if baseline and footprint is not None:
+    if baseline and isinstance(footprint, (int, float)):
         base_fp = baseline.get("container_footprint")
-        if isinstance(base_fp, (int, float)) and base_fp > 0 and footprint > base_fp:
-            # This is explicitly a footprint proxy, not measured cost.
+        if isinstance(base_fp, (int, float)) and base_fp > 0:
             finops["cost_spike_pct"] = 100.0 * (footprint - base_fp) / base_fp
-            finops["_provenance"]["cost_spike_pct"] = "container-footprint increase proxy; not monetary cost"
+            finops["_evidence"]["cost_spike_pct"] = _ev("proxy", "container footprint relative to healthy baseline", "Resource-footprint proxy only; not monetary cost")
 
     sec: Dict[str, Any] = {
-        "critical_cves": 0,
-        "policy_violation": False,
-        "iam_drift": False,
-        "compliance_gap": False,
-        "_missing": True,
-        "_provenance": {"status": "security scanner/policy evidence not present in generic Docker artifacts"},
+        "_evidence": {
+            "critical_cves": _ev("missing", "security scanner evidence absent"),
+            "policy_violation": _ev("missing", "policy-as-code evidence absent"),
+            "iam_drift": _ev("missing", "IAM evidence absent"),
+            "compliance_gap": _ev("missing", "compliance evidence absent"),
+        }
     }
 
-    return {"deploy": deploy, "sre": sre, "finops": finops, "sec": sec, "_runtime_observables": observables}
+    return {"deploy": deploy, "sre": sre, "finops": finops, "sec": sec, "_runtime_observables": observables, "_evidence_schema_version": "2.0"}
 
 
 def write_evidence(case_dir: str | Path, baseline_dir: Optional[str | Path] = None) -> Dict[str, Any]:
