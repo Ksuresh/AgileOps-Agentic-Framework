@@ -1,0 +1,75 @@
+name: Revision Experiments
+
+on:
+  push:
+    branches:
+      - revision/post-review-2026
+  workflow_dispatch:
+
+jobs:
+  controlled-experiments:
+    runs-on: ubuntu-latest
+    env:
+      PYTHONPATH: ${{ github.workspace }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          pip install pytest pyyaml
+
+      - name: Validate tests
+        run: python -m pytest -q
+
+      - name: Full oracle benchmark
+        run: python evaluation/run_oracle_benchmark.py --mode aaf_full --out results_revision_oracle_full
+
+      - name: Ablation - no consensus
+        run: python evaluation/run_oracle_benchmark.py --mode aaf_no_consensus --out results_revision_oracle_no_consensus
+
+      - name: Ablation - no RER
+        run: python evaluation/run_oracle_benchmark.py --mode aaf_no_rar --out results_revision_oracle_no_rer
+
+      - name: Baseline - no utility / dominant domain
+        run: python evaluation/run_oracle_benchmark.py --mode aaf_no_utility --out results_revision_oracle_dominant_domain
+
+      - name: Paired utility comparison
+        run: python evaluation/run_revised_comparison.py
+
+      - name: Sensitivity analysis
+        run: python evaluation/run_sensitivity_analysis.py
+
+      - name: Bundle experiment metadata
+        run: |
+          mkdir -p results_revision_meta
+          python - <<'PY'
+          import json, platform, sys, subprocess
+          meta = {
+              'python': sys.version,
+              'platform': platform.platform(),
+              'git_commit': subprocess.check_output(['git','rev-parse','HEAD'], text=True).strip(),
+              'evaluation_reference': 'pre_specified_experimental_oracle'
+          }
+          open('results_revision_meta/environment.json','w').write(json.dumps(meta, indent=2))
+          PY
+
+      - name: Upload experiment results
+        uses: actions/upload-artifact@v4
+        with:
+          name: revision-controlled-experiments
+          path: |
+            results_revision_oracle_full
+            results_revision_oracle_no_consensus
+            results_revision_oracle_no_rer
+            results_revision_oracle_dominant_domain
+            results_revision_comparison
+            results_revision_sensitivity
+            results_revision_meta
