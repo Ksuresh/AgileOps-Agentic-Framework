@@ -5,6 +5,11 @@ from __future__ import annotations
 Supports frozen RT-11 and RT-12 only. The runner does not read oracle labels to
 drive behavior. It records measured HTTP latency/error observations while load
 is active and stores only derived aggregates plus request counts in the artifact.
+
+The canonical Sock Shop Docker Compose file publishes edge-router port 80, not
+the front-end container's internal 8079 port. Load is therefore routed through
+edge-router and a successful preflight request is required before a run is
+accepted as valid runtime evidence.
 """
 
 import argparse
@@ -42,13 +47,31 @@ def load_case(case_id: str) -> dict:
     raise SystemExit(f"Unknown case: {case_id}")
 
 
-def resolve_frontend_url(compose_file: str) -> str:
-    cp = run(["docker", "compose", "-f", compose_file, "port", "front-end", "8079"], capture=True)
-    value = cp.stdout.strip().splitlines()[0]
-    port = value.rsplit(":", 1)[-1]
-    # /catalogue exercises a backend dependency through the front-end rather than
-    # measuring only static home-page delivery.
+def resolve_load_url(compose_file: str) -> str:
+    cp = run(["docker", "compose", "-f", compose_file, "port", "edge-router", "80"], capture=True)
+    lines = [line.strip() for line in cp.stdout.splitlines() if line.strip()]
+    if not lines:
+        raise RuntimeError("edge-router port 80 is not published by the active Sock Shop deployment")
+    port = lines[0].rsplit(":", 1)[-1]
     return f"http://127.0.0.1:{port}/catalogue"
+
+
+def preflight(url: str, attempts: int = 12, delay_seconds: float = 2.0) -> int:
+    last_error = "unknown"
+    for _ in range(attempts):
+        try:
+            with urllib.request.urlopen(url, timeout=5.0) as response:
+                status = int(response.status)
+                response.read(1024)
+                if 200 <= status < 400:
+                    return status
+                last_error = f"HTTP {status}"
+        except urllib.error.HTTPError as exc:
+            last_error = f"HTTP {int(exc.code)}"
+        except Exception as exc:
+            last_error = type(exc).__name__
+        time.sleep(delay_seconds)
+    raise RuntimeError(f"Sock Shop load endpoint failed preflight: {url} ({last_error})")
 
 
 def percentile(values: list[float], q: float) -> float | None:
@@ -102,7 +125,6 @@ def main() -> None:
 
     compose = args.compose_file
     params = case.get("parameters", {}) or {}
-    # Use frozen manifest values unless an explicit override is provided.
     concurrency = int(args.concurrency if args.concurrency is not None else params.get("concurrency", 50))
     duration = int(args.duration_seconds if args.duration_seconds is not None else params.get("duration_seconds", 120))
 
@@ -113,7 +135,9 @@ def main() -> None:
         run(["docker", "compose", "-f", compose, "up", "-d", "--scale", f"front-end={replicas}"])
         time.sleep(5)
 
-    url = resolve_frontend_url(compose)
+    url = resolve_load_url(compose)
+    preflight_status = preflight(url)
+
     stop = threading.Event()
     state = {"requests": 0, "successes": 0, "failures": 0, "latencies_ms": [], "status_counts": {}}
     lock = threading.Lock()
@@ -145,12 +169,18 @@ def main() -> None:
         successes = int(state["successes"])
         status_counts = dict(state["status_counts"])
 
+    if requests == 0 or successes == 0:
+        raise RuntimeError(
+            "Load run produced no successful HTTP requests; refusing to treat transport failure as SRE evidence"
+        )
+
     observation = {
         "case_id": args.case_id,
         "repetition": args.repetition,
         "started_utc": started,
         "finished_utc": finished,
         "url": url,
+        "preflight_status": preflight_status,
         "concurrency": concurrency,
         "duration_seconds": duration,
         "requests": requests,
@@ -161,7 +191,7 @@ def main() -> None:
         "latency_p95_ms": percentile(latencies, 0.95),
         "latency_p99_ms": percentile(latencies, 0.99),
         "status_counts": status_counts,
-        "source": "direct concurrent HTTP measurements against Sock Shop front-end /catalogue",
+        "source": "direct concurrent HTTP measurements through Sock Shop edge-router /catalogue",
     }
     (artifact / "load_observation.json").write_text(json.dumps(observation, indent=2), encoding="utf-8")
 
