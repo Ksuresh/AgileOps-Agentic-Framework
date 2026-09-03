@@ -1,0 +1,108 @@
+name: Sock Shop Held-Out Runtime Batch 3
+
+on:
+  push:
+    branches:
+      - experiment/aaf-cross-domain-heldout
+  workflow_dispatch:
+
+jobs:
+  heldout-runtime-batch3:
+    runs-on: ubuntu-latest
+    timeout-minutes: 75
+    env:
+      PYTHONPATH: ${{ github.workspace }}
+      MYSQL_ROOT_PASSWORD: ""
+    steps:
+      - name: Checkout AAF
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          pip install pytest pyyaml
+
+      - name: Regression tests
+        run: python -m pytest -q
+
+      - name: Freeze-check cross-domain policy
+        run: |
+          CURRENT_POLICY_BLOB="$(git hash-object orchestrator/cross_domain.py)"
+          echo "$CURRENT_POLICY_BLOB" > results_policy_blob_batch3.txt
+          test "$CURRENT_POLICY_BLOB" = "d2954dcd656c033120d3a23c2e38ca2ce06c60f0"
+
+      - name: Clone canonical Sock Shop
+        run: |
+          git clone --depth 1 https://github.com/microservices-demo/microservices-demo.git /tmp/sock-shop
+          echo "SOCK_COMPOSE=/tmp/sock-shop/deploy/docker-compose/docker-compose.yml" >> "$GITHUB_ENV"
+          git -C /tmp/sock-shop rev-parse HEAD > runtime_validation/sock_shop_commit_batch3.txt
+
+      - name: Start Sock Shop
+        run: |
+          docker compose -f "$SOCK_COMPOSE" pull
+          docker compose -f "$SOCK_COMPOSE" up -d
+          sleep 45
+          docker compose -f "$SOCK_COMPOSE" ps -a
+
+      - name: Frozen healthy baseline artifact
+        run: |
+          docker compose -f "$SOCK_COMPOSE" up -d --remove-orphans --scale front-end=1
+          sleep 10
+          python runtime_validation/run_runtime_case.py HRT-01 --repetition 1 --compose-file "$SOCK_COMPOSE" --settle-seconds 8 --execute
+
+      - name: HRT-08 config plus security policy
+        run: python runtime_validation/run_batch3_case.py HRT-08 --repetition 1 --compose-file "$SOCK_COMPOSE"
+
+      - name: HRT-09 config security under live load
+        run: python runtime_validation/run_batch3_case.py HRT-09 --repetition 1 --compose-file "$SOCK_COMPOSE"
+
+      - name: HRT-10 three-domain compound condition
+        run: python runtime_validation/run_batch3_case.py HRT-10 --repetition 1 --compose-file "$SOCK_COMPOSE"
+
+      - name: HRT-11 reliability control
+        run: python runtime_validation/run_batch3_case.py HRT-11 --repetition 1 --compose-file "$SOCK_COMPOSE"
+
+      - name: HRT-12 resource-efficiency control
+        run: python runtime_validation/run_batch3_case.py HRT-12 --repetition 1 --compose-file "$SOCK_COMPOSE"
+
+      - name: HRT-13 restart plus security release condition
+        run: python runtime_validation/run_batch3_case.py HRT-13 --repetition 1 --compose-file "$SOCK_COMPOSE"
+
+      - name: Evaluate frozen Batch 3 artifacts
+        run: python runtime_validation/evaluate_batch3_runtime.py
+
+      - name: Capture final state
+        if: always()
+        run: |
+          docker compose -f "$SOCK_COMPOSE" ps -a > runtime_validation/final_compose_ps_batch3.txt 2>&1 || true
+          docker version > runtime_validation/docker_version_batch3.txt 2>&1 || true
+          docker compose version > runtime_validation/docker_compose_version_batch3.txt 2>&1 || true
+
+      - name: Upload Batch 3 evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: aaf-sock-shop-heldout-runtime-batch3
+          path: |
+            runtime_validation/artifacts/HRT-01
+            runtime_validation/artifacts/HRT-08
+            runtime_validation/artifacts/HRT-09
+            runtime_validation/artifacts/HRT-10
+            runtime_validation/artifacts/HRT-11
+            runtime_validation/artifacts/HRT-12
+            runtime_validation/artifacts/HRT-13
+            runtime_validation/run_metadata_batch3
+            runtime_validation/batch3_overrides
+            runtime_validation/interventions_batch3.yaml
+            runtime_validation/sock_shop_commit_batch3.txt
+            runtime_validation/final_compose_ps_batch3.txt
+            runtime_validation/docker_version_batch3.txt
+            runtime_validation/docker_compose_version_batch3.txt
+            results_policy_blob_batch3.txt
+            results_heldout_runtime_batch3
