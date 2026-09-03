@@ -105,14 +105,14 @@ jobs:
       - name: RT-11 sustained request load x5
         run: |
           for rep in 1 2 3 4 5; do
-            python runtime_validation/run_load_compound_case.py RT-11 --repetition "$rep" --compose-file "$SOCK_COMPOSE" --duration-seconds 30 --concurrency 30
+            python runtime_validation/run_load_compound_case.py RT-11 --repetition "$rep" --compose-file "$SOCK_COMPOSE"
             sleep 5
           done
 
       - name: RT-12 high load plus scale-out x5
         run: |
           for rep in 1 2 3 4 5; do
-            python runtime_validation/run_load_compound_case.py RT-12 --repetition "$rep" --compose-file "$SOCK_COMPOSE" --duration-seconds 30 --concurrency 30
+            python runtime_validation/run_load_compound_case.py RT-12 --repetition "$rep" --compose-file "$SOCK_COMPOSE"
             sleep 5
           done
 
