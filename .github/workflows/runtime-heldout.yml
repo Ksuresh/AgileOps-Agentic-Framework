@@ -1,0 +1,126 @@
+name: Sock Shop Held-Out Runtime
+
+on:
+  push:
+    branches:
+      - experiment/aaf-cross-domain-heldout
+  workflow_dispatch:
+
+jobs:
+  heldout-runtime:
+    runs-on: ubuntu-latest
+    timeout-minutes: 70
+    env:
+      PYTHONPATH: ${{ github.workspace }}
+      MYSQL_ROOT_PASSWORD: ""
+    steps:
+      - name: Checkout AAF
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          pip install pytest pyyaml
+
+      - name: Regression tests
+        run: python -m pytest -q
+
+      - name: Clone canonical Sock Shop
+        run: |
+          git clone --depth 1 https://github.com/microservices-demo/microservices-demo.git /tmp/sock-shop
+          echo "SOCK_COMPOSE=/tmp/sock-shop/deploy/docker-compose/docker-compose.yml" >> "$GITHUB_ENV"
+          git -C /tmp/sock-shop rev-parse HEAD > runtime_validation/sock_shop_commit_heldout.txt
+
+      - name: Start Sock Shop
+        run: |
+          docker compose -f "$SOCK_COMPOSE" pull
+          docker compose -f "$SOCK_COMPOSE" up -d
+          sleep 45
+          docker compose -f "$SOCK_COMPOSE" ps -a
+
+      - name: HRT-01 healthy control x3
+        run: |
+          for rep in 1 2 3; do
+            docker compose -f "$SOCK_COMPOSE" up -d --remove-orphans --scale front-end=1
+            sleep 10
+            python runtime_validation/run_runtime_case.py HRT-01 --repetition "$rep" --compose-file "$SOCK_COMPOSE" --settle-seconds 10 --execute
+          done
+
+      - name: HRT-02 service-stop control x3
+        run: |
+          for rep in 1 2 3; do
+            docker compose -f "$SOCK_COMPOSE" up -d catalogue
+            sleep 10
+            python runtime_validation/run_runtime_case.py HRT-02 --repetition "$rep" --compose-file "$SOCK_COMPOSE" --settle-seconds 10 --restore-after --execute
+            sleep 10
+          done
+
+      - name: HRT-03 resource-footprint control x3
+        run: |
+          for rep in 1 2 3; do
+            docker compose -f "$SOCK_COMPOSE" up -d --scale front-end=1
+            sleep 10
+            python runtime_validation/run_runtime_case.py HRT-03 --repetition "$rep" --compose-file "$SOCK_COMPOSE" --settle-seconds 10 --execute
+            docker compose -f "$SOCK_COMPOSE" up -d --scale front-end=1
+            sleep 10
+          done
+
+      - name: HRT-04 unseen restart-burst variant A x3
+        run: |
+          for rep in 1 2 3; do
+            docker compose -f "$SOCK_COMPOSE" up -d front-end --scale front-end=1
+            sleep 10
+            python runtime_validation/run_runtime_case.py HRT-04 --repetition "$rep" --compose-file "$SOCK_COMPOSE" --settle-seconds 8 --restore-after --execute
+            sleep 10
+          done
+
+      - name: HRT-05 unseen restart-burst variant B x3
+        run: |
+          for rep in 1 2 3; do
+            docker compose -f "$SOCK_COMPOSE" up -d front-end --scale front-end=1
+            sleep 10
+            python runtime_validation/run_runtime_case.py HRT-05 --repetition "$rep" --compose-file "$SOCK_COMPOSE" --settle-seconds 8 --restore-after --execute
+            sleep 10
+          done
+
+      - name: Evaluate frozen held-out runtime artifacts
+        run: |
+          python runtime_validation/evaluate_heldout_runtime.py \
+            --cases HRT-01,HRT-02,HRT-03,HRT-04,HRT-05 \
+            --repetitions 1,2,3 \
+            --out results_heldout_runtime
+
+      - name: Capture final state
+        if: always()
+        run: |
+          docker compose -f "$SOCK_COMPOSE" ps -a > runtime_validation/final_compose_ps_heldout.txt 2>&1 || true
+          docker version > runtime_validation/docker_version_heldout.txt 2>&1 || true
+          docker compose version > runtime_validation/docker_compose_version_heldout.txt 2>&1 || true
+
+      - name: Upload held-out runtime evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: aaf-sock-shop-heldout-runtime
+          path: |
+            runtime_validation/artifacts/HRT-01
+            runtime_validation/artifacts/HRT-02
+            runtime_validation/artifacts/HRT-03
+            runtime_validation/artifacts/HRT-04
+            runtime_validation/artifacts/HRT-05
+            runtime_validation/run_metadata/HRT-01
+            runtime_validation/run_metadata/HRT-02
+            runtime_validation/run_metadata/HRT-03
+            runtime_validation/run_metadata/HRT-04
+            runtime_validation/run_metadata/HRT-05
+            runtime_validation/sock_shop_commit_heldout.txt
+            runtime_validation/final_compose_ps_heldout.txt
+            runtime_validation/docker_version_heldout.txt
+            runtime_validation/docker_compose_version_heldout.txt
+            results_heldout_runtime
