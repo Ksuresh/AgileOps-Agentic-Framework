@@ -1,0 +1,58 @@
+# Final confirmatory Batch 3.
+# Frozen before runtime execution. The AAF cross-domain policy remains unchanged.
+# One execution per template is the primary scenario-level analysis; repetitions
+# are deliberately not used to inflate the independent sample size.
+cases:
+  - id: HRT-08
+    title: heldout_config_drift_plus_security_policy_violation
+    intervention: config_security
+    target_service: front-end
+    parameters: {security_marker: exposed_test_secret}
+    oracle_domains: [DevOps, DevSecOps]
+    admissible_actions: ["Patch or block release"]
+    repetitions: 1
+
+  - id: HRT-09
+    title: heldout_config_security_under_live_load
+    intervention: config_security_load
+    target_service: front-end
+    parameters: {security_marker: exposed_test_secret, concurrency: 100, duration_seconds: 75}
+    oracle_domains: [DevOps, DevSecOps]
+    admissible_actions: ["Patch or block release"]
+    repetitions: 1
+
+  - id: HRT-10
+    title: heldout_three_domain_config_reliability_resource_condition
+    intervention: config_scale_cpu_load
+    target_service: front-end
+    parameters: {replicas: 6, cpus: 0.10, concurrency: 160, duration_seconds: 100, config_marker: batch3_drift}
+    oracle_domains: [DevOps, SRE, FinOps]
+    admissible_actions: ["Rollback to stable deployment"]
+    repetitions: 1
+
+  - id: HRT-11
+    title: heldout_underprovisioned_reliability_control
+    intervention: cpu_load
+    target_service: front-end
+    parameters: {cpus: 0.05, concurrency: 160, duration_seconds: 100}
+    oracle_domains: [SRE]
+    admissible_actions: ["Mitigate and monitor"]
+    repetitions: 1
+
+  - id: HRT-12
+    title: heldout_resource_efficiency_control
+    intervention: scale_service
+    target_service: front-end
+    parameters: {replicas: 6}
+    oracle_domains: [FinOps]
+    admissible_actions: ["Scale adjustment", "Review scaling policy"]
+    repetitions: 1
+
+  - id: HRT-13
+    title: heldout_restart_burst_plus_security_release_condition
+    intervention: restart_config_security
+    target_service: front-end
+    parameters: {restart_count: 4, restart_interval_seconds: 15, security_marker: exposed_test_secret}
+    oracle_domains: [DevOps, DevSecOps]
+    admissible_actions: ["Patch or block release"]
+    repetitions: 1
