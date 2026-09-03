@@ -1,5 +1,6 @@
 name: Revision Experiments
 
+# Final frozen-oracle rerun trigger after continuous-service stop correction.
 on:
   push:
     branches:
