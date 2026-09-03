@@ -170,3 +170,48 @@ cases:
     oracle_domains: [SRE, FinOps]
     admissible_actions: ["Scale adjustment", "Mitigate and monitor"]
     repetitions: 5
+
+  # Frozen after the cross-domain interaction policy commit 0141740.
+  # These are confirmatory runtime cases and must not be used to tune that policy.
+  - id: HRT-01
+    title: heldout_healthy_control
+    intervention: none
+    target_service: null
+    oracle_domains: []
+    admissible_actions: ["No action (observe)"]
+    repetitions: 3
+
+  - id: HRT-02
+    title: heldout_catalogue_stop_control
+    intervention: stop_service
+    target_service: catalogue
+    oracle_domains: [SRE]
+    admissible_actions: ["Mitigate and monitor"]
+    repetitions: 3
+
+  - id: HRT-03
+    title: heldout_scale_control
+    intervention: scale_service
+    target_service: front-end
+    parameters: {replicas: 6}
+    oracle_domains: [FinOps]
+    admissible_actions: ["Scale adjustment", "Review scaling policy"]
+    repetitions: 3
+
+  - id: HRT-04
+    title: heldout_restart_burst_variant_a
+    intervention: restart_loop
+    target_service: front-end
+    parameters: {count: 4, interval_seconds: 15}
+    oracle_domains: [DevOps]
+    admissible_actions: ["Rollback to stable deployment"]
+    repetitions: 3
+
+  - id: HRT-05
+    title: heldout_restart_burst_variant_b
+    intervention: restart_loop
+    target_service: front-end
+    parameters: {count: 3, interval_seconds: 20}
+    oracle_domains: [DevOps]
+    admissible_actions: ["Rollback to stable deployment"]
+    repetitions: 3
