@@ -171,8 +171,7 @@ cases:
     admissible_actions: ["Scale adjustment", "Mitigate and monitor"]
     repetitions: 5
 
-  # Frozen after the cross-domain interaction policy commit 0141740.
-  # These are confirmatory runtime cases and must not be used to tune that policy.
+  # Batch 1: frozen after cross-domain policy commit 0141740.
   - id: HRT-01
     title: heldout_healthy_control
     intervention: none
@@ -214,4 +213,24 @@ cases:
     parameters: {count: 3, interval_seconds: 20}
     oracle_domains: [DevOps]
     admissible_actions: ["Rollback to stable deployment"]
+    repetitions: 3
+
+  # Batch 2: frozen without modifying orchestrator/cross_domain.py after Batch 1.
+  # Both cases use direct HTTP observations during the intervention.
+  - id: HRT-06
+    title: heldout_restart_burst_under_live_load
+    intervention: compound_restart_under_load
+    target_service: front-end
+    parameters: {restart_count: 4, restart_interval_seconds: 15, concurrency: 120, duration_seconds: 100, load_warmup_seconds: 8}
+    oracle_domains: [DevOps, SRE]
+    admissible_actions: ["Rollback to stable deployment"]
+    repetitions: 3
+
+  - id: HRT-07
+    title: heldout_overprovisioning_under_cpu_pressure_and_load
+    intervention: compound_scale_cpu_load
+    target_service: front-end
+    parameters: {replicas: 6, cpus: 0.10, concurrency: 160, duration_seconds: 100}
+    oracle_domains: [SRE, FinOps]
+    admissible_actions: ["Scale adjustment"]
     repetitions: 3
