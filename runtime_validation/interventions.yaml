@@ -5,7 +5,7 @@ cases:
     target_service: null
     oracle_domains: []
     admissible_actions: ["No action (observe)"]
-    repetitions: 3
+    repetitions: 5
 
   - id: RT-02
     title: stop_catalogue_service
@@ -13,7 +13,7 @@ cases:
     target_service: catalogue
     oracle_domains: [SRE]
     admissible_actions: ["Mitigate and monitor"]
-    repetitions: 3
+    repetitions: 5
 
   - id: RT-03
     title: stop_carts_service
@@ -21,7 +21,7 @@ cases:
     target_service: carts
     oracle_domains: [SRE]
     admissible_actions: ["Mitigate and monitor"]
-    repetitions: 3
+    repetitions: 5
 
   - id: RT-04
     title: repeated_frontend_restart
@@ -30,7 +30,7 @@ cases:
     parameters: {count: 5, interval_seconds: 5}
     oracle_domains: [DevOps, SRE]
     admissible_actions: ["Rollback to stable deployment", "Mitigate and monitor"]
-    repetitions: 3
+    repetitions: 5
 
   - id: RT-05
     title: invalid_image_tag
@@ -38,7 +38,7 @@ cases:
     target_service: front-end
     oracle_domains: [DevOps]
     admissible_actions: ["Block release and fix pipeline", "Rollback to stable deployment"]
-    repetitions: 3
+    repetitions: 5
 
   - id: RT-06
     title: invalid_configuration
@@ -46,7 +46,7 @@ cases:
     target_service: front-end
     oracle_domains: [DevOps]
     admissible_actions: ["Rollback to stable deployment", "Block release and fix pipeline"]
-    repetitions: 3
+    repetitions: 5
 
   - id: RT-07
     title: cpu_constraint
@@ -55,7 +55,7 @@ cases:
     parameters: {cpus: 0.15}
     oracle_domains: [SRE]
     admissible_actions: ["Mitigate and monitor", "Scale adjustment"]
-    repetitions: 3
+    repetitions: 5
 
   - id: RT-08
     title: memory_constraint
@@ -64,7 +64,7 @@ cases:
     parameters: {memory: 128m}
     oracle_domains: [SRE]
     admissible_actions: ["Mitigate and monitor", "Scale adjustment"]
-    repetitions: 3
+    repetitions: 5
 
   - id: RT-09
     title: excessive_scale_out
@@ -73,7 +73,7 @@ cases:
     parameters: {replicas: 8}
     oracle_domains: [FinOps]
     admissible_actions: ["Scale adjustment", "Review scaling policy"]
-    repetitions: 3
+    repetitions: 5
 
   - id: RT-10
     title: overprovisioning_control
@@ -82,7 +82,7 @@ cases:
     parameters: {replicas: 12}
     oracle_domains: [FinOps]
     admissible_actions: ["Scale adjustment", "Review scaling policy"]
-    repetitions: 3
+    repetitions: 5
 
   - id: RT-11
     title: high_request_load
@@ -91,7 +91,7 @@ cases:
     parameters: {duration_seconds: 120, concurrency: 50}
     oracle_domains: [SRE]
     admissible_actions: ["Mitigate and monitor", "Scale adjustment"]
-    repetitions: 3
+    repetitions: 5
 
   - id: RT-12
     title: high_load_plus_scale_out
@@ -100,7 +100,7 @@ cases:
     parameters: {replicas: 8, duration_seconds: 120, concurrency: 50}
     oracle_domains: [SRE, FinOps]
     admissible_actions: ["Scale adjustment", "Mitigate and monitor"]
-    repetitions: 3
+    repetitions: 5
 
   - id: RT-13
     title: deployment_incident
@@ -109,7 +109,7 @@ cases:
     parameters: {invalid_image: true, load_after_failure: true}
     oracle_domains: [DevOps, SRE]
     admissible_actions: ["Rollback to stable deployment"]
-    repetitions: 3
+    repetitions: 5
 
   - id: RT-14
     title: security_scan_failure
@@ -117,7 +117,7 @@ cases:
     target_service: front-end
     oracle_domains: [DevSecOps]
     admissible_actions: ["Patch or block release"]
-    repetitions: 3
+    repetitions: 5
 
   - id: RT-15
     title: iam_policy_drift
@@ -125,7 +125,7 @@ cases:
     target_service: front-end
     oracle_domains: [DevSecOps]
     admissible_actions: ["Patch or block release"]
-    repetitions: 3
+    repetitions: 5
 
   - id: RT-16
     title: security_only_control
@@ -133,7 +133,7 @@ cases:
     target_service: catalogue
     oracle_domains: [DevSecOps]
     admissible_actions: ["Patch or block release"]
-    repetitions: 3
+    repetitions: 5
 
   - id: RT-17
     title: security_plus_latency
@@ -142,7 +142,7 @@ cases:
     parameters: {security_gate_failure: true, cpu_limit: 0.15}
     oracle_domains: [DevSecOps, SRE]
     admissible_actions: ["Patch or block release", "Mitigate and monitor"]
-    repetitions: 3
+    repetitions: 5
 
   - id: RT-18
     title: deployment_plus_security
@@ -151,7 +151,7 @@ cases:
     parameters: {invalid_image: true, security_gate_failure: true}
     oracle_domains: [DevOps, DevSecOps]
     admissible_actions: ["Patch or block release", "Block release and fix pipeline"]
-    repetitions: 3
+    repetitions: 5
 
   - id: RT-19
     title: missing_evidence_variant
@@ -160,7 +160,7 @@ cases:
     parameters: {suppress_source: service_logs}
     oracle_domains: [DevOps, SRE]
     admissible_actions: ["Rollback to stable deployment"]
-    repetitions: 3
+    repetitions: 5
 
   - id: RT-20
     title: noisy_partial_evidence_variant
@@ -169,4 +169,4 @@ cases:
     parameters: {drop_fraction: 0.25, numeric_jitter_pct: 0.10}
     oracle_domains: [SRE, FinOps]
     admissible_actions: ["Scale adjustment", "Mitigate and monitor"]
-    repetitions: 3
+    repetitions: 5
