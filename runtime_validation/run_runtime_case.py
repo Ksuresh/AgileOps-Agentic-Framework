@@ -10,10 +10,10 @@ MANIFEST=Path(__file__).with_name("interventions.yaml")
 
 def utc_now()->str: return datetime.now(timezone.utc).isoformat()
 
-def run(cmd:list[str],*,check:bool=True,execute:bool=True)->subprocess.CompletedProcess|None:
+def run(cmd:list[str],*,check:bool=True,execute:bool=True,capture:bool=False)->subprocess.CompletedProcess|None:
     print("+"," ".join(cmd),flush=True)
     if not execute: return None
-    return subprocess.run(cmd,cwd=ROOT,text=True,check=check)
+    return subprocess.run(cmd,cwd=ROOT,text=True,check=check,capture_output=capture)
 
 def load_case(case_id:str)->dict:
     data=yaml.safe_load(MANIFEST.read_text(encoding="utf-8"))
@@ -27,26 +27,46 @@ def write_metadata(case:dict,repetition:int,phase:str,extra:dict|None=None)->Pat
     if extra: payload.update(extra)
     path=out/f"{phase}.json"; path.write_text(json.dumps(payload,indent=2),encoding="utf-8"); return path
 
-def apply_supported_intervention(case:dict,compose_file:str,execute:bool)->None:
+def service_started_at(compose_file:str,service:str)->str|None:
+    cp=run(["docker","compose","-f",compose_file,"ps","-q",service],capture=True)
+    if cp is None or not cp.stdout.strip(): return None
+    cid=cp.stdout.strip().splitlines()[0]
+    insp=run(["docker","inspect","-f","{{.State.StartedAt}}",cid],capture=True)
+    return insp.stdout.strip() if insp and insp.stdout.strip() else None
+
+def apply_supported_intervention(case:dict,compose_file:str,execute:bool)->dict:
     kind=case["intervention"]; service=case.get("target_service"); p=case.get("parameters",{})
-    if kind=="none": return
-    if kind=="stop_service": run(["docker","compose","-f",compose_file,"stop",service],execute=execute); return
+    observation={"intervention":kind,"service":service,"observed_restart_events":0,"started_at_samples":[]}
+    if kind=="none": return observation
+    if kind=="stop_service": run(["docker","compose","-f",compose_file,"stop",service],execute=execute); return observation
     if kind=="restart_loop":
+        previous=service_started_at(compose_file,service) if execute else None
+        if previous: observation["started_at_samples"].append(previous)
         for _ in range(int(p.get("count",5))):
             run(["docker","compose","-f",compose_file,"restart",service],execute=execute)
-            if execute: time.sleep(float(p.get("interval_seconds",5)))
-        return
-    if kind=="scale_service": run(["docker","compose","-f",compose_file,"up","-d","--scale",f"{service}={int(p['replicas'])}"],execute=execute); return
+            if execute:
+                time.sleep(float(p.get("interval_seconds",5)))
+                current=service_started_at(compose_file,service)
+                if current:
+                    observation["started_at_samples"].append(current)
+                    if previous is not None and current != previous:
+                        observation["observed_restart_events"] += 1
+                    previous=current
+        return observation
+    if kind=="scale_service": run(["docker","compose","-f",compose_file,"up","-d","--scale",f"{service}={int(p['replicas'])}"],execute=execute); return observation
     raise SystemExit(f"Intervention '{kind}' is specified but not yet automated. Implement and review it before collecting this case.")
 
 def restore(compose_file:str,execute:bool)->None:
-    # Non-destructive restore: reconcile the declared benchmark state rather than
-    # deleting the entire compose project and its networks/volumes.
     run(["docker","compose","-f",compose_file,"up","-d","--remove-orphans"],execute=execute)
 
 def collect(case_id:str,repetition:int,compose_file:str,execute:bool)->None:
     collector=ROOT/"runtime_validation"/"collect_runtime_artifacts.sh"
     run(["bash",str(collector),case_id,str(repetition),compose_file],execute=execute)
+
+def latest_artifact(case_id:str,repetition:int)->Path|None:
+    base=ROOT/"runtime_validation"/"artifacts"/case_id/f"rep-{repetition}"
+    dirs=sorted([p for p in base.glob("*") if p.is_dir()]) if base.exists() else []
+    return dirs[-1] if dirs else None
 
 def main()->None:
     ap=argparse.ArgumentParser(description="Run one controlled Sock Shop runtime-validation case. Dry-run is the default.")
@@ -57,7 +77,16 @@ def main()->None:
         print("DRY RUN: no Docker mutation or artifact collection will be executed.")
         apply_supported_intervention(case,args.compose_file,False); collect(case["id"],args.repetition,args.compose_file,False); return
     if args.restore_first: restore(args.compose_file,True); time.sleep(args.settle_seconds)
-    write_metadata(case,args.repetition,"before_intervention"); apply_supported_intervention(case,args.compose_file,True); write_metadata(case,args.repetition,"after_intervention"); time.sleep(args.settle_seconds); collect(case["id"],args.repetition,args.compose_file,True); write_metadata(case,args.repetition,"after_collection")
+    write_metadata(case,args.repetition,"before_intervention")
+    observation=apply_supported_intervention(case,args.compose_file,True)
+    write_metadata(case,args.repetition,"after_intervention",{"runtime_observation":observation})
+    time.sleep(args.settle_seconds)
+    collect(case["id"],args.repetition,args.compose_file,True)
+    artifact=latest_artifact(case["id"],args.repetition)
+    if artifact is not None and observation.get("observed_restart_events",0):
+        payload={**observation,"source":"docker compose restart plus observed Docker State.StartedAt transitions","captured_utc":utc_now()}
+        (artifact/"temporal_process_observation.json").write_text(json.dumps(payload,indent=2),encoding="utf-8")
+    write_metadata(case,args.repetition,"after_collection",{"runtime_observation":observation})
     if args.restore_after: restore(args.compose_file,True); write_metadata(case,args.repetition,"after_restore")
 
 if __name__=="__main__": main()
