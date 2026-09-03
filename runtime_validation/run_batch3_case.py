@@ -126,8 +126,8 @@ def main():
                     samples.append(cur); observed += int(prev is not None and cur!=prev); prev=cur
             temporal={'case_id':case['id'],'repetition':args.repetition,'observed_restart_events':observed,'started_at_samples':samples,'source':'observed Docker State.StartedAt transitions under test configuration','captured_utc':utc_now()}
 
-        collector=ROOT/'runtime_validation'/'collect_runtime_artifacts.sh'; run(['bash',str(collector),case['id'],str(args.repetition),' '.join(compose)],timeout=90)
-        # Collector expects one compose-file argument; if an override is active, replace its resolved compose with the exact multi-file resolution below.
+        collector=ROOT/'runtime_validation'/'collect_runtime_artifacts.sh'
+        run(['bash',str(collector),case['id'],str(args.repetition),args.compose_file],timeout=90)
         art=latest_artifact(case['id'],args.repetition)
         if art is None: raise RuntimeError('artifact not created')
         if override:
