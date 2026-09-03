@@ -1,0 +1,107 @@
+name: Sock Shop Held-Out Runtime Batch 2
+
+on:
+  push:
+    branches:
+      - experiment/aaf-cross-domain-heldout
+  workflow_dispatch:
+
+jobs:
+  heldout-runtime-batch2:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      PYTHONPATH: ${{ github.workspace }}
+      MYSQL_ROOT_PASSWORD: ""
+    steps:
+      - name: Checkout AAF
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          pip install pytest pyyaml
+
+      - name: Regression tests
+        run: python -m pytest -q
+
+      - name: Freeze-check cross-domain policy
+        run: |
+          git rev-parse HEAD > results_policy_head.txt
+          git diff 014174017baebbba73b2f3f6e1043665463cea03 -- orchestrator/cross_domain.py
+          test -z "$(git diff 014174017baebbba73b2f3f6e1043665463cea03 -- orchestrator/cross_domain.py)"
+
+      - name: Clone canonical Sock Shop
+        run: |
+          git clone --depth 1 https://github.com/microservices-demo/microservices-demo.git /tmp/sock-shop
+          echo "SOCK_COMPOSE=/tmp/sock-shop/deploy/docker-compose/docker-compose.yml" >> "$GITHUB_ENV"
+          git -C /tmp/sock-shop rev-parse HEAD > runtime_validation/sock_shop_commit_heldout_batch2.txt
+
+      - name: Start Sock Shop
+        run: |
+          docker compose -f "$SOCK_COMPOSE" pull
+          docker compose -f "$SOCK_COMPOSE" up -d
+          sleep 45
+          docker compose -f "$SOCK_COMPOSE" ps -a
+
+      - name: Baseline healthy artifact
+        run: |
+          docker compose -f "$SOCK_COMPOSE" up -d --remove-orphans --scale front-end=1
+          sleep 10
+          python runtime_validation/run_runtime_case.py HRT-01 --repetition 1 --compose-file "$SOCK_COMPOSE" --settle-seconds 10 --execute
+
+      - name: HRT-06 restart burst under live load x3
+        run: |
+          for rep in 1 2 3; do
+            docker compose -f "$SOCK_COMPOSE" up -d --remove-orphans --scale front-end=1
+            sleep 10
+            python runtime_validation/run_heldout_compound_case.py HRT-06 --repetition "$rep" --compose-file "$SOCK_COMPOSE"
+            sleep 10
+          done
+
+      - name: HRT-07 scale plus CPU pressure under load x3
+        run: |
+          for rep in 1 2 3; do
+            docker compose -f "$SOCK_COMPOSE" up -d --remove-orphans --scale front-end=1
+            sleep 10
+            python runtime_validation/run_heldout_compound_case.py HRT-07 --repetition "$rep" --compose-file "$SOCK_COMPOSE"
+            sleep 10
+          done
+
+      - name: Evaluate frozen Batch 2 runtime artifacts
+        run: |
+          python runtime_validation/evaluate_heldout_runtime.py \
+            --cases HRT-06,HRT-07 \
+            --repetitions 1,2,3 \
+            --out results_heldout_runtime_batch2
+
+      - name: Capture final state
+        if: always()
+        run: |
+          docker compose -f "$SOCK_COMPOSE" ps -a > runtime_validation/final_compose_ps_heldout_batch2.txt 2>&1 || true
+          docker version > runtime_validation/docker_version_heldout_batch2.txt 2>&1 || true
+          docker compose version > runtime_validation/docker_compose_version_heldout_batch2.txt 2>&1 || true
+
+      - name: Upload Batch 2 evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: aaf-sock-shop-heldout-runtime-batch2
+          path: |
+            runtime_validation/artifacts/HRT-01
+            runtime_validation/artifacts/HRT-06
+            runtime_validation/artifacts/HRT-07
+            runtime_validation/run_metadata/HRT-06
+            runtime_validation/run_metadata/HRT-07
+            runtime_validation/sock_shop_commit_heldout_batch2.txt
+            runtime_validation/final_compose_ps_heldout_batch2.txt
+            runtime_validation/docker_version_heldout_batch2.txt
+            runtime_validation/docker_compose_version_heldout_batch2.txt
+            results_heldout_runtime_batch2
+            results_policy_head.txt
