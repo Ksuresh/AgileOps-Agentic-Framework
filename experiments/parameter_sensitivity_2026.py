@@ -57,11 +57,16 @@ def configured(base: List[Dict[str, Any]], family: str, value: Any) -> List[Dict
         sc["thresholds"]["delta_min"] = DEFAULT["delta_min"]
         sc["thresholds"]["max_rar_loops"] = 2
         sc["utility_weights"] = DEFAULT["utility_weights"]
-        if family == "lambda": sc["lam"] = float(value)
-        elif family == "tau": sc["thresholds"]["tau_consensus"] = float(value)
-        elif family == "delta_min": sc["thresholds"]["delta_min"] = float(value)
-        elif family == "utility_weights": sc["utility_weights"] = tuple(float(x) for x in value)
-        else: raise ValueError(family)
+        if family == "lambda":
+            sc["lam"] = float(value)
+        elif family == "tau":
+            sc["thresholds"]["tau_consensus"] = float(value)
+        elif family == "delta_min":
+            sc["thresholds"]["delta_min"] = float(value)
+        elif family == "utility_weights":
+            sc["utility_weights"] = tuple(float(x) for x in value)
+        else:
+            raise ValueError(family)
     return out
 
 
@@ -79,23 +84,30 @@ def main() -> None:
     default_rows = run_rows(configured(base, "lambda", DEFAULT["lambda"]))
     default_actions = [selected_action(r) for r in default_rows]
     results = []
+
     for family, values in GRIDS.items():
         for value in values:
             rows = run_rows(configured(base, family, value))
             actions = [selected_action(r) for r in rows]
             stability = sum(a == b for a, b in zip(default_actions, actions)) / len(actions)
             rar_rate = sum(bool(r.get("rar", {}).get("triggered")) for r in rows) / len(rows)
+            domain_stats = score_primary_domain_accuracy(rows)
+            action_stats = score_action_match(rows)
             results.append({
                 "parameter_family": family,
                 "value": "/".join(f"{x:.2f}" for x in value) if family == "utility_weights" else f"{float(value):.2f}",
                 "n_scenarios": len(rows),
-                "domain_match": round(float(score_primary_domain_accuracy(rows)), 6),
-                "action_match": round(float(score_action_match(rows)), 6),
+                "domain_match": round(float(domain_stats["accuracy"]), 6),
+                "action_match": round(float(action_stats["action_match_rate"]), 6),
                 "action_stability_vs_default": round(stability, 6),
                 "rar_trigger_rate": round(rar_rate, 6),
             })
+
     with (OUT / "parameter_sensitivity.csv").open("w", newline="", encoding="utf-8") as f:
-        w = csv.DictWriter(f, fieldnames=list(results[0].keys())); w.writeheader(); w.writerows(results)
+        w = csv.DictWriter(f, fieldnames=list(results[0].keys()))
+        w.writeheader()
+        w.writerows(results)
+
     summary = {
         "design": "one-at-a-time robustness analysis on fixed deterministic controlled scenarios; not parameter tuning",
         "seed": 42,
