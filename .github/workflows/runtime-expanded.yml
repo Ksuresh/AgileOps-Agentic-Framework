@@ -1,0 +1,128 @@
+name: Sock Shop Expanded Runtime
+
+on:
+  push:
+    branches:
+      - revision/post-review-2026
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  expanded-runtime:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      PYTHONPATH: ${{ github.workspace }}
+      MYSQL_ROOT_PASSWORD: ""
+    steps:
+      - name: Checkout AAF
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          pip install pytest pyyaml
+
+      - name: Validate AAF
+        run: python -m pytest -q
+
+      - name: Clone canonical Sock Shop deployment repository
+        run: |
+          git clone --depth 1 https://github.com/microservices-demo/microservices-demo.git /tmp/sock-shop
+          echo "SOCK_COMPOSE=/tmp/sock-shop/deploy/docker-compose/docker-compose.yml" >> "$GITHUB_ENV"
+          git -C /tmp/sock-shop rev-parse HEAD > runtime_validation/sock_shop_commit_expanded.txt
+
+      - name: Start Sock Shop
+        run: |
+          docker compose -f "$SOCK_COMPOSE" pull
+          docker compose -f "$SOCK_COMPOSE" up -d
+          sleep 45
+          docker compose -f "$SOCK_COMPOSE" ps -a
+
+      - name: RT-01 healthy baseline x5
+        run: |
+          for rep in 1 2 3 4 5; do
+            docker compose -f "$SOCK_COMPOSE" up -d --remove-orphans
+            sleep 8
+            python runtime_validation/run_runtime_case.py RT-01 --repetition "$rep" --compose-file "$SOCK_COMPOSE" --settle-seconds 8 --execute
+          done
+
+      - name: RT-02 catalogue stop x5
+        run: |
+          for rep in 1 2 3 4 5; do
+            docker compose -f "$SOCK_COMPOSE" up -d catalogue
+            sleep 8
+            python runtime_validation/run_runtime_case.py RT-02 --repetition "$rep" --compose-file "$SOCK_COMPOSE" --settle-seconds 8 --restore-after --execute
+            sleep 8
+          done
+
+      - name: RT-03 carts stop x5
+        run: |
+          for rep in 1 2 3 4 5; do
+            docker compose -f "$SOCK_COMPOSE" up -d carts
+            sleep 8
+            python runtime_validation/run_runtime_case.py RT-03 --repetition "$rep" --compose-file "$SOCK_COMPOSE" --settle-seconds 8 --restore-after --execute
+            sleep 8
+          done
+
+      - name: RT-04 front-end restart instability x5
+        run: |
+          for rep in 1 2 3 4 5; do
+            docker compose -f "$SOCK_COMPOSE" up -d front-end
+            sleep 8
+            python runtime_validation/run_runtime_case.py RT-04 --repetition "$rep" --compose-file "$SOCK_COMPOSE" --settle-seconds 8 --restore-after --execute
+            sleep 8
+          done
+
+      - name: RT-09 excessive scale-out x5
+        run: |
+          for rep in 1 2 3 4 5; do
+            docker compose -f "$SOCK_COMPOSE" up -d --scale front-end=1
+            sleep 8
+            python runtime_validation/run_runtime_case.py RT-09 --repetition "$rep" --compose-file "$SOCK_COMPOSE" --settle-seconds 8 --execute
+            docker compose -f "$SOCK_COMPOSE" up -d --scale front-end=1
+            sleep 8
+          done
+
+      - name: RT-10 stronger over-provisioning x5
+        run: |
+          for rep in 1 2 3 4 5; do
+            docker compose -f "$SOCK_COMPOSE" up -d --scale front-end=1
+            sleep 8
+            python runtime_validation/run_runtime_case.py RT-10 --repetition "$rep" --compose-file "$SOCK_COMPOSE" --settle-seconds 8 --execute
+            docker compose -f "$SOCK_COMPOSE" up -d --scale front-end=1
+            sleep 8
+          done
+
+      - name: Evaluate expanded runtime artifacts
+        run: |
+          python runtime_validation/evaluate_runtime_artifacts.py --cases RT-01,RT-02,RT-03,RT-04,RT-09,RT-10 --repetitions 1,2,3,4,5 --out results_revision_runtime_expanded
+
+      - name: Capture final runtime state
+        if: always()
+        run: |
+          docker compose -f "$SOCK_COMPOSE" ps -a > runtime_validation/final_compose_ps_expanded.txt 2>&1 || true
+          docker version > runtime_validation/docker_version_expanded.txt 2>&1 || true
+          docker compose version > runtime_validation/docker_compose_version_expanded.txt 2>&1 || true
+
+      - name: Upload expanded runtime evidence and results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: revision-sock-shop-expanded-runtime
+          path: |
+            runtime_validation/artifacts
+            runtime_validation/run_metadata
+            runtime_validation/sock_shop_commit_expanded.txt
+            runtime_validation/final_compose_ps_expanded.txt
+            runtime_validation/docker_version_expanded.txt
+            runtime_validation/docker_compose_version_expanded.txt
+            results_revision_runtime_expanded
