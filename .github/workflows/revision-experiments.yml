@@ -1,6 +1,8 @@
 name: Revision Experiments
 
-# Final frozen-oracle rerun trigger after continuous-service stop correction.
+# Reviewer-aligned controlled experiments. The original 30-case study remains
+# intact for historical comparison; the stratified benchmark adds the frozen
+# TC-31..TC-54 extension and evaluates all 54 base conditions over five seeds.
 on:
   push:
     branches:
@@ -33,23 +35,39 @@ jobs:
       - name: Validate tests
         run: python -m pytest -q
 
-      - name: Full oracle benchmark
+      # Preserve the original 30-case benchmark for direct comparison with the
+      # earlier manuscript results.
+      - name: Original 30-case oracle benchmark
         run: python evaluation/run_oracle_benchmark.py --mode aaf_full --out results_revision_oracle_full
 
-      - name: Ablation - no consensus
+      - name: Original ablation - no consensus
         run: python evaluation/run_oracle_benchmark.py --mode aaf_no_consensus --out results_revision_oracle_no_consensus
 
-      - name: Ablation - no RER
+      - name: Original ablation - no RER
         run: python evaluation/run_oracle_benchmark.py --mode aaf_no_rar --out results_revision_oracle_no_rer
 
-      - name: Baseline - no utility / dominant domain
+      - name: Original baseline - dominant domain
         run: python evaluation/run_oracle_benchmark.py --mode aaf_no_utility --out results_revision_oracle_dominant_domain
 
-      - name: Paired utility comparison
+      - name: Original paired utility comparison
         run: python evaluation/run_revised_comparison.py
 
       - name: Sensitivity analysis
         run: python evaluation/run_sensitivity_analysis.py
+
+      # Primary reviewer-aligned experiment: 54 frozen base cases x 5 seeds =
+      # 270 evaluations, reported separately for G1-G5.
+      - name: Stratified 270-case benchmark - AAF full
+        run: python evaluation/run_stratified_benchmark.py --mode aaf_full --out results_stratified_aaf_full
+
+      - name: Stratified 270-case benchmark - no consensus
+        run: python evaluation/run_stratified_benchmark.py --mode aaf_no_consensus --out results_stratified_no_consensus
+
+      - name: Stratified 270-case benchmark - no RER
+        run: python evaluation/run_stratified_benchmark.py --mode aaf_no_rar --out results_stratified_no_rer
+
+      - name: Stratified 270-case benchmark - dominant domain
+        run: python evaluation/run_stratified_benchmark.py --mode aaf_no_utility --out results_stratified_dominant_domain
 
       - name: Bundle experiment metadata
         run: |
@@ -60,7 +78,9 @@ jobs:
               'python': sys.version,
               'platform': platform.platform(),
               'git_commit': subprocess.check_output(['git','rev-parse','HEAD'], text=True).strip(),
-              'evaluation_reference': 'pre_specified_experimental_oracle'
+              'evaluation_reference': 'pre_specified_experimental_oracle',
+              'primary_controlled_design': '54 frozen base conditions x 5 seeds = 270 evaluations',
+              'stratification': ['G1','G2','G3','G4','G5']
           }
           open('results_revision_meta/environment.json','w').write(json.dumps(meta, indent=2))
           PY
@@ -76,4 +96,8 @@ jobs:
             results_revision_oracle_dominant_domain
             results_revision_comparison
             results_revision_sensitivity
+            results_stratified_aaf_full
+            results_stratified_no_consensus
+            results_stratified_no_rer
+            results_stratified_dominant_domain
             results_revision_meta
