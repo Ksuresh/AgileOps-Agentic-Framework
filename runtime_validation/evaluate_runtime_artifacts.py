@@ -27,11 +27,68 @@ def latest_artifact(case_id: str, repetition: int) -> Optional[Path]:
     return dirs[-1] if dirs else None
 
 
+def _load_json(path: Path) -> Dict[str, Any]:
+    try:
+        payload = json.loads(path.read_text(encoding="utf-8"))
+        return payload if isinstance(payload, dict) else {}
+    except (OSError, json.JSONDecodeError):
+        return {}
+
+
+def enrich_with_direct_runtime_observations(case_dir: Path, telemetry: Dict[str, Any]) -> Dict[str, Any]:
+    """Attach direct measurements captured during the intervention window.
+
+    These files are produced by runtime collectors/executors without reading the
+    experimental oracle. They repair a sampling limitation of post-hoc snapshots:
+    transient restart events and request latency/error observations can disappear
+    before the ordinary artifact collector runs.
+    """
+    load = _load_json(case_dir / "load_observation.json")
+    if load:
+        p95 = load.get("latency_p95_ms")
+        error_rate = load.get("error_rate_pct")
+        sre = telemetry.setdefault("sre", {})
+        evidence = sre.setdefault("_evidence", {})
+        if p95 is not None:
+            sre["p95_latency_ms"] = float(p95)
+            evidence["p95_latency_ms"] = {
+                "status": "measured",
+                "source": str(load.get("source", "direct HTTP load observation")),
+                "note": "Measured during the active runtime load window.",
+            }
+        if error_rate is not None:
+            sre["error_rate_pct"] = float(error_rate)
+            evidence["error_rate_pct"] = {
+                "status": "measured",
+                "source": str(load.get("source", "direct HTTP load observation")),
+                "note": "HTTP request failure percentage measured during the active load window.",
+            }
+        telemetry.setdefault("_runtime_observables", {})["load_observation"] = load
+
+    temporal = _load_json(case_dir / "temporal_process_observation.json")
+    if temporal:
+        restarts = temporal.get("observed_restart_events")
+        if restarts is not None:
+            deploy = telemetry.setdefault("deploy", {})
+            deploy["restart_loops"] = int(restarts)
+            deploy.setdefault("_evidence", {})["restart_loops"] = {
+                "status": "measured",
+                "source": str(temporal.get("source", "temporal Docker process observation")),
+                "note": "Observed process start-time transitions during the intervention window.",
+            }
+        telemetry.setdefault("_runtime_observables", {})["temporal_process_observation"] = temporal
+
+    return telemetry
+
+
 def evaluate_case(case_id: str, repetition: int, baseline_dir: Optional[Path], manifest: Dict[str, Dict[str, Any]]) -> Dict[str, Any]:
     case_dir = latest_artifact(case_id, repetition)
     if case_dir is None:
         raise FileNotFoundError(f"No artifacts found for {case_id} repetition {repetition}")
     telemetry = write_evidence(case_dir, baseline_dir=baseline_dir)
+    telemetry = enrich_with_direct_runtime_observations(case_dir, telemetry)
+    # Persist the exact telemetry evaluated after direct-observation enrichment.
+    (case_dir / "aaf_telemetry_evaluated.json").write_text(json.dumps(telemetry, indent=2), encoding="utf-8")
     scenario = {
         "scenario_id": f"{case_id}-rep-{repetition}",
         "telemetry": telemetry,
@@ -65,6 +122,9 @@ def evaluate_case(case_id: str, repetition: int, baseline_dir: Optional[Path], m
         "rer_accepted": bool(full.rar.get("accepted")),
         "rer_escalated": bool(full.rar.get("escalated")),
         "utility_score": full.utility.get("best_utility"),
+        "measured_p95_latency_ms": telemetry.get("sre", {}).get("p95_latency_ms"),
+        "measured_error_rate_pct": telemetry.get("sre", {}).get("error_rate_pct"),
+        "observed_restart_events": telemetry.get("deploy", {}).get("restart_loops"),
         "evidence_schema_version": telemetry.get("_evidence_schema_version"),
     }
 
@@ -84,7 +144,7 @@ def summarize(rows: List[Dict[str, Any]]) -> Dict[str, Any]:
         "domain_oracle_agreement": domain_hits / len(domain_rows) if domain_rows else None,
         "domain_oracle_wilson_95": wilson_interval(domain_hits, len(domain_rows)) if domain_rows else None,
         "rer_trigger_rate": sum(bool(r["rer_triggered"]) for r in rows) / len(rows) if rows else 0.0,
-        "interpretation": "Runtime intervention-oracle agreement; not production accuracy.",
+        "interpretation": "Runtime intervention-oracle agreement using preserved direct measurements; not production accuracy.",
     }
 
 
@@ -102,8 +162,9 @@ def main() -> None:
     out = Path(args.out); out.mkdir(parents=True, exist_ok=True)
     with (out / "runtime_case_results.csv").open("w", newline="", encoding="utf-8") as f:
         writer = csv.DictWriter(f, fieldnames=list(rows[0].keys())); writer.writeheader(); writer.writerows(rows)
-    (out / "runtime_summary.json").write_text(json.dumps(summarize(rows), indent=2), encoding="utf-8")
-    print(json.dumps(summarize(rows), indent=2))
+    summary = summarize(rows)
+    (out / "runtime_summary.json").write_text(json.dumps(summary, indent=2), encoding="utf-8")
+    print(json.dumps(summary, indent=2))
 
 
 if __name__ == "__main__":
