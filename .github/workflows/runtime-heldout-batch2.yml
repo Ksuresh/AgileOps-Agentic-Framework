@@ -34,8 +34,9 @@ jobs:
       - name: Freeze-check cross-domain policy
         run: |
           git rev-parse HEAD > results_policy_head.txt
-          git diff 014174017baebbba73b2f3f6e1043665463cea03 -- orchestrator/cross_domain.py
-          test -z "$(git diff 014174017baebbba73b2f3f6e1043665463cea03 -- orchestrator/cross_domain.py)"
+          CURRENT_POLICY_BLOB="$(git hash-object orchestrator/cross_domain.py)"
+          echo "$CURRENT_POLICY_BLOB" > results_policy_blob.txt
+          test "$CURRENT_POLICY_BLOB" = "d2954dcd656c033120d3a23c2e38ca2ce06c60f0"
 
       - name: Clone canonical Sock Shop
         run: |
@@ -105,3 +106,4 @@ jobs:
             runtime_validation/docker_compose_version_heldout_batch2.txt
             results_heldout_runtime_batch2
             results_policy_head.txt
+            results_policy_blob.txt
