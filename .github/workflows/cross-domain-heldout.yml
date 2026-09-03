@@ -32,8 +32,17 @@ jobs:
       - name: Run frozen controlled held-out experiment
         run: python experiments/run_cross_domain_heldout.py
 
+      - name: Run parameter sensitivity robustness analysis
+        run: python experiments/parameter_sensitivity_2026.py
+
       - name: Upload held-out results
         uses: actions/upload-artifact@v4
         with:
           name: aaf-cross-domain-heldout-results
           path: results_cross_domain_heldout
+
+      - name: Upload parameter sensitivity results
+        uses: actions/upload-artifact@v4
+        with:
+          name: aaf-parameter-sensitivity-2026
+          path: results_parameter_sensitivity_2026
