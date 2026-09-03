@@ -1,0 +1,39 @@
+name: AAF Cross-Domain Held-Out
+
+on:
+  push:
+    branches:
+      - experiment/aaf-cross-domain-heldout
+  workflow_dispatch:
+
+jobs:
+  controlled-heldout:
+    runs-on: ubuntu-latest
+    env:
+      PYTHONPATH: ${{ github.workspace }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          pip install pytest pyyaml
+
+      - name: Regression tests
+        run: python -m pytest -q
+
+      - name: Run frozen controlled held-out experiment
+        run: python experiments/run_cross_domain_heldout.py
+
+      - name: Upload held-out results
+        uses: actions/upload-artifact@v4
+        with:
+          name: aaf-cross-domain-heldout-results
+          path: results_cross_domain_heldout
