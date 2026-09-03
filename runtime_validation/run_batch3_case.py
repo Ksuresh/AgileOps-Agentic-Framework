@@ -138,7 +138,12 @@ def main():
             time.sleep(max(0,duration-min(20,duration/3))); stop.set(); [t.join(timeout=3) for t in threads]
             with lock:
                 req=state['requests']; suc=state['successes']; fail=state['failures']; lat=list(state['latencies'])
-            if req==0 or suc==0: raise RuntimeError('invalid HTTP evidence')
+            # A completed request attempt is valid direct reliability evidence even
+            # when every request fails or times out. Requiring at least one success
+            # incorrectly discards legitimate 100% failure observations in severe
+            # stress conditions. Endpoint reachability is independently established
+            # by the successful preflight immediately before the load phase.
+            if req==0: raise RuntimeError('invalid HTTP evidence: no request attempts recorded')
             load_obs={'case_id':case['id'],'repetition':args.repetition,'started_utc':start,'finished_utc':utc_now(),'url':url,'preflight_status':status,'concurrency':concurrency,'duration_seconds':duration,'requests':req,'successes':suc,'failures':fail,'error_rate_pct':100.0*fail/req,'latency_p50_ms':percentile(lat,.5),'latency_p95_ms':percentile(lat,.95),'latency_p99_ms':percentile(lat,.99),'source':'direct concurrent HTTP measurements through Sock Shop edge-router /catalogue'}
             (art/'load_observation.json').write_text(json.dumps(load_obs,indent=2),encoding='utf-8')
         meta=ROOT/'runtime_validation'/'run_metadata_batch3'/case['id']/f'rep-{args.repetition}'; meta.mkdir(parents=True,exist_ok=True)
