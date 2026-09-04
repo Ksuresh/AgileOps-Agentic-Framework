@@ -1,0 +1,48 @@
+name: AAF v2 Model and PM Interface Validation
+
+on:
+  push:
+    branches:
+      - experiment/aaf-v2-arbitration-pm-interface
+  workflow_dispatch:
+
+jobs:
+  v2-validation:
+    runs-on: ubuntu-latest
+    env:
+      PYTHONPATH: ${{ github.workspace }}
+    steps:
+      - name: Checkout AAF
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          pip install pytest openai pyyaml
+
+      - name: Full regression tests
+        run: python -m pytest -q
+
+      - name: Capture v1 and v2 policy hashes
+        run: |
+          git hash-object orchestrator/cross_domain.py > aaf_v1_policy_hash.txt
+          git hash-object orchestrator/cross_domain_v2.py > aaf_v2_policy_hash.txt
+          git hash-object llm_evaluation/pm_natural_language_interface.py > pm_interface_hash.txt
+          cat aaf_v1_policy_hash.txt
+          cat aaf_v2_policy_hash.txt
+          cat pm_interface_hash.txt
+
+      - name: Upload validation metadata
+        uses: actions/upload-artifact@v4
+        with:
+          name: aaf-v2-unit-validation
+          path: |
+            aaf_v1_policy_hash.txt
+            aaf_v2_policy_hash.txt
+            pm_interface_hash.txt
