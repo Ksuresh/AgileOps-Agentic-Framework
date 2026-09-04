@@ -1,9 +1,9 @@
-name: Online Boutique Frozen Second Benchmark
+name: Online Boutique Frozen Second Benchmark - Harness Fix
 
 on:
   push:
     branches:
-      - experiment/aaf-second-benchmark-online-boutique
+      - experiment/aaf-second-benchmark-online-boutique-harnessfix
   workflow_dispatch:
 
 jobs:
@@ -44,6 +44,11 @@ jobs:
             echo "decision_baselines=$(git hash-object orchestrator/decision_baselines.py)"
           } > online_boutique_aaf_freeze.txt
 
+      - name: Freeze-check scenario manifest
+        run: |
+          sha256sum runtime_validation/interventions_online_boutique.yaml > online_boutique_manifest_sha256.txt
+          cat runtime_validation/interventions_online_boutique.yaml
+
       - name: Install kind
         run: |
           curl -Lo /tmp/kind https://kind.sigs.k8s.io/dl/v0.24.0/kind-linux-amd64
@@ -70,40 +75,56 @@ jobs:
           kubectl get deployments
           kubectl get pods -o wide
 
-      - name: Start frontend port-forward
+      - name: Expose stable frontend measurement endpoint
         run: |
-          kubectl port-forward service/frontend 8080:80 > online_boutique_port_forward.log 2>&1 &
-          echo $! > online_boutique_port_forward.pid
-          for i in $(seq 1 30); do
-            if curl -fsS http://127.0.0.1:8080/ >/dev/null; then exit 0; fi
+          kubectl patch service frontend --type merge -p '{"spec":{"type":"NodePort","ports":[{"name":"http","port":80,"targetPort":8080,"nodePort":30080}]}}'
+          NODE_IP="$(docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' aaf-ob-control-plane)"
+          echo "OB_URL=http://${NODE_IP}:30080/" >> "$GITHUB_ENV"
+          echo "node_ip=${NODE_IP}" > online_boutique_measurement_endpoint.txt
+          echo "url=http://${NODE_IP}:30080/" >> online_boutique_measurement_endpoint.txt
+          for i in $(seq 1 60); do
+            if curl -fsS "http://${NODE_IP}:30080/" >/dev/null; then exit 0; fi
             sleep 2
           done
-          cat online_boutique_port_forward.log
+          kubectl get service frontend -o yaml
+          kubectl get endpoints frontend -o yaml
           exit 1
 
       - name: OB-01 healthy control
-        run: python runtime_validation/run_online_boutique_case.py OB-01
+        run: python runtime_validation/run_online_boutique_case.py OB-01 --url "$OB_URL"
 
       - name: OB-02 frontend outage control
-        run: python runtime_validation/run_online_boutique_case.py OB-02
+        run: python runtime_validation/run_online_boutique_case.py OB-02 --url "$OB_URL"
+
+      - name: Revalidate measurement endpoint after outage recovery
+        run: |
+          kubectl rollout status deployment/frontend --timeout=180s
+          curl -fsS "$OB_URL" >/dev/null
 
       - name: OB-03 resource-efficiency control
-        run: python runtime_validation/run_online_boutique_case.py OB-03
+        run: python runtime_validation/run_online_boutique_case.py OB-03 --url "$OB_URL"
 
       - name: OB-04 temporal restart burst
-        run: python runtime_validation/run_online_boutique_case.py OB-04
+        run: python runtime_validation/run_online_boutique_case.py OB-04 --url "$OB_URL"
 
       - name: OB-05 restart burst under workload
-        run: python runtime_validation/run_online_boutique_case.py OB-05
+        run: python runtime_validation/run_online_boutique_case.py OB-05 --url "$OB_URL"
 
       - name: OB-06 deployment-security condition
-        run: python runtime_validation/run_online_boutique_case.py OB-06
+        run: python runtime_validation/run_online_boutique_case.py OB-06 --url "$OB_URL"
 
       - name: OB-07 CPU-constrained reliability control
-        run: python runtime_validation/run_online_boutique_case.py OB-07
+        run: python runtime_validation/run_online_boutique_case.py OB-07 --url "$OB_URL"
 
       - name: OB-08 reliability-resource tradeoff
-        run: python runtime_validation/run_online_boutique_case.py OB-08
+        run: python runtime_validation/run_online_boutique_case.py OB-08 --url "$OB_URL"
+
+      - name: Validate measurement path after all scenarios
+        run: |
+          kubectl rollout status deployment/frontend --timeout=180s
+          curl -fsS "$OB_URL" >/dev/null
+          kubectl get service frontend -o wide
+          kubectl get endpoints frontend -o wide
 
       - name: Evaluate second benchmark
         run: python runtime_validation/evaluate_online_boutique.py
@@ -113,6 +134,7 @@ jobs:
         run: |
           kubectl get pods -o wide > online_boutique_final_pods.txt 2>&1 || true
           kubectl get deployment frontend -o yaml > online_boutique_final_frontend.yaml 2>&1 || true
+          kubectl get service frontend -o yaml > online_boutique_final_frontend_service.yaml 2>&1 || true
           kubectl version > online_boutique_kubectl_version.txt 2>&1 || true
           kind version > online_boutique_kind_version.txt 2>&1 || true
 
@@ -120,14 +142,16 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: aaf-online-boutique-second-benchmark
+          name: aaf-online-boutique-second-benchmark-harnessfix
           path: |
             results_online_boutique_runtime
             runtime_validation/interventions_online_boutique.yaml
             online_boutique_aaf_freeze.txt
+            online_boutique_manifest_sha256.txt
             online_boutique_source_commit.txt
-            online_boutique_port_forward.log
+            online_boutique_measurement_endpoint.txt
             online_boutique_final_pods.txt
             online_boutique_final_frontend.yaml
+            online_boutique_final_frontend_service.yaml
             online_boutique_kubectl_version.txt
             online_boutique_kind_version.txt
