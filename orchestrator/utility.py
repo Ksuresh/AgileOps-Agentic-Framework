@@ -60,14 +60,7 @@ def _action_fit_bonus(action: str, s: Dict[str, float]) -> float:
 
 
 def _evidence_supported_actions(severities: Dict[str, float]) -> set[str]:
-    """Return actions that are causally plausible given material domain signals.
-
-    Utility optimization is a ranking stage, not an anomaly detector. The old
-    implementation allowed every action to compete even when its causal domain
-    had no material evidence, which could select an active intervention for a
-    healthy case simply because of generic utility constants. This constraint
-    separates evidence sufficiency/materiality from preference optimization.
-    """
+    """Return actions that are causally plausible given material domain signals."""
     active = {name for name, value in severities.items() if float(value) > 0.0}
     if not active:
         return {"No action (observe)"}
@@ -119,6 +112,7 @@ def choose_action_details(telemetry: Dict[str, Any], w: Tuple[float, float, floa
         "cost_efficiency_score": best["cost_efficiency_score"],
         "risk_reduction_score": best["risk_reduction_score"],
         "candidates": candidates[:3],
+        "all_candidates": candidates,
         "eligible_actions": sorted(allowed),
         "ineligible_actions": sorted(rejected),
         "constraint_basis": "provenance-backed material domain signals",
