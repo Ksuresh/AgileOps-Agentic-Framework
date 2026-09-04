@@ -91,10 +91,10 @@ jobs:
           exit 1
 
       - name: OB-01 healthy control
-        run: python runtime_validation/run_online_boutique_case.py OB-01 --url "$OB_URL"
+        run: python runtime_validation/run_online_boutique_case_nodeport.py OB-01 --url "$OB_URL"
 
       - name: OB-02 frontend outage control
-        run: python runtime_validation/run_online_boutique_case.py OB-02 --url "$OB_URL"
+        run: python runtime_validation/run_online_boutique_case_nodeport.py OB-02 --url "$OB_URL"
 
       - name: Revalidate measurement endpoint after outage recovery
         run: |
@@ -102,22 +102,22 @@ jobs:
           curl -fsS "$OB_URL" >/dev/null
 
       - name: OB-03 resource-efficiency control
-        run: python runtime_validation/run_online_boutique_case.py OB-03 --url "$OB_URL"
+        run: python runtime_validation/run_online_boutique_case_nodeport.py OB-03 --url "$OB_URL"
 
       - name: OB-04 temporal restart burst
-        run: python runtime_validation/run_online_boutique_case.py OB-04 --url "$OB_URL"
+        run: python runtime_validation/run_online_boutique_case_nodeport.py OB-04 --url "$OB_URL"
 
       - name: OB-05 restart burst under workload
-        run: python runtime_validation/run_online_boutique_case.py OB-05 --url "$OB_URL"
+        run: python runtime_validation/run_online_boutique_case_nodeport.py OB-05 --url "$OB_URL"
 
       - name: OB-06 deployment-security condition
-        run: python runtime_validation/run_online_boutique_case.py OB-06 --url "$OB_URL"
+        run: python runtime_validation/run_online_boutique_case_nodeport.py OB-06 --url "$OB_URL"
 
       - name: OB-07 CPU-constrained reliability control
-        run: python runtime_validation/run_online_boutique_case.py OB-07 --url "$OB_URL"
+        run: python runtime_validation/run_online_boutique_case_nodeport.py OB-07 --url "$OB_URL"
 
       - name: OB-08 reliability-resource tradeoff
-        run: python runtime_validation/run_online_boutique_case.py OB-08 --url "$OB_URL"
+        run: python runtime_validation/run_online_boutique_case_nodeport.py OB-08 --url "$OB_URL"
 
       - name: Validate measurement path after all scenarios
         run: |
@@ -142,10 +142,11 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: aaf-online-boutique-second-benchmark-harnessfix
+          name: aaf-online-boutique-second-benchmark-nodeport-final
           path: |
             results_online_boutique_runtime
             runtime_validation/interventions_online_boutique.yaml
+            runtime_validation/run_online_boutique_case_nodeport.py
             online_boutique_aaf_freeze.txt
             online_boutique_manifest_sha256.txt
             online_boutique_source_commit.txt
