@@ -1,0 +1,76 @@
+# Expanded held-out Sock Shop set.
+# Frozen before runtime execution. The AAF cross-domain policy, thresholds,
+# utility weights, and interaction logic remain unchanged.
+# One execution per template is the independent scenario-level unit.
+cases:
+  - id: HRT-14
+    title: heldout_restart_burst_variant_c
+    intervention: restart_config_security
+    target_service: front-end
+    parameters: {restart_count: 5, restart_interval_seconds: 12, security_marker: benign_config_drift}
+    oracle_domains: [DevOps]
+    admissible_actions: ["Rollback to stable deployment"]
+    repetitions: 1
+
+  - id: HRT-15
+    title: heldout_restart_burst_variant_d
+    intervention: restart_config_security
+    target_service: front-end
+    parameters: {restart_count: 6, restart_interval_seconds: 10, security_marker: benign_config_drift}
+    oracle_domains: [DevOps]
+    admissible_actions: ["Rollback to stable deployment"]
+    repetitions: 1
+
+  - id: HRT-16
+    title: heldout_security_release_gate_variant_b
+    intervention: config_security
+    target_service: front-end
+    parameters: {security_marker: exposed_test_secret}
+    oracle_domains: [DevOps, DevSecOps]
+    admissible_actions: ["Patch or block release"]
+    repetitions: 1
+
+  - id: HRT-17
+    title: heldout_security_release_gate_under_load_variant_b
+    intervention: config_security_load
+    target_service: front-end
+    parameters: {security_marker: exposed_test_secret, concurrency: 140, duration_seconds: 90}
+    oracle_domains: [DevOps, DevSecOps]
+    admissible_actions: ["Patch or block release"]
+    repetitions: 1
+
+  - id: HRT-18
+    title: heldout_resource_efficiency_control_variant_b
+    intervention: scale_service
+    target_service: front-end
+    parameters: {replicas: 8}
+    oracle_domains: [FinOps]
+    admissible_actions: ["Scale adjustment", "Review scaling policy"]
+    repetitions: 1
+
+  - id: HRT-19
+    title: heldout_reliability_control_variant_b
+    intervention: cpu_load
+    target_service: front-end
+    parameters: {cpus: 0.04, concurrency: 180, duration_seconds: 100}
+    oracle_domains: [SRE]
+    admissible_actions: ["Mitigate and monitor"]
+    repetitions: 1
+
+  - id: HRT-20
+    title: heldout_restart_plus_security_variant_b
+    intervention: restart_config_security
+    target_service: front-end
+    parameters: {restart_count: 5, restart_interval_seconds: 12, security_marker: exposed_test_secret}
+    oracle_domains: [DevOps, DevSecOps]
+    admissible_actions: ["Patch or block release"]
+    repetitions: 1
+
+  - id: HRT-21
+    title: heldout_reliability_resource_tradeoff_variant_b
+    intervention: config_scale_cpu_load
+    target_service: front-end
+    parameters: {replicas: 8, cpus: 0.08, concurrency: 180, duration_seconds: 100, config_marker: batch4_resource_condition}
+    oracle_domains: [DevOps, SRE, FinOps]
+    admissible_actions: ["Scale adjustment"]
+    repetitions: 1
