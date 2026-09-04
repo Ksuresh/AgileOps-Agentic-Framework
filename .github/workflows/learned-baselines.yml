@@ -1,0 +1,39 @@
+name: AAF Learned Baseline Evaluation
+
+on:
+  push:
+    branches:
+      - experiment/aaf-learned-baselines
+  workflow_dispatch:
+
+jobs:
+  learned-baselines:
+    runs-on: ubuntu-latest
+    env:
+      PYTHONPATH: ${{ github.workspace }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          pip install scikit-learn numpy
+
+      - name: Run regression tests
+        run: python -m pytest -q
+
+      - name: Run frozen learned baselines
+        run: python experiments/run_learned_baselines.py
+
+      - name: Upload learned baseline results
+        uses: actions/upload-artifact@v4
+        with:
+          name: aaf-learned-baseline-results
+          path: results_learned_baselines
