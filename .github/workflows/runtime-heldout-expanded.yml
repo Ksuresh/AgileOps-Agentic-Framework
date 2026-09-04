@@ -1,0 +1,114 @@
+name: Sock Shop Expanded Held-Out Runtime
+
+on:
+  push:
+    branches:
+      - experiment/aaf-expanded-heldout
+  workflow_dispatch:
+
+jobs:
+  expanded-heldout-runtime:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    env:
+      PYTHONPATH: ${{ github.workspace }}
+      MYSQL_ROOT_PASSWORD: ""
+    steps:
+      - name: Checkout AAF
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          pip install pytest pyyaml
+
+      - name: Regression tests
+        run: python -m pytest -q
+
+      - name: Freeze-check cross-domain policy
+        run: |
+          CURRENT_POLICY_BLOB="$(git hash-object orchestrator/cross_domain.py)"
+          echo "$CURRENT_POLICY_BLOB" > results_policy_blob_expanded.txt
+          test "$CURRENT_POLICY_BLOB" = "d2954dcd656c033120d3a23c2e38ca2ce06c60f0"
+
+      - name: Clone canonical Sock Shop
+        run: |
+          git clone --depth 1 https://github.com/microservices-demo/microservices-demo.git /tmp/sock-shop
+          echo "SOCK_COMPOSE=/tmp/sock-shop/deploy/docker-compose/docker-compose.yml" >> "$GITHUB_ENV"
+          git -C /tmp/sock-shop rev-parse HEAD > runtime_validation/sock_shop_commit_expanded.txt
+
+      - name: Start Sock Shop
+        run: |
+          docker compose -f "$SOCK_COMPOSE" pull
+          docker compose -f "$SOCK_COMPOSE" up -d
+          sleep 45
+          docker compose -f "$SOCK_COMPOSE" ps -a
+
+      - name: Frozen healthy baseline artifact
+        run: |
+          docker compose -f "$SOCK_COMPOSE" up -d --remove-orphans --scale front-end=1
+          sleep 10
+          python runtime_validation/run_runtime_case.py HRT-01 --repetition 1 --compose-file "$SOCK_COMPOSE" --settle-seconds 8 --execute
+
+      - name: HRT-14 temporal restart burst C
+        run: python runtime_validation/run_expanded_heldout_case.py HRT-14 --repetition 1 --compose-file "$SOCK_COMPOSE"
+
+      - name: HRT-15 temporal restart burst D
+        run: python runtime_validation/run_expanded_heldout_case.py HRT-15 --repetition 1 --compose-file "$SOCK_COMPOSE"
+
+      - name: HRT-16 security release gate B
+        run: python runtime_validation/run_expanded_heldout_case.py HRT-16 --repetition 1 --compose-file "$SOCK_COMPOSE"
+
+      - name: HRT-17 security gate under load B
+        run: python runtime_validation/run_expanded_heldout_case.py HRT-17 --repetition 1 --compose-file "$SOCK_COMPOSE"
+
+      - name: HRT-18 FinOps control B
+        run: python runtime_validation/run_expanded_heldout_case.py HRT-18 --repetition 1 --compose-file "$SOCK_COMPOSE"
+
+      - name: HRT-19 SRE control B
+        run: python runtime_validation/run_expanded_heldout_case.py HRT-19 --repetition 1 --compose-file "$SOCK_COMPOSE"
+
+      - name: HRT-20 restart plus security B
+        run: python runtime_validation/run_expanded_heldout_case.py HRT-20 --repetition 1 --compose-file "$SOCK_COMPOSE"
+
+      - name: HRT-21 reliability-resource tradeoff B
+        run: python runtime_validation/run_expanded_heldout_case.py HRT-21 --repetition 1 --compose-file "$SOCK_COMPOSE"
+
+      - name: Evaluate expanded held-out artifacts
+        run: python runtime_validation/evaluate_expanded_heldout_runtime.py
+
+      - name: Capture final state
+        if: always()
+        run: |
+          docker compose -f "$SOCK_COMPOSE" ps -a > runtime_validation/final_compose_ps_expanded.txt 2>&1 || true
+          docker version > runtime_validation/docker_version_expanded.txt 2>&1 || true
+          docker compose version > runtime_validation/docker_compose_version_expanded.txt 2>&1 || true
+
+      - name: Upload expanded evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: aaf-sock-shop-expanded-heldout-runtime
+          path: |
+            runtime_validation/artifacts/HRT-01
+            runtime_validation/artifacts/HRT-14
+            runtime_validation/artifacts/HRT-15
+            runtime_validation/artifacts/HRT-16
+            runtime_validation/artifacts/HRT-17
+            runtime_validation/artifacts/HRT-18
+            runtime_validation/artifacts/HRT-19
+            runtime_validation/artifacts/HRT-20
+            runtime_validation/artifacts/HRT-21
+            runtime_validation/interventions_expanded_heldout.yaml
+            runtime_validation/sock_shop_commit_expanded.txt
+            runtime_validation/final_compose_ps_expanded.txt
+            runtime_validation/docker_version_expanded.txt
+            runtime_validation/docker_compose_version_expanded.txt
+            results_policy_blob_expanded.txt
+            results_expanded_heldout_runtime
