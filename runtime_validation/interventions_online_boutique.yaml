@@ -1,0 +1,74 @@
+benchmark:
+  name: Google Online Boutique
+  source_repository: GoogleCloudPlatform/microservices-demo
+  source_ref: main
+  deployment: release/kubernetes-manifests.yaml
+  evaluation_unit: one independent scenario template
+  repetitions_per_template: 1
+  policy_status: frozen before benchmark execution
+  note: AAF cross-domain policy, thresholds, utility weights, and interaction logic remain unchanged. Only benchmark-specific evidence acquisition is permitted.
+
+cases:
+  - id: OB-01
+    title: healthy_control
+    intervention: healthy
+    target_service: frontend
+    oracle_domains: []
+    admissible_actions: ["No action (observe)"]
+    parameters: {}
+
+  - id: OB-02
+    title: frontend_service_outage
+    intervention: stop_service
+    target_service: frontend
+    oracle_domains: [SRE]
+    admissible_actions: ["Mitigate and monitor"]
+    parameters: {}
+
+  - id: OB-03
+    title: frontend_resource_efficiency_control
+    intervention: scale_service
+    target_service: frontend
+    oracle_domains: [FinOps]
+    admissible_actions: ["Scale adjustment", "Review scaling policy"]
+    parameters: {replicas: 5}
+
+  - id: OB-04
+    title: frontend_temporal_restart_burst
+    intervention: restart_burst
+    target_service: frontend
+    oracle_domains: [DevOps]
+    admissible_actions: ["Rollback to stable deployment"]
+    parameters: {restart_count: 4, restart_interval_seconds: 15}
+
+  - id: OB-05
+    title: restart_burst_under_live_workload
+    intervention: restart_burst_load
+    target_service: frontend
+    oracle_domains: [DevOps, SRE]
+    admissible_actions: ["Rollback to stable deployment"]
+    parameters: {restart_count: 4, restart_interval_seconds: 15, concurrency: 100, duration_seconds: 90}
+
+  - id: OB-06
+    title: release_config_plus_security_policy_violation
+    intervention: config_security
+    target_service: frontend
+    oracle_domains: [DevOps, DevSecOps]
+    admissible_actions: ["Patch or block release"]
+    parameters: {security_marker: exposed_test_secret}
+
+  - id: OB-07
+    title: cpu_constrained_reliability_control
+    intervention: cpu_load
+    target_service: frontend
+    oracle_domains: [SRE]
+    admissible_actions: ["Mitigate and monitor"]
+    parameters: {cpu_limit: 40m, concurrency: 140, duration_seconds: 100}
+
+  - id: OB-08
+    title: reliability_resource_tradeoff
+    intervention: scale_cpu_load
+    target_service: frontend
+    oracle_domains: [SRE, FinOps]
+    admissible_actions: ["Scale adjustment"]
+    parameters: {replicas: 5, cpu_limit: 50m, concurrency: 160, duration_seconds: 100}
