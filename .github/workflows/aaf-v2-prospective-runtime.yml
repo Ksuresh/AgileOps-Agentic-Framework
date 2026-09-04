@@ -1,0 +1,100 @@
+name: AAF v2 Prospective Sock Shop Validation
+
+on:
+  push:
+    branches:
+      - experiment/aaf-v2-arbitration-pm-interface
+  workflow_dispatch:
+
+jobs:
+  v2-prospective-runtime:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    env:
+      PYTHONPATH: ${{ github.workspace }}
+      MYSQL_ROOT_PASSWORD: ""
+    steps:
+      - name: Checkout AAF
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          pip install pytest pyyaml openai
+
+      - name: Regression tests
+        run: python -m pytest -q
+
+      - name: Freeze-check v1 and record v2 policy
+        run: |
+          test "$(git hash-object orchestrator/cross_domain.py)" = "d2954dcd656c033120d3a23c2e38ca2ce06c60f0"
+          git hash-object orchestrator/cross_domain_v2.py > results_v2_policy_blob.txt
+          git hash-object runtime_validation/interventions_v2_prospective.yaml > results_v2_manifest_blob.txt
+          cat results_v2_policy_blob.txt
+          cat results_v2_manifest_blob.txt
+
+      - name: Clone pinned Sock Shop
+        run: |
+          git clone https://github.com/microservices-demo/microservices-demo.git /tmp/sock-shop
+          git -C /tmp/sock-shop checkout 9dff06fae4981921caec6a62393a6ebfce4b3e3f
+          echo "SOCK_COMPOSE=/tmp/sock-shop/deploy/docker-compose/docker-compose.yml" >> "$GITHUB_ENV"
+          git -C /tmp/sock-shop rev-parse HEAD > runtime_validation/sock_shop_commit_v2.txt
+
+      - name: Start Sock Shop
+        run: |
+          docker compose -f "$SOCK_COMPOSE" pull
+          docker compose -f "$SOCK_COMPOSE" up -d
+          sleep 45
+          docker compose -f "$SOCK_COMPOSE" ps -a
+
+      - name: Healthy baseline artifact
+        run: |
+          docker compose -f "$SOCK_COMPOSE" up -d --remove-orphans --scale front-end=1
+          sleep 10
+          python runtime_validation/run_runtime_case.py HRT-01 --repetition 1 --compose-file "$SOCK_COMPOSE" --settle-seconds 8 --execute
+
+      - name: Run HRT-32 to HRT-39 prospective templates
+        run: |
+          for i in 32 33 34 35 36 37 38 39; do
+            python runtime_validation/run_v2_prospective_case.py "HRT-$i" --repetition 1 --compose-file "$SOCK_COMPOSE"
+          done
+
+      - name: Evaluate AAF v1 vs v2 prospectively
+        run: python runtime_validation/evaluate_v2_prospective_runtime.py
+
+      - name: Capture environment
+        if: always()
+        run: |
+          docker compose -f "$SOCK_COMPOSE" ps -a > runtime_validation/final_compose_ps_v2.txt 2>&1 || true
+          docker version > runtime_validation/docker_version_v2.txt 2>&1 || true
+          docker compose version > runtime_validation/docker_compose_version_v2.txt 2>&1 || true
+
+      - name: Upload prospective evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: aaf-v2-prospective-sock-shop
+          path: |
+            runtime_validation/artifacts/HRT-01
+            runtime_validation/artifacts/HRT-32
+            runtime_validation/artifacts/HRT-33
+            runtime_validation/artifacts/HRT-34
+            runtime_validation/artifacts/HRT-35
+            runtime_validation/artifacts/HRT-36
+            runtime_validation/artifacts/HRT-37
+            runtime_validation/artifacts/HRT-38
+            runtime_validation/artifacts/HRT-39
+            runtime_validation/interventions_v2_prospective.yaml
+            runtime_validation/sock_shop_commit_v2.txt
+            runtime_validation/final_compose_ps_v2.txt
+            runtime_validation/docker_version_v2.txt
+            runtime_validation/docker_compose_version_v2.txt
+            results_v2_policy_blob.txt
+            results_v2_manifest_blob.txt
+            results_v2_prospective_runtime
