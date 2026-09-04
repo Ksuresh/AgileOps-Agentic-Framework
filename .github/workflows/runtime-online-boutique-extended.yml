@@ -1,0 +1,114 @@
+name: Online Boutique Extended Frozen Validation
+
+on:
+  push:
+    branches:
+      - experiment/aaf-online-boutique-extended-v2
+  workflow_dispatch:
+
+jobs:
+  online-boutique-extended:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    env:
+      PYTHONPATH: ${{ github.workspace }}
+      OB_COMMIT: b9a978db9e01f4ad3dca9494a22cb9edc17548fe
+    steps:
+      - name: Checkout AAF
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          pip install pytest pyyaml
+
+      - name: Regression tests
+        run: python -m pytest -q
+
+      - name: Freeze-check AAF and manifest
+        run: |
+          test "$(git hash-object orchestrator/cross_domain.py)" = "d2954dcd656c033120d3a23c2e38ca2ce06c60f0"
+          test "$(git hash-object orchestrator/severity.py)" = "b8528927d2d1b78d1ae224aa86fa76c7ac65524e"
+          test "$(git hash-object orchestrator/utility.py)" = "baff42d641b0ef09a7d45da8a4f6c7af7412b460"
+          test "$(git hash-object orchestrator/decision_baselines.py)" = "44660ea13dcf6f57739fe36582cb3e3924b1b964"
+          sha256sum runtime_validation/interventions_online_boutique_extended.yaml > online_boutique_extended_manifest_sha256.txt
+
+      - name: Install kind
+        run: |
+          curl -Lo /tmp/kind https://kind.sigs.k8s.io/dl/v0.24.0/kind-linux-amd64
+          chmod +x /tmp/kind
+          sudo mv /tmp/kind /usr/local/bin/kind
+
+      - name: Create Kubernetes cluster
+        run: kind create cluster --name aaf-ob-ext --wait 120s
+
+      - name: Clone pinned Online Boutique
+        run: |
+          git clone https://github.com/GoogleCloudPlatform/microservices-demo.git /tmp/online-boutique
+          git -C /tmp/online-boutique checkout "$OB_COMMIT"
+          test "$(git -C /tmp/online-boutique rev-parse HEAD)" = "$OB_COMMIT"
+          git -C /tmp/online-boutique rev-parse HEAD > online_boutique_extended_source_commit.txt
+
+      - name: Deploy Online Boutique
+        run: |
+          kubectl apply -f /tmp/online-boutique/release/kubernetes-manifests.yaml
+          kubectl wait --for=condition=available deployment --all --timeout=600s
+
+      - name: Expose stable frontend endpoint
+        run: |
+          kubectl patch service frontend --type merge -p '{"spec":{"type":"NodePort","ports":[{"name":"http","port":80,"targetPort":8080,"nodePort":30080}]}}'
+          NODE_IP="$(docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' aaf-ob-ext-control-plane)"
+          echo "OB_URL=http://${NODE_IP}:30080/" >> "$GITHUB_ENV"
+          echo "url=http://${NODE_IP}:30080/" > online_boutique_extended_endpoint.txt
+          for i in $(seq 1 60); do
+            if curl -fsS "http://${NODE_IP}:30080/" >/dev/null; then exit 0; fi
+            sleep 2
+          done
+          exit 1
+
+      - name: Run OB-09 to OB-16
+        run: |
+          for id in 09 10 11 12 13 14 15 16; do
+            python runtime_validation/run_online_boutique_extended.py "OB-${id}" --url "$OB_URL"
+          done
+
+      - name: Validate endpoint after scenarios
+        run: |
+          kubectl rollout status deployment/frontend --timeout=180s
+          for i in $(seq 1 45); do
+            if curl -fsS "$OB_URL" >/dev/null; then exit 0; fi
+            sleep 2
+          done
+          exit 1
+
+      - name: Evaluate extension
+        run: python runtime_validation/evaluate_online_boutique_extended.py
+
+      - name: Capture environment
+        if: always()
+        run: |
+          kubectl get pods -o wide > online_boutique_extended_final_pods.txt 2>&1 || true
+          kubectl get deployment frontend -o yaml > online_boutique_extended_final_frontend.yaml 2>&1 || true
+          kubectl get service frontend -o yaml > online_boutique_extended_final_service.yaml 2>&1 || true
+
+      - name: Upload extended evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: aaf-online-boutique-extended-validation
+          path: |
+            results_online_boutique_runtime
+            runtime_validation/interventions_online_boutique_extended.yaml
+            runtime_validation/run_online_boutique_extended.py
+            online_boutique_extended_manifest_sha256.txt
+            online_boutique_extended_source_commit.txt
+            online_boutique_extended_endpoint.txt
+            online_boutique_extended_final_pods.txt
+            online_boutique_extended_final_frontend.yaml
+            online_boutique_extended_final_service.yaml
