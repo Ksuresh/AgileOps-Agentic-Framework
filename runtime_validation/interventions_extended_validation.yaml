@@ -1,0 +1,103 @@
+# Frozen before execution. AAF policy, thresholds, utility weights, interaction
+# rules, metrics and action oracles are unchanged. HRT-21 repetitions are
+# diagnostic only and are NOT independent scenario templates.
+cases:
+  - id: HRT-21
+    title: diagnostic_repetition_of_reliability_resource_tradeoff_b
+    intervention: config_scale_cpu_load
+    target_service: front-end
+    parameters: {replicas: 8, cpus: 0.08, concurrency: 180, duration_seconds: 100, config_marker: batch4_resource_condition}
+    oracle_domains: [DevOps, SRE, FinOps]
+    admissible_actions: ["Scale adjustment"]
+    repetitions: 5
+    analysis_role: diagnostic_repetition
+
+  - id: HRT-22
+    title: sre_control_variant_c
+    intervention: cpu_load
+    target_service: front-end
+    parameters: {cpus: 0.035, concurrency: 200, duration_seconds: 100}
+    oracle_domains: [SRE]
+    admissible_actions: ["Mitigate and monitor"]
+    repetitions: 1
+
+  - id: HRT-23
+    title: resource_efficiency_control_variant_c
+    intervention: scale_service
+    target_service: front-end
+    parameters: {replicas: 10}
+    oracle_domains: [FinOps]
+    admissible_actions: ["Scale adjustment", "Review scaling policy"]
+    repetitions: 1
+
+  - id: HRT-24
+    title: three_domain_resource_tradeoff_variant_c
+    intervention: config_scale_cpu_load
+    target_service: front-end
+    parameters: {replicas: 6, cpus: 0.10, concurrency: 160, duration_seconds: 100, config_marker: batch5_resource_condition_c}
+    oracle_domains: [DevOps, SRE, FinOps]
+    admissible_actions: ["Scale adjustment"]
+    repetitions: 1
+
+  - id: HRT-25
+    title: three_domain_resource_tradeoff_variant_d
+    intervention: config_scale_cpu_load
+    target_service: front-end
+    parameters: {replicas: 10, cpus: 0.12, concurrency: 200, duration_seconds: 100, config_marker: batch5_resource_condition_d}
+    oracle_domains: [DevOps, SRE, FinOps]
+    admissible_actions: ["Scale adjustment"]
+    repetitions: 1
+
+  - id: HRT-26
+    title: temporal_restart_control_variant_e
+    intervention: restart_config_security
+    target_service: front-end
+    parameters: {restart_count: 4, restart_interval_seconds: 14, security_marker: benign_config_drift}
+    oracle_domains: [DevOps]
+    admissible_actions: ["Rollback to stable deployment"]
+    repetitions: 1
+
+  - id: HRT-27
+    title: restart_security_override_variant_c
+    intervention: restart_config_security
+    target_service: front-end
+    parameters: {restart_count: 4, restart_interval_seconds: 14, security_marker: exposed_test_secret}
+    oracle_domains: [DevOps, DevSecOps]
+    admissible_actions: ["Patch or block release"]
+    repetitions: 1
+
+  - id: HRT-28
+    title: security_release_gate_under_load_variant_c
+    intervention: config_security_load
+    target_service: front-end
+    parameters: {security_marker: exposed_test_secret, concurrency: 170, duration_seconds: 100}
+    oracle_domains: [DevOps, DevSecOps]
+    admissible_actions: ["Patch or block release"]
+    repetitions: 1
+
+  - id: HRT-29
+    title: security_release_gate_variant_c
+    intervention: config_security
+    target_service: front-end
+    parameters: {security_marker: exposed_test_secret}
+    oracle_domains: [DevOps, DevSecOps]
+    admissible_actions: ["Patch or block release"]
+    repetitions: 1
+
+  - id: HRT-30
+    title: sre_control_variant_d
+    intervention: cpu_load
+    target_service: front-end
+    parameters: {cpus: 0.05, concurrency: 150, duration_seconds: 90}
+    oracle_domains: [SRE]
+    admissible_actions: ["Mitigate and monitor"]
+    repetitions: 1
+
+  - id: HRT-31
+    title: resource_efficiency_control_variant_d
+    intervention: scale_service
+    target_service: front-end
+    parameters: {replicas: 6}
+    oracle_domains: [FinOps]
+    admissible_actions: ["Scale adjustment", "Review scaling policy"]
+    repetitions: 1
