@@ -1,0 +1,107 @@
+name: Sock Shop Extended Frozen Validation
+
+on:
+  push:
+    branches:
+      - experiment/aaf-extended-validation-v2
+  workflow_dispatch:
+
+jobs:
+  extended-validation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    env:
+      PYTHONPATH: ${{ github.workspace }}
+      SOCK_COMMIT: 9dff06fae4981921caec6a62393a6ebfce4b3e3f
+      MYSQL_ROOT_PASSWORD: ""
+    steps:
+      - name: Checkout AAF
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          pip install pytest pyyaml
+
+      - name: Regression tests
+        run: python -m pytest -q
+
+      - name: Freeze-check AAF decision path
+        run: |
+          test "$(git hash-object orchestrator/cross_domain.py)" = "d2954dcd656c033120d3a23c2e38ca2ce06c60f0"
+          sha256sum runtime_validation/interventions_extended_validation.yaml > runtime_validation/extended_manifest_sha256.txt
+
+      - name: Clone pinned Sock Shop
+        run: |
+          git clone https://github.com/microservices-demo/microservices-demo.git /tmp/sock-shop
+          git -C /tmp/sock-shop checkout "$SOCK_COMMIT"
+          test "$(git -C /tmp/sock-shop rev-parse HEAD)" = "$SOCK_COMMIT"
+          echo "SOCK_COMPOSE=/tmp/sock-shop/deploy/docker-compose/docker-compose.yml" >> "$GITHUB_ENV"
+          git -C /tmp/sock-shop rev-parse HEAD > runtime_validation/sock_shop_commit_extended.txt
+
+      - name: Start Sock Shop
+        run: |
+          docker compose -f "$SOCK_COMPOSE" pull
+          docker compose -f "$SOCK_COMPOSE" up -d
+          sleep 45
+          docker compose -f "$SOCK_COMPOSE" ps -a
+
+      - name: Frozen healthy baseline artifact
+        run: |
+          docker compose -f "$SOCK_COMPOSE" up -d --remove-orphans --scale front-end=1
+          sleep 10
+          python runtime_validation/run_runtime_case.py HRT-01 --repetition 1 --compose-file "$SOCK_COMPOSE" --settle-seconds 8 --execute
+
+      - name: HRT-21 diagnostic repetitions
+        run: |
+          for r in 1 2 3 4 5; do
+            python runtime_validation/run_extended_validation_case.py HRT-21 --repetition "$r" --compose-file "$SOCK_COMPOSE"
+          done
+
+      - name: HRT-22 to HRT-31 new templates
+        run: |
+          for id in 22 23 24 25 26 27 28 29 30 31; do
+            python runtime_validation/run_extended_validation_case.py "HRT-${id}" --repetition 1 --compose-file "$SOCK_COMPOSE"
+          done
+
+      - name: Evaluate extended validation
+        run: python runtime_validation/evaluate_extended_validation.py
+
+      - name: Capture final state
+        if: always()
+        run: |
+          docker compose -f "$SOCK_COMPOSE" ps -a > runtime_validation/final_compose_ps_extended.txt 2>&1 || true
+          docker version > runtime_validation/docker_version_extended.txt 2>&1 || true
+          docker compose version > runtime_validation/docker_compose_version_extended.txt 2>&1 || true
+
+      - name: Upload extended evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: aaf-sock-shop-extended-validation
+          path: |
+            runtime_validation/artifacts/HRT-01
+            runtime_validation/artifacts/HRT-21
+            runtime_validation/artifacts/HRT-22
+            runtime_validation/artifacts/HRT-23
+            runtime_validation/artifacts/HRT-24
+            runtime_validation/artifacts/HRT-25
+            runtime_validation/artifacts/HRT-26
+            runtime_validation/artifacts/HRT-27
+            runtime_validation/artifacts/HRT-28
+            runtime_validation/artifacts/HRT-29
+            runtime_validation/artifacts/HRT-30
+            runtime_validation/artifacts/HRT-31
+            runtime_validation/interventions_extended_validation.yaml
+            runtime_validation/extended_manifest_sha256.txt
+            runtime_validation/sock_shop_commit_extended.txt
+            runtime_validation/final_compose_ps_extended.txt
+            runtime_validation/docker_version_extended.txt
+            runtime_validation/docker_compose_version_extended.txt
+            results_extended_validation
