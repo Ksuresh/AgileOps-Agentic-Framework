@@ -1,7 +1,7 @@
 benchmark:
   name: Google Online Boutique
   source_repository: GoogleCloudPlatform/microservices-demo
-  source_ref: main
+  source_ref: b9a978db9e01f4ad3dca9494a22cb9edc17548fe
   deployment: release/kubernetes-manifests.yaml
   evaluation_unit: one independent scenario template
   repetitions_per_template: 1
