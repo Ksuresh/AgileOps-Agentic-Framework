@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+
+# OS/editor
+.DS_Store
+.idea/
+.vscode/
+
+# Secrets/local configuration
+.env
+.env.*
+!.env.example
+
+# Generated runtime evidence and experiment outputs
+runtime_validation/artifacts/
+results_online_boutique_runtime/
+results_v2_prospective_runtime/
+results_learned_baselines/
+results_revision_oracle_benchmark/
+results_revision_comparison/
+results_cross_domain_heldout/
+results_heldout_runtime*/
+results_extended_validation/
+results_expanded_heldout_runtime/
+
+# Canonical paper_results contains documentation/manifests only in git;
+# generated run outputs remain local or in GitHub Actions artifacts.
+paper_results/**/generated/
