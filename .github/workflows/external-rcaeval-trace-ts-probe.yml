@@ -1,0 +1,31 @@
+name: External RCAEval Trace Time-Series Probe
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - experiment/external-rcaeval-validation
+    paths:
+      - external_validation/rcaeval/probe_trace_timeseries.py
+      - .github/workflows/external-rcaeval-trace-ts-probe.yml
+
+jobs:
+  probe:
+    runs-on: ubuntu-24.04
+    env:
+      PYTHONPATH: ${{ github.workspace }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install external-validation dependencies
+        run: pip install -r external_validation/rcaeval/requirements.txt
+      - name: Probe trace-derived time series on frozen pilot cases
+        run: python external_validation/rcaeval/probe_trace_timeseries.py
+      - name: Upload trace semantics evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: external-rcaeval-trace-ts-probe
+          path: paper_results/external_rcaeval/generated/trace_ts_probe/
+          if-no-files-found: error
