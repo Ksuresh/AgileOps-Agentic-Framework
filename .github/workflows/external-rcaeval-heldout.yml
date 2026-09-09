@@ -1,0 +1,38 @@
+name: External RCAEval Held-Out Evaluation
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - experiment/external-rcaeval-validation
+    paths:
+      - 'external_validation/rcaeval/run_heldout.py'
+      - 'external_validation/rcaeval/adapter.py'
+      - 'external_validation/rcaeval/FROZEN_PROTOCOL.md'
+      - '.github/workflows/external-rcaeval-heldout.yml'
+
+jobs:
+  heldout-evaluation:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install -r external_validation/rcaeval/requirements.txt
+      - name: Run deterministic AAF tests
+        run: pytest -q tests/test_aaf_v2_arbitration.py
+      - name: Run frozen 78-case held-out evaluation
+        run: python external_validation/rcaeval/run_heldout.py
+      - name: Upload held-out evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: external-rcaeval-heldout
+          path: paper_results/external_rcaeval/generated/heldout/
+          if-no-files-found: error
+          retention-days: 90
