@@ -2,18 +2,27 @@ from __future__ import annotations
 
 """Label-blind RCAEval -> AAF evidence adapter.
 
-The adapter scans all service metrics and never receives RCAEval fault labels or
-root-cause service annotations. Only source observables with defensible semantics
-are mapped into AAF fields. Other signals are retained in diagnostics only.
+Decision-active mapping is intentionally narrow and frozen around AAF fields
+whose semantics can be defended directly from RCAEval: service p90 latency as a
+conservative lower-bound proxy for AAF p95 latency, and CPU percentage as AAF
+resource saturation. Additional RCAEval observables (memory, disk I/O, socket
+activity, and log activity) are retained as measured auxiliary evidence so the
+external validation does not discard source information, but they are not
+silently coerced into unrelated AAF decision fields.
+
+RCAEval fault labels and root-cause service annotations are never inputs.
 """
 
 from dataclasses import dataclass
 from typing import Any
+import re
 
 import pandas as pd
 
 PRE_SECONDS = 300
 POST_SECONDS = 300
+RATIO_GATE = 1.5
+ERROR_RE = re.compile(r"\b(?:error|exception|fail(?:ed|ure)?|fatal|timeout)\b", re.I)
 
 
 @dataclass(frozen=True)
@@ -55,7 +64,47 @@ def _largest_post(changes: list[Change]) -> Change | None:
     return max(changes, key=lambda c: c.post_median, default=None)
 
 
-def adapt(metrics: pd.DataFrame, inject_time: int) -> tuple[dict[str, Any], dict[str, Any]]:
+def _as_dict(change: Change | None) -> dict[str, Any] | None:
+    return None if change is None else change.__dict__
+
+
+def _log_summary(logs: pd.DataFrame | None, inject_time: int) -> dict[str, Any]:
+    if logs is None or logs.empty:
+        return {"available": False}
+    tcol = next((c for c in ("timestamp", "time") if c in logs.columns), None)
+    mcol = next((c for c in ("message", "log", "body") if c in logs.columns), None)
+    if not tcol or not mcol:
+        return {"available": False, "reason": "timestamp/message fields unavailable"}
+    t = pd.to_numeric(logs[tcol], errors="coerce")
+    if not t.dropna().empty and float(t.dropna().median()) > 10_000_000_000:
+        t = t / 1000.0
+    pre = (t >= inject_time - PRE_SECONDS) & (t < inject_time)
+    post = (t >= inject_time) & (t < inject_time + POST_SECONDS)
+    msg = logs[mcol].fillna("").astype(str)
+    err = msg.str.contains(ERROR_RE, regex=True)
+    pre_total, post_total = int(pre.sum()), int(post.sum())
+    pre_err, post_err = int((pre & err).sum()), int((post & err).sum())
+    pre_density = None if pre_total == 0 else 100.0 * pre_err / pre_total
+    post_density = None if post_total == 0 else 100.0 * post_err / post_total
+    return {
+        "available": True,
+        "pre_log_lines": pre_total,
+        "post_log_lines": post_total,
+        "pre_error_like_lines": pre_err,
+        "post_error_like_lines": post_err,
+        "pre_error_like_density_pct": pre_density,
+        "post_error_like_density_pct": post_density,
+        "error_like_count_ratio": None if pre_err == 0 else post_err / pre_err,
+        "decision_active": False,
+        "reason_not_decision_active": "error-like log density is not equivalent to AAF HTTP error_rate_pct",
+    }
+
+
+def adapt(
+    metrics: pd.DataFrame,
+    inject_time: int,
+    logs: pd.DataFrame | None = None,
+) -> tuple[dict[str, Any], dict[str, Any]]:
     """Return (AAF telemetry, adapter diagnostics) without label/oracle input."""
     if "time" not in metrics.columns:
         raise ValueError("RCAEval metrics require a time column")
@@ -65,26 +114,35 @@ def adapt(metrics: pd.DataFrame, inject_time: int) -> tuple[dict[str, Any], dict
     mem = _changes(metrics, inject_time, "_mem")
     disk = _changes(metrics, inject_time, "_diskio")
     socket = _changes(metrics, inject_time, "_socket")
-    error = _changes(metrics, inject_time, "_error")
 
     lat_ratio = _largest_ratio(latency90)
     lat_abs = _largest_post(latency90)
     cpu_ratio = _largest_ratio(cpu)
     cpu_abs = _largest_post(cpu)
+    mem_ratio = _largest_ratio(mem)
+    disk_ratio = _largest_ratio(disk)
+    socket_ratio = _largest_ratio(socket)
+    logs_diag = _log_summary(logs, inject_time)
 
     telemetry: dict[str, Any] = {
         "deploy": {"_evidence": {}},
-        "sre": {"_evidence": {}},
+        "sre": {
+            "_evidence": {},
+            "_auxiliary": {
+                "memory": _as_dict(mem_ratio),
+                "diskio": _as_dict(disk_ratio),
+                "socket": _as_dict(socket_ratio),
+                "logs": logs_diag,
+            },
+        },
         "finops": {"_evidence": {}},
         "sec": {"_evidence": {}},
     }
 
     # RCAEval exposes service latency-90, not p95. Because p95 >= p90, a measured
-    # p90 crossing an AAF p95 threshold is a conservative lower-bound proxy. We
-    # only expose it when the post-injection median is at least 1.5x its own
-    # pre-injection baseline, preventing unrelated high-latency services from
-    # entering the decision solely because their absolute baseline is large.
-    if lat_ratio is not None and lat_ratio.ratio is not None and lat_ratio.ratio >= 1.5:
+    # p90 crossing an AAF p95 threshold is a conservative lower-bound proxy. A
+    # >=1.5x pre/post gate avoids feeding unrelated high-baseline services.
+    if lat_ratio is not None and lat_ratio.ratio is not None and lat_ratio.ratio >= RATIO_GATE:
         p90_ms = lat_ratio.post_median * 1000.0
         telemetry["sre"]["p95_latency_ms"] = p90_ms
         telemetry["sre"]["_evidence"]["p95_latency_ms"] = {
@@ -94,9 +152,8 @@ def adapt(metrics: pd.DataFrame, inject_time: int) -> tuple[dict[str, Any], dict
         }
 
     # CPU columns are percentages in the observed RCAEval schema. Feed the
-    # observed post-injection median only when the same service metric rises by
-    # at least 1.5x over its pre-injection baseline.
-    if cpu_ratio is not None and cpu_ratio.ratio is not None and cpu_ratio.ratio >= 1.5:
+    # measured post-injection median only when the same metric rises >=1.5x.
+    if cpu_ratio is not None and cpu_ratio.ratio is not None and cpu_ratio.ratio >= RATIO_GATE:
         telemetry["sre"]["saturation_pct"] = cpu_ratio.post_median
         telemetry["sre"]["_evidence"]["saturation_pct"] = {
             "status": "measured",
@@ -105,17 +162,21 @@ def adapt(metrics: pd.DataFrame, inject_time: int) -> tuple[dict[str, Any], dict
         }
 
     diagnostics = {
+        "adapter_policy": "final-pilot candidate",
         "window_seconds": {"pre": PRE_SECONDS, "post": POST_SECONDS},
+        "ratio_gate": RATIO_GATE,
         "selection_rule": "system-wide metric scan; RCAEval fault/root-cause labels are not inputs",
-        "latency90_largest_ratio": None if lat_ratio is None else lat_ratio.__dict__,
-        "latency90_largest_post": None if lat_abs is None else lat_abs.__dict__,
-        "cpu_largest_ratio": None if cpu_ratio is None else cpu_ratio.__dict__,
-        "cpu_largest_post": None if cpu_abs is None else cpu_abs.__dict__,
-        "memory_largest_ratio": None if _largest_ratio(mem) is None else _largest_ratio(mem).__dict__,
-        "diskio_largest_ratio": None if _largest_ratio(disk) is None else _largest_ratio(disk).__dict__,
-        "socket_largest_ratio": None if _largest_ratio(socket) is None else _largest_ratio(socket).__dict__,
-        "error_largest_ratio": None if _largest_ratio(error) is None else _largest_ratio(error).__dict__,
-        "unmapped_signals": ["memory", "diskio", "socket", "error"],
-        "unmapped_reason": "no direct AAF field with sufficiently verified unit/semantics for this external source; retained only for audit diagnostics",
+        "decision_active_fields": ["p95_latency_ms (from p90 lower-bound proxy)", "saturation_pct (CPU percent)"],
+        "latency90_largest_ratio": _as_dict(lat_ratio),
+        "latency90_largest_post": _as_dict(lat_abs),
+        "cpu_largest_ratio": _as_dict(cpu_ratio),
+        "cpu_largest_post": _as_dict(cpu_abs),
+        "auxiliary_evidence": {
+            "memory_largest_ratio": _as_dict(mem_ratio),
+            "diskio_largest_ratio": _as_dict(disk_ratio),
+            "socket_largest_ratio": _as_dict(socket_ratio),
+            "logs": logs_diag,
+        },
+        "auxiliary_policy": "retained and reported but not coerced into unrelated AAF fields",
     }
     return telemetry, diagnostics
