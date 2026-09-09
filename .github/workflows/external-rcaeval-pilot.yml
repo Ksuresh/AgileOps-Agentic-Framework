@@ -14,6 +14,8 @@ jobs:
   pilot:
     runs-on: ubuntu-latest
     timeout-minutes: 20
+    env:
+      PYTHONPATH: ${{ github.workspace }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -24,7 +26,7 @@ jobs:
           pip install -r requirements.txt
           pip install -r external_validation/rcaeval/requirements.txt
       - name: Run deterministic tests
-        run: pytest -q
+        run: python -m pytest -q
       - name: Run 12-case RCAEval pilot
         run: python external_validation/rcaeval/run_pilot.py
       - name: Upload pilot evidence
