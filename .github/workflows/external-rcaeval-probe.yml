@@ -5,7 +5,7 @@ on:
     branches:
       - experiment/external-rcaeval-validation
     paths:
-      - 'experiments/probe_rcaeval_schema.py'
+      - 'external_validation/rcaeval/**'
       - '.github/workflows/external-rcaeval-probe.yml'
   workflow_dispatch:
 
@@ -19,12 +19,12 @@ jobs:
         with:
           python-version: '3.11'
       - name: Install probe dependencies
-        run: pip install pandas pyarrow huggingface_hub
+        run: pip install -r external_validation/rcaeval/requirements.txt
       - name: Probe RCAEval RE2-TT schema
-        run: python experiments/probe_rcaeval_schema.py
+        run: python external_validation/rcaeval/probe_schema.py
       - name: Upload schema evidence
         uses: actions/upload-artifact@v4
         with:
           name: external-rcaeval-schema-probe
-          path: results_external_rcaeval_probe/
+          path: paper_results/external_rcaeval/generated/probe/
           if-no-files-found: error
