@@ -1,0 +1,32 @@
+name: External RCAEval Multi-Source Semantics Probe
+
+on:
+  push:
+    branches:
+      - experiment/external-rcaeval-validation
+    paths:
+      - 'external_validation/rcaeval/probe_multisource.py'
+      - '.github/workflows/external-rcaeval-multisource-probe.yml'
+  workflow_dispatch:
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      PYTHONPATH: ${{ github.workspace }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install external-validation dependencies
+        run: pip install -r external_validation/rcaeval/requirements.txt
+      - name: Probe metrics, logs, and traces on frozen pilot cases
+        run: python external_validation/rcaeval/probe_multisource.py
+      - name: Upload semantics evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: external-rcaeval-multisource-probe
+          path: paper_results/external_rcaeval/generated/multisource_probe/
+          if-no-files-found: error
