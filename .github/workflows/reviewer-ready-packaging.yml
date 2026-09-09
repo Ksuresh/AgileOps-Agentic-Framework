@@ -8,6 +8,8 @@ on:
 jobs:
   package-and-audit:
     runs-on: ubuntu-latest
+    env:
+      PYTHONPATH: ${{ github.workspace }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -16,7 +18,7 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
       - name: Deterministic tests
-        run: pytest -q
+        run: python -m pytest -q
       - name: Generate canonical manuscript assets
         run: python paper_results/manuscript/generate_manuscript_assets.py
       - name: Validate reviewer package
