@@ -1,6 +1,6 @@
 # Reproducing the IEEE Access Experiments
 
-This is the execution entry point for the current AAF manuscript. For the compact experiment/provenance index, see [`paper_results/README.md`](paper_results/README.md).
+This is the execution entry point for the current AAF manuscript. For the compact experiment/provenance index, see [`paper_results/README.md`](paper_results/README.md), and for manuscript-number provenance see [`paper_results/MANUSCRIPT_RESULT_MAP.md`](paper_results/MANUSCRIPT_RESULT_MAP.md).
 
 ## 1. Environment and deterministic tests
 
@@ -15,7 +15,7 @@ export PYTHONPATH="$PWD"         # PowerShell: $env:PYTHONPATH=(Get-Location)
 python -m pytest -q
 ```
 
-Reference CI version: Python 3.11.
+Reference CI version: Python 3.11. The reviewer-packaging workflow repeats dependency installation, deterministic tests, manuscript-asset generation and package validation in a clean GitHub Actions environment.
 
 ## 2. Controlled cross-domain experiments
 
@@ -40,7 +40,7 @@ python runtime_validation/run_runtime_case.py HRT-01 --repetition 1 --compose-fi
 python runtime_validation/evaluate_heldout_runtime.py --cases HRT-01 --repetitions 1 --out results_heldout_runtime
 ```
 
-For the finalized prospective HRT-32--HRT-39 study use `runtime_validation/interventions_v2_prospective.yaml`, `run_v2_prospective_case.py`, `evaluate_v2_prospective_runtime.py`, or `.github/workflows/aaf-v2-prospective-runtime.yml`.
+For the finalized prospective HRT-32--HRT-39 study use `runtime_validation/interventions_v2_prospective.yaml`, `runtime_validation/run_v2_prospective_case.py`, `runtime_validation/evaluate_v2_prospective_runtime.py`, or `.github/workflows/aaf-v2-prospective-runtime.yml`.
 
 Pinned Sock Shop revision for that study: `9dff06fae4981921caec6a62393a6ebfce4b3e3f`.
 
@@ -50,7 +50,7 @@ Frozen prospective provenance: run `33885779782`, commit `67f187d0ce9efcd93a572f
 
 Requirements: Docker, kubectl, kind and Git. Pinned upstream revision: `b9a978db9e01f4ad3dca9494a22cb9edc17548fe`.
 
-The current unified workflow `.github/workflows/runtime-online-boutique.yml` deploys the pinned benchmark and executes OB-01--OB-08.
+The current unified workflow `.github/workflows/runtime-online-boutique.yml` deploys the pinned benchmark and executes the first frozen block, OB-01--OB-08.
 
 ```bash
 for i in 01 02 03 04 05 06 07 08; do
@@ -61,7 +61,7 @@ python runtime_validation/evaluate_online_boutique.py
 
 Generated files are under `results_online_boutique_runtime/`.
 
-**Scope note:** this unified path currently reproduces eight cases. A historical manuscript aggregate referring to OB-01--OB-16 must be tied to its historical execution provenance and must not be represented as reproducible by this eight-case command until the larger path is consolidated.
+The manuscript's OB-01--OB-16 aggregate combines two independently frozen eight-case blocks (OB-01--OB-08 and OB-09--OB-16). The current unified runner executes one eight-case block; exact provenance for both historical blocks is preserved in `paper_results/MANUSCRIPT_RESULT_MAP.md`. Do not interpret the command above as a new single-run reproduction of all 16 historical cases.
 
 ## 5. Learned baselines
 
@@ -77,9 +77,15 @@ Reference workflow: `.github/workflows/learned-baselines.yml`. Frozen reference 
 
 The external study uses RCAEval RE2-TrainTicket as an independent recorded-fault evidence source. Fault/root-cause labels are withheld from AAF and are used only for evaluation/grouping; they are not governance-action labels.
 
-Frozen protocol: 12 pilot cases followed by 78 held-out cases. The successful held-out execution is run `34316286523`, head SHA `88e7c6e87f11cb5f5840f770e22d20d6fbd2ab83`, artifact ID `10090236316`, artifact SHA-256 `1d2213cb7cec656cb168fbec1821969c0db91d53db86b85581fa3aeec420b730`.
+The implementation and frozen protocol are committed under `external_validation/rcaeval/`. The split is 12 adapter-development/pilot cases followed by 78 held-out cases. To execute the held-out study:
 
-The external-validation implementation/protocol was developed on `experiment/external-rcaeval-validation` and is being consolidated into the reviewer-ready branch. Until that consolidation is complete, use that frozen branch/run for exact external-study reproduction rather than assuming files on another branch are equivalent.
+```bash
+python external_validation/rcaeval/run_heldout.py
+```
+
+Generated outputs are written under `paper_results/external_rcaeval/generated/heldout/`. The successful frozen held-out execution used run `34316286523`, head SHA `88e7c6e87f11cb5f5840f770e22d20d6fbd2ab83`, artifact ID `10090236316`, artifact SHA-256 `1d2213cb7cec656cb168fbec1821969c0db91d53db86b85581fa3aeec420b730`.
+
+The historical experiment branch is retained for provenance, but the reviewer-ready repository now contains the RCAEval adapter, frozen protocol and held-out runner needed to inspect and rerun the study.
 
 ## 7. Bounded LLM faithfulness evaluation
 
@@ -103,17 +109,28 @@ python llm_evaluation/rescore_frozen_faithfulness.py <extracted-frozen-artifact-
 
 See [`paper_results/llm_faithfulness/README.md`](paper_results/llm_faithfulness/README.md) for metrics and interpretation boundaries.
 
+## 8. Generate reviewer/manuscript assets
+
+The canonical manuscript aggregate is committed at `paper_results/manuscript/aggregate_results.csv`. Generate the reviewer-facing table, provenance CSV and validation overview directly from that input:
+
+```bash
+python paper_results/manuscript/generate_manuscript_assets.py
+```
+
+Generated files are written under `paper_results/manuscript/generated/`. The same generation and validation path is exercised by `.github/workflows/reviewer-ready-packaging.yml`.
+
 ## Evidence/result map
 
 | Study | Evidence/specification | Result/provenance location |
 |---|---|---|
 | Controlled | `scenario_generator/`, `config/`, `benchmark/` | `paper_results/controlled/generated/` on rerun |
 | Sock Shop | `runtime_validation/interventions*.yaml` + measured artifacts | evaluator directories + Actions artifacts |
-| Prospective HRT-32--39 | `interventions_v2_prospective.yaml` | run/artifact identifiers above |
-| Online Boutique | pinned benchmark + `interventions_online_boutique.yaml` | `results_online_boutique_runtime/` + Actions artifact |
+| Prospective HRT-32--39 | `runtime_validation/interventions_v2_prospective.yaml` | frozen run/artifact identifiers above |
+| Online Boutique | pinned benchmark + `runtime_validation/interventions_online_boutique.yaml` | current 8-case outputs + historical two-block provenance map |
 | Learned baselines | generated calibration + frozen HRT features | `results_learned_baselines/` + Actions artifact |
-| RCAEval | independent RE2-TrainTicket recorded fault evidence | frozen external-validation branch/run/artifact |
+| RCAEval | `external_validation/rcaeval/` + independent RE2-TrainTicket evidence | `paper_results/external_rcaeval/generated/heldout/` + frozen artifact |
 | LLM faithfulness | frozen AAF decision records + 100 PM prompts | frozen run/artifact + deterministic rescoring script |
+| Manuscript package | `paper_results/manuscript/aggregate_results.csv` | code-generated assets under `paper_results/manuscript/generated/` |
 
 ## Interpretation boundaries
 
