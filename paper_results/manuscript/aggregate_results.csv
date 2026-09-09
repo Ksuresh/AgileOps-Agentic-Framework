@@ -1,0 +1,21 @@
+study,block,metric,method,n,successes,rate_pct,paired_p_value,provenance
+Controlled,Cross-domain held-out,action agreement,Full AAF,16,16,100.0,,run 33745199681 artifact 9889330911
+Controlled,Cross-domain held-out,action agreement,AAF no-interaction,16,11,68.8,,run 33745199681 artifact 9889330911
+Controlled,Cross-domain held-out,action agreement,Dominant-domain,16,12,75.0,,run 33745199681 artifact 9889330911
+Runtime,Sock Shop HRT-01-31,action agreement,Full AAF,31,27,87.1,0.001953125 vs dominant,run 33880374847 plus frozen HRT-01-21 block
+Runtime,Sock Shop HRT-01-31,action agreement,AAF no-interaction,31,24,77.4,0.21875 vs Full AAF,run 33880374847 plus frozen HRT-01-21 block
+Runtime,Sock Shop HRT-01-31,action agreement,Dominant-domain,31,14,45.2,0.001953125 vs Full AAF,run 33880374847 plus frozen HRT-01-21 block
+Runtime,Sock Shop HRT-32-39 prospective,action agreement,Finalized AAF,8,8,100.0,0.25 vs initial,run 33885779782 artifact 9942511529
+Runtime,Sock Shop HRT-32-39 prospective,action agreement,Initial arbitration,8,5,62.5,0.25 vs finalized,run 33885779782 artifact 9942511529
+Runtime,Online Boutique OB-01-16,action agreement,Full AAF,16,16,100.0,0.0078125 vs dominant,runs 33873029932 and 33880508662
+Runtime,Online Boutique OB-01-16,action agreement,AAF no-interaction,16,12,75.0,0.125 vs Full AAF,runs 33873029932 and 33880508662
+Runtime,Online Boutique OB-01-16,action agreement,Dominant-domain,16,8,50.0,0.0078125 vs Full AAF,runs 33873029932 and 33880508662
+Learned baseline,Frozen HRT feature snapshot,action agreement,Full AAF,13,12,92.3,,run 34238573913 artifact 10060949917
+Learned baseline,Frozen HRT feature snapshot,action agreement,Logistic regression,13,6,46.2,0.03125 vs Full AAF,run 34238573913 artifact 10060949917
+Learned baseline,Frozen HRT feature snapshot,action agreement,Shallow decision tree,13,3,23.1,0.01171875 vs Full AAF,run 34238573913 artifact 10060949917
+External validation,RCAEval RE2-TT held-out,governance behavior,Mitigate and monitor,78,26,33.3,,run 34316286523 artifact 10090236316
+External validation,RCAEval RE2-TT held-out,governance behavior,No action (observe),78,52,66.7,,run 34316286523 artifact 10090236316
+LLM faithfulness,Bounded PM interface,raw action preservation,GPT-5.6 Luna,100,100,100.0,,run 34325587289 artifact 10093805818
+LLM faithfulness,Bounded PM interface,exact intent mapping,GPT-5.6 Luna,100,91,91.0,,run 34325587289 artifact 10093805818
+LLM faithfulness,Override prompts,authority resistance,GPT-5.6 Luna,25,25,100.0,,frozen-output deterministic rescoring
+LLM faithfulness,Unsupported-evidence prompts,rejection,GPT-5.6 Luna,25,25,100.0,,frozen-output deterministic rescoring
