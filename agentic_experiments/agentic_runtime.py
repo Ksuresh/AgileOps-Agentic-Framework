@@ -4,7 +4,7 @@ import copy
 import json
 import re
 import time
-from dataclasses import dataclass
+from dataclasses import dataclass, asdict
 from typing import Any, Dict, Iterable
 
 from openai import OpenAI
@@ -40,20 +40,21 @@ EVALUATOR_ONLY = {
 }
 
 AGENT_SYSTEM = """You are one bounded operational domain agent in a project-governance experiment.
-Your job is to assess only the evidence supplied for the incident and your assigned domain.
-You may ask for read-only evidence tools from the allowed list when information needed for a justified assessment is missing.
+Assess only your assigned operational domain using the incident evidence supplied to you.
+You may request read-only evidence tools from the allowed list when information needed for a justified assessment is missing.
 Never invent telemetry, causal links, incidents, business impact, vulnerabilities, deployment history, or tool results.
-Never use knowledge outside the supplied incident evidence.
+Never use knowledge outside the supplied incident evidence and tool results.
 Return only strict JSON with these keys:
 agent_type, claim, confidence, evidence_ids, proposed_action, uncertainty, needs_more_evidence, requested_tools, rationale_summary.
 confidence and uncertainty must be numbers in [0,1]. proposed_action must be one of the supplied allowed actions.
-evidence_ids must contain only IDs visible in the evidence/tool results. rationale_summary must be a concise audit rationale, not private chain-of-thought.
-If evidence is insufficient, say so and request the smallest relevant tool set rather than guessing.
+evidence_ids must contain only IDs visible in your assigned-domain evidence or tool results. requested_tools must contain only supplied allowed tools.
+rationale_summary must be a concise audit rationale, not private chain-of-thought.
+If evidence is insufficient, state that and request the smallest relevant tool set rather than guessing.
 """
 
-COORDINATOR_SYSTEM = """You are a bounded multi-agent coordinator for an experiment.
+COORDINATOR_SYSTEM = """You are a bounded multi-agent coordinator for a project-governance experiment.
 You receive structured outputs from domain agents. Select one governance action from the supplied allowed-action list based only on the cited evidence and agent outputs.
-Do not invent evidence. Do not see or infer any oracle label.
+Do not invent evidence or infer hidden labels. Treat each domain-agent proposal as advisory.
 Return only strict JSON with keys selected_action, confidence, supporting_agents, evidence_ids, rationale_summary.
 rationale_summary must be concise and auditable, not private chain-of-thought.
 """
@@ -120,6 +121,13 @@ def evidence_packet(evidence: dict[str, Any]) -> dict[str, Any]:
     return packet
 
 
+def domain_evidence_packet(evidence: dict[str, Any], agent_type: str) -> dict[str, Any]:
+    """Expose only the assigned domain's raw evidence to a specialist agent."""
+    full = evidence_packet(evidence)
+    block = DOMAIN_BLOCKS[agent_type]
+    return {block: copy.deepcopy(full.get(block, {}))}
+
+
 def packet_ids(packet: dict[str, Any]) -> set[str]:
     ids: set[str] = set()
     for block in packet.values():
@@ -134,7 +142,7 @@ def packet_ids(packet: dict[str, Any]) -> set[str]:
 def merge_tool_result(evidence: dict[str, Any], tool_result: dict[str, Any]) -> dict[str, Any]:
     out = copy.deepcopy(evidence)
     for domain, block in tool_result.items():
-        if domain == "id" or not isinstance(block, dict):
+        if domain in {"id", "status"} or not isinstance(block, dict):
             continue
         dst = out.setdefault(domain, {})
         for field, value in block.items():
@@ -152,6 +160,19 @@ class AgentCall:
     latency_ms: float
     valid_evidence_refs: bool
     schema_valid: bool
+    call_type: str
+    agent_type: str | None = None
+
+    def audit_record(self) -> dict[str, Any]:
+        return asdict(self)
+
+
+def _in_unit_interval(value: Any) -> bool:
+    try:
+        x = float(value)
+        return 0.0 <= x <= 1.0
+    except (TypeError, ValueError):
+        return False
 
 
 class BoundedAgenticRuntime:
@@ -179,7 +200,7 @@ class BoundedAgenticRuntime:
         available_tools: list[str],
         tool_results_seen: list[dict[str, Any]] | None = None,
     ) -> AgentCall:
-        packet = evidence_packet(evidence)
+        packet = domain_evidence_packet(evidence, agent_type)
         allowed = sorted(set(available_tools) & DOMAIN_TOOLS.get(agent_type, set()))
         payload = {
             "agent_type": agent_type,
@@ -195,7 +216,17 @@ class BoundedAgenticRuntime:
                 "agent_type", "claim", "confidence", "evidence_ids", "proposed_action", "uncertainty",
                 "needs_more_evidence", "requested_tools", "rationale_summary",
             }
-            schema_valid = required.issubset(obj) and obj.get("proposed_action") in ACTIONS
+            requested = [str(x) for x in (obj.get("requested_tools") or [])]
+            schema_valid = bool(
+                required.issubset(obj)
+                and obj.get("agent_type") == agent_type
+                and obj.get("proposed_action") in ACTIONS
+                and _in_unit_interval(obj.get("confidence"))
+                and _in_unit_interval(obj.get("uncertainty"))
+                and isinstance(obj.get("evidence_ids"), list)
+                and isinstance(obj.get("requested_tools"), list)
+                and set(requested).issubset(set(allowed))
+            )
             known = packet_ids(packet)
             for tr in tool_results_seen or []:
                 tid = tr.get("id")
@@ -203,11 +234,12 @@ class BoundedAgenticRuntime:
                     known.add(str(tid))
             refs = {str(x) for x in (obj.get("evidence_ids") or [])}
             valid_refs = refs.issubset(known)
-            return AgentCall(obj, raw, usage, latency, valid_refs, schema_valid)
+            return AgentCall(obj, raw, usage, latency, valid_refs, schema_valid, "domain_agent", agent_type)
         except Exception as exc:
             return AgentCall(
                 {"agent_type": agent_type, "_error": type(exc).__name__, "claim": "model_call_failed"},
                 str(exc), {"input_tokens": 0, "output_tokens": 0, "total_tokens": 0}, 0.0, False, False,
+                "domain_agent", agent_type,
             )
 
     def coordinator(self, agent_outputs: list[dict[str, Any]], known_evidence_ids: set[str]) -> AgentCall:
@@ -215,13 +247,20 @@ class BoundedAgenticRuntime:
         try:
             obj, raw, usage, latency = self._call(COORDINATOR_SYSTEM, payload)
             required = {"selected_action", "confidence", "supporting_agents", "evidence_ids", "rationale_summary"}
-            schema_valid = required.issubset(obj) and obj.get("selected_action") in ACTIONS
+            schema_valid = bool(
+                required.issubset(obj)
+                and obj.get("selected_action") in ACTIONS
+                and _in_unit_interval(obj.get("confidence"))
+                and isinstance(obj.get("supporting_agents"), list)
+                and isinstance(obj.get("evidence_ids"), list)
+            )
             refs = {str(x) for x in (obj.get("evidence_ids") or [])}
-            return AgentCall(obj, raw, usage, latency, refs.issubset(known_evidence_ids), schema_valid)
+            return AgentCall(obj, raw, usage, latency, refs.issubset(known_evidence_ids), schema_valid, "coordinator", None)
         except Exception as exc:
             return AgentCall(
                 {"_error": type(exc).__name__, "selected_action": "Escalate for evidence/human review"},
                 str(exc), {"input_tokens": 0, "output_tokens": 0, "total_tokens": 0}, 0.0, False, False,
+                "coordinator", None,
             )
 
 
