@@ -1,0 +1,37 @@
+name: Reviewer-Ready Packaging
+
+on:
+  push:
+    branches: [reviewer-ready-packaging]
+  workflow_dispatch:
+
+jobs:
+  package-and-audit:
+    runs-on: ubuntu-latest
+    env:
+      PYTHONPATH: ${{ github.workspace }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Deterministic tests
+        run: python -m pytest -q
+      - name: Generate canonical manuscript assets
+        run: python paper_results/manuscript/generate_manuscript_assets.py
+      - name: Validate reviewer package
+        run: |
+          test -s paper_results/manuscript/aggregate_results.csv
+          test -s paper_results/manuscript/generated/master_results.md
+          test -s paper_results/manuscript/generated/master_provenance.csv
+          test -s paper_results/manuscript/generated/validation_overview.svg
+          grep -q 'Online Boutique OB-01-16' paper_results/manuscript/aggregate_results.csv
+          grep -q 'RCAEval RE2-TT held-out' paper_results/manuscript/aggregate_results.csv
+          grep -q 'Bounded PM interface' paper_results/manuscript/aggregate_results.csv
+      - name: Upload reviewer package
+        uses: actions/upload-artifact@v4
+        with:
+          name: aaf-reviewer-ready-manuscript-assets
+          path: paper_results/manuscript/

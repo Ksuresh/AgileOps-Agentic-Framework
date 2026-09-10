@@ -1,0 +1,37 @@
+name: External RCAEval Pilot Evaluation
+
+on:
+  push:
+    branches:
+      - experiment/external-rcaeval-validation
+    paths:
+      - 'external_validation/rcaeval/adapter.py'
+      - 'external_validation/rcaeval/run_pilot.py'
+      - '.github/workflows/external-rcaeval-pilot.yml'
+  workflow_dispatch:
+
+jobs:
+  pilot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      PYTHONPATH: ${{ github.workspace }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install AAF and external-validation dependencies
+        run: |
+          pip install -r requirements.txt
+          pip install -r external_validation/rcaeval/requirements.txt
+      - name: Run deterministic tests
+        run: python -m pytest -q
+      - name: Run 12-case RCAEval pilot
+        run: python external_validation/rcaeval/run_pilot.py
+      - name: Upload pilot evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: external-rcaeval-pilot
+          path: paper_results/external_rcaeval/generated/pilot/
+          if-no-files-found: error
