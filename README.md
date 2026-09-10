@@ -8,6 +8,8 @@ AAF is a **hybrid deterministic + selectively Agentic AI decision-support framew
 >
 > The Agentic/LLM layer does **not** autonomously determine the authoritative governance action.
 
+`main` is the canonical reviewer/reproduction branch. The historical `experiment/hybrid-agentic-aaf-v2` branch is retained only for provenance and does not need to be checked out for normal reproduction.
+
 ## Reviewer quick links
 
 - **Reproduce the current paper:** [`REPRODUCE_CURRENT_PAPER.md`](REPRODUCE_CURRENT_PAPER.md)
@@ -138,7 +140,6 @@ The intended contribution is architectural: deterministic governance already per
 ```bash
 git clone https://github.com/Ksuresh/AgileOps-Agentic-Framework.git
 cd AgileOps-Agentic-Framework
-git checkout experiment/hybrid-agentic-aaf-v2
 python -m venv .venv
 source .venv/bin/activate        # Windows: .venv\Scripts\activate
 python -m pip install --upgrade pip
