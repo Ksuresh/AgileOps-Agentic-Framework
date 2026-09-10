@@ -1,8 +1,10 @@
 # Manuscript Result Map — Hybrid AAF
 
-This file maps manuscript-facing AAF results to frozen execution evidence. It is the authoritative reviewer-facing provenance map for deterministic, runtime, selective-Agentic, prospective replication, external-telemetry, and bounded PM-facing LLM evidence.
+This file maps manuscript-facing AAF results to frozen execution evidence. It is the authoritative reviewer-facing provenance map for deterministic, runtime, selective Agentic Evidence Investigation (AEI), prospective replication, external-telemetry, and bounded PM-facing LLM evidence.
 
-**Architecture boundary:** Hybrid AAF may use bounded Agentic reasoning to investigate uncertainty and acquire/re-ground evidence, but deterministic cross-domain governance remains authoritative for the final action. The downstream PM-facing LLM is also non-authoritative.
+**Architecture boundary:** Hybrid AAF may use bounded AEI to investigate uncertainty and acquire missing evidence. Newly acquired evidence is then re-grounded/reassessed, while deterministic cross-domain governance remains authoritative for the final action. The downstream PM-facing LLM is also non-authoritative.
+
+**Terminology boundary:** AEI denotes the LLM-mediated investigation/evidence-acquisition step. Evidence re-grounding/reassessment denotes processing after acquisition. Historical code/artifact names are preserved where they form part of frozen provenance.
 
 ## 1. Controlled cross-domain evidence
 
@@ -100,7 +102,7 @@ Frozen held-out HRT feature snapshot results:
 
 The learned models are comparative baselines, not AAF component ablations.
 
-## 7. Primary selective-Agentic Protocol-v2 study — 32 cases
+## 7. Primary selective-AEI Protocol-v2 study — 32 cases
 
 Dataset: `agentic_experiments/cases_v1.yaml`, balanced 8 CLEAR / 8 AMBIGUOUS / 8 INCOMPLETE / 8 MISLEADING.
 
@@ -121,21 +123,21 @@ Frozen results:
 - Deterministic: `26/32 = 81.25%`
 - Agentic-only: `10/32 = 31.25%`
 - Hybrid: `27/32 = 84.375%`
-- Hybrid invocation: `21/32 = 65.625%`
+- Hybrid AEI invocation: `21/32 = 65.625%`
 - CLEAR unnecessary invocation: `0/8`
 - Always-on Agentic tokens: `91,441`
 - Hybrid tokens: `44,879`
 - Token avoidance: `50.92%`
 - Governance overrides: `14`
 - Beneficial overrides: `11`
-- INCOMPLETE deterministic pre-RAR `7/8` -> Hybrid post-RAR `8/8`; one re-grounding recovery
+- INCOMPLETE deterministic before investigation `7/8` -> Hybrid after AEI/evidence re-grounding `8/8`; one evidence-acquisition recovery
 - MISLEADING Agentic-only `2/8`; Hybrid `7/8`
 
-**Interpretation boundary:** do not claim Agentic AI generally beats deterministic AAF. The action-agreement gain is only `26/32 -> 27/32`. The stronger architectural evidence is selective invocation, evidence acquisition/re-grounding, deterministic authority over Agentic proposals, and token avoidance.
+**Interpretation boundary:** do not claim Agentic AI generally beats deterministic AAF. The action-agreement gain is only `26/32 -> 27/32`. The stronger architectural evidence is selective AEI invocation, evidence acquisition/re-grounding, deterministic authority over Agentic proposals, and token avoidance.
 
 The earlier 32-case run before trigger refinement remains development provenance. Protocol-v2 is the final reported selective design.
 
-## 8. Prospective selective-Agentic replication — 16 unseen cases
+## 8. Prospective selective-AEI replication — 16 unseen cases
 
 Dataset: `agentic_experiments/cases_replication_v1.yaml`, separately frozen after the primary 32-case outcomes were observed; 4 CLEAR / 4 AMBIGUOUS / 4 INCOMPLETE / 4 MISLEADING.
 
@@ -160,18 +162,18 @@ Frozen results:
 - AMBIGUOUS invocation: `4/4`
 - INCOMPLETE invocation: `4/4`
 - MISLEADING invocation: `2/4`
-- Overall invocation: `10/16 = 62.5%`
+- Overall Hybrid AEI invocation: `10/16 = 62.5%`
 - Always-on Agentic tokens: `47,351`
 - Hybrid tokens: `18,682`
 - Token avoidance: `60.5%`
 - Governance overrides: `8`
 - Beneficial overrides: `7`
-- INCOMPLETE deterministic `3/4` -> Hybrid `4/4`
+- INCOMPLETE deterministic `3/4` -> Hybrid after AEI/evidence re-grounding `4/4`
 - Expected tool selected by Hybrid `4/4`
 
 `RP-A04` remains incorrect under both deterministic and Hybrid AAF and is retained as a genuine boundary/failure case.
 
-## 9. Combined Agentic architectural evidence — 48 cases
+## 9. Combined selective-Agentic architectural evidence — 48 cases
 
 Primary 32 + prospective 16:
 
@@ -179,9 +181,9 @@ Primary 32 + prospective 16:
 - Agentic-only: `17/48 = 35.42%`
 - Hybrid AAF: `41/48 = 85.42%`
 
-The prospective study independently reproduces the central architecture behavior: no unnecessary CLEAR invocation, selective calls on uncertain/incomplete cases, targeted evidence acquisition, deterministic final authority, and substantial token avoidance versus always-on Agentic reasoning.
+This combined total is descriptive. The Hybrid-versus-deterministic difference is **not statistically significant in either constituent study** (exact paired `p = 1.000` in both). The prospective study instead reproduces the central architectural behavior: no unnecessary CLEAR invocation, selective AEI on uncertain/incomplete cases, targeted evidence acquisition, deterministic final authority, and substantial token avoidance versus always-on Agentic reasoning.
 
-The two studies must remain separately identifiable in Methods/Results even when a combined descriptive total is reported.
+The two studies must remain separately identifiable in Methods/Results even when the combined descriptive total is reported.
 
 ## 10. RCAEval external telemetry validation
 
