@@ -1,10 +1,12 @@
-# Selective Hybrid Agentic AAF — Experiments 2–4 and Prospective Replication
+# Selective Hybrid Agentic AAF — Primary Study and Prospective Replication
 
 This directory contains the frozen selective-Agentic evaluation for Hybrid AAF.
 
 **Core protocol rule:** **Uncertainty invokes agency; severity does not.**
 
-The Agentic layer is bounded and advisory. After any Agentic evidence acquisition/re-grounding, deterministic cross-domain governance computes the authoritative final action.
+The manuscript-facing term **Agentic Evidence Investigation (AEI)** denotes the bounded LLM-mediated investigation/evidence-acquisition step. Evidence re-grounding/reassessment after newly acquired evidence is a separate deterministic step. Agentic outputs remain advisory; deterministic cross-domain governance computes the authoritative final action.
+
+> Historical note: the frozen protocol and some code/artifact identifiers predate the final AEI terminology. They are preserved because changing them after execution would weaken provenance. Reviewer-facing interpretation should use AEI for the LLM-mediated mechanism.
 
 ## Study separation
 
@@ -21,7 +23,7 @@ Do **not** edit either dataset, its oracle/admissible actions, the selective tri
 
 1. **Deterministic AAF** — frozen deterministic domain assessment and deterministic cross-domain governance.
 2. **Agentic-only** — bounded LLM domain reasoning and approved read-only evidence tools without deterministic final cross-domain arbitration.
-3. **Hybrid AAF** — deterministic first pass; Agentic reasoning only when the frozen uncertainty trigger fires; approved evidence acquisition/re-grounding; deterministic governance remains authoritative.
+3. **Hybrid AAF** — deterministic first pass; AEI only when the frozen uncertainty trigger fires; approved evidence acquisition followed by deterministic re-grounding/reassessment; deterministic governance remains authoritative.
 
 The model does not receive evaluator-only fields such as case ID, stratum, focus, oracle domains, admissible actions, expected Agentic behavior, expected tool, or hidden tool result as incident evidence. Tool results become visible only after an allowed tool is requested.
 
@@ -35,7 +37,7 @@ reasoning_effort: none
 Python reference CI: 3.11
 ```
 
-Fresh API calls are stochastic replications. The manuscript-reported evidence is therefore tied to the frozen GitHub Actions executions and artifacts below.
+Fresh API calls are stochastic replications. The manuscript-reported evidence is therefore tied to the frozen GitHub Actions executions and artifacts below. The exact system prompts and model-selection rationale are disclosed in [`../paper_results/PROMPT_AND_MODEL_DISCLOSURE.md`](../paper_results/PROMPT_AND_MODEL_DISCLOSURE.md).
 
 ## Primary Protocol-v2 study — 32 cases
 
@@ -72,15 +74,15 @@ Generated outputs are written to `paper_results/agentic_experiments_2_4/` and co
 - Deterministic: `26/32 = 81.25%`
 - Agentic-only: `10/32 = 31.25%`
 - Hybrid: `27/32 = 84.375%`
-- Hybrid invocation: `21/32 = 65.625%`
+- Hybrid AEI invocation: `21/32 = 65.625%`
 - CLEAR unnecessary invocation: `0/8`
 - Always-on Agentic tokens: `91,441`
 - Hybrid tokens: `44,879`
 - Token avoidance: `50.92%`
 - Governance overrides: `14`
 - Beneficial overrides: `11`
-- INCOMPLETE deterministic pre-re-grounding: `7/8`; Hybrid post-re-grounding: `8/8`
-- One initially incorrect/unresolved INCOMPLETE case recovered after evidence acquisition/re-grounding
+- INCOMPLETE deterministic before AEI: `7/8`; Hybrid after AEI/evidence re-grounding: `8/8`
+- One initially incorrect INCOMPLETE case recovered after evidence acquisition and deterministic reassessment
 - MISLEADING Agentic-only: `2/8`; Hybrid: `7/8`
 
 The primary study does **not** support a claim that Agentic AI generally outperforms deterministic AAF. The absolute governance-action gain is only `26/32 -> 27/32`.
@@ -119,7 +121,7 @@ Generated outputs are written to `paper_results/agentic_prospective_replication/
 - AMBIGUOUS invocation: `4/4`
 - INCOMPLETE invocation: `4/4`
 - MISLEADING invocation: `2/4`
-- Overall Hybrid invocation: `10/16 = 62.5%`
+- Overall Hybrid AEI invocation: `10/16 = 62.5%`
 - Always-on Agentic tokens: `47,351`
 - Hybrid tokens: `18,682`
 - Token avoidance: `60.5%`
@@ -137,8 +139,16 @@ Across the primary and prospective studies:
 - Deterministic AAF: `39/48 = 81.25%`
 - Agentic-only: `17/48 = 35.42%`
 - Hybrid AAF: `41/48 = 85.42%`
+- INCOMPLETE: Deterministic `10/12` -> Hybrid `12/12`; both observed deterministic misses were recovered
+- CLEAR AEI invocation: `0/12`
+- Always-on Agentic tokens: `138,792`; Hybrid tokens: `63,561`; token avoidance: `54.2%`
+- Governance overrides: `22`; beneficial overrides: `18`
 
-The scientifically appropriate interpretation is architectural rather than a generic LLM-accuracy claim: deterministic cross-domain governance is already strong on bounded cases; selective Agentic reasoning provides targeted value when missing evidence must be acquired and re-grounded; deterministic governance prevents many incorrect Agentic proposals from becoming authoritative actions; and selective invocation reduces LLM usage substantially relative to always-on Agentic reasoning.
+The Hybrid-versus-deterministic difference is descriptive and is **not statistically significant in either constituent study** (exact paired `p = 1.000` in both). By contrast, Hybrid significantly outperformed Agentic-only in the primary study (`p = 0.0000153`) and prospective replication (`p = 0.0391`).
+
+The scientifically appropriate interpretation is architectural: deterministic cross-domain governance is already strong on bounded cases; selective AEI adds targeted value when missing evidence must be investigated/acquired; deterministic governance prevents incorrect Agentic coordinator proposals from becoming authoritative actions; and selective invocation substantially reduces LLM usage relative to always-on Agentic reasoning.
+
+A `beneficial_override` means the Agentic coordinator proposal was not oracle-correct while the deterministic final action was correct. It must **not** be interpreted as evidence that the overridden proposal was directionally correct.
 
 ## Artifact preservation policy
 
