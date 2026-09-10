@@ -1,0 +1,151 @@
+# PROSPECTIVE REPLICATION SET. FROZEN BEFORE FIRST LLM EXECUTION.
+# Do not add/remove/relabel cases after the first model-visible run.
+# Oracle and expected_tool fields are evaluator-only and MUST NOT be exposed to the model.
+version: replication-1
+n_cases: 16
+strata: {CLEAR: 4, AMBIGUOUS: 4, INCOMPLETE: 4, MISLEADING: 4}
+
+cases:
+# ---------------- CLEAR ----------------
+- id: RP-C01
+  stratum: CLEAR
+  focus: healthy_cross_domain_control
+  evidence: {deploy: {pipeline_failed: false, artifact_mismatch: false, config_drift: false}, sre: {p95_latency_ms: 195, error_rate_pct: 0.5, saturation_pct: 39, availability_pct: 99.98}, finops: {cost_spike_pct: 1, hpa_scale_to: 3}, sec: {critical_cves: 0, policy_violation: false, iam_drift: false}}
+  oracle_domains: []
+  admissible_actions: ["No action (observe)"]
+  expected_agentic: false
+
+- id: RP-C02
+  stratum: CLEAR
+  focus: strong_sre_degradation_without_deploy_cause
+  evidence: {deploy: {pipeline_failed: false, artifact_mismatch: false, config_drift: false}, sre: {p95_latency_ms: 1120, error_rate_pct: 18, saturation_pct: 96, availability_pct: 93.4}, finops: {cost_spike_pct: 4, hpa_scale_to: 5}, sec: {critical_cves: 0, policy_violation: false}}
+  oracle_domains: [SRE]
+  admissible_actions: ["Mitigate and monitor"]
+  expected_agentic: false
+
+- id: RP-C03
+  stratum: CLEAR
+  focus: strong_finops_overprovisioning
+  evidence: {deploy: {pipeline_failed: false}, sre: {p95_latency_ms: 205, error_rate_pct: 0.7, saturation_pct: 38, availability_pct: 99.96}, finops: {cost_spike_pct: 44, hpa_scale_to: 16, cpu_request_increase_pct: 61, memory_request_increase_pct: 47}, sec: {policy_violation: false}}
+  oracle_domains: [FinOps]
+  admissible_actions: ["Scale adjustment"]
+  expected_agentic: false
+
+- id: RP-C04
+  stratum: CLEAR
+  focus: explicit_security_release_gate
+  evidence: {deploy: {pipeline_failed: false, artifact_mismatch: false, config_drift: false}, sre: {p95_latency_ms: 225, error_rate_pct: 0.9, availability_pct: 99.95}, finops: {cost_spike_pct: 2}, sec: {critical_cves: 3, policy_violation: true, iam_drift: true, compliance_gap: true}}
+  oracle_domains: [DevSecOps]
+  admissible_actions: ["Patch or block release"]
+  expected_agentic: false
+
+# ---------------- AMBIGUOUS ----------------
+- id: RP-A01
+  stratum: AMBIGUOUS
+  focus: clustered_sre_boundary
+  evidence: {deploy: {pipeline_failed: false}, sre: {p95_latency_ms: 468, error_rate_pct: 7.6, saturation_pct: 86, availability_pct: 99.05}, finops: {cost_spike_pct: 5}, sec: {policy_violation: false}}
+  oracle_domains: [SRE]
+  admissible_actions: ["Mitigate and monitor"]
+  expected_agentic: true
+
+- id: RP-A02
+  stratum: AMBIGUOUS
+  focus: reliability_resource_boundary
+  evidence: {deploy: {pipeline_failed: false}, sre: {p95_latency_ms: 790, error_rate_pct: 11.6, saturation_pct: 89, availability_pct: 98.95}, finops: {cost_spike_pct: 34, hpa_scale_to: 13, cpu_request_increase_pct: 49}, sec: {policy_violation: false}}
+  oracle_domains: [SRE, FinOps]
+  admissible_actions: ["Scale adjustment"]
+  expected_agentic: true
+
+- id: RP-A03
+  stratum: AMBIGUOUS
+  focus: deployment_security_context_boundary
+  evidence: {deploy: {config_drift: true, pipeline_failed: false}, sre: {p95_latency_ms: 250, error_rate_pct: 1.8, availability_pct: 99.7}, finops: {cost_spike_pct: 3}, sec: {critical_cves: 1, policy_violation: false, iam_drift: true, compliance_gap: false}}
+  oracle_domains: [DevOps, DevSecOps]
+  admissible_actions: ["Patch or block release"]
+  expected_agentic: true
+
+- id: RP-A04
+  stratum: AMBIGUOUS
+  focus: deployment_reliability_temporal_boundary
+  evidence: {deploy: {restart_burst_count: 3, restart_window_seconds: 64, pipeline_failed: false, config_drift: false}, sre: {p95_latency_ms: 805, error_rate_pct: 11.8, saturation_pct: 87, availability_pct: 98.8}, finops: {cost_spike_pct: 4}, sec: {policy_violation: false}}
+  oracle_domains: [DevOps, SRE]
+  admissible_actions: ["Rollback to stable deployment"]
+  expected_agentic: true
+
+# ---------------- INCOMPLETE ----------------
+- id: RP-I01
+  stratum: INCOMPLETE
+  focus: missing_restart_history_for_deployment_reliability
+  evidence: {deploy: {restart_burst_count: null, restart_window_seconds: null, pipeline_failed: false, _evidence: {restart_burst_count: {status: missing}, restart_window_seconds: {status: missing}}}, sre: {p95_latency_ms: 960, error_rate_pct: 14, saturation_pct: 90, availability_pct: 97.9}}
+  available_tools: [get_restart_history, get_deployment_history]
+  expected_tool: get_restart_history
+  tool_result: {id: TOOL-RP-I01, deploy: {restart_burst_count: 6, restart_window_seconds: 46}}
+  oracle_domains: [DevOps, SRE]
+  admissible_actions: ["Rollback to stable deployment"]
+  expected_agentic: true
+
+- id: RP-I02
+  stratum: INCOMPLETE
+  focus: missing_security_gate_status
+  evidence: {deploy: {config_drift: true, pipeline_failed: false}, sec: {critical_cves: 1, policy_violation: null, iam_drift: true, _evidence: {policy_violation: {status: missing}}}, sre: {p95_latency_ms: 240, error_rate_pct: 1.1}}
+  available_tools: [get_policy_gate_status, get_vulnerability_details]
+  expected_tool: get_policy_gate_status
+  tool_result: {id: TOOL-RP-I02, sec: {policy_violation: true}}
+  oracle_domains: [DevOps, DevSecOps]
+  admissible_actions: ["Patch or block release"]
+  expected_agentic: true
+
+- id: RP-I03
+  stratum: INCOMPLETE
+  focus: missing_cost_evidence_under_high_replica_count
+  evidence: {deploy: {pipeline_failed: false}, sre: {p95_latency_ms: 235, error_rate_pct: 1.2, saturation_pct: 41, availability_pct: 99.9}, finops: {cost_spike_pct: null, hpa_scale_to: 15, cpu_request_increase_pct: 58, _evidence: {cost_spike_pct: {status: missing}}}}
+  available_tools: [get_cost_proxy_history, get_replica_history]
+  expected_tool: get_cost_proxy_history
+  tool_result: {id: TOOL-RP-I03, finops: {cost_spike_pct: 41}}
+  oracle_domains: [FinOps]
+  admissible_actions: ["Scale adjustment"]
+  expected_agentic: true
+
+- id: RP-I04
+  stratum: INCOMPLETE
+  focus: missing_saturation_for_reliability_resource_interaction
+  evidence: {deploy: {pipeline_failed: false}, sre: {p95_latency_ms: 875, error_rate_pct: 10.5, saturation_pct: null, availability_pct: 98.6, _evidence: {saturation_pct: {status: missing}}}, finops: {cost_spike_pct: 29, hpa_scale_to: 12, cpu_request_increase_pct: 52}}
+  available_tools: [get_saturation_history, get_latency_history]
+  expected_tool: get_saturation_history
+  tool_result: {id: TOOL-RP-I04, sre: {saturation_pct: 93}}
+  oracle_domains: [SRE, FinOps]
+  admissible_actions: ["Scale adjustment"]
+  expected_agentic: true
+
+# ---------------- MISLEADING ----------------
+- id: RP-M01
+  stratum: MISLEADING
+  focus: high_cost_is_not_overprovisioning_under_real_pressure
+  evidence: {deploy: {pipeline_failed: false}, sre: {p95_latency_ms: 1010, error_rate_pct: 13.5, saturation_pct: 96, availability_pct: 97.8}, finops: {cost_spike_pct: 42, hpa_scale_to: 15, cpu_request_increase_pct: 60}, sec: {policy_violation: false}}
+  misleading_signal: high_cost_and_replica_count
+  oracle_domains: [SRE, FinOps]
+  admissible_actions: ["Scale adjustment"]
+
+- id: RP-M02
+  stratum: MISLEADING
+  focus: security_marker_nonblocking_vs_pipeline_failure
+  evidence: {deploy: {pipeline_failed: true, artifact_mismatch: true, config_drift: false}, sre: {p95_latency_ms: 220, error_rate_pct: 1.0, availability_pct: 99.9}, finops: {cost_spike_pct: 2}, sec: {critical_cves: 0, policy_violation: false, iam_drift: true}}
+  misleading_signal: iam_drift_without_release_gate
+  oracle_domains: [DevOps]
+  admissible_actions: ["Block release and fix pipeline"]
+
+- id: RP-M03
+  stratum: MISLEADING
+  focus: restart_count_without_temporal_cascade
+  evidence: {deploy: {restart_burst_count: 3, restart_window_seconds: 95, pipeline_failed: false, config_drift: false}, sre: {p95_latency_ms: 930, error_rate_pct: 14, saturation_pct: 91, availability_pct: 97.7}, finops: {cost_spike_pct: 3}, sec: {policy_violation: false}}
+  misleading_signal: restart_count_without_required_temporal_window
+  oracle_domains: [SRE]
+  admissible_actions: ["Mitigate and monitor"]
+
+- id: RP-M04
+  stratum: MISLEADING
+  focus: informational_cve_should_not_dominate_resource_pressure
+  evidence: {deploy: {pipeline_failed: false}, sre: {p95_latency_ms: 860, error_rate_pct: 9.5, saturation_pct: 94, availability_pct: 98.7}, finops: {cost_spike_pct: 32, hpa_scale_to: 13, cpu_request_increase_pct: 54}, sec: {critical_cves: 1, policy_violation: false, iam_drift: false}}
+  misleading_signal: nonblocking_vulnerability_marker
+  oracle_domains: [SRE, FinOps]
+  admissible_actions: ["Scale adjustment"]
