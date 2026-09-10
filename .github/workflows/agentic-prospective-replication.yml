@@ -11,6 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     env:
+      PYTHONPATH: ${{ github.workspace }}
       OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
       OPENAI_MODEL: gpt-5.6-luna
       OPENAI_REASONING_EFFORT: none
@@ -42,7 +43,7 @@ jobs:
 
       - name: Run pre-replication protocol tests
         run: |
-          pytest -q \
+          python -m pytest -q \
             tests/test_evidence_schema.py \
             tests/test_decision_gate.py \
             tests/test_aaf_v2_arbitration.py \
@@ -64,4 +65,5 @@ jobs:
         with:
           name: aaf-agentic-prospective-replication-gpt-5-6-luna
           path: paper_results/agentic_prospective_replication/
+          if-no-files-found: error
           retention-days: 90
