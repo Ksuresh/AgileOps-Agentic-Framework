@@ -4,6 +4,8 @@ This is the execution entry point for the current Hybrid AgileOps Agentic Framew
 
 The repository contains deterministic experiments that can be rerun exactly from frozen inputs and LLM-based experiments for which a fresh API execution is a **stochastic replication**. Manuscript-reported LLM outputs are therefore tied to frozen GitHub Actions runs/artifacts.
 
+**Canonical branch:** `main` contains the integrated reviewer/reproduction package. The historical `experiment/hybrid-agentic-aaf-v2` branch is retained for provenance only.
+
 **Terminology:** the manuscript uses **Agentic Evidence Investigation (AEI)** for LLM-mediated investigation/evidence acquisition. Evidence re-grounding/reassessment is the processing that follows acquired evidence. Historical code, workflow, protocol, and artifact names are retained where they are part of frozen provenance.
 
 ## 1. Environment and deterministic tests
@@ -11,7 +13,6 @@ The repository contains deterministic experiments that can be rerun exactly from
 ```bash
 git clone https://github.com/Ksuresh/AgileOps-Agentic-Framework.git
 cd AgileOps-Agentic-Framework
-git checkout experiment/hybrid-agentic-aaf-v2
 python -m venv .venv
 source .venv/bin/activate        # Windows: .venv\Scripts\activate
 python -m pip install --upgrade pip
