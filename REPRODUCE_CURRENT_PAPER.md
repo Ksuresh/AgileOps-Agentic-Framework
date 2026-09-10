@@ -1,10 +1,10 @@
 # Reproducing the Hybrid AAF IEEE Access Experiments
 
-This is the execution entry point for the current Hybrid AgileOps Agentic Framework (AAF) manuscript. For the reviewer-facing study index, see [`paper_results/README.md`](paper_results/README.md); for exact manuscript-number provenance, see [`paper_results/MANUSCRIPT_RESULT_MAP.md`](paper_results/MANUSCRIPT_RESULT_MAP.md).
+This is the execution entry point for the current Hybrid AgileOps Agentic Framework (AAF) manuscript. For the reviewer-facing study index, see [`paper_results/README.md`](paper_results/README.md); for exact manuscript-number provenance, see [`paper_results/MANUSCRIPT_RESULT_MAP.md`](paper_results/MANUSCRIPT_RESULT_MAP.md); for exact constrained LLM prompts and model-selection rationale, see [`paper_results/PROMPT_AND_MODEL_DISCLOSURE.md`](paper_results/PROMPT_AND_MODEL_DISCLOSURE.md).
 
 The repository contains deterministic experiments that can be rerun exactly from frozen inputs and LLM-based experiments for which a fresh API execution is a **stochastic replication**. Manuscript-reported LLM outputs are therefore tied to frozen GitHub Actions runs/artifacts.
 
-**Terminology:** the manuscript uses **Agentic Evidence Investigation (AEI)** for LLM-mediated investigation/evidence acquisition. Evidence re-grounding/reassessment is the processing that follows acquired evidence. Historical code, workflow, and artifact names are retained where they are part of frozen provenance.
+**Terminology:** the manuscript uses **Agentic Evidence Investigation (AEI)** for LLM-mediated investigation/evidence acquisition. Evidence re-grounding/reassessment is the processing that follows acquired evidence. Historical code, workflow, protocol, and artifact names are retained where they are part of frozen provenance.
 
 ## 1. Environment and deterministic tests
 
@@ -20,7 +20,7 @@ export PYTHONPATH="$PWD"         # PowerShell: $env:PYTHONPATH=(Get-Location)
 python -m pytest -q
 ```
 
-Reference CI version: Python 3.11.
+Reference CI version: Python 3.11. The root requirements cover the deterministic, selective-Agentic, PM-interface and manuscript-asset workflows. RCAEval has additional data-access dependencies in `external_validation/rcaeval/requirements.txt` and should be installed separately before running that study.
 
 ## 2. Controlled cross-domain experiments
 
@@ -115,7 +115,7 @@ paper_results/agentic_experiments_2_4/
 - Artifact digest: `sha256:51775beb89de8d09b16f8e6449d900cdd0a42e3863c3f5d9f05fd8059939b583`
 - Dataset SHA-256 recorded in artifact metadata: `98fd94278193d2c48fffb11ff0b76e96d8233585bf52e52570516f35911913b5`
 
-Reported results: Deterministic `26/32`, Agentic-only `10/32`, Hybrid `27/32`; Hybrid AEI invocation `21/32`; CLEAR unnecessary invocation `0/8`; always-on Agentic `91,441` tokens vs Hybrid `44,879` tokens (`50.92%` avoidance); 14 governance overrides, 11 beneficial.
+Reported results: Deterministic `26/32`, Agentic-only `10/32`, Hybrid `27/32`; Hybrid AEI invocation `21/32`; CLEAR unnecessary invocation `0/8`; always-on Agentic `91,441` tokens vs Hybrid `44,879` tokens (`50.92%` avoidance); 14 governance overrides, 11 beneficial; INCOMPLETE `7/8 -> 8/8` after evidence acquisition and deterministic reassessment.
 
 ## 7. Prospective selective-AEI replication
 
@@ -152,11 +152,17 @@ paper_results/agentic_prospective_replication/
 
 Reported results: Deterministic `13/16`, Agentic-only `7/16`, Hybrid `14/16`; Hybrid AEI invocation `10/16`; CLEAR unnecessary invocation `0/4`; always-on Agentic `47,351` tokens vs Hybrid `18,682` (`60.5%` avoidance); 8 governance overrides, 7 beneficial; INCOMPLETE `3/4 -> 4/4` with expected-tool selection `4/4` in Hybrid. `RP-A04` remains a preserved failure/boundary case.
 
-The combined 48-case Hybrid-versus-deterministic total is descriptive. The difference is not statistically significant in either constituent study (exact paired `p = 1.000` in both).
+Across the 48 primary + prospective cases, INCOMPLETE action agreement moves from Deterministic `10/12` to Hybrid `12/12`, CLEAR AEI invocation is `0/12`, and Hybrid uses `63,561` tokens versus `138,792` for always-on Agentic-only reasoning (`54.2%` avoidance). The Hybrid-versus-deterministic total (`41/48` vs `39/48`) is descriptive and is not statistically significant in either constituent study (exact paired `p = 1.000` in both). Hybrid significantly outperforms Agentic-only in the primary study (`p = 0.0000153`) and prospective replication (`p = 0.0391`).
 
 ## 8. Independent external-fault validation: RCAEval
 
 RCAEval RE2-TrainTicket is an independent recorded-fault evidence source. Fault/root-cause labels are withheld from AAF and are used only for evaluation/grouping; they are **not governance-action labels**.
+
+Install the additional RCAEval dependencies before execution:
+
+```bash
+pip install -r external_validation/rcaeval/requirements.txt
+```
 
 The frozen protocol uses 12 adapter-development/pilot cases followed by 78 held-out cases:
 
@@ -172,7 +178,7 @@ The held-out output distribution is 26 `Mitigate and monitor` and 52 `No action`
 
 ## 9. Bounded PM-facing LLM faithfulness evaluation
 
-The PM-facing LLM is downstream of the authoritative AAF decision path. The frozen experiment uses OpenAI `gpt-5.6-luna`, Responses API, reasoning effort `none`, tools/web disabled, 5 frozen AAF records and 20 prompts per record.
+The PM-facing LLM is downstream of the authoritative AAF decision path. The frozen experiment uses OpenAI `gpt-5.6-luna`, Responses API, reasoning effort `none`, tools/web disabled, 5 frozen AAF records and 20 prompts per record. The exact constrained intent/answer prompts are disclosed in `paper_results/PROMPT_AND_MODEL_DISCLOSURE.md`.
 
 To execute a fresh run:
 
@@ -221,6 +227,7 @@ Generated files are written under `paper_results/manuscript/generated/`. The fin
 - RCAEval fault labels are not project-governance action ground truth.
 - The 32-case primary selective-AEI study and 16-case prospective replication are separate frozen studies.
 - The Hybrid-versus-deterministic difference is not statistically significant in either selective-Agentic study; the contribution is selective evidence investigation/acquisition, authority preservation, and reduced LLM usage.
+- A beneficial override means deterministic governance changed an incorrect Agentic coordinator proposal into a correct governed action; it does not establish that the original proposal was directionally correct.
 - The PM-facing LLM evaluation does not prove hallucination is impossible. It tests a bounded downstream interface whose outputs cannot autonomously become governance decisions.
 
 ## Provenance policy
