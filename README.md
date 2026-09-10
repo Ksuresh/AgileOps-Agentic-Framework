@@ -109,7 +109,7 @@ Frozen Protocol-v2 execution: workflow **AAF Confirmatory Agentic Experiments 2-
 - Governance overrides: **8**, of which **7** were beneficial
 - INCOMPLETE: deterministic **3/4** -> Hybrid **4/4**; expected tool selected **4/4** in Hybrid
 
-Frozen prospective execution: workflow **AAF Prospective Agentic Replication**, run `34432645600`, head SHA `2417f2f0062dd2a3541e9ce9904e1880fcf15b31`, artifact ID `10135143965`, artifact digest `sha256:05abd88dd2359d3d7a14b061fc42d74dec3c489a8f638488c35339823017428e`.
+Frozen prospective execution: workflow **AAF Prospective Agentic Replication**, run `34432645600`, head SHA `2417f2f0062dd2a3541e9ce9904e1880fcf15b31`, artifact ID `10135143965`, artifact digest `sha256:a66f5aafb74027d15eabb8047230ed941ab84fa0c38e32233da091e64f2fa343`.
 
 `RP-A04` remains incorrect under both Deterministic and Hybrid AAF and is retained as a genuine boundary/failure case.
 
@@ -178,7 +178,7 @@ We do **not** claim that an LLM cannot hallucinate. The architecture is designed
 - The original 32-case Agentic study and the later 16-case prospective replication remain separate studies.
 - Benchmark source revisions are pinned for confirmatory/prospective runtime studies.
 - Raw execution evidence and workflow artifacts are distinguished from later reruns.
-- Resource scaling is called a resource-footprint proxy where monetary billing evidence is unavailable.
+- Resource scaling is called a resource-footprint proxy where monetary cloud-billing evidence is unavailable.
 - LLM raw behavior is reported separately from deterministic system-level authority enforcement.
 - Development iterations remain in Git history unless they materially affect scientific interpretation.
 
