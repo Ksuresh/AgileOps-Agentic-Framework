@@ -1,0 +1,67 @@
+name: AAF Prospective Agentic Replication
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  prospective-replication:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      OPENAI_MODEL: gpt-5.6-luna
+      OPENAI_REASONING_EFFORT: none
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Verify frozen replication dataset
+        run: |
+          python - <<'PY'
+          from collections import Counter
+          from pathlib import Path
+          import yaml
+          p = Path('agentic_experiments/cases_replication_v1.yaml')
+          d = yaml.safe_load(p.read_text())
+          cases = d['cases']
+          assert len(cases) == 16
+          assert Counter(c['stratum'] for c in cases) == {'CLEAR':4,'AMBIGUOUS':4,'INCOMPLETE':4,'MISLEADING':4}
+          assert len({c['id'] for c in cases}) == 16
+          print('Frozen prospective replication dataset verified:', p)
+          PY
+
+      - name: Run pre-replication protocol tests
+        run: |
+          pytest -q \
+            tests/test_evidence_schema.py \
+            tests/test_decision_gate.py \
+            tests/test_aaf_v2_arbitration.py \
+            tests/test_agentic_experiment_protocol.py
+
+      - name: Verify API secret is configured
+        run: |
+          python - <<'PY'
+          import os
+          assert os.environ.get('OPENAI_API_KEY'), 'OPENAI_API_KEY is not configured'
+          print('OPENAI_API_KEY is configured')
+          PY
+
+      - name: Run frozen prospective replication
+        run: python -m agentic_experiments.run_prospective_replication
+
+      - name: Upload prospective replication outputs
+        uses: actions/upload-artifact@v4
+        with:
+          name: aaf-agentic-prospective-replication-gpt-5-6-luna
+          path: paper_results/agentic_prospective_replication/
+          retention-days: 90
