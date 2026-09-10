@@ -1,16 +1,19 @@
 # AgileOps Agentic Framework (AAF)
 
-Reproducibility repository for the Hybrid AAF manuscript and its deterministic, Agentic, replication, external-telemetry, and bounded-PM-interface evidence.
+Reproducibility repository for the Hybrid AAF manuscript and its deterministic, runtime, selective-Agentic, prospective-replication, external-telemetry, and bounded-PM-interface evidence.
 
-AAF is a **hybrid deterministic + selectively Agentic AI decision-support framework for Agile–DevOps project governance**. Deterministic cross-domain reasoning remains authoritative for final governance actions. Bounded Agentic reasoning is invoked only when decision-relevant evidence is uncertain, incomplete, ambiguous, or requires additional evidence acquisition. A separate bounded LLM interface allows Project Managers to interrogate and understand an already-governed recommendation.
+AAF is a **hybrid deterministic + selectively Agentic AI decision-support framework for Agile–DevOps project governance**. Deterministic cross-domain reasoning remains authoritative for final governance actions. Bounded **Agentic Evidence Investigation (AEI)** is invoked only when decision-relevant evidence is uncertain, incomplete, ambiguous, or requires additional evidence acquisition. A separate bounded LLM interface allows Project Managers to interrogate and understand an already-governed recommendation.
 
 > **Core design principle:** **Uncertainty invokes agency; severity does not.**
 >
 > The Agentic/LLM layer does **not** autonomously determine the authoritative governance action.
 
-> **Start here to reproduce the paper:** [REPRODUCE_CURRENT_PAPER.md](REPRODUCE_CURRENT_PAPER.md)  
-> **Reviewer-facing experiment/results map:** [paper_results/README.md](paper_results/README.md)  
-> **Manuscript-to-run provenance:** [paper_results/MANUSCRIPT_RESULT_MAP.md](paper_results/MANUSCRIPT_RESULT_MAP.md)
+## Reviewer quick links
+
+- **Reproduce the current paper:** [`REPRODUCE_CURRENT_PAPER.md`](REPRODUCE_CURRENT_PAPER.md)
+- **Reviewer-facing study/results index:** [`paper_results/README.md`](paper_results/README.md)
+- **Manuscript claim → frozen execution provenance:** [`paper_results/MANUSCRIPT_RESULT_MAP.md`](paper_results/MANUSCRIPT_RESULT_MAP.md)
+- **Frozen selective-Agentic protocol:** [`agentic_experiments/FROZEN_PROTOCOL.md`](agentic_experiments/FROZEN_PROTOCOL.md)
 
 ## Architecture at a glance
 
@@ -27,13 +30,13 @@ Uncertainty / ambiguity gate
         |                                                     |
         | uncertain / incomplete                              |
         v                                                     |
-Selective bounded Agentic domain reasoning                    |
+Bounded Agentic Evidence Investigation (AEI)                  |
         |                                                     |
         v                                                     |
-Approved read-only tools / evidence acquisition                |
+Approved read-only tools / evidence acquisition               |
         |                                                     |
         v                                                     |
-Evidence re-grounding                                          |
+Evidence re-grounding / reassessment                          |
         |                                                     |
         +--------------------------+--------------------------+
                                    |
@@ -47,6 +50,8 @@ Authoritative governance action
 Optional bounded PM-facing LLM explanation / interaction
 ```
 
+**Terminology:** AEI is the LLM-mediated investigation/evidence-acquisition step. Evidence re-grounding/reassessment is the processing that follows newly acquired evidence. Historical code/artifact names are preserved when they form part of frozen experimental provenance.
+
 The final arbitration order is:
 
 ```text
@@ -55,39 +60,37 @@ hard governance override -> specific causal interaction -> generic accumulation
 
 A governance evaluation may be triggered by a deployment event, monitoring/security event, scheduled checkpoint, or explicit PM request to evaluate current evidence. A PM request is an instruction to evaluate; it is not operational evidence.
 
-## Three experimental configurations
-
-The Agentic studies compare three deliberately different configurations:
+## Three selective-Agentic configurations
 
 1. **Deterministic AAF** — frozen deterministic domain assessment plus deterministic cross-domain governance.
 2. **Agentic-only** — bounded LLM domain reasoning and approved evidence tools without deterministic final cross-domain arbitration.
-3. **Hybrid AAF** — deterministic first pass; selective Agentic reasoning only when the frozen uncertainty trigger fires; approved evidence acquisition and re-grounding; deterministic governance remains authoritative.
+3. **Hybrid AAF** — deterministic first pass; selective AEI only when the frozen uncertainty trigger fires; approved evidence acquisition and re-grounding; deterministic governance remains authoritative.
 
 The Hybrid architecture is not designed to maximize LLM invocation. Avoiding unnecessary Agentic calls on clear evidence is an intended outcome.
 
 ## Validation strategy
 
-The manuscript uses complementary validation layers that answer different research questions and must not be collapsed into a single accuracy number:
+The manuscript uses complementary validation layers that answer different questions and must not be collapsed into a single accuracy number:
 
 | Layer | Purpose |
 |---|---|
 | Controlled cross-domain experiments | isolate arbitration, interaction and ablation effects under frozen oracles |
 | Live benchmark validation | test measured evidence from Sock Shop and Google Online Boutique under controlled interventions |
-| Primary selective-Agentic study | compare Deterministic, Agentic-only and Hybrid AAF on 32 frozen CLEAR/AMBIGUOUS/INCOMPLETE/MISLEADING cases |
-| Prospective Agentic replication | test the frozen Protocol-v2 architecture on 16 unseen cases without modifying the original 32 cases |
+| Primary selective-AEI study | compare Deterministic, Agentic-only and Hybrid AAF on 32 frozen CLEAR/AMBIGUOUS/INCOMPLETE/MISLEADING cases |
+| Prospective selective-AEI replication | test frozen Protocol-v2 on 16 unseen cases without modifying the original 32 cases |
 | Independent external-fault validation | test label-blind AAF behavior on RCAEval RE2-TrainTicket recorded fault evidence |
 | Bounded PM-facing LLM faithfulness | test decision preservation, evidence faithfulness and override resistance downstream of governance |
 
-RCAEval does **not** provide project-governance action ground truth. It is used to demonstrate external telemetry ingestion and interpretation, not governance-action accuracy.
+RCAEval does **not** provide project-governance action ground truth. It demonstrates external telemetry ingestion and interpretation, not governance-action accuracy.
 
-## Key Agentic evidence
+## Key selective-Agentic evidence
 
 ### Primary frozen study — 32 cases
 
 - Deterministic AAF: **26/32 = 81.25%**
 - Agentic-only: **10/32 = 31.25%**
 - Hybrid AAF: **27/32 = 84.375%**
-- Hybrid invocation: **21/32 = 65.625%**
+- Hybrid AEI invocation: **21/32 = 65.625%**
 - CLEAR unnecessary invocation: **0/8**
 - Always-on Agentic tokens: **91,441**
 - Hybrid tokens: **44,879**
@@ -101,7 +104,7 @@ Frozen Protocol-v2 execution: workflow **AAF Confirmatory Agentic Experiments 2-
 - Deterministic AAF: **13/16 = 81.25%**
 - Agentic-only: **7/16 = 43.75%**
 - Hybrid AAF: **14/16 = 87.5%**
-- Hybrid invocation: **10/16 = 62.5%**
+- Hybrid AEI invocation: **10/16 = 62.5%**
 - CLEAR unnecessary invocation: **0/4**
 - Always-on Agentic tokens: **47,351**
 - Hybrid tokens: **18,682**
@@ -119,7 +122,7 @@ Frozen prospective execution: workflow **AAF Prospective Agentic Replication**, 
 - Agentic-only: **17/48 = 35.42%**
 - Hybrid AAF: **41/48 = 85.42%**
 
-These results are **not** interpreted as evidence that Agentic AI generally outperforms deterministic AAF. The intended contribution is architectural: deterministic cross-domain governance already performs strongly on bounded cases; selective Agentic reasoning adds targeted value when evidence acquisition/re-grounding is needed; deterministic authority prevents many incorrect Agentic proposals from becoming governance actions; selective invocation materially reduces LLM usage relative to an always-on Agentic design.
+The combined Hybrid-versus-deterministic total is descriptive: the difference is **not statistically significant in either constituent study** (exact paired `p = 1.000` in both). The intended contribution is architectural: deterministic governance already performs strongly on bounded cases; selective AEI adds targeted value when evidence investigation/acquisition is needed; deterministic authority prevents many incorrect Agentic proposals from becoming governance actions; and selective invocation materially reduces LLM usage relative to always-on Agentic reasoning.
 
 ## Quick start
 
@@ -135,7 +138,7 @@ export PYTHONPATH="$PWD"         # PowerShell: $env:PYTHONPATH=(Get-Location)
 python -m pytest -q
 ```
 
-Python 3.11 is the reference CI version. Runtime studies additionally require Docker/Docker Compose (Sock Shop) or Docker + kubectl + kind (Online Boutique). Fresh Agentic runs require an OpenAI API key and are stochastic replications; the manuscript-reported executions are identified by immutable run/artifact provenance.
+Python 3.11 is the reference CI version. Runtime studies additionally require Docker/Docker Compose (Sock Shop) or Docker + kubectl + kind (Online Boutique). Fresh Agentic runs require an OpenAI API key and are stochastic replications; manuscript-reported executions are identified by immutable run/artifact provenance.
 
 ## Repository map
 
@@ -175,7 +178,7 @@ We do **not** claim that an LLM cannot hallucinate. The architecture is designed
 
 - Evidence is collected before AAF inference; intervention/oracle labels are not supplied to AAF.
 - Frozen manifests, held-out snapshots, Agentic datasets and prompt/protocol definitions are not tuned after inspecting outcomes.
-- The original 32-case Agentic study and the later 16-case prospective replication remain separate studies.
+- The original 32-case selective-Agentic study and later 16-case prospective replication remain separate studies.
 - Benchmark source revisions are pinned for confirmatory/prospective runtime studies.
 - Raw execution evidence and workflow artifacts are distinguished from later reruns.
 - Resource scaling is called a resource-footprint proxy where monetary cloud-billing evidence is unavailable.
@@ -184,8 +187,8 @@ We do **not** claim that an LLM cannot hallucinate. The architecture is designed
 
 ## Historical provenance
 
-The former pre-paper main is preserved at `archive/pre-paper-2026-main`. Historical experiment branches and GitHub Actions runs preserve exact execution states. Reviewer-facing documentation must use the frozen provenance identifiers in `paper_results/` rather than infer results from historical directory names.
+The former pre-paper main is preserved at `archive/pre-paper-2026-main`. Historical experiment branches and GitHub Actions runs preserve exact execution states. Reviewer-facing documentation should use the frozen provenance identifiers in `paper_results/` rather than infer results from historical directory or code names.
 
 ## License
 
-See `LICENSE`.
+See [`LICENSE`](LICENSE).
