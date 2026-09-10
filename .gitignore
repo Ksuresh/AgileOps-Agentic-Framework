@@ -27,6 +27,11 @@ results_heldout_runtime*/
 results_extended_validation/
 results_expanded_heldout_runtime/
 
+# Fresh Agentic API executions are stochastic replications. Manuscript-reported
+# raw outputs are preserved by frozen GitHub Actions artifacts/run provenance.
+paper_results/agentic_experiments_2_4/
+paper_results/agentic_prospective_replication/
+
 # Canonical paper_results contains documentation/manifests only in git;
-# generated run outputs remain local or in GitHub Actions artifacts.
+# generated deterministic rerun outputs remain local or in GitHub Actions artifacts.
 paper_results/**/generated/
