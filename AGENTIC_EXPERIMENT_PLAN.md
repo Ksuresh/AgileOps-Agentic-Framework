@@ -1,68 +1,79 @@
-# Hybrid Agentic AAF: Implementation and Experiment Plan
+# Hybrid Agentic AAF: Frozen Implementation and Experiment Record
 
-This document freezes the implementation direction before modifying the validated deterministic baseline.
+This document records the implementation direction used for the selective-Agentic extension of AAF. The manuscript-facing terminology is **Agentic Evidence Investigation (AEI)** for LLM-mediated investigation and **evidence re-grounding/reassessment** for the deterministic processing that follows newly acquired evidence.
+
+> Historical note: earlier development notes used terms such as “agentic re-grounding.” Those labels are retained only in Git history; the frozen datasets, prompts, triggers, outputs, and reported results are not modified by this documentation cleanup.
 
 ## Research position
 
-AAF is a hybrid governance architecture. Deterministic reasoning handles well-bounded operational conditions. Bounded Agentic AI is invoked selectively when evidence is incomplete, conflicting, or ambiguous. Agentic reasoning may identify missing evidence and invoke approved telemetry tools, but final governance authority remains in the deterministic cross-domain interaction, utility, and arbitration layers. The PM-facing LLM remains a bounded natural-language interaction and explanation layer.
+AAF is a hybrid governance architecture. Deterministic reasoning handles well-bounded operational conditions. Bounded Agentic AI is invoked selectively when decision-relevant evidence is incomplete, conflicting, or ambiguous. Agentic reasoning may identify missing evidence and invoke approved read-only telemetry tools, but final governance authority remains in deterministic cross-domain interaction, utility, and arbitration layers. The PM-facing LLM remains a bounded natural-language interaction and explanation layer downstream of governance.
 
-## Configurations to compare
+**Core design principle:** **Uncertainty invokes agency; severity does not.**
 
-1. **Deterministic baseline**: current validated domain-agent logic + current deterministic cross-domain governance.
-2. **Agentic-only baseline**: LLM domain agents with tool use and an LLM/agent recommendation, without deterministic governance arbitration.
-3. **Hybrid AAF**: LLM domain agents + bounded tool use + agentic re-grounding + existing deterministic cross-domain governance and arbitration.
+## Frozen configurations
 
-## Agent contract
+1. **Deterministic AAF** — frozen deterministic domain assessment plus deterministic cross-domain governance.
+2. **Agentic-only** — bounded LLM domain reasoning and approved evidence tools without deterministic final cross-domain arbitration.
+3. **Hybrid AAF** — deterministic first pass; selective AEI only when the frozen uncertainty trigger fires; approved evidence acquisition followed by deterministic evidence re-grounding/reassessment; deterministic governance remains authoritative.
 
-Every domain agent must return a structured object with:
+## Frozen Agent contract
+
+Every invoked domain agent returns a structured record containing:
 
 - `agent_type`
 - `claim`
 - `confidence`
 - `evidence_ids`
-- `evidence_summary`
 - `proposed_action`
 - `uncertainty`
 - `needs_more_evidence`
 - `requested_tools`
-- `reasoning_trace_summary` (brief, non-chain-of-thought rationale suitable for audit)
+- `rationale_summary` — brief auditable rationale, not private chain-of-thought
 
-Agents must not fabricate telemetry. Every evidence item used in a claim must reference an input evidence ID or an approved tool result ID.
+Agents must not fabricate telemetry. Evidence references must resolve to model-visible input evidence IDs or approved tool-result IDs. The runtime validates schema, actions, requested tools, and evidence references.
 
-## Approved tool families
+## Approved read-only tool families
 
-- DevOps: deployment history, rollout status, restart history, CI/CD failures, configuration drift.
-- SRE: latency/error/availability windows, saturation, restart trends, service health.
-- FinOps: replica/resource footprint, utilization efficiency, cost/proxy indicators, scaling history.
-- DevSecOps: vulnerability findings, policy violations, security scan results, release-gate status.
+- DevOps: deployment/pipeline/restart history.
+- SRE: latency, error-rate, saturation and restart history.
+- FinOps: replica and cost-proxy history.
+- DevSecOps: policy-gate status and vulnerability details.
 
-## Agentic re-grounding loop
+The executable allow-list in `agentic_experiments/agentic_runtime.py` is authoritative.
 
-1. Observe current evidence.
-2. Produce a first structured assessment.
-3. If uncertainty is above the configured boundary or required evidence is missing, request one or more approved tools.
-4. Retrieve bounded evidence from the same incident context.
-5. Re-run the domain assessment with the enriched evidence.
-6. Accept the revised assessment only when it is evidence-backed and passes schema validation.
-7. Pass structured agent outputs to the existing deterministic cross-domain governance layer.
+## AEI and evidence re-grounding flow
 
-## Experimental questions
+1. Assess current evidence deterministically.
+2. Apply the frozen uncertainty/ambiguity trigger.
+3. When triggered, invoke bounded AEI for the relevant domain(s).
+4. If decision-relevant evidence is missing, AEI may request only approved read-only tools.
+5. Add returned evidence to the incident evidence packet with provenance.
+6. Re-ground/reassess the evidence.
+7. Run deterministic cross-domain interaction, readiness/utility, and arbitration.
+8. Preserve the deterministic governance result as the authoritative action.
+9. Optionally expose that already-governed record to the bounded PM-facing LLM.
 
-- **RQ1 Cross-domain value**: Does explicit cross-domain governance outperform isolated/dominant-domain reasoning?
-- **RQ2 Selective agency**: On ambiguous or incomplete evidence, does bounded Agentic AI improve evidence acquisition and action agreement relative to the deterministic baseline?
-- **RQ3 Trustworthiness**: Does deterministic governance constrain unsupported, hallucinated, or policy-violating agent recommendations?
-- **RQ4 PM interaction**: Does the bounded PM-facing LLM preserve authoritative decisions while enabling natural-language interpretation?
+## Validation questions
 
-## Initial implementation gate
+The final manuscript organizes the validation around four research questions:
 
-Do not start a full rerun immediately. First implement one end-to-end pilot covering:
+- **RQ1 — Cross-domain governance:** Does explicit cross-domain governance outperform reduced isolated/dominant-domain reasoning under controlled and runtime evidence?
+- **RQ2 — Prospective arbitration:** Does the finalized arbitration mechanism preserve the intended cross-domain behavior on a separately prospective runtime block?
+- **RQ3 — Selective agency:** Does bounded AEI provide targeted value under ambiguous/incomplete evidence while avoiding unnecessary LLM invocation and preserving deterministic authority?
+- **RQ4 — External and conversational boundary:** Can AAF ingest independent recorded telemetry, and can the downstream PM-facing LLM preserve authoritative decisions and evidence boundaries?
 
-- one clear-evidence case where no agentic escalation should occur;
-- one cross-domain ambiguous case where agentic reasoning may be invoked;
-- one incomplete-evidence case where the agent must request additional telemetry.
+The authoritative manuscript-to-execution mapping is `paper_results/MANUSCRIPT_RESULT_MAP.md`.
 
-Only after schema validity, evidence traceability, decision preservation, and tool-call behavior are verified should the full benchmark rerun begin.
+## Frozen-study policy
 
-## Reuse policy
+The primary 32-case Protocol-v2 study and the later 16-case prospective replication are separate frozen studies. Do not edit either dataset, admissible actions/oracles, selective trigger, prompts, tool contract, or governance policy to improve reported outcomes. Fresh LLM executions are stochastic replications and must not silently replace the manuscript-reported GitHub Actions artifacts.
 
-The validated deterministic algorithms, frozen benchmark cases, runtime adapters, statistical scripts, provenance mapping, and PM-facing LLM tests remain unchanged unless a new experiment explicitly requires an additive extension. The deterministic baseline is preserved as a frozen comparison and must not be silently modified while developing the Agentic layer.
+## Interpretation boundaries
+
+- The selective-Agentic evidence does not establish that Agentic AI generally outperforms deterministic AAF.
+- AEI is selectively invoked to investigate uncertainty or acquire missing evidence; it is not the authoritative governance layer.
+- Evidence re-grounding/reassessment after acquisition is distinct from the LLM-mediated AEI step.
+- The PM-facing LLM is downstream of governance and cannot autonomously convert an unsupported conclusion into the authoritative action.
+- RCAEval supplies independent recorded telemetry but not project-governance action ground truth.
+
+For current execution instructions use `REPRODUCE_CURRENT_PAPER.md`; for reviewer-facing results use `paper_results/README.md`; for exact frozen provenance use `paper_results/MANUSCRIPT_RESULT_MAP.md`.
