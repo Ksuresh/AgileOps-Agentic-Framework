@@ -2,7 +2,9 @@
 
 This is the execution entry point for the current Hybrid AgileOps Agentic Framework (AAF) manuscript. For the reviewer-facing study index, see [`paper_results/README.md`](paper_results/README.md); for exact manuscript-number provenance, see [`paper_results/MANUSCRIPT_RESULT_MAP.md`](paper_results/MANUSCRIPT_RESULT_MAP.md).
 
-The repository contains deterministic experiments that can be rerun exactly from frozen inputs and LLM-based experiments for which a fresh API execution is a **stochastic replication**. The manuscript-reported LLM outputs are therefore tied to frozen GitHub Actions runs/artifacts.
+The repository contains deterministic experiments that can be rerun exactly from frozen inputs and LLM-based experiments for which a fresh API execution is a **stochastic replication**. Manuscript-reported LLM outputs are therefore tied to frozen GitHub Actions runs/artifacts.
+
+**Terminology:** the manuscript uses **Agentic Evidence Investigation (AEI)** for LLM-mediated investigation/evidence acquisition. Evidence re-grounding/reassessment is the processing that follows acquired evidence. Historical code, workflow, and artifact names are retained where they are part of frozen provenance.
 
 ## 1. Environment and deterministic tests
 
@@ -72,11 +74,11 @@ python experiments/run_learned_baselines.py
 
 This generates 120 calibration instances from 30 controlled templates under seeds 42--45, fits fixed logistic-regression and shallow-tree baselines, and evaluates once on `experiments/learned_baseline_hrt_template_features.csv`. HRT data is not used for fitting or hyperparameter selection.
 
-## 6. Primary selective-Agentic study — Experiments 2–4
+## 6. Primary selective-AEI study — Experiments 2–4
 
 **Frozen design rule:** **Uncertainty invokes agency; severity does not.**
 
-The primary dataset is `agentic_experiments/cases_v1.yaml`: 32 independent cases, balanced across 8 CLEAR, 8 AMBIGUOUS, 8 INCOMPLETE and 8 MISLEADING cases. The three configurations are Deterministic AAF, Agentic-only, and Hybrid AAF. In Hybrid AAF, Agentic reasoning is selective and deterministic governance remains authoritative after any evidence acquisition/re-grounding.
+The primary dataset is `agentic_experiments/cases_v1.yaml`: 32 independent cases, balanced across 8 CLEAR, 8 AMBIGUOUS, 8 INCOMPLETE and 8 MISLEADING cases. The three configurations are Deterministic AAF, Agentic-only, and Hybrid AAF. In Hybrid AAF, AEI is selective and deterministic governance remains authoritative after evidence acquisition and re-grounding/reassessment.
 
 Inspect the frozen protocol before running:
 
@@ -113,9 +115,9 @@ paper_results/agentic_experiments_2_4/
 - Artifact digest: `sha256:51775beb89de8d09b16f8e6449d900cdd0a42e3863c3f5d9f05fd8059939b583`
 - Dataset SHA-256 recorded in artifact metadata: `98fd94278193d2c48fffb11ff0b76e96d8233585bf52e52570516f35911913b5`
 
-Reported results: Deterministic `26/32`, Agentic-only `10/32`, Hybrid `27/32`; Hybrid invocation `21/32`; CLEAR unnecessary invocation `0/8`; always-on Agentic `91,441` tokens vs Hybrid `44,879` tokens (`50.92%` avoidance); 14 governance overrides, 11 beneficial.
+Reported results: Deterministic `26/32`, Agentic-only `10/32`, Hybrid `27/32`; Hybrid AEI invocation `21/32`; CLEAR unnecessary invocation `0/8`; always-on Agentic `91,441` tokens vs Hybrid `44,879` tokens (`50.92%` avoidance); 14 governance overrides, 11 beneficial.
 
-## 7. Prospective selective-Agentic replication
+## 7. Prospective selective-AEI replication
 
 The original 32 cases were not modified after observing their results. The separate dataset `agentic_experiments/cases_replication_v1.yaml` contains 16 unseen cases: 4 CLEAR, 4 AMBIGUOUS, 4 INCOMPLETE and 4 MISLEADING.
 
@@ -148,7 +150,9 @@ paper_results/agentic_prospective_replication/
 - Artifact digest: `sha256:a66f5aafb74027d15eabb8047230ed941ab84fa0c38e32233da091e64f2fa343`
 - Dataset SHA-256 recorded in artifact metadata: `eb41fc780ead10e9ce422fe4c704565fd7ae1ccf84a4a48d27ceb52cd7ab898d`
 
-Reported results: Deterministic `13/16`, Agentic-only `7/16`, Hybrid `14/16`; Hybrid invocation `10/16`; CLEAR unnecessary invocation `0/4`; always-on Agentic `47,351` tokens vs Hybrid `18,682` (`60.5%` avoidance); 8 governance overrides, 7 beneficial; INCOMPLETE `3/4 -> 4/4` with expected-tool selection `4/4` in Hybrid. `RP-A04` remains a preserved failure/boundary case.
+Reported results: Deterministic `13/16`, Agentic-only `7/16`, Hybrid `14/16`; Hybrid AEI invocation `10/16`; CLEAR unnecessary invocation `0/4`; always-on Agentic `47,351` tokens vs Hybrid `18,682` (`60.5%` avoidance); 8 governance overrides, 7 beneficial; INCOMPLETE `3/4 -> 4/4` with expected-tool selection `4/4` in Hybrid. `RP-A04` remains a preserved failure/boundary case.
+
+The combined 48-case Hybrid-versus-deterministic total is descriptive. The difference is not statistically significant in either constituent study (exact paired `p = 1.000` in both).
 
 ## 8. Independent external-fault validation: RCAEval
 
@@ -205,8 +209,8 @@ Generated files are written under `paper_results/manuscript/generated/`. The fin
 | Prospective HRT-32--39 | `runtime_validation/interventions_v2_prospective.yaml` | run `33885779782` |
 | Online Boutique | pinned benchmark + intervention manifest | two historical frozen blocks in provenance map |
 | Learned baselines | generated calibration + frozen HRT features | Actions provenance in result map |
-| Primary Agentic 32 | `agentic_experiments/cases_v1.yaml`, `FROZEN_PROTOCOL.md` | run `34428945881`, artifact `10133945801` |
-| Prospective Agentic 16 | `agentic_experiments/cases_replication_v1.yaml` | run `34432645600`, artifact `10135143965` |
+| Primary selective-AEI 32 | `agentic_experiments/cases_v1.yaml`, `FROZEN_PROTOCOL.md` | run `34428945881`, artifact `10133945801` |
+| Prospective selective-AEI 16 | `agentic_experiments/cases_replication_v1.yaml` | run `34432645600`, artifact `10135143965` |
 | RCAEval | `external_validation/rcaeval/` | run `34316286523`, artifact `10090236316` |
 | PM-facing LLM | frozen AAF records + 100 prompts | run `34325587289`, artifact `10093805818` |
 
@@ -215,8 +219,8 @@ Generated files are written under `paper_results/manuscript/generated/`. The fin
 - Sock Shop and Online Boutique are benchmark applications, not customer-production datasets.
 - Replica expansion is a resource-footprint proxy where monetary cloud-billing evidence is unavailable.
 - RCAEval fault labels are not project-governance action ground truth.
-- The 32-case primary Agentic study and 16-case prospective replication are separate frozen studies.
-- Agentic-only does not outperform deterministic AAF in these studies; the Hybrid contribution is selective evidence acquisition/re-grounding, authority preservation, and reduced LLM usage.
+- The 32-case primary selective-AEI study and 16-case prospective replication are separate frozen studies.
+- The Hybrid-versus-deterministic difference is not statistically significant in either selective-Agentic study; the contribution is selective evidence investigation/acquisition, authority preservation, and reduced LLM usage.
 - The PM-facing LLM evaluation does not prove hallucination is impossible. It tests a bounded downstream interface whose outputs cannot autonomously become governance decisions.
 
 ## Provenance policy
