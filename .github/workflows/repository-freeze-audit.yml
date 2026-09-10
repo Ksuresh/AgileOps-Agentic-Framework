@@ -1,0 +1,116 @@
+name: Repository Freeze Audit
+
+on:
+  push:
+    branches:
+      - experiment/hybrid-agentic-aaf-v2
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  freeze-audit:
+    runs-on: ubuntu-latest
+    env:
+      PYTHONPATH: ${{ github.workspace }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Repository hygiene
+        shell: bash
+        run: |
+          set -euo pipefail
+          bad="$(git ls-files | grep -E '(^|/)(__pycache__/.*|\.DS_Store)$|\.py[co]$' || true)"
+          if [ -n "$bad" ]; then
+            echo "Tracked generated/OS files found:"
+            echo "$bad"
+            exit 1
+          fi
+          if git ls-files | grep -E '(^|/)\.env($|\.)'; then
+            echo "Tracked environment-secret file found"
+            exit 1
+          fi
+
+      - name: Run full regression suite
+        run: python -m pytest -q
+
+      - name: Verify frozen datasets and manifests
+        run: |
+          python - <<'PY'
+          from collections import Counter
+          from pathlib import Path
+          import yaml
+
+          files = [
+              'runtime_validation/interventions.yaml',
+              'runtime_validation/interventions_expanded_heldout.yaml',
+              'runtime_validation/interventions_extended_validation.yaml',
+              'runtime_validation/interventions_v2_prospective.yaml',
+              'runtime_validation/interventions_online_boutique.yaml',
+              'agentic_experiments/cases_v1.yaml',
+              'agentic_experiments/cases_replication_v1.yaml',
+          ]
+          for name in files:
+              p = Path(name)
+              assert p.is_file(), name
+              obj = yaml.safe_load(p.read_text(encoding='utf-8'))
+              assert obj, name
+              print('OK', name)
+
+          primary = yaml.safe_load(Path('agentic_experiments/cases_v1.yaml').read_text(encoding='utf-8'))['cases']
+          repl = yaml.safe_load(Path('agentic_experiments/cases_replication_v1.yaml').read_text(encoding='utf-8'))['cases']
+          assert len(primary) == 32
+          assert len(repl) == 16
+          assert Counter(c['stratum'] for c in primary) == {'CLEAR':8,'AMBIGUOUS':8,'INCOMPLETE':8,'MISLEADING':8}
+          assert Counter(c['stratum'] for c in repl) == {'CLEAR':4,'AMBIGUOUS':4,'INCOMPLETE':4,'MISLEADING':4}
+          assert not ({c['id'] for c in primary} & {c['id'] for c in repl})
+          print('Frozen selective-Agentic datasets verified')
+          PY
+
+      - name: Verify reviewer-facing documentation
+        run: |
+          test -s README.md
+          test -s REPRODUCE_CURRENT_PAPER.md
+          test -s paper_results/README.md
+          test -s paper_results/MANUSCRIPT_RESULT_MAP.md
+          test -s paper_results/PROMPT_AND_MODEL_DISCLOSURE.md
+          test -s agentic_experiments/FROZEN_PROTOCOL.md
+          test -s external_validation/rcaeval/FROZEN_PROTOCOL.md
+          grep -q 'Agentic Evidence Investigation' README.md
+          grep -q 'Uncertainty invokes agency; severity does not' README.md
+          grep -q 'Model-selection rationale' paper_results/PROMPT_AND_MODEL_DISCLOSURE.md
+          grep -q 'Never invent telemetry' paper_results/PROMPT_AND_MODEL_DISCLOSURE.md
+
+      - name: Generate deterministic reviewer assets
+        run: python paper_results/manuscript/generate_manuscript_assets.py
+
+      - name: Validate reviewer assets
+        run: |
+          test -s paper_results/manuscript/aggregate_results.csv
+          test -s paper_results/manuscript/generated/master_results.md
+          test -s paper_results/manuscript/generated/master_provenance.csv
+          test -s paper_results/manuscript/generated/validation_overview.svg
+
+      - name: Upload audit assets
+        uses: actions/upload-artifact@v4
+        with:
+          name: aaf-repository-freeze-audit
+          path: paper_results/manuscript/generated/
+          if-no-files-found: error
+          retention-days: 30
