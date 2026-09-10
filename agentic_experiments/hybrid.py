@@ -63,46 +63,84 @@ def missing_fields(evidence: dict[str, Any]) -> list[str]:
     return sorted(out)
 
 
-def _near_boundary(evidence: dict[str, Any]) -> bool:
-    """Pre-specified deterministic ambiguity detector using frozen domain thresholds."""
-    windows = {
-        ("sre", "p95_latency_ms"): [(450.0, 25.0), (800.0, 40.0)],
-        ("sre", "error_rate_pct"): [(8.0, 0.5), (12.0, 0.75)],
-        ("sre", "saturation_pct"): [(85.0, 2.0), (90.0, 2.0)],
-        ("sre", "availability_pct"): [(99.0, 0.15), (95.0, 0.25)],
-        ("finops", "cost_spike_pct"): [(22.0, 2.0), (35.0, 3.0)],
-        ("finops", "hpa_scale_to"): [(11.0, 1.0), (14.0, 1.0)],
-        ("finops", "cpu_request_increase_pct"): [(50.0, 3.0)],
-        ("finops", "memory_request_increase_pct"): [(40.0, 3.0)],
-        ("sec", "critical_cves"): [(1.0, 0.0), (2.0, 0.0)],
+def _numeric(value: Any) -> float | None:
+    if value is None or isinstance(value, bool):
+        return None
+    try:
+        return float(value)
+    except (TypeError, ValueError):
+        return None
+
+
+def _borderline_cluster(evidence: dict[str, Any]) -> bool:
+    """Detect ambiguity, not severity.
+
+    A single value at a threshold is not enough to invoke Agentic reasoning. A
+    domain must contain a cluster of near-boundary indicators without a clearly
+    severe indicator that already resolves the direction. This prevents clear
+    high-severity cases from being misclassified as ambiguous simply because a
+    value equals a frozen threshold.
+    """
+    specs = {
+        "sre": {
+            "near": {
+                "p95_latency_ms": [(450.0, 25.0), (800.0, 40.0)],
+                "error_rate_pct": [(8.0, 0.5), (12.0, 0.75)],
+                "saturation_pct": [(85.0, 2.0), (90.0, 2.0)],
+                "availability_pct": [(99.0, 0.15)],
+            },
+            "strong": {
+                "p95_latency_ms": lambda x: x >= 850,
+                "error_rate_pct": lambda x: x >= 13,
+                "saturation_pct": lambda x: x >= 92,
+                "availability_pct": lambda x: x < 98.5,
+            },
+        },
+        "finops": {
+            "near": {
+                "cost_spike_pct": [(22.0, 2.0), (35.0, 2.0)],
+                "hpa_scale_to": [(11.0, 1.0), (14.0, 1.0)],
+                "cpu_request_increase_pct": [(50.0, 3.0)],
+                "memory_request_increase_pct": [(40.0, 3.0)],
+            },
+            "strong": {
+                "cost_spike_pct": lambda x: x >= 38,
+                "hpa_scale_to": lambda x: x >= 15,
+                "cpu_request_increase_pct": lambda x: x >= 55,
+                "memory_request_increase_pct": lambda x: x >= 45,
+            },
+        },
     }
-    for (domain, field), thresholds in windows.items():
-        value = (evidence.get(domain, {}) or {}).get(field)
-        if value is None or isinstance(value, bool):
-            continue
-        try:
-            x = float(value)
-        except (TypeError, ValueError):
-            continue
-        for threshold, margin in thresholds:
-            if margin == 0.0:
-                if x == threshold:
-                    return True
-            elif abs(x - threshold) <= margin:
-                return True
+
+    for domain, spec in specs.items():
+        block = evidence.get(domain, {}) or {}
+        near_count = 0
+        strong = False
+        for field, intervals in spec["near"].items():
+            x = _numeric(block.get(field))
+            if x is None:
+                continue
+            if any(abs(x - threshold) <= margin for threshold, margin in intervals):
+                near_count += 1
+        for field, predicate in spec["strong"].items():
+            x = _numeric(block.get(field))
+            if x is not None and predicate(x):
+                strong = True
+                break
+        if near_count >= 2 and not strong:
+            return True
+
     deploy = evidence.get("deploy", {}) or {}
-    rc, rw = deploy.get("restart_burst_count"), deploy.get("restart_window_seconds")
-    if rc is not None and rw is not None:
-        try:
-            if 2 <= float(rc) <= 4 and 55 <= float(rw) <= 80:
-                return True
-        except (TypeError, ValueError):
-            pass
+    rc = _numeric(deploy.get("restart_burst_count"))
+    rw = _numeric(deploy.get("restart_window_seconds"))
+    if rc is not None and rw is not None and 2 <= rc <= 4 and 55 <= rw <= 80:
+        return True
+
     return False
 
 
 def selective_trigger(evidence: dict[str, Any], det: dict[str, Any]) -> dict[str, Any]:
-    """Frozen pre-LLM uncertainty trigger. It never reads oracle/stratum labels."""
+    """Protocol-v2 selective trigger: uncertainty invokes agency, severity does not."""
     reasons: list[str] = []
     missing = missing_fields(evidence)
     if missing:
@@ -111,14 +149,16 @@ def selective_trigger(evidence: dict[str, Any], det: dict[str, Any]) -> dict[str
     state = det["governance"].get("interaction_state") or interaction_state_v2(evidence)
     interactions = state.get("interactions", []) or []
     actions = {str(x.get("preferred_action")) for x in interactions if x.get("preferred_action")}
-    if len(actions) >= 2:
+    competing = len(actions) >= 2
+    if competing:
         reasons.append("competing_cross_domain_actions")
 
-    if det["gate"].get("decision") == "act" and float(det["consensus"]) < TAU:
+    low_readiness = det["gate"].get("decision") == "act" and float(det["consensus"]) < TAU
+    if low_readiness:
         reasons.append("decision_readiness_below_tau")
 
-    if _near_boundary(evidence):
-        reasons.append("near_frozen_decision_boundary")
+    if _borderline_cluster(evidence):
+        reasons.append("clustered_boundary_ambiguity")
 
     deploy = evidence.get("deploy", {}) or {}
     rc = deploy.get("restart_burst_count")
@@ -227,8 +267,6 @@ def run_hybrid(case: dict[str, Any], runtime: BoundedAgenticRuntime) -> dict[str
     calls.append(coord)
     agent_proposal = str(coord.output.get("selected_action", "Escalate for evidence/human review"))
 
-    # Authoritative decision is always recomputed by the frozen deterministic
-    # governance path on the evidence available after bounded Agentic RAR.
     det_after = deterministic_assessment(evidence)
     final_action = str(det_after["selected_action"])
 
