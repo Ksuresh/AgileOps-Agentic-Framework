@@ -13,7 +13,6 @@ from orchestrator.decision_gate import materiality_gate
 from orchestrator.utility import choose_action_details
 
 from agentic_experiments.agentic_runtime import (
-    ACTIONS,
     BoundedAgenticRuntime,
     evidence_packet,
     merge_tool_result,
@@ -64,6 +63,44 @@ def missing_fields(evidence: dict[str, Any]) -> list[str]:
     return sorted(out)
 
 
+def _near_boundary(evidence: dict[str, Any]) -> bool:
+    """Pre-specified deterministic ambiguity detector using frozen domain thresholds."""
+    windows = {
+        ("sre", "p95_latency_ms"): [(450.0, 25.0), (800.0, 40.0)],
+        ("sre", "error_rate_pct"): [(8.0, 0.5), (12.0, 0.75)],
+        ("sre", "saturation_pct"): [(85.0, 2.0), (90.0, 2.0)],
+        ("sre", "availability_pct"): [(99.0, 0.15), (95.0, 0.25)],
+        ("finops", "cost_spike_pct"): [(22.0, 2.0), (35.0, 3.0)],
+        ("finops", "hpa_scale_to"): [(11.0, 1.0), (14.0, 1.0)],
+        ("finops", "cpu_request_increase_pct"): [(50.0, 3.0)],
+        ("finops", "memory_request_increase_pct"): [(40.0, 3.0)],
+        ("sec", "critical_cves"): [(1.0, 0.0), (2.0, 0.0)],
+    }
+    for (domain, field), thresholds in windows.items():
+        value = (evidence.get(domain, {}) or {}).get(field)
+        if value is None or isinstance(value, bool):
+            continue
+        try:
+            x = float(value)
+        except (TypeError, ValueError):
+            continue
+        for threshold, margin in thresholds:
+            if margin == 0.0:
+                if x == threshold:
+                    return True
+            elif abs(x - threshold) <= margin:
+                return True
+    deploy = evidence.get("deploy", {}) or {}
+    rc, rw = deploy.get("restart_burst_count"), deploy.get("restart_window_seconds")
+    if rc is not None and rw is not None:
+        try:
+            if 2 <= float(rc) <= 4 and 55 <= float(rw) <= 80:
+                return True
+        except (TypeError, ValueError):
+            pass
+    return False
+
+
 def selective_trigger(evidence: dict[str, Any], det: dict[str, Any]) -> dict[str, Any]:
     """Frozen pre-LLM uncertainty trigger. It never reads oracle/stratum labels."""
     reasons: list[str] = []
@@ -80,7 +117,9 @@ def selective_trigger(evidence: dict[str, Any], det: dict[str, Any]) -> dict[str
     if det["gate"].get("decision") == "act" and float(det["consensus"]) < TAU:
         reasons.append("decision_readiness_below_tau")
 
-    # Temporal ambiguity: restart evidence exists but a complete burst relation cannot be established.
+    if _near_boundary(evidence):
+        reasons.append("near_frozen_decision_boundary")
+
     deploy = evidence.get("deploy", {}) or {}
     rc = deploy.get("restart_burst_count")
     rw = deploy.get("restart_window_seconds")
@@ -102,7 +141,6 @@ def _relevant_agents(evidence: dict[str, Any], det: dict[str, Any]) -> list[str]
             relevant.append(str(output["agent_type"]))
     for agent, block in (("DevOps", "deploy"), ("SRE", "sre"), ("FinOps", "finops"), ("DevSecOps", "sec")):
         if block in evidence and agent not in relevant:
-            # Missing evidence can make a domain relevant even if its deterministic confidence is low.
             if any(x.startswith(block + ".") for x in missing_fields(evidence)):
                 relevant.append(agent)
     return relevant or ["DevOps", "SRE", "FinOps", "DevSecOps"]
@@ -112,7 +150,6 @@ def _execute_requested_tool(case: dict[str, Any], requested: list[str]) -> tuple
     available = list(case.get("available_tools", []) or [])
     for tool in requested:
         if tool in available:
-            # Confirmatory INCOMPLETE cases contain exactly one frozen resolving tool result.
             if tool == case.get("expected_tool"):
                 return copy.deepcopy(case.get("tool_result")), tool
             return {"id": f"TOOL-NORESULT-{tool}", "status": "no_additional_evidence"}, tool
@@ -150,6 +187,7 @@ def run_agentic_only(case: dict[str, Any], runtime: BoundedAgenticRuntime) -> di
         "latency_ms": sum(x.latency_ms for x in calls),
         "all_schema_valid": all(x.schema_valid for x in calls),
         "all_evidence_refs_valid": all(x.valid_evidence_refs for x in calls),
+        "call_audit": [x.audit_record() for x in calls],
     }
 
 
@@ -160,7 +198,8 @@ def run_hybrid(case: dict[str, Any], runtime: BoundedAgenticRuntime) -> dict[str
     if not trigger["invoke"]:
         return {
             "selected_action": det_before["selected_action"], "deterministic_before": det_before,
-            "trigger": trigger, "agentic_invoked": False, "agent_outputs": [], "tool_events": [],
+            "deterministic_after": det_before, "trigger": trigger, "agentic_invoked": False,
+            "agent_outputs": [], "tool_events": [], "call_audit": [],
             "usage": {"input_tokens": 0, "output_tokens": 0, "total_tokens": 0}, "latency_ms": 0.0,
             "governance_override": False,
         }
@@ -188,17 +227,10 @@ def run_hybrid(case: dict[str, Any], runtime: BoundedAgenticRuntime) -> dict[str
     calls.append(coord)
     agent_proposal = str(coord.output.get("selected_action", "Escalate for evidence/human review"))
 
-    # Re-run frozen deterministic governance on any newly acquired evidence. The
-    # LLM proposal is advisory: specific/hard deterministic governance remains authoritative.
+    # Authoritative decision is always recomputed by the frozen deterministic
+    # governance path on the evidence available after bounded Agentic RAR.
     det_after = deterministic_assessment(evidence)
-    governed = apply_interaction_policy_v2(evidence, agent_proposal)
-    gate = det_after["gate"]
-    if gate.get("decision") == "observe":
-        final_action = "No action (observe)"
-    elif gate.get("decision") == "escalate":
-        final_action = "Escalate for evidence/human review"
-    else:
-        final_action = str(governed["selected_action"])
+    final_action = str(det_after["selected_action"])
 
     return {
         "selected_action": final_action,
@@ -214,5 +246,6 @@ def run_hybrid(case: dict[str, Any], runtime: BoundedAgenticRuntime) -> dict[str
         "all_schema_valid": all(x.schema_valid for x in calls),
         "all_evidence_refs_valid": all(x.valid_evidence_refs for x in calls),
         "governance_override": final_action != agent_proposal,
-        "governance": governed,
+        "governance": det_after["governance"],
+        "call_audit": [x.audit_record() for x in calls],
     }
