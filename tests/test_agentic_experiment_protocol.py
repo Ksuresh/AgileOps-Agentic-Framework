@@ -54,7 +54,7 @@ def test_near_boundary_case_triggers_without_oracle():
     det = deterministic_assessment(evidence)
     trigger = selective_trigger(evidence, det)
     assert trigger["invoke"] is True
-    assert "near_frozen_decision_boundary" in trigger["reasons"]
+    assert "clustered_boundary_ambiguity" in trigger["reasons"]
 
 
 def test_explicit_missing_evidence_triggers_without_oracle():
