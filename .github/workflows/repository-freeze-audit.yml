@@ -3,6 +3,7 @@ name: Repository Freeze Audit
 on:
   push:
     branches:
+      - main
       - experiment/hybrid-agentic-aaf-v2
   pull_request:
     branches:
@@ -94,6 +95,7 @@ jobs:
           test -s external_validation/rcaeval/FROZEN_PROTOCOL.md
           grep -q 'Agentic Evidence Investigation' README.md
           grep -q 'Uncertainty invokes agency; severity does not' README.md
+          grep -q 'Canonical branch.*main' REPRODUCE_CURRENT_PAPER.md
           grep -q 'Model-selection rationale' paper_results/PROMPT_AND_MODEL_DISCLOSURE.md
           grep -q 'Never invent telemetry' paper_results/PROMPT_AND_MODEL_DISCLOSURE.md
 
