@@ -13,7 +13,9 @@ AAF is a **hybrid deterministic + selectively Agentic AI decision-support framew
 - **Reproduce the current paper:** [`REPRODUCE_CURRENT_PAPER.md`](REPRODUCE_CURRENT_PAPER.md)
 - **Reviewer-facing study/results index:** [`paper_results/README.md`](paper_results/README.md)
 - **Manuscript claim → frozen execution provenance:** [`paper_results/MANUSCRIPT_RESULT_MAP.md`](paper_results/MANUSCRIPT_RESULT_MAP.md)
+- **Exact constrained LLM prompts + model rationale:** [`paper_results/PROMPT_AND_MODEL_DISCLOSURE.md`](paper_results/PROMPT_AND_MODEL_DISCLOSURE.md)
 - **Frozen selective-Agentic protocol:** [`agentic_experiments/FROZEN_PROTOCOL.md`](agentic_experiments/FROZEN_PROTOCOL.md)
+- **RCAEval frozen external-validation protocol:** [`external_validation/rcaeval/FROZEN_PROTOCOL.md`](external_validation/rcaeval/FROZEN_PROTOCOL.md)
 
 ## Architecture at a glance
 
@@ -50,7 +52,7 @@ Authoritative governance action
 Optional bounded PM-facing LLM explanation / interaction
 ```
 
-**Terminology:** AEI is the LLM-mediated investigation/evidence-acquisition step. Evidence re-grounding/reassessment is the processing that follows newly acquired evidence. Historical code/artifact names are preserved when they form part of frozen experimental provenance.
+**Terminology:** AEI is the LLM-mediated investigation/evidence-acquisition step. Evidence re-grounding/reassessment is the processing that follows newly acquired evidence. Historical code, protocol, and artifact names are preserved when they form part of frozen experimental provenance.
 
 The final arbitration order is:
 
@@ -64,7 +66,7 @@ A governance evaluation may be triggered by a deployment event, monitoring/secur
 
 1. **Deterministic AAF** — frozen deterministic domain assessment plus deterministic cross-domain governance.
 2. **Agentic-only** — bounded LLM domain reasoning and approved evidence tools without deterministic final cross-domain arbitration.
-3. **Hybrid AAF** — deterministic first pass; selective AEI only when the frozen uncertainty trigger fires; approved evidence acquisition and re-grounding; deterministic governance remains authoritative.
+3. **Hybrid AAF** — deterministic first pass; selective AEI only when the frozen uncertainty trigger fires; approved evidence acquisition and re-grounding/reassessment; deterministic governance remains authoritative.
 
 The Hybrid architecture is not designed to maximize LLM invocation. Avoiding unnecessary Agentic calls on clear evidence is an intended outcome.
 
@@ -96,6 +98,7 @@ RCAEval does **not** provide project-governance action ground truth. It demonstr
 - Hybrid tokens: **44,879**
 - Token avoidance: **50.92%**
 - Governance overrides: **14**, of which **11** were beneficial
+- INCOMPLETE: Deterministic **7/8** -> Hybrid **8/8**
 
 Frozen Protocol-v2 execution: workflow **AAF Confirmatory Agentic Experiments 2-4**, run `34428945881`, head SHA `3f5913f0a7e8a935f28751a3d074de049ec34951`, artifact ID `10133945801`, artifact digest `sha256:51775beb89de8d09b16f8e6449d900cdd0a42e3863c3f5d9f05fd8059939b583`.
 
@@ -110,7 +113,7 @@ Frozen Protocol-v2 execution: workflow **AAF Confirmatory Agentic Experiments 2-
 - Hybrid tokens: **18,682**
 - Token avoidance: **60.5%**
 - Governance overrides: **8**, of which **7** were beneficial
-- INCOMPLETE: deterministic **3/4** -> Hybrid **4/4**; expected tool selected **4/4** in Hybrid
+- INCOMPLETE: Deterministic **3/4** -> Hybrid **4/4**; expected tool selected **4/4** in Hybrid
 
 Frozen prospective execution: workflow **AAF Prospective Agentic Replication**, run `34432645600`, head SHA `2417f2f0062dd2a3541e9ce9904e1880fcf15b31`, artifact ID `10135143965`, artifact digest `sha256:a66f5aafb74027d15eabb8047230ed941ab84fa0c38e32233da091e64f2fa343`.
 
@@ -118,11 +121,17 @@ Frozen prospective execution: workflow **AAF Prospective Agentic Replication**, 
 
 ### Combined architectural evidence — 48 cases
 
+- INCOMPLETE: Deterministic **10/12** -> Hybrid **12/12**; both observed deterministic misses recovered
+- CLEAR AEI invocation: **0/12**
+- Always-on Agentic tokens: **138,792** vs Hybrid **63,561** — **54.2% avoidance**
 - Deterministic AAF: **39/48 = 81.25%**
 - Agentic-only: **17/48 = 35.42%**
 - Hybrid AAF: **41/48 = 85.42%**
+- Governance overrides: **22**, of which **18** were beneficial
 
-The combined Hybrid-versus-deterministic total is descriptive: the difference is **not statistically significant in either constituent study** (exact paired `p = 1.000` in both). The intended contribution is architectural: deterministic governance already performs strongly on bounded cases; selective AEI adds targeted value when evidence investigation/acquisition is needed; deterministic authority prevents many incorrect Agentic proposals from becoming governance actions; and selective invocation materially reduces LLM usage relative to always-on Agentic reasoning.
+Hybrid significantly outperformed Agentic-only in the primary study (`p = 0.0000153`) and prospective replication (`p = 0.0391`). The combined Hybrid-versus-deterministic total is descriptive: the difference is **not statistically significant in either constituent study** (exact paired `p = 1.000` in both).
+
+The intended contribution is architectural: deterministic governance already performs strongly on bounded cases; selective AEI adds targeted value when evidence investigation/acquisition is needed; deterministic authority prevents incorrect Agentic coordinator proposals from becoming governance actions; and selective invocation materially reduces LLM usage relative to always-on Agentic reasoning. A `beneficial_override` specifically means the Agentic coordinator proposal was incorrect while the deterministic final action was correct; it does not imply that the overridden proposal was directionally correct.
 
 ## Quick start
 
@@ -138,7 +147,7 @@ export PYTHONPATH="$PWD"         # PowerShell: $env:PYTHONPATH=(Get-Location)
 python -m pytest -q
 ```
 
-Python 3.11 is the reference CI version. Runtime studies additionally require Docker/Docker Compose (Sock Shop) or Docker + kubectl + kind (Online Boutique). Fresh Agentic runs require an OpenAI API key and are stochastic replications; manuscript-reported executions are identified by immutable run/artifact provenance.
+Python 3.11 is the reference CI version. Runtime studies additionally require Docker/Docker Compose (Sock Shop) or Docker + kubectl + kind (Online Boutique). RCAEval requires the additional dependencies in `external_validation/rcaeval/requirements.txt`. Fresh Agentic runs require an OpenAI API key and are stochastic replications; manuscript-reported executions are identified by immutable run/artifact provenance.
 
 ## Repository map
 
@@ -162,13 +171,13 @@ paper_results/          reviewer-facing results/provenance index
 
 ## Agentic evidence contract and guardrails
 
-When invoked, a domain component follows a bounded observe/reason/evidence-acquisition/re-grounding loop and returns a structured record containing `agent_type`, `claim`, `confidence`, `evidence_ids`, `proposed_action`, `uncertainty`, `needs_more_evidence`, `requested_tools`, and `rationale_summary`.
+When invoked, a domain component follows a bounded evidence-assessment/investigation loop and returns a structured record containing `agent_type`, `claim`, `confidence`, `evidence_ids`, `proposed_action`, `uncertainty`, `needs_more_evidence`, `requested_tools`, and `rationale_summary`.
 
 `rationale_summary` is a concise auditable explanation, not private chain-of-thought. Tool access is read-only and allow-listed. The runtime validates action choices, tool requests, output schema and evidence references. Evaluator-only fields such as case ID, stratum, oracle action, expected tool and hidden tool result are not supplied as model-visible incident evidence.
 
 ## Bounded PM-facing LLM interface
 
-The downstream PM-facing LLM is constrained to interpret/verbalize supplied structured AAF outputs. It does not become the governance authority and must not invent telemetry, causal links, incidents, risks or business impact.
+The downstream PM-facing LLM is constrained to interpret/verbalize supplied structured AAF outputs. It does not become the governance authority and must not invent telemetry, causal links, incidents, risks or business impact. Exact constrained prompts and the model-selection rationale are in [`paper_results/PROMPT_AND_MODEL_DISCLOSURE.md`](paper_results/PROMPT_AND_MODEL_DISCLOSURE.md).
 
 The frozen 100-prompt GPT-5.6 Luna faithfulness study recorded intent mapping **91/100**, authoritative-action preservation **100/100**, adversarial authority resistance **25/25**, unsupported-evidence lure rejection **25/25**, and **0/100** unsupported numeric claims.
 
@@ -187,7 +196,7 @@ We do **not** claim that an LLM cannot hallucinate. The architecture is designed
 
 ## Historical provenance
 
-The former pre-paper main is preserved at `archive/pre-paper-2026-main`. Historical experiment branches and GitHub Actions runs preserve exact execution states. Reviewer-facing documentation should use the frozen provenance identifiers in `paper_results/` rather than infer results from historical directory or code names.
+The former pre-paper main is preserved at `archive/pre-paper-2026-main`. Historical experiment branches, historical filenames (including earlier `rar` identifiers), and GitHub Actions runs preserve exact execution states. Reviewer-facing documentation should use the terminology and frozen provenance identifiers in `paper_results/` rather than infer current concepts from historical code or result names.
 
 ## License
 
