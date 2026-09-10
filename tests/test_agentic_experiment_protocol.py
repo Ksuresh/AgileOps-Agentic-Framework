@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from agentic_experiments.agentic_runtime import EVALUATOR_ONLY, strip_evaluator_fields
+from agentic_experiments.agentic_runtime import EVALUATOR_ONLY, domain_evidence_packet, strip_evaluator_fields
 from agentic_experiments.hybrid import deterministic_assessment, selective_trigger
 
 
@@ -20,6 +20,18 @@ def test_evaluator_fields_are_never_model_visible():
     assert visible["available_tools"] == ["get_error_rate_history"]
 
 
+def test_specialist_agent_sees_only_assigned_domain_raw_evidence():
+    evidence = {
+        "deploy": {"config_drift": True},
+        "sre": {"p95_latency_ms": 900},
+        "finops": {"cost_spike_pct": 30},
+        "sec": {"critical_cves": 2},
+    }
+    packet = domain_evidence_packet(evidence, "SRE")
+    assert set(packet) == {"sre"}
+    assert packet["sre"]["p95_latency_ms"]["id"] == "EV-sre-p95_latency_ms"
+
+
 def test_clear_healthy_case_does_not_trigger_agentic_reasoning():
     evidence = {
         "deploy": {"pipeline_failed": False, "artifact_mismatch": False, "config_drift": False},
@@ -30,6 +42,19 @@ def test_clear_healthy_case_does_not_trigger_agentic_reasoning():
     det = deterministic_assessment(evidence)
     trigger = selective_trigger(evidence, det)
     assert trigger["invoke"] is False
+
+
+def test_near_boundary_case_triggers_without_oracle():
+    evidence = {
+        "sre": {"p95_latency_ms": 470, "error_rate_pct": 7.7, "saturation_pct": 84, "availability_pct": 99.1},
+        "deploy": {"pipeline_failed": False},
+        "finops": {"cost_spike_pct": 4},
+        "sec": {"policy_violation": False},
+    }
+    det = deterministic_assessment(evidence)
+    trigger = selective_trigger(evidence, det)
+    assert trigger["invoke"] is True
+    assert "near_frozen_decision_boundary" in trigger["reasons"]
 
 
 def test_explicit_missing_evidence_triggers_without_oracle():
