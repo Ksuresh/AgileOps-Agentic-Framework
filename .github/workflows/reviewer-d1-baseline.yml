@@ -1,4 +1,4 @@
-name: Reviewer D1 Baseline Validation
+name: Reviewer D1 and D2 Baseline Validation
 
 on:
   push:
@@ -26,10 +26,20 @@ jobs:
         env:
           PYTHONPATH: ${{ github.workspace }}
         run: python -m unittest reviewer_revision.test_d1_contract reviewer_revision.test_d2_contract -v
+      - name: Execute 48-case D2 comparison
+        env:
+          PYTHONPATH: ${{ github.workspace }}
+        run: python -m reviewer_revision.run_d2
       - name: Execute 48-case D1 evaluation
         env:
           PYTHONPATH: ${{ github.workspace }}
         run: python -m reviewer_revision.run_d1
+      - name: Upload D2 exploratory outputs
+        uses: actions/upload-artifact@v4
+        with:
+          name: reviewer-d2-48case-${{ github.run_id }}
+          path: reviewer_revision/results/d2_48case_exploratory/
+          if-no-files-found: error
       - name: Upload exploratory outputs
         uses: actions/upload-artifact@v4
         with:
