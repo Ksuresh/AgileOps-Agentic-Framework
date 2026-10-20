@@ -1,0 +1,33 @@
+name: External Dataset Metadata Audit
+
+on:
+  push:
+    branches:
+      - review/ieee-access-baseline-validation
+    paths:
+      - 'reviewer_revision/audit_rcaeval_index.py'
+      - '.github/workflows/reviewer-dataset-audit.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit-rcaeval-index:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install index audit dependencies
+        run: python -m pip install 'pandas>=2.0,<3' 'pyarrow>=15,<24'
+      - name: Download and audit RCAEval case index
+        run: python -m reviewer_revision.audit_rcaeval_index
+      - name: Upload metadata audit and source index
+        uses: actions/upload-artifact@v4
+        with:
+          name: rcaeval-index-audit-${{ github.run_id }}
+          path: reviewer_revision/results/external_dataset_audit/
+          if-no-files-found: error
