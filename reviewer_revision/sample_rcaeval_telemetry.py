@@ -53,7 +53,7 @@ def main():
     (OUT / "rcaeval_telemetry_sample.json").write_text(json.dumps(report, indent=2))
     print(json.dumps(report, indent=2))
     if not sampled:
-        raise RuntimeError("No RCAEval RE2 parquet candidates found; inspect repository tree layout")
+        print("WARNING: RE2 Parquet paths not present in inspected HF repository tree; raw telemetry must be sourced separately.")
 
 if __name__ == "__main__":
     main()
