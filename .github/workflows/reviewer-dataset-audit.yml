@@ -8,6 +8,8 @@ on:
       - 'reviewer_revision/audit_rcaeval_index.py'
       - '.github/workflows/reviewer-dataset-audit.yml'
       - 'reviewer_revision/inventory_rcaeval_cohorts.py'
+      - 'reviewer_revision/audit_rcaeval_remote_tree.py'
+      - 'reviewer_revision/audit_uci_incidents.py'
   workflow_dispatch:
 
 permissions:
@@ -28,6 +30,10 @@ jobs:
         run: python -m reviewer_revision.audit_rcaeval_index
       - name: Inventory cohorts and fault-family leakage groups
         run: python -m reviewer_revision.inventory_rcaeval_cohorts
+      - name: Inspect RCAEval remote telemetry file inventory
+        run: python -m reviewer_revision.audit_rcaeval_remote_tree
+      - name: Audit UCI incident dataset metadata
+        run: python -m reviewer_revision.audit_uci_incidents
       - name: Upload metadata audit and source index
         uses: actions/upload-artifact@v4
         with:
