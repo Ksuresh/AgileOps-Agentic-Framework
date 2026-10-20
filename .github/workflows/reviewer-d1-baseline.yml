@@ -25,7 +25,7 @@ jobs:
       - name: Validate D1 retrieval contracts
         env:
           PYTHONPATH: ${{ github.workspace }}
-        run: python -m unittest reviewer_revision.test_d1_contract -v
+        run: python -m unittest reviewer_revision.test_d1_contract reviewer_revision.test_d2_contract -v
       - name: Execute 48-case D1 evaluation
         env:
           PYTHONPATH: ${{ github.workspace }}
