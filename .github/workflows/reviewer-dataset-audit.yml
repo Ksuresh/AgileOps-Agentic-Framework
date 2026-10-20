@@ -11,6 +11,7 @@ on:
       - 'reviewer_revision/audit_rcaeval_remote_tree.py'
       - 'reviewer_revision/audit_uci_incidents.py'
       - 'reviewer_revision/build_rcaeval_eligibility_manifest.py'
+      - 'reviewer_revision/sample_rcaeval_telemetry.py'
   workflow_dispatch:
 
 permissions:
@@ -35,6 +36,8 @@ jobs:
         run: python -m reviewer_revision.inventory_rcaeval_cohorts
       - name: Inspect RCAEval remote telemetry file inventory
         run: python -m reviewer_revision.audit_rcaeval_remote_tree
+      - name: Sample RCAEval raw telemetry Parquet
+        run: python -m reviewer_revision.sample_rcaeval_telemetry
       - name: Audit UCI incident dataset metadata
         run: python -m reviewer_revision.audit_uci_incidents
       - name: Upload metadata audit and source index
