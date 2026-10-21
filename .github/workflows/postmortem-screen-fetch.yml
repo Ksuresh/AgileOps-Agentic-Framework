@@ -4,7 +4,7 @@ name: Postmortem screening fetch (encrypted)
 on:
   push:
     branches: [text-evidence-pilot]
-    paths: ["external_validation/postmortems/screening/fetch_encrypted.py", "external_validation/postmortems/screening/sample_20.json", ".github/workflows/postmortem-screen-fetch.yml"]
+    paths: ["external_validation/postmortems/screening/fetch_encrypted.py", "external_validation/postmortems/screening/pool_80.json", ".github/workflows/postmortem-screen-fetch.yml"]
   workflow_dispatch:
 
 permissions:
@@ -13,18 +13,18 @@ permissions:
 jobs:
   fetch:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 40
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
       - run: pip install requests beautifulsoup4
-      - run: python external_validation/postmortems/screening/fetch_encrypted.py
+      - run: python external_validation/postmortems/screening/fetch_encrypted.py pool_80
       - name: Commit encrypted bundle
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add external_validation/postmortems/screening/bundle.json.enc external_validation/postmortems/screening/bundle.key.enc external_validation/postmortems/screening/fetch_status.json
+          git add external_validation/postmortems/screening/pool_80.*
           git commit -m "Encrypted screening bundle: run ${GITHUB_RUN_ID} [skip ci]" || echo "nothing to commit"
           git push origin HEAD:${GITHUB_REF_NAME}

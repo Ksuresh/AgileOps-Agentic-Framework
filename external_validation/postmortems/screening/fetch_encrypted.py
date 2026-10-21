@@ -32,7 +32,9 @@ def text(url: str) -> tuple[str, str]:
 
 
 def main() -> None:
-    sample = json.loads((HERE / "sample_20.json").read_text())["sample"]
+    import sys
+    name = sys.argv[1] if len(sys.argv) > 1 else "sample_20"
+    sample = json.loads((HERE / f"{name}.json").read_text())["sample"]
     bundle = []
     for item in sample:
         status, body = text(item["url"])
@@ -42,10 +44,10 @@ def main() -> None:
         plain.write_text(json.dumps(bundle))
         key.write_bytes(os.urandom(32))
         subprocess.run(["openssl", "enc", "-aes-256-cbc", "-pbkdf2", "-salt", "-in", str(plain),
-                        "-out", str(HERE / "bundle.json.enc"), "-pass", f"file:{key}"], check=True)
+                        "-out", str(HERE / f"{name}.bundle.json.enc"), "-pass", f"file:{key}"], check=True)
         subprocess.run(["openssl", "pkeyutl", "-encrypt", "-pubin", "-inkey", str(HERE / "screen_public.pem"),
-                        "-in", str(key), "-out", str(HERE / "bundle.key.enc")], check=True)
-    (HERE / "fetch_status.json").write_text(json.dumps([{k: v for k, v in b.items() if k != "text"} for b in bundle], indent=1))
+                        "-in", str(key), "-out", str(HERE / f"{name}.bundle.key.enc")], check=True)
+    (HERE / f"{name}.fetch_status.json").write_text(json.dumps([{k: v for k, v in b.items() if k != "text"} for b in bundle], indent=1))
     print(json.dumps([{k: b[k] for k in ("id", "org", "status", "chars")} for b in bundle], indent=1))
 
 
