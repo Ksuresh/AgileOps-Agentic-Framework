@@ -126,7 +126,7 @@ def main() -> None:
     ap.add_argument("--repeats", type=int, default=5)
     ap.add_argument("--out", default="text_evidence_pilot/results")
     ap.add_argument("--cases", default=str(CASES), help="case file (default: pilot v0)")
-    ap.add_argument("--version", default="v0", choices=["v0", "v1"], help="reader prompt + checker version")
+    ap.add_argument("--version", default="v0", choices=["v0", "v1", "v2"], help="reader prompt + checker version")
     args = ap.parse_args()
 
     cases_path = Path(args.cases)

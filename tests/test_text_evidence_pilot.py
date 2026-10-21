@@ -109,3 +109,36 @@ def test_ratio_method_only_in_v1():
     docs = [{"id": "D", "text": "120 of 1,000 requests failed"}]
     x = {"field": "sre.error_rate_pct", "value": 12, "doc_id": "D", "quote": "120 of 1,000 requests failed", "method": "ratio_percent"}
     assert check(x, docs, "v1") == (True, "ok") and check(x, docs, "v0")[1] == "unknown_method"
+
+
+HOLDOUT3 = yaml.safe_load((Path(__file__).resolve().parents[1] / "text_evidence_pilot" / "cases_text_holdout_v3.yaml").read_text())["cases"]
+
+
+def test_v2_checker_on_all_truths_matches_declared_expectations():
+    for case in CASES + STRESS + HOLDOUT + HOLDOUT3:
+        results = []
+        for field, t in (case.get("truth") or {}).items():
+            x = {"field": field, "doc_id": _doc_for(case, t["quote"]), **t}
+            if case["id"] == "ST-U2":
+                x["method"] = "ratio_percent"
+            results.append(check(x, case["documents"], "v2", case.get("scope"))[0])
+        if case.get("validator_expected") == "reject_v2":
+            assert not all(results), case["id"]  # at least one truth field is known to be unverifiable
+        else:
+            assert all(results), case["id"]
+
+
+def test_v2_current_wording_overrides_context_only_in_its_own_subclause():
+    d = lambda t: [{"id": "D", "text": t}]
+    x = lambda q, f="sre.error_rate_pct", v=13.5: {"field": f, "value": v, "doc_id": "D", "quote": q, "method": "literal"}
+    t = "Compared with yesterday's 2%, the auth error rate is now 13.5%."
+    assert check(x("the auth error rate is now 13.5%"), d(t), "v1") == (False, "historical_context")
+    assert check(x("the auth error rate is now 13.5%"), d(t), "v2") == (True, "ok")
+    t2 = "As of last month, ledger spend is up 35% vs baseline."
+    assert not check(x("ledger spend is up 35%", "finops.cost_spike_pct", 35), d(t2), "v2")[0]
+
+
+def test_v2_ratio_either_order():
+    docs = [{"id": "D", "text": "out of 400 requests in the window, 36 failed"}]
+    x = {"field": "sre.error_rate_pct", "value": 9, "doc_id": "D", "quote": "out of 400 requests in the window, 36 failed", "method": "ratio_percent"}
+    assert not check(x, docs, "v1")[0] and check(x, docs, "v2") == (True, "ok")

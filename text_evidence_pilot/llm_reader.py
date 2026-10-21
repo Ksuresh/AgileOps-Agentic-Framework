@@ -43,7 +43,16 @@ READER_SYSTEM_V1 = READER_SYSTEM.replace(
     "ratio_percent"      the value is a percentage computed as 100 * A / B, where A and B are the first two numbers in the
                          quote, in that order (e.g. quote "120 of 1,000 requests failed" -> 12).""")
 
-READER_PROMPTS = {"v0": READER_SYSTEM, "v1": READER_SYSTEM_V1}
+READER_SYSTEM_V2 = READER_SYSTEM_V1.replace(
+    "Current values next to such phrases are fine.",
+    """Current values next to such phrases are fine.
+- Measurements over a recent window ("over the last hour", "last 5 minutes", "since the deploy") are current: extract them.
+- In logs that mix several services, count only the scope service's lines; they are current evidence even when other
+  services appear around them.""").replace(
+    "in that order (e.g. quote \"120 of 1,000 requests failed\" -> 12).",
+    "in either order (e.g. \"120 of 1,000 requests failed\" -> 12; \"out of 400 requests, 36 failed\" -> 9).")
+
+READER_PROMPTS = {"v0": READER_SYSTEM, "v1": READER_SYSTEM_V1, "v2": READER_SYSTEM_V2}
 
 
 def _json_obj(text: str) -> dict[str, Any]:
