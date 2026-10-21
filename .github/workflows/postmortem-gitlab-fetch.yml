@@ -1,0 +1,30 @@
+name: Postmortem study - GitLab extension fetch (encrypted)
+
+# PROTOCOL.md amendment A3. Commits only encrypted text plus metadata. No LLM calls.
+on:
+  push:
+    branches: [text-evidence-pilot]
+    paths: ["external_validation/postmortems/screening/fetch_gitlab.py", ".github/workflows/postmortem-gitlab-fetch.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install requests
+      - run: python external_validation/postmortems/screening/fetch_gitlab.py
+      - name: Commit encrypted bundle
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add external_validation/postmortems/screening/gitlab_150.*
+          git commit -m "GitLab extension encrypted bundle: run ${GITHUB_RUN_ID} [skip ci]" || echo "nothing to commit"
+          git push origin HEAD:${GITHUB_REF_NAME}
