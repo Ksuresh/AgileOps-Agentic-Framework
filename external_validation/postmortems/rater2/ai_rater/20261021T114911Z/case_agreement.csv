@@ -1,0 +1,41 @@
+case,source,evidence_match,rater1_label,rater2_label,rater2_votes,label_agree,rater1_entry,rater2_entry,entry_agree
+PM-001,danluu,True,Scale,Scale,"{""Scale"": 3}",True,6,6,True
+PM-015,danluu,True,Mitigate,Mitigate,"{""Mitigate"": 3}",True,5,5,True
+PM-016,danluu,True,Mitigate,Mitigate,"{""Mitigate"": 3}",True,3,3,True
+PM-017,danluu,True,Rollback,Rollback,"{""Rollback"": 3}",True,4,4,True
+PM-019,danluu,True,Rollback,Mitigate,"{""Mitigate"": 3}",False,10,12,False
+PM-021,danluu,True,Rollback,Rollback,"{""Rollback"": 3}",True,3,4,False
+PM-022,danluu,True,Rollback,Rollback,"{""Rollback"": 3}",True,7,7,True
+PM-024,danluu,True,Scale,Scale,"{""Scale"": 3}",True,4,4,True
+PM-026,danluu,True,Rollback,Rollback,"{""Rollback"": 3}",True,5,5,True
+PM-034,danluu,True,Rollback,Rollback,"{""Rollback"": 3}",True,6,6,True
+PM-037,danluu,True,Mitigate,Mitigate,"{""Mitigate"": 3}",True,3,1,False
+PM-044,danluu,True,Mitigate,Mitigate,"{""Mitigate"": 3}",True,2,2,True
+PM-045,danluu,True,Mitigate,exclude,"{""exclude"": 3}",False,6,,False
+PM-046,danluu,True,Mitigate,Mitigate,"{""Mitigate"": 3}",True,4,4,True
+PM-061,danluu,True,Rollback,Rollback,"{""Rollback"": 3}",True,7,7,True
+PM-064,danluu,True,Patch,Mitigate,"{""Mitigate"": 3}",False,4,4,True
+PM-066,danluu,True,Rollback,Rollback,"{""Rollback"": 3}",True,5,6,False
+PM-068,danluu,True,Mitigate,Mitigate,"{""Mitigate"": 3}",True,3,3,True
+PM-076,danluu,True,Mitigate,Mitigate,"{""Mitigate"": 3}",True,6,6,True
+PM-079,danluu,True,Mitigate,Mitigate,"{""Patch"": 1, ""Mitigate"": 2}",True,2,2,True
+PM-080,danluu,True,Mitigate,Mitigate,"{""Mitigate"": 3}",True,3,3,True
+GL-002,gitlab,True,Mitigate,Mitigate,"{""Mitigate"": 3}",True,4,4,True
+GL-003,gitlab,True,Mitigate,Mitigate,"{""Mitigate"": 3}",True,6,6,True
+GL-007,gitlab,True,Rollback,Rollback,"{""Rollback"": 3}",True,11,11,True
+GL-008,gitlab,True,Rollback,Mitigate,"{""Mitigate"": 2, ""Rollback"": 1}",False,2,2,True
+GL-009,gitlab,True,Rollback,Patch,"{""Patch"": 1, ""Rollback"": 1, ""exclude"": 1}",False,6,6,True
+GL-012,gitlab,True,Mitigate,Mitigate,"{""Mitigate"": 3}",True,4,4,True
+GL-017,gitlab,True,Patch,Mitigate,"{""Mitigate"": 2, ""Patch"": 1}",False,2,2,True
+GL-023,gitlab,True,Rollback,Patch,"{""Patch"": 3}",False,11,11,True
+GL-024,gitlab,True,Mitigate,Mitigate,"{""Mitigate"": 3}",True,4,4,True
+GL-026,gitlab,True,Rollback,Rollback,"{""Rollback"": 3}",True,6,6,True
+GL-028,gitlab,True,Mitigate,Mitigate,"{""Rollback"": 1, ""Mitigate"": 2}",True,3,3,True
+GL-031,gitlab,True,Rollback,Rollback,"{""Rollback"": 3}",True,4,4,True
+GL-032,gitlab,True,Mitigate,Mitigate,"{""Mitigate"": 3}",True,3,3,True
+GL-033,gitlab,True,Rollback,Rollback,"{""Rollback"": 3}",True,2,2,True
+GL-035,gitlab,True,Mitigate,Mitigate,"{""Mitigate"": 3}",True,3,3,True
+GL-047,gitlab,True,Patch,Patch,"{""Patch"": 3}",True,3,3,True
+GL-051,gitlab,True,Mitigate,Mitigate,"{""Mitigate"": 3}",True,2,2,True
+GL-052,gitlab,True,Rollback,Rollback,"{""Rollback"": 3}",True,7,7,True
+GL-057,gitlab,True,Mitigate,Mitigate,"{""Mitigate"": 3}",True,4,4,True
