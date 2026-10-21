@@ -1,0 +1,30 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Traceback (most recent call last):
+  File "/home/runner/work/AgileOps-Agentic-Framework/AgileOps-Agentic-Framework/external_validation/rcaeval_text/probe_re2_signal.py", line 89, in <module>
+    main()
+  File "/home/runner/work/AgileOps-Agentic-Framework/AgileOps-Agentic-Framework/external_validation/rcaeval_text/probe_re2_signal.py", line 78, in main
+    pre_t = set(msg[lpre].map(template))
+                ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/pandas/core/series.py", line 4675, in map
+    new_values = self._map_values(func, na_action=na_action)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/pandas/core/base.py", line 1020, in _map_values
+    return arr.map(mapper, na_action=na_action)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/pandas/core/arrays/arrow/array.py", line 1827, in map
+    return super().map(mapper, na_action)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/pandas/core/arrays/base.py", line 2745, in map
+    return map_array(self, mapper, na_action=na_action)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/pandas/core/algorithms.py", line 1715, in map_array
+    return lib.map_infer(values, mapper)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "pandas/_libs/lib.pyx", line 3071, in pandas._libs.lib.map_infer
+  File "/home/runner/work/AgileOps-Agentic-Framework/AgileOps-Agentic-Framework/external_validation/rcaeval_text/probe_re2_signal.py", line 40, in template
+    return NUMS.sub("#", re.sub(r"[0-9a-f]{8}-[0-9a-f-]{27,}", "<id>", m))[:160]
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/re/__init__.py", line 185, in sub
+    return _compile(pattern, flags).sub(repl, string, count)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: expected string or bytes-like object, got 'float'
