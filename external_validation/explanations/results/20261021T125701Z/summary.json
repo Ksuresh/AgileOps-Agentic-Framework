@@ -1,0 +1,248 @@
+{
+  "protocol": "external_validation/explanations/PROTOCOL.md",
+  "records": 96,
+  "by_source": {
+    "structured": 48,
+    "rcaeval": 48
+  },
+  "answers": 768,
+  "failed_calls": 0,
+  "M1_action_fidelity_decision": {
+    "k": 96,
+    "n": 96,
+    "pct": 100.0,
+    "wilson95": [
+      96.2,
+      100
+    ]
+  },
+  "M1_names_selected_action_decision": {
+    "k": 96,
+    "n": 96,
+    "pct": 100.0,
+    "wilson95": [
+      96.2,
+      100
+    ]
+  },
+  "M1_recommends_other_action_any_question": {
+    "k": 0,
+    "n": 576,
+    "pct": 0.0,
+    "wilson95": [
+      0,
+      0.7
+    ]
+  },
+  "M1_generated_action_field_mismatch": {
+    "k": 0,
+    "n": 768,
+    "pct": 0.0,
+    "wilson95": [
+      0,
+      0.5
+    ]
+  },
+  "M2_answers_with_unsupported_number": {
+    "k": 0,
+    "n": 576,
+    "pct": 0.0,
+    "wilson95": [
+      0,
+      0.7
+    ]
+  },
+  "M3_claims": {
+    "n_claims": 4803,
+    "supported": 4700,
+    "unsupported": 97,
+    "contradicted": 6
+  },
+  "M3_claim_unsupported_or_contradicted_pct": 2.14,
+  "M3_answers_fully_faithful": {
+    "k": 490,
+    "n": 576,
+    "pct": 85.1,
+    "wilson95": [
+      81.9,
+      87.7
+    ]
+  },
+  "M3_by_question": {
+    "decision": {
+      "k": 96,
+      "n": 96,
+      "pct": 100.0,
+      "wilson95": [
+        96.2,
+        100
+      ]
+    },
+    "why": {
+      "k": 89,
+      "n": 96,
+      "pct": 92.7,
+      "wilson95": [
+        85.7,
+        96.4
+      ]
+    },
+    "evidence": {
+      "k": 93,
+      "n": 96,
+      "pct": 96.9,
+      "wilson95": [
+        91.2,
+        98.9
+      ]
+    },
+    "alternatives": {
+      "k": 62,
+      "n": 96,
+      "pct": 64.6,
+      "wilson95": [
+        54.6,
+        73.4
+      ]
+    },
+    "uncertainty": {
+      "k": 56,
+      "n": 96,
+      "pct": 58.3,
+      "wilson95": [
+        48.3,
+        67.7
+      ]
+    },
+    "status": {
+      "k": 94,
+      "n": 96,
+      "pct": 97.9,
+      "wilson95": [
+        92.7,
+        99.4
+      ]
+    }
+  },
+  "M4_why_covers_decisive_reason": {
+    "k": 96,
+    "n": 96,
+    "pct": 100.0,
+    "wilson95": [
+      96.2,
+      100
+    ]
+  },
+  "M5_uncertainty_mentions_missing_when_missing": {
+    "k": 12,
+    "n": 12,
+    "pct": 100.0,
+    "wilson95": [
+      75.7,
+      100
+    ]
+  },
+  "M5_uncertainty_claims_missing_when_none": {
+    "k": 66,
+    "n": 84,
+    "pct": 78.6,
+    "wilson95": [
+      68.7,
+      86.0
+    ]
+  },
+  "M6_inject_adopted": {
+    "k": 0,
+    "n": 96,
+    "pct": 0.0,
+    "wilson95": [
+      0,
+      3.8
+    ]
+  },
+  "M6_inject_recommends_other_action": {
+    "k": 0,
+    "n": 96,
+    "pct": 0.0,
+    "wilson95": [
+      0,
+      3.8
+    ]
+  },
+  "M6_pressure_endorses_other_action": {
+    "k": 0,
+    "n": 96,
+    "pct": 0.0,
+    "wilson95": [
+      0,
+      3.8
+    ]
+  },
+  "M7_fk_grade_median": {
+    "P_why": 13.79,
+    "T": 11.86,
+    "wilcoxon_p": 5.10478751068605e-16
+  },
+  "M7_jargon_per100_median": {
+    "P_why": 7.46,
+    "T": 6.91,
+    "wilcoxon_p": 0.3079329682331272
+  },
+  "judge_sensitivity": {
+    "number": {
+      "k": 27,
+      "n": 30,
+      "pct": 90.0,
+      "wilson95": [
+        74.4,
+        96.5
+      ]
+    },
+    "invented": {
+      "k": 28,
+      "n": 30,
+      "pct": 93.3,
+      "wilson95": [
+        78.7,
+        98.2
+      ]
+    },
+    "action": {
+      "k": 30,
+      "n": 30,
+      "pct": 100.0,
+      "wilson95": [
+        88.6,
+        100
+      ]
+    }
+  },
+  "judge_specificity_template_claims_supported_pct": 73.8,
+  "template_claims": {
+    "n_claims": 1894,
+    "supported": 1398,
+    "unsupported": 479,
+    "contradicted": 17
+  },
+  "by_source_fully_faithful": {
+    "structured": {
+      "k": 250,
+      "n": 288,
+      "pct": 86.8,
+      "wilson95": [
+        82.4,
+        90.2
+      ]
+    },
+    "rcaeval": {
+      "k": 240,
+      "n": 288,
+      "pct": 83.3,
+      "wilson95": [
+        78.6,
+        87.2
+      ]
+    }
+  },
+  "tokens_total": 682433
+}

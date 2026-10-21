@@ -1,0 +1,13 @@
+{
+  "created_utc": "2026-10-21T13:25:37.172671+00:00",
+  "model": "gpt-5.6-luna",
+  "generator_effort": "none",
+  "judge_effort": "high",
+  "prompt_sha256": {
+    "ANSWER_SYSTEM": "6d62b00f318d67d3bc0d83af101e0b05b9202cf08b674ee9678ad853eb0dd55c",
+    "INTENT_SYSTEM": "1fd9a38804573d2ee450a1524875b27f92b64ad830afe2d73aeda09496c5f516",
+    "JUDGE_SYSTEM": "51a899bab533672a724ac1b7ea6b6ecd2b794759354422dbb85b5e04042cbc0e"
+  },
+  "github_run_id": "39603634523",
+  "git_sha": "41a84a4c415cb803a22461d70ce7a9092b900e79"
+}
