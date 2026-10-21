@@ -1,0 +1,55 @@
+"""Integrity tests for the text-evidence development pilot (no API calls)."""
+from pathlib import Path
+
+import yaml
+
+from text_evidence_pilot.llm_reader import reader_payload
+from text_evidence_pilot.run_pilot import fill, missing_in_structured
+from text_evidence_pilot.schema import FIELD_SPECS
+from text_evidence_pilot.validator import check
+
+CASES = yaml.safe_load((Path(__file__).resolve().parents[1] / "text_evidence_pilot" / "cases_text_pilot_v0.yaml").read_text())["cases"]
+
+
+def _doc_for(case, quote):
+    norm = lambda s: " ".join(s.split())
+    return next(d["id"] for d in case["documents"] if norm(quote) in norm(d["text"]))
+
+
+def test_every_truth_value_passes_the_validator():
+    for case in CASES:
+        for field, t in (case.get("truth") or {}).items():
+            ok, reason = check({"field": field, "doc_id": _doc_for(case, t["quote"]), **t}, case["documents"])
+            assert ok, (case["id"], field, reason)
+
+
+def test_truth_fields_are_exactly_the_missing_fields_or_a_subset():
+    for case in CASES:
+        assert set(case.get("truth") or {}) <= missing_in_structured(case), case["id"]
+        assert set(case.get("truth") or {}) <= set(FIELD_SPECS), case["id"]
+
+
+def test_fabricated_quote_is_rejected():
+    case = CASES[0]
+    ok, reason = check({"field": "sec.critical_cves", "value": 3, "doc_id": "DOC-1", "quote": "3 critical CVEs", "method": "literal"}, case["documents"])
+    assert not ok and reason == "quote_not_in_document"
+
+
+def test_real_quote_with_wrong_value_is_rejected():
+    case = next(c for c in CASES if c["id"] == "TX-E04")
+    ok, reason = check({"field": "sre.error_rate_pct", "value": 25, "doc_id": "DOC-1", "quote": "error rate is currently 11.5%", "method": "literal"}, case["documents"])
+    assert not ok and reason == "value_not_supported_by_quote"
+
+
+def test_readers_cannot_overwrite_structured_telemetry():
+    case = {"structured": {"sre": {"p95_latency_ms": 520}},
+            "documents": [{"id": "DOC-1", "text": "p95 is 990 ms right now"}]}
+    ev, info = fill(case, [{"field": "sre.p95_latency_ms", "value": 990, "doc_id": "DOC-1", "quote": "p95 is 990 ms", "method": "literal"}])
+    assert ev["sre"]["p95_latency_ms"] == 520 and not info["accepted"] and info["ignored_present_fields"] == ["sre.p95_latency_ms"]
+
+
+def test_model_payload_hides_evaluator_fields():
+    for case in CASES:
+        text = str(reader_payload(case))
+        for key in ("truth", "tier", "focus", "structured"):
+            assert f"'{key}'" not in text, (case["id"], key)
