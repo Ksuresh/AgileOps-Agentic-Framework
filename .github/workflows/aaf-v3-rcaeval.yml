@@ -20,7 +20,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-      - run: pip install pandas pyarrow huggingface_hub scipy numpy pyyaml
+      - run: pip install pandas pyarrow huggingface_hub scipy numpy pyyaml openai
       - run: python external_validation/aaf_v3/run_rcaeval_v3.py $SUITES
       - name: Commit
         if: always()
