@@ -57,15 +57,21 @@ def normalise_columns(m: pd.DataFrame) -> tuple[pd.DataFrame, bool]:
 def main() -> None:
     suites = sys.argv[1:] or ["RE2"]
     idx = pd.read_parquet(dl("cases.parquet"))
-    rows = []
+    rows, errors = [], []
     for suite in suites:
         sub = idx[idx["suite"].astype(str) == suite].sort_values("case")
         for _, row in sub.iterrows():
             case, fault = str(row["case"]), str(row["fault"])
-            inject = int(dl(f"{case}/inject_time.txt").read_text().strip())
-            m, renamed = normalise_columns(pd.read_parquet(dl(f"{case}/metrics.parquet")))
+            try:
+                inject = int(float(dl(f"{case}/inject_time.txt").read_text().strip()))
+                m, renamed = normalise_columns(pd.read_parquet(dl(f"{case}/metrics.parquet")))
+            except Exception as exc:  # recorded, never silently dropped
+                errors.append({"case": case, "stage": "load", "error": f"{type(exc).__name__}: {exc}"[:300]}); continue
             for window, t in (("fault", inject), ("control", inject - 300)):
-                d = decisions(m, t)
+                try:
+                    d = decisions(m, t)
+                except Exception as exc:
+                    errors.append({"case": case, "window": window, "stage": "decide", "error": f"{type(exc).__name__}: {exc}"[:300]}); continue
                 base, top = baseline_decision(d["diag"])
                 adm = admissible(window, fault)
                 rec = {"suite": suite, "case": case, "dataset": str(row["dataset"]), "system": str(row["system_name"]), "fault": fault,
@@ -97,6 +103,7 @@ def main() -> None:
                "by_dataset": {s: block([r for r in recs if r["dataset"] == s]) for s in sorted(df["dataset"].unique())},
                "by_fault": {s: block([r for r in recs if r["fault"] == s]) for s in sorted(df["fault"].unique())},
                "unmapped_fault_windows": int(sum(1 for r in recs if r["v1_ok"] is None)),
+               "errors": errors[:50], "n_errors": len(errors),
                "v3_sha256": hashlib.sha256((HERE / "rcaeval_v3.py").read_bytes()).hexdigest(),
                "github_run_id": os.environ.get("GITHUB_RUN_ID")}
     summary["primary_holm"] = holm({f"{s}_v3_vs_v1": summary["by_suite"][s]["paired"]["v3_vs_v1"]["exact_p"] for s in suites})

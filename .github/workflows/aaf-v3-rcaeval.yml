@@ -21,7 +21,9 @@ jobs:
         with:
           python-version: "3.11"
       - run: pip install pandas pyarrow huggingface_hub scipy numpy pyyaml openai
-      - run: python external_validation/aaf_v3/run_rcaeval_v3.py $SUITES
+      - run: |
+          mkdir -p external_validation/aaf_v3/results/rcaeval
+          python external_validation/aaf_v3/run_rcaeval_v3.py $SUITES 2>&1 | tail -c 20000 > external_validation/aaf_v3/results/rcaeval/run_log_${GITHUB_RUN_ID}.txt; exit ${PIPESTATUS[0]}
       - name: Commit
         if: always()
         run: |
