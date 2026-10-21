@@ -62,3 +62,22 @@ pre-registered rule; this table is descriptive only.
   neither arm reproduces responders' first actions well.
 - Limits: single rater-1 answer key (rater 2 pending); n = 40 with few Patch/Scale cases; agreement is with what
   responders did, not necessarily what was best; evidence stops at the first action, so it is sparse by design.
+
+## Answer-key reliability (amendment A8) and sensitivity
+
+Independent AI rater (different prompt, blind to rater 1 and to arm outputs, 3 calls per case, run 39594417801):
+label agreement **33/40, Cohen's κ = 0.71** (exclude as a category); 33/39 and κ = 0.75 where both include; same
+first-action entry 35/39. Disagreements: PM-019 (Rollback→Mitigate), PM-045 (Mitigate→exclude), PM-064 and GL-017
+(Patch→Mitigate), GL-008 (Rollback→Mitigate), GL-009 and GL-023 (Rollback→Patch). Three of these (GL-008, GL-017,
+GL-023) were already flagged ambiguous by rater 1. Both raters are AI; this shows the rubric is reproducible, not
+that humans would agree. The human rater's 9 returned items are in `rater2/returned_round1.csv` (5/9 agreement on
+inclusion; GL-052's true first action, a canary drain, is recorded only in the issue description, outside the
+notes-only rule).
+
+Conclusions do not depend on the disputed cases:
+
+| Answer key | n | M0 | R | L | A | L+ | L vs M0 | L vs A | A vs M0 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Rater 1 (primary) | 40 | 19 | 0 | 1 | 17 | 7 | 1 vs 19, p = 4e-5 | 0 vs 16, p = 3e-5 | 10 vs 12, p = 0.83 |
+| Agreed cases only | 33 | 18 | 0 | 0 | 13 | 4 | 0 vs 18, p = 8e-6 | 0 vs 13, p = 2e-4 | 7 vs 12, p = 0.36 |
+| Rater-2 labels | 39 | 22 | 0 | 0 | 13 | 4 | 0 vs 22, p = 5e-7 | 0 vs 13, p = 2e-4 | 7 vs 16, p = 0.09 |
