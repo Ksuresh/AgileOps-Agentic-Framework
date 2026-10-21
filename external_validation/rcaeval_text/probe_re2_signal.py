@@ -37,6 +37,7 @@ def seconds(s: pd.Series) -> pd.Series:
 
 
 def template(m: str) -> str:
+    m = "" if not isinstance(m, str) else m
     return NUMS.sub("#", re.sub(r"[0-9a-f]{8}-[0-9a-f-]{27,}", "<id>", m))[:160]
 
 
@@ -68,9 +69,9 @@ def main() -> None:
         if logs is not None:
             lt = seconds(logs["timestamp"])
             lpre, lpost = (lt >= inject - W) & (lt < inject), (lt >= inject) & (lt < inject + W)
-            msg = logs["message"].astype(str)
+            msg = logs["message"].fillna("").map(str)
             err = msg.str.contains(ERR)
-            svc = logs["container_name"].astype(str)
+            svc = logs["container_name"].fillna("").map(str)
             is_rc = svc.str.contains(rc.replace("ts-", "").replace("service", "").strip("-"), case=False, regex=False)
             rec["log_err_all_pre_post"] = [int((lpre & err).sum()), int((lpost & err).sum())]
             rec["log_rc_lines_pre_post"] = [int((lpre & is_rc).sum()), int((lpost & is_rc).sum())]
