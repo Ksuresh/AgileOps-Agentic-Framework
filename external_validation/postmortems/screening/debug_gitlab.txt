@@ -1,0 +1,7 @@
+notes 3654 401 application/json 30 {"message":"401 Unauthorized"}
+issue 3654 200 user_notes_count 6 type issue
+notes 17168 401 application/json 30 {"message":"401 Unauthorized"}
+issue 17168 200 user_notes_count 73 type incident
+notes 7083 401 application/json 30 {"message":"401 Unauthorized"}
+issue 7083 200 user_notes_count 21 type incident
+graphql 200 {"data":{"project":{"workItems":{"nodes":[{"iid":"3654","widgets":[{"type":"AI_SESSION"},{"type":"ASSIGNEES"},{"type":"AWARD_EMOJI"},{"type":"CRM_CONTACTS"},{"type":"CURRENT_USER_TODOS"},{"type":"CUSTOM_FIELDS"},{"type":"DESCRIPTION"},{"type":"DESIGNS"},{"type":"DEVELOPMENT"},{"type":"EMAIL_PARTICIPANTS"},{"type":"ERROR_TRACKING"},{"type":"HEALTH_STATUS"},{"type":"HIERARCHY"},{"type":"ITERATION"},{"type":"LABELS"},{"type":"LINKED_ITEMS"},{"type":"MILESTONE"},{"type":"NOTES","discussions":{"nodes":[{"notes":{"nodes":[{"system":true,"createdAt":"2021-02-18T11:20:14Z"}]}},{"notes":{"nodes":[{"sys
