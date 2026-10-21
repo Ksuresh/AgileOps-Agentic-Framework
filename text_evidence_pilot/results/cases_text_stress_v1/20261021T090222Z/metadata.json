@@ -1,0 +1,11 @@
+{
+  "created_utc": "2026-10-21T09:04:50.381761+00:00",
+  "python": "3.11.17",
+  "cases_file": "cases_text_stress_v1.yaml",
+  "cases_sha256": "c1e3b60d5453894d6149ec50ce278e9ead92a254bcb7b84e9ff7ea7f95e63146",
+  "reader_prompt_sha256": "97b41b6a3de624ba565572713d7c738faba7886b84ddbc30b398e859b95e3949",
+  "model": "gpt-5.6-luna",
+  "reasoning_effort": "none",
+  "github_run_id": "39573805548",
+  "git_sha": "98aa59df35660659fa6669ab71dd3b8000c1cd06"
+}
