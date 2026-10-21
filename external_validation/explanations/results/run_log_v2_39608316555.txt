@@ -1,0 +1,379 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+{
+ "protocol": "external_validation/explanations/PROTOCOL.md (amendment A1)",
+ "records": 78,
+ "by_source": {
+  "scenario": 54,
+  "rcaeval": 24
+ },
+ "actions": {
+  "Block release and fix pipeline": 4,
+  "Scale adjustment": 20,
+  "Patch or block release": 12,
+  "Mitigate and monitor": 24,
+  "Rollback to stable deployment": 2,
+  "Review scaling policy": 1,
+  "No action (observe)": 15
+ },
+ "answers": 1248,
+ "failed_calls": 0,
+ "P1": {
+  "M1_action_fidelity_decision": {
+   "k": 78,
+   "n": 78,
+   "pct": 100.0,
+   "wilson95": [
+    95.3,
+    100
+   ]
+  },
+  "M1_recommends_other_action_any_question": {
+   "k": 0,
+   "n": 468,
+   "pct": 0.0,
+   "wilson95": [
+    0,
+    0.8
+   ]
+  },
+  "M2_answers_with_unsupported_number": {
+   "k": 0,
+   "n": 468,
+   "pct": 0.0,
+   "wilson95": [
+    0,
+    0.8
+   ]
+  },
+  "M3_claims": {
+   "n_claims": 4368,
+   "supported": 4270,
+   "unsupported": 96,
+   "contradicted": 2
+  },
+  "M3_claim_unsupported_or_contradicted_pct": 2.24,
+  "M3_answers_fully_faithful": {
+   "k": 386,
+   "n": 468,
+   "pct": 82.5,
+   "wilson95": [
+    78.8,
+    85.7
+   ]
+  },
+  "M3_by_question": {
+   "decision": {
+    "k": 74,
+    "n": 78,
+    "pct": 94.9,
+    "wilson95": [
+     87.5,
+     98.0
+    ]
+   },
+   "why": {
+    "k": 75,
+    "n": 78,
+    "pct": 96.2,
+    "wilson95": [
+     89.3,
+     98.7
+    ]
+   },
+   "evidence": {
+    "k": 72,
+    "n": 78,
+    "pct": 92.3,
+    "wilson95": [
+     84.2,
+     96.4
+    ]
+   },
+   "alternatives": {
+    "k": 49,
+    "n": 78,
+    "pct": 62.8,
+    "wilson95": [
+     51.7,
+     72.7
+    ]
+   },
+   "uncertainty": {
+    "k": 41,
+    "n": 78,
+    "pct": 52.6,
+    "wilson95": [
+     41.6,
+     63.3
+    ]
+   },
+   "status": {
+    "k": 75,
+    "n": 78,
+    "pct": 96.2,
+    "wilson95": [
+     89.3,
+     98.7
+    ]
+   }
+  },
+  "M4_why_covers_decisive_reason": {
+   "k": 78,
+   "n": 78,
+   "pct": 100.0,
+   "wilson95": [
+    95.3,
+    100
+   ]
+  },
+  "M5_uncertainty_mentions_gaps_when_gaps": {
+   "k": 78,
+   "n": 78,
+   "pct": 100.0,
+   "wilson95": [
+    95.3,
+    100
+   ]
+  },
+  "M5_uncertainty_claims_gaps_when_none": {
+   "k": 0,
+   "n": 0,
+   "pct": null,
+   "wilson95": null
+  },
+  "M6_inject_adopted": {
+   "k": 0,
+   "n": 78,
+   "pct": 0.0,
+   "wilson95": [
+    0,
+    4.7
+   ]
+  },
+  "M6_inject_recommends_other_action": {
+   "k": 0,
+   "n": 78,
+   "pct": 0.0,
+   "wilson95": [
+    0,
+    4.7
+   ]
+  },
+  "M6_pressure_endorses_other_action": {
+   "k": 0,
+   "n": 78,
+   "pct": 0.0,
+   "wilson95": [
+    0,
+    4.7
+   ]
+  },
+  "fk_grade_median_why": 12.96,
+  "jargon_median_why": 7.81,
+  "words_median_why": 67
+ },
+ "P2": {
+  "M1_action_fidelity_decision": {
+   "k": 75,
+   "n": 78,
+   "pct": 96.2,
+   "wilson95": [
+    89.3,
+    98.7
+   ]
+  },
+  "M1_recommends_other_action_any_question": {
+   "k": 0,
+   "n": 468,
+   "pct": 0.0,
+   "wilson95": [
+    0,
+    0.8
+   ]
+  },
+  "M2_answers_with_unsupported_number": {
+   "k": 0,
+   "n": 468,
+   "pct": 0.0,
+   "wilson95": [
+    0,
+    0.8
+   ]
+  },
+  "M3_claims": {
+   "n_claims": 3712,
+   "supported": 3572,
+   "unsupported": 95,
+   "contradicted": 45
+  },
+  "M3_claim_unsupported_or_contradicted_pct": 3.77,
+  "M3_answers_fully_faithful": {
+   "k": 340,
+   "n": 468,
+   "pct": 72.6,
+   "wilson95": [
+    68.4,
+    76.5
+   ]
+  },
+  "M3_by_question": {
+   "decision": {
+    "k": 59,
+    "n": 78,
+    "pct": 75.6,
+    "wilson95": [
+     65.1,
+     83.8
+    ]
+   },
+   "why": {
+    "k": 58,
+    "n": 78,
+    "pct": 74.4,
+    "wilson95": [
+     63.7,
+     82.7
+    ]
+   },
+   "evidence": {
+    "k": 53,
+    "n": 78,
+    "pct": 67.9,
+    "wilson95": [
+     57.0,
+     77.3
+    ]
+   },
+   "alternatives": {
+    "k": 55,
+    "n": 78,
+    "pct": 70.5,
+    "wilson95": [
+     59.6,
+     79.5
+    ]
+   },
+   "uncertainty": {
+    "k": 57,
+    "n": 78,
+    "pct": 73.1,
+    "wilson95": [
+     62.3,
+     81.7
+    ]
+   },
+   "status": {
+    "k": 58,
+    "n": 78,
+    "pct": 74.4,
+    "wilson95": [
+     63.7,
+     82.7
+    ]
+   }
+  },
+  "M4_why_covers_decisive_reason": {
+   "k": 62,
+   "n": 78,
+   "pct": 79.5,
+   "wilson95": [
+    69.2,
+    87.0
+   ]
+  },
+  "M5_uncertainty_mentions_gaps_when_gaps": {
+   "k": 78,
+   "n": 78,
+   "pct": 100.0,
+   "wilson95": [
+    95.3,
+    100
+   ]
+  },
+  "M5_uncertainty_claims_gaps_when_none": {
+   "k": 0,
+   "n": 0,
+   "pct": null,
+   "wilson95": null
+  },
+  "M6_inject_adopted": {
+   "k": 0,
+   "n": 78,
+   "pct": 0.0,
+   "wilson95": [
+    0,
+    4.7
+   ]
+  },
+  "M6_inject_recommends_other_action": {
+   "k": 0,
+   "n": 78,
+   "pct": 0.0,
+   "wilson95": [
+    0,
+    4.7
+   ]
+  },
+  "M6_pressure_endorses_other_action": {
+   "k": 0,
+   "n": 78,
+   "pct": 0.0,
+   "wilson95": [
+    0,
+    4.7
+   ]
+  },
+  "fk_grade_median_why": 11.68,
+  "jargon_median_why": 0.0,
+  "words_median_why": 56
+ },
+ "template": {
+  "fk_grade_median": 11.86,
+  "jargon_median": 6.36,
+  "claims": {
+   "n_claims": 1418,
+   "supported": 1265,
+   "unsupported": 142,
+   "contradicted": 11
+  },
+  "claims_supported_pct": 89.2
+ },
+ "readability_tests_why": {
+  "P2_vs_T_fk_p": 0.10232038111217873,
+  "P2_vs_T_jargon_p": 1.6601477824718144e-14,
+  "P2_vs_P1_fk_p": 2.8558309762763596e-07,
+  "P2_vs_P1_jargon_p": 1.681394824245862e-14,
+  "P1_vs_T_fk_p": 1.846185774873557e-08
+ },
+ "faithfulness_noninferiority_P2_minus_P1_fully_faithful_pp": -9.9,
+ "judge_sensitivity_on_P2": {
+  "number": {
+   "k": 25,
+   "n": 30,
+   "pct": 83.3,
+   "wilson95": [
+    66.4,
+    92.7
+   ]
+  },
+  "invented": {
+   "k": 26,
+   "n": 30,
+   "pct": 86.7,
+   "wilson95": [
+    70.3,
+    94.7
+   ]
+  },
+  "action": {
+   "k": 24,
+   "n": 30,
+   "pct": 80.0,
+   "wilson95": [
+    62.7,
+    90.5
+   ]
+  }
+ },
+ "tokens_total": 1642055
+}
