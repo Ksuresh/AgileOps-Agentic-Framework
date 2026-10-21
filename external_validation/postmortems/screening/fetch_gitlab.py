@@ -53,17 +53,21 @@ def population() -> list[dict]:
 
 GQL = """query($iid: [String!], $after: String) { project(fullPath: "gitlab-com/gl-infra/production") {
   workItems(iids: $iid) { nodes { widgets { ... on WorkItemWidgetNotes {
-    discussions(first: 100, after: $after) { pageInfo { hasNextPage endCursor }
+    discussions(first: 20, after: $after) { pageInfo { hasNextPage endCursor }
       nodes { notes { nodes { system createdAt body } } } } } } } } } }"""
+
+
+ERRORS: list[dict] = []
 
 
 def notes_text(iid: int) -> tuple[int, str]:
     """Human notes via GraphQL (the REST notes endpoint requires authentication)."""
     notes, after = [], None
-    for _ in range(20):
+    for _ in range(40):
         r = requests.post("https://gitlab.com/api/graphql", json={"query": GQL, "variables": {"iid": [str(iid)], "after": after}},
                           headers=UA, timeout=40)
-        if r.status_code != 200:
+        if r.status_code != 200 or r.json().get("errors"):
+            ERRORS.append({"iid": iid, "status": r.status_code, "errors": str(r.json().get("errors"))[:200] if r.status_code == 200 else ""})
             break
         nodes = (((r.json().get("data") or {}).get("project") or {}).get("workItems") or {}).get("nodes") or []
         disc = next((w["discussions"] for n in nodes for w in n["widgets"] if w and "discussions" in w), None)
@@ -93,7 +97,7 @@ def main() -> None:
         n, text = notes_text(it["iid"])
         bundle.append({"id": f"GL-{k:03d}", **it, "n_notes": n, "text": text})
         time.sleep(0.3)
-    meta = {"population_size": len(pop), "seed": SEED, "fetched": len(bundle),
+    meta = {"population_size": len(pop), "seed": SEED, "fetched": len(bundle), "query_errors": ERRORS[:20], "n_query_errors": len(ERRORS),
             "sample": [{k: v for k, v in b.items() if k != "text"} for b in bundle]}
     (HERE / "gitlab_150.meta.json").write_text(json.dumps(meta, indent=1))
     with tempfile.TemporaryDirectory() as tmp:
