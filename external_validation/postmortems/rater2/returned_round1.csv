@@ -1,0 +1,81 @@
+item,url,include_yes_no,exclusion_reason,first_action_quote,action_label,notes
+R2-01,https://status.circleci.com/incidents/8rklh3qqckp1,no,First response actions described only as unspecified standard tools/attempts; first action cannot be classified unambiguously,,,"Later rollback explicitly described, but preceded by unspecified attempts to improve utilization. Source reviewed."
+R2-02,https://www.twilio.com/blog/2013/07/billing-incident-post-mortem-breakdown-analysis-and-root-cause.html,yes,,Our on-call engineers restarted the redis-master to address the high load.,Mitigate,2:39 services failed; 2:42 engineers restarted redis-master. Subsequent billing shutdown is not first action. Source reviewed.
+R2-03,https://gitlab.com/gitlab-com/gl-infra/production/-/issues/6625,no,No explicit classifiable first human response action in accessible timeline; GitLab comments not verified,,,Timeline records investigation and spontaneous recovery; provisional pending comment review.
+R2-04,https://blog.roblox.com/2022/01/roblox-return-to-service-10-28-10-31-2021/,,,,,Pending: source page inaccessible during review. | NOT ASSESSED: source and/or chronological GitLab comments not verified; no inclusion decision can be made.
+R2-05,https://gitlab.com/gitlab-com/gl-infra/production/-/issues/19025,,,,,NOT ASSESSED: source and/or chronological GitLab comments not verified; no inclusion decision can be made.
+R2-06,https://gitlab.com/gitlab-com/gl-infra/production/-/issues/6372,yes,,Drained canary,Mitigate,10:15 errors observed; 10:30 drained canary. GitLab comments not independently available; provisional.
+R2-07,https://aws.amazon.com/message/2329B7/,no,Power/utility and generator failure (explicit exclusion),,,AWS EU West utility transformer outage.
+R2-08,https://web.archive.org/web/20221112015610/https://blog.cloudflare.com/partial-cloudflare-outage-on-october-25-2022/,,,,,NOT ASSESSED: source and/or chronological GitLab comments not verified; no inclusion decision can be made.
+R2-09,https://gitlab.com/gitlab-com/gl-infra/production/-/issues/6852,yes,,disables the `container_security_policy_selection` feature flag on staging,Mitigate,00:00 QA failure precedes 07:54 disable; flag was later re-enabled. No evidence it was newly deployed; provisional pending comments.
+R2-10,https://web.archive.org/web/20211016040522/https://blog.cloudflare.com/cloudflare-outage-on-july-17-2020/,yes,,the Atlanta router was disabled,Mitigate,Observed traffic impact after 21:12; Atlanta router disabled at 21:39. First response to the outage (not the preceding change that triggered it). Source: https://blog.cloudflare.com/cloudflare-outage-on-july-17-2020/
+R2-11,https://gitlab.com/gitlab-com/gl-infra/production/-/work_items/20244,,,,,NOT ASSESSED: source and/or chronological GitLab comments not verified; no inclusion decision can be made.
+R2-12,https://gitlab.com/gitlab-com/gl-infra/production/-/issues/19316,no,First effective recovery automatic; no human response action,,,Registry recovered on its own after planned database switchover.
+R2-13,https://gitlab.com/gitlab-com/gl-infra/production/-/issues/18535,,,,,NOT ASSESSED: source and/or chronological GitLab comments not verified; no inclusion decision can be made.
+R2-14,https://aws.amazon.com/message/11201/,yes,,we began removing the new capacity,Rollback,"5:15 AM alarms; new capacity was removed as first stated remediation, before fleet restart. Source: https://aws.amazon.com/message/11201/"
+R2-15,https://blog.cloudflare.com/cloudflare-incident-march-21-2025/,,,,,NOT ASSESSED: source and/or chronological GitLab comments not verified; no inclusion decision can be made.
+R2-16,https://blog.cloudflare.com/route-leak-incident-january-22-2026/,,,,,NOT ASSESSED: source and/or chronological GitLab comments not verified; no inclusion decision can be made.
+R2-17,https://gitlab.com/gitlab-com/gl-infra/production/-/issues/6108,,,,,NOT ASSESSED: source and/or chronological GitLab comments not verified; no inclusion decision can be made.
+R2-18,https://building.buildkite.com/outage-post-mortem-for-august-23rd-82b619a3679b,,,,,NOT ASSESSED: source and/or chronological GitLab comments not verified; no inclusion decision can be made.
+R2-19,https://gitlab.com/gitlab-com/gl-infra/production/-/issues/18920,,,,,NOT ASSESSED: source and/or chronological GitLab comments not verified; no inclusion decision can be made.
+R2-20,https://status.mailgun.com/incidents/p9nxxql8g9rh,,,,,NOT ASSESSED: source and/or chronological GitLab comments not verified; no inclusion decision can be made.
+R2-21,https://gitlab.com/gitlab-com/gl-infra/production/-/issues/17168,,,,,NOT ASSESSED: source and/or chronological GitLab comments not verified; no inclusion decision can be made.
+R2-22,https://status.cloud.google.com/incident/storage/19002,,,,,NOT ASSESSED: source and/or chronological GitLab comments not verified; no inclusion decision can be made.
+R2-23,https://gitlab.com/gitlab-com/gl-infra/production/-/work_items/4510,,,,,NOT ASSESSED: source and/or chronological GitLab comments not verified; no inclusion decision can be made.
+R2-24,https://www.elastic.co/blog/elastic-cloud-incident-report-feburary-4-2019,,,,,NOT ASSESSED: source and/or chronological GitLab comments not verified; no inclusion decision can be made.
+R2-25,https://gitlab.com/gitlab-com/gl-infra/production/-/issues/7698,,,,,NOT ASSESSED: source and/or chronological GitLab comments not verified; no inclusion decision can be made.
+R2-26,https://gitlab.com/gitlab-com/gl-infra/production/-/issues/2433,,,,,NOT ASSESSED: source and/or chronological GitLab comments not verified; no inclusion decision can be made.
+R2-27,https://github.blog/news-insights/the-library/denial-of-service-attacks/,,,,,NOT ASSESSED: source and/or chronological GitLab comments not verified; no inclusion decision can be made.
+R2-28,https://web.archive.org/web/20201202234639/https://medium.com/@florian_7764/technical-post-mortem-of-the-august-incident-82ab4c3d6547,,,,,NOT ASSESSED: source and/or chronological GitLab comments not verified; no inclusion decision can be made.
+R2-29,https://gitlab.com/gitlab-com/gl-infra/production/-/issues/2087,,,,,NOT ASSESSED: source and/or chronological GitLab comments not verified; no inclusion decision can be made.
+R2-30,https://gitlab.com/gitlab-com/gl-infra/production/-/issues/8529,,,,,NOT ASSESSED: source and/or chronological GitLab comments not verified; no inclusion decision can be made.
+R2-31,https://gitlab.com/gitlab-com/gl-infra/production/-/issues/6643,,,,,NOT ASSESSED: source and/or chronological GitLab comments not verified; no inclusion decision can be made.
+R2-32,https://gitlab.com/gitlab-com/gl-infra/production/-/issues/7021,,,,,NOT ASSESSED: source and/or chronological GitLab comments not verified; no inclusion decision can be made.
+R2-33,https://aws.amazon.com/message/17908/,,,,,NOT ASSESSED: source and/or chronological GitLab comments not verified; no inclusion decision can be made.
+R2-34,https://gitlab.com/gitlab-com/gl-infra/production/-/issues/7361,,,,,NOT ASSESSED: source and/or chronological GitLab comments not verified; no inclusion decision can be made.
+R2-35,https://gitlab.com/gitlab-com/gl-infra/production/-/issues/17504,,,,,NOT ASSESSED: source and/or chronological GitLab comments not verified; no inclusion decision can be made.
+R2-36,https://blog.cloudflare.com/cloudflare-incident-on-january-24th-2023/,,,,,NOT ASSESSED: source and/or chronological GitLab comments not verified; no inclusion decision can be made.
+R2-37,https://discuss.circleci.com/t/postmortem-may-21-2021-delay-in-starting-docker-jobs-machine-remote-docker-environments-blocked/40274,,,,,NOT ASSESSED: source and/or chronological GitLab comments not verified; no inclusion decision can be made.
+R2-38,https://blog.cloudflare.com/1-1-1-1-lookup-failures-on-october-4th-2023/,,,,,NOT ASSESSED: source and/or chronological GitLab comments not verified; no inclusion decision can be made.
+R2-39,https://web.archive.org/web/20211104160742/https://blog.cloudflare.com/how-and-why-the-leap-second-affected-cloudflare-dns/,,,,,NOT ASSESSED: source and/or chronological GitLab comments not verified; no inclusion decision can be made.
+R2-40,https://community.eveonline.com/news/dev-blogs/about-the-boot.ini-issue/,,,,,NOT ASSESSED: source and/or chronological GitLab comments not verified; no inclusion decision can be made.
+R2-41,https://blog.cloudflare.com/post-mortem-on-cloudflare-control-plane-and-analytics-outage/,,,,,NOT ASSESSED: source and/or chronological GitLab comments not verified; no inclusion decision can be made.
+R2-42,https://gitlab.com/gitlab-com/gl-infra/production/-/issues/5952,,,,,NOT ASSESSED: source and/or chronological GitLab comments not verified; no inclusion decision can be made.
+R2-43,https://gitlab.com/gitlab-com/gl-infra/production/-/work_items/3672,,,,,NOT ASSESSED: source and/or chronological GitLab comments not verified; no inclusion decision can be made.
+R2-44,https://gitlab.com/gitlab-com/gl-infra/production/-/issues/6630,,,,,NOT ASSESSED: source and/or chronological GitLab comments not verified; no inclusion decision can be made.
+R2-45,https://blog.cloudflare.com/18-november-2025-outage/,,,,,NOT ASSESSED: source and/or chronological GitLab comments not verified; no inclusion decision can be made.
+R2-46,https://gitlab.com/gitlab-com/gl-infra/production/-/issues/6055,,,,,NOT ASSESSED: source and/or chronological GitLab comments not verified; no inclusion decision can be made.
+R2-47,https://blog.cloudflare.com/5-december-2025-outage/,,,,,NOT ASSESSED: source and/or chronological GitLab comments not verified; no inclusion decision can be made.
+R2-48,https://gitlab.com/gitlab-com/gl-infra/production/-/work_items/4485,,,,,NOT ASSESSED: source and/or chronological GitLab comments not verified; no inclusion decision can be made.
+R2-49,https://www.fastly.com/blog/summary-of-june-8-outage,,,,,NOT ASSESSED: source and/or chronological GitLab comments not verified; no inclusion decision can be made.
+R2-50,https://gitlab.com/gitlab-com/gl-infra/production/-/work_items/4300,,,,,NOT ASSESSED: source and/or chronological GitLab comments not verified; no inclusion decision can be made.
+R2-51,https://gitlab.com/gitlab-com/gl-infra/production/-/issues/7258,,,,,NOT ASSESSED: source and/or chronological GitLab comments not verified; no inclusion decision can be made.
+R2-52,https://gitlab.com/gitlab-com/gl-infra/production/-/issues/3294,,,,,NOT ASSESSED: source and/or chronological GitLab comments not verified; no inclusion decision can be made.
+R2-53,https://gitlab.com/gitlab-com/gl-infra/production/-/issues/7784,,,,,NOT ASSESSED: source and/or chronological GitLab comments not verified; no inclusion decision can be made.
+R2-54,https://gitlab.com/gitlab-com/gl-infra/production/-/issues/7336,,,,,NOT ASSESSED: source and/or chronological GitLab comments not verified; no inclusion decision can be made.
+R2-55,https://web.archive.org/web/20210818034431/https://medium.com/square-corner-blog/incident-summary-2017-03-16-2f65be39297,,,,,NOT ASSESSED: source and/or chronological GitLab comments not verified; no inclusion decision can be made.
+R2-56,https://gitlab.com/gitlab-com/gl-infra/production/-/work_items/4895,,,,,NOT ASSESSED: source and/or chronological GitLab comments not verified; no inclusion decision can be made.
+R2-57,https://blog.cloudflare.com/cloudflare-incident-on-february-6-2025/,,,,,NOT ASSESSED: source and/or chronological GitLab comments not verified; no inclusion decision can be made.
+R2-58,https://en.wikipedia.org/wiki/Northeast_blackout_of_2003,,,,,NOT ASSESSED: source and/or chronological GitLab comments not verified; no inclusion decision can be made.
+R2-59,http://web.archive.org/web/20150404235419/https://stackstatus.net/post/115305251014/outage-postmortem-march-31-2015,,,,,NOT ASSESSED: source and/or chronological GitLab comments not verified; no inclusion decision can be made.
+R2-60,https://www.google.com/appsstatus/dashboard/incidents/k71P8nHp32hgcMSsC3mR,,,,,NOT ASSESSED: source and/or chronological GitLab comments not verified; no inclusion decision can be made.
+R2-61,https://gitlab.com/gitlab-com/gl-infra/production/-/work_items/4410,,,,,NOT ASSESSED: source and/or chronological GitLab comments not verified; no inclusion decision can be made.
+R2-62,https://www.traviscistatus.com/incidents/khzk8bg4p9sy,,,,,NOT ASSESSED: source and/or chronological GitLab comments not verified; no inclusion decision can be made.
+R2-63,https://blog.cloudflare.com/cloudflare-outage-february-20-2026/,,,,,NOT ASSESSED: source and/or chronological GitLab comments not verified; no inclusion decision can be made.
+R2-64,https://github.blog/news-insights/company-news/github-availability-report-july-2024/,,,,,NOT ASSESSED: source and/or chronological GitLab comments not verified; no inclusion decision can be made.
+R2-65,https://discuss.circleci.com/t/post-incident-report-april-4-2025-circleci-ui-loading-build-triggering-issues/53208,,,,,NOT ASSESSED: source and/or chronological GitLab comments not verified; no inclusion decision can be made.
+R2-66,https://blog.cloudflare.com/deep-dive-into-cloudflares-sept-12-dashboard-and-api-outage/,,,,,NOT ASSESSED: source and/or chronological GitLab comments not verified; no inclusion decision can be made.
+R2-67,https://gitlab.com/gitlab-com/gl-infra/production/-/issues/7350,,,,,NOT ASSESSED: source and/or chronological GitLab comments not verified; no inclusion decision can be made.
+R2-68,http://web.archive.org/web/20160610080136/https://www.scribd.com/doc/309574927/ShapeShift-Post-Mortem-Public,,,,,NOT ASSESSED: source and/or chronological GitLab comments not verified; no inclusion decision can be made.
+R2-69,https://web.archive.org/web/20220621124002/https://blog.cloudflare.com/cloudflare-outage-on-june-21-2022/,,,,,NOT ASSESSED: source and/or chronological GitLab comments not verified; no inclusion decision can be made.
+R2-70,https://blog.cloudflare.com/cloudflare-incident-on-october-30-2023/,,,,,NOT ASSESSED: source and/or chronological GitLab comments not verified; no inclusion decision can be made.
+R2-71,https://gitlab.com/gitlab-com/gl-infra/production/-/issues/5925,,,,,NOT ASSESSED: source and/or chronological GitLab comments not verified; no inclusion decision can be made.
+R2-72,https://discuss.circleci.com/t/post-incident-report-april-4-2025-delays-in-starting-workflows/53113,,,,,NOT ASSESSED: source and/or chronological GitLab comments not verified; no inclusion decision can be made.
+R2-73,https://incident.io/blog/intermittent-downtime,,,,,NOT ASSESSED: source and/or chronological GitLab comments not verified; no inclusion decision can be made.
+R2-74,https://discuss.circleci.com/t/postmortem-march-26-april-10-workflow-delay-incidents/30060,,,,,NOT ASSESSED: source and/or chronological GitLab comments not verified; no inclusion decision can be made.
+R2-75,https://status.cloud.google.com/incidents/mREMLwZFe3FuLLn3zfTw,,,,,NOT ASSESSED: source and/or chronological GitLab comments not verified; no inclusion decision can be made.
+R2-76,https://gitlab.com/gitlab-com/gl-infra/production/-/issues/7083,,,,,NOT ASSESSED: source and/or chronological GitLab comments not verified; no inclusion decision can be made.
+R2-77,https://mail.tarsnap.com/tarsnap-announce/msg00035.html,,,,,NOT ASSESSED: source and/or chronological GitLab comments not verified; no inclusion decision can be made.
+R2-78,https://gitlab.com/gitlab-com/gl-infra/production/-/work_items/4194,,,,,NOT ASSESSED: source and/or chronological GitLab comments not verified; no inclusion decision can be made.
+R2-79,https://gitlab.com/gitlab-com/gl-infra/production/-/work_items/3004,,,,,NOT ASSESSED: source and/or chronological GitLab comments not verified; no inclusion decision can be made.
+R2-80,https://gitlab.com/gitlab-com/gl-infra/production/-/issues/5748,,,,,NOT ASSESSED: source and/or chronological GitLab comments not verified; no inclusion decision can be made.
