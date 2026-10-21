@@ -1,0 +1,97 @@
+{
+  "n_cases": 17,
+  "repeats": 5,
+  "mock": false,
+  "version": "v2",
+  "decision_agreement_with_ceiling": {
+    "T0": 5,
+    "T1": 9,
+    "T2": 14
+  },
+  "by_tier": {
+    "unmarked_past": {
+      "n": 2,
+      "T0": 2,
+      "T1": 1,
+      "T2": 2
+    },
+    "temporal": {
+      "n": 1,
+      "T0": 1,
+      "T1": 1,
+      "T2": 1
+    },
+    "guard_trap": {
+      "n": 3,
+      "T0": 0,
+      "T1": 2,
+      "T2": 2
+    },
+    "ratio": {
+      "n": 2,
+      "T0": 0,
+      "T1": 0,
+      "T2": 1
+    },
+    "long_log": {
+      "n": 1,
+      "T0": 0,
+      "T1": 0,
+      "T2": 1
+    },
+    "aggregated": {
+      "n": 1,
+      "T0": 0,
+      "T1": 0,
+      "T2": 0
+    },
+    "injection": {
+      "n": 2,
+      "T0": 0,
+      "T1": 1,
+      "T2": 2
+    },
+    "environment": {
+      "n": 2,
+      "T0": 2,
+      "T1": 1,
+      "T2": 2
+    },
+    "ordinary": {
+      "n": 3,
+      "T0": 0,
+      "T1": 3,
+      "T2": 3
+    }
+  },
+  "field_level": {
+    "T1_regex": {
+      "decoy_hits": 2,
+      "spurious": 2,
+      "truth_fields": 16,
+      "missed": 9,
+      "correct": 7
+    },
+    "T2_llm": {
+      "spurious": 1,
+      "truth_fields": 80,
+      "decoy_hits": 1,
+      "correct": 65,
+      "missed": 15
+    }
+  },
+  "llm_rejections_by_reason": {
+    "historical_context": 3,
+    "ratio_mismatch": 5,
+    "value_not_supported_by_quote": 5
+  },
+  "paired_T2_vs_T1": {
+    "a_only": 5,
+    "b_only": 0,
+    "exact_p": 0.0625
+  },
+  "llm_tokens_total": 99159,
+  "llm_failed_calls": 0
+}
+
+Wrote text_evidence_pilot/results/cases_text_holdout_v3/v2/20261021T092935Z
