@@ -4,7 +4,9 @@ v3 = frozen numeric reader v2 + checker v2 (unchanged)
    + a separate categorical reader (one call) for qualitative evidence, each value backed by a verbatim quote
    + a deterministic mapping of accepted categorical facts into still-missing AAF fields
    + one refined causal rule: a change that responders identify or suspect as the cause, together with a material
-     reliability outcome or a failed release gate, prefers "Rollback to stable deployment" (yields to hard overrides).
+     incident prefers "Rollback to stable deployment" (yields to hard overrides).
+Development log: iteration 1 (rule also required a material SRE outcome or failed gate; tests counted as user
+impact; categorical reader effort low) -> dev 14/40. Iteration 2 (this file) changes those three points.
 The frozen AAF v1 decision path (gate, utility, interaction policy, weights, action set) is reused unchanged.
 """
 from __future__ import annotations
@@ -14,14 +16,14 @@ import re
 from typing import Any
 
 from agentic_experiments.hybrid import deterministic_assessment
-from orchestrator.cross_domain_v2 import TIER_HARD_OVERRIDE, _material_sre_outcome, _release_gate_failure, interaction_state_v2
+from orchestrator.cross_domain_v2 import TIER_HARD_OVERRIDE, interaction_state_v2
 from text_evidence_pilot.schema import FIELD_SPECS, split
 from text_evidence_pilot.validator import HIST, SPEC, _norm
 
 ROLLBACK = "Rollback to stable deployment"
 
 CAT_SPECS: dict[str, str] = {
-    "sre.user_impact": "users, customers, jobs or requests are affected: errors, failures, timeouts, slowness, broken pages or features, failed jobs or tests",
+    "sre.user_impact": "users, customers or production requests are affected: errors, failures, crashes, timeouts, slowness, broken pages or features (a failing build, test or QA job alone is deploy.release_blocked, not user impact)",
     "sre.outage_present": "the service or a major part of it is down or unavailable",
     "sre.error_spike": "errors or failures rose sharply",
     "sre.latency_spike": "latency, response times or queue times rose sharply",
@@ -106,7 +108,8 @@ def decide_v3(numeric_ev: dict[str, Any], numeric_accepted: dict[str, Any], fact
         mapped[target] = val
     action = str(deterministic_assessment(copy.deepcopy(ev))["selected_action"])
     rule = False
-    if accepted.get("deploy.change_suspected_cause") and (_material_sre_outcome(ev) or _release_gate_failure(ev)):
+    # dev iteration 2: responders naming a change as the cause of an incident is itself the causal evidence
+    if accepted.get("deploy.change_suspected_cause"):
         hard = any(int(i.get("arbitration_tier", 0)) >= TIER_HARD_OVERRIDE for i in interaction_state_v2(ev).get("interactions", []))
         if not hard:
             action, rule = ROLLBACK, True
