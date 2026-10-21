@@ -1,0 +1,35 @@
+{
+  "amendment": "A8",
+  "split": "holdout",
+  "model": "gpt-5.6-luna",
+  "reasoning_effort": "high",
+  "calls": 120,
+  "failed_calls": 0,
+  "cases": 40,
+  "rater2_excluded": [
+    "GL-066",
+    "GL-098",
+    "GL-175"
+  ],
+  "label_agreement_all": "31/40",
+  "cohens_kappa_all_with_exclude": 0.666,
+  "label_agreement_both_include": "31/37",
+  "cohens_kappa_both_include": 0.751,
+  "first_action_entry_agreement_both_include": "28/37",
+  "confusion_rater1_to_rater2": {
+    "Rollback->Rollback": 13,
+    "Mitigate->Mitigate": 13,
+    "Mitigate->exclude": 2,
+    "Rollback->Mitigate": 1,
+    "Patch->Rollback": 1,
+    "Patch->Patch": 3,
+    "Scale->Scale": 2,
+    "Rollback->exclude": 1,
+    "Mitigate->Rollback": 1,
+    "Mitigate->Patch": 1,
+    "Scale->Mitigate": 1,
+    "Patch->Mitigate": 1
+  },
+  "rater_prompt_sha256": "3191645d8e73ae854e7b7ace37f9338f1e512253e05a57c37f8524cf39f655cb",
+  "github_run_id": "39600561388"
+}
