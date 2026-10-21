@@ -104,7 +104,7 @@ def answer(llm: R.LLM, system: str, rec: dict[str, Any], intent: str, q: str) ->
 
 def main() -> None:
     recs = fresh_records()
-    out = HERE / "results" / ("fresh_" + datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ"))
+    out = HERE / "results" / (os.environ.get("EXPL_PREFIX", "fresh_") + datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ"))
     out.mkdir(parents=True, exist_ok=True)
     (out / "records.json").write_text(json.dumps([R.public(r) | {"source": r["source"], "stratum": r["stratum"]} for r in recs], indent=1, default=str))
     template = {r["record_id"]: R.generate_explanation(r["_template_payload"]) for r in recs}
@@ -197,7 +197,8 @@ def main() -> None:
         for kk in ("n_claims", "supported", "unsupported", "contradicted"):
             tcl[kk] += t[kk]
     summary = {
-        "protocol": "external_validation/explanations/PROTOCOL.md (amendment A1)", "records": len(recs), "by_source": dict(Counter(r["source"] for r in recs)),
+        "protocol": "external_validation/explanations/PROTOCOL.md (" + os.environ.get("EXPL_AMENDMENT", "amendment A1") + ")",
+        "arm_P2_is": os.environ.get("ARM2_NAME", "P2"), "records": len(recs), "by_source": dict(Counter(r["source"] for r in recs)),
         "actions": dict(Counter(r["selected_action"] for r in recs)), "answers": len(rows),
         "failed_calls": sum(1 for x in rows if x["error"] or x["judge"]["error"]) + sum(1 for t in tj if t["error"]),
         "P1": arm_block("P1"), "P2": arm_block("P2"),
