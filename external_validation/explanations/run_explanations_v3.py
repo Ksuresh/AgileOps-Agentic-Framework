@@ -142,6 +142,11 @@ if __name__ == "__main__":
     os.environ.setdefault("EXPL_PREFIX", "plain_rules_")
     os.environ.setdefault("EXPL_AMENDMENT", "amendment A2")
     os.environ.setdefault("ARM2_NAME", "P3")
+    def _init(self):  # per-call timeout: the first A2 run hung for 2 h on stalled API calls (no output was written)
+        from openai import OpenAI
+        self.c = OpenAI(timeout=180, max_retries=2)
+        self.model = os.environ.get("OPENAI_MODEL", "gpt-5.6-luna")
+    R.LLM.__init__ = _init
     V.fresh_records = records
     V.ANSWER_SYSTEM_P2 = ANSWER_SYSTEM_P3  # arm labelled "P2" in the output files is P3 (see metadata prompt hash)
     V.HERE = HERE
