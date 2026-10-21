@@ -1,0 +1,81 @@
+{
+  "n_cases": 16,
+  "repeats": 5,
+  "mock": false,
+  "version": "v1",
+  "decision_agreement_with_ceiling": {
+    "T0": 5,
+    "T1": 9,
+    "T2": 12
+  },
+  "by_tier": {
+    "temporal": {
+      "n": 3,
+      "T0": 3,
+      "T1": 3,
+      "T2": 3
+    },
+    "guard_trap": {
+      "n": 3,
+      "T0": 0,
+      "T1": 1,
+      "T2": 1
+    },
+    "ratio": {
+      "n": 2,
+      "T0": 0,
+      "T1": 0,
+      "T2": 1
+    },
+    "aggregated": {
+      "n": 2,
+      "T0": 0,
+      "T1": 0,
+      "T2": 2
+    },
+    "injection": {
+      "n": 2,
+      "T0": 0,
+      "T1": 1,
+      "T2": 2
+    },
+    "environment": {
+      "n": 2,
+      "T0": 2,
+      "T1": 2,
+      "T2": 2
+    },
+    "ordinary": {
+      "n": 2,
+      "T0": 0,
+      "T1": 2,
+      "T2": 1
+    }
+  },
+  "field_level": {
+    "T1_regex": {
+      "missed": 9,
+      "spurious": 0,
+      "truth_fields": 17,
+      "correct": 8
+    },
+    "T2_llm": {
+      "correct": 65,
+      "spurious": 0,
+      "truth_fields": 85,
+      "missed": 20
+    }
+  },
+  "llm_rejections_by_reason": {
+    "historical_context": 5,
+    "target_threshold_or_plan": 5,
+    "ratio_mismatch": 5
+  },
+  "paired_T2_vs_T1": {
+    "a_only": 4,
+    "b_only": 1,
+    "exact_p": 0.375
+  },
+  "llm_tokens_total": 86578,
+  "llm_failed_calls": 0
+}

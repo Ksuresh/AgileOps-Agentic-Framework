@@ -1,0 +1,12 @@
+{
+  "created_utc": "2026-10-21T09:16:37.087065+00:00",
+  "python": "3.11.17",
+  "cases_file": "cases_text_holdout_v2.yaml",
+  "cases_sha256": "19443c1ee59391969116d6516bd5aa25ee16ffb303ec65f77fafd1b4f318c6a5",
+  "version": "v1",
+  "reader_prompt_sha256": "4af8f851d3d809f23a864af05aef5c1cb1bc6c01382355c65a36e2f35f2eefba",
+  "model": "gpt-5.6-luna",
+  "reasoning_effort": "none",
+  "github_run_id": "39575364984",
+  "git_sha": "47cc87050126cb97b332c75c71716820c955c76c"
+}
