@@ -1,0 +1,487 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+# RCAEval RE2 probe
+
+Index rows: 735; RE2 rows: 270
+
+Index columns: case, dataset, suite, system, system_name, root_cause_service, fault, fault_description, repetition, inject_time, n_metrics, n_timesteps, time_start, time_end, duration_minutes, normal_timesteps, faulty_timesteps, has_logs, n_logs, has_traces, n_traces, has_root_cause_file
+
+## re2ob_checkoutservice_cpu_1 (RE2-OB, cpu)
+
+```json
+{
+ "case": "re2ob_checkoutservice_cpu_1",
+ "dataset": "RE2-OB",
+ "fault": "cpu",
+ "inject_time": 1705354566,
+ "metric_columns_n": 72,
+ "metric_families": {
+  "cpu": 11,
+  "mem": 11,
+  "socket": 11,
+  "workload": 11,
+  "latency-50": 10,
+  "latency-90": 10,
+  "diskio": 4,
+  "error": 4
+ },
+ "metric_examples": [
+  "adservice_cpu",
+  "cartservice_cpu",
+  "checkoutservice_cpu",
+  "currencyservice_cpu",
+  "emailservice_cpu",
+  "frontend_cpu",
+  "paymentservice_cpu",
+  "productcatalogservice_cpu",
+  "recommendationservice_cpu",
+  "redis_cpu",
+  "shippingservice_cpu",
+  "adservice_mem",
+  "cartservice_mem",
+  "checkoutservice_mem",
+  "currencyservice_mem"
+ ],
+ "log_columns": [
+  "timestamp",
+  "container_name",
+  "message"
+ ],
+ "log_rows": 171322,
+ "log_lines_pre_post": [
+  36084,
+  36349
+ ],
+ "log_services_post_top": {
+  "frontend": 13067,
+  "currencyservice": 11498,
+  "cartservice": 3764,
+  "recommendationservice": 2707,
+  "adservice": 2196,
+  "shippingservice": 2182,
+  "checkoutservice": 465,
+  "paymentservice": 310
+ },
+ "post_error_like_lines": 0,
+ "example_post_lines": [
+  "request started",
+  "serving product page",
+  "Getting supported currencies...",
+  "GetCartAsync called with userId=65e09ad2-28f5-454e-bddf-c99cb697f6bb"
+ ],
+ "trace_columns": [
+  "time",
+  "traceID",
+  "spanID",
+  "serviceName",
+  "methodName",
+  "operationName",
+  "parentSpanID",
+  "startTimeMillis",
+  "startTime",
+  "duration",
+  "statusCode"
+ ],
+ "trace_rows": 391997
+}
+```
+
+## re2ob_checkoutservice_delay_1 (RE2-OB, delay)
+
+```json
+{
+ "case": "re2ob_checkoutservice_delay_1",
+ "dataset": "RE2-OB",
+ "fault": "delay",
+ "inject_time": 1705666511,
+ "metric_columns_n": 75,
+ "metric_families": {
+  "cpu": 11,
+  "mem": 11,
+  "socket": 11,
+  "workload": 11,
+  "latency-50": 10,
+  "latency-90": 10,
+  "diskio": 9,
+  "error": 2
+ },
+ "metric_examples": [
+  "adservice_cpu",
+  "cartservice_cpu",
+  "checkoutservice_cpu",
+  "currencyservice_cpu",
+  "emailservice_cpu",
+  "frontend_cpu",
+  "paymentservice_cpu",
+  "productcatalogservice_cpu",
+  "recommendationservice_cpu",
+  "redis_cpu",
+  "shippingservice_cpu",
+  "adservice_mem",
+  "cartservice_mem",
+  "checkoutservice_mem",
+  "currencyservice_mem"
+ ],
+ "log_columns": [
+  "timestamp",
+  "container_name",
+  "message"
+ ],
+ "log_rows": 177868,
+ "log_lines_pre_post": [
+  37770,
+  37302
+ ],
+ "log_services_post_top": {
+  "frontend": 13306,
+  "currencyservice": 11660,
+  "cartservice": 3912,
+  "recommendationservice": 2852,
+  "shippingservice": 2430,
+  "adservice": 2176,
+  "checkoutservice": 481,
+  "paymentservice": 320
+ },
+ "post_error_like_lines": 0,
+ "example_post_lines": [
+  "request started",
+  "setting currency",
+  "request complete",
+  "request started"
+ ],
+ "trace_columns": [
+  "time",
+  "traceID",
+  "spanID",
+  "serviceName",
+  "methodName",
+  "operationName",
+  "parentSpanID",
+  "startTimeMillis",
+  "startTime",
+  "duration",
+  "statusCode"
+ ],
+ "trace_rows": 405229
+}
+```
+
+## re2ob_checkoutservice_disk_1 (RE2-OB, disk)
+
+```json
+{
+ "case": "re2ob_checkoutservice_disk_1",
+ "dataset": "RE2-OB",
+ "fault": "disk",
+ "inject_time": 1705373910,
+ "metric_columns_n": 74,
+ "metric_families": {
+  "cpu": 11,
+  "mem": 11,
+  "socket": 11,
+  "workload": 11,
+  "latency-50": 10,
+  "latency-90": 10,
+  "diskio": 6,
+  "error": 4
+ },
+ "metric_examples": [
+  "adservice_cpu",
+  "cartservice_cpu",
+  "checkoutservice_cpu",
+  "currencyservice_cpu",
+  "emailservice_cpu",
+  "frontend_cpu",
+  "paymentservice_cpu",
+  "productcatalogservice_cpu",
+  "recommendationservice_cpu",
+  "redis_cpu",
+  "shippingservice_cpu",
+  "adservice_mem",
+  "cartservice_mem",
+  "checkoutservice_mem",
+  "currencyservice_mem"
+ ],
+ "log_columns": [
+  "timestamp",
+  "container_name",
+  "message"
+ ],
+ "log_rows": 171176,
+ "log_lines_pre_post": [
+  35430,
+  35769
+ ],
+ "log_services_post_top": {
+  "frontend": 12791,
+  "currencyservice": 11452,
+  "cartservice": 3691,
+  "recommendationservice": 2653,
+  "shippingservice": 2186,
+  "adservice": 2127,
+  "checkoutservice": 432,
+  "paymentservice": 288
+ },
+ "post_error_like_lines": 0,
+ "example_post_lines": [
+  "request started",
+  "serving product page",
+  "Getting supported currencies...",
+  "GetCartAsync called with userId=e0af662b-b550-4be6-8bc2-5b0e52c29b00"
+ ],
+ "trace_columns": [
+  "time",
+  "traceID",
+  "spanID",
+  "serviceName",
+  "methodName",
+  "operationName",
+  "parentSpanID",
+  "startTimeMillis",
+  "startTime",
+  "duration",
+  "statusCode"
+ ],
+ "trace_rows": 391053
+}
+```
+
+## re2ob_checkoutservice_loss_1 (RE2-OB, loss)
+
+```json
+{
+ "case": "re2ob_checkoutservice_loss_1",
+ "dataset": "RE2-OB",
+ "fault": "loss",
+ "inject_time": 1705376266,
+ "metric_columns_n": 74,
+ "metric_families": {
+  "cpu": 11,
+  "mem": 11,
+  "socket": 11,
+  "workload": 11,
+  "latency-50": 10,
+  "latency-90": 10,
+  "diskio": 6,
+  "error": 4
+ },
+ "metric_examples": [
+  "adservice_cpu",
+  "cartservice_cpu",
+  "checkoutservice_cpu",
+  "currencyservice_cpu",
+  "emailservice_cpu",
+  "frontend_cpu",
+  "paymentservice_cpu",
+  "productcatalogservice_cpu",
+  "recommendationservice_cpu",
+  "redis_cpu",
+  "shippingservice_cpu",
+  "adservice_mem",
+  "cartservice_mem",
+  "checkoutservice_mem",
+  "currencyservice_mem"
+ ],
+ "log_columns": [
+  "timestamp",
+  "container_name",
+  "message"
+ ],
+ "log_rows": 168467,
+ "log_lines_pre_post": [
+  36333,
+  34504
+ ],
+ "log_services_post_top": {
+  "frontend": 12425,
+  "currencyservice": 11413,
+  "cartservice": 3508,
+  "recommendationservice": 2563,
+  "adservice": 2109,
+  "shippingservice": 1924,
+  "checkoutservice": 279,
+  "paymentservice": 186
+ },
+ "post_error_like_lines": 19,
+ "example_post_lines": [
+  "request error",
+  "request error",
+  "request error",
+  "request error",
+  "request error",
+  "request error"
+ ],
+ "trace_columns": [
+  "time",
+  "traceID",
+  "spanID",
+  "serviceName",
+  "methodName",
+  "operationName",
+  "parentSpanID",
+  "startTimeMillis",
+  "startTime",
+  "duration",
+  "statusCode"
+ ],
+ "trace_rows": 385793
+}
+```
+
+## re2ob_checkoutservice_mem_1 (RE2-OB, mem)
+
+```json
+{
+ "case": "re2ob_checkoutservice_mem_1",
+ "dataset": "RE2-OB",
+ "fault": "mem",
+ "inject_time": 1705462070,
+ "metric_columns_n": 70,
+ "metric_families": {
+  "cpu": 11,
+  "mem": 11,
+  "socket": 11,
+  "workload": 11,
+  "latency-50": 10,
+  "latency-90": 10,
+  "diskio": 4,
+  "error": 2
+ },
+ "metric_examples": [
+  "adservice_cpu",
+  "cartservice_cpu",
+  "checkoutservice_cpu",
+  "currencyservice_cpu",
+  "emailservice_cpu",
+  "frontend_cpu",
+  "paymentservice_cpu",
+  "productcatalogservice_cpu",
+  "recommendationservice_cpu",
+  "redis_cpu",
+  "shippingservice_cpu",
+  "adservice_mem",
+  "cartservice_mem",
+  "checkoutservice_mem",
+  "currencyservice_mem"
+ ],
+ "log_columns": [
+  "timestamp",
+  "container_name",
+  "message"
+ ],
+ "log_rows": 178020,
+ "log_lines_pre_post": [
+  37723,
+  37241
+ ],
+ "log_services_post_top": {
+  "frontend": 13289,
+  "currencyservice": 11731,
+  "cartservice": 3897,
+  "recommendationservice": 2825,
+  "shippingservice": 2382,
+  "adservice": 2188,
+  "checkoutservice": 462,
+  "paymentservice": 308
+ },
+ "post_error_like_lines": 0,
+ "example_post_lines": [
+  "Getting supported currencies...",
+  "request started",
+  "serving product page",
+  "conversion request successful"
+ ],
+ "trace_columns": [
+  "time",
+  "traceID",
+  "spanID",
+  "serviceName",
+  "methodName",
+  "operationName",
+  "parentSpanID",
+  "startTimeMillis",
+  "startTime",
+  "duration",
+  "statusCode"
+ ],
+ "trace_rows": 405917
+}
+```
+
+## re2ob_checkoutservice_socket_1 (RE2-OB, socket)
+
+```json
+{
+ "case": "re2ob_checkoutservice_socket_1",
+ "dataset": "RE2-OB",
+ "fault": "socket",
+ "inject_time": 1705656313,
+ "metric_columns_n": 77,
+ "metric_families": {
+  "mem": 12,
+  "socket": 12,
+  "cpu": 11,
+  "workload": 11,
+  "latency-50": 10,
+  "latency-90": 10,
+  "diskio": 9,
+  "error": 2
+ },
+ "metric_examples": [
+  "adservice_cpu",
+  "cartservice_cpu",
+  "checkoutservice_cpu",
+  "currencyservice_cpu",
+  "emailservice_cpu",
+  "frontend_cpu",
+  "paymentservice_cpu",
+  "productcatalogservice_cpu",
+  "recommendationservice_cpu",
+  "redis_cpu",
+  "shippingservice_cpu",
+  "adservice_mem",
+  "cartservice_mem",
+  "checkoutservice_mem",
+  "currencyservice_mem"
+ ],
+ "log_columns": [
+  "timestamp",
+  "container_name",
+  "message"
+ ],
+ "log_rows": 177376,
+ "log_lines_pre_post": [
+  37360,
+  37158
+ ],
+ "log_services_post_top": {
+  "frontend": 13310,
+  "currencyservice": 12158,
+  "cartservice": 3798,
+  "recommendationservice": 2737,
+  "adservice": 2222,
+  "shippingservice": 2178,
+  "checkoutservice": 375,
+  "paymentservice": 250
+ },
+ "post_error_like_lines": 0,
+ "example_post_lines": [
+  "request started",
+  "serving product page",
+  "Getting supported currencies...",
+  "GetCartAsync called with userId=fdebbb24-0949-4cad-8a1f-69d6a2de04e8"
+ ],
+ "trace_columns": [
+  "time",
+  "traceID",
+  "spanID",
+  "serviceName",
+  "methodName",
+  "operationName",
+  "parentSpanID",
+  "startTimeMillis",
+  "startTime",
+  "duration",
+  "statusCode"
+ ],
+ "trace_rows": 404289
+}
