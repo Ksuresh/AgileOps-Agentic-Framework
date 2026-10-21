@@ -51,22 +51,34 @@ def population() -> list[dict]:
     return [seen[k] for k in sorted(seen)]
 
 
+GQL = """query($iid: [String!], $after: String) { project(fullPath: "gitlab-com/gl-infra/production") {
+  workItems(iids: $iid) { nodes { widgets { ... on WorkItemWidgetNotes {
+    discussions(first: 100, after: $after) { pageInfo { hasNextPage endCursor }
+      nodes { notes { nodes { system createdAt body } } } } } } } } } }"""
+
+
 def notes_text(iid: int) -> tuple[int, str]:
-    out, page = [], 1
-    while True:
-        r = get(f"{API}/issues/{iid}/notes", sort="asc", order_by="created_at", per_page=100, page=page)
+    """Human notes via GraphQL (the REST notes endpoint requires authentication)."""
+    notes, after = [], None
+    for _ in range(20):
+        r = requests.post("https://gitlab.com/api/graphql", json={"query": GQL, "variables": {"iid": [str(iid)], "after": after}},
+                          headers=UA, timeout=40)
         if r.status_code != 200:
             break
-        batch = r.json()
-        for n in batch:
-            if n.get("system"):
-                continue
-            ts = n["created_at"][:16].replace("T", " ")
-            body = " ".join((n.get("body") or "").split())
-            out.append(f"{ts} UTC: {body}")
-        if len(batch) < 100:
+        nodes = (((r.json().get("data") or {}).get("project") or {}).get("workItems") or {}).get("nodes") or []
+        disc = next((w["discussions"] for n in nodes for w in n["widgets"] if w and "discussions" in w), None)
+        if not disc:
             break
-        page += 1
+        for d in disc["nodes"]:
+            for n in d["notes"]["nodes"]:
+                if not n.get("system"):
+                    notes.append(n)
+        if not disc["pageInfo"]["hasNextPage"]:
+            break
+        after = disc["pageInfo"]["endCursor"]
+        time.sleep(0.3)
+    notes.sort(key=lambda n: n["createdAt"])
+    out = [f"{n['createdAt'][:16].replace('T', ' ')} UTC: {' '.join((n.get('body') or '').split())}" for n in notes]
     return len(out), "\n".join(out)[:150_000]
 
 
