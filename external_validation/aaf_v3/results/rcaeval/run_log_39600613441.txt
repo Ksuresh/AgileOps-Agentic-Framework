@@ -1,0 +1,281 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+{
+ "RE1": {
+  "v1": {
+   "admissible_all": {
+    "k": 549,
+    "n": 750,
+    "pct": 73.2,
+    "wilson95": [
+     69.9,
+     76.2
+    ]
+   },
+   "detection_fault": {
+    "k": 186,
+    "n": 375,
+    "pct": 49.6,
+    "wilson95": [
+     44.6,
+     54.6
+    ]
+   },
+   "admissible_fault": {
+    "k": 186,
+    "n": 375,
+    "pct": 49.6,
+    "wilson95": [
+     44.6,
+     54.6
+    ]
+   },
+   "false_alarm_control": {
+    "k": 12,
+    "n": 375,
+    "pct": 3.2,
+    "wilson95": [
+     1.8,
+     5.5
+    ]
+   },
+   "actions_fault": {
+    "Mitigate and monitor": 186,
+    "No action (observe)": 189
+   }
+  },
+  "v3": {
+   "admissible_all": {
+    "k": 711,
+    "n": 750,
+    "pct": 94.8,
+    "wilson95": [
+     93.0,
+     96.2
+    ]
+   },
+   "detection_fault": {
+    "k": 353,
+    "n": 375,
+    "pct": 94.1,
+    "wilson95": [
+     91.3,
+     96.1
+    ]
+   },
+   "admissible_fault": {
+    "k": 353,
+    "n": 375,
+    "pct": 94.1,
+    "wilson95": [
+     91.3,
+     96.1
+    ]
+   },
+   "false_alarm_control": {
+    "k": 17,
+    "n": 375,
+    "pct": 4.5,
+    "wilson95": [
+     2.8,
+     7.1
+    ]
+   },
+   "actions_fault": {
+    "Mitigate and monitor": 353,
+    "No action (observe)": 22
+   }
+  },
+  "baseline": {
+   "admissible_all": {
+    "k": 638,
+    "n": 750,
+    "pct": 85.1,
+    "wilson95": [
+     82.3,
+     87.4
+    ]
+   },
+   "detection_fault": {
+    "k": 368,
+    "n": 375,
+    "pct": 98.1,
+    "wilson95": [
+     96.2,
+     99.1
+    ]
+   },
+   "admissible_fault": {
+    "k": 368,
+    "n": 375,
+    "pct": 98.1,
+    "wilson95": [
+     96.2,
+     99.1
+    ]
+   },
+   "false_alarm_control": {
+    "k": 105,
+    "n": 375,
+    "pct": 28.0,
+    "wilson95": [
+     23.7,
+     32.7
+    ]
+   },
+   "actions_fault": {
+    "Mitigate and monitor": 368,
+    "No action (observe)": 7
+   }
+  },
+  "paired": {
+   "v3_vs_v1": {
+    "first_only": 167,
+    "second_only": 5,
+    "exact_p": 4.073e-43
+   },
+   "v3_vs_baseline": {
+    "first_only": 88,
+    "second_only": 15,
+    "exact_p": 9.655e-14
+   }
+  }
+ },
+ "RE3": {
+  "v1": {
+   "admissible_all": {
+    "k": 91,
+    "n": 180,
+    "pct": 50.6,
+    "wilson95": [
+     43.3,
+     57.8
+    ]
+   },
+   "detection_fault": {
+    "k": 2,
+    "n": 90,
+    "pct": 2.2,
+    "wilson95": [
+     0.6,
+     7.7
+    ]
+   },
+   "admissible_fault": {
+    "k": 2,
+    "n": 90,
+    "pct": 2.2,
+    "wilson95": [
+     0.6,
+     7.7
+    ]
+   },
+   "false_alarm_control": {
+    "k": 1,
+    "n": 90,
+    "pct": 1.1,
+    "wilson95": [
+     0.2,
+     6.0
+    ]
+   },
+   "actions_fault": {
+    "No action (observe)": 88,
+    "Mitigate and monitor": 2
+   }
+  },
+  "v3": {
+   "admissible_all": {
+    "k": 174,
+    "n": 180,
+    "pct": 96.7,
+    "wilson95": [
+     92.9,
+     98.5
+    ]
+   },
+   "detection_fault": {
+    "k": 90,
+    "n": 90,
+    "pct": 100.0,
+    "wilson95": [
+     95.9,
+     100.0
+    ]
+   },
+   "admissible_fault": {
+    "k": 90,
+    "n": 90,
+    "pct": 100.0,
+    "wilson95": [
+     95.9,
+     100.0
+    ]
+   },
+   "false_alarm_control": {
+    "k": 6,
+    "n": 90,
+    "pct": 6.7,
+    "wilson95": [
+     3.1,
+     13.8
+    ]
+   },
+   "actions_fault": {
+    "Mitigate and monitor": 90
+   }
+  },
+  "baseline": {
+   "admissible_all": {
+    "k": 152,
+    "n": 180,
+    "pct": 84.4,
+    "wilson95": [
+     78.4,
+     89.0
+    ]
+   },
+   "detection_fault": {
+    "k": 90,
+    "n": 90,
+    "pct": 100.0,
+    "wilson95": [
+     95.9,
+     100.0
+    ]
+   },
+   "admissible_fault": {
+    "k": 90,
+    "n": 90,
+    "pct": 100.0,
+    "wilson95": [
+     95.9,
+     100.0
+    ]
+   },
+   "false_alarm_control": {
+    "k": 28,
+    "n": 90,
+    "pct": 31.1,
+    "wilson95": [
+     22.5,
+     41.3
+    ]
+   },
+   "actions_fault": {
+    "Mitigate and monitor": 90
+   }
+  },
+  "paired": {
+   "v3_vs_v1": {
+    "first_only": 88,
+    "second_only": 5,
+    "exact_p": 1.111e-20
+   },
+   "v3_vs_baseline": {
+    "first_only": 22,
+    "second_only": 0,
+    "exact_p": 4.768e-07
+   }
+  }
+ }
+}
