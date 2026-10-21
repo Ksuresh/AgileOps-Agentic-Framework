@@ -23,7 +23,8 @@ ROOT = Path(__file__).resolve().parents[2]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-from external_validation.postmortems.run_study import HASHES, LLM, encrypt, fetch_text, load_cases
+from external_validation.postmortems import run_study as S
+from external_validation.postmortems.run_study import LLM, encrypt, fetch_text
 from external_validation.postmortems.timeline_extract import ordered_entries
 
 HERE = Path(__file__).resolve().parent
@@ -57,8 +58,12 @@ def kappa(a: list[str], b: list[str]) -> float | None:
 
 
 def main() -> None:
-    frozen = json.loads(HASHES.read_text())
-    cases = load_cases()
+    split = os.environ.get("RATER_SPLIT", "dev")  # "holdout" = AAF v3 holdout H3 (same prompt, same procedure)
+    if split == "holdout":
+        H = ROOT / "external_validation" / "aaf_v3" / "holdout"
+        S.LABEL_FILES, S.HASHES = [H / "labels_rater1_holdout.csv"], H / "evidence_hashes.json"
+    frozen = json.loads(S.HASHES.read_text())
+    cases = S.load_cases()
     llm = LLM(mock=False)
     effort = os.environ.get("RATER_REASONING_EFFORT", "high")
     work = []
@@ -100,7 +105,7 @@ def main() -> None:
     a, b = [r["rater1_label"] for r in ok], [r["rater2_label"] for r in ok]
     both = [r for r in ok if r["rater2_label"] != "exclude"]
     summary = {
-        "amendment": "A8", "model": llm.model, "reasoning_effort": effort, "calls": len(runs),
+        "amendment": "A8", "split": split, "model": llm.model, "reasoning_effort": effort, "calls": len(runs),
         "failed_calls": sum(1 for x in runs if x["error"]), "cases": len(ok),
         "rater2_excluded": [r["case"] for r in ok if r["rater2_label"] == "exclude"],
         "label_agreement_all": f"{sum(r['label_agree'] for r in ok)}/{len(ok)}",
@@ -112,7 +117,7 @@ def main() -> None:
         "rater_prompt_sha256": hashlib.sha256(RATER_SYSTEM.encode()).hexdigest(),
         "github_run_id": os.environ.get("GITHUB_RUN_ID"),
     }
-    out = HERE / "rater2" / "ai_rater" / datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
+    out = (HERE / "rater2" / "ai_rater" if split == "dev" else ROOT / "external_validation" / "aaf_v3" / "holdout" / "ai_rater") / datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
     out.mkdir(parents=True, exist_ok=True)
     (out / "summary.json").write_text(json.dumps(summary, indent=2))
     with (out / "case_agreement.csv").open("w", newline="") as fh:
