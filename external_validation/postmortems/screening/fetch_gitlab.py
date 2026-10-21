@@ -87,26 +87,37 @@ def notes_text(iid: int) -> tuple[int, str]:
 
 
 def main() -> None:
+    """Batch 1 (default): positions 1..150. Later batches (AAF v3 holdout H3): GL_START/GL_END/GL_NAME env vars.
+    If the population changed since batch 1, the current seeded order is used with batch-1 issues removed."""
+    start, end = int(os.environ.get("GL_START", 0)), int(os.environ.get("GL_END", N))
+    name = os.environ.get("GL_NAME", "gitlab_150")
     pop = population()
     rng = random.Random(SEED)
     order = pop[:]
     rng.shuffle(order)
-    sample = order[:N]
+    if start:
+        first = {s["iid"] for s in json.loads((HERE / "gitlab_150.meta.json").read_text())["sample"]}
+        same = [o["iid"] for o in order[:N]] == [s["iid"] for s in json.loads((HERE / "gitlab_150.meta.json").read_text())["sample"]]
+        rest = [o for o in order if o["iid"] not in first]
+        sample = rest[start - N:end - N]
+    else:
+        same, sample = True, order[:N]
     bundle = []
-    for k, it in enumerate(sample, 1):
+    for k, it in enumerate(sample, start + 1):
         n, text = notes_text(it["iid"])
         bundle.append({"id": f"GL-{k:03d}", **it, "n_notes": n, "text": text})
         time.sleep(0.3)
-    meta = {"population_size": len(pop), "seed": SEED, "fetched": len(bundle), "query_errors": ERRORS[:20], "n_query_errors": len(ERRORS),
+    meta = {"population_size": len(pop), "seed": SEED, "fetched": len(bundle), "positions": [start + 1, start + len(bundle)],
+            "batch1_order_reproduced": same, "query_errors": ERRORS[:20], "n_query_errors": len(ERRORS),
             "sample": [{k: v for k, v in b.items() if k != "text"} for b in bundle]}
-    (HERE / "gitlab_150.meta.json").write_text(json.dumps(meta, indent=1))
+    (HERE / f"{name}.meta.json").write_text(json.dumps(meta, indent=1))
     with tempfile.TemporaryDirectory() as tmp:
         plain, key = Path(tmp) / "b.json", Path(tmp) / "k.bin"
         plain.write_text(json.dumps(bundle)); key.write_bytes(os.urandom(32))
         subprocess.run(["openssl", "enc", "-aes-256-cbc", "-pbkdf2", "-salt", "-in", str(plain),
-                        "-out", str(HERE / "gitlab_150.bundle.json.enc"), "-pass", f"file:{key}"], check=True)
+                        "-out", str(HERE / f"{name}.bundle.json.enc"), "-pass", f"file:{key}"], check=True)
         subprocess.run(["openssl", "pkeyutl", "-encrypt", "-pubin", "-inkey", str(HERE / "screen_public.pem"),
-                        "-in", str(key), "-out", str(HERE / "gitlab_150.bundle.key.enc")], check=True)
+                        "-in", str(key), "-out", str(HERE / f"{name}.bundle.key.enc")], check=True)
     print(json.dumps({k: meta[k] for k in ("population_size", "seed", "fetched")}))
 
 
