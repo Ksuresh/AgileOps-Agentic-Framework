@@ -1,13 +1,17 @@
-"""Debug: why do issue notes come back empty? Prints status codes only (no content)."""
-import json, requests
-API = "https://gitlab.com/api/v4/projects/gitlab-com%2Fgl-infra%2Fproduction"
+"""Debug GraphQL notes query: prints errors and counts only (no note content)."""
+import json, requests, sys
+sys.path.insert(0, "external_validation/postmortems/screening")
+from fetch_gitlab import GQL, notes_text
 UA = {"User-Agent": "research-screening"}
-for iid in (3654, 17168, 7083):
-    r = requests.get(f"{API}/issues/{iid}/notes", headers=UA, timeout=30)
-    print("notes", iid, r.status_code, r.headers.get("content-type"), len(r.text), r.text[:120])
-    r2 = requests.get(f"{API}/issues/{iid}", headers=UA, timeout=30)
-    j = r2.json() if r2.status_code == 200 else {}
-    print("issue", iid, r2.status_code, "user_notes_count", j.get("user_notes_count"), "type", j.get("issue_type"))
-q = {"query": 'query { project(fullPath: "gitlab-com/gl-infra/production") { workItems(iids: ["3654"]) { nodes { iid widgets { type ... on WorkItemWidgetNotes { discussions(first: 3) { nodes { notes { nodes { system createdAt } } } } } } } } } }'}
-r3 = requests.post("https://gitlab.com/api/graphql", json=q, headers=UA, timeout=30)
-print("graphql", r3.status_code, r3.text[:600])
+r = requests.post("https://gitlab.com/api/graphql", json={"query": GQL, "variables": {"iid": ["17168"], "after": None}}, headers=UA, timeout=40)
+j = r.json()
+print("status", r.status_code, "errors", json.dumps(j.get("errors"))[:800])
+nodes = (((j.get("data") or {}).get("project") or {}).get("workItems") or {}).get("nodes") or []
+print("nodes", len(nodes))
+for n in nodes:
+    for w in n["widgets"]:
+        if w and "discussions" in w:
+            d = w["discussions"]["nodes"]
+            notes = [x for dd in d for x in dd["notes"]["nodes"]]
+            print("discussions", len(d), "notes", len(notes), "human", sum(1 for x in notes if not x["system"]), "body_null", sum(1 for x in notes if x.get("body") is None))
+print("notes_text count:", notes_text(17168)[0])
