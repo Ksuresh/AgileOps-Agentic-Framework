@@ -18,8 +18,8 @@ jobs:
       OPENAI_REASONING_EFFORT: none
       CAT_REASONING_EFFORT: medium
       A_REASONING_EFFORT: medium
-      SPLIT: dev
-      ARMS: "L V3"
+      SPLIT: holdout
+      ARMS: "L V3 A"
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
