@@ -91,6 +91,10 @@ def ceiling_evidence(case: dict[str, Any]) -> dict[str, Any]:
 def field_score(case: dict[str, Any], accepted: dict[str, Any]) -> dict[str, int]:
     truth = case.get("truth") or {}
     s = Counter()
+    for f, v in (case.get("decoy") or {}).items():  # accepted value equals the planted wrong value
+        if f in accepted and (accepted[f] == v if isinstance(v, bool) else abs(float(accepted[f]) - float(v)) <= max(1e-6, 0.01 * abs(float(v)))):
+            if not (f in truth and truth[f]["value"] == v):
+                s["decoy_hits"] += 1
     for f, t in truth.items():
         if f not in accepted:
             s["missed"] += 1
@@ -121,12 +125,14 @@ def main() -> None:
     ap.add_argument("--mock", action="store_true", help="offline dry run with the mock reader")
     ap.add_argument("--repeats", type=int, default=5)
     ap.add_argument("--out", default="text_evidence_pilot/results")
+    ap.add_argument("--cases", default=str(CASES), help="case file (default: pilot v0)")
     args = ap.parse_args()
 
-    raw_cases = CASES.read_bytes()
+    cases_path = Path(args.cases)
+    raw_cases = cases_path.read_bytes()
     cases = yaml.safe_load(raw_cases)["cases"]
     reader = MockReader() if args.mock else OpenAIReader()
-    out = Path(args.out) / ("mock" if args.mock else datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ"))
+    out = Path(args.out) / cases_path.stem / ("mock" if args.mock else datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ"))
     out.mkdir(parents=True, exist_ok=True)
 
     rows, raw_log = [], []
@@ -153,7 +159,7 @@ def main() -> None:
 
         n_ok = sum(x["correct"] for x in runs)
         rows.append({
-            "case": case["id"], "tier": case["tier"], "ceiling_action": ceiling,
+            "case": case["id"], "tier": case.get("category", case["tier"]), "ceiling_action": ceiling,
             "T0_action": t0, "T0_correct": t0 == ceiling,
             "T1_action": t1, "T1_correct": t1 == ceiling, "T1_fields": json.dumps(fs1, sort_keys=True),
             "T2_runs_correct": f"{n_ok}/{args.repeats}", "T2_correct": n_ok * 2 > args.repeats,
@@ -181,7 +187,7 @@ def main() -> None:
     }
     meta = {
         "created_utc": datetime.now(timezone.utc).isoformat(), "python": platform.python_version(),
-        "cases_sha256": hashlib.sha256(raw_cases).hexdigest(),
+        "cases_file": cases_path.name, "cases_sha256": hashlib.sha256(raw_cases).hexdigest(),
         "reader_prompt_sha256": hashlib.sha256(READER_SYSTEM.encode()).hexdigest(),
         "model": None if args.mock else os.environ.get("OPENAI_MODEL", "gpt-5.6-luna"),
         "reasoning_effort": None if args.mock else os.environ.get("OPENAI_REASONING_EFFORT", "none"),

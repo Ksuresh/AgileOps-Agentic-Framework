@@ -13,6 +13,7 @@ on:
       repeats: {description: "LLM runs per case", default: "5"}
       model: {description: "OpenAI model", default: "gpt-5.6-luna"}
       reasoning_effort: {description: "Reasoning effort", default: "none"}
+      cases: {description: "Case file", default: "text_evidence_pilot/cases_text_stress_v1.yaml"}
 
 permissions:
   contents: write
@@ -25,6 +26,7 @@ jobs:
       REPEATS: ${{ inputs.repeats || '5' }}
       OPENAI_MODEL: ${{ inputs.model || 'gpt-5.6-luna' }}
       OPENAI_REASONING_EFFORT: ${{ inputs.reasoning_effort || 'none' }}
+      CASES: ${{ inputs.cases || 'text_evidence_pilot/cases_text_stress_v1.yaml' }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -43,7 +45,7 @@ jobs:
             echo "OPENAI_API_KEY secret is not set for this repository" | tee text_evidence_pilot/results/STATUS.txt
             exit 1
           fi
-          python -m text_evidence_pilot.run_pilot --repeats "$REPEATS" 2>&1 | tee text_evidence_pilot/results/run_log.txt
+          python -m text_evidence_pilot.run_pilot --cases "$CASES" --repeats "$REPEATS" 2>&1 | tee text_evidence_pilot/results/run_log_$(basename "$CASES" .yaml).txt
           exit ${PIPESTATUS[0]}
       - name: Commit results back to the pilot branch
         if: always()

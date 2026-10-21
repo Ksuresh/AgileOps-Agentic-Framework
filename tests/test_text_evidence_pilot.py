@@ -53,3 +53,26 @@ def test_model_payload_hides_evaluator_fields():
         text = str(reader_payload(case))
         for key in ("truth", "tier", "focus", "structured"):
             assert f"'{key}'" not in text, (case["id"], key)
+
+
+STRESS = yaml.safe_load((Path(__file__).resolve().parents[1] / "text_evidence_pilot" / "cases_text_stress_v1.yaml").read_text())["cases"]
+
+
+def test_stress_truth_passes_validator_unless_rejection_is_expected():
+    for case in STRESS:
+        for field, t in (case.get("truth") or {}).items():
+            ok, _ = check({"field": field, "doc_id": _doc_for(case, t["quote"]), **t}, case["documents"])
+            assert ok == (case.get("validator_expected") != "reject"), (case["id"], field)
+
+
+def test_stress_cases_are_decision_sensitive():
+    from text_evidence_pilot.run_pilot import ceiling_evidence, decide
+    from text_evidence_pilot.schema import split
+    for case in STRESS:
+        ceiling = decide(ceiling_evidence(case))
+        ev = ceiling_evidence(case)
+        for f, v in (case.get("decoy") or {}).items():
+            b, n = split(f)
+            ev.setdefault(b, {})[n] = v
+            ev[b].setdefault("_evidence", {})[n] = {"status": "measured"}
+        assert ceiling != decide(case["structured"]) or (case.get("decoy") and decide(ev) != ceiling), case["id"]
