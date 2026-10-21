@@ -1,0 +1,32 @@
+name: AAF v3 - RCAEval runs
+
+on:
+  push:
+    branches: [text-evidence-pilot]
+    paths: ["external_validation/aaf_v3/rcaeval_v3.py", "external_validation/aaf_v3/run_rcaeval_v3.py", ".github/workflows/aaf-v3-rcaeval.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    env:
+      SUITES: "RE2"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install pandas pyarrow huggingface_hub scipy numpy pyyaml
+      - run: python external_validation/aaf_v3/run_rcaeval_v3.py $SUITES
+      - name: Commit
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f external_validation/aaf_v3/results
+          git commit -m "AAF v3 RCAEval run (${SUITES}): run ${GITHUB_RUN_ID} [skip ci]" || echo "nothing to commit"
+          for i in 1 2 3 4 5; do git pull --rebase origin ${GITHUB_REF_NAME} && git push origin HEAD:${GITHUB_REF_NAME} && break; sleep $((i*7)); done

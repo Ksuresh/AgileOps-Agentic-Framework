@@ -43,3 +43,4 @@ changed files) before any holdout is touched; the holdout runs record that hash.
 ## Amendments
 | ID | Date | Change | Reason |
 | --- | --- | --- | --- |
+| A1 | 2026-10-21 | From the metadata probe (column names and fault labels only, `probe_report/summary.json`): RE1 fault types are cpu, mem, disk, delay, loss (mapped as in the plan); RE3 faults f1–f5 are code-level faults (admissible set as in the plan). RE1-OB has service latency only as `<svc>_latency` (no `_latency-90`); for any case without `_latency-90` columns, `_latency` columns are used as the latency family for all arms (v1, v3, baseline) and the case is flagged `latency_columns_renamed`; RE1-OB is also reported separately because this latency is not a p90. | Format difference only; without it every arm is blind to latency on RE1-OB. |
