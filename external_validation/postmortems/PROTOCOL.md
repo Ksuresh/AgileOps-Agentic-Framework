@@ -74,3 +74,6 @@ Added rule (tier "specific causal"): if `deploy.change_preceded_impact` is true 
 
 | ID | Date | Change | Reason |
 | --- | --- | --- | --- |
+| A1 | 2026-10-21 | Operational definitions, fixed before any arm run: (a) "timeline" = `timeline_extract.ordered_entries` output with at least 3 entries (newest-first status pages are reversed deterministically); (b) each included case records a `start` index so that summary paragraphs before the first real timeline entry are never shown; evidence = entries[start:cut]; (c) `timeline_sha256` detects page changes between screening and run time (changed pages are re-checked, not silently used). | The protocol's "timestamped or clearly ordered entries" needed a reproducible definition; reversal and start index prevent wrong ordering and hindsight leakage observed during screening. |
+| A2 | 2026-10-21 | Rater-1 screening of the 80-document pool complete (`labels_rater1.csv`): 21 included (Mitigate 10, Rollback 8, Scale 2, Patch 1), 59 excluded with reasons. Since 21 < 40, the pre-registered GitLab extension is triggered. | As specified in "Sources". |
+
