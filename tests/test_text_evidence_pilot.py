@@ -76,3 +76,36 @@ def test_stress_cases_are_decision_sensitive():
             ev.setdefault(b, {})[n] = v
             ev[b].setdefault("_evidence", {})[n] = {"status": "measured"}
         assert ceiling != decide(case["structured"]) or (case.get("decoy") and decide(ev) != ceiling), case["id"]
+
+
+HOLDOUT = yaml.safe_load((Path(__file__).resolve().parents[1] / "text_evidence_pilot" / "cases_text_holdout_v2.yaml").read_text())["cases"]
+
+
+def test_v1_checker_on_all_truths_matches_declared_expectations():
+    for case in CASES + STRESS + HOLDOUT:
+        for field, t in (case.get("truth") or {}).items():
+            x = {"field": field, "doc_id": _doc_for(case, t["quote"]), **t}
+            if case["id"] == "ST-U2":  # stored with the v0 method; v1 verifies it as a ratio
+                x["method"] = "ratio_percent"
+            ok, reason = check(x, case["documents"], "v1", case.get("scope"))
+            assert ok == (case.get("validator_expected") != "reject_v1"), (case["id"], field, reason)
+
+
+def test_v1_guard_rejects_non_current_quotes_and_v0_does_not():
+    docs = [{"id": "D", "text": "From last month's postmortem: cart scaled to 18 replicas. In staging, error rate hit 14%. "
+                                 "If p95 goes above 900 ms, page. Could the error rate be 15%?"}]
+    scope = {"service": "cart", "environment": "production"}
+    probes = [("finops.hpa_scale_to", 18, "cart scaled to 18 replicas", "historical_context"),
+              ("sre.error_rate_pct", 14, "error rate hit 14%", "other_environment"),
+              ("sre.p95_latency_ms", 900, "p95 goes above 900 ms", "target_threshold_or_plan"),
+              ("sre.error_rate_pct", 15, "the error rate be 15%", "speculative")]
+    for field, value, quote, reason in probes:
+        x = {"field": field, "value": value, "doc_id": "D", "quote": quote, "method": "literal"}
+        assert check(x, docs, "v0", scope)[0]
+        assert check(x, docs, "v1", scope) == (False, reason)
+
+
+def test_ratio_method_only_in_v1():
+    docs = [{"id": "D", "text": "120 of 1,000 requests failed"}]
+    x = {"field": "sre.error_rate_pct", "value": 12, "doc_id": "D", "quote": "120 of 1,000 requests failed", "method": "ratio_percent"}
+    assert check(x, docs, "v1") == (True, "ok") and check(x, docs, "v0")[1] == "unknown_method"

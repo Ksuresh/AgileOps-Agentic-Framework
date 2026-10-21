@@ -34,7 +34,7 @@ from scipy.stats import binomtest
 
 from agentic_experiments.hybrid import deterministic_assessment
 from text_evidence_pilot import regex_reader
-from text_evidence_pilot.llm_reader import MockReader, OpenAIReader, READER_SYSTEM
+from text_evidence_pilot.llm_reader import MockReader, OpenAIReader, READER_PROMPTS
 from text_evidence_pilot.schema import FIELD_SPECS, split
 from text_evidence_pilot.validator import check
 
@@ -52,13 +52,13 @@ def missing_in_structured(case: dict[str, Any]) -> set[str]:
     return out
 
 
-def fill(case: dict[str, Any], extractions: list[dict[str, Any]]) -> tuple[dict[str, Any], dict[str, Any]]:
+def fill(case: dict[str, Any], extractions: list[dict[str, Any]], version: str = "v0") -> tuple[dict[str, Any], dict[str, Any]]:
     """Validate extractions and write accepted ones into the missing fields only."""
     ev = copy.deepcopy(case["structured"])
     gaps = missing_in_structured(case)
     accepted, rejected, ignored = {}, [], []
     for x in extractions:
-        ok, reason = check(x, case["documents"])
+        ok, reason = check(x, case["documents"], version, case.get("scope"))
         if not ok:
             rejected.append({"field": x.get("field"), "reason": reason, "value": x.get("value")})
             continue
@@ -126,13 +126,14 @@ def main() -> None:
     ap.add_argument("--repeats", type=int, default=5)
     ap.add_argument("--out", default="text_evidence_pilot/results")
     ap.add_argument("--cases", default=str(CASES), help="case file (default: pilot v0)")
+    ap.add_argument("--version", default="v0", choices=["v0", "v1"], help="reader prompt + checker version")
     args = ap.parse_args()
 
     cases_path = Path(args.cases)
     raw_cases = cases_path.read_bytes()
     cases = yaml.safe_load(raw_cases)["cases"]
-    reader = MockReader() if args.mock else OpenAIReader()
-    out = Path(args.out) / cases_path.stem / ("mock" if args.mock else datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ"))
+    reader = MockReader() if args.mock else OpenAIReader(version=args.version)
+    out = Path(args.out) / cases_path.stem / args.version / ("mock" if args.mock else datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ"))
     out.mkdir(parents=True, exist_ok=True)
 
     rows, raw_log = [], []
@@ -142,14 +143,14 @@ def main() -> None:
         ceiling = decide(ceiling_evidence(case))
         t0 = decide(case["structured"])
 
-        ev1, info1 = fill(case, regex_extractions(case))
+        ev1, info1 = fill(case, regex_extractions(case), args.version)
         t1 = decide(ev1)
         fs1 = field_score(case, info1["accepted"]); tot_fields["T1_regex"].update(fs1)
 
         runs = []
         for r in range(args.repeats):
             res = reader.read(case)
-            ev2, info2 = fill(case, res["extractions"])
+            ev2, info2 = fill(case, res["extractions"], args.version)
             act = decide(ev2)
             fs2 = field_score(case, info2["accepted"]); tot_fields["T2_llm"].update(fs2)
             reject_reasons.update(x["reason"] for x in info2["rejected"])
@@ -176,7 +177,7 @@ def main() -> None:
         for arm in ("T0", "T1", "T2"):
             t[arm] += int(r[f"{arm}_correct"])
     summary = {
-        "n_cases": len(rows), "repeats": args.repeats, "mock": args.mock,
+        "n_cases": len(rows), "repeats": args.repeats, "mock": args.mock, "version": args.version,
         "decision_agreement_with_ceiling": {arm: sum(int(r[f"{arm}_correct"]) for r in rows) for arm in ("T0", "T1", "T2")},
         "by_tier": {k: dict(v) for k, v in by_tier.items()},
         "field_level": {k: dict(v) for k, v in tot_fields.items()},
@@ -188,7 +189,8 @@ def main() -> None:
     meta = {
         "created_utc": datetime.now(timezone.utc).isoformat(), "python": platform.python_version(),
         "cases_file": cases_path.name, "cases_sha256": hashlib.sha256(raw_cases).hexdigest(),
-        "reader_prompt_sha256": hashlib.sha256(READER_SYSTEM.encode()).hexdigest(),
+        "version": args.version,
+        "reader_prompt_sha256": hashlib.sha256(READER_PROMPTS[args.version].encode()).hexdigest(),
         "model": None if args.mock else os.environ.get("OPENAI_MODEL", "gpt-5.6-luna"),
         "reasoning_effort": None if args.mock else os.environ.get("OPENAI_REASONING_EFFORT", "none"),
         "github_run_id": os.environ.get("GITHUB_RUN_ID"), "git_sha": os.environ.get("GITHUB_SHA"),

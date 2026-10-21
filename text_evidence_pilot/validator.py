@@ -12,6 +12,13 @@ An extraction is accepted only if:
        count_lines        value == number of non-empty lines in the quote;
        time_span_seconds  value == seconds between first and last HH:MM:SS in the quote.
 The validator never decides actions; it only gates what evidence reaches the rules.
+
+Version v1 (2026-10-21, designed after the stress-test v1 results; evaluate on the fresh
+holdout set, not on the cases that motivated it) adds:
+  ratio_percent      value == 100 * a / b for the first two numbers in the quote ("120 of 1,000").
+  context guard      reject a value whose clause (text from the clause start up to the end of the
+                     quote, plus a trailing "?") marks it as historical, speculative, a
+                     target/threshold/budget/plan, or from an environment other than scope.
 """
 from __future__ import annotations
 
@@ -25,6 +32,13 @@ ONES = {w: i for i, w in enumerate(
     "fifteen sixteen seventeen eighteen nineteen".split())}
 TENS = {"twenty": 20, "thirty": 30, "forty": 40, "fifty": 50, "sixty": 60, "seventy": 70, "eighty": 80, "ninety": 90}
 METHODS = {"literal", "count_lines", "time_span_seconds"}
+METHODS_V1 = METHODS | {"ratio_percent"}
+HIST = re.compile(r"\b(?:last|previous|prior|earlier)\s+(?:week|month|quarter|year|incident|outage|release|sprint|deploy(?:ment)?)\b"
+                  r"|\byesterday\b|\bpost-?mortem\b|\b(?:\d+|a|one|two|three|few)\s+(?:days?|weeks?|months?|years?)\s+ago\b", re.I)
+NONMEAS = re.compile(r"\b(?:target|threshold|budget|limit|forecast|projected|planned|plan to|will|if|alert when)\b", re.I)
+SPEC = re.compile(r"\b(?:could|might|maybe|perhaps|not sure|i think|guess|rumou?r|possibly)\b", re.I)
+ENVS = {"production", "prod", "staging", "stage", "sandbox", "dev", "development", "test", "qa", "preprod", "uat"}
+BOUNDARY = re.compile(r"(?<!\d)[.;!?](?!\d)|\n")
 
 
 def _norm(s: str) -> str:
@@ -53,14 +67,50 @@ def _seconds(ts: str) -> int:
     return h * 3600 + m * 60 + s
 
 
-def check(extraction: dict[str, Any], documents: list[dict[str, str]]) -> tuple[bool, str]:
+def _context_reason(quote: str, doc_text: str, scope: dict[str, Any] | None) -> str | None:
+    if "\n" in quote.strip():  # multi-line log blocks are checked on the quote itself
+        clause, tail = quote, ""
+    else:
+        text, q = _norm(doc_text), _norm(quote)
+        i = text.find(q)
+        starts = [m.end() for m in BOUNDARY.finditer(text, 0, i)]
+        clause = text[(starts[-1] if starts else 0): i + len(q)]
+        m = BOUNDARY.search(text, i + len(q))
+        tail = text[i + len(q): m.end() if m else len(text)]
+    if HIST.search(clause):
+        return "historical_context"
+    if NONMEAS.search(clause):
+        return "target_threshold_or_plan"
+    if SPEC.search(clause) or "?" in tail:
+        return "speculative"
+    env = str((scope or {}).get("environment", "")).lower()
+    if env:
+        allowed = {env} | ({"prod", "production"} if env in {"prod", "production"} else set())
+        words = set(re.findall(r"[a-z]+", clause.lower()))
+        if (words & ENVS) - allowed and not words & allowed:
+            return "other_environment"
+    return None
+
+
+def check(extraction: dict[str, Any], documents: list[dict[str, str]], version: str = "v0",
+          scope: dict[str, Any] | None = None) -> tuple[bool, str]:
+    ok, reason = _check_core(extraction, documents, version)
+    if ok and version == "v1":
+        doc = next(d["text"] for d in documents if d["id"] == extraction["doc_id"])
+        bad = _context_reason(extraction["quote"], doc, scope)
+        if bad:
+            return False, bad
+    return ok, reason
+
+
+def _check_core(extraction: dict[str, Any], documents: list[dict[str, str]], version: str) -> tuple[bool, str]:
     field = extraction.get("field")
     if field not in FIELD_SPECS:
         return False, "unknown_field"
     spec = FIELD_SPECS[field]
     value = extraction.get("value")
     method = extraction.get("method", "literal")
-    if method not in METHODS:
+    if method not in (METHODS_V1 if version == "v1" else METHODS):
         return False, "unknown_method"
     docs = {d["id"]: d["text"] for d in documents}
     doc_id, quote = extraction.get("doc_id"), extraction.get("quote") or ""
@@ -84,6 +134,11 @@ def check(extraction: dict[str, Any], documents: list[dict[str, str]]) -> tuple[
             return False, "no_timestamps"
         span = _seconds(stamps[-1]) - _seconds(stamps[0])
         return (True, "ok") if _close(span, value) else (False, "span_mismatch")
+    if method == "ratio_percent":
+        nums = [float(x.replace(",", "")) for x in re.findall(r"\d[\d,]*(?:\.\d+)?", quote)]
+        if len(nums) < 2 or nums[1] == 0:
+            return False, "ratio_needs_two_numbers"
+        return (True, "ok") if _close(100.0 * nums[0] / nums[1], value) else (False, "ratio_mismatch")
     for n in numbers_in(quote):
         if any(_close(n * f, value) for f in (1.0, 60.0, 1000.0)):
             return True, "ok"
