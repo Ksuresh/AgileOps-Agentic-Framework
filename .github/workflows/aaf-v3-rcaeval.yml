@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 120
     env:
-      SUITES: "RE2"
+      SUITES: "RE1 RE3"
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
