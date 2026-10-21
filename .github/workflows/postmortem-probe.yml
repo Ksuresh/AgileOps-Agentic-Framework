@@ -1,0 +1,34 @@
+name: Postmortem source feasibility probe
+
+# Read-only; commits metadata and keyword statistics only (no postmortem text). No LLM calls.
+on:
+  push:
+    branches: [text-evidence-pilot]
+    paths: ["external_validation/postmortems/probe_sources.py", ".github/workflows/postmortem-probe.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install requests beautifulsoup4
+      - name: Probe
+        run: python external_validation/postmortems/probe_sources.py 2>&1 | tee probe_log.txt
+      - name: Commit probe report
+        if: always()
+        run: |
+          mkdir -p external_validation/postmortems/probe_report
+          cp probe_log.txt external_validation/postmortems/probe_report/ || true
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f external_validation/postmortems/probe_report
+          git commit -m "Postmortem source probe: run ${GITHUB_RUN_ID} [skip ci]" || echo "nothing to commit"
+          git push origin HEAD:${GITHUB_REF_NAME}
