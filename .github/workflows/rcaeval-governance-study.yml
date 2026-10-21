@@ -1,0 +1,35 @@
+name: RCAEval RE2 governance study (deterministic)
+
+# Pre-registered in external_validation/rcaeval_governance/PROTOCOL.md. No LLM calls.
+on:
+  push:
+    branches: [text-evidence-pilot]
+    paths: ["external_validation/rcaeval_governance/run_study.py", ".github/workflows/rcaeval-governance-study.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  study:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install pandas pyarrow huggingface_hub scipy numpy pyyaml
+      - name: Run study
+        run: python external_validation/rcaeval_governance/run_study.py 2>&1 | tee run_log.txt
+      - name: Commit results back to the branch
+        if: always()
+        run: |
+          mkdir -p external_validation/rcaeval_governance/results
+          cp run_log.txt external_validation/rcaeval_governance/results/run_log.txt || true
+          echo "run_id=${GITHUB_RUN_ID} sha=${GITHUB_SHA}" >> external_validation/rcaeval_governance/results/RUNS.txt
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f external_validation/rcaeval_governance/results
+          git commit -m "RCAEval governance study results: run ${GITHUB_RUN_ID} [skip ci]" || echo "nothing to commit"
+          git push origin HEAD:${GITHUB_REF_NAME}
