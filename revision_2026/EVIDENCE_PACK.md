@@ -137,11 +137,40 @@ specific (few false alarms) but insensitive to faults that are large relative to
    test of interaction (R5 asks for it as the main RQ1 evidence).
 7. R5-2: chance level should use the real vocabulary and the best-constant reference (Section 5).
 
-## 10. Still to run (needs OpenAI credit)
+## 10. Reviewer-requested LLM arms — R2-1, R2-3, R4-1, R4-2, R4-3, R5-1, R6-2  (`run_llm_arms.py`, plan in `LLM_RUNS_PLAN.md`)
 
-| Item | Reviewer | Cases | Approx. calls |
-| --- | --- | --- | --- |
-| Always-on Agentic + deterministic final authority | R2-1, R4-1 | 48 × 5 runs | ~1,250 |
-| Agentic-only with reasoning "medium" + governance rules in prompt | R4-2, R6-2 | 48 × 5 | ~1,250 |
-| 5 repeated runs of the original Hybrid and Agentic-only | R2-3, R4-3 | 48 × 5 | ~1,800 |
-| 2–3 rewordings of the Agentic-only coordinator prompt | R5-1 | 48 × 3 | ~750 |
+Run 39736227167 (results in `results/llm_arms/20261022T064831Z/`): 1,821 calls, 1.16M tokens, no budget stop, no errors.
+Majority-of-runs correctness per case; paired exact McNemar on the 48 cases.
+
+| Configuration | Runs | Correct per run | Majority correct /48 | Cases with same action in every run | Notes |
+| --- | --- | --- | --- | --- | --- |
+| Deterministic AAF | – | 39 | 39 | 48 | no LLM |
+| Deterministic + auto-fetch | – | 41 | 41 | 48 | no LLM |
+| **Hybrid AAF** | 5 | 41, 41, 41, 41, 41 | **41** | **48** | final action identical in all 5 runs |
+| Always-on Agentic + deterministic authority (B3) | 3 | 41, 41, 41 | 41 | 48 | same accuracy as Hybrid at Agentic-only cost |
+| Agentic-only (original) | 3 | 17, 18, 14 | 16 | 26 | unstable |
+| Agentic-only, prompt reworded ×2 (coordinator only) | 1 each | 17, 17 | 17 | – | wording does not matter |
+| **Agentic-only, reasoning medium + AAF rules in prompt (B6)** | 3 | 38, 38, 38 | **39** | 38 | 528k tokens (vs 0 for deterministic) |
+
+Paired: Hybrid vs B6 4 vs 2, p = 0.69; deterministic vs B6 3 vs 3, p = 1.0; B6 vs original Agentic-only 25 vs 2,
+p < 0.001; Hybrid vs Agentic-only 26 vs 1, p < 0.001; always-on B3 vs Hybrid identical.
+B6 by stratum (majority): CLEAR 10/12, AMBIGUOUS 10/12, INCOMPLETE 11/12, MISLEADING 8/12 (Hybrid: 11, 8, 12, 10).
+
+Malformed outputs (JSON the runtime could not parse; counted by the frozen code as schema and evidence-reference
+failures): Hybrid 5 of 155 case-runs (none changed a final action, which the rules decide); B6 22 of 144 case-runs;
+original Agentic-only 1 of 96 new case-runs. No invented evidence identifiers were found in the parsed outputs.
+
+**What to write:**
+- R4-2 / R6-2: with reasoning on and the governance rules in its prompt, Agentic-only rises from 16–17/48 to 39/48 —
+  the original 31%/44% was largely a prompt-design effect, as R6 suspected. It then matches deterministic AAF (39/48)
+  but does not exceed it, uses ~528k tokens per three runs, is less stable (38/48 cases identical across runs) and
+  produces more malformed outputs. Hybrid (41/48) is not significantly better than this stronger baseline (p = 0.69).
+- R2-1 / R4-1: running the agents on every case with deterministic final authority gives the same 41/48 as Hybrid;
+  selective invocation changes cost, not accuracy, and deterministic authority is what removes the Agentic-only errors.
+- R2-3 / R4-3: Hybrid's final action was identical across 5 independent runs for all 48 cases; original Agentic-only
+  changed action across runs in 22/48 cases.
+- R5-1: two rewordings of the Agentic-only coordinator prompt gave 17/48 each — results are not prompt-wording artefacts.
+
+## 11. Still open
+Nothing that needs LLM runs. Remaining work is writing: fill the response letter, apply the corrections in Section 9,
+and align the manuscript text.
