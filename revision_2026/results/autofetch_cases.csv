@@ -1,0 +1,49 @@
+study,case,stratum,admissible,admissible_set_size,B1_action,B1_ok,B2a_action,B2a_ok,B2a_tool_calls,B2a_recovered_evidence,B2b_action,B2b_ok,B2b_tool_calls,B2b_recovered_evidence,hybrid_trigger_fires,expected_tool
+primary,AG-C01,CLEAR,No action (observe),1,No action (observe),True,No action (observe),True,0,False,No action (observe),True,0,False,False,
+primary,AG-C02,CLEAR,Mitigate and monitor,1,Mitigate and monitor,True,Mitigate and monitor,True,0,False,Mitigate and monitor,True,0,False,False,
+primary,AG-C03,CLEAR,Scale adjustment,1,Scale adjustment,True,Scale adjustment,True,0,False,Scale adjustment,True,0,False,False,
+primary,AG-C04,CLEAR,Patch or block release,1,Patch or block release,True,Patch or block release,True,0,False,Patch or block release,True,0,False,False,
+primary,AG-C05,CLEAR,Rollback to stable deployment,1,Rollback to stable deployment,True,Rollback to stable deployment,True,0,False,Rollback to stable deployment,True,0,False,False,
+primary,AG-C06,CLEAR,Scale adjustment,1,Scale adjustment,True,Scale adjustment,True,0,False,Scale adjustment,True,0,False,False,
+primary,AG-C07,CLEAR,Rollback to stable deployment,1,No action (observe),False,No action (observe),False,0,False,No action (observe),False,0,False,False,
+primary,AG-C08,CLEAR,Patch or block release,1,Patch or block release,True,Patch or block release,True,0,False,Patch or block release,True,0,False,False,
+primary,AG-A01,AMBIGUOUS,Mitigate and monitor,1,Mitigate and monitor,True,Mitigate and monitor,True,0,False,Mitigate and monitor,True,0,False,True,
+primary,AG-A02,AMBIGUOUS,Scale adjustment,1,Scale adjustment,True,Scale adjustment,True,0,False,Scale adjustment,True,0,False,True,
+primary,AG-A03,AMBIGUOUS,Rollback to stable deployment,1,No action (observe),False,No action (observe),False,0,False,No action (observe),False,0,False,True,
+primary,AG-A04,AMBIGUOUS,Patch or block release,1,Patch or block release,True,Patch or block release,True,0,False,Patch or block release,True,0,False,True,
+primary,AG-A05,AMBIGUOUS,Rollback to stable deployment,1,Mitigate and monitor,False,Mitigate and monitor,False,0,False,Mitigate and monitor,False,0,False,True,
+primary,AG-A06,AMBIGUOUS,Scale adjustment,1,Review scaling policy,False,Review scaling policy,False,0,False,Review scaling policy,False,0,False,True,
+primary,AG-A07,AMBIGUOUS,Patch or block release,1,Patch or block release,True,Patch or block release,True,0,False,Patch or block release,True,0,False,True,
+primary,AG-A08,AMBIGUOUS,Scale adjustment,1,Scale adjustment,True,Scale adjustment,True,0,False,Scale adjustment,True,0,False,True,
+primary,AG-I01,INCOMPLETE,Rollback to stable deployment,1,Mitigate and monitor,False,Rollback to stable deployment,True,1,True,Rollback to stable deployment,True,1,True,True,get_restart_history
+primary,AG-I02,INCOMPLETE,Patch or block release,1,Patch or block release,True,Patch or block release,True,1,True,Patch or block release,True,1,True,True,get_policy_gate_status
+primary,AG-I03,INCOMPLETE,Scale adjustment,1,Scale adjustment,True,Scale adjustment,True,1,True,Scale adjustment,True,1,True,True,get_replica_history
+primary,AG-I04,INCOMPLETE,Mitigate and monitor,1,Mitigate and monitor,True,Mitigate and monitor,True,1,True,Mitigate and monitor,True,1,True,True,get_error_rate_history
+primary,AG-I05,INCOMPLETE,Scale adjustment,1,Scale adjustment,True,Scale adjustment,True,1,True,Scale adjustment,True,1,True,True,get_cost_proxy_history
+primary,AG-I06,INCOMPLETE,Patch or block release,1,Patch or block release,True,Patch or block release,True,1,True,Patch or block release,True,1,True,True,get_vulnerability_details
+primary,AG-I07,INCOMPLETE,Rollback to stable deployment,1,Rollback to stable deployment,True,Rollback to stable deployment,True,1,True,Rollback to stable deployment,True,1,True,True,get_deployment_history
+primary,AG-I08,INCOMPLETE,Scale adjustment,1,Scale adjustment,True,Scale adjustment,True,1,True,Scale adjustment,True,1,True,True,get_saturation_history
+primary,AG-M01,MISLEADING,Scale adjustment,1,Scale adjustment,True,Scale adjustment,True,0,False,Scale adjustment,True,0,False,False,
+primary,AG-M02,MISLEADING,Rollback to stable deployment,1,Block release and fix pipeline,False,Block release and fix pipeline,False,0,False,Block release and fix pipeline,False,0,False,True,
+primary,AG-M03,MISLEADING,Mitigate and monitor,1,Mitigate and monitor,True,Mitigate and monitor,True,0,False,Mitigate and monitor,True,0,False,False,
+primary,AG-M04,MISLEADING,Patch or block release,1,Patch or block release,True,Patch or block release,True,0,False,Patch or block release,True,0,False,True,
+primary,AG-M05,MISLEADING,Scale adjustment|No action (observe),2,Scale adjustment,True,Scale adjustment,True,0,False,Scale adjustment,True,0,False,True,
+primary,AG-M06,MISLEADING,Mitigate and monitor,1,Mitigate and monitor,True,Mitigate and monitor,True,0,False,Mitigate and monitor,True,0,False,False,
+primary,AG-M07,MISLEADING,Patch or block release,1,Patch or block release,True,Patch or block release,True,0,False,Patch or block release,True,0,False,True,
+primary,AG-M08,MISLEADING,Scale adjustment,1,Scale adjustment,True,Scale adjustment,True,0,False,Scale adjustment,True,0,False,True,
+replication,RP-C01,CLEAR,No action (observe),1,No action (observe),True,No action (observe),True,0,False,No action (observe),True,0,False,False,
+replication,RP-C02,CLEAR,Mitigate and monitor,1,Mitigate and monitor,True,Mitigate and monitor,True,0,False,Mitigate and monitor,True,0,False,False,
+replication,RP-C03,CLEAR,Scale adjustment,1,Scale adjustment,True,Scale adjustment,True,0,False,Scale adjustment,True,0,False,False,
+replication,RP-C04,CLEAR,Patch or block release,1,Patch or block release,True,Patch or block release,True,0,False,Patch or block release,True,0,False,False,
+replication,RP-A01,AMBIGUOUS,Mitigate and monitor,1,Mitigate and monitor,True,Mitigate and monitor,True,0,False,Mitigate and monitor,True,0,False,True,
+replication,RP-A02,AMBIGUOUS,Scale adjustment,1,Scale adjustment,True,Scale adjustment,True,0,False,Scale adjustment,True,0,False,True,
+replication,RP-A03,AMBIGUOUS,Patch or block release,1,Patch or block release,True,Patch or block release,True,0,False,Patch or block release,True,0,False,True,
+replication,RP-A04,AMBIGUOUS,Rollback to stable deployment,1,Mitigate and monitor,False,Mitigate and monitor,False,0,False,Mitigate and monitor,False,0,False,True,
+replication,RP-I01,INCOMPLETE,Rollback to stable deployment,1,Mitigate and monitor,False,Rollback to stable deployment,True,1,True,Rollback to stable deployment,True,1,True,True,get_restart_history
+replication,RP-I02,INCOMPLETE,Patch or block release,1,Patch or block release,True,Patch or block release,True,1,True,Patch or block release,True,1,True,True,get_policy_gate_status
+replication,RP-I03,INCOMPLETE,Scale adjustment,1,Scale adjustment,True,Scale adjustment,True,1,True,Scale adjustment,True,1,True,True,get_cost_proxy_history
+replication,RP-I04,INCOMPLETE,Scale adjustment,1,Scale adjustment,True,Scale adjustment,True,1,True,Scale adjustment,True,1,True,True,get_saturation_history
+replication,RP-M01,MISLEADING,Scale adjustment,1,Scale adjustment,True,Scale adjustment,True,0,False,Scale adjustment,True,0,False,False,
+replication,RP-M02,MISLEADING,Block release and fix pipeline,1,Patch or block release,False,Patch or block release,False,0,False,Patch or block release,False,0,False,True,
+replication,RP-M03,MISLEADING,Mitigate and monitor,1,Mitigate and monitor,True,Mitigate and monitor,True,0,False,Mitigate and monitor,True,0,False,False,
+replication,RP-M04,MISLEADING,Scale adjustment,1,Scale adjustment,True,Scale adjustment,True,0,False,Scale adjustment,True,0,False,True,
