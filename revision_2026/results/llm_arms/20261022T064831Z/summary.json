@@ -1,0 +1,385 @@
+{
+ "budget": {
+  "calls": 1821,
+  "tokens": 1155615,
+  "stopped": null,
+  "caps": [
+   2600,
+   4000000
+  ]
+ },
+ "deterministic_correct": {
+  "primary": 26,
+  "all": 39
+ },
+ "arms": {
+  "HY": {
+   "runs": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ],
+   "errors": 0,
+   "per_run_correct": {
+    "0": {
+     "primary": 27,
+     "replication": 14
+    },
+    "1": {
+     "primary": 27,
+     "replication": 14
+    },
+    "2": {
+     "primary": 27,
+     "replication": 14
+    },
+    "3": {
+     "primary": 27,
+     "replication": 14
+    },
+    "4": {
+     "primary": 27,
+     "replication": 14
+    }
+   },
+   "by_stratum": {
+    "CLEAR": {
+     "cases": 12,
+     "majority_correct": 11,
+     "run_level_correct_pct": 91.7,
+     "all_runs_same_action": 12,
+     "mean_modal_share": 1.0
+    },
+    "AMBIGUOUS": {
+     "cases": 12,
+     "majority_correct": 8,
+     "run_level_correct_pct": 66.7,
+     "all_runs_same_action": 12,
+     "mean_modal_share": 1.0
+    },
+    "INCOMPLETE": {
+     "cases": 12,
+     "majority_correct": 12,
+     "run_level_correct_pct": 100.0,
+     "all_runs_same_action": 12,
+     "mean_modal_share": 1.0
+    },
+    "MISLEADING": {
+     "cases": 12,
+     "majority_correct": 10,
+     "run_level_correct_pct": 83.3,
+     "all_runs_same_action": 12,
+     "mean_modal_share": 1.0
+    },
+    "ALL": {
+     "cases": 48,
+     "majority_correct": 41,
+     "run_level_correct_pct": 85.4,
+     "all_runs_same_action": 48,
+     "mean_modal_share": 1.0
+    }
+   },
+   "schema_fail_runs": 5,
+   "evidence_ref_fail_runs": 5,
+   "tokens": 253605,
+   "calls": 477
+  },
+  "AO": {
+   "runs": [
+    0,
+    1,
+    2
+   ],
+   "errors": 0,
+   "per_run_correct": {
+    "0": {
+     "primary": 10,
+     "replication": 7
+    },
+    "1": {
+     "primary": 11,
+     "replication": 7
+    },
+    "2": {
+     "primary": 9,
+     "replication": 5
+    }
+   },
+   "by_stratum": {
+    "CLEAR": {
+     "cases": 12,
+     "majority_correct": 7,
+     "run_level_correct_pct": 55.6,
+     "all_runs_same_action": 10,
+     "mean_modal_share": 0.944
+    },
+    "AMBIGUOUS": {
+     "cases": 12,
+     "majority_correct": 3,
+     "run_level_correct_pct": 27.8,
+     "all_runs_same_action": 5,
+     "mean_modal_share": 0.806
+    },
+    "INCOMPLETE": {
+     "cases": 12,
+     "majority_correct": 1,
+     "run_level_correct_pct": 13.9,
+     "all_runs_same_action": 5,
+     "mean_modal_share": 0.778
+    },
+    "MISLEADING": {
+     "cases": 12,
+     "majority_correct": 5,
+     "run_level_correct_pct": 38.9,
+     "all_runs_same_action": 6,
+     "mean_modal_share": 0.833
+    },
+    "ALL": {
+     "cases": 48,
+     "majority_correct": 16,
+     "run_level_correct_pct": 34.0,
+     "all_runs_same_action": 26,
+     "mean_modal_share": 0.84
+    }
+   },
+   "schema_fail_runs": 1,
+   "evidence_ref_fail_runs": 1,
+   "tokens": 276786,
+   "calls": 498
+  },
+  "B6": {
+   "runs": [
+    0,
+    1,
+    2
+   ],
+   "errors": 0,
+   "per_run_correct": {
+    "0": {
+     "primary": 25,
+     "replication": 13
+    },
+    "1": {
+     "primary": 25,
+     "replication": 13
+    },
+    "2": {
+     "primary": 25,
+     "replication": 13
+    }
+   },
+   "by_stratum": {
+    "CLEAR": {
+     "cases": 12,
+     "majority_correct": 10,
+     "run_level_correct_pct": 83.3,
+     "all_runs_same_action": 12,
+     "mean_modal_share": 1.0
+    },
+    "AMBIGUOUS": {
+     "cases": 12,
+     "majority_correct": 10,
+     "run_level_correct_pct": 77.8,
+     "all_runs_same_action": 10,
+     "mean_modal_share": 0.944
+    },
+    "INCOMPLETE": {
+     "cases": 12,
+     "majority_correct": 11,
+     "run_level_correct_pct": 83.3,
+     "all_runs_same_action": 8,
+     "mean_modal_share": 0.889
+    },
+    "MISLEADING": {
+     "cases": 12,
+     "majority_correct": 8,
+     "run_level_correct_pct": 72.2,
+     "all_runs_same_action": 8,
+     "mean_modal_share": 0.889
+    },
+    "ALL": {
+     "cases": 48,
+     "majority_correct": 39,
+     "run_level_correct_pct": 79.2,
+     "all_runs_same_action": 38,
+     "mean_modal_share": 0.931
+    }
+   },
+   "schema_fail_runs": 22,
+   "evidence_ref_fail_runs": 22,
+   "tokens": 528295,
+   "calls": 749
+  },
+  "PV1": {
+   "runs": [
+    0
+   ],
+   "errors": 0,
+   "per_run_correct": {
+    "0": {
+     "primary": 10,
+     "replication": 7
+    }
+   },
+   "by_stratum": {
+    "CLEAR": {
+     "cases": 12,
+     "majority_correct": 7,
+     "run_level_correct_pct": 58.3,
+     "all_runs_same_action": 12,
+     "mean_modal_share": 1.0
+    },
+    "AMBIGUOUS": {
+     "cases": 12,
+     "majority_correct": 4,
+     "run_level_correct_pct": 33.3,
+     "all_runs_same_action": 12,
+     "mean_modal_share": 1.0
+    },
+    "INCOMPLETE": {
+     "cases": 12,
+     "majority_correct": 2,
+     "run_level_correct_pct": 16.7,
+     "all_runs_same_action": 12,
+     "mean_modal_share": 1.0
+    },
+    "MISLEADING": {
+     "cases": 12,
+     "majority_correct": 4,
+     "run_level_correct_pct": 33.3,
+     "all_runs_same_action": 12,
+     "mean_modal_share": 1.0
+    },
+    "ALL": {
+     "cases": 48,
+     "majority_correct": 17,
+     "run_level_correct_pct": 35.4,
+     "all_runs_same_action": 48,
+     "mean_modal_share": 1.0
+    }
+   },
+   "schema_fail_runs": 0,
+   "evidence_ref_fail_runs": 1,
+   "tokens": 38791,
+   "calls": 48
+  },
+  "PV2": {
+   "runs": [
+    0
+   ],
+   "errors": 0,
+   "per_run_correct": {
+    "0": {
+     "primary": 10,
+     "replication": 7
+    }
+   },
+   "by_stratum": {
+    "CLEAR": {
+     "cases": 12,
+     "majority_correct": 7,
+     "run_level_correct_pct": 58.3,
+     "all_runs_same_action": 12,
+     "mean_modal_share": 1.0
+    },
+    "AMBIGUOUS": {
+     "cases": 12,
+     "majority_correct": 4,
+     "run_level_correct_pct": 33.3,
+     "all_runs_same_action": 12,
+     "mean_modal_share": 1.0
+    },
+    "INCOMPLETE": {
+     "cases": 12,
+     "majority_correct": 2,
+     "run_level_correct_pct": 16.7,
+     "all_runs_same_action": 12,
+     "mean_modal_share": 1.0
+    },
+    "MISLEADING": {
+     "cases": 12,
+     "majority_correct": 4,
+     "run_level_correct_pct": 33.3,
+     "all_runs_same_action": 12,
+     "mean_modal_share": 1.0
+    },
+    "ALL": {
+     "cases": 48,
+     "majority_correct": 17,
+     "run_level_correct_pct": 35.4,
+     "all_runs_same_action": 48,
+     "mean_modal_share": 1.0
+    }
+   },
+   "schema_fail_runs": 0,
+   "evidence_ref_fail_runs": 1,
+   "tokens": 40439,
+   "calls": 48
+  },
+  "B3": {
+   "runs": [
+    0,
+    1,
+    2
+   ],
+   "errors": 0,
+   "per_run_correct": {
+    "0": {
+     "primary": 27,
+     "replication": 14
+    },
+    "1": {
+     "primary": 27,
+     "replication": 14
+    },
+    "2": {
+     "primary": 27,
+     "replication": 14
+    }
+   },
+   "by_stratum": {
+    "CLEAR": {
+     "cases": 12,
+     "majority_correct": 11,
+     "run_level_correct_pct": 91.7,
+     "all_runs_same_action": 12,
+     "mean_modal_share": 1.0
+    },
+    "AMBIGUOUS": {
+     "cases": 12,
+     "majority_correct": 8,
+     "run_level_correct_pct": 66.7,
+     "all_runs_same_action": 12,
+     "mean_modal_share": 1.0
+    },
+    "INCOMPLETE": {
+     "cases": 12,
+     "majority_correct": 12,
+     "run_level_correct_pct": 100.0,
+     "all_runs_same_action": 12,
+     "mean_modal_share": 1.0
+    },
+    "MISLEADING": {
+     "cases": 12,
+     "majority_correct": 10,
+     "run_level_correct_pct": 83.3,
+     "all_runs_same_action": 12,
+     "mean_modal_share": 1.0
+    },
+    "ALL": {
+     "cases": 48,
+     "majority_correct": 41,
+     "run_level_correct_pct": 85.4,
+     "all_runs_same_action": 48,
+     "mean_modal_share": 1.0
+    }
+   },
+   "schema_fail_runs": 0,
+   "evidence_ref_fail_runs": 0,
+   "tokens": 0,
+   "calls": 0
+  }
+ }
+}
