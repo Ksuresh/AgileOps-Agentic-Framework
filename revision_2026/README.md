@@ -17,6 +17,9 @@ as inputs are copied into `paper_results/frozen_artifacts/` from the GitHub Acti
 | `external_validation/rcaeval_governance/` — RCAEval with healthy controls and a threshold baseline (pre-registered) | R4-5, R5-4, R6-5 | 0 | `external_validation/rcaeval_governance/results/` |
 | `external_validation/explanations/` — PM-interface faithfulness re-test, E1 (pre-registered) | R2-4, R2-6, R4-6, R6-6 | ~2,300 | `external_validation/explanations/results/20261021T125701Z/` |
 | `external_validation/aaf_v3/rcaeval_v3.py` — change-aware materiality adapter (AAF-CA in the manuscript), frozen on RE2, held-out RE1/RE3 (plan: `PLAN.md`, results: `RESULTS.md` H1/H2) | R4-5, R5-4, R6-5 | 0 | `external_validation/aaf_v3/results/` (GitHub Actions run 39600613441) |
+| `external_validation/expert_study/` — Study 7: 48 new pre-registered cases (24 standard, 24 unflagged-gap), sealed author key, AI-assisted practitioner labels on 96 cases (amendments A1, A2 in PROTOCOL.md) | R1-3, R1-4, R4-1, R5-1, R6-1, R6-4 | 905 | `external_validation/expert_study/results/20261022T130735Z/`, `analysis_author_key.json`, `analysis.json` (run 39784044792) |
+| `external_validation/investigator_fix/` + `agentic_experiments/hybrid_v2.py` — Study 8: pre-registered investigator fix (HY2-F, HY2-L) on 36 fresh generated cases | R4-1, R5-1, R6-1 | 1,488 | `external_validation/investigator_fix/results/20261022T132423Z/`, `analysis_fx.json` (run 39786446655) |
+| `PROVENANCE.md` — protocol/run/result timeline for every study | R6-4, R3-4 | 0 | — |
 
 Reproduce (repository root, Python 3.11, `pip install -r requirements.txt`):
 
