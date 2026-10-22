@@ -1,0 +1,246 @@
+[
+ {
+  "study": "Sock Shop HRT-22-31",
+  "run": 33880374847,
+  "run_started": "2026-09-04T13:51:15+00:00",
+  "head": "6055bb6",
+  "files": [
+   {
+    "file": "runtime_validation/interventions_extended_validation.yaml",
+    "committed_before_run": true,
+    "unchanged_since_run": true,
+    "append_only_amendments": false,
+    "committed": "2026-09-04T19:20:18+05:30",
+    "sha256": "77db0ede3890"
+   }
+  ],
+  "results_after_run": null,
+  "pass": true
+ },
+ {
+  "study": "Prospective HRT-32-39",
+  "run": 33885779782,
+  "run_started": "2026-09-04T14:47:39+00:00",
+  "head": "67f187d",
+  "files": [
+   {
+    "file": "runtime_validation/interventions_v2_prospective.yaml",
+    "committed_before_run": true,
+    "unchanged_since_run": true,
+    "append_only_amendments": false,
+    "committed": "2026-09-04T20:16:36+05:30",
+    "sha256": "2afab3d253cb"
+   }
+  ],
+  "results_after_run": null,
+  "pass": true
+ },
+ {
+  "study": "Selective AEI primary (32)",
+  "run": 34428945881,
+  "run_started": "2026-09-10T02:18:43+00:00",
+  "head": "3f5913f",
+  "files": [
+   {
+    "file": "agentic_experiments/cases_v1.yaml",
+    "committed_before_run": true,
+    "unchanged_since_run": true,
+    "append_only_amendments": false,
+    "committed": "2026-09-10T06:57:20+05:30",
+    "sha256": "98fd94278193"
+   },
+   {
+    "file": "agentic_experiments/FROZEN_PROTOCOL.md",
+    "committed_before_run": true,
+    "unchanged_since_run": true,
+    "append_only_amendments": false,
+    "committed": "2026-09-10T06:56:33+05:30",
+    "sha256": "bb12afb50b71"
+   }
+  ],
+  "results_after_run": null,
+  "pass": true
+ },
+ {
+  "study": "Selective AEI replication (16)",
+  "run": 34432645600,
+  "run_started": "2026-09-10T03:15:41+00:00",
+  "head": "2417f2f",
+  "files": [
+   {
+    "file": "agentic_experiments/cases_replication_v1.yaml",
+    "committed_before_run": true,
+    "unchanged_since_run": true,
+    "append_only_amendments": false,
+    "committed": "2026-09-10T08:25:12+05:30",
+    "sha256": "eb41fc780ead"
+   }
+  ],
+  "results_after_run": null,
+  "pass": true
+ },
+ {
+  "study": "RCAEval with healthy controls",
+  "run": 39581484587,
+  "run_started": "2026-10-21T10:01:32+00:00",
+  "head": "96db5bd",
+  "files": [
+   {
+    "file": "external_validation/rcaeval_governance/PROTOCOL.md",
+    "committed_before_run": true,
+    "unchanged_since_run": true,
+    "append_only_amendments": false,
+    "committed": "2026-10-21T10:01:29+00:00",
+    "sha256": "0bf72cf730ae"
+   }
+  ],
+  "results_after_run": true,
+  "pass": true
+ },
+ {
+  "study": "AAF-CA holdout",
+  "run": 39600613441,
+  "run_started": "2026-10-21T12:33:56+00:00",
+  "head": "59b2287",
+  "files": [
+   {
+    "file": "external_validation/aaf_v3/PLAN.md",
+    "committed_before_run": true,
+    "unchanged_since_run": true,
+    "append_only_amendments": false,
+    "committed": "2026-10-21T11:56:24+00:00",
+    "sha256": "3bb6564d04df"
+   }
+  ],
+  "results_after_run": true,
+  "pass": true
+ },
+ {
+  "study": "PM-interface re-test (E1)",
+  "run": 39603634523,
+  "run_started": "2026-10-21T12:56:09+00:00",
+  "head": "41a84a4",
+  "files": [
+   {
+    "file": "external_validation/explanations/PROTOCOL.md",
+    "committed_before_run": true,
+    "unchanged_since_run": false,
+    "append_only_amendments": true,
+    "committed": "2026-10-21T12:56:05+00:00",
+    "sha256": "1b82ee1bce17"
+   }
+  ],
+  "results_after_run": true,
+  "pass": true
+ },
+ {
+  "study": "Reviewer-requested LLM arms",
+  "run": 39736227167,
+  "run_started": "2026-10-22T06:48:03+00:00",
+  "head": "8818492",
+  "files": [
+   {
+    "file": "revision_2026/LLM_RUNS_PLAN.md",
+    "committed_before_run": true,
+    "unchanged_since_run": true,
+    "append_only_amendments": false,
+    "committed": "2026-10-22T06:48:00+00:00",
+    "sha256": "33fcf571be1f"
+   },
+   {
+    "file": "revision_2026/run_llm_arms.py",
+    "committed_before_run": true,
+    "unchanged_since_run": true,
+    "append_only_amendments": false,
+    "committed": "2026-10-22T06:48:00+00:00",
+    "sha256": "e35f8a0913f8"
+   }
+  ],
+  "results_after_run": true,
+  "pass": true
+ },
+ {
+  "study": "Study 7",
+  "run": 39784044792,
+  "run_started": "2026-10-22T13:07:02+00:00",
+  "head": "11f2438",
+  "files": [
+   {
+    "file": "external_validation/expert_study/cases_new_v1.yaml",
+    "committed_before_run": true,
+    "unchanged_since_run": true,
+    "append_only_amendments": false,
+    "committed": "2026-10-22T12:24:08+00:00",
+    "sha256": "a270b5e010da"
+   },
+   {
+    "file": "external_validation/expert_study/author_labels.yaml",
+    "committed_before_run": true,
+    "unchanged_since_run": true,
+    "append_only_amendments": false,
+    "committed": "2026-10-22T12:24:08+00:00",
+    "sha256": "16517c2a4793"
+   },
+   {
+    "file": "external_validation/expert_study/expert_labels.json",
+    "committed_before_run": true,
+    "unchanged_since_run": true,
+    "append_only_amendments": false,
+    "committed": "2026-10-22T13:06:57+00:00",
+    "sha256": "83dc289032cd"
+   },
+   {
+    "file": "external_validation/expert_study/run_study.py",
+    "committed_before_run": true,
+    "unchanged_since_run": true,
+    "append_only_amendments": false,
+    "committed": "2026-10-22T12:27:59+00:00",
+    "sha256": "1adec71d0f3c"
+   }
+  ],
+  "results_after_run": true,
+  "pass": true
+ },
+ {
+  "study": "Study 8",
+  "run": 39786446655,
+  "run_started": "2026-10-22T13:23:46+00:00",
+  "head": "341e907",
+  "files": [
+   {
+    "file": "external_validation/investigator_fix/cases_fx_v1.yaml",
+    "committed_before_run": true,
+    "unchanged_since_run": true,
+    "append_only_amendments": false,
+    "committed": "2026-10-22T13:23:39+00:00",
+    "sha256": "7ddcf06b8a32"
+   },
+   {
+    "file": "external_validation/investigator_fix/author_labels.yaml",
+    "committed_before_run": true,
+    "unchanged_since_run": true,
+    "append_only_amendments": false,
+    "committed": "2026-10-22T13:23:39+00:00",
+    "sha256": "9e724cda7361"
+   },
+   {
+    "file": "external_validation/investigator_fix/PROTOCOL.md",
+    "committed_before_run": true,
+    "unchanged_since_run": true,
+    "append_only_amendments": false,
+    "committed": "2026-10-22T13:23:39+00:00",
+    "sha256": "c3678f7566fc"
+   },
+   {
+    "file": "agentic_experiments/hybrid_v2.py",
+    "committed_before_run": true,
+    "unchanged_since_run": true,
+    "append_only_amendments": false,
+    "committed": "2026-10-22T13:23:39+00:00",
+    "sha256": "cceb875d255d"
+   }
+  ],
+  "results_after_run": true,
+  "pass": true
+ }
+]

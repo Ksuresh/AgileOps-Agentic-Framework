@@ -31,4 +31,10 @@ dataset, runner and workflow were added), so the replication is the prospective 
 | AAF-CA (change-aware) dev/holdout | ed530d0, 2026-10-21 11:56 (before design) | dev on RE2; holdout 39600613441 | 824362a, 12:46 | A1–A4 in PLAN.md (A1 before holdout; A4 runner error capture) |
 | Claim-level PM-interface re-test (E1) | 41a84a4, 2026-10-21 12:56 | 39603634523 | 63cbae8, 13:25 | A1–A4 in PROTOCOL.md (later variants exploratory) |
 | Reviewer-requested LLM arms | 8818492, 2026-10-22 06:48 | 39736227167 | 2b19364, 07:04 | none |
+| Study 7: 48 new cases, unflagged gaps | protocol, cases, sealed author key 627177e, 2026-10-22 12:24; practitioner labels e69ead3 (before run) | 39784044792, 13:07 | 67a1889, 13:13; analysis script committed before results | A1 (schema accepts `stale`, decision-neutral), A2 (labels are AI-assisted) |
+| Study 8: investigator fix, 36 fresh cases | protocol, cases, sealed key, hybrid_v2.py bf61833, 2026-10-22 13:23 | 39786446655, 13:24 | f28eda9, 13:38; analysis a6994d0 before results | none |
 | Deterministic analyses (auto-fetch, per-stratum, boundary, chance, rescoring) | scripts in revision_2026/ | local, no model calls | see git log | — |
+
+## Automated audit
+
+`python revision_2026/audit_provenance.py` re-derives the table above from git history and the GitHub Actions run records: for each study it checks that every frozen file was committed before the run started, that the run's head commit holds the same file content as today (or the original text followed only by appended, documented amendments), that results were committed after the run, and that the run succeeded. Output: `revision_2026/results/provenance_audit.json`. All ten audited studies pass; the E1 protocol is the one file with appended amendments.
