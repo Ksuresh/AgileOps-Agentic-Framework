@@ -1,0 +1,41 @@
+name: Revision - reviewer-requested LLM arms (frozen 48 cases)
+
+on:
+  push:
+    branches: [text-evidence-pilot]
+    paths: ["revision_2026/run_llm_arms.py", ".github/workflows/revision-llm-arms.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    env:
+      PYTHONPATH: ${{ github.workspace }}
+      OPENAI_MODEL: gpt-5.6-luna
+      MAX_CALLS: "2600"
+      MAX_TOKENS: "4000000"
+      ARMS: "HY AO B6 PV"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install -r requirements.txt
+      - name: Run
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: |
+          mkdir -p revision_2026/results/llm_arms
+          python revision_2026/run_llm_arms.py 2>&1 | tail -c 40000 > revision_2026/results/llm_arms/run_log_${GITHUB_RUN_ID}.txt; exit ${PIPESTATUS[0]}
+      - name: Commit
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f revision_2026/results/llm_arms
+          git commit -m "Revision LLM arms results: run ${GITHUB_RUN_ID} [skip ci]" || echo "nothing"
+          for i in 1 2 3 4 5; do git pull --rebase origin ${GITHUB_REF_NAME} && git push origin HEAD:${GITHUB_REF_NAME} && break; sleep $((i*7)); done
