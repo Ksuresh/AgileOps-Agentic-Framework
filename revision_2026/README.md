@@ -10,6 +10,7 @@ as inputs are copied into `paper_results/frozen_artifacts/` from the GitHub Acti
 | `frozen_log_analysis.py` — per-stratum table, LLM calls, tools, latency, overrides | R1-6, R2-5, R4-3, R4-4, R6-3 | 0 | `frozen_per_case.csv`, `frozen_per_stratum.json`, `nonbeneficial_overrides.json` |
 | `llm_evaluation/rescore_frozen_faithfulness.py` (unchanged) + diff | R4-6 | 0 | `rescored_100prompt/`, `rescoring_100prompt_diff.json` |
 | `chance_and_n.py` — admissible-set sizes, chance level | R5-2 | 0 | `chance_level.json` |
+| `chance_tables.py` — uniform-chance and best-constant rows for manuscript Tables 6–8 and 11 (exact case sets; OB-09–16 admissible sets from frozen commit fdf222fc, copied to `inputs/`) | R5-2 | 0 | `chance_tables.json` |
 | thresholds check | R1-2, R4-5, R5-3 | 0 | `thresholds_check.md` |
 | `boundary_robustness.py` — boundary-case parameter robustness | R1-2, R6-7 | 0 | `boundary_robustness.json`, `boundary_sweep.csv` |
 | `run_llm_arms.py` — repeated Hybrid/Agentic-only runs, always-on + deterministic authority, Agentic-only with reasoning and governance rules, prompt rewordings (plan: `LLM_RUNS_PLAN.md`) | R2-1, R2-3, R4-1, R4-2, R4-3, R5-1, R6-2 | 1,821 | `llm_arms/20261022T064831Z/` (GitHub Actions run 39736227167) |
@@ -24,6 +25,7 @@ python revision_2026/autofetch_baseline.py
 python revision_2026/frozen_log_analysis.py
 python llm_evaluation/rescore_frozen_faithfulness.py paper_results/frozen_artifacts/llm_faithfulness_34325587289 revision_2026/results/rescored_100prompt
 python revision_2026/chance_and_n.py
+python revision_2026/chance_tables.py
 python revision_2026/boundary_robustness.py
 OPENAI_API_KEY=... python revision_2026/run_llm_arms.py      # model gpt-5.6-luna; budget caps in the script
 ```
