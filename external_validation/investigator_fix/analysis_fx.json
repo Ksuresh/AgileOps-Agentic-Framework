@@ -1,0 +1,1788 @@
+{
+ "results_dir": "20261022T132423Z",
+ "errors": {},
+ "groups": {
+  "unflagged_decisive": {
+   "n": 20,
+   "DET": {
+    "correct": 2,
+    "wilson": [
+     2.8,
+     30.1
+    ],
+    "tool_calls_per_case": 0.0
+   },
+   "AF-M": {
+    "correct": 2,
+    "wilson": [
+     2.8,
+     30.1
+    ],
+    "tool_calls_per_case": 0.0
+   },
+   "AF-MS": {
+    "correct": 8,
+    "wilson": [
+     21.9,
+     61.3
+    ],
+    "tool_calls_per_case": 0.7
+   },
+   "FETCH-ALL": {
+    "correct": 16,
+    "wilson": [
+     58.4,
+     91.9
+    ],
+    "tool_calls_per_case": 3.45
+   },
+   "HY": {
+    "correct": 6,
+    "wilson": [
+     14.5,
+     51.9
+    ],
+    "tool_calls_per_case": 0.75
+   },
+   "HY2-F": {
+    "correct": 13,
+    "wilson": [
+     43.3,
+     81.9
+    ],
+    "tool_calls_per_case": 2.9
+   },
+   "HY2-L": {
+    "correct": 13,
+    "wilson": [
+     43.3,
+     81.9
+    ],
+    "tool_calls_per_case": 2.7
+   },
+   "B6": {
+    "correct": 14,
+    "wilson": [
+     48.1,
+     85.5
+    ],
+    "tool_calls_per_case": 2.0
+   }
+  },
+  "controls": {
+   "n": 4,
+   "DET": {
+    "correct": 4,
+    "wilson": [
+     51.0,
+     100.0
+    ],
+    "tool_calls_per_case": 0.0
+   },
+   "AF-M": {
+    "correct": 4,
+    "wilson": [
+     51.0,
+     100.0
+    ],
+    "tool_calls_per_case": 0.0
+   },
+   "AF-MS": {
+    "correct": 4,
+    "wilson": [
+     51.0,
+     100.0
+    ],
+    "tool_calls_per_case": 0.5
+   },
+   "FETCH-ALL": {
+    "correct": 4,
+    "wilson": [
+     51.0,
+     100.0
+    ],
+    "tool_calls_per_case": 3.25
+   },
+   "HY": {
+    "correct": 4,
+    "wilson": [
+     51.0,
+     100.0
+    ],
+    "tool_calls_per_case": 1.0
+   },
+   "HY2-F": {
+    "correct": 4,
+    "wilson": [
+     51.0,
+     100.0
+    ],
+    "tool_calls_per_case": 2.25
+   },
+   "HY2-L": {
+    "correct": 4,
+    "wilson": [
+     51.0,
+     100.0
+    ],
+    "tool_calls_per_case": 2.0
+   },
+   "B6": {
+    "correct": 2,
+    "wilson": [
+     15.0,
+     85.0
+    ],
+    "tool_calls_per_case": 1.75
+   }
+  },
+  "standard": {
+   "n": 12,
+   "DET": {
+    "correct": 11,
+    "wilson": [
+     64.6,
+     98.5
+    ],
+    "tool_calls_per_case": 0.0
+   },
+   "AF-M": {
+    "correct": 11,
+    "wilson": [
+     64.6,
+     98.5
+    ],
+    "tool_calls_per_case": 0.25
+   },
+   "AF-MS": {
+    "correct": 11,
+    "wilson": [
+     64.6,
+     98.5
+    ],
+    "tool_calls_per_case": 0.25
+   },
+   "FETCH-ALL": {
+    "correct": 11,
+    "wilson": [
+     64.6,
+     98.5
+    ],
+    "tool_calls_per_case": 0.92
+   },
+   "HY": {
+    "correct": 11,
+    "wilson": [
+     64.6,
+     98.5
+    ],
+    "tool_calls_per_case": 0.58
+   },
+   "HY2-F": {
+    "correct": 11,
+    "wilson": [
+     64.6,
+     98.5
+    ],
+    "tool_calls_per_case": 0.92
+   },
+   "HY2-L": {
+    "correct": 11,
+    "wilson": [
+     64.6,
+     98.5
+    ],
+    "tool_calls_per_case": 0.86
+   },
+   "B6": {
+    "correct": 11,
+    "wilson": [
+     64.6,
+     98.5
+    ],
+    "tool_calls_per_case": 0.67
+   }
+  },
+  "unflagged_absent": {
+   "n": 5,
+   "DET": {
+    "correct": 0,
+    "wilson": [
+     -0.0,
+     43.4
+    ],
+    "tool_calls_per_case": 0.0
+   },
+   "AF-M": {
+    "correct": 0,
+    "wilson": [
+     -0.0,
+     43.4
+    ],
+    "tool_calls_per_case": 0.0
+   },
+   "AF-MS": {
+    "correct": 0,
+    "wilson": [
+     -0.0,
+     43.4
+    ],
+    "tool_calls_per_case": 0.0
+   },
+   "FETCH-ALL": {
+    "correct": 4,
+    "wilson": [
+     37.6,
+     96.4
+    ],
+    "tool_calls_per_case": 3.4
+   },
+   "HY": {
+    "correct": 3,
+    "wilson": [
+     23.1,
+     88.2
+    ],
+    "tool_calls_per_case": 1.4
+   },
+   "HY2-F": {
+    "correct": 4,
+    "wilson": [
+     37.6,
+     96.4
+    ],
+    "tool_calls_per_case": 3.4
+   },
+   "HY2-L": {
+    "correct": 4,
+    "wilson": [
+     37.6,
+     96.4
+    ],
+    "tool_calls_per_case": 3.33
+   },
+   "B6": {
+    "correct": 3,
+    "wilson": [
+     23.1,
+     88.2
+    ],
+    "tool_calls_per_case": 2.0
+   }
+  },
+  "unflagged_cross": {
+   "n": 6,
+   "DET": {
+    "correct": 1,
+    "wilson": [
+     3.0,
+     56.4
+    ],
+    "tool_calls_per_case": 0.0
+   },
+   "AF-M": {
+    "correct": 1,
+    "wilson": [
+     3.0,
+     56.4
+    ],
+    "tool_calls_per_case": 0.0
+   },
+   "AF-MS": {
+    "correct": 1,
+    "wilson": [
+     3.0,
+     56.4
+    ],
+    "tool_calls_per_case": 0.0
+   },
+   "FETCH-ALL": {
+    "correct": 5,
+    "wilson": [
+     43.6,
+     97.0
+    ],
+    "tool_calls_per_case": 3.33
+   },
+   "HY": {
+    "correct": 1,
+    "wilson": [
+     3.0,
+     56.4
+    ],
+    "tool_calls_per_case": 0.5
+   },
+   "HY2-F": {
+    "correct": 4,
+    "wilson": [
+     30.0,
+     90.3
+    ],
+    "tool_calls_per_case": 2.83
+   },
+   "HY2-L": {
+    "correct": 4,
+    "wilson": [
+     30.0,
+     90.3
+    ],
+    "tool_calls_per_case": 2.67
+   },
+   "B6": {
+    "correct": 3,
+    "wilson": [
+     18.8,
+     81.2
+    ],
+    "tool_calls_per_case": 1.67
+   }
+  },
+  "unflagged_stale": {
+   "n": 9,
+   "DET": {
+    "correct": 1,
+    "wilson": [
+     2.0,
+     43.5
+    ],
+    "tool_calls_per_case": 0.0
+   },
+   "AF-M": {
+    "correct": 1,
+    "wilson": [
+     2.0,
+     43.5
+    ],
+    "tool_calls_per_case": 0.0
+   },
+   "AF-MS": {
+    "correct": 7,
+    "wilson": [
+     45.3,
+     93.7
+    ],
+    "tool_calls_per_case": 1.56
+   },
+   "FETCH-ALL": {
+    "correct": 7,
+    "wilson": [
+     45.3,
+     93.7
+    ],
+    "tool_calls_per_case": 3.56
+   },
+   "HY": {
+    "correct": 2,
+    "wilson": [
+     6.3,
+     54.7
+    ],
+    "tool_calls_per_case": 0.56
+   },
+   "HY2-F": {
+    "correct": 5,
+    "wilson": [
+     26.7,
+     81.1
+    ],
+    "tool_calls_per_case": 2.67
+   },
+   "HY2-L": {
+    "correct": 5,
+    "wilson": [
+     26.7,
+     81.1
+    ],
+    "tool_calls_per_case": 2.37
+   },
+   "B6": {
+    "correct": 8,
+    "wilson": [
+     56.5,
+     98.0
+    ],
+    "tool_calls_per_case": 2.22
+   }
+  }
+ },
+ "primary": {
+  "HY2-L_vs_HY": {
+   "a_only": 7,
+   "b_only": 0,
+   "p_exact": 0.015625,
+   "p_holm": 0.03125
+  },
+  "HY2-F_vs_HY": {
+   "a_only": 7,
+   "b_only": 0,
+   "p_exact": 0.015625,
+   "p_holm": 0.03125
+  }
+ },
+ "secondary": {
+  "HY2-L_vs_FETCH-ALL": {
+   "a_only": 0,
+   "b_only": 3,
+   "p_exact": 0.25
+  },
+  "HY2-L_vs_B6": {
+   "a_only": 5,
+   "b_only": 6,
+   "p_exact": 1.0
+  },
+  "HY2-F_vs_FETCH-ALL": {
+   "a_only": 0,
+   "b_only": 3,
+   "p_exact": 0.25
+  },
+  "HY2-L_vs_HY2-F": {
+   "a_only": 0,
+   "b_only": 0,
+   "p_exact": 1.0
+  },
+  "HY2-L_vs_AF-MS": {
+   "a_only": 7,
+   "b_only": 2,
+   "p_exact": 0.1796875
+  }
+ },
+ "no_regression": {
+  "n": 16,
+  "HY": 15,
+  "HY2-F": 15,
+  "HY2-L": 15,
+  "DET": 15,
+  "B6": 13,
+  "HY2-L_vs_HY": {
+   "a_only": 0,
+   "b_only": 0,
+   "p_exact": 1.0
+  },
+  "HY2-F_vs_HY": {
+   "a_only": 0,
+   "b_only": 0,
+   "p_exact": 1.0
+  }
+ },
+ "stability": {
+  "HY": "36/36",
+  "HY2-L": "36/36"
+ },
+ "usage": {
+  "dev:HY2-L": {
+   "calls": 395,
+   "tokens": 291966,
+   "case_runs": 96,
+   "invoked": 65,
+   "schema_fail": 9,
+   "ref_fail": 9,
+   "overrides": 32,
+   "calls_per_case_run": 4.11,
+   "tokens_per_case_run": 3041
+  },
+  "fresh:B6": {
+   "calls": 201,
+   "tokens": 134207,
+   "case_runs": 36,
+   "invoked": 0,
+   "schema_fail": 10,
+   "ref_fail": 10,
+   "overrides": 0,
+   "calls_per_case_run": 5.58,
+   "tokens_per_case_run": 3728
+  },
+  "fresh:HY": {
+   "calls": 318,
+   "tokens": 152177,
+   "case_runs": 108,
+   "invoked": 84,
+   "schema_fail": 4,
+   "ref_fail": 4,
+   "overrides": 51,
+   "calls_per_case_run": 2.94,
+   "tokens_per_case_run": 1409
+  },
+  "fresh:HY2-L": {
+   "calls": 573,
+   "tokens": 421742,
+   "case_runs": 108,
+   "invoked": 84,
+   "schema_fail": 20,
+   "ref_fail": 21,
+   "overrides": 36,
+   "calls_per_case_run": 5.31,
+   "tokens_per_case_run": 3905
+  }
+ },
+ "trigger_rate_fresh": {
+  "unflagged_decisive": "17/20",
+  "controls": "3/4",
+  "standard": "8/12",
+  "unflagged_absent": "5/5",
+  "unflagged_cross": "5/6",
+  "unflagged_stale": "7/9"
+ },
+ "development": {
+  "original48": {
+   "n": 48,
+   "DET": 39,
+   "FETCH-ALL": 41,
+   "HY2-F": 41,
+   "HY2-L": 41
+  },
+  "study7_standard": {
+   "n": 24,
+   "DET": 22,
+   "FETCH-ALL": 23,
+   "HY2-F": 23,
+   "HY2-L": 23
+  },
+  "study7_unflagged_decisive": {
+   "n": 20,
+   "DET": 2,
+   "FETCH-ALL": 15,
+   "HY2-F": 12,
+   "HY2-L": 12
+  }
+ },
+ "budget": {
+  "calls": 1488,
+  "tokens": 1032659,
+  "stopped": null,
+  "caps": [
+   2200,
+   1600000
+  ],
+  "model": "gpt-5.6-luna"
+ },
+ "per_case": {
+  "FX-U01": {
+   "DET": [
+    "Mitigate and monitor"
+   ],
+   "AF-M": [
+    "Mitigate and monitor"
+   ],
+   "AF-MS": [
+    "Mitigate and monitor"
+   ],
+   "FETCH-ALL": [
+    "Rollback to stable deployment"
+   ],
+   "HY": [
+    "Rollback to stable deployment",
+    "Rollback to stable deployment",
+    "Rollback to stable deployment"
+   ],
+   "HY2-F": [
+    "Rollback to stable deployment"
+   ],
+   "HY2-L": [
+    "Rollback to stable deployment",
+    "Rollback to stable deployment",
+    "Rollback to stable deployment"
+   ],
+   "B6": [
+    "Rollback to stable deployment"
+   ],
+   "key": [
+    "Rollback to stable deployment"
+   ],
+   "substratum": "absent"
+  },
+  "FX-U02": {
+   "DET": [
+    "Mitigate and monitor"
+   ],
+   "AF-M": [
+    "Mitigate and monitor"
+   ],
+   "AF-MS": [
+    "Mitigate and monitor"
+   ],
+   "FETCH-ALL": [
+    "Rollback to stable deployment"
+   ],
+   "HY": [
+    "Mitigate and monitor",
+    "Mitigate and monitor",
+    "Mitigate and monitor"
+   ],
+   "HY2-F": [
+    "Rollback to stable deployment"
+   ],
+   "HY2-L": [
+    "Rollback to stable deployment",
+    "Rollback to stable deployment",
+    "Rollback to stable deployment"
+   ],
+   "B6": [
+    "Mitigate and monitor"
+   ],
+   "key": [
+    "Rollback to stable deployment"
+   ],
+   "substratum": "cross"
+  },
+  "FX-U03": {
+   "DET": [
+    "Mitigate and monitor"
+   ],
+   "AF-M": [
+    "Mitigate and monitor"
+   ],
+   "AF-MS": [
+    "Rollback to stable deployment"
+   ],
+   "FETCH-ALL": [
+    "Rollback to stable deployment"
+   ],
+   "HY": [
+    "Mitigate and monitor",
+    "Mitigate and monitor",
+    "Mitigate and monitor"
+   ],
+   "HY2-F": [
+    "Rollback to stable deployment"
+   ],
+   "HY2-L": [
+    "Rollback to stable deployment",
+    "Rollback to stable deployment",
+    "Rollback to stable deployment"
+   ],
+   "B6": [
+    "Mitigate and monitor"
+   ],
+   "key": [
+    "Rollback to stable deployment"
+   ],
+   "substratum": "stale"
+  },
+  "FX-U04": {
+   "DET": [
+    "Block release and fix pipeline"
+   ],
+   "AF-M": [
+    "Block release and fix pipeline"
+   ],
+   "AF-MS": [
+    "Block release and fix pipeline"
+   ],
+   "FETCH-ALL": [
+    "Patch or block release"
+   ],
+   "HY": [
+    "Patch or block release",
+    "Patch or block release",
+    "Patch or block release"
+   ],
+   "HY2-F": [
+    "Patch or block release"
+   ],
+   "HY2-L": [
+    "Patch or block release",
+    "Patch or block release",
+    "Patch or block release"
+   ],
+   "B6": [
+    "Patch or block release"
+   ],
+   "key": [
+    "Patch or block release"
+   ],
+   "substratum": "absent"
+  },
+  "FX-U05": {
+   "DET": [
+    "Block release and fix pipeline"
+   ],
+   "AF-M": [
+    "Block release and fix pipeline"
+   ],
+   "AF-MS": [
+    "Block release and fix pipeline"
+   ],
+   "FETCH-ALL": [
+    "Patch or block release"
+   ],
+   "HY": [
+    "Block release and fix pipeline",
+    "Block release and fix pipeline",
+    "Block release and fix pipeline"
+   ],
+   "HY2-F": [
+    "Patch or block release"
+   ],
+   "HY2-L": [
+    "Patch or block release",
+    "Patch or block release",
+    "Patch or block release"
+   ],
+   "B6": [
+    "Block release and fix pipeline"
+   ],
+   "key": [
+    "Patch or block release"
+   ],
+   "substratum": "cross"
+  },
+  "FX-U06": {
+   "DET": [
+    "Block release and fix pipeline"
+   ],
+   "AF-M": [
+    "Block release and fix pipeline"
+   ],
+   "AF-MS": [
+    "Patch or block release"
+   ],
+   "FETCH-ALL": [
+    "Patch or block release"
+   ],
+   "HY": [
+    "Block release and fix pipeline",
+    "Block release and fix pipeline",
+    "Block release and fix pipeline"
+   ],
+   "HY2-F": [
+    "Patch or block release"
+   ],
+   "HY2-L": [
+    "Patch or block release",
+    "Patch or block release",
+    "Patch or block release"
+   ],
+   "B6": [
+    "Patch or block release"
+   ],
+   "key": [
+    "Patch or block release"
+   ],
+   "substratum": "stale"
+  },
+  "FX-U07": {
+   "DET": [
+    "Review scaling policy"
+   ],
+   "AF-M": [
+    "Review scaling policy"
+   ],
+   "AF-MS": [
+    "Review scaling policy"
+   ],
+   "FETCH-ALL": [
+    "Scale adjustment"
+   ],
+   "HY": [
+    "Review scaling policy",
+    "Review scaling policy",
+    "Review scaling policy"
+   ],
+   "HY2-F": [
+    "Scale adjustment"
+   ],
+   "HY2-L": [
+    "Scale adjustment",
+    "Scale adjustment",
+    "Scale adjustment"
+   ],
+   "B6": [
+    "Review scaling policy"
+   ],
+   "key": [
+    "Scale adjustment"
+   ],
+   "substratum": "absent"
+  },
+  "FX-U08": {
+   "DET": [
+    "Scale adjustment"
+   ],
+   "AF-M": [
+    "Scale adjustment"
+   ],
+   "AF-MS": [
+    "Scale adjustment"
+   ],
+   "FETCH-ALL": [
+    "Scale adjustment"
+   ],
+   "HY": [
+    "Scale adjustment",
+    "Scale adjustment",
+    "Scale adjustment"
+   ],
+   "HY2-F": [
+    "Scale adjustment"
+   ],
+   "HY2-L": [
+    "Scale adjustment",
+    "Scale adjustment",
+    "Scale adjustment"
+   ],
+   "B6": [
+    "Scale adjustment"
+   ],
+   "key": [
+    "Scale adjustment"
+   ],
+   "substratum": "cross"
+  },
+  "FX-U09": {
+   "DET": [
+    "Scale adjustment"
+   ],
+   "AF-M": [
+    "Scale adjustment"
+   ],
+   "AF-MS": [
+    "Scale adjustment"
+   ],
+   "FETCH-ALL": [
+    "Scale adjustment"
+   ],
+   "HY": [
+    "Scale adjustment",
+    "Scale adjustment",
+    "Scale adjustment"
+   ],
+   "HY2-F": [
+    "Scale adjustment"
+   ],
+   "HY2-L": [
+    "Scale adjustment",
+    "Scale adjustment",
+    "Scale adjustment"
+   ],
+   "B6": [
+    "Scale adjustment"
+   ],
+   "key": [
+    "Scale adjustment"
+   ],
+   "substratum": "stale"
+  },
+  "FX-U10": {
+   "DET": [
+    "Mitigate and monitor"
+   ],
+   "AF-M": [
+    "Mitigate and monitor"
+   ],
+   "AF-MS": [
+    "Mitigate and monitor"
+   ],
+   "FETCH-ALL": [
+    "Scale adjustment"
+   ],
+   "HY": [
+    "Scale adjustment",
+    "Scale adjustment",
+    "Scale adjustment"
+   ],
+   "HY2-F": [
+    "Scale adjustment"
+   ],
+   "HY2-L": [
+    "Scale adjustment",
+    "Scale adjustment",
+    "Scale adjustment"
+   ],
+   "B6": [
+    "Scale adjustment"
+   ],
+   "key": [
+    "Scale adjustment"
+   ],
+   "substratum": "absent"
+  },
+  "FX-U11": {
+   "DET": [
+    "Mitigate and monitor"
+   ],
+   "AF-M": [
+    "Mitigate and monitor"
+   ],
+   "AF-MS": [
+    "Mitigate and monitor"
+   ],
+   "FETCH-ALL": [
+    "Scale adjustment"
+   ],
+   "HY": [
+    "Mitigate and monitor",
+    "Mitigate and monitor",
+    "Mitigate and monitor"
+   ],
+   "HY2-F": [
+    "Mitigate and monitor"
+   ],
+   "HY2-L": [
+    "Mitigate and monitor",
+    "Mitigate and monitor",
+    "Mitigate and monitor"
+   ],
+   "B6": [
+    "Scale adjustment"
+   ],
+   "key": [
+    "Scale adjustment"
+   ],
+   "substratum": "cross"
+  },
+  "FX-U12": {
+   "DET": [
+    "Mitigate and monitor"
+   ],
+   "AF-M": [
+    "Mitigate and monitor"
+   ],
+   "AF-MS": [
+    "Scale adjustment"
+   ],
+   "FETCH-ALL": [
+    "Scale adjustment"
+   ],
+   "HY": [
+    "Mitigate and monitor",
+    "Mitigate and monitor",
+    "Mitigate and monitor"
+   ],
+   "HY2-F": [
+    "Mitigate and monitor"
+   ],
+   "HY2-L": [
+    "Mitigate and monitor",
+    "Mitigate and monitor",
+    "Mitigate and monitor"
+   ],
+   "B6": [
+    "Scale adjustment"
+   ],
+   "key": [
+    "Scale adjustment"
+   ],
+   "substratum": "stale"
+  },
+  "FX-U13": {
+   "DET": [
+    "Block release and fix pipeline"
+   ],
+   "AF-M": [
+    "Block release and fix pipeline"
+   ],
+   "AF-MS": [
+    "Block release and fix pipeline"
+   ],
+   "FETCH-ALL": [
+    "Mitigate and monitor"
+   ],
+   "HY": [
+    "Block release and fix pipeline",
+    "Block release and fix pipeline",
+    "Block release and fix pipeline"
+   ],
+   "HY2-F": [
+    "Mitigate and monitor"
+   ],
+   "HY2-L": [
+    "Mitigate and monitor",
+    "Mitigate and monitor",
+    "Mitigate and monitor"
+   ],
+   "B6": [
+    "Block release and fix pipeline"
+   ],
+   "key": [
+    "Rollback to stable deployment"
+   ],
+   "substratum": "absent"
+  },
+  "FX-U14": {
+   "DET": [
+    "Block release and fix pipeline"
+   ],
+   "AF-M": [
+    "Block release and fix pipeline"
+   ],
+   "AF-MS": [
+    "Block release and fix pipeline"
+   ],
+   "FETCH-ALL": [
+    "Mitigate and monitor"
+   ],
+   "HY": [
+    "Block release and fix pipeline",
+    "Block release and fix pipeline",
+    "Block release and fix pipeline"
+   ],
+   "HY2-F": [
+    "Mitigate and monitor"
+   ],
+   "HY2-L": [
+    "Mitigate and monitor",
+    "Mitigate and monitor",
+    "Mitigate and monitor"
+   ],
+   "B6": [
+    "Rollback to stable deployment"
+   ],
+   "key": [
+    "Rollback to stable deployment"
+   ],
+   "substratum": "cross"
+  },
+  "FX-U15": {
+   "DET": [
+    "Block release and fix pipeline"
+   ],
+   "AF-M": [
+    "Block release and fix pipeline"
+   ],
+   "AF-MS": [
+    "Mitigate and monitor"
+   ],
+   "FETCH-ALL": [
+    "Mitigate and monitor"
+   ],
+   "HY": [
+    "Block release and fix pipeline",
+    "Block release and fix pipeline",
+    "Block release and fix pipeline"
+   ],
+   "HY2-F": [
+    "Mitigate and monitor"
+   ],
+   "HY2-L": [
+    "Mitigate and monitor",
+    "Mitigate and monitor",
+    "Mitigate and monitor"
+   ],
+   "B6": [
+    "Rollback to stable deployment"
+   ],
+   "key": [
+    "Rollback to stable deployment"
+   ],
+   "substratum": "stale"
+  },
+  "FX-U16": {
+   "DET": [
+    "Mitigate and monitor"
+   ],
+   "AF-M": [
+    "Mitigate and monitor"
+   ],
+   "AF-MS": [
+    "No action (observe)"
+   ],
+   "FETCH-ALL": [
+    "No action (observe)"
+   ],
+   "HY": [
+    "No action (observe)",
+    "No action (observe)",
+    "No action (observe)"
+   ],
+   "HY2-F": [
+    "No action (observe)"
+   ],
+   "HY2-L": [
+    "No action (observe)",
+    "No action (observe)",
+    "No action (observe)"
+   ],
+   "B6": [
+    "No action (observe)"
+   ],
+   "key": [
+    "No action (observe)"
+   ],
+   "substratum": "stale"
+  },
+  "FX-U17": {
+   "DET": [
+    "Patch or block release"
+   ],
+   "AF-M": [
+    "Patch or block release"
+   ],
+   "AF-MS": [
+    "No action (observe)"
+   ],
+   "FETCH-ALL": [
+    "No action (observe)"
+   ],
+   "HY": [
+    "Patch or block release",
+    "Patch or block release",
+    "Patch or block release"
+   ],
+   "HY2-F": [
+    "No action (observe)"
+   ],
+   "HY2-L": [
+    "No action (observe)",
+    "No action (observe)",
+    "No action (observe)"
+   ],
+   "B6": [
+    "No action (observe)"
+   ],
+   "key": [
+    "No action (observe)"
+   ],
+   "substratum": "stale"
+  },
+  "FX-U18": {
+   "DET": [
+    "Scale adjustment"
+   ],
+   "AF-M": [
+    "Scale adjustment"
+   ],
+   "AF-MS": [
+    "No action (observe)"
+   ],
+   "FETCH-ALL": [
+    "No action (observe)"
+   ],
+   "HY": [
+    "Scale adjustment",
+    "Scale adjustment",
+    "Scale adjustment"
+   ],
+   "HY2-F": [
+    "Scale adjustment"
+   ],
+   "HY2-L": [
+    "Scale adjustment",
+    "Scale adjustment",
+    "Scale adjustment"
+   ],
+   "B6": [
+    "No action (observe)"
+   ],
+   "key": [
+    "No action (observe)"
+   ],
+   "substratum": "stale"
+  },
+  "FX-U19": {
+   "DET": [
+    "Block release and fix pipeline"
+   ],
+   "AF-M": [
+    "Block release and fix pipeline"
+   ],
+   "AF-MS": [
+    "Block release and fix pipeline"
+   ],
+   "FETCH-ALL": [
+    "Patch or block release"
+   ],
+   "HY": [
+    "Block release and fix pipeline",
+    "Block release and fix pipeline",
+    "Block release and fix pipeline"
+   ],
+   "HY2-F": [
+    "Patch or block release"
+   ],
+   "HY2-L": [
+    "Patch or block release",
+    "Patch or block release",
+    "Patch or block release"
+   ],
+   "B6": [
+    "Block release and fix pipeline"
+   ],
+   "key": [
+    "Patch or block release"
+   ],
+   "substratum": "cross"
+  },
+  "FX-U20": {
+   "DET": [
+    "Block release and fix pipeline"
+   ],
+   "AF-M": [
+    "Block release and fix pipeline"
+   ],
+   "AF-MS": [
+    "Mitigate and monitor"
+   ],
+   "FETCH-ALL": [
+    "Mitigate and monitor"
+   ],
+   "HY": [
+    "Block release and fix pipeline",
+    "Block release and fix pipeline",
+    "Block release and fix pipeline"
+   ],
+   "HY2-F": [
+    "Mitigate and monitor"
+   ],
+   "HY2-L": [
+    "Mitigate and monitor",
+    "Mitigate and monitor",
+    "Mitigate and monitor"
+   ],
+   "B6": [
+    "Rollback to stable deployment"
+   ],
+   "key": [
+    "Rollback to stable deployment"
+   ],
+   "substratum": "stale"
+  },
+  "FX-K01": {
+   "DET": [
+    "Mitigate and monitor"
+   ],
+   "AF-M": [
+    "Mitigate and monitor"
+   ],
+   "AF-MS": [
+    "Mitigate and monitor"
+   ],
+   "FETCH-ALL": [
+    "Mitigate and monitor"
+   ],
+   "HY": [
+    "Mitigate and monitor",
+    "Mitigate and monitor",
+    "Mitigate and monitor"
+   ],
+   "HY2-F": [
+    "Mitigate and monitor"
+   ],
+   "HY2-L": [
+    "Mitigate and monitor",
+    "Mitigate and monitor",
+    "Mitigate and monitor"
+   ],
+   "B6": [
+    "No action (observe)"
+   ],
+   "key": [
+    "Mitigate and monitor"
+   ],
+   "substratum": "control"
+  },
+  "FX-K02": {
+   "DET": [
+    "Block release and fix pipeline"
+   ],
+   "AF-M": [
+    "Block release and fix pipeline"
+   ],
+   "AF-MS": [
+    "Block release and fix pipeline"
+   ],
+   "FETCH-ALL": [
+    "Block release and fix pipeline"
+   ],
+   "HY": [
+    "Block release and fix pipeline",
+    "Block release and fix pipeline",
+    "Block release and fix pipeline"
+   ],
+   "HY2-F": [
+    "Block release and fix pipeline"
+   ],
+   "HY2-L": [
+    "Block release and fix pipeline",
+    "Block release and fix pipeline",
+    "Block release and fix pipeline"
+   ],
+   "B6": [
+    "No action (observe)"
+   ],
+   "key": [
+    "Block release and fix pipeline"
+   ],
+   "substratum": "control"
+  },
+  "FX-K03": {
+   "DET": [
+    "No action (observe)"
+   ],
+   "AF-M": [
+    "No action (observe)"
+   ],
+   "AF-MS": [
+    "No action (observe)"
+   ],
+   "FETCH-ALL": [
+    "No action (observe)"
+   ],
+   "HY": [
+    "No action (observe)",
+    "No action (observe)",
+    "No action (observe)"
+   ],
+   "HY2-F": [
+    "No action (observe)"
+   ],
+   "HY2-L": [
+    "No action (observe)",
+    "No action (observe)",
+    "No action (observe)"
+   ],
+   "B6": [
+    "No action (observe)"
+   ],
+   "key": [
+    "No action (observe)"
+   ],
+   "substratum": "control"
+  },
+  "FX-K04": {
+   "DET": [
+    "Patch or block release"
+   ],
+   "AF-M": [
+    "Patch or block release"
+   ],
+   "AF-MS": [
+    "Patch or block release"
+   ],
+   "FETCH-ALL": [
+    "Patch or block release"
+   ],
+   "HY": [
+    "Patch or block release",
+    "Patch or block release",
+    "Patch or block release"
+   ],
+   "HY2-F": [
+    "Patch or block release"
+   ],
+   "HY2-L": [
+    "Patch or block release",
+    "Patch or block release",
+    "Patch or block release"
+   ],
+   "B6": [
+    "Patch or block release"
+   ],
+   "key": [
+    "Patch or block release"
+   ],
+   "substratum": "control"
+  },
+  "FX-C01": {
+   "DET": [
+    "No action (observe)"
+   ],
+   "AF-M": [
+    "No action (observe)"
+   ],
+   "AF-MS": [
+    "No action (observe)"
+   ],
+   "FETCH-ALL": [
+    "No action (observe)"
+   ],
+   "HY": [
+    "No action (observe)",
+    "No action (observe)",
+    "No action (observe)"
+   ],
+   "HY2-F": [
+    "No action (observe)"
+   ],
+   "HY2-L": [
+    "No action (observe)",
+    "No action (observe)",
+    "No action (observe)"
+   ],
+   "B6": [
+    "No action (observe)"
+   ],
+   "key": [
+    "No action (observe)"
+   ],
+   "substratum": "standard"
+  },
+  "FX-C02": {
+   "DET": [
+    "Mitigate and monitor"
+   ],
+   "AF-M": [
+    "Mitigate and monitor"
+   ],
+   "AF-MS": [
+    "Mitigate and monitor"
+   ],
+   "FETCH-ALL": [
+    "Mitigate and monitor"
+   ],
+   "HY": [
+    "Mitigate and monitor",
+    "Mitigate and monitor",
+    "Mitigate and monitor"
+   ],
+   "HY2-F": [
+    "Mitigate and monitor"
+   ],
+   "HY2-L": [
+    "Mitigate and monitor",
+    "Mitigate and monitor",
+    "Mitigate and monitor"
+   ],
+   "B6": [
+    "Mitigate and monitor"
+   ],
+   "key": [
+    "Mitigate and monitor"
+   ],
+   "substratum": "standard"
+  },
+  "FX-C03": {
+   "DET": [
+    "Patch or block release"
+   ],
+   "AF-M": [
+    "Patch or block release"
+   ],
+   "AF-MS": [
+    "Patch or block release"
+   ],
+   "FETCH-ALL": [
+    "Patch or block release"
+   ],
+   "HY": [
+    "Patch or block release",
+    "Patch or block release",
+    "Patch or block release"
+   ],
+   "HY2-F": [
+    "Patch or block release"
+   ],
+   "HY2-L": [
+    "Patch or block release",
+    "Patch or block release",
+    "Patch or block release"
+   ],
+   "B6": [
+    "Patch or block release"
+   ],
+   "key": [
+    "Patch or block release"
+   ],
+   "substratum": "standard"
+  },
+  "FX-A01": {
+   "DET": [
+    "Mitigate and monitor"
+   ],
+   "AF-M": [
+    "Mitigate and monitor"
+   ],
+   "AF-MS": [
+    "Mitigate and monitor"
+   ],
+   "FETCH-ALL": [
+    "Mitigate and monitor"
+   ],
+   "HY": [
+    "Mitigate and monitor",
+    "Mitigate and monitor",
+    "Mitigate and monitor"
+   ],
+   "HY2-F": [
+    "Mitigate and monitor"
+   ],
+   "HY2-L": [
+    "Mitigate and monitor",
+    "Mitigate and monitor",
+    "Mitigate and monitor"
+   ],
+   "B6": [
+    "Mitigate and monitor"
+   ],
+   "key": [
+    "Mitigate and monitor"
+   ],
+   "substratum": "standard"
+  },
+  "FX-A02": {
+   "DET": [
+    "Review scaling policy"
+   ],
+   "AF-M": [
+    "Review scaling policy"
+   ],
+   "AF-MS": [
+    "Review scaling policy"
+   ],
+   "FETCH-ALL": [
+    "Review scaling policy"
+   ],
+   "HY": [
+    "Review scaling policy",
+    "Review scaling policy",
+    "Review scaling policy"
+   ],
+   "HY2-F": [
+    "Review scaling policy"
+   ],
+   "HY2-L": [
+    "Review scaling policy",
+    "Review scaling policy",
+    "Review scaling policy"
+   ],
+   "B6": [
+    "Scale adjustment"
+   ],
+   "key": [
+    "Review scaling policy",
+    "Scale adjustment"
+   ],
+   "substratum": "standard"
+  },
+  "FX-A03": {
+   "DET": [
+    "Mitigate and monitor"
+   ],
+   "AF-M": [
+    "Mitigate and monitor"
+   ],
+   "AF-MS": [
+    "Mitigate and monitor"
+   ],
+   "FETCH-ALL": [
+    "Mitigate and monitor"
+   ],
+   "HY": [
+    "Mitigate and monitor",
+    "Mitigate and monitor",
+    "Mitigate and monitor"
+   ],
+   "HY2-F": [
+    "Mitigate and monitor"
+   ],
+   "HY2-L": [
+    "Mitigate and monitor",
+    "Mitigate and monitor",
+    "Mitigate and monitor"
+   ],
+   "B6": [
+    "Rollback to stable deployment"
+   ],
+   "key": [
+    "Rollback to stable deployment",
+    "Mitigate and monitor"
+   ],
+   "substratum": "standard"
+  },
+  "FX-I01": {
+   "DET": [
+    "Mitigate and monitor"
+   ],
+   "AF-M": [
+    "Mitigate and monitor"
+   ],
+   "AF-MS": [
+    "Mitigate and monitor"
+   ],
+   "FETCH-ALL": [
+    "Mitigate and monitor"
+   ],
+   "HY": [
+    "Mitigate and monitor",
+    "Mitigate and monitor",
+    "Mitigate and monitor"
+   ],
+   "HY2-F": [
+    "Mitigate and monitor"
+   ],
+   "HY2-L": [
+    "Mitigate and monitor",
+    "Mitigate and monitor",
+    "Mitigate and monitor"
+   ],
+   "B6": [
+    "Mitigate and monitor"
+   ],
+   "key": [
+    "Mitigate and monitor"
+   ],
+   "substratum": "standard"
+  },
+  "FX-I02": {
+   "DET": [
+    "Scale adjustment"
+   ],
+   "AF-M": [
+    "Scale adjustment"
+   ],
+   "AF-MS": [
+    "Scale adjustment"
+   ],
+   "FETCH-ALL": [
+    "Scale adjustment"
+   ],
+   "HY": [
+    "Scale adjustment",
+    "Scale adjustment",
+    "Scale adjustment"
+   ],
+   "HY2-F": [
+    "Scale adjustment"
+   ],
+   "HY2-L": [
+    "Scale adjustment",
+    "Scale adjustment",
+    "Scale adjustment"
+   ],
+   "B6": [
+    "Scale adjustment"
+   ],
+   "key": [
+    "Scale adjustment",
+    "Review scaling policy"
+   ],
+   "substratum": "standard"
+  },
+  "FX-I03": {
+   "DET": [
+    "Patch or block release"
+   ],
+   "AF-M": [
+    "Patch or block release"
+   ],
+   "AF-MS": [
+    "Patch or block release"
+   ],
+   "FETCH-ALL": [
+    "Patch or block release"
+   ],
+   "HY": [
+    "Patch or block release",
+    "Patch or block release",
+    "Patch or block release"
+   ],
+   "HY2-F": [
+    "Patch or block release"
+   ],
+   "HY2-L": [
+    "Patch or block release",
+    "Patch or block release",
+    "Patch or block release"
+   ],
+   "B6": [
+    "Patch or block release"
+   ],
+   "key": [
+    "Patch or block release"
+   ],
+   "substratum": "standard"
+  },
+  "FX-M01": {
+   "DET": [
+    "Scale adjustment"
+   ],
+   "AF-M": [
+    "Scale adjustment"
+   ],
+   "AF-MS": [
+    "Scale adjustment"
+   ],
+   "FETCH-ALL": [
+    "Scale adjustment"
+   ],
+   "HY": [
+    "Scale adjustment",
+    "Scale adjustment",
+    "Scale adjustment"
+   ],
+   "HY2-F": [
+    "Scale adjustment"
+   ],
+   "HY2-L": [
+    "Scale adjustment",
+    "Scale adjustment",
+    "Scale adjustment"
+   ],
+   "B6": [
+    "Scale adjustment"
+   ],
+   "key": [
+    "Scale adjustment"
+   ],
+   "substratum": "standard"
+  },
+  "FX-M02": {
+   "DET": [
+    "Scale adjustment"
+   ],
+   "AF-M": [
+    "Scale adjustment"
+   ],
+   "AF-MS": [
+    "Scale adjustment"
+   ],
+   "FETCH-ALL": [
+    "Scale adjustment"
+   ],
+   "HY": [
+    "Scale adjustment",
+    "Scale adjustment",
+    "Scale adjustment"
+   ],
+   "HY2-F": [
+    "Scale adjustment"
+   ],
+   "HY2-L": [
+    "Scale adjustment",
+    "Scale adjustment",
+    "Scale adjustment"
+   ],
+   "B6": [
+    "Scale adjustment"
+   ],
+   "key": [
+    "No action (observe)",
+    "Review scaling policy"
+   ],
+   "substratum": "standard"
+  },
+  "FX-M03": {
+   "DET": [
+    "Mitigate and monitor"
+   ],
+   "AF-M": [
+    "Mitigate and monitor"
+   ],
+   "AF-MS": [
+    "Mitigate and monitor"
+   ],
+   "FETCH-ALL": [
+    "Mitigate and monitor"
+   ],
+   "HY": [
+    "Mitigate and monitor",
+    "Mitigate and monitor",
+    "Mitigate and monitor"
+   ],
+   "HY2-F": [
+    "Mitigate and monitor"
+   ],
+   "HY2-L": [
+    "Mitigate and monitor",
+    "Mitigate and monitor",
+    "Mitigate and monitor"
+   ],
+   "B6": [
+    "Mitigate and monitor"
+   ],
+   "key": [
+    "Mitigate and monitor"
+   ],
+   "substratum": "standard"
+  }
+ }
+}
