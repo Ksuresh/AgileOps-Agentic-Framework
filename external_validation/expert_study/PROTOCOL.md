@@ -77,3 +77,10 @@ will be reported.
   case uses `stale`; the deterministic auto-fetch analysis on the original 48 cases was re-run and is byte-identical.
   The LLM sees the status `stale` in its evidence packet, as intended by the stale substratum. The runner
   (`run_study.py`) and workflow (`.github/workflows/expert-study.yml`, triggered only by pushing `RUN`) are added here.
+- **A2 (after labelling, before writing up):** the labeller (a practitioner with about 20 years in DevOps, SRE and
+  project management, not involved in AAF) reported that an AI assistant generated candidate rationales for each case
+  and he chose the action he judged best. The labels are therefore *AI-assisted practitioner labels*, not independent
+  human adjudication. Consequently: (i) the sealed author key (`author_labels.yaml`, committed before labelling and
+  before any run) is used as the primary key for the new cases; (ii) the AI-assisted practitioner labels are reported
+  as a sensitivity analysis (H1, H2 and new-case scores), with the caveat that AI-influenced labels may favour LLM
+  configurations; (iii) independent human adjudication is stated as future work. No case, arm or analysis was changed.
