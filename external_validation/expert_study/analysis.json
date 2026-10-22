@@ -1,0 +1,2423 @@
+{
+ "n_labelled": 96,
+ "cannot_decide": [],
+ "n_scored": 96,
+ "H1": {
+  "all": {
+   "n": 96,
+   "expert_best_in_author_set": 74,
+   "pct": 77.1,
+   "wilson": [
+    67.7,
+    84.4
+   ],
+   "mean_jaccard": 0.734,
+   "kappa_best_vs_author_first": 0.684,
+   "disagreements": [
+    {
+     "case": "AG-C03",
+     "expert_best": "Review scaling policy",
+     "expert_set": [
+      "Review scaling policy"
+     ],
+     "author": [
+      "Scale adjustment"
+     ]
+    },
+    {
+     "case": "AG-C05",
+     "expert_best": "Mitigate and monitor",
+     "expert_set": [
+      "Mitigate and monitor"
+     ],
+     "author": [
+      "Rollback to stable deployment"
+     ]
+    },
+    {
+     "case": "AG-C07",
+     "expert_best": "Mitigate and monitor",
+     "expert_set": [
+      "Mitigate and monitor"
+     ],
+     "author": [
+      "Rollback to stable deployment"
+     ]
+    },
+    {
+     "case": "AG-A03",
+     "expert_best": "Mitigate and monitor",
+     "expert_set": [
+      "Mitigate and monitor"
+     ],
+     "author": [
+      "Rollback to stable deployment"
+     ]
+    },
+    {
+     "case": "AG-A08",
+     "expert_best": "Rollback to stable deployment",
+     "expert_set": [
+      "Rollback to stable deployment"
+     ],
+     "author": [
+      "Scale adjustment"
+     ]
+    },
+    {
+     "case": "AG-I01",
+     "expert_best": "Mitigate and monitor",
+     "expert_set": [
+      "Mitigate and monitor"
+     ],
+     "author": [
+      "Rollback to stable deployment"
+     ]
+    },
+    {
+     "case": "AG-I05",
+     "expert_best": "Review scaling policy",
+     "expert_set": [
+      "Review scaling policy"
+     ],
+     "author": [
+      "Scale adjustment"
+     ]
+    },
+    {
+     "case": "AG-I08",
+     "expert_best": "Rollback to stable deployment",
+     "expert_set": [
+      "Rollback to stable deployment"
+     ],
+     "author": [
+      "Scale adjustment"
+     ]
+    },
+    {
+     "case": "AG-M02",
+     "expert_best": "Block release and fix pipeline",
+     "expert_set": [
+      "Block release and fix pipeline"
+     ],
+     "author": [
+      "Rollback to stable deployment"
+     ]
+    },
+    {
+     "case": "AG-M06",
+     "expert_best": "Patch or block release",
+     "expert_set": [
+      "Patch or block release"
+     ],
+     "author": [
+      "Mitigate and monitor"
+     ]
+    },
+    {
+     "case": "AG-M08",
+     "expert_best": "Rollback to stable deployment",
+     "expert_set": [
+      "Rollback to stable deployment"
+     ],
+     "author": [
+      "Scale adjustment"
+     ]
+    },
+    {
+     "case": "RP-C03",
+     "expert_best": "Review scaling policy",
+     "expert_set": [
+      "Review scaling policy"
+     ],
+     "author": [
+      "Scale adjustment"
+     ]
+    },
+    {
+     "case": "RP-A04",
+     "expert_best": "Mitigate and monitor",
+     "expert_set": [
+      "Mitigate and monitor"
+     ],
+     "author": [
+      "Rollback to stable deployment"
+     ]
+    },
+    {
+     "case": "RP-I01",
+     "expert_best": "Mitigate and monitor",
+     "expert_set": [
+      "Mitigate and monitor"
+     ],
+     "author": [
+      "Rollback to stable deployment"
+     ]
+    },
+    {
+     "case": "RP-I03",
+     "expert_best": "Review scaling policy",
+     "expert_set": [
+      "Review scaling policy"
+     ],
+     "author": [
+      "Scale adjustment"
+     ]
+    },
+    {
+     "case": "RP-M02",
+     "expert_best": "Patch or block release",
+     "expert_set": [
+      "Patch or block release"
+     ],
+     "author": [
+      "Block release and fix pipeline"
+     ]
+    },
+    {
+     "case": "RP-M04",
+     "expert_best": "Patch or block release",
+     "expert_set": [
+      "Patch or block release"
+     ],
+     "author": [
+      "Scale adjustment"
+     ]
+    },
+    {
+     "case": "NV-C02",
+     "expert_best": "Rollback to stable deployment",
+     "expert_set": [
+      "Rollback to stable deployment"
+     ],
+     "author": [
+      "Mitigate and monitor"
+     ]
+    },
+    {
+     "case": "NV-I02",
+     "expert_best": "Mitigate and monitor",
+     "expert_set": [
+      "Mitigate and monitor"
+     ],
+     "author": [
+      "Rollback to stable deployment"
+     ]
+    },
+    {
+     "case": "NV-M06",
+     "expert_best": "Escalate for evidence/human review",
+     "expert_set": [
+      "Escalate for evidence/human review"
+     ],
+     "author": [
+      "Block release and fix pipeline",
+      "Rollback to stable deployment"
+     ]
+    },
+    {
+     "case": "NV-U14",
+     "expert_best": "No action (observe)",
+     "expert_set": [
+      "No action (observe)"
+     ],
+     "author": [
+      "Rollback to stable deployment",
+      "Scale adjustment"
+     ]
+    },
+    {
+     "case": "NV-U16",
+     "expert_best": "Mitigate and monitor",
+     "expert_set": [
+      "Mitigate and monitor"
+     ],
+     "author": [
+      "Rollback to stable deployment"
+     ]
+    }
+   ]
+  },
+  "original": {
+   "n": 48,
+   "expert_best_in_author_set": 31,
+   "pct": 64.6,
+   "wilson": [
+    50.4,
+    76.6
+   ],
+   "mean_jaccard": 0.635,
+   "kappa_best_vs_author_first": 0.535,
+   "disagreements": [
+    {
+     "case": "AG-C03",
+     "expert_best": "Review scaling policy",
+     "expert_set": [
+      "Review scaling policy"
+     ],
+     "author": [
+      "Scale adjustment"
+     ]
+    },
+    {
+     "case": "AG-C05",
+     "expert_best": "Mitigate and monitor",
+     "expert_set": [
+      "Mitigate and monitor"
+     ],
+     "author": [
+      "Rollback to stable deployment"
+     ]
+    },
+    {
+     "case": "AG-C07",
+     "expert_best": "Mitigate and monitor",
+     "expert_set": [
+      "Mitigate and monitor"
+     ],
+     "author": [
+      "Rollback to stable deployment"
+     ]
+    },
+    {
+     "case": "AG-A03",
+     "expert_best": "Mitigate and monitor",
+     "expert_set": [
+      "Mitigate and monitor"
+     ],
+     "author": [
+      "Rollback to stable deployment"
+     ]
+    },
+    {
+     "case": "AG-A08",
+     "expert_best": "Rollback to stable deployment",
+     "expert_set": [
+      "Rollback to stable deployment"
+     ],
+     "author": [
+      "Scale adjustment"
+     ]
+    },
+    {
+     "case": "AG-I01",
+     "expert_best": "Mitigate and monitor",
+     "expert_set": [
+      "Mitigate and monitor"
+     ],
+     "author": [
+      "Rollback to stable deployment"
+     ]
+    },
+    {
+     "case": "AG-I05",
+     "expert_best": "Review scaling policy",
+     "expert_set": [
+      "Review scaling policy"
+     ],
+     "author": [
+      "Scale adjustment"
+     ]
+    },
+    {
+     "case": "AG-I08",
+     "expert_best": "Rollback to stable deployment",
+     "expert_set": [
+      "Rollback to stable deployment"
+     ],
+     "author": [
+      "Scale adjustment"
+     ]
+    },
+    {
+     "case": "AG-M02",
+     "expert_best": "Block release and fix pipeline",
+     "expert_set": [
+      "Block release and fix pipeline"
+     ],
+     "author": [
+      "Rollback to stable deployment"
+     ]
+    },
+    {
+     "case": "AG-M06",
+     "expert_best": "Patch or block release",
+     "expert_set": [
+      "Patch or block release"
+     ],
+     "author": [
+      "Mitigate and monitor"
+     ]
+    },
+    {
+     "case": "AG-M08",
+     "expert_best": "Rollback to stable deployment",
+     "expert_set": [
+      "Rollback to stable deployment"
+     ],
+     "author": [
+      "Scale adjustment"
+     ]
+    },
+    {
+     "case": "RP-C03",
+     "expert_best": "Review scaling policy",
+     "expert_set": [
+      "Review scaling policy"
+     ],
+     "author": [
+      "Scale adjustment"
+     ]
+    },
+    {
+     "case": "RP-A04",
+     "expert_best": "Mitigate and monitor",
+     "expert_set": [
+      "Mitigate and monitor"
+     ],
+     "author": [
+      "Rollback to stable deployment"
+     ]
+    },
+    {
+     "case": "RP-I01",
+     "expert_best": "Mitigate and monitor",
+     "expert_set": [
+      "Mitigate and monitor"
+     ],
+     "author": [
+      "Rollback to stable deployment"
+     ]
+    },
+    {
+     "case": "RP-I03",
+     "expert_best": "Review scaling policy",
+     "expert_set": [
+      "Review scaling policy"
+     ],
+     "author": [
+      "Scale adjustment"
+     ]
+    },
+    {
+     "case": "RP-M02",
+     "expert_best": "Patch or block release",
+     "expert_set": [
+      "Patch or block release"
+     ],
+     "author": [
+      "Block release and fix pipeline"
+     ]
+    },
+    {
+     "case": "RP-M04",
+     "expert_best": "Patch or block release",
+     "expert_set": [
+      "Patch or block release"
+     ],
+     "author": [
+      "Scale adjustment"
+     ]
+    }
+   ]
+  },
+  "new": {
+   "n": 48,
+   "expert_best_in_author_set": 43,
+   "pct": 89.6,
+   "wilson": [
+    77.8,
+    95.5
+   ],
+   "mean_jaccard": 0.833,
+   "kappa_best_vs_author_first": 0.824,
+   "disagreements": [
+    {
+     "case": "NV-C02",
+     "expert_best": "Rollback to stable deployment",
+     "expert_set": [
+      "Rollback to stable deployment"
+     ],
+     "author": [
+      "Mitigate and monitor"
+     ]
+    },
+    {
+     "case": "NV-I02",
+     "expert_best": "Mitigate and monitor",
+     "expert_set": [
+      "Mitigate and monitor"
+     ],
+     "author": [
+      "Rollback to stable deployment"
+     ]
+    },
+    {
+     "case": "NV-M06",
+     "expert_best": "Escalate for evidence/human review",
+     "expert_set": [
+      "Escalate for evidence/human review"
+     ],
+     "author": [
+      "Block release and fix pipeline",
+      "Rollback to stable deployment"
+     ]
+    },
+    {
+     "case": "NV-U14",
+     "expert_best": "No action (observe)",
+     "expert_set": [
+      "No action (observe)"
+     ],
+     "author": [
+      "Rollback to stable deployment",
+      "Scale adjustment"
+     ]
+    },
+    {
+     "case": "NV-U16",
+     "expert_best": "Mitigate and monitor",
+     "expert_set": [
+      "Mitigate and monitor"
+     ],
+     "author": [
+      "Rollback to stable deployment"
+     ]
+    }
+   ]
+  }
+ },
+ "H2_original48": {
+  "DET": {
+   "expert_key": 33,
+   "author_key": 39,
+   "n": 48,
+   "wilson_expert": [
+    54.7,
+    80.1
+   ]
+  },
+  "AF-M": {
+   "expert_key": 31,
+   "author_key": 41,
+   "n": 48,
+   "wilson_expert": [
+    50.4,
+    76.6
+   ]
+  },
+  "HY": {
+   "expert_key": 31,
+   "author_key": 41,
+   "n": 48,
+   "wilson_expert": [
+    50.4,
+    76.6
+   ]
+  },
+  "B3": {
+   "expert_key": 31,
+   "author_key": 41,
+   "n": 48,
+   "wilson_expert": [
+    50.4,
+    76.6
+   ]
+  },
+  "AO": {
+   "expert_key": 20,
+   "author_key": 16,
+   "n": 48,
+   "wilson_expert": [
+    28.8,
+    55.7
+   ]
+  },
+  "B6": {
+   "expert_key": 37,
+   "author_key": 39,
+   "n": 48,
+   "wilson_expert": [
+    63.5,
+    86.7
+   ]
+  },
+  "PV1": {
+   "expert_key": 22,
+   "author_key": 17,
+   "n": 48,
+   "wilson_expert": [
+    32.6,
+    59.7
+   ]
+  },
+  "PV2": {
+   "expert_key": 22,
+   "author_key": 17,
+   "n": 48,
+   "wilson_expert": [
+    32.6,
+    59.7
+   ]
+  },
+  "tests": {
+   "HY_vs_DET": {
+    "a_only": 0,
+    "b_only": 2,
+    "p_exact": 0.5
+   },
+   "HY_vs_B6": {
+    "a_only": 0,
+    "b_only": 6,
+    "p_exact": 0.03125
+   },
+   "HY_vs_AO": {
+    "a_only": 17,
+    "b_only": 6,
+    "p_exact": 0.03468966484069824
+   },
+   "HY_vs_AF-M": {
+    "a_only": 0,
+    "b_only": 0,
+    "p_exact": 1.0
+   }
+  }
+ },
+ "new_cases": {
+  "standard": {
+   "n": 24,
+   "DET": {
+    "correct": 18,
+    "wilson": [
+     55.1,
+     88.0
+    ],
+    "tool_calls_per_case": 0.0
+   },
+   "AF-M": {
+    "correct": 17,
+    "wilson": [
+     50.8,
+     85.1
+    ],
+    "tool_calls_per_case": 0.25
+   },
+   "AF-MS": {
+    "correct": 17,
+    "wilson": [
+     50.8,
+     85.1
+    ],
+    "tool_calls_per_case": 0.25
+   },
+   "FETCH-ALL": {
+    "correct": 17,
+    "wilson": [
+     50.8,
+     85.1
+    ],
+    "tool_calls_per_case": 0.5
+   },
+   "HY": {
+    "correct": 0,
+    "wilson": [
+     0.0,
+     13.8
+    ],
+    "tool_calls_per_case": 0.0
+   },
+   "B3": {
+    "correct": 0,
+    "wilson": [
+     0.0,
+     13.8
+    ],
+    "tool_calls_per_case": 0.0
+   },
+   "AO": {
+    "correct": 0,
+    "wilson": [
+     0.0,
+     13.8
+    ],
+    "tool_calls_per_case": 0.0
+   },
+   "B6": {
+    "correct": 0,
+    "wilson": [
+     0.0,
+     13.8
+    ],
+    "tool_calls_per_case": 0.0
+   }
+  },
+  "unmarked_decisive": {
+   "n": 20,
+   "DET": {
+    "correct": 1,
+    "wilson": [
+     0.9,
+     23.6
+    ],
+    "tool_calls_per_case": 0.0
+   },
+   "AF-M": {
+    "correct": 1,
+    "wilson": [
+     0.9,
+     23.6
+    ],
+    "tool_calls_per_case": 0.0
+   },
+   "AF-MS": {
+    "correct": 6,
+    "wilson": [
+     14.5,
+     51.9
+    ],
+    "tool_calls_per_case": 0.55
+   },
+   "FETCH-ALL": {
+    "correct": 15,
+    "wilson": [
+     53.1,
+     88.8
+    ],
+    "tool_calls_per_case": 3.05
+   },
+   "HY": {
+    "correct": 0,
+    "wilson": [
+     -0.0,
+     16.1
+    ],
+    "tool_calls_per_case": 0.0
+   },
+   "B3": {
+    "correct": 0,
+    "wilson": [
+     -0.0,
+     16.1
+    ],
+    "tool_calls_per_case": 0.0
+   },
+   "AO": {
+    "correct": 0,
+    "wilson": [
+     -0.0,
+     16.1
+    ],
+    "tool_calls_per_case": 0.0
+   },
+   "B6": {
+    "correct": 0,
+    "wilson": [
+     -0.0,
+     16.1
+    ],
+    "tool_calls_per_case": 0.0
+   }
+  },
+  "unmarked_controls": {
+   "n": 4,
+   "DET": {
+    "correct": 4,
+    "wilson": [
+     51.0,
+     100.0
+    ],
+    "tool_calls_per_case": 0.0
+   },
+   "AF-M": {
+    "correct": 4,
+    "wilson": [
+     51.0,
+     100.0
+    ],
+    "tool_calls_per_case": 0.0
+   },
+   "AF-MS": {
+    "correct": 4,
+    "wilson": [
+     51.0,
+     100.0
+    ],
+    "tool_calls_per_case": 0.5
+   },
+   "FETCH-ALL": {
+    "correct": 4,
+    "wilson": [
+     51.0,
+     100.0
+    ],
+    "tool_calls_per_case": 3.0
+   },
+   "HY": {
+    "correct": 0,
+    "wilson": [
+     0.0,
+     49.0
+    ],
+    "tool_calls_per_case": 0.0
+   },
+   "B3": {
+    "correct": 0,
+    "wilson": [
+     0.0,
+     49.0
+    ],
+    "tool_calls_per_case": 0.0
+   },
+   "AO": {
+    "correct": 0,
+    "wilson": [
+     0.0,
+     49.0
+    ],
+    "tool_calls_per_case": 0.0
+   },
+   "B6": {
+    "correct": 0,
+    "wilson": [
+     0.0,
+     49.0
+    ],
+    "tool_calls_per_case": 0.0
+   }
+  },
+  "unmarked_absent": {
+   "n": 7,
+   "DET": {
+    "correct": 1,
+    "wilson": [
+     2.6,
+     51.3
+    ],
+    "tool_calls_per_case": 0.0
+   },
+   "AF-M": {
+    "correct": 1,
+    "wilson": [
+     2.6,
+     51.3
+    ],
+    "tool_calls_per_case": 0.0
+   },
+   "AF-MS": {
+    "correct": 1,
+    "wilson": [
+     2.6,
+     51.3
+    ],
+    "tool_calls_per_case": 0.0
+   },
+   "FETCH-ALL": {
+    "correct": 6,
+    "wilson": [
+     48.7,
+     97.4
+    ],
+    "tool_calls_per_case": 3.0
+   },
+   "HY": {
+    "correct": 0,
+    "wilson": [
+     0.0,
+     35.4
+    ],
+    "tool_calls_per_case": 0.0
+   },
+   "B3": {
+    "correct": 0,
+    "wilson": [
+     0.0,
+     35.4
+    ],
+    "tool_calls_per_case": 0.0
+   },
+   "AO": {
+    "correct": 0,
+    "wilson": [
+     0.0,
+     35.4
+    ],
+    "tool_calls_per_case": 0.0
+   },
+   "B6": {
+    "correct": 0,
+    "wilson": [
+     0.0,
+     35.4
+    ],
+    "tool_calls_per_case": 0.0
+   }
+  },
+  "unmarked_stale": {
+   "n": 7,
+   "DET": {
+    "correct": 0,
+    "wilson": [
+     0.0,
+     35.4
+    ],
+    "tool_calls_per_case": 0.0
+   },
+   "AF-M": {
+    "correct": 0,
+    "wilson": [
+     0.0,
+     35.4
+    ],
+    "tool_calls_per_case": 0.0
+   },
+   "AF-MS": {
+    "correct": 5,
+    "wilson": [
+     35.9,
+     91.8
+    ],
+    "tool_calls_per_case": 1.57
+   },
+   "FETCH-ALL": {
+    "correct": 5,
+    "wilson": [
+     35.9,
+     91.8
+    ],
+    "tool_calls_per_case": 3.0
+   },
+   "HY": {
+    "correct": 0,
+    "wilson": [
+     0.0,
+     35.4
+    ],
+    "tool_calls_per_case": 0.0
+   },
+   "B3": {
+    "correct": 0,
+    "wilson": [
+     0.0,
+     35.4
+    ],
+    "tool_calls_per_case": 0.0
+   },
+   "AO": {
+    "correct": 0,
+    "wilson": [
+     0.0,
+     35.4
+    ],
+    "tool_calls_per_case": 0.0
+   },
+   "B6": {
+    "correct": 0,
+    "wilson": [
+     0.0,
+     35.4
+    ],
+    "tool_calls_per_case": 0.0
+   }
+  },
+  "unmarked_cross_domain": {
+   "n": 6,
+   "DET": {
+    "correct": 0,
+    "wilson": [
+     0.0,
+     39.0
+    ],
+    "tool_calls_per_case": 0.0
+   },
+   "AF-M": {
+    "correct": 0,
+    "wilson": [
+     0.0,
+     39.0
+    ],
+    "tool_calls_per_case": 0.0
+   },
+   "AF-MS": {
+    "correct": 0,
+    "wilson": [
+     0.0,
+     39.0
+    ],
+    "tool_calls_per_case": 0.0
+   },
+   "FETCH-ALL": {
+    "correct": 4,
+    "wilson": [
+     30.0,
+     90.3
+    ],
+    "tool_calls_per_case": 3.17
+   },
+   "HY": {
+    "correct": 0,
+    "wilson": [
+     0.0,
+     39.0
+    ],
+    "tool_calls_per_case": 0.0
+   },
+   "B3": {
+    "correct": 0,
+    "wilson": [
+     0.0,
+     39.0
+    ],
+    "tool_calls_per_case": 0.0
+   },
+   "AO": {
+    "correct": 0,
+    "wilson": [
+     0.0,
+     39.0
+    ],
+    "tool_calls_per_case": 0.0
+   },
+   "B6": {
+    "correct": 0,
+    "wilson": [
+     0.0,
+     39.0
+    ],
+    "tool_calls_per_case": 0.0
+   }
+  }
+ },
+ "HY_trigger_rate": {
+  "standard": "0/24",
+  "unmarked_decisive": "0/20",
+  "unmarked_controls": "0/4",
+  "unmarked_absent": "0/7",
+  "unmarked_stale": "0/7",
+  "unmarked_cross_domain": "0/6"
+ },
+ "HY_stability_new": 0,
+ "llm_errors": {},
+ "H3": {
+  "HY_vs_AF-MS": {
+   "a_only": 0,
+   "b_only": 6,
+   "p_exact": 0.03125,
+   "p_holm": 0.0625
+  },
+  "HY_vs_AF-M": {
+   "a_only": 0,
+   "b_only": 1,
+   "p_exact": 1.0,
+   "p_holm": 1.0
+  },
+  "HY_vs_FETCH-ALL": {
+   "a_only": 0,
+   "b_only": 15,
+   "p_exact": 6.103515625e-05
+  },
+  "B6_vs_AF-MS": {
+   "a_only": 0,
+   "b_only": 6,
+   "p_exact": 0.03125
+  },
+  "AO_vs_AF-MS": {
+   "a_only": 0,
+   "b_only": 6,
+   "p_exact": 0.03125
+  }
+ },
+ "H4_new_standard": {
+  "HY_vs_DET": {
+   "a_only": 0,
+   "b_only": 18,
+   "p_exact": 7.62939453125e-06
+  },
+  "HY_vs_B6": {
+   "a_only": 0,
+   "b_only": 0,
+   "p_exact": 1.0
+  },
+  "HY_vs_AO": {
+   "a_only": 0,
+   "b_only": 0,
+   "p_exact": 1.0
+  }
+ },
+ "H4_pooled_standard": {
+  "n": 72,
+  "DET": 51,
+  "HY": 31,
+  "B6": 37,
+  "AO": 20,
+  "HY_vs_DET": {
+   "a_only": 0,
+   "b_only": 20,
+   "p_exact": 1.9073486328125e-06
+  },
+  "HY_vs_B6": {
+   "a_only": 0,
+   "b_only": 6,
+   "p_exact": 0.03125
+  },
+  "HY_vs_AO": {
+   "a_only": 17,
+   "b_only": 6,
+   "p_exact": 0.03468966484069824
+  }
+ },
+ "budget": null,
+ "per_case_new": {
+  "NV-C01": {
+   "DET": [
+    "No action (observe)"
+   ],
+   "AF-M": [
+    "No action (observe)"
+   ],
+   "AF-MS": [
+    "No action (observe)"
+   ],
+   "FETCH-ALL": [
+    "No action (observe)"
+   ],
+   "HY": null,
+   "B3": null,
+   "AO": null,
+   "B6": null,
+   "expert": {
+    "set": [
+     "No action (observe)"
+    ],
+    "best": "No action (observe)",
+    "confidence": 3
+   },
+   "author": [
+    "No action (observe)"
+   ]
+  },
+  "NV-C02": {
+   "DET": [
+    "Mitigate and monitor"
+   ],
+   "AF-M": [
+    "Mitigate and monitor"
+   ],
+   "AF-MS": [
+    "Mitigate and monitor"
+   ],
+   "FETCH-ALL": [
+    "Mitigate and monitor"
+   ],
+   "HY": null,
+   "B3": null,
+   "AO": null,
+   "B6": null,
+   "expert": {
+    "set": [
+     "Rollback to stable deployment"
+    ],
+    "best": "Rollback to stable deployment",
+    "confidence": 2
+   },
+   "author": [
+    "Mitigate and monitor"
+   ]
+  },
+  "NV-C03": {
+   "DET": [
+    "Patch or block release"
+   ],
+   "AF-M": [
+    "Patch or block release"
+   ],
+   "AF-MS": [
+    "Patch or block release"
+   ],
+   "FETCH-ALL": [
+    "Patch or block release"
+   ],
+   "HY": null,
+   "B3": null,
+   "AO": null,
+   "B6": null,
+   "expert": {
+    "set": [
+     "Patch or block release"
+    ],
+    "best": "Patch or block release",
+    "confidence": 3
+   },
+   "author": [
+    "Patch or block release"
+   ]
+  },
+  "NV-C04": {
+   "DET": [
+    "Block release and fix pipeline"
+   ],
+   "AF-M": [
+    "Block release and fix pipeline"
+   ],
+   "AF-MS": [
+    "Block release and fix pipeline"
+   ],
+   "FETCH-ALL": [
+    "Block release and fix pipeline"
+   ],
+   "HY": null,
+   "B3": null,
+   "AO": null,
+   "B6": null,
+   "expert": {
+    "set": [
+     "Block release and fix pipeline"
+    ],
+    "best": "Block release and fix pipeline",
+    "confidence": 3
+   },
+   "author": [
+    "Block release and fix pipeline"
+   ]
+  },
+  "NV-C05": {
+   "DET": [
+    "Rollback to stable deployment"
+   ],
+   "AF-M": [
+    "Rollback to stable deployment"
+   ],
+   "AF-MS": [
+    "Rollback to stable deployment"
+   ],
+   "FETCH-ALL": [
+    "Rollback to stable deployment"
+   ],
+   "HY": null,
+   "B3": null,
+   "AO": null,
+   "B6": null,
+   "expert": {
+    "set": [
+     "Rollback to stable deployment"
+    ],
+    "best": "Rollback to stable deployment",
+    "confidence": 3
+   },
+   "author": [
+    "Rollback to stable deployment"
+   ]
+  },
+  "NV-C06": {
+   "DET": [
+    "Scale adjustment"
+   ],
+   "AF-M": [
+    "Scale adjustment"
+   ],
+   "AF-MS": [
+    "Scale adjustment"
+   ],
+   "FETCH-ALL": [
+    "Scale adjustment"
+   ],
+   "HY": null,
+   "B3": null,
+   "AO": null,
+   "B6": null,
+   "expert": {
+    "set": [
+     "Review scaling policy"
+    ],
+    "best": "Review scaling policy",
+    "confidence": 2
+   },
+   "author": [
+    "Scale adjustment",
+    "Review scaling policy"
+   ]
+  },
+  "NV-A01": {
+   "DET": [
+    "Mitigate and monitor"
+   ],
+   "AF-M": [
+    "Mitigate and monitor"
+   ],
+   "AF-MS": [
+    "Mitigate and monitor"
+   ],
+   "FETCH-ALL": [
+    "Mitigate and monitor"
+   ],
+   "HY": null,
+   "B3": null,
+   "AO": null,
+   "B6": null,
+   "expert": {
+    "set": [
+     "Mitigate and monitor"
+    ],
+    "best": "Mitigate and monitor",
+    "confidence": 2
+   },
+   "author": [
+    "Mitigate and monitor"
+   ]
+  },
+  "NV-A02": {
+   "DET": [
+    "Review scaling policy"
+   ],
+   "AF-M": [
+    "Review scaling policy"
+   ],
+   "AF-MS": [
+    "Review scaling policy"
+   ],
+   "FETCH-ALL": [
+    "Review scaling policy"
+   ],
+   "HY": null,
+   "B3": null,
+   "AO": null,
+   "B6": null,
+   "expert": {
+    "set": [
+     "Review scaling policy"
+    ],
+    "best": "Review scaling policy",
+    "confidence": 3
+   },
+   "author": [
+    "Review scaling policy",
+    "Scale adjustment"
+   ]
+  },
+  "NV-A03": {
+   "DET": [
+    "Mitigate and monitor"
+   ],
+   "AF-M": [
+    "Mitigate and monitor"
+   ],
+   "AF-MS": [
+    "Mitigate and monitor"
+   ],
+   "FETCH-ALL": [
+    "Mitigate and monitor"
+   ],
+   "HY": null,
+   "B3": null,
+   "AO": null,
+   "B6": null,
+   "expert": {
+    "set": [
+     "Mitigate and monitor"
+    ],
+    "best": "Mitigate and monitor",
+    "confidence": 2
+   },
+   "author": [
+    "Mitigate and monitor",
+    "Rollback to stable deployment"
+   ]
+  },
+  "NV-A04": {
+   "DET": [
+    "Scale adjustment"
+   ],
+   "AF-M": [
+    "Scale adjustment"
+   ],
+   "AF-MS": [
+    "Scale adjustment"
+   ],
+   "FETCH-ALL": [
+    "Scale adjustment"
+   ],
+   "HY": null,
+   "B3": null,
+   "AO": null,
+   "B6": null,
+   "expert": {
+    "set": [
+     "Scale adjustment"
+    ],
+    "best": "Scale adjustment",
+    "confidence": 2
+   },
+   "author": [
+    "Scale adjustment"
+   ]
+  },
+  "NV-A05": {
+   "DET": [
+    "Patch or block release"
+   ],
+   "AF-M": [
+    "Patch or block release"
+   ],
+   "AF-MS": [
+    "Patch or block release"
+   ],
+   "FETCH-ALL": [
+    "Patch or block release"
+   ],
+   "HY": null,
+   "B3": null,
+   "AO": null,
+   "B6": null,
+   "expert": {
+    "set": [
+     "Patch or block release"
+    ],
+    "best": "Patch or block release",
+    "confidence": 3
+   },
+   "author": [
+    "Patch or block release"
+   ]
+  },
+  "NV-A06": {
+   "DET": [
+    "Mitigate and monitor"
+   ],
+   "AF-M": [
+    "Mitigate and monitor"
+   ],
+   "AF-MS": [
+    "Mitigate and monitor"
+   ],
+   "FETCH-ALL": [
+    "Mitigate and monitor"
+   ],
+   "HY": null,
+   "B3": null,
+   "AO": null,
+   "B6": null,
+   "expert": {
+    "set": [
+     "Rollback to stable deployment"
+    ],
+    "best": "Rollback to stable deployment",
+    "confidence": 2
+   },
+   "author": [
+    "Rollback to stable deployment",
+    "Mitigate and monitor"
+   ]
+  },
+  "NV-I01": {
+   "DET": [
+    "Mitigate and monitor"
+   ],
+   "AF-M": [
+    "Mitigate and monitor"
+   ],
+   "AF-MS": [
+    "Mitigate and monitor"
+   ],
+   "FETCH-ALL": [
+    "Mitigate and monitor"
+   ],
+   "HY": null,
+   "B3": null,
+   "AO": null,
+   "B6": null,
+   "expert": {
+    "set": [
+     "Mitigate and monitor"
+    ],
+    "best": "Mitigate and monitor",
+    "confidence": 2
+   },
+   "author": [
+    "Mitigate and monitor"
+   ]
+  },
+  "NV-I02": {
+   "DET": [
+    "Mitigate and monitor"
+   ],
+   "AF-M": [
+    "Rollback to stable deployment"
+   ],
+   "AF-MS": [
+    "Rollback to stable deployment"
+   ],
+   "FETCH-ALL": [
+    "Rollback to stable deployment"
+   ],
+   "HY": null,
+   "B3": null,
+   "AO": null,
+   "B6": null,
+   "expert": {
+    "set": [
+     "Mitigate and monitor"
+    ],
+    "best": "Mitigate and monitor",
+    "confidence": 2
+   },
+   "author": [
+    "Rollback to stable deployment"
+   ]
+  },
+  "NV-I03": {
+   "DET": [
+    "Patch or block release"
+   ],
+   "AF-M": [
+    "Patch or block release"
+   ],
+   "AF-MS": [
+    "Patch or block release"
+   ],
+   "FETCH-ALL": [
+    "Patch or block release"
+   ],
+   "HY": null,
+   "B3": null,
+   "AO": null,
+   "B6": null,
+   "expert": {
+    "set": [
+     "Patch or block release"
+    ],
+    "best": "Patch or block release",
+    "confidence": 3
+   },
+   "author": [
+    "Patch or block release"
+   ]
+  },
+  "NV-I04": {
+   "DET": [
+    "Scale adjustment"
+   ],
+   "AF-M": [
+    "Scale adjustment"
+   ],
+   "AF-MS": [
+    "Scale adjustment"
+   ],
+   "FETCH-ALL": [
+    "Scale adjustment"
+   ],
+   "HY": null,
+   "B3": null,
+   "AO": null,
+   "B6": null,
+   "expert": {
+    "set": [
+     "Review scaling policy"
+    ],
+    "best": "Review scaling policy",
+    "confidence": 3
+   },
+   "author": [
+    "Scale adjustment",
+    "Review scaling policy"
+   ]
+  },
+  "NV-I05": {
+   "DET": [
+    "Scale adjustment"
+   ],
+   "AF-M": [
+    "Scale adjustment"
+   ],
+   "AF-MS": [
+    "Scale adjustment"
+   ],
+   "FETCH-ALL": [
+    "Scale adjustment"
+   ],
+   "HY": null,
+   "B3": null,
+   "AO": null,
+   "B6": null,
+   "expert": {
+    "set": [
+     "Scale adjustment"
+    ],
+    "best": "Scale adjustment",
+    "confidence": 2
+   },
+   "author": [
+    "Scale adjustment"
+   ]
+  },
+  "NV-I06": {
+   "DET": [
+    "Rollback to stable deployment"
+   ],
+   "AF-M": [
+    "Rollback to stable deployment"
+   ],
+   "AF-MS": [
+    "Rollback to stable deployment"
+   ],
+   "FETCH-ALL": [
+    "Rollback to stable deployment"
+   ],
+   "HY": null,
+   "B3": null,
+   "AO": null,
+   "B6": null,
+   "expert": {
+    "set": [
+     "Rollback to stable deployment"
+    ],
+    "best": "Rollback to stable deployment",
+    "confidence": 3
+   },
+   "author": [
+    "Rollback to stable deployment"
+   ]
+  },
+  "NV-M01": {
+   "DET": [
+    "Scale adjustment"
+   ],
+   "AF-M": [
+    "Scale adjustment"
+   ],
+   "AF-MS": [
+    "Scale adjustment"
+   ],
+   "FETCH-ALL": [
+    "Scale adjustment"
+   ],
+   "HY": null,
+   "B3": null,
+   "AO": null,
+   "B6": null,
+   "expert": {
+    "set": [
+     "Scale adjustment"
+    ],
+    "best": "Scale adjustment",
+    "confidence": 2
+   },
+   "author": [
+    "Scale adjustment"
+   ]
+  },
+  "NV-M02": {
+   "DET": [
+    "Mitigate and monitor"
+   ],
+   "AF-M": [
+    "Mitigate and monitor"
+   ],
+   "AF-MS": [
+    "Mitigate and monitor"
+   ],
+   "FETCH-ALL": [
+    "Mitigate and monitor"
+   ],
+   "HY": null,
+   "B3": null,
+   "AO": null,
+   "B6": null,
+   "expert": {
+    "set": [
+     "Mitigate and monitor"
+    ],
+    "best": "Mitigate and monitor",
+    "confidence": 2
+   },
+   "author": [
+    "Mitigate and monitor"
+   ]
+  },
+  "NV-M03": {
+   "DET": [
+    "Scale adjustment"
+   ],
+   "AF-M": [
+    "Scale adjustment"
+   ],
+   "AF-MS": [
+    "Scale adjustment"
+   ],
+   "FETCH-ALL": [
+    "Scale adjustment"
+   ],
+   "HY": null,
+   "B3": null,
+   "AO": null,
+   "B6": null,
+   "expert": {
+    "set": [
+     "No action (observe)"
+    ],
+    "best": "No action (observe)",
+    "confidence": 2
+   },
+   "author": [
+    "No action (observe)",
+    "Review scaling policy"
+   ]
+  },
+  "NV-M04": {
+   "DET": [
+    "Mitigate and monitor"
+   ],
+   "AF-M": [
+    "Mitigate and monitor"
+   ],
+   "AF-MS": [
+    "Mitigate and monitor"
+   ],
+   "FETCH-ALL": [
+    "Mitigate and monitor"
+   ],
+   "HY": null,
+   "B3": null,
+   "AO": null,
+   "B6": null,
+   "expert": {
+    "set": [
+     "Mitigate and monitor"
+    ],
+    "best": "Mitigate and monitor",
+    "confidence": 2
+   },
+   "author": [
+    "Mitigate and monitor"
+   ]
+  },
+  "NV-M05": {
+   "DET": [
+    "Patch or block release"
+   ],
+   "AF-M": [
+    "Patch or block release"
+   ],
+   "AF-MS": [
+    "Patch or block release"
+   ],
+   "FETCH-ALL": [
+    "Patch or block release"
+   ],
+   "HY": null,
+   "B3": null,
+   "AO": null,
+   "B6": null,
+   "expert": {
+    "set": [
+     "Patch or block release"
+    ],
+    "best": "Patch or block release",
+    "confidence": 3
+   },
+   "author": [
+    "Patch or block release"
+   ]
+  },
+  "NV-M06": {
+   "DET": [
+    "Block release and fix pipeline"
+   ],
+   "AF-M": [
+    "Block release and fix pipeline"
+   ],
+   "AF-MS": [
+    "Block release and fix pipeline"
+   ],
+   "FETCH-ALL": [
+    "Block release and fix pipeline"
+   ],
+   "HY": null,
+   "B3": null,
+   "AO": null,
+   "B6": null,
+   "expert": {
+    "set": [
+     "Escalate for evidence/human review"
+    ],
+    "best": "Escalate for evidence/human review",
+    "confidence": 2
+   },
+   "author": [
+    "Block release and fix pipeline",
+    "Rollback to stable deployment"
+   ]
+  },
+  "NV-U01": {
+   "DET": [
+    "Mitigate and monitor"
+   ],
+   "AF-M": [
+    "Mitigate and monitor"
+   ],
+   "AF-MS": [
+    "Mitigate and monitor"
+   ],
+   "FETCH-ALL": [
+    "Rollback to stable deployment"
+   ],
+   "HY": null,
+   "B3": null,
+   "AO": null,
+   "B6": null,
+   "expert": {
+    "set": [
+     "Rollback to stable deployment"
+    ],
+    "best": "Rollback to stable deployment",
+    "confidence": 3
+   },
+   "author": [
+    "Rollback to stable deployment"
+   ]
+  },
+  "NV-U02": {
+   "DET": [
+    "Scale adjustment"
+   ],
+   "AF-M": [
+    "Scale adjustment"
+   ],
+   "AF-MS": [
+    "Scale adjustment"
+   ],
+   "FETCH-ALL": [
+    "Scale adjustment"
+   ],
+   "HY": null,
+   "B3": null,
+   "AO": null,
+   "B6": null,
+   "expert": {
+    "set": [
+     "Scale adjustment"
+    ],
+    "best": "Scale adjustment",
+    "confidence": 2
+   },
+   "author": [
+    "Scale adjustment"
+   ]
+  },
+  "NV-U03": {
+   "DET": [
+    "Block release and fix pipeline"
+   ],
+   "AF-M": [
+    "Block release and fix pipeline"
+   ],
+   "AF-MS": [
+    "Block release and fix pipeline"
+   ],
+   "FETCH-ALL": [
+    "Patch or block release"
+   ],
+   "HY": null,
+   "B3": null,
+   "AO": null,
+   "B6": null,
+   "expert": {
+    "set": [
+     "Patch or block release"
+    ],
+    "best": "Patch or block release",
+    "confidence": 3
+   },
+   "author": [
+    "Patch or block release"
+   ]
+  },
+  "NV-U04": {
+   "DET": [
+    "Mitigate and monitor"
+   ],
+   "AF-M": [
+    "Mitigate and monitor"
+   ],
+   "AF-MS": [
+    "Mitigate and monitor"
+   ],
+   "FETCH-ALL": [
+    "Scale adjustment"
+   ],
+   "HY": null,
+   "B3": null,
+   "AO": null,
+   "B6": null,
+   "expert": {
+    "set": [
+     "Scale adjustment"
+    ],
+    "best": "Scale adjustment",
+    "confidence": 2
+   },
+   "author": [
+    "Scale adjustment"
+   ]
+  },
+  "NV-U05": {
+   "DET": [
+    "Block release and fix pipeline"
+   ],
+   "AF-M": [
+    "Block release and fix pipeline"
+   ],
+   "AF-MS": [
+    "Block release and fix pipeline"
+   ],
+   "FETCH-ALL": [
+    "Mitigate and monitor"
+   ],
+   "HY": null,
+   "B3": null,
+   "AO": null,
+   "B6": null,
+   "expert": {
+    "set": [
+     "Rollback to stable deployment"
+    ],
+    "best": "Rollback to stable deployment",
+    "confidence": 2
+   },
+   "author": [
+    "Rollback to stable deployment"
+   ]
+  },
+  "NV-U06": {
+   "DET": [
+    "No action (observe)"
+   ],
+   "AF-M": [
+    "No action (observe)"
+   ],
+   "AF-MS": [
+    "No action (observe)"
+   ],
+   "FETCH-ALL": [
+    "Patch or block release"
+   ],
+   "HY": null,
+   "B3": null,
+   "AO": null,
+   "B6": null,
+   "expert": {
+    "set": [
+     "Patch or block release"
+    ],
+    "best": "Patch or block release",
+    "confidence": 3
+   },
+   "author": [
+    "Patch or block release"
+   ]
+  },
+  "NV-U07": {
+   "DET": [
+    "Block release and fix pipeline"
+   ],
+   "AF-M": [
+    "Block release and fix pipeline"
+   ],
+   "AF-MS": [
+    "Mitigate and monitor"
+   ],
+   "FETCH-ALL": [
+    "Mitigate and monitor"
+   ],
+   "HY": null,
+   "B3": null,
+   "AO": null,
+   "B6": null,
+   "expert": {
+    "set": [
+     "Rollback to stable deployment"
+    ],
+    "best": "Rollback to stable deployment",
+    "confidence": 2
+   },
+   "author": [
+    "Rollback to stable deployment"
+   ]
+  },
+  "NV-U08": {
+   "DET": [
+    "Block release and fix pipeline"
+   ],
+   "AF-M": [
+    "Block release and fix pipeline"
+   ],
+   "AF-MS": [
+    "Patch or block release"
+   ],
+   "FETCH-ALL": [
+    "Patch or block release"
+   ],
+   "HY": null,
+   "B3": null,
+   "AO": null,
+   "B6": null,
+   "expert": {
+    "set": [
+     "Patch or block release"
+    ],
+    "best": "Patch or block release",
+    "confidence": 3
+   },
+   "author": [
+    "Patch or block release"
+   ]
+  },
+  "NV-U09": {
+   "DET": [
+    "Mitigate and monitor"
+   ],
+   "AF-M": [
+    "Mitigate and monitor"
+   ],
+   "AF-MS": [
+    "Scale adjustment"
+   ],
+   "FETCH-ALL": [
+    "Scale adjustment"
+   ],
+   "HY": null,
+   "B3": null,
+   "AO": null,
+   "B6": null,
+   "expert": {
+    "set": [
+     "Scale adjustment"
+    ],
+    "best": "Scale adjustment",
+    "confidence": 2
+   },
+   "author": [
+    "Scale adjustment"
+   ]
+  },
+  "NV-U10": {
+   "DET": [
+    "Mitigate and monitor"
+   ],
+   "AF-M": [
+    "Mitigate and monitor"
+   ],
+   "AF-MS": [
+    "No action (observe)"
+   ],
+   "FETCH-ALL": [
+    "No action (observe)"
+   ],
+   "HY": null,
+   "B3": null,
+   "AO": null,
+   "B6": null,
+   "expert": {
+    "set": [
+     "No action (observe)"
+    ],
+    "best": "No action (observe)",
+    "confidence": 3
+   },
+   "author": [
+    "No action (observe)"
+   ]
+  },
+  "NV-U11": {
+   "DET": [
+    "Patch or block release"
+   ],
+   "AF-M": [
+    "Patch or block release"
+   ],
+   "AF-MS": [
+    "No action (observe)"
+   ],
+   "FETCH-ALL": [
+    "No action (observe)"
+   ],
+   "HY": null,
+   "B3": null,
+   "AO": null,
+   "B6": null,
+   "expert": {
+    "set": [
+     "No action (observe)"
+    ],
+    "best": "No action (observe)",
+    "confidence": 3
+   },
+   "author": [
+    "No action (observe)"
+   ]
+  },
+  "NV-U12": {
+   "DET": [
+    "Scale adjustment"
+   ],
+   "AF-M": [
+    "Scale adjustment"
+   ],
+   "AF-MS": [
+    "No action (observe)"
+   ],
+   "FETCH-ALL": [
+    "No action (observe)"
+   ],
+   "HY": null,
+   "B3": null,
+   "AO": null,
+   "B6": null,
+   "expert": {
+    "set": [
+     "No action (observe)"
+    ],
+    "best": "No action (observe)",
+    "confidence": 3
+   },
+   "author": [
+    "No action (observe)"
+   ]
+  },
+  "NV-U13": {
+   "DET": [
+    "Mitigate and monitor"
+   ],
+   "AF-M": [
+    "Mitigate and monitor"
+   ],
+   "AF-MS": [
+    "Mitigate and monitor"
+   ],
+   "FETCH-ALL": [
+    "Rollback to stable deployment"
+   ],
+   "HY": null,
+   "B3": null,
+   "AO": null,
+   "B6": null,
+   "expert": {
+    "set": [
+     "Rollback to stable deployment"
+    ],
+    "best": "Rollback to stable deployment",
+    "confidence": 3
+   },
+   "author": [
+    "Rollback to stable deployment"
+   ]
+  },
+  "NV-U14": {
+   "DET": [
+    "Scale adjustment"
+   ],
+   "AF-M": [
+    "Scale adjustment"
+   ],
+   "AF-MS": [
+    "Scale adjustment"
+   ],
+   "FETCH-ALL": [
+    "Scale adjustment"
+   ],
+   "HY": null,
+   "B3": null,
+   "AO": null,
+   "B6": null,
+   "expert": {
+    "set": [
+     "No action (observe)"
+    ],
+    "best": "No action (observe)",
+    "confidence": 1
+   },
+   "author": [
+    "Rollback to stable deployment",
+    "Scale adjustment"
+   ]
+  },
+  "NV-U15": {
+   "DET": [
+    "Mitigate and monitor"
+   ],
+   "AF-M": [
+    "Mitigate and monitor"
+   ],
+   "AF-MS": [
+    "Mitigate and monitor"
+   ],
+   "FETCH-ALL": [
+    "Mitigate and monitor"
+   ],
+   "HY": null,
+   "B3": null,
+   "AO": null,
+   "B6": null,
+   "expert": {
+    "set": [
+     "Rollback to stable deployment"
+    ],
+    "best": "Rollback to stable deployment",
+    "confidence": 3
+   },
+   "author": [
+    "Rollback to stable deployment"
+   ]
+  },
+  "NV-U16": {
+   "DET": [
+    "No action (observe)"
+   ],
+   "AF-M": [
+    "No action (observe)"
+   ],
+   "AF-MS": [
+    "No action (observe)"
+   ],
+   "FETCH-ALL": [
+    "Mitigate and monitor"
+   ],
+   "HY": null,
+   "B3": null,
+   "AO": null,
+   "B6": null,
+   "expert": {
+    "set": [
+     "Mitigate and monitor"
+    ],
+    "best": "Mitigate and monitor",
+    "confidence": 2
+   },
+   "author": [
+    "Rollback to stable deployment"
+   ]
+  },
+  "NV-U17": {
+   "DET": [
+    "Review scaling policy"
+   ],
+   "AF-M": [
+    "Review scaling policy"
+   ],
+   "AF-MS": [
+    "Review scaling policy"
+   ],
+   "FETCH-ALL": [
+    "Scale adjustment"
+   ],
+   "HY": null,
+   "B3": null,
+   "AO": null,
+   "B6": null,
+   "expert": {
+    "set": [
+     "Scale adjustment"
+    ],
+    "best": "Scale adjustment",
+    "confidence": 2
+   },
+   "author": [
+    "Scale adjustment"
+   ]
+  },
+  "NV-U18": {
+   "DET": [
+    "Mitigate and monitor"
+   ],
+   "AF-M": [
+    "Mitigate and monitor"
+   ],
+   "AF-MS": [
+    "Mitigate and monitor"
+   ],
+   "FETCH-ALL": [
+    "Rollback to stable deployment"
+   ],
+   "HY": null,
+   "B3": null,
+   "AO": null,
+   "B6": null,
+   "expert": {
+    "set": [
+     "Rollback to stable deployment"
+    ],
+    "best": "Rollback to stable deployment",
+    "confidence": 3
+   },
+   "author": [
+    "Rollback to stable deployment"
+   ]
+  },
+  "NV-U19": {
+   "DET": [
+    "Block release and fix pipeline"
+   ],
+   "AF-M": [
+    "Block release and fix pipeline"
+   ],
+   "AF-MS": [
+    "Block release and fix pipeline"
+   ],
+   "FETCH-ALL": [
+    "Block release and fix pipeline"
+   ],
+   "HY": null,
+   "B3": null,
+   "AO": null,
+   "B6": null,
+   "expert": {
+    "set": [
+     "Block release and fix pipeline"
+    ],
+    "best": "Block release and fix pipeline",
+    "confidence": 3
+   },
+   "author": [
+    "Block release and fix pipeline"
+   ]
+  },
+  "NV-U20": {
+   "DET": [
+    "No action (observe)"
+   ],
+   "AF-M": [
+    "No action (observe)"
+   ],
+   "AF-MS": [
+    "No action (observe)"
+   ],
+   "FETCH-ALL": [
+    "No action (observe)"
+   ],
+   "HY": null,
+   "B3": null,
+   "AO": null,
+   "B6": null,
+   "expert": {
+    "set": [
+     "No action (observe)"
+    ],
+    "best": "No action (observe)",
+    "confidence": 3
+   },
+   "author": [
+    "No action (observe)"
+   ]
+  },
+  "NV-U21": {
+   "DET": [
+    "Mitigate and monitor"
+   ],
+   "AF-M": [
+    "Mitigate and monitor"
+   ],
+   "AF-MS": [
+    "Mitigate and monitor"
+   ],
+   "FETCH-ALL": [
+    "Mitigate and monitor"
+   ],
+   "HY": null,
+   "B3": null,
+   "AO": null,
+   "B6": null,
+   "expert": {
+    "set": [
+     "Mitigate and monitor"
+    ],
+    "best": "Mitigate and monitor",
+    "confidence": 2
+   },
+   "author": [
+    "Mitigate and monitor"
+   ]
+  },
+  "NV-U22": {
+   "DET": [
+    "Scale adjustment"
+   ],
+   "AF-M": [
+    "Scale adjustment"
+   ],
+   "AF-MS": [
+    "Scale adjustment"
+   ],
+   "FETCH-ALL": [
+    "Patch or block release"
+   ],
+   "HY": null,
+   "B3": null,
+   "AO": null,
+   "B6": null,
+   "expert": {
+    "set": [
+     "Patch or block release"
+    ],
+    "best": "Patch or block release",
+    "confidence": 3
+   },
+   "author": [
+    "Patch or block release"
+   ]
+  },
+  "NV-U23": {
+   "DET": [
+    "Mitigate and monitor"
+   ],
+   "AF-M": [
+    "Mitigate and monitor"
+   ],
+   "AF-MS": [
+    "Mitigate and monitor"
+   ],
+   "FETCH-ALL": [
+    "Mitigate and monitor"
+   ],
+   "HY": null,
+   "B3": null,
+   "AO": null,
+   "B6": null,
+   "expert": {
+    "set": [
+     "Rollback to stable deployment"
+    ],
+    "best": "Rollback to stable deployment",
+    "confidence": 3
+   },
+   "author": [
+    "Rollback to stable deployment"
+   ]
+  },
+  "NV-U24": {
+   "DET": [
+    "Patch or block release"
+   ],
+   "AF-M": [
+    "Patch or block release"
+   ],
+   "AF-MS": [
+    "Patch or block release"
+   ],
+   "FETCH-ALL": [
+    "Patch or block release"
+   ],
+   "HY": null,
+   "B3": null,
+   "AO": null,
+   "B6": null,
+   "expert": {
+    "set": [
+     "Patch or block release"
+    ],
+    "best": "Patch or block release",
+    "confidence": 3
+   },
+   "author": [
+    "Patch or block release"
+   ]
+  }
+ }
+}
