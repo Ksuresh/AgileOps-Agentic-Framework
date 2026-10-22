@@ -69,3 +69,11 @@ Budget caps: 1,500 LLM calls and 1.2M tokens in total; a probe call first; the r
 H3 showing HY no better than AF-MS (the LLM adds nothing a stale-aware rule cannot); H1 showing low agreement
 (the author oracle does not reflect practitioner judgement); H2 changing the ranking of configurations. All outcomes
 will be reported.
+
+## Amendments
+- **A1 (before any run, during expert labelling):** a crash test with a dummy model (outputs discarded, only exception
+  counts printed) showed that AAF's evidence schema rejected the status `stale`. `evidence/schema.py` now accepts
+  `stale` and treats it exactly like `measured` (usable value; no decision rule reads it differently). No original
+  case uses `stale`; the deterministic auto-fetch analysis on the original 48 cases was re-run and is byte-identical.
+  The LLM sees the status `stale` in its evidence packet, as intended by the stale substratum. The runner
+  (`run_study.py`) and workflow (`.github/workflows/expert-study.yml`, triggered only by pushing `RUN`) are added here.
