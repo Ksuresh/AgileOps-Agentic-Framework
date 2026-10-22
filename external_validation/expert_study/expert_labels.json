@@ -1,0 +1,1154 @@
+{
+ "K01": {
+  "code": "K01",
+  "acceptable": [
+   "No action (observe)"
+  ],
+  "best": "No action (observe)",
+  "confidence": 1,
+  "cannot": false,
+  "comment": "",
+  "saved_at": "2026-10-22T12:29:11.687Z",
+  "rater": "u_RnR6OmySXPYV8djDBpndvg"
+ },
+ "K02": {
+  "code": "K02",
+  "acceptable": [
+   "Patch or block release"
+  ],
+  "best": "Patch or block release",
+  "confidence": 3,
+  "cannot": false,
+  "comment": "",
+  "saved_at": "2026-10-22T12:30:49.135Z",
+  "rater": "u_RnR6OmySXPYV8djDBpndvg"
+ },
+ "K03": {
+  "code": "K03",
+  "acceptable": [
+   "Patch or block release"
+  ],
+  "best": "Patch or block release",
+  "confidence": 3,
+  "cannot": false,
+  "comment": "",
+  "saved_at": "2026-10-22T12:31:18.408Z",
+  "rater": "u_RnR6OmySXPYV8djDBpndvg"
+ },
+ "K04": {
+  "code": "K04",
+  "acceptable": [
+   "Rollback to stable deployment"
+  ],
+  "best": "Rollback to stable deployment",
+  "confidence": 2,
+  "cannot": false,
+  "comment": "",
+  "saved_at": "2026-10-22T12:31:54.655Z",
+  "rater": "u_RnR6OmySXPYV8djDBpndvg"
+ },
+ "K05": {
+  "code": "K05",
+  "acceptable": [
+   "Mitigate and monitor"
+  ],
+  "best": "Mitigate and monitor",
+  "confidence": 2,
+  "cannot": false,
+  "comment": "",
+  "saved_at": "2026-10-22T12:32:20.947Z",
+  "rater": "u_RnR6OmySXPYV8djDBpndvg"
+ },
+ "K06": {
+  "code": "K06",
+  "acceptable": [
+   "Review scaling policy"
+  ],
+  "best": "Review scaling policy",
+  "confidence": 2,
+  "cannot": false,
+  "comment": "",
+  "saved_at": "2026-10-22T12:32:50.559Z",
+  "rater": "u_RnR6OmySXPYV8djDBpndvg"
+ },
+ "K07": {
+  "code": "K07",
+  "acceptable": [
+   "Rollback to stable deployment"
+  ],
+  "best": "Rollback to stable deployment",
+  "confidence": 3,
+  "cannot": false,
+  "comment": "",
+  "saved_at": "2026-10-22T12:33:14.362Z",
+  "rater": "u_RnR6OmySXPYV8djDBpndvg"
+ },
+ "K08": {
+  "code": "K08",
+  "acceptable": [
+   "Mitigate and monitor"
+  ],
+  "best": "Mitigate and monitor",
+  "confidence": 2,
+  "cannot": false,
+  "comment": "",
+  "saved_at": "2026-10-22T12:33:34.664Z",
+  "rater": "u_RnR6OmySXPYV8djDBpndvg"
+ },
+ "K09": {
+  "code": "K09",
+  "acceptable": [
+   "Review scaling policy"
+  ],
+  "best": "Review scaling policy",
+  "confidence": 3,
+  "cannot": false,
+  "comment": "",
+  "saved_at": "2026-10-22T12:34:02.408Z",
+  "rater": "u_RnR6OmySXPYV8djDBpndvg"
+ },
+ "K10": {
+  "code": "K10",
+  "acceptable": [
+   "Scale adjustment"
+  ],
+  "best": "Scale adjustment",
+  "confidence": 2,
+  "cannot": false,
+  "comment": "",
+  "saved_at": "2026-10-22T12:34:20.625Z",
+  "rater": "u_RnR6OmySXPYV8djDBpndvg"
+ },
+ "K11": {
+  "code": "K11",
+  "acceptable": [
+   "No action (observe)"
+  ],
+  "best": "No action (observe)",
+  "confidence": 3,
+  "cannot": false,
+  "comment": "",
+  "saved_at": "2026-10-22T12:34:41.609Z",
+  "rater": "u_RnR6OmySXPYV8djDBpndvg"
+ },
+ "K12": {
+  "code": "K12",
+  "acceptable": [
+   "Review scaling policy"
+  ],
+  "best": "Review scaling policy",
+  "confidence": 3,
+  "cannot": false,
+  "comment": "",
+  "saved_at": "2026-10-22T12:34:59.954Z",
+  "rater": "u_RnR6OmySXPYV8djDBpndvg"
+ },
+ "K13": {
+  "code": "K13",
+  "acceptable": [
+   "Mitigate and monitor"
+  ],
+  "best": "Mitigate and monitor",
+  "confidence": 2,
+  "cannot": false,
+  "comment": "",
+  "saved_at": "2026-10-22T12:35:18.750Z",
+  "rater": "u_RnR6OmySXPYV8djDBpndvg"
+ },
+ "K14": {
+  "code": "K14",
+  "acceptable": [
+   "Patch or block release"
+  ],
+  "best": "Patch or block release",
+  "confidence": 3,
+  "cannot": false,
+  "comment": "",
+  "saved_at": "2026-10-22T12:35:39.345Z",
+  "rater": "u_RnR6OmySXPYV8djDBpndvg"
+ },
+ "K15": {
+  "code": "K15",
+  "acceptable": [
+   "Rollback to stable deployment"
+  ],
+  "best": "Rollback to stable deployment",
+  "confidence": 3,
+  "cannot": false,
+  "comment": "",
+  "saved_at": "2026-10-22T12:35:56.213Z",
+  "rater": "u_RnR6OmySXPYV8djDBpndvg"
+ },
+ "K16": {
+  "code": "K16",
+  "acceptable": [
+   "Patch or block release"
+  ],
+  "best": "Patch or block release",
+  "confidence": 3,
+  "cannot": false,
+  "comment": "",
+  "saved_at": "2026-10-22T12:36:18.458Z",
+  "rater": "u_RnR6OmySXPYV8djDBpndvg"
+ },
+ "K17": {
+  "code": "K17",
+  "acceptable": [
+   "Rollback to stable deployment"
+  ],
+  "best": "Rollback to stable deployment",
+  "confidence": 2,
+  "cannot": false,
+  "comment": "",
+  "saved_at": "2026-10-22T12:36:40.080Z",
+  "rater": "u_RnR6OmySXPYV8djDBpndvg"
+ },
+ "K18": {
+  "code": "K18",
+  "acceptable": [
+   "No action (observe)"
+  ],
+  "best": "No action (observe)",
+  "confidence": 3,
+  "cannot": false,
+  "comment": "",
+  "saved_at": "2026-10-22T12:36:57.803Z",
+  "rater": "u_RnR6OmySXPYV8djDBpndvg"
+ },
+ "K19": {
+  "code": "K19",
+  "acceptable": [
+   "Rollback to stable deployment"
+  ],
+  "best": "Rollback to stable deployment",
+  "confidence": 3,
+  "cannot": false,
+  "comment": "",
+  "saved_at": "2026-10-22T12:37:25.396Z",
+  "rater": "u_RnR6OmySXPYV8djDBpndvg"
+ },
+ "K20": {
+  "code": "K20",
+  "acceptable": [
+   "Block release and fix pipeline"
+  ],
+  "best": "Block release and fix pipeline",
+  "confidence": 3,
+  "cannot": false,
+  "comment": "",
+  "saved_at": "2026-10-22T12:37:54.383Z",
+  "rater": "u_RnR6OmySXPYV8djDBpndvg"
+ },
+ "K21": {
+  "code": "K21",
+  "acceptable": [
+   "Mitigate and monitor"
+  ],
+  "best": "Mitigate and monitor",
+  "confidence": 2,
+  "cannot": false,
+  "comment": "",
+  "saved_at": "2026-10-22T12:38:13.965Z",
+  "rater": "u_RnR6OmySXPYV8djDBpndvg"
+ },
+ "K22": {
+  "code": "K22",
+  "acceptable": [
+   "Patch or block release"
+  ],
+  "best": "Patch or block release",
+  "confidence": 3,
+  "cannot": false,
+  "comment": "",
+  "saved_at": "2026-10-22T12:38:32.056Z",
+  "rater": "u_RnR6OmySXPYV8djDBpndvg"
+ },
+ "K23": {
+  "code": "K23",
+  "acceptable": [
+   "Mitigate and monitor"
+  ],
+  "best": "Mitigate and monitor",
+  "confidence": 2,
+  "cannot": false,
+  "comment": "",
+  "saved_at": "2026-10-22T12:38:54.600Z",
+  "rater": "u_RnR6OmySXPYV8djDBpndvg"
+ },
+ "K24": {
+  "code": "K24",
+  "acceptable": [
+   "Review scaling policy"
+  ],
+  "best": "Review scaling policy",
+  "confidence": 3,
+  "cannot": false,
+  "comment": "",
+  "saved_at": "2026-10-22T12:39:14.303Z",
+  "rater": "u_RnR6OmySXPYV8djDBpndvg"
+ },
+ "K25": {
+  "code": "K25",
+  "acceptable": [
+   "No action (observe)"
+  ],
+  "best": "No action (observe)",
+  "confidence": 3,
+  "cannot": false,
+  "comment": "",
+  "saved_at": "2026-10-22T12:39:33.443Z",
+  "rater": "u_RnR6OmySXPYV8djDBpndvg"
+ },
+ "K26": {
+  "code": "K26",
+  "acceptable": [
+   "Rollback to stable deployment"
+  ],
+  "best": "Rollback to stable deployment",
+  "confidence": 2,
+  "cannot": false,
+  "comment": "",
+  "saved_at": "2026-10-22T12:39:53.483Z",
+  "rater": "u_RnR6OmySXPYV8djDBpndvg"
+ },
+ "K27": {
+  "code": "K27",
+  "acceptable": [
+   "Review scaling policy"
+  ],
+  "best": "Review scaling policy",
+  "confidence": 3,
+  "cannot": false,
+  "comment": "",
+  "saved_at": "2026-10-22T12:40:21.218Z",
+  "rater": "u_RnR6OmySXPYV8djDBpndvg"
+ },
+ "K28": {
+  "code": "K28",
+  "acceptable": [
+   "Scale adjustment"
+  ],
+  "best": "Scale adjustment",
+  "confidence": 2,
+  "cannot": false,
+  "comment": "",
+  "saved_at": "2026-10-22T12:40:37.928Z",
+  "rater": "u_RnR6OmySXPYV8djDBpndvg"
+ },
+ "K29": {
+  "code": "K29",
+  "acceptable": [
+   "Mitigate and monitor"
+  ],
+  "best": "Mitigate and monitor",
+  "confidence": 2,
+  "cannot": false,
+  "comment": "",
+  "saved_at": "2026-10-22T12:40:53.259Z",
+  "rater": "u_RnR6OmySXPYV8djDBpndvg"
+ },
+ "K30": {
+  "code": "K30",
+  "acceptable": [
+   "Scale adjustment"
+  ],
+  "best": "Scale adjustment",
+  "confidence": 2,
+  "cannot": false,
+  "comment": "",
+  "saved_at": "2026-10-22T12:41:08.528Z",
+  "rater": "u_RnR6OmySXPYV8djDBpndvg"
+ },
+ "K31": {
+  "code": "K31",
+  "acceptable": [
+   "Patch or block release"
+  ],
+  "best": "Patch or block release",
+  "confidence": 3,
+  "cannot": false,
+  "comment": "",
+  "saved_at": "2026-10-22T12:41:33.091Z",
+  "rater": "u_RnR6OmySXPYV8djDBpndvg"
+ },
+ "K32": {
+  "code": "K32",
+  "acceptable": [
+   "Escalate for evidence/human review"
+  ],
+  "best": "Escalate for evidence/human review",
+  "confidence": 2,
+  "cannot": false,
+  "comment": "",
+  "saved_at": "2026-10-22T12:41:54.684Z",
+  "rater": "u_RnR6OmySXPYV8djDBpndvg"
+ },
+ "K33": {
+  "code": "K33",
+  "acceptable": [
+   "Rollback to stable deployment"
+  ],
+  "best": "Rollback to stable deployment",
+  "confidence": 2,
+  "cannot": false,
+  "comment": "",
+  "saved_at": "2026-10-22T12:42:15.144Z",
+  "rater": "u_RnR6OmySXPYV8djDBpndvg"
+ },
+ "K34": {
+  "code": "K34",
+  "acceptable": [
+   "Mitigate and monitor"
+  ],
+  "best": "Mitigate and monitor",
+  "confidence": 2,
+  "cannot": false,
+  "comment": "",
+  "saved_at": "2026-10-22T12:42:33.047Z",
+  "rater": "u_RnR6OmySXPYV8djDBpndvg"
+ },
+ "K35": {
+  "code": "K35",
+  "acceptable": [
+   "Rollback to stable deployment"
+  ],
+  "best": "Rollback to stable deployment",
+  "confidence": 2,
+  "cannot": false,
+  "comment": "",
+  "saved_at": "2026-10-22T12:43:10.638Z",
+  "rater": "u_RnR6OmySXPYV8djDBpndvg"
+ },
+ "K36": {
+  "code": "K36",
+  "acceptable": [
+   "Rollback to stable deployment"
+  ],
+  "best": "Rollback to stable deployment",
+  "confidence": 3,
+  "cannot": false,
+  "comment": "",
+  "saved_at": "2026-10-22T12:43:28.502Z",
+  "rater": "u_RnR6OmySXPYV8djDBpndvg"
+ },
+ "K37": {
+  "code": "K37",
+  "acceptable": [
+   "Rollback to stable deployment"
+  ],
+  "best": "Rollback to stable deployment",
+  "confidence": 2,
+  "cannot": false,
+  "comment": "",
+  "saved_at": "2026-10-22T12:43:49.517Z",
+  "rater": "u_RnR6OmySXPYV8djDBpndvg"
+ },
+ "K38": {
+  "code": "K38",
+  "acceptable": [
+   "Scale adjustment"
+  ],
+  "best": "Scale adjustment",
+  "confidence": 2,
+  "cannot": false,
+  "comment": "",
+  "saved_at": "2026-10-22T12:44:13.201Z",
+  "rater": "u_RnR6OmySXPYV8djDBpndvg"
+ },
+ "K39": {
+  "code": "K39",
+  "acceptable": [
+   "Patch or block release"
+  ],
+  "best": "Patch or block release",
+  "confidence": 3,
+  "cannot": false,
+  "comment": "",
+  "saved_at": "2026-10-22T12:44:35.261Z",
+  "rater": "u_RnR6OmySXPYV8djDBpndvg"
+ },
+ "K40": {
+  "code": "K40",
+  "acceptable": [
+   "Rollback to stable deployment"
+  ],
+  "best": "Rollback to stable deployment",
+  "confidence": 2,
+  "cannot": false,
+  "comment": "",
+  "saved_at": "2026-10-22T12:44:54.249Z",
+  "rater": "u_RnR6OmySXPYV8djDBpndvg"
+ },
+ "K41": {
+  "code": "K41",
+  "acceptable": [
+   "Mitigate and monitor"
+  ],
+  "best": "Mitigate and monitor",
+  "confidence": 2,
+  "cannot": false,
+  "comment": "",
+  "saved_at": "2026-10-22T12:45:16.892Z",
+  "rater": "u_RnR6OmySXPYV8djDBpndvg"
+ },
+ "K42": {
+  "code": "K42",
+  "acceptable": [
+   "Patch or block release"
+  ],
+  "best": "Patch or block release",
+  "confidence": 3,
+  "cannot": false,
+  "comment": "",
+  "saved_at": "2026-10-22T12:45:36.865Z",
+  "rater": "u_RnR6OmySXPYV8djDBpndvg"
+ },
+ "K43": {
+  "code": "K43",
+  "acceptable": [
+   "Mitigate and monitor"
+  ],
+  "best": "Mitigate and monitor",
+  "confidence": 2,
+  "cannot": false,
+  "comment": "",
+  "saved_at": "2026-10-22T12:45:54.212Z",
+  "rater": "u_RnR6OmySXPYV8djDBpndvg"
+ },
+ "K44": {
+  "code": "K44",
+  "acceptable": [
+   "Review scaling policy"
+  ],
+  "best": "Review scaling policy",
+  "confidence": 3,
+  "cannot": false,
+  "comment": "",
+  "saved_at": "2026-10-22T12:46:17.395Z",
+  "rater": "u_RnR6OmySXPYV8djDBpndvg"
+ },
+ "K45": {
+  "code": "K45",
+  "acceptable": [
+   "Mitigate and monitor"
+  ],
+  "best": "Mitigate and monitor",
+  "confidence": 2,
+  "cannot": false,
+  "comment": "",
+  "saved_at": "2026-10-22T12:46:38.800Z",
+  "rater": "u_RnR6OmySXPYV8djDBpndvg"
+ },
+ "K46": {
+  "code": "K46",
+  "acceptable": [
+   "Patch or block release"
+  ],
+  "best": "Patch or block release",
+  "confidence": 3,
+  "cannot": false,
+  "comment": "",
+  "saved_at": "2026-10-22T12:47:02.545Z",
+  "rater": "u_RnR6OmySXPYV8djDBpndvg"
+ },
+ "K47": {
+  "code": "K47",
+  "acceptable": [
+   "Scale adjustment"
+  ],
+  "best": "Scale adjustment",
+  "confidence": 2,
+  "cannot": false,
+  "comment": "",
+  "saved_at": "2026-10-22T12:47:19.450Z",
+  "rater": "u_RnR6OmySXPYV8djDBpndvg"
+ },
+ "K48": {
+  "code": "K48",
+  "acceptable": [
+   "Mitigate and monitor"
+  ],
+  "best": "Mitigate and monitor",
+  "confidence": 2,
+  "cannot": false,
+  "comment": "",
+  "saved_at": "2026-10-22T12:47:38.838Z",
+  "rater": "u_RnR6OmySXPYV8djDBpndvg"
+ },
+ "K49": {
+  "code": "K49",
+  "acceptable": [
+   "No action (observe)"
+  ],
+  "best": "No action (observe)",
+  "confidence": 3,
+  "cannot": false,
+  "comment": "",
+  "saved_at": "2026-10-22T12:47:58.254Z",
+  "rater": "u_RnR6OmySXPYV8djDBpndvg"
+ },
+ "K50": {
+  "code": "K50",
+  "acceptable": [
+   "Scale adjustment"
+  ],
+  "best": "Scale adjustment",
+  "confidence": 2,
+  "cannot": false,
+  "comment": "",
+  "saved_at": "2026-10-22T12:48:15.676Z",
+  "rater": "u_RnR6OmySXPYV8djDBpndvg"
+ },
+ "K51": {
+  "code": "K51",
+  "acceptable": [
+   "Scale adjustment"
+  ],
+  "best": "Scale adjustment",
+  "confidence": 2,
+  "cannot": false,
+  "comment": "",
+  "saved_at": "2026-10-22T12:48:34.688Z",
+  "rater": "u_RnR6OmySXPYV8djDBpndvg"
+ },
+ "K52": {
+  "code": "K52",
+  "acceptable": [
+   "Patch or block release"
+  ],
+  "best": "Patch or block release",
+  "confidence": 3,
+  "cannot": false,
+  "comment": "",
+  "saved_at": "2026-10-22T12:48:53.400Z",
+  "rater": "u_RnR6OmySXPYV8djDBpndvg"
+ },
+ "K53": {
+  "code": "K53",
+  "acceptable": [
+   "Rollback to stable deployment"
+  ],
+  "best": "Rollback to stable deployment",
+  "confidence": 2,
+  "cannot": false,
+  "comment": "",
+  "saved_at": "2026-10-22T12:49:10.688Z",
+  "rater": "u_RnR6OmySXPYV8djDBpndvg"
+ },
+ "K54": {
+  "code": "K54",
+  "acceptable": [
+   "Patch or block release"
+  ],
+  "best": "Patch or block release",
+  "confidence": 3,
+  "cannot": false,
+  "comment": "",
+  "saved_at": "2026-10-22T12:49:30.136Z",
+  "rater": "u_RnR6OmySXPYV8djDBpndvg"
+ },
+ "K55": {
+  "code": "K55",
+  "acceptable": [
+   "Review scaling policy"
+  ],
+  "best": "Review scaling policy",
+  "confidence": 3,
+  "cannot": false,
+  "comment": "",
+  "saved_at": "2026-10-22T12:49:54.121Z",
+  "rater": "u_RnR6OmySXPYV8djDBpndvg"
+ },
+ "K56": {
+  "code": "K56",
+  "acceptable": [
+   "No action (observe)"
+  ],
+  "best": "No action (observe)",
+  "confidence": 3,
+  "cannot": false,
+  "comment": "",
+  "saved_at": "2026-10-22T12:50:16.703Z",
+  "rater": "u_RnR6OmySXPYV8djDBpndvg"
+ },
+ "K57": {
+  "code": "K57",
+  "acceptable": [
+   "Patch or block release"
+  ],
+  "best": "Patch or block release",
+  "confidence": 3,
+  "cannot": false,
+  "comment": "",
+  "saved_at": "2026-10-22T12:50:35.791Z",
+  "rater": "u_RnR6OmySXPYV8djDBpndvg"
+ },
+ "K58": {
+  "code": "K58",
+  "acceptable": [
+   "Mitigate and monitor"
+  ],
+  "best": "Mitigate and monitor",
+  "confidence": 2,
+  "cannot": false,
+  "comment": "",
+  "saved_at": "2026-10-22T12:50:53.813Z",
+  "rater": "u_RnR6OmySXPYV8djDBpndvg"
+ },
+ "K59": {
+  "code": "K59",
+  "acceptable": [
+   "Block release and fix pipeline"
+  ],
+  "best": "Block release and fix pipeline",
+  "confidence": 3,
+  "cannot": false,
+  "comment": "",
+  "saved_at": "2026-10-22T12:51:17.070Z",
+  "rater": "u_RnR6OmySXPYV8djDBpndvg"
+ },
+ "K60": {
+  "code": "K60",
+  "acceptable": [
+   "Patch or block release"
+  ],
+  "best": "Patch or block release",
+  "confidence": 3,
+  "cannot": false,
+  "comment": "",
+  "saved_at": "2026-10-22T12:51:34.208Z",
+  "rater": "u_RnR6OmySXPYV8djDBpndvg"
+ },
+ "K61": {
+  "code": "K61",
+  "acceptable": [
+   "Mitigate and monitor"
+  ],
+  "best": "Mitigate and monitor",
+  "confidence": 2,
+  "cannot": false,
+  "comment": "",
+  "saved_at": "2026-10-22T12:51:49.778Z",
+  "rater": "u_RnR6OmySXPYV8djDBpndvg"
+ },
+ "K62": {
+  "code": "K62",
+  "acceptable": [
+   "Scale adjustment"
+  ],
+  "best": "Scale adjustment",
+  "confidence": 2,
+  "cannot": false,
+  "comment": "",
+  "saved_at": "2026-10-22T12:52:11.791Z",
+  "rater": "u_RnR6OmySXPYV8djDBpndvg"
+ },
+ "K63": {
+  "code": "K63",
+  "acceptable": [
+   "Scale adjustment"
+  ],
+  "best": "Scale adjustment",
+  "confidence": 2,
+  "cannot": false,
+  "comment": "",
+  "saved_at": "2026-10-22T12:52:29.280Z",
+  "rater": "u_RnR6OmySXPYV8djDBpndvg"
+ },
+ "K64": {
+  "code": "K64",
+  "acceptable": [
+   "No action (observe)"
+  ],
+  "best": "No action (observe)",
+  "confidence": 2,
+  "cannot": false,
+  "comment": "",
+  "saved_at": "2026-10-22T12:53:54.273Z",
+  "rater": "u_RnR6OmySXPYV8djDBpndvg"
+ },
+ "K65": {
+  "code": "K65",
+  "acceptable": [
+   "Scale adjustment"
+  ],
+  "best": "Scale adjustment",
+  "confidence": 2,
+  "cannot": false,
+  "comment": "",
+  "saved_at": "2026-10-22T12:54:18.781Z",
+  "rater": "u_RnR6OmySXPYV8djDBpndvg"
+ },
+ "K66": {
+  "code": "K66",
+  "acceptable": [
+   "No action (observe)"
+  ],
+  "best": "No action (observe)",
+  "confidence": 3,
+  "cannot": false,
+  "comment": "",
+  "saved_at": "2026-10-22T12:54:39.505Z",
+  "rater": "u_RnR6OmySXPYV8djDBpndvg"
+ },
+ "K67": {
+  "code": "K67",
+  "acceptable": [
+   "Mitigate and monitor"
+  ],
+  "best": "Mitigate and monitor",
+  "confidence": 2,
+  "cannot": false,
+  "comment": "",
+  "saved_at": "2026-10-22T12:55:01.576Z",
+  "rater": "u_RnR6OmySXPYV8djDBpndvg"
+ },
+ "K68": {
+  "code": "K68",
+  "acceptable": [
+   "Scale adjustment"
+  ],
+  "best": "Scale adjustment",
+  "confidence": 2,
+  "cannot": false,
+  "comment": "",
+  "saved_at": "2026-10-22T12:55:25.231Z",
+  "rater": "u_RnR6OmySXPYV8djDBpndvg"
+ },
+ "K69": {
+  "code": "K69",
+  "acceptable": [
+   "Scale adjustment"
+  ],
+  "best": "Scale adjustment",
+  "confidence": 2,
+  "cannot": false,
+  "comment": "",
+  "saved_at": "2026-10-22T12:55:41.777Z",
+  "rater": "u_RnR6OmySXPYV8djDBpndvg"
+ },
+ "K70": {
+  "code": "K70",
+  "acceptable": [
+   "Patch or block release"
+  ],
+  "best": "Patch or block release",
+  "confidence": 3,
+  "cannot": false,
+  "comment": "",
+  "saved_at": "2026-10-22T12:56:04.396Z",
+  "rater": "u_RnR6OmySXPYV8djDBpndvg"
+ },
+ "K71": {
+  "code": "K71",
+  "acceptable": [
+   "Patch or block release"
+  ],
+  "best": "Patch or block release",
+  "confidence": 3,
+  "cannot": false,
+  "comment": "",
+  "saved_at": "2026-10-22T12:56:24.774Z",
+  "rater": "u_RnR6OmySXPYV8djDBpndvg"
+ },
+ "K72": {
+  "code": "K72",
+  "acceptable": [
+   "Rollback to stable deployment"
+  ],
+  "best": "Rollback to stable deployment",
+  "confidence": 3,
+  "cannot": false,
+  "comment": "",
+  "saved_at": "2026-10-22T12:56:46.449Z",
+  "rater": "u_RnR6OmySXPYV8djDBpndvg"
+ },
+ "K73": {
+  "code": "K73",
+  "acceptable": [
+   "Scale adjustment"
+  ],
+  "best": "Scale adjustment",
+  "confidence": 2,
+  "cannot": false,
+  "comment": "",
+  "saved_at": "2026-10-22T12:57:03.729Z",
+  "rater": "u_RnR6OmySXPYV8djDBpndvg"
+ },
+ "K74": {
+  "code": "K74",
+  "acceptable": [
+   "Patch or block release"
+  ],
+  "best": "Patch or block release",
+  "confidence": 3,
+  "cannot": false,
+  "comment": "",
+  "saved_at": "2026-10-22T12:57:34.359Z",
+  "rater": "u_RnR6OmySXPYV8djDBpndvg"
+ },
+ "K75": {
+  "code": "K75",
+  "acceptable": [
+   "Patch or block release"
+  ],
+  "best": "Patch or block release",
+  "confidence": 3,
+  "cannot": false,
+  "comment": "",
+  "saved_at": "2026-10-22T12:58:26.132Z",
+  "rater": "u_RnR6OmySXPYV8djDBpndvg"
+ },
+ "K76": {
+  "code": "K76",
+  "acceptable": [
+   "Rollback to stable deployment"
+  ],
+  "best": "Rollback to stable deployment",
+  "confidence": 3,
+  "cannot": false,
+  "comment": "",
+  "saved_at": "2026-10-22T12:58:46.674Z",
+  "rater": "u_RnR6OmySXPYV8djDBpndvg"
+ },
+ "K77": {
+  "code": "K77",
+  "acceptable": [
+   "Mitigate and monitor"
+  ],
+  "best": "Mitigate and monitor",
+  "confidence": 2,
+  "cannot": false,
+  "comment": "",
+  "saved_at": "2026-10-22T12:59:14.904Z",
+  "rater": "u_RnR6OmySXPYV8djDBpndvg"
+ },
+ "K78": {
+  "code": "K78",
+  "acceptable": [
+   "No action (observe)"
+  ],
+  "best": "No action (observe)",
+  "confidence": 3,
+  "cannot": false,
+  "comment": "",
+  "saved_at": "2026-10-22T12:59:30.782Z",
+  "rater": "u_RnR6OmySXPYV8djDBpndvg"
+ },
+ "K79": {
+  "code": "K79",
+  "acceptable": [
+   "Scale adjustment"
+  ],
+  "best": "Scale adjustment",
+  "confidence": 2,
+  "cannot": false,
+  "comment": "",
+  "saved_at": "2026-10-22T12:59:47.246Z",
+  "rater": "u_RnR6OmySXPYV8djDBpndvg"
+ },
+ "K80": {
+  "code": "K80",
+  "acceptable": [
+   "Patch or block release"
+  ],
+  "best": "Patch or block release",
+  "confidence": 3,
+  "cannot": false,
+  "comment": "",
+  "saved_at": "2026-10-22T13:00:05.282Z",
+  "rater": "u_RnR6OmySXPYV8djDBpndvg"
+ },
+ "K81": {
+  "code": "K81",
+  "acceptable": [
+   "Mitigate and monitor"
+  ],
+  "best": "Mitigate and monitor",
+  "confidence": 2,
+  "cannot": false,
+  "comment": "",
+  "saved_at": "2026-10-22T13:00:32.282Z",
+  "rater": "u_RnR6OmySXPYV8djDBpndvg"
+ },
+ "K82": {
+  "code": "K82",
+  "acceptable": [
+   "Scale adjustment"
+  ],
+  "best": "Scale adjustment",
+  "confidence": 2,
+  "cannot": false,
+  "comment": "",
+  "saved_at": "2026-10-22T13:00:52.299Z",
+  "rater": "u_RnR6OmySXPYV8djDBpndvg"
+ },
+ "K83": {
+  "code": "K83",
+  "acceptable": [
+   "Block release and fix pipeline"
+  ],
+  "best": "Block release and fix pipeline",
+  "confidence": 3,
+  "cannot": false,
+  "comment": "",
+  "saved_at": "2026-10-22T13:01:29.380Z",
+  "rater": "u_RnR6OmySXPYV8djDBpndvg"
+ },
+ "K84": {
+  "code": "K84",
+  "acceptable": [
+   "Patch or block release"
+  ],
+  "best": "Patch or block release",
+  "confidence": 3,
+  "cannot": false,
+  "comment": "",
+  "saved_at": "2026-10-22T13:01:48.872Z",
+  "rater": "u_RnR6OmySXPYV8djDBpndvg"
+ },
+ "K85": {
+  "code": "K85",
+  "acceptable": [
+   "Mitigate and monitor"
+  ],
+  "best": "Mitigate and monitor",
+  "confidence": 2,
+  "cannot": false,
+  "comment": "",
+  "saved_at": "2026-10-22T13:02:11.830Z",
+  "rater": "u_RnR6OmySXPYV8djDBpndvg"
+ },
+ "K86": {
+  "code": "K86",
+  "acceptable": [
+   "Mitigate and monitor"
+  ],
+  "best": "Mitigate and monitor",
+  "confidence": 2,
+  "cannot": false,
+  "comment": "",
+  "saved_at": "2026-10-22T13:02:30.182Z",
+  "rater": "u_RnR6OmySXPYV8djDBpndvg"
+ },
+ "K87": {
+  "code": "K87",
+  "acceptable": [
+   "No action (observe)"
+  ],
+  "best": "No action (observe)",
+  "confidence": 3,
+  "cannot": false,
+  "comment": "",
+  "saved_at": "2026-10-22T13:02:45.894Z",
+  "rater": "u_RnR6OmySXPYV8djDBpndvg"
+ },
+ "K88": {
+  "code": "K88",
+  "acceptable": [
+   "Rollback to stable deployment"
+  ],
+  "best": "Rollback to stable deployment",
+  "confidence": 3,
+  "cannot": false,
+  "comment": "",
+  "saved_at": "2026-10-22T13:03:09.962Z",
+  "rater": "u_RnR6OmySXPYV8djDBpndvg"
+ },
+ "K89": {
+  "code": "K89",
+  "acceptable": [
+   "Patch or block release"
+  ],
+  "best": "Patch or block release",
+  "confidence": 3,
+  "cannot": false,
+  "comment": "",
+  "saved_at": "2026-10-22T13:03:33.721Z",
+  "rater": "u_RnR6OmySXPYV8djDBpndvg"
+ },
+ "K90": {
+  "code": "K90",
+  "acceptable": [
+   "Patch or block release"
+  ],
+  "best": "Patch or block release",
+  "confidence": 3,
+  "cannot": false,
+  "comment": "",
+  "saved_at": "2026-10-22T13:03:54.056Z",
+  "rater": "u_RnR6OmySXPYV8djDBpndvg"
+ },
+ "K91": {
+  "code": "K91",
+  "acceptable": [
+   "Mitigate and monitor"
+  ],
+  "best": "Mitigate and monitor",
+  "confidence": 2,
+  "cannot": false,
+  "comment": "",
+  "saved_at": "2026-10-22T13:04:12.545Z",
+  "rater": "u_RnR6OmySXPYV8djDBpndvg"
+ },
+ "K92": {
+  "code": "K92",
+  "acceptable": [
+   "Rollback to stable deployment"
+  ],
+  "best": "Rollback to stable deployment",
+  "confidence": 3,
+  "cannot": false,
+  "comment": "",
+  "saved_at": "2026-10-22T13:04:29.081Z",
+  "rater": "u_RnR6OmySXPYV8djDBpndvg"
+ },
+ "K93": {
+  "code": "K93",
+  "acceptable": [
+   "Mitigate and monitor"
+  ],
+  "best": "Mitigate and monitor",
+  "confidence": 2,
+  "cannot": false,
+  "comment": "",
+  "saved_at": "2026-10-22T13:04:44.149Z",
+  "rater": "u_RnR6OmySXPYV8djDBpndvg"
+ },
+ "K94": {
+  "code": "K94",
+  "acceptable": [
+   "Patch or block release"
+  ],
+  "best": "Patch or block release",
+  "confidence": 3,
+  "cannot": false,
+  "comment": "",
+  "saved_at": "2026-10-22T13:05:04.595Z",
+  "rater": "u_RnR6OmySXPYV8djDBpndvg"
+ },
+ "K95": {
+  "code": "K95",
+  "acceptable": [
+   "Patch or block release"
+  ],
+  "best": "Patch or block release",
+  "confidence": 3,
+  "cannot": false,
+  "comment": "",
+  "saved_at": "2026-10-22T13:05:23.315Z",
+  "rater": "u_RnR6OmySXPYV8djDBpndvg"
+ },
+ "K96": {
+  "code": "K96",
+  "acceptable": [
+   "Mitigate and monitor"
+  ],
+  "best": "Mitigate and monitor",
+  "confidence": 2,
+  "cannot": false,
+  "comment": "",
+  "saved_at": "2026-10-22T13:05:45.973Z",
+  "rater": "u_RnR6OmySXPYV8djDBpndvg"
+ }
+}
