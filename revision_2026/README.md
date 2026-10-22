@@ -15,6 +15,7 @@ as inputs are copied into `paper_results/frozen_artifacts/` from the GitHub Acti
 | `run_llm_arms.py` — repeated Hybrid/Agentic-only runs, always-on + deterministic authority, Agentic-only with reasoning and governance rules, prompt rewordings (plan: `LLM_RUNS_PLAN.md`) | R2-1, R2-3, R4-1, R4-2, R4-3, R5-1, R6-2 | 1,821 | `llm_arms/20261022T064831Z/` (GitHub Actions run 39736227167) |
 | `external_validation/rcaeval_governance/` — RCAEval with healthy controls and a threshold baseline (pre-registered) | R4-5, R5-4, R6-5 | 0 | `external_validation/rcaeval_governance/results/` |
 | `external_validation/explanations/` — PM-interface faithfulness re-test, E1 (pre-registered) | R2-4, R2-6, R4-6, R6-6 | ~2,300 | `external_validation/explanations/results/20261021T125701Z/` |
+| `external_validation/aaf_v3/rcaeval_v3.py` — change-aware materiality adapter (AAF-CA in the manuscript), frozen on RE2, held-out RE1/RE3 (plan: `PLAN.md`, results: `RESULTS.md` H1/H2) | R4-5, R5-4, R6-5 | 0 | `external_validation/aaf_v3/results/` (GitHub Actions run 39600613441) |
 
 Reproduce (repository root, Python 3.11, `pip install -r requirements.txt`):
 
@@ -27,5 +28,6 @@ python revision_2026/boundary_robustness.py
 OPENAI_API_KEY=... python revision_2026/run_llm_arms.py      # model gpt-5.6-luna; budget caps in the script
 ```
 
-Other folders under `external_validation/` (public postmortems, AAF v3, text-evidence pilot) are exploratory work
-from the same revision period; they are not cited in the revised manuscript.
+Other work under `external_validation/` from the same revision period is exploratory and not cited in the revised
+manuscript: the public-postmortem study, the text side of AAF v3 (`aaf_v3/text_v3.py`, H3), the explanation prompt
+variants (v2, v3) and the text-evidence pilot.
