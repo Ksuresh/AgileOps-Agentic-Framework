@@ -619,36 +619,36 @@
     "tool_calls_per_case": 0.5
    },
    "HY": {
-    "correct": 0,
+    "correct": 17,
     "wilson": [
-     0.0,
-     13.8
+     50.8,
+     85.1
     ],
-    "tool_calls_per_case": 0.0
+    "tool_calls_per_case": 0.38
    },
    "B3": {
-    "correct": 0,
+    "correct": 17,
     "wilson": [
-     0.0,
-     13.8
+     50.8,
+     85.1
     ],
     "tool_calls_per_case": 0.0
    },
    "AO": {
-    "correct": 0,
+    "correct": 11,
     "wilson": [
-     0.0,
-     13.8
+     27.9,
+     64.9
     ],
-    "tool_calls_per_case": 0.0
+    "tool_calls_per_case": 0.33
    },
    "B6": {
-    "correct": 0,
+    "correct": 19,
     "wilson": [
-     0.0,
-     13.8
+     59.5,
+     90.8
     ],
-    "tool_calls_per_case": 0.0
+    "tool_calls_per_case": 0.38
    }
   },
   "unmarked_decisive": {
@@ -686,36 +686,36 @@
     "tool_calls_per_case": 3.05
    },
    "HY": {
-    "correct": 0,
+    "correct": 2,
     "wilson": [
-     -0.0,
-     16.1
+     2.8,
+     30.1
     ],
-    "tool_calls_per_case": 0.0
+    "tool_calls_per_case": 1.08
    },
    "B3": {
-    "correct": 0,
+    "correct": 6,
     "wilson": [
-     -0.0,
-     16.1
+     14.5,
+     51.9
     ],
     "tool_calls_per_case": 0.0
    },
    "AO": {
-    "correct": 0,
+    "correct": 2,
     "wilson": [
-     -0.0,
-     16.1
+     2.8,
+     30.1
     ],
-    "tool_calls_per_case": 0.0
+    "tool_calls_per_case": 1.7
    },
    "B6": {
-    "correct": 0,
+    "correct": 12,
     "wilson": [
-     -0.0,
-     16.1
+     38.7,
+     78.1
     ],
-    "tool_calls_per_case": 0.0
+    "tool_calls_per_case": 1.75
    }
   },
   "unmarked_controls": {
@@ -753,36 +753,36 @@
     "tool_calls_per_case": 3.0
    },
    "HY": {
-    "correct": 0,
+    "correct": 4,
     "wilson": [
-     0.0,
-     49.0
+     51.0,
+     100.0
     ],
-    "tool_calls_per_case": 0.0
+    "tool_calls_per_case": 0.83
    },
    "B3": {
-    "correct": 0,
+    "correct": 4,
     "wilson": [
-     0.0,
-     49.0
+     51.0,
+     100.0
     ],
     "tool_calls_per_case": 0.0
    },
    "AO": {
-    "correct": 0,
+    "correct": 2,
     "wilson": [
-     0.0,
-     49.0
+     15.0,
+     85.0
     ],
-    "tool_calls_per_case": 0.0
+    "tool_calls_per_case": 1.75
    },
    "B6": {
-    "correct": 0,
+    "correct": 4,
     "wilson": [
-     0.0,
-     49.0
+     51.0,
+     100.0
     ],
-    "tool_calls_per_case": 0.0
+    "tool_calls_per_case": 1.75
    }
   },
   "unmarked_absent": {
@@ -820,36 +820,36 @@
     "tool_calls_per_case": 3.0
    },
    "HY": {
-    "correct": 0,
+    "correct": 2,
     "wilson": [
-     0.0,
-     35.4
+     8.2,
+     64.1
     ],
-    "tool_calls_per_case": 0.0
+    "tool_calls_per_case": 1.33
    },
    "B3": {
-    "correct": 0,
+    "correct": 3,
     "wilson": [
-     0.0,
-     35.4
+     15.8,
+     75.0
     ],
     "tool_calls_per_case": 0.0
    },
    "AO": {
-    "correct": 0,
+    "correct": 1,
     "wilson": [
-     0.0,
-     35.4
+     2.6,
+     51.3
     ],
-    "tool_calls_per_case": 0.0
+    "tool_calls_per_case": 1.86
    },
    "B6": {
-    "correct": 0,
+    "correct": 4,
     "wilson": [
-     0.0,
-     35.4
+     25.0,
+     84.2
     ],
-    "tool_calls_per_case": 0.0
+    "tool_calls_per_case": 1.86
    }
   },
   "unmarked_stale": {
@@ -892,31 +892,31 @@
      0.0,
      35.4
     ],
-    "tool_calls_per_case": 0.0
+    "tool_calls_per_case": 0.48
    },
    "B3": {
-    "correct": 0,
+    "correct": 3,
     "wilson": [
-     0.0,
-     35.4
+     15.8,
+     75.0
     ],
     "tool_calls_per_case": 0.0
    },
    "AO": {
-    "correct": 0,
+    "correct": 1,
     "wilson": [
-     0.0,
-     35.4
+     2.6,
+     51.3
     ],
-    "tool_calls_per_case": 0.0
+    "tool_calls_per_case": 1.43
    },
    "B6": {
-    "correct": 0,
+    "correct": 6,
     "wilson": [
-     0.0,
-     35.4
+     48.7,
+     97.4
     ],
-    "tool_calls_per_case": 0.0
+    "tool_calls_per_case": 1.57
    }
   },
   "unmarked_cross_domain": {
@@ -959,7 +959,7 @@
      0.0,
      39.0
     ],
-    "tool_calls_per_case": 0.0
+    "tool_calls_per_case": 1.5
    },
    "B3": {
     "correct": 0,
@@ -975,97 +975,106 @@
      0.0,
      39.0
     ],
-    "tool_calls_per_case": 0.0
+    "tool_calls_per_case": 1.83
    },
    "B6": {
-    "correct": 0,
+    "correct": 2,
     "wilson": [
-     0.0,
-     39.0
+     9.7,
+     70.0
     ],
-    "tool_calls_per_case": 0.0
+    "tool_calls_per_case": 1.83
    }
   }
  },
  "HY_trigger_rate": {
-  "standard": "0/24",
-  "unmarked_decisive": "0/20",
-  "unmarked_controls": "0/4",
-  "unmarked_absent": "0/7",
-  "unmarked_stale": "0/7",
-  "unmarked_cross_domain": "0/6"
+  "standard": "15/24",
+  "unmarked_decisive": "17/20",
+  "unmarked_controls": "2/4",
+  "unmarked_absent": "6/7",
+  "unmarked_stale": "5/7",
+  "unmarked_cross_domain": "6/6"
  },
- "HY_stability_new": 0,
+ "HY_stability_new": 48,
  "llm_errors": {},
  "H3": {
   "HY_vs_AF-MS": {
-   "a_only": 0,
-   "b_only": 6,
-   "p_exact": 0.03125,
-   "p_holm": 0.0625
+   "a_only": 1,
+   "b_only": 5,
+   "p_exact": 0.21875,
+   "p_holm": 0.4375
   },
   "HY_vs_AF-M": {
-   "a_only": 0,
-   "b_only": 1,
+   "a_only": 1,
+   "b_only": 0,
    "p_exact": 1.0,
    "p_holm": 1.0
   },
   "HY_vs_FETCH-ALL": {
    "a_only": 0,
-   "b_only": 15,
-   "p_exact": 6.103515625e-05
+   "b_only": 13,
+   "p_exact": 0.000244140625
   },
   "B6_vs_AF-MS": {
-   "a_only": 0,
-   "b_only": 6,
-   "p_exact": 0.03125
+   "a_only": 7,
+   "b_only": 1,
+   "p_exact": 0.0703125
   },
   "AO_vs_AF-MS": {
-   "a_only": 0,
-   "b_only": 6,
-   "p_exact": 0.03125
+   "a_only": 1,
+   "b_only": 5,
+   "p_exact": 0.21875
   }
  },
  "H4_new_standard": {
   "HY_vs_DET": {
    "a_only": 0,
-   "b_only": 18,
-   "p_exact": 7.62939453125e-06
+   "b_only": 1,
+   "p_exact": 1.0
   },
   "HY_vs_B6": {
-   "a_only": 0,
-   "b_only": 0,
-   "p_exact": 1.0
+   "a_only": 1,
+   "b_only": 3,
+   "p_exact": 0.625
   },
   "HY_vs_AO": {
-   "a_only": 0,
-   "b_only": 0,
-   "p_exact": 1.0
+   "a_only": 8,
+   "b_only": 2,
+   "p_exact": 0.109375
   }
  },
  "H4_pooled_standard": {
   "n": 72,
   "DET": 51,
-  "HY": 31,
-  "B6": 37,
-  "AO": 20,
+  "HY": 48,
+  "B6": 56,
+  "AO": 31,
   "HY_vs_DET": {
    "a_only": 0,
-   "b_only": 20,
-   "p_exact": 1.9073486328125e-06
+   "b_only": 3,
+   "p_exact": 0.25
   },
   "HY_vs_B6": {
-   "a_only": 0,
-   "b_only": 6,
-   "p_exact": 0.03125
+   "a_only": 1,
+   "b_only": 9,
+   "p_exact": 0.021484375
   },
   "HY_vs_AO": {
-   "a_only": 17,
-   "b_only": 6,
-   "p_exact": 0.03468966484069824
+   "a_only": 25,
+   "b_only": 8,
+   "p_exact": 0.004551384132355452
   }
  },
- "budget": null,
+ "budget": {
+  "calls": 905,
+  "tokens": 529160,
+  "stopped": null,
+  "caps": [
+   1500,
+   1200000
+  ],
+  "model": "gpt-5.6-luna"
+ },
  "per_case_new": {
   "NV-C01": {
    "DET": [
@@ -1080,10 +1089,20 @@
    "FETCH-ALL": [
     "No action (observe)"
    ],
-   "HY": null,
-   "B3": null,
-   "AO": null,
-   "B6": null,
+   "HY": [
+    "No action (observe)",
+    "No action (observe)",
+    "No action (observe)"
+   ],
+   "B3": [
+    "No action (observe)"
+   ],
+   "AO": [
+    "No action (observe)"
+   ],
+   "B6": [
+    "No action (observe)"
+   ],
    "expert": {
     "set": [
      "No action (observe)"
@@ -1108,10 +1127,20 @@
    "FETCH-ALL": [
     "Mitigate and monitor"
    ],
-   "HY": null,
-   "B3": null,
-   "AO": null,
-   "B6": null,
+   "HY": [
+    "Mitigate and monitor",
+    "Mitigate and monitor",
+    "Mitigate and monitor"
+   ],
+   "B3": [
+    "Mitigate and monitor"
+   ],
+   "AO": [
+    "Mitigate and monitor"
+   ],
+   "B6": [
+    "Mitigate and monitor"
+   ],
    "expert": {
     "set": [
      "Rollback to stable deployment"
@@ -1136,10 +1165,20 @@
    "FETCH-ALL": [
     "Patch or block release"
    ],
-   "HY": null,
-   "B3": null,
-   "AO": null,
-   "B6": null,
+   "HY": [
+    "Patch or block release",
+    "Patch or block release",
+    "Patch or block release"
+   ],
+   "B3": [
+    "Patch or block release"
+   ],
+   "AO": [
+    "Patch or block release"
+   ],
+   "B6": [
+    "Patch or block release"
+   ],
    "expert": {
     "set": [
      "Patch or block release"
@@ -1164,10 +1203,20 @@
    "FETCH-ALL": [
     "Block release and fix pipeline"
    ],
-   "HY": null,
-   "B3": null,
-   "AO": null,
-   "B6": null,
+   "HY": [
+    "Block release and fix pipeline",
+    "Block release and fix pipeline",
+    "Block release and fix pipeline"
+   ],
+   "B3": [
+    "Block release and fix pipeline"
+   ],
+   "AO": [
+    "Block release and fix pipeline"
+   ],
+   "B6": [
+    "Block release and fix pipeline"
+   ],
    "expert": {
     "set": [
      "Block release and fix pipeline"
@@ -1192,10 +1241,20 @@
    "FETCH-ALL": [
     "Rollback to stable deployment"
    ],
-   "HY": null,
-   "B3": null,
-   "AO": null,
-   "B6": null,
+   "HY": [
+    "Rollback to stable deployment",
+    "Rollback to stable deployment",
+    "Rollback to stable deployment"
+   ],
+   "B3": [
+    "Rollback to stable deployment"
+   ],
+   "AO": [
+    "Mitigate and monitor"
+   ],
+   "B6": [
+    "Rollback to stable deployment"
+   ],
    "expert": {
     "set": [
      "Rollback to stable deployment"
@@ -1220,10 +1279,20 @@
    "FETCH-ALL": [
     "Scale adjustment"
    ],
-   "HY": null,
-   "B3": null,
-   "AO": null,
-   "B6": null,
+   "HY": [
+    "Scale adjustment",
+    "Scale adjustment",
+    "Scale adjustment"
+   ],
+   "B3": [
+    "Scale adjustment"
+   ],
+   "AO": [
+    "Review scaling policy"
+   ],
+   "B6": [
+    "Scale adjustment"
+   ],
    "expert": {
     "set": [
      "Review scaling policy"
@@ -1249,10 +1318,20 @@
    "FETCH-ALL": [
     "Mitigate and monitor"
    ],
-   "HY": null,
-   "B3": null,
-   "AO": null,
-   "B6": null,
+   "HY": [
+    "Mitigate and monitor",
+    "Mitigate and monitor",
+    "Mitigate and monitor"
+   ],
+   "B3": [
+    "Mitigate and monitor"
+   ],
+   "AO": [
+    "Escalate for evidence/human review"
+   ],
+   "B6": [
+    "Mitigate and monitor"
+   ],
    "expert": {
     "set": [
      "Mitigate and monitor"
@@ -1277,10 +1356,20 @@
    "FETCH-ALL": [
     "Review scaling policy"
    ],
-   "HY": null,
-   "B3": null,
-   "AO": null,
-   "B6": null,
+   "HY": [
+    "Review scaling policy",
+    "Review scaling policy",
+    "Review scaling policy"
+   ],
+   "B3": [
+    "Review scaling policy"
+   ],
+   "AO": [
+    "Review scaling policy"
+   ],
+   "B6": [
+    "Review scaling policy"
+   ],
    "expert": {
     "set": [
      "Review scaling policy"
@@ -1306,10 +1395,20 @@
    "FETCH-ALL": [
     "Mitigate and monitor"
    ],
-   "HY": null,
-   "B3": null,
-   "AO": null,
-   "B6": null,
+   "HY": [
+    "Mitigate and monitor",
+    "Mitigate and monitor",
+    "Mitigate and monitor"
+   ],
+   "B3": [
+    "Mitigate and monitor"
+   ],
+   "AO": [
+    "Mitigate and monitor"
+   ],
+   "B6": [
+    "Mitigate and monitor"
+   ],
    "expert": {
     "set": [
      "Mitigate and monitor"
@@ -1335,10 +1434,20 @@
    "FETCH-ALL": [
     "Scale adjustment"
    ],
-   "HY": null,
-   "B3": null,
-   "AO": null,
-   "B6": null,
+   "HY": [
+    "Scale adjustment",
+    "Scale adjustment",
+    "Scale adjustment"
+   ],
+   "B3": [
+    "Scale adjustment"
+   ],
+   "AO": [
+    "Mitigate and monitor"
+   ],
+   "B6": [
+    "Scale adjustment"
+   ],
    "expert": {
     "set": [
      "Scale adjustment"
@@ -1363,10 +1472,20 @@
    "FETCH-ALL": [
     "Patch or block release"
    ],
-   "HY": null,
-   "B3": null,
-   "AO": null,
-   "B6": null,
+   "HY": [
+    "Patch or block release",
+    "Patch or block release",
+    "Patch or block release"
+   ],
+   "B3": [
+    "Patch or block release"
+   ],
+   "AO": [
+    "Patch or block release"
+   ],
+   "B6": [
+    "Patch or block release"
+   ],
    "expert": {
     "set": [
      "Patch or block release"
@@ -1391,10 +1510,20 @@
    "FETCH-ALL": [
     "Mitigate and monitor"
    ],
-   "HY": null,
-   "B3": null,
-   "AO": null,
-   "B6": null,
+   "HY": [
+    "Mitigate and monitor",
+    "Mitigate and monitor",
+    "Mitigate and monitor"
+   ],
+   "B3": [
+    "Mitigate and monitor"
+   ],
+   "AO": [
+    "Mitigate and monitor"
+   ],
+   "B6": [
+    "Rollback to stable deployment"
+   ],
    "expert": {
     "set": [
      "Rollback to stable deployment"
@@ -1420,10 +1549,20 @@
    "FETCH-ALL": [
     "Mitigate and monitor"
    ],
-   "HY": null,
-   "B3": null,
-   "AO": null,
-   "B6": null,
+   "HY": [
+    "Mitigate and monitor",
+    "Mitigate and monitor",
+    "Mitigate and monitor"
+   ],
+   "B3": [
+    "Mitigate and monitor"
+   ],
+   "AO": [
+    "Mitigate and monitor"
+   ],
+   "B6": [
+    "Mitigate and monitor"
+   ],
    "expert": {
     "set": [
      "Mitigate and monitor"
@@ -1448,10 +1587,20 @@
    "FETCH-ALL": [
     "Rollback to stable deployment"
    ],
-   "HY": null,
-   "B3": null,
-   "AO": null,
-   "B6": null,
+   "HY": [
+    "Rollback to stable deployment",
+    "Rollback to stable deployment",
+    "Rollback to stable deployment"
+   ],
+   "B3": [
+    "Rollback to stable deployment"
+   ],
+   "AO": [
+    "Escalate for evidence/human review"
+   ],
+   "B6": [
+    "Mitigate and monitor"
+   ],
    "expert": {
     "set": [
      "Mitigate and monitor"
@@ -1476,10 +1625,20 @@
    "FETCH-ALL": [
     "Patch or block release"
    ],
-   "HY": null,
-   "B3": null,
-   "AO": null,
-   "B6": null,
+   "HY": [
+    "Patch or block release",
+    "Patch or block release",
+    "Patch or block release"
+   ],
+   "B3": [
+    "Patch or block release"
+   ],
+   "AO": [
+    "Block release and fix pipeline"
+   ],
+   "B6": [
+    "Patch or block release"
+   ],
    "expert": {
     "set": [
      "Patch or block release"
@@ -1504,10 +1663,20 @@
    "FETCH-ALL": [
     "Scale adjustment"
    ],
-   "HY": null,
-   "B3": null,
-   "AO": null,
-   "B6": null,
+   "HY": [
+    "Scale adjustment",
+    "Scale adjustment",
+    "Scale adjustment"
+   ],
+   "B3": [
+    "Scale adjustment"
+   ],
+   "AO": [
+    "Escalate for evidence/human review"
+   ],
+   "B6": [
+    "Scale adjustment"
+   ],
    "expert": {
     "set": [
      "Review scaling policy"
@@ -1533,10 +1702,20 @@
    "FETCH-ALL": [
     "Scale adjustment"
    ],
-   "HY": null,
-   "B3": null,
-   "AO": null,
-   "B6": null,
+   "HY": [
+    "Scale adjustment",
+    "Scale adjustment",
+    "Scale adjustment"
+   ],
+   "B3": [
+    "Scale adjustment"
+   ],
+   "AO": [
+    "Escalate for evidence/human review"
+   ],
+   "B6": [
+    "Scale adjustment"
+   ],
    "expert": {
     "set": [
      "Scale adjustment"
@@ -1561,10 +1740,20 @@
    "FETCH-ALL": [
     "Rollback to stable deployment"
    ],
-   "HY": null,
-   "B3": null,
-   "AO": null,
-   "B6": null,
+   "HY": [
+    "Rollback to stable deployment",
+    "Rollback to stable deployment",
+    "Rollback to stable deployment"
+   ],
+   "B3": [
+    "Rollback to stable deployment"
+   ],
+   "AO": [
+    "Block release and fix pipeline"
+   ],
+   "B6": [
+    "Rollback to stable deployment"
+   ],
    "expert": {
     "set": [
      "Rollback to stable deployment"
@@ -1589,10 +1778,20 @@
    "FETCH-ALL": [
     "Scale adjustment"
    ],
-   "HY": null,
-   "B3": null,
-   "AO": null,
-   "B6": null,
+   "HY": [
+    "Scale adjustment",
+    "Scale adjustment",
+    "Scale adjustment"
+   ],
+   "B3": [
+    "Scale adjustment"
+   ],
+   "AO": [
+    "Mitigate and monitor"
+   ],
+   "B6": [
+    "Scale adjustment"
+   ],
    "expert": {
     "set": [
      "Scale adjustment"
@@ -1617,10 +1816,20 @@
    "FETCH-ALL": [
     "Mitigate and monitor"
    ],
-   "HY": null,
-   "B3": null,
-   "AO": null,
-   "B6": null,
+   "HY": [
+    "Mitigate and monitor",
+    "Mitigate and monitor",
+    "Mitigate and monitor"
+   ],
+   "B3": [
+    "Mitigate and monitor"
+   ],
+   "AO": [
+    "Patch or block release"
+   ],
+   "B6": [
+    "Patch or block release"
+   ],
    "expert": {
     "set": [
      "Mitigate and monitor"
@@ -1645,10 +1854,20 @@
    "FETCH-ALL": [
     "Scale adjustment"
    ],
-   "HY": null,
-   "B3": null,
-   "AO": null,
-   "B6": null,
+   "HY": [
+    "Scale adjustment",
+    "Scale adjustment",
+    "Scale adjustment"
+   ],
+   "B3": [
+    "Scale adjustment"
+   ],
+   "AO": [
+    "No action (observe)"
+   ],
+   "B6": [
+    "No action (observe)"
+   ],
    "expert": {
     "set": [
      "No action (observe)"
@@ -1674,10 +1893,20 @@
    "FETCH-ALL": [
     "Mitigate and monitor"
    ],
-   "HY": null,
-   "B3": null,
-   "AO": null,
-   "B6": null,
+   "HY": [
+    "Mitigate and monitor",
+    "Mitigate and monitor",
+    "Mitigate and monitor"
+   ],
+   "B3": [
+    "Mitigate and monitor"
+   ],
+   "AO": [
+    "Mitigate and monitor"
+   ],
+   "B6": [
+    "Mitigate and monitor"
+   ],
    "expert": {
     "set": [
      "Mitigate and monitor"
@@ -1702,10 +1931,20 @@
    "FETCH-ALL": [
     "Patch or block release"
    ],
-   "HY": null,
-   "B3": null,
-   "AO": null,
-   "B6": null,
+   "HY": [
+    "Patch or block release",
+    "Patch or block release",
+    "Patch or block release"
+   ],
+   "B3": [
+    "Patch or block release"
+   ],
+   "AO": [
+    "Patch or block release"
+   ],
+   "B6": [
+    "Patch or block release"
+   ],
    "expert": {
     "set": [
      "Patch or block release"
@@ -1730,10 +1969,20 @@
    "FETCH-ALL": [
     "Block release and fix pipeline"
    ],
-   "HY": null,
-   "B3": null,
-   "AO": null,
-   "B6": null,
+   "HY": [
+    "Block release and fix pipeline",
+    "Block release and fix pipeline",
+    "Block release and fix pipeline"
+   ],
+   "B3": [
+    "Block release and fix pipeline"
+   ],
+   "AO": [
+    "Block release and fix pipeline"
+   ],
+   "B6": [
+    "Block release and fix pipeline"
+   ],
    "expert": {
     "set": [
      "Escalate for evidence/human review"
@@ -1759,10 +2008,20 @@
    "FETCH-ALL": [
     "Rollback to stable deployment"
    ],
-   "HY": null,
-   "B3": null,
-   "AO": null,
-   "B6": null,
+   "HY": [
+    "Mitigate and monitor",
+    "Mitigate and monitor",
+    "Mitigate and monitor"
+   ],
+   "B3": [
+    "Mitigate and monitor"
+   ],
+   "AO": [
+    "Escalate for evidence/human review"
+   ],
+   "B6": [
+    "Mitigate and monitor"
+   ],
    "expert": {
     "set": [
      "Rollback to stable deployment"
@@ -1787,10 +2046,20 @@
    "FETCH-ALL": [
     "Scale adjustment"
    ],
-   "HY": null,
-   "B3": null,
-   "AO": null,
-   "B6": null,
+   "HY": [
+    "Scale adjustment",
+    "Scale adjustment",
+    "Scale adjustment"
+   ],
+   "B3": [
+    "Scale adjustment"
+   ],
+   "AO": [
+    "Mitigate and monitor"
+   ],
+   "B6": [
+    "Scale adjustment"
+   ],
    "expert": {
     "set": [
      "Scale adjustment"
@@ -1815,10 +2084,20 @@
    "FETCH-ALL": [
     "Patch or block release"
    ],
-   "HY": null,
-   "B3": null,
-   "AO": null,
-   "B6": null,
+   "HY": [
+    "Block release and fix pipeline",
+    "Block release and fix pipeline",
+    "Block release and fix pipeline"
+   ],
+   "B3": [
+    "Block release and fix pipeline"
+   ],
+   "AO": [
+    "Escalate for evidence/human review"
+   ],
+   "B6": [
+    "Block release and fix pipeline"
+   ],
    "expert": {
     "set": [
      "Patch or block release"
@@ -1843,10 +2122,20 @@
    "FETCH-ALL": [
     "Scale adjustment"
    ],
-   "HY": null,
-   "B3": null,
-   "AO": null,
-   "B6": null,
+   "HY": [
+    "Scale adjustment",
+    "Scale adjustment",
+    "Scale adjustment"
+   ],
+   "B3": [
+    "Scale adjustment"
+   ],
+   "AO": [
+    "Escalate for evidence/human review"
+   ],
+   "B6": [
+    "Scale adjustment"
+   ],
    "expert": {
     "set": [
      "Scale adjustment"
@@ -1871,10 +2160,20 @@
    "FETCH-ALL": [
     "Mitigate and monitor"
    ],
-   "HY": null,
-   "B3": null,
-   "AO": null,
-   "B6": null,
+   "HY": [
+    "Mitigate and monitor",
+    "Mitigate and monitor",
+    "Mitigate and monitor"
+   ],
+   "B3": [
+    "Mitigate and monitor"
+   ],
+   "AO": [
+    "Mitigate and monitor"
+   ],
+   "B6": [
+    "Rollback to stable deployment"
+   ],
    "expert": {
     "set": [
      "Rollback to stable deployment"
@@ -1899,10 +2198,20 @@
    "FETCH-ALL": [
     "Patch or block release"
    ],
-   "HY": null,
-   "B3": null,
-   "AO": null,
-   "B6": null,
+   "HY": [
+    "No action (observe)",
+    "No action (observe)",
+    "No action (observe)"
+   ],
+   "B3": [
+    "Patch or block release"
+   ],
+   "AO": [
+    "Patch or block release"
+   ],
+   "B6": [
+    "Patch or block release"
+   ],
    "expert": {
     "set": [
      "Patch or block release"
@@ -1927,10 +2236,20 @@
    "FETCH-ALL": [
     "Mitigate and monitor"
    ],
-   "HY": null,
-   "B3": null,
-   "AO": null,
-   "B6": null,
+   "HY": [
+    "Block release and fix pipeline",
+    "Block release and fix pipeline",
+    "Block release and fix pipeline"
+   ],
+   "B3": [
+    "Mitigate and monitor"
+   ],
+   "AO": [
+    "Escalate for evidence/human review"
+   ],
+   "B6": [
+    "Rollback to stable deployment"
+   ],
    "expert": {
     "set": [
      "Rollback to stable deployment"
@@ -1955,10 +2274,20 @@
    "FETCH-ALL": [
     "Patch or block release"
    ],
-   "HY": null,
-   "B3": null,
-   "AO": null,
-   "B6": null,
+   "HY": [
+    "Block release and fix pipeline",
+    "Block release and fix pipeline",
+    "Block release and fix pipeline"
+   ],
+   "B3": [
+    "Block release and fix pipeline"
+   ],
+   "AO": [
+    "Escalate for evidence/human review"
+   ],
+   "B6": [
+    "Block release and fix pipeline"
+   ],
    "expert": {
     "set": [
      "Patch or block release"
@@ -1983,10 +2312,20 @@
    "FETCH-ALL": [
     "Scale adjustment"
    ],
-   "HY": null,
-   "B3": null,
-   "AO": null,
-   "B6": null,
+   "HY": [
+    "Mitigate and monitor",
+    "Mitigate and monitor",
+    "Mitigate and monitor"
+   ],
+   "B3": [
+    "Scale adjustment"
+   ],
+   "AO": [
+    "Mitigate and monitor"
+   ],
+   "B6": [
+    "Scale adjustment"
+   ],
    "expert": {
     "set": [
      "Scale adjustment"
@@ -2011,10 +2350,20 @@
    "FETCH-ALL": [
     "No action (observe)"
    ],
-   "HY": null,
-   "B3": null,
-   "AO": null,
-   "B6": null,
+   "HY": [
+    "Mitigate and monitor",
+    "Mitigate and monitor",
+    "Mitigate and monitor"
+   ],
+   "B3": [
+    "Mitigate and monitor"
+   ],
+   "AO": [
+    "Escalate for evidence/human review"
+   ],
+   "B6": [
+    "No action (observe)"
+   ],
    "expert": {
     "set": [
      "No action (observe)"
@@ -2039,10 +2388,20 @@
    "FETCH-ALL": [
     "No action (observe)"
    ],
-   "HY": null,
-   "B3": null,
-   "AO": null,
-   "B6": null,
+   "HY": [
+    "Patch or block release",
+    "Patch or block release",
+    "Patch or block release"
+   ],
+   "B3": [
+    "No action (observe)"
+   ],
+   "AO": [
+    "Escalate for evidence/human review"
+   ],
+   "B6": [
+    "No action (observe)"
+   ],
    "expert": {
     "set": [
      "No action (observe)"
@@ -2067,10 +2426,20 @@
    "FETCH-ALL": [
     "No action (observe)"
    ],
-   "HY": null,
-   "B3": null,
-   "AO": null,
-   "B6": null,
+   "HY": [
+    "Scale adjustment",
+    "Scale adjustment",
+    "Scale adjustment"
+   ],
+   "B3": [
+    "No action (observe)"
+   ],
+   "AO": [
+    "No action (observe)"
+   ],
+   "B6": [
+    "No action (observe)"
+   ],
    "expert": {
     "set": [
      "No action (observe)"
@@ -2095,10 +2464,20 @@
    "FETCH-ALL": [
     "Rollback to stable deployment"
    ],
-   "HY": null,
-   "B3": null,
-   "AO": null,
-   "B6": null,
+   "HY": [
+    "Mitigate and monitor",
+    "Mitigate and monitor",
+    "Mitigate and monitor"
+   ],
+   "B3": [
+    "Mitigate and monitor"
+   ],
+   "AO": [
+    "Mitigate and monitor"
+   ],
+   "B6": [
+    "Mitigate and monitor"
+   ],
    "expert": {
     "set": [
      "Rollback to stable deployment"
@@ -2123,10 +2502,20 @@
    "FETCH-ALL": [
     "Scale adjustment"
    ],
-   "HY": null,
-   "B3": null,
-   "AO": null,
-   "B6": null,
+   "HY": [
+    "Scale adjustment",
+    "Scale adjustment",
+    "Scale adjustment"
+   ],
+   "B3": [
+    "Scale adjustment"
+   ],
+   "AO": [
+    "Review scaling policy"
+   ],
+   "B6": [
+    "Scale adjustment"
+   ],
    "expert": {
     "set": [
      "No action (observe)"
@@ -2152,10 +2541,20 @@
    "FETCH-ALL": [
     "Mitigate and monitor"
    ],
-   "HY": null,
-   "B3": null,
-   "AO": null,
-   "B6": null,
+   "HY": [
+    "Mitigate and monitor",
+    "Mitigate and monitor",
+    "Mitigate and monitor"
+   ],
+   "B3": [
+    "Mitigate and monitor"
+   ],
+   "AO": [
+    "Block release and fix pipeline"
+   ],
+   "B6": [
+    "Rollback to stable deployment"
+   ],
    "expert": {
     "set": [
      "Rollback to stable deployment"
@@ -2180,10 +2579,20 @@
    "FETCH-ALL": [
     "Mitigate and monitor"
    ],
-   "HY": null,
-   "B3": null,
-   "AO": null,
-   "B6": null,
+   "HY": [
+    "No action (observe)",
+    "No action (observe)",
+    "No action (observe)"
+   ],
+   "B3": [
+    "No action (observe)"
+   ],
+   "AO": [
+    "Escalate for evidence/human review"
+   ],
+   "B6": [
+    "No action (observe)"
+   ],
    "expert": {
     "set": [
      "Mitigate and monitor"
@@ -2208,10 +2617,20 @@
    "FETCH-ALL": [
     "Scale adjustment"
    ],
-   "HY": null,
-   "B3": null,
-   "AO": null,
-   "B6": null,
+   "HY": [
+    "Review scaling policy",
+    "Review scaling policy",
+    "Review scaling policy"
+   ],
+   "B3": [
+    "Review scaling policy"
+   ],
+   "AO": [
+    "Escalate for evidence/human review"
+   ],
+   "B6": [
+    "Scale adjustment"
+   ],
    "expert": {
     "set": [
      "Scale adjustment"
@@ -2236,10 +2655,20 @@
    "FETCH-ALL": [
     "Rollback to stable deployment"
    ],
-   "HY": null,
-   "B3": null,
-   "AO": null,
-   "B6": null,
+   "HY": [
+    "Mitigate and monitor",
+    "Mitigate and monitor",
+    "Mitigate and monitor"
+   ],
+   "B3": [
+    "Mitigate and monitor"
+   ],
+   "AO": [
+    "Escalate for evidence/human review"
+   ],
+   "B6": [
+    "Mitigate and monitor"
+   ],
    "expert": {
     "set": [
      "Rollback to stable deployment"
@@ -2264,10 +2693,20 @@
    "FETCH-ALL": [
     "Block release and fix pipeline"
    ],
-   "HY": null,
-   "B3": null,
-   "AO": null,
-   "B6": null,
+   "HY": [
+    "Block release and fix pipeline",
+    "Block release and fix pipeline",
+    "Block release and fix pipeline"
+   ],
+   "B3": [
+    "Block release and fix pipeline"
+   ],
+   "AO": [
+    "Block release and fix pipeline"
+   ],
+   "B6": [
+    "Block release and fix pipeline"
+   ],
    "expert": {
     "set": [
      "Block release and fix pipeline"
@@ -2292,10 +2731,20 @@
    "FETCH-ALL": [
     "No action (observe)"
    ],
-   "HY": null,
-   "B3": null,
-   "AO": null,
-   "B6": null,
+   "HY": [
+    "No action (observe)",
+    "No action (observe)",
+    "No action (observe)"
+   ],
+   "B3": [
+    "No action (observe)"
+   ],
+   "AO": [
+    "Escalate for evidence/human review"
+   ],
+   "B6": [
+    "No action (observe)"
+   ],
    "expert": {
     "set": [
      "No action (observe)"
@@ -2320,10 +2769,20 @@
    "FETCH-ALL": [
     "Mitigate and monitor"
    ],
-   "HY": null,
-   "B3": null,
-   "AO": null,
-   "B6": null,
+   "HY": [
+    "Mitigate and monitor",
+    "Mitigate and monitor",
+    "Mitigate and monitor"
+   ],
+   "B3": [
+    "Mitigate and monitor"
+   ],
+   "AO": [
+    "Escalate for evidence/human review"
+   ],
+   "B6": [
+    "Mitigate and monitor"
+   ],
    "expert": {
     "set": [
      "Mitigate and monitor"
@@ -2348,10 +2807,20 @@
    "FETCH-ALL": [
     "Patch or block release"
    ],
-   "HY": null,
-   "B3": null,
-   "AO": null,
-   "B6": null,
+   "HY": [
+    "Scale adjustment",
+    "Scale adjustment",
+    "Scale adjustment"
+   ],
+   "B3": [
+    "Scale adjustment"
+   ],
+   "AO": [
+    "Block release and fix pipeline"
+   ],
+   "B6": [
+    "Block release and fix pipeline"
+   ],
    "expert": {
     "set": [
      "Patch or block release"
@@ -2376,10 +2845,20 @@
    "FETCH-ALL": [
     "Mitigate and monitor"
    ],
-   "HY": null,
-   "B3": null,
-   "AO": null,
-   "B6": null,
+   "HY": [
+    "Mitigate and monitor",
+    "Mitigate and monitor",
+    "Mitigate and monitor"
+   ],
+   "B3": [
+    "Mitigate and monitor"
+   ],
+   "AO": [
+    "Mitigate and monitor"
+   ],
+   "B6": [
+    "Rollback to stable deployment"
+   ],
    "expert": {
     "set": [
      "Rollback to stable deployment"
@@ -2404,10 +2883,20 @@
    "FETCH-ALL": [
     "Patch or block release"
    ],
-   "HY": null,
-   "B3": null,
-   "AO": null,
-   "B6": null,
+   "HY": [
+    "Patch or block release",
+    "Patch or block release",
+    "Patch or block release"
+   ],
+   "B3": [
+    "Patch or block release"
+   ],
+   "AO": [
+    "Patch or block release"
+   ],
+   "B6": [
+    "Patch or block release"
+   ],
    "expert": {
     "set": [
      "Patch or block release"
