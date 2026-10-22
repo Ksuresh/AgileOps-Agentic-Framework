@@ -1,0 +1,63 @@
+[
+ {
+  "study": "primary",
+  "case": "AG-A03",
+  "stratum": "AMBIGUOUS",
+  "focus": "restart_temporal_boundary",
+  "llm_proposal": "Escalate for evidence/human review",
+  "proposal_ok": false,
+  "final_action": "No action (observe)",
+  "final_ok": false,
+  "admissible": [
+   "Rollback to stable deployment"
+  ],
+  "interaction": null,
+  "tools": []
+ },
+ {
+  "study": "primary",
+  "case": "AG-A06",
+  "stratum": "AMBIGUOUS",
+  "focus": "finops_near_boundary",
+  "llm_proposal": "Mitigate and monitor",
+  "proposal_ok": false,
+  "final_action": "Review scaling policy",
+  "final_ok": false,
+  "admissible": [
+   "Scale adjustment"
+  ],
+  "interaction": null,
+  "tools": []
+ },
+ {
+  "study": "primary",
+  "case": "AG-M05",
+  "stratum": "MISLEADING",
+  "focus": "high_replicas_but_no_material_pressure",
+  "llm_proposal": "No action (observe)",
+  "proposal_ok": true,
+  "final_action": "Scale adjustment",
+  "final_ok": true,
+  "admissible": [
+   "Scale adjustment",
+   "No action (observe)"
+  ],
+  "interaction": null,
+  "tools": []
+ },
+ {
+  "study": "replication",
+  "case": "RP-M02",
+  "stratum": "MISLEADING",
+  "focus": "security_marker_nonblocking_vs_pipeline_failure",
+  "llm_proposal": "Block release and fix pipeline",
+  "proposal_ok": true,
+  "final_action": "Patch or block release",
+  "final_ok": false,
+  "admissible": [
+   "Block release and fix pipeline"
+  ],
+  "interaction": "release_security_override",
+  "tools": []
+ }
+]
