@@ -1,0 +1,142 @@
+{
+  "case": "re2tt_ts-order-service_delay_2",
+  "evaluation_role": "held-out; not used for adapter development",
+  "aaf_input": {
+    "deploy": {
+      "_evidence": {}
+    },
+    "sre": {
+      "_evidence": {
+        "p95_latency_ms": {
+          "status": "proxy",
+          "source": "RCAEval ts-order-service_latency-90, post-injection 5-minute median p90 latency",
+          "note": "conservative p95 lower-bound proxy: observed p90 converted from seconds to milliseconds; gated by >=1.5x pre-injection median"
+        }
+      },
+      "_auxiliary": {
+        "memory": {
+          "column": "ts-news-service_mem",
+          "pre_median": 2179072.0,
+          "post_median": 2215936.0,
+          "ratio": 1.0169172932330828
+        },
+        "diskio": {
+          "column": "ts-food-map-service_diskio",
+          "pre_median": 39803.70244400175,
+          "post_median": 47304.74953082143,
+          "ratio": 1.1884509888840769
+        },
+        "socket": {
+          "column": "ts-consign-mongo_socket",
+          "pre_median": 4.0,
+          "post_median": 5.0,
+          "ratio": 1.25
+        },
+        "logs": {
+          "available": true,
+          "pre_log_lines": 12097,
+          "post_log_lines": 11959,
+          "pre_error_like_lines": 35,
+          "post_error_like_lines": 29,
+          "pre_error_like_density_pct": 0.2893279325452592,
+          "post_error_like_density_pct": 0.24249519190567773,
+          "error_like_count_ratio": 0.8285714285714286,
+          "decision_active": false,
+          "reason_not_decision_active": "error-like log density is not equivalent to AAF HTTP error_rate_pct"
+        }
+      },
+      "p95_latency_ms": 875.0
+    },
+    "finops": {
+      "_evidence": {}
+    },
+    "sec": {
+      "_evidence": {}
+    }
+  },
+  "adapter_diagnostics": {
+    "adapter_policy": "final-pilot candidate",
+    "window_seconds": {
+      "pre": 300,
+      "post": 300
+    },
+    "ratio_gate": 1.5,
+    "selection_rule": "system-wide metric scan; RCAEval fault/root-cause labels are not inputs",
+    "decision_active_fields": [
+      "p95_latency_ms (from p90 lower-bound proxy)",
+      "saturation_pct (CPU percent)"
+    ],
+    "latency90_largest_ratio": {
+      "column": "ts-order-service_latency-90",
+      "pre_median": 0.037500000000000006,
+      "post_median": 0.875,
+      "ratio": 23.33333333333333
+    },
+    "latency90_largest_post": {
+      "column": "ts-order-service_latency-90",
+      "pre_median": 0.037500000000000006,
+      "post_median": 0.875,
+      "ratio": 23.33333333333333
+    },
+    "cpu_largest_ratio": {
+      "column": "ts-basic-service_cpu",
+      "pre_median": 1.6204276724081461,
+      "post_median": 2.4219110750360864,
+      "ratio": 1.494612265808101
+    },
+    "cpu_largest_post": {
+      "column": "ts-auth-service_cpu",
+      "pre_median": 15.758538998835792,
+      "post_median": 14.79516770566414,
+      "ratio": 0.938866712628447
+    },
+    "auxiliary_evidence": {
+      "memory_largest_ratio": {
+        "column": "ts-news-service_mem",
+        "pre_median": 2179072.0,
+        "post_median": 2215936.0,
+        "ratio": 1.0169172932330828
+      },
+      "diskio_largest_ratio": {
+        "column": "ts-food-map-service_diskio",
+        "pre_median": 39803.70244400175,
+        "post_median": 47304.74953082143,
+        "ratio": 1.1884509888840769
+      },
+      "socket_largest_ratio": {
+        "column": "ts-consign-mongo_socket",
+        "pre_median": 4.0,
+        "post_median": 5.0,
+        "ratio": 1.25
+      },
+      "logs": {
+        "available": true,
+        "pre_log_lines": 12097,
+        "post_log_lines": 11959,
+        "pre_error_like_lines": 35,
+        "post_error_like_lines": 29,
+        "pre_error_like_density_pct": 0.2893279325452592,
+        "post_error_like_density_pct": 0.24249519190567773,
+        "error_like_count_ratio": 0.8285714285714286,
+        "decision_active": false,
+        "reason_not_decision_active": "error-like log density is not equivalent to AAF HTTP error_rate_pct"
+      }
+    },
+    "auxiliary_policy": "retained and reported but not coerced into unrelated AAF fields"
+  },
+  "base_action": "Mitigate and monitor",
+  "eligible_actions": [
+    "Mitigate and monitor"
+  ],
+  "selected_action": "Mitigate and monitor",
+  "arbitration_reason": "no_cross_domain_interaction",
+  "severities": {
+    "deployment": 0.0,
+    "reliability": 0.35,
+    "cost": 0.0,
+    "security": 0.0
+  },
+  "interactions": [],
+  "audit_fault_label": "delay",
+  "audit_root_cause_service": "ts-order-service"
+}

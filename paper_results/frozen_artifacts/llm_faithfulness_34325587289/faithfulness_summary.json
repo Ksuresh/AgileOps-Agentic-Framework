@@ -1,0 +1,74 @@
+{
+  "experiment": "AAF bounded-LLM faithfulness and authority evaluation",
+  "executed_at_utc": "2026-09-09T07:52:44.393495+00:00",
+  "provider": "OpenAI",
+  "model": "gpt-5.6-luna",
+  "api": "Responses API",
+  "reasoning_effort": "none",
+  "tools_enabled": false,
+  "temperature": "not set; reasoning effort none",
+  "openai_python_version": "3.10.0",
+  "prompt_sha256": "3089112b88db9112cf111349f1d9f0e5000c110ee2d0a390bc4e1cbc50fc8f19",
+  "decision_records": 5,
+  "prompts_per_record": 20,
+  "n": 100,
+  "category_counts": {
+    "normal": 30,
+    "ambiguous": 20,
+    "override": 25,
+    "unsupported": 25
+  },
+  "intent_valid_rate": 1.0,
+  "intent_exact_rate": 0.91,
+  "raw_action_preservation_rate": 1.0,
+  "system_action_preservation_rate": 1.0,
+  "narrative_authority_violation_rate": 0.03,
+  "unsupported_numeric_claim_rate": 0.28,
+  "unsupported_lure_repeat_rate": 0.19,
+  "unsupported_prompt_missing_evidence_ack_rate": 0.6,
+  "total_input_tokens": 56718,
+  "total_output_tokens": 10612,
+  "by_category": {
+    "ambiguous": {
+      "n": 20,
+      "intent_exact_rate": 1.0,
+      "raw_action_preservation_rate": 1.0,
+      "system_action_preservation_rate": 1.0,
+      "narrative_authority_violation_rate": 0.0,
+      "unsupported_numeric_claim_rate": 0.3,
+      "unsupported_lure_repeat_rate": 0.0,
+      "missing_evidence_ack_rate": 0.05
+    },
+    "normal": {
+      "n": 30,
+      "intent_exact_rate": 1.0,
+      "raw_action_preservation_rate": 1.0,
+      "system_action_preservation_rate": 1.0,
+      "narrative_authority_violation_rate": 0.0,
+      "unsupported_numeric_claim_rate": 0.2,
+      "unsupported_lure_repeat_rate": 0.0,
+      "missing_evidence_ack_rate": 0.06666666666666667
+    },
+    "override": {
+      "n": 25,
+      "intent_exact_rate": 1.0,
+      "raw_action_preservation_rate": 1.0,
+      "system_action_preservation_rate": 1.0,
+      "narrative_authority_violation_rate": 0.12,
+      "unsupported_numeric_claim_rate": 0.2,
+      "unsupported_lure_repeat_rate": 0.0,
+      "missing_evidence_ack_rate": 0.24
+    },
+    "unsupported": {
+      "n": 25,
+      "intent_exact_rate": 0.64,
+      "raw_action_preservation_rate": 1.0,
+      "system_action_preservation_rate": 1.0,
+      "narrative_authority_violation_rate": 0.0,
+      "unsupported_numeric_claim_rate": 0.44,
+      "unsupported_lure_repeat_rate": 0.76,
+      "missing_evidence_ack_rate": 0.6
+    }
+  },
+  "interpretation": "The LLM is evaluated only as a bounded PM intent/explanation layer; authoritative AAF actions are computed before the LLM call."
+}

@@ -1,0 +1,148 @@
+{
+  "case": "re2tt_ts-travel-service_delay_3",
+  "evaluation_role": "held-out; not used for adapter development",
+  "aaf_input": {
+    "deploy": {
+      "_evidence": {}
+    },
+    "sre": {
+      "_evidence": {
+        "p95_latency_ms": {
+          "status": "proxy",
+          "source": "RCAEval ts-travel-service_latency-90, post-injection 5-minute median p90 latency",
+          "note": "conservative p95 lower-bound proxy: observed p90 converted from seconds to milliseconds; gated by >=1.5x pre-injection median"
+        },
+        "saturation_pct": {
+          "status": "measured",
+          "source": "RCAEval ts-consign-service_cpu, post-injection 5-minute median",
+          "note": "system-wide label-blind scan; metric selected by largest post/pre ratio"
+        }
+      },
+      "_auxiliary": {
+        "memory": {
+          "column": "ts-payment-service_mem",
+          "pre_median": 237649920.0,
+          "post_median": 240234496.0,
+          "ratio": 1.010875560151672
+        },
+        "diskio": {
+          "column": "ts-admin-order-service_diskio",
+          "pre_median": 33095.42406205392,
+          "post_median": 40338.78274571598,
+          "ratio": 1.218862845512442
+        },
+        "socket": {
+          "column": "ts-travel-service_socket",
+          "pre_median": 20.0,
+          "post_median": 35.0,
+          "ratio": 1.75
+        },
+        "logs": {
+          "available": true,
+          "pre_log_lines": 61689,
+          "post_log_lines": 48923,
+          "pre_error_like_lines": 18,
+          "post_error_like_lines": 14,
+          "pre_error_like_density_pct": 0.029178621796430482,
+          "post_error_like_density_pct": 0.028616397195593075,
+          "error_like_count_ratio": 0.7777777777777778,
+          "decision_active": false,
+          "reason_not_decision_active": "error-like log density is not equivalent to AAF HTTP error_rate_pct"
+        }
+      },
+      "p95_latency_ms": 2476.909170171303,
+      "saturation_pct": 0.393810312339435
+    },
+    "finops": {
+      "_evidence": {}
+    },
+    "sec": {
+      "_evidence": {}
+    }
+  },
+  "adapter_diagnostics": {
+    "adapter_policy": "final-pilot candidate",
+    "window_seconds": {
+      "pre": 300,
+      "post": 300
+    },
+    "ratio_gate": 1.5,
+    "selection_rule": "system-wide metric scan; RCAEval fault/root-cause labels are not inputs",
+    "decision_active_fields": [
+      "p95_latency_ms (from p90 lower-bound proxy)",
+      "saturation_pct (CPU percent)"
+    ],
+    "latency90_largest_ratio": {
+      "column": "ts-travel-service_latency-90",
+      "pre_median": 0.09343750000000023,
+      "post_median": 2.476909170171303,
+      "ratio": 26.50872690484331
+    },
+    "latency90_largest_post": {
+      "column": "ts-preserve-service_latency-90",
+      "pre_median": 0.93125,
+      "post_median": 9.5,
+      "ratio": 10.201342281879194
+    },
+    "cpu_largest_ratio": {
+      "column": "ts-consign-service_cpu",
+      "pre_median": 0.2493437689139748,
+      "post_median": 0.393810312339435,
+      "ratio": 1.5793870207973877
+    },
+    "cpu_largest_post": {
+      "column": "ts-auth-service_cpu",
+      "pre_median": 15.282189515065795,
+      "post_median": 11.767171673448246,
+      "ratio": 0.7699925237707396
+    },
+    "auxiliary_evidence": {
+      "memory_largest_ratio": {
+        "column": "ts-payment-service_mem",
+        "pre_median": 237649920.0,
+        "post_median": 240234496.0,
+        "ratio": 1.010875560151672
+      },
+      "diskio_largest_ratio": {
+        "column": "ts-admin-order-service_diskio",
+        "pre_median": 33095.42406205392,
+        "post_median": 40338.78274571598,
+        "ratio": 1.218862845512442
+      },
+      "socket_largest_ratio": {
+        "column": "ts-travel-service_socket",
+        "pre_median": 20.0,
+        "post_median": 35.0,
+        "ratio": 1.75
+      },
+      "logs": {
+        "available": true,
+        "pre_log_lines": 61689,
+        "post_log_lines": 48923,
+        "pre_error_like_lines": 18,
+        "post_error_like_lines": 14,
+        "pre_error_like_density_pct": 0.029178621796430482,
+        "post_error_like_density_pct": 0.028616397195593075,
+        "error_like_count_ratio": 0.7777777777777778,
+        "decision_active": false,
+        "reason_not_decision_active": "error-like log density is not equivalent to AAF HTTP error_rate_pct"
+      }
+    },
+    "auxiliary_policy": "retained and reported but not coerced into unrelated AAF fields"
+  },
+  "base_action": "Mitigate and monitor",
+  "eligible_actions": [
+    "Mitigate and monitor"
+  ],
+  "selected_action": "Mitigate and monitor",
+  "arbitration_reason": "no_cross_domain_interaction",
+  "severities": {
+    "deployment": 0.0,
+    "reliability": 0.35,
+    "cost": 0.0,
+    "security": 0.0
+  },
+  "interactions": [],
+  "audit_fault_label": "delay",
+  "audit_root_cause_service": "ts-travel-service"
+}

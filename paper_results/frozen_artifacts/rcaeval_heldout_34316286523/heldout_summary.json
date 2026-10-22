@@ -1,0 +1,81 @@
+{
+  "dataset": "RCAEval RE2-TT",
+  "total_dataset_cases": 90,
+  "excluded_adapter_development_cases": 12,
+  "heldout_cases": 78,
+  "label_blind_decision_path": true,
+  "weights": [
+    0.45,
+    0.2,
+    0.35
+  ],
+  "action_counts": {
+    "No action (observe)": 52,
+    "Mitigate and monitor": 26
+  },
+  "material_action_cases": 26,
+  "observe_cases": 52,
+  "by_fault": {
+    "cpu": {
+      "cases": 13,
+      "action_counts": {
+        "No action (observe)": 12,
+        "Mitigate and monitor": 1
+      },
+      "mean_reliability_severity": 0.02692307692307692,
+      "latency_proxy_active": 13,
+      "cpu_saturation_active": 13
+    },
+    "delay": {
+      "cases": 13,
+      "action_counts": {
+        "Mitigate and monitor": 13
+      },
+      "mean_reliability_severity": 0.3269230769230769,
+      "latency_proxy_active": 13,
+      "cpu_saturation_active": 2
+    },
+    "disk": {
+      "cases": 13,
+      "action_counts": {
+        "No action (observe)": 12,
+        "Mitigate and monitor": 1
+      },
+      "mean_reliability_severity": 0.02692307692307692,
+      "latency_proxy_active": 13,
+      "cpu_saturation_active": 13
+    },
+    "loss": {
+      "cases": 13,
+      "action_counts": {
+        "No action (observe)": 10,
+        "Mitigate and monitor": 3
+      },
+      "mean_reliability_severity": 0.07307692307692307,
+      "latency_proxy_active": 13,
+      "cpu_saturation_active": 5
+    },
+    "mem": {
+      "cases": 13,
+      "action_counts": {
+        "No action (observe)": 8,
+        "Mitigate and monitor": 5
+      },
+      "mean_reliability_severity": 0.11153846153846156,
+      "latency_proxy_active": 13,
+      "cpu_saturation_active": 13
+    },
+    "socket": {
+      "cases": 13,
+      "action_counts": {
+        "No action (observe)": 10,
+        "Mitigate and monitor": 3
+      },
+      "mean_reliability_severity": 0.06538461538461539,
+      "latency_proxy_active": 13,
+      "cpu_saturation_active": 13
+    }
+  },
+  "case_csv_sha256": "38147995e1b0f7c1f14c13550ccf2fe2ba28f04a64ad503ac142b37e0530953e",
+  "interpretation_guardrail": "RCAEval fault labels are not governance-action labels; action accuracy is not reported."
+}

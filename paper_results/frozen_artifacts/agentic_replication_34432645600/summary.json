@@ -1,0 +1,72 @@
+{
+  "n_cases": 16,
+  "by_stratum": {
+    "CLEAR": {
+      "n": 4,
+      "deterministic_correct": 4,
+      "agentic_only_correct": 3,
+      "hybrid_correct": 4,
+      "hybrid_invoked": 0,
+      "agentic_only_tokens": 11497,
+      "hybrid_tokens": 0
+    },
+    "AMBIGUOUS": {
+      "n": 4,
+      "deterministic_correct": 3,
+      "agentic_only_correct": 1,
+      "hybrid_correct": 3,
+      "hybrid_invoked": 4,
+      "agentic_only_tokens": 11351,
+      "hybrid_tokens": 4810
+    },
+    "INCOMPLETE": {
+      "n": 4,
+      "deterministic_correct": 3,
+      "agentic_only_correct": 1,
+      "hybrid_correct": 4,
+      "hybrid_invoked": 4,
+      "agentic_only_tokens": 13051,
+      "hybrid_tokens": 10552
+    },
+    "MISLEADING": {
+      "n": 4,
+      "deterministic_correct": 3,
+      "agentic_only_correct": 2,
+      "hybrid_correct": 3,
+      "hybrid_invoked": 2,
+      "agentic_only_tokens": 11452,
+      "hybrid_tokens": 3320
+    }
+  },
+  "overall": {
+    "deterministic_correct": 13,
+    "agentic_only_correct": 7,
+    "hybrid_correct": 14,
+    "hybrid_invocation_rate": 0.625,
+    "unnecessary_clear_invocations": 0,
+    "agentic_only_tokens": 47351,
+    "hybrid_tokens": 18682,
+    "token_avoidance_vs_always_on": 0.6054571181178856,
+    "governance_overrides": 8,
+    "beneficial_overrides": 7,
+    "hybrid_invoked_latency_ms_mean": 8064.4515285000125,
+    "hybrid_invoked_latency_ms_median": 7988.129927499984
+  },
+  "incomplete": {
+    "n": 4,
+    "expected_tool_selected_agentic_only": 3,
+    "expected_tool_selected_hybrid": 4,
+    "deterministic_correct": 3,
+    "hybrid_correct": 4,
+    "hybrid_regrounding_success": 1
+  },
+  "misleading": {
+    "n": 4,
+    "agentic_only_correct": 2,
+    "hybrid_correct": 3,
+    "hybrid_governance_overrides": 2,
+    "beneficial_overrides": 1,
+    "agentic_only_evidence_refs_valid": 4,
+    "hybrid_evidence_refs_valid": 4
+  }
+}
