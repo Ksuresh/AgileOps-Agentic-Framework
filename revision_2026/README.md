@@ -20,6 +20,7 @@ as inputs are copied into `paper_results/frozen_artifacts/` from the GitHub Acti
 | `external_validation/expert_study/` — Study 7: 48 new pre-registered cases (24 standard, 24 unflagged-gap), sealed author key, AI-assisted practitioner labels on 96 cases (amendments A1, A2 in PROTOCOL.md) | R1-3, R1-4, R4-1, R5-1, R6-1, R6-4 | 905 | `external_validation/expert_study/results/20261022T130735Z/`, `analysis_author_key.json`, `analysis.json` (run 39784044792) |
 | `external_validation/investigator_fix/` + `agentic_experiments/hybrid_v2.py` — Study 8: pre-registered investigator fix (HY2-F, HY2-L) on 36 fresh generated cases | R4-1, R5-1, R6-1 | 1,488 | `external_validation/investigator_fix/results/20261022T132423Z/`, `analysis_fx.json` (run 39786446655) |
 | `PROVENANCE.md` — protocol/run/result timeline for every study | R6-4, R3-4 | 0 | — |
+| `audit_provenance.py` → `results/provenance_audit.json` — re-checks the timeline from git history and Actions run records (10 studies, all pass) | R6-4, R3-4 | 0 | — |
 
 Reproduce (repository root, Python 3.11, `pip install -r requirements.txt`):
 
