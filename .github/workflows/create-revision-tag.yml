@@ -1,0 +1,26 @@
+name: Create revision tag
+
+# Tags cannot be pushed from the analysis workspace, so the tag is created here.
+on:
+  push:
+    branches: [text-evidence-pilot]
+    paths: ["revision_2026/TAG"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  tag:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - run: |
+          TAG=$(head -1 revision_2026/TAG | tr -d '[:space:]')
+          SHA=$(sed -n 2p revision_2026/TAG | tr -d '[:space:]')
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git tag -a "$TAG" "$SHA" -m "Revision analyses for IEEE Access Access-2026-46118 (see revision_2026/README.md)"
+          git push origin "$TAG"
+          echo "tagged $SHA as $TAG"
