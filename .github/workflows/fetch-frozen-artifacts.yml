@@ -1,0 +1,36 @@
+name: Fetch frozen manuscript artifacts into the repo
+
+# The artifact blob store is not reachable from the analysis workspace, so this copies the
+# frozen manuscript artifacts (our own experiment outputs) into paper_results/frozen_artifacts/.
+on:
+  push:
+    branches: [text-evidence-pilot]
+    paths: [".github/workflows/fetch-frozen-artifacts.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: read
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with: {name: aaf-agentic-experiments-2-4-gpt-5-6-luna, run-id: "34428945881", github-token: "${{ secrets.GITHUB_TOKEN }}", path: paper_results/frozen_artifacts/agentic_primary_34428945881}
+      - uses: actions/download-artifact@v4
+        with: {name: aaf-agentic-prospective-replication-gpt-5-6-luna, run-id: "34432645600", github-token: "${{ secrets.GITHUB_TOKEN }}", path: paper_results/frozen_artifacts/agentic_replication_34432645600}
+      - uses: actions/download-artifact@v4
+        with: {name: llm-faithfulness-gpt-5-6-luna, run-id: "34325587289", github-token: "${{ secrets.GITHUB_TOKEN }}", path: paper_results/frozen_artifacts/llm_faithfulness_34325587289}
+      - uses: actions/download-artifact@v4
+        with: {name: external-rcaeval-heldout, run-id: "34316286523", github-token: "${{ secrets.GITHUB_TOKEN }}", path: paper_results/frozen_artifacts/rcaeval_heldout_34316286523}
+      - name: Commit
+        run: |
+          find paper_results/frozen_artifacts -type f | head -100
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f paper_results/frozen_artifacts
+          git commit -m "Copy frozen manuscript artifacts into repo: run ${GITHUB_RUN_ID} [skip ci]" || echo "nothing"
+          for i in 1 2 3 4 5; do git pull --rebase origin ${GITHUB_REF_NAME} && git push origin HEAD:${GITHUB_REF_NAME} && break; sleep $((i*7)); done
