@@ -1,0 +1,3 @@
+HY errors 0 [('Mitigate and monitor', 48), ('Scale adjustment', 33), ('Patch or block release', 18), ('Block release and fix pipeline', 18)] calls 391 tokens 200968 stop None
+AO errors 0 [('Escalate for evidence/human review', 16), ('Mitigate and monitor', 13), ('Block release and fix pipeline', 7), ('Patch or block release', 6)] calls 647 tokens 342598 stop None
+B6 errors 0 [('Mitigate and monitor', 10), ('Scale adjustment', 10), ('No action (observe)', 7), ('Patch or block release', 7)] calls 905 tokens 529160 stop None
