@@ -24,6 +24,11 @@ placed in the stable release (so rollback cannot fix them). No case names a corr
 A and B by a fixed rule: candidate Online Boutique frontend tags newest first; keep tags that pull, roll out, serve HTTP 200
 with the stable configuration, and carry at least one critical CVE more than the stable image; A = first, B = second.
 
+Calibration result (`calibration/calibration.json`, run before any action was measured): stable image
+`frontend:v0.10.6` (0 critical CVEs); healthy p95 699, 403, 408 ms (median 408 ms, so the reliability threshold is
+816 ms); error rate 0%; vulnerable image A = `frontend:v0.8.0`, B = `frontend:v0.7.0` (gcr.io; 6 critical CVEs each).
+(Artifact Registry tags could not be scanned and were skipped by the rule.)
+
 ## Actions and their implementation (fixed)
 Applied to a freshly rebuilt incident state each time:
 - Rollback to stable deployment / Block release and fix pipeline: restore the previous release's pod template (the second

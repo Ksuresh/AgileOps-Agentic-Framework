@@ -32,6 +32,12 @@ open-weight model family.
   those in which the final action differs from B1's deterministic action.
 - AAF may fail H10.1 (if its actions shift with the model as much as B5/B6) or H10.3; both outcomes will be reported.
 
+## Execution notes added before the main run
+- Smoke runs (labels `smoke`, `smoke2`) are pipeline checks only. In `smoke`, Ollama 0.9.0 returned bodies the runner
+  could not parse when thinking was on (all B6 calls failed); the runner now tolerates streamed bodies and the main run
+  uses Ollama 0.40.9 (the version installed in `smoke2`, where B6 calls succeeded). Model digest
+  `500a1f067a9f…b8b41` (qwen3:8b, Q4_K_M).
+
 ## Execution
 Workflow `.github/workflows/model-replication-qwen.yml` (matrix of shards). A smoke run (`LIMIT` > 0, label `smoke`) checks
 the pipeline and timing and is not analysed. The full run uses label `main`. Results are committed by the workflow.
