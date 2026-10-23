@@ -1,0 +1,50 @@
+	repeat_last_n = 64, repeat_penalty = 1.000, frequency_penalty = 0.000, presence_penalty = 0.000
+	dry_multiplier = 0.000, dry_base = 1.750, dry_allowed_length = 2, dry_penalty_last_n = 64
+	top_k = 20, top_p = 0.950, min_p = 0.000, xtc_probability = 0.000, xtc_threshold = 0.100, typical_p = 1.000, top_n_sigma = -1.000, temp = 0.700
+	mirostat = 0, mirostat_lr = 0.100, mirostat_ent = 5.000, adaptive_target = -1.000, adaptive_decay = 0.900
+slot launch_slot_: id  0 | task 54737 | processing task, is_child = 0
+slot   operator(): id  0 | task 54737 | new prompt, n_ctx_slot = 8192, n_keep = 4, task.n_tokens = 1021
+slot   operator(): id  0 | task 54737 | cached n_tokens = 5, memory_seq_rm [5, end)
+slot init_sampler: id  0 | task 54737 | init sampler, took 0.18 ms, tokens: text = 1021, total = 1021
+slot print_timing: id  0 | task 54737 | n_gen =    100, tg =   4.84 t/s, tg_3s =   4.89 t/s
+slot print_timing: id  0 | task 54737 | n_gen =    115, tg =   4.83 t/s, tg_3s =   4.77 t/s
+slot print_timing: id  0 | task 54737 | n_gen =    130, tg =   4.82 t/s, tg_3s =   4.75 t/s
+slot print_timing: id  0 | task 54737 | n_gen =    145, tg =   4.82 t/s, tg_3s =   4.79 t/s
+slot print_timing: id  0 | task 54737 | n_gen =    160, tg =   4.81 t/s, tg_3s =   4.67 t/s
+slot print_timing: id  0 | task 54737 | n_gen =    175, tg =   4.80 t/s, tg_3s =   4.67 t/s
+slot print_timing: id  0 | task 54737 | n_gen =    190, tg =   4.79 t/s, tg_3s =   4.68 t/s
+slot print_timing: id  0 | task 54737 | n_gen =    204, tg =   4.77 t/s, tg_3s =   4.62 t/s
+slot print_timing: id  0 | task 54737 | n_gen =    218, tg =   4.76 t/s, tg_3s =   4.60 t/s
+slot print_timing: id  0 | task 54737 | n_gen =    232, tg =   4.75 t/s, tg_3s =   4.62 t/s
+slot print_timing: id  0 | task 54737 | n_gen =    246, tg =   4.74 t/s, tg_3s =   4.60 t/s
+slot print_timing: id  0 | task 54737 | n_gen =    260, tg =   4.74 t/s, tg_3s =   4.59 t/s
+slot print_timing: id  0 | task 54737 | n_gen =    275, tg =   4.73 t/s, tg_3s =   4.68 t/s
+slot print_timing: id  0 | task 54737 | n_gen =    289, tg =   4.73 t/s, tg_3s =   4.60 t/s
+slot print_timing: id  0 | task 54737 | n_gen =    304, tg =   4.72 t/s, tg_3s =   4.67 t/s
+slot print_timing: id  0 | task 54737 | n_gen =    319, tg =   4.72 t/s, tg_3s =   4.69 t/s
+slot print_timing: id  0 | task 54737 | n_gen =    333, tg =   4.72 t/s, tg_3s =   4.57 t/s
+slot print_timing: id  0 | task 54737 | n_gen =    347, tg =   4.71 t/s, tg_3s =   4.64 t/s
+slot print_timing: id  0 | task 54737 | n_gen =    361, tg =   4.71 t/s, tg_3s =   4.62 t/s
+slot print_timing: id  0 | task 54737 | n_gen =    375, tg =   4.70 t/s, tg_3s =   4.52 t/s
+slot print_timing: id  0 | task 54737 | n_gen =    389, tg =   4.69 t/s, tg_3s =   4.52 t/s
+slot print_timing: id  0 | task 54737 | n_gen =    403, tg =   4.69 t/s, tg_3s =   4.58 t/s
+slot print_timing: id  0 | task 54737 | n_gen =    417, tg =   4.69 t/s, tg_3s =   4.56 t/s
+slot print_timing: id  0 | task 54737 | n_gen =    431, tg =   4.68 t/s, tg_3s =   4.53 t/s
+slot print_timing: id  0 | task 54737 | n_gen =    445, tg =   4.68 t/s, tg_3s =   4.52 t/s
+slot print_timing: id  0 | task 54737 | n_gen =    459, tg =   4.67 t/s, tg_3s =   4.46 t/s
+slot print_timing: id  0 | task 54737 | n_gen =    473, tg =   4.66 t/s, tg_3s =   4.46 t/s
+slot print_timing: id  0 | task 54737 | n_gen =    487, tg =   4.65 t/s, tg_3s =   4.39 t/s
+slot print_timing: id  0 | task 54737 | n_gen =    501, tg =   4.65 t/s, tg_3s =   4.40 t/s
+slot print_timing: id  0 | task 54737 | n_gen =    515, tg =   4.64 t/s, tg_3s =   4.38 t/s
+slot print_timing: id  0 | task 54737 | n_gen =    529, tg =   4.63 t/s, tg_3s =   4.48 t/s
+slot print_timing: id  0 | task 54737 | n_gen =    543, tg =   4.63 t/s, tg_3s =   4.49 t/s
+slot print_timing: id  0 | task 54737 | n_gen =    557, tg =   4.63 t/s, tg_3s =   4.49 t/s
+slot print_timing: id  0 | task 54737 | n_gen =    571, tg =   4.62 t/s, tg_3s =   4.46 t/s
+slot print_timing: id  0 | task 54737 | prompt eval time =   77997.82 ms /  1016 tokens (   76.77 ms per token,    13.03 tokens per second)
+slot print_timing: id  0 | task 54737 |        eval time =  123513.98 ms /   572 tokens (  216.31 ms per token,     4.62 tokens per second)
+slot print_timing: id  0 | task 54737 |       total time =  201511.80 ms /  1588 tokens
+slot print_timing: id  0 | task 54737 |    graphs reused =      54718
+slot print_timing: id  0 | task 54737 |   graph reallocs =          0    /     0        (same size) / (changed size)
+slot      release: id  0 | task 54737 | stop processing: n_tokens = 1592, truncated = 0
+srv  update_slots: all slots are idle
+[GIN] 2026/10/23 - 16:37:01 | 200 |    3m20s |       127.0.0.1 | POST     "/api/chat"
