@@ -4,7 +4,7 @@ Unable to find image 'aquasec/trivy:0.56.2' locally
 2fb915365b73: Pulling fs layer
 55dd28896ea8: Pulling fs layer
 4ff82ebd20fe: Pulling fs layer
-4ff82ebd20fe: Waiting
+43c4264eed91: Verifying Checksum
 43c4264eed91: Download complete
 2fb915365b73: Verifying Checksum
 2fb915365b73: Download complete
