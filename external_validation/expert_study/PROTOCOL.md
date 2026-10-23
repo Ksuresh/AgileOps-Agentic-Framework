@@ -84,3 +84,9 @@ will be reported.
   before any run) is used as the primary key for the new cases; (ii) the AI-assisted practitioner labels are reported
   as a sensitivity analysis (H1, H2 and new-case scores), with the caveat that AI-influenced labels may favour LLM
   configurations; (iii) independent human adjudication is stated as future work. No case, arm or analysis was changed.
+- **A3 (during manuscript revision, 2026-10-23):** A2 was committed after the results on the practitioner labels had
+  been computed (commits d782764 and b73b406 precede A2, 44c1122), and it favours Hybrid. To avoid a post-result change
+  of the primary endpoint, the manuscript reports the practitioner labels as the primary key for the new cases, as
+  originally specified in this protocol, with their AI-assisted provenance stated, and the sealed author key as the
+  pre-specified comparator. A2's caveats (AI-assisted labels; independent adjudication as future work) still apply.
+  No case, arm, label or analysis was changed; both keys' results are in `analysis.json` and `analysis_author_key.json`.
