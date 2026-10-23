@@ -1,0 +1,81 @@
+name: Study 10 - second-model replication (Qwen via Ollama, CPU)
+
+on:
+  workflow_dispatch:
+    inputs:
+      model: {description: "Ollama model tag", default: "qwen3:8b"}
+      nshards: {description: "Number of parallel shards", default: "24"}
+      limit: {description: "Jobs per shard (0 = all; small number = smoke test)", default: "0"}
+      run_label: {description: "Results folder label", default: "main"}
+      ollama_version: {description: "Ollama release", default: "0.9.0"}
+  push:
+    branches: [text-evidence-pilot]
+    paths: ["model_replication/RUN"]
+
+permissions:
+  contents: write
+
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    outputs:
+      shards: ${{ steps.cfg.outputs.shards }}
+      nshards: ${{ steps.cfg.outputs.nshards }}
+      model: ${{ steps.cfg.outputs.model }}
+      limit: ${{ steps.cfg.outputs.limit }}
+      label: ${{ steps.cfg.outputs.label }}
+      over: ${{ steps.cfg.outputs.over }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: cfg
+        run: |
+          # dispatch inputs win; a push of model_replication/RUN reads KEY=VALUE lines from it
+          get() { grep -E "^$1=" model_replication/RUN 2>/dev/null | cut -d= -f2-; }
+          N="${{ inputs.nshards }}"; [ -z "$N" ] && N=$(get NSHARDS); N=${N:-24}
+          M="${{ inputs.model }}"; [ -z "$M" ] && M=$(get MODEL); M=${M:-qwen3:8b}
+          L="${{ inputs.limit }}"; [ -z "$L" ] && L=$(get LIMIT); L=${L:-0}
+          R="${{ inputs.run_label }}"; [ -z "$R" ] && R=$(get RUN_LABEL); R=${R:-main}
+          V="${{ inputs.ollama_version }}"; [ -z "$V" ] && V=$(get OLLAMA_VERSION); V=${V:-0.9.0}
+          echo "shards=$(python3 -c "import json;print(json.dumps(list(range($N))))")" >> $GITHUB_OUTPUT
+          echo "nshards=$N" >> $GITHUB_OUTPUT; echo "model=$M" >> $GITHUB_OUTPUT; echo "limit=$L" >> $GITHUB_OUTPUT
+          echo "label=$R" >> $GITHUB_OUTPUT; echo "over=$V" >> $GITHUB_OUTPUT
+
+  run:
+    needs: plan
+    runs-on: ubuntu-latest
+    timeout-minutes: 355
+    strategy:
+      fail-fast: false
+      max-parallel: 20
+      matrix:
+        shard: ${{ fromJson(needs.plan.outputs.shards) }}
+    env:
+      PYTHONPATH: ${{ github.workspace }}
+      QWEN_MODEL: ${{ needs.plan.outputs.model }}
+      SHARD: ${{ matrix.shard }}
+      NSHARDS: ${{ needs.plan.outputs.nshards }}
+      LIMIT: ${{ needs.plan.outputs.limit }}
+      RUN_LABEL: ${{ needs.plan.outputs.label }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install pyyaml numpy openai
+      - name: Install Ollama and pull the model
+        run: |
+          curl -fsSL https://ollama.com/install.sh | OLLAMA_VERSION=${{ needs.plan.outputs.over }} sh
+          (ollama serve > /tmp/ollama.log 2>&1 &) ; sleep 5
+          ollama pull "$QWEN_MODEL"
+          D=model_replication/results/$(echo "$QWEN_MODEL" | tr ':/' '__')/$RUN_LABEL; mkdir -p $D
+          { echo "ollama: $(ollama --version)"; curl -s http://127.0.0.1:11434/api/tags; echo; ollama show "$QWEN_MODEL" --modelfile | grep -v '^#' | head -40; nproc; free -g; } > $D/env_shard_$(printf %02d $SHARD).txt
+      - name: Run shard
+        run: python model_replication/run_qwen.py
+      - name: Commit
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f model_replication/results
+          git commit -m "Study 10 (Qwen) shard ${SHARD}: run ${GITHUB_RUN_ID} [skip ci]" || echo "nothing"
+          for i in 1 2 3 4 5 6 7 8; do git pull --rebase origin ${GITHUB_REF_NAME} && git push origin HEAD:${GITHUB_REF_NAME} && break; sleep $((i*9)); done
