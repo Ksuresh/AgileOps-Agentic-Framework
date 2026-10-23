@@ -100,6 +100,6 @@ jobs:
           kubectl get pods -o wide > /tmp/pods.txt 2>&1 || true
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -f outcome_study/calibration outcome_study/measurements outcome_study/ci_logs 2>/dev/null || true
+          for p in outcome_study/calibration outcome_study/measurements outcome_study/ci_logs; do [ -e "$p" ] && git add -f "$p"; done
           git commit -m "Study 9 ${{ needs.plan.outputs.mode }} shard ${SHARD}: run ${GITHUB_RUN_ID} [skip ci]" || echo "nothing"
           for i in 1 2 3 4 5 6 7 8; do git pull --rebase origin ${GITHUB_REF_NAME} && git push origin HEAD:${GITHUB_REF_NAME} && break; sleep $((i*9)); done
