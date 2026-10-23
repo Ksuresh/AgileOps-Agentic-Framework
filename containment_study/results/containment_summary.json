@@ -1,0 +1,57 @@
+{
+  "garbage": {
+    "case_runs": 96,
+    "aaf_differs_from_b1": 0,
+    "aaf_differs_from_b1_without_genuine_tool_result": 0,
+    "b5_differs_from_b1": 96,
+    "b5_actions": {
+      "Escalate for evidence/human review": 96
+    },
+    "s6_correct_aaf": 39,
+    "s6_correct_b5": 0,
+    "s6_correct_b1": 39,
+    "s6_case_runs": 48
+  },
+  "harmful": {
+    "case_runs": 96,
+    "aaf_differs_from_b1": 0,
+    "aaf_differs_from_b1_without_genuine_tool_result": 0,
+    "b5_differs_from_b1": 88,
+    "b5_actions": {
+      "No action (observe)": 96
+    },
+    "s6_correct_aaf": 39,
+    "s6_correct_b5": 3,
+    "s6_correct_b1": 39,
+    "s6_case_runs": 48
+  },
+  "inverted": {
+    "case_runs": 96,
+    "aaf_differs_from_b1": 0,
+    "aaf_differs_from_b1_without_genuine_tool_result": 0,
+    "b5_differs_from_b1": 70,
+    "b5_actions": {
+      "Scale adjustment": 96
+    },
+    "s6_correct_aaf": 39,
+    "s6_correct_b5": 17,
+    "s6_correct_b1": 39,
+    "s6_case_runs": 48
+  },
+  "random": {
+    "case_runs": 480,
+    "aaf_differs_from_b1": 17,
+    "aaf_differs_from_b1_without_genuine_tool_result": 0,
+    "b5_differs_from_b1": 418,
+    "b5_actions": {
+      "Scale adjustment": 68,
+      "Review scaling policy": 65,
+      "Mitigate and monitor": 65,
+      "Escalate for evidence/human review": 63
+    },
+    "s6_correct_aaf": 201,
+    "s6_correct_b5": 39,
+    "s6_correct_b1": 195,
+    "s6_case_runs": 240
+  }
+}
