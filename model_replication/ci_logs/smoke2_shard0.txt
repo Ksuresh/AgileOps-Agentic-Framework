@@ -1,0 +1,2 @@
+B6 NV-A06 2 Mitigate and monitor 433.5 s
+B6 RP-M01 2 Scale adjustment 429.0 s
