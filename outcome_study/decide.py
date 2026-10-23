@@ -114,7 +114,7 @@ def main() -> None:
         d = json.loads(p.read_text())
         allv += variants(cfg[d["case"]["id"]], d["snapshot"])
     shard, nshards = int(os.environ.get("SHARD", "0")), int(os.environ.get("NSHARDS", "1"))
-    out = HERE / "decisions"
+    out = HERE / os.environ.get("DECISIONS_DIR", "decisions")
     out.mkdir(parents=True, exist_ok=True)
     (out / "variants.json").write_text(json.dumps(allv, indent=1, default=str)) if shard == 0 else None
     if shard == 0:

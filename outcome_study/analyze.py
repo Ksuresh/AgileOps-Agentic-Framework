@@ -55,14 +55,16 @@ def outcome_table(cal: dict) -> dict:
 
 
 def main() -> None:
+    import os
+    ddir = HERE / os.environ.get("DECISIONS_DIR", "decisions")
     cal = json.loads((HERE / "calibration" / "calibration.json").read_text())
     cases = {c["id"]: c for c in yaml.safe_load((HERE / "cases.yaml").read_text())["cases"]}
     table = outcome_table(cal)
     dec = defaultdict(lambda: defaultdict(list))  # decider -> variant case id -> actions
-    for line in (HERE / "decisions" / "deterministic.jsonl").read_text().splitlines():
+    for line in (ddir / "deterministic.jsonl").read_text().splitlines():
         r = json.loads(line)
         dec[r["decider"]][r["case"]].append(r["action"])
-    for f in sorted((HERE / "decisions").glob("llm_shard_*.jsonl")):
+    for f in sorted(ddir.glob("llm_shard_*.jsonl")):
         for line in f.read_text().splitlines():
             r = json.loads(line)
             if r.get("error"):
