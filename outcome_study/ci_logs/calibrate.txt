@@ -1,0 +1,18 @@
+{
+  "stable_image": "us-central1-docker.pkg.dev/online-boutique-ci/microservices-demo/frontend:v0.10.6",
+  "stable_critical_cves": 0,
+  "healthy_p95_ms": [
+    699.1803049999987,
+    402.67919699999766,
+    408.1119759999865
+  ],
+  "healthy_error_pct": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "vuln_images": {
+    "A": "gcr.io/google-samples/microservices-demo/frontend:v0.8.0",
+    "B": "gcr.io/google-samples/microservices-demo/frontend:v0.7.0"
+  }
+}
