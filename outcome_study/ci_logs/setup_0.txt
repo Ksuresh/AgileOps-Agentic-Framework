@@ -19,7 +19,7 @@ You can now use your cluster with:
 
 kubectl cluster-info --context kind-aaf-oc
 
-Thanks for using kind! 😊
+Not sure what to do next? 😅  Check out https://kind.sigs.k8s.io/docs/user/quick-start/
 deployment.apps/frontend created
 service/frontend created
 service/frontend-external created
