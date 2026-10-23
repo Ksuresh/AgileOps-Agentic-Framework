@@ -1,0 +1,32 @@
+AAF NV-U09 3 Mitigate and monitor 199.7 s
+B6 NV-U01 1 Mitigate and monitor 927.2 s
+AAF AG-A02 2 Scale adjustment 173.7 s
+B5 AG-M08 2 Mitigate and monitor 290.4 s
+B5 NV-M01 3 Mitigate and monitor 226.0 s
+B6 NV-U24 1 Block release and fix pipeline 1693.2 s
+AAF NV-M05 3 Patch or block release 0.0 s
+B5 NV-C03 2 Mitigate and monitor 259.6 s
+AAF RP-A03 3 Patch or block release 82.3 s
+B6 RP-C02 2 Mitigate and monitor 732.1 s
+B5 AG-C01 2 Mitigate and monitor 259.6 s
+B6 AG-C03 1 Scale adjustment 722.3 s
+B6 NV-U17 1 No action (observe) 1127.6 s
+AAF NV-U20 3 No action (observe) 0.0 s
+AAF NV-U06 3 No action (observe) 0.0 s
+AAF RP-A03 2 Patch or block release 87.2 s
+B5 NV-U18 1 No action (observe) 193.9 s
+B6 RP-A03 2 Patch or block release 840.0 s
+B5 AG-M03 2 Mitigate and monitor 264.8 s
+B6 AG-I07 1 Rollback to stable deployment 937.9 s
+B6 RP-M02 1 Block release and fix pipeline 915.8 s
+AAF AG-A08 3 Scale adjustment 138.0 s
+AAF NV-M01 2 Scale adjustment 0.0 s
+AAF NV-U10 2 Mitigate and monitor 0.0 s
+AAF RP-A04 2 Mitigate and monitor 80.6 s
+B5 AG-M02 1 Rollback to stable deployment 202.7 s
+AAF NV-U22 1 Scale adjustment 168.6 s
+B5 NV-A02 1 Mitigate and monitor 219.7 s
+AAF AG-C07 3 No action (observe) 0.0 s
+AAF NV-A06 1 Mitigate and monitor 84.9 s
+AAF RP-I01 2 Rollback to stable deployment 260.9 s
+AAF AG-A06 2 Review scaling policy 89.3 s
