@@ -1,0 +1,22 @@
+AAF OX-06 1 Patch or block release
+B5 OX-17 2 Patch or block release
+B5 OX-03 3 Block release and fix pipeline
+B6 OX-01 1 Patch or block release
+B6 OX-02 2 Escalate for evidence/human review
+B6 OX-16 3 Rollback to stable deployment
+B6 OX-02 1 Escalate for evidence/human review
+B5 OX-16 3 Rollback to stable deployment
+B5 OX-02-W 2 Mitigate and monitor
+B6 OX-17 1 Patch or block release
+B5 OX-16 2 Rollback to stable deployment
+B5 OX-07-W 2 Block release and fix pipeline
+B6 OX-01-W 3 Patch or block release
+B6 OX-11-W 1 Escalate for evidence/human review
+B6 OX-13 3 Patch or block release
+B5 OX-12 3 Block release and fix pipeline
+B6 OS-09 1 No action (observe)
+B6 OX-03 1 Patch or block release
+B6 OX-15 3 Patch or block release
+B6 OX-16 1 Patch or block release
+AAF OX-09 3 Mitigate and monitor
+AAF OS-10 2 Scale adjustment
