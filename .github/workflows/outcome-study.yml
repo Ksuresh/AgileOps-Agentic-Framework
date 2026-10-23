@@ -61,10 +61,13 @@ jobs:
       - name: Tools (kind, trivy)
         run: |
           curl -Lo /tmp/kind https://kind.sigs.k8s.io/dl/v0.24.0/kind-linux-amd64 && chmod +x /tmp/kind && sudo mv /tmp/kind /usr/local/bin/kind
-          curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/v0.56.2/contrib/install.sh | sudo sh -s -- -b /usr/local/bin v0.56.2
-          trivy --version
+          mkdir -p outcome_study/ci_logs
+          { curl -fsSL -o /tmp/trivy.deb https://github.com/aquasecurity/trivy/releases/download/v0.56.2/trivy_0.56.2_Linux-64bit.deb && sudo dpkg -i /tmp/trivy.deb; } \
+            || { echo '#!/bin/sh' | sudo tee /usr/local/bin/trivy >/dev/null; echo 'exec docker run --rm -v /var/run/docker.sock:/var/run/docker.sock -v $HOME/.cache/trivy:/root/.cache/trivy aquasec/trivy:0.56.2 "$@"' | sudo tee -a /usr/local/bin/trivy >/dev/null; sudo chmod +x /usr/local/bin/trivy; }
+          trivy --version 2>&1 | tee outcome_study/ci_logs/trivy_version_${SHARD}.txt
       - name: Cluster (port 30080 -> host 8080) and pinned Online Boutique
         run: |
+          exec > >(tee outcome_study/ci_logs/setup_${SHARD}.txt) 2>&1
           cat > /tmp/kind.yaml <<'K'
           kind: Cluster
           apiVersion: kind.x-k8s.io/v1alpha4
@@ -87,16 +90,16 @@ jobs:
           trivy image --download-db-only --quiet
       - name: Calibrate
         if: needs.plan.outputs.mode == 'calibrate'
-        run: python outcome_study/calibrate.py
+        run: python outcome_study/calibrate.py 2>&1 | tee outcome_study/ci_logs/calibrate.txt; exit ${PIPESTATUS[0]}
       - name: Outcomes
         if: needs.plan.outputs.mode == 'outcomes'
-        run: python outcome_study/run_outcomes.py
+        run: python outcome_study/run_outcomes.py 2>&1 | tee outcome_study/ci_logs/outcomes_rep${REP}_shard${SHARD}.txt; exit ${PIPESTATUS[0]}
       - name: Commit
         if: always()
         run: |
           kubectl get pods -o wide > /tmp/pods.txt 2>&1 || true
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -f outcome_study/calibration outcome_study/measurements 2>/dev/null || true
+          git add -f outcome_study/calibration outcome_study/measurements outcome_study/ci_logs 2>/dev/null || true
           git commit -m "Study 9 ${{ needs.plan.outputs.mode }} shard ${SHARD}: run ${GITHUB_RUN_ID} [skip ci]" || echo "nothing"
           for i in 1 2 3 4 5 6 7 8; do git pull --rebase origin ${GITHUB_REF_NAME} && git push origin HEAD:${GITHUB_REF_NAME} && break; sleep $((i*9)); done
