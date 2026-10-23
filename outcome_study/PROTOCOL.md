@@ -63,6 +63,9 @@ Delivery (feature still deployed) is recorded separately and used only as the se
   restart loops (container restarts), config drift (secret-like configuration, as in the earlier Online Boutique study);
   finops = CPU-request change vs. healthy footprint (proxy); sec = new critical CVEs, policy violation.
 - AAF's code and thresholds are not changed for this study (file hashes recorded by the workflow).
+- Deciders use the replicate-1 snapshot of each case; outcomes are averaged over both replicates. B2 uses the frozen
+  field-to-tool map of Study 6, extended with `deploy.restart_loops -> get_restart_history` (same tool family).
+- Implementation: `decide.py` (deciders; never reads outcomes), `analyze.py` (oracle and tests).
 
 ## Study 9b: withheld evidence
 For each case with a vulnerable image, secret-like configuration, a non-starting release, or a reliability fault, a
