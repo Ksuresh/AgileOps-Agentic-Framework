@@ -1,0 +1,23 @@
+B5 OS-10 3 Rollback to stable deployment
+B5 OX-01 2 Patch or block release
+B5 OS-03-W 2 Block release and fix pipeline
+B6 OX-05 2 Patch or block release
+B6 OX-14-W 3 Patch or block release
+B5 OX-02 1 Rollback to stable deployment
+AAF OX-15 2 Patch or block release
+B6 OS-11-W 3 Patch or block release
+AAF OS-01 3 Mitigate and monitor
+AAF OS-10 1 Scale adjustment
+B5 OS-06-W 1 Block release and fix pipeline
+B5 OX-13-W 1 Mitigate and monitor
+AAF OX-04-W 2 Mitigate and monitor
+B5 OX-15-W 1 Block release and fix pipeline
+AAF OS-12 2 Patch or block release
+B5 OX-11-W 2 Patch or block release
+AAF OX-13-W 3 Patch or block release
+AAF OX-05 2 Patch or block release
+B5 OS-07-W 1 Mitigate and monitor
+B5 OS-03-W 3 Block release and fix pipeline
+B5 OS-11-W 2 No action (observe)
+B5 OS-05-W 3 Mitigate and monitor
+B6 OX-15 1 Patch or block release
