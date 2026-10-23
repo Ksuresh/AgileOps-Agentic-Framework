@@ -43,6 +43,7 @@ class QwenRuntime(AR.BoundedAgenticRuntime):
         self.reasoning_effort = "medium" if think else "none"
         self.think = think
         self.coordinator_system = coordinator_system or AR.COORDINATOR_SYSTEM
+        self.errors: list[str] = []
 
     def _call(self, instructions, payload):
         if instructions == AR.COORDINATOR_SYSTEM:
@@ -56,7 +57,16 @@ class QwenRuntime(AR.BoundedAgenticRuntime):
         req = urllib.request.Request(f"{HOST}/api/chat", data=json.dumps(body).encode(), headers={"Content-Type": "application/json"})
         t0 = time.perf_counter()
         with urllib.request.urlopen(req, timeout=1800) as r:
-            out = json.loads(r.read())
+            body = r.read().decode("utf-8", "replace")
+        try:
+            out = json.loads(body)
+        except json.JSONDecodeError:  # tolerate NDJSON (streamed) bodies: merge message chunks
+            chunks = [json.loads(x) for x in body.splitlines() if x.strip().startswith("{")]
+            if not chunks:
+                self.errors.append(body[:300])
+                raise
+            out = dict(chunks[-1])
+            out["message"] = {"content": "".join((c.get("message") or {}).get("content", "") for c in chunks)}
         latency = (time.perf_counter() - t0) * 1000.0
         raw = (out.get("message") or {}).get("content") or ""
         pin, pout = int(out.get("prompt_eval_count") or 0), int(out.get("eval_count") or 0)
@@ -83,7 +93,8 @@ def main() -> None:
     rt = {"AAF": QwenRuntime(False), "B5": QwenRuntime(False), "B6": QwenRuntime(True, RA.COORD_B6)}
     fn = {"AAF": lambda c: run_hybrid(c, rt["AAF"]), "B5": lambda c: run_agentic_only(c, rt["B5"]),
           "B6": lambda c: run_agentic_only(c, rt["B6"])}
-    mine = jobs()[shard::nshards]
+    arms = os.environ.get("ARMS", "").split()
+    mine = [j for j in jobs() if not arms or j[0] in arms][shard::nshards]
     if limit:
         mine = mine[:limit]
     path = out / f"shard_{shard:02d}.jsonl"
@@ -103,6 +114,8 @@ def main() -> None:
             except Exception as exc:
                 row = {"arm": arm, "study": study, "case": case["id"], "stratum": case["stratum"], "run": run, "action": None,
                        "error": f"{type(exc).__name__}: {str(exc)[:300]}"}
+            row["backend_errors"] = rt[arm].errors[-3:]
+            rt[arm].errors.clear()
             row.update({"model": MODEL, "temperature": TEMPERATURE, "wall_s": round(time.time() - t0, 1)})
             fh.write(json.dumps(row, default=str) + "\n"); fh.flush()
             print(arm, case["id"], run, row["action"], row["wall_s"], "s", flush=True)
