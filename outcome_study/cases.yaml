@@ -1,0 +1,48 @@
+# Study 9 case templates (frozen before any outcome measurement).
+# Each case defines the previous (approved) release, the current release, replicas and load. Faults are composed from
+# release modifiers. Nothing in this file names a correct action: correctness is computed from measured outcomes.
+#
+# release modifiers (applied to the frontend pod template):
+#   feature  : env AAF_RELEASE=candidate (the delivered feature; its presence = delivery preserved)
+#   perf     : CPU request/limit lowered to `perf_cpu` (a heavier build running in a constrained budget)
+#   crash    : env PORT=invalid-port (the release cannot start)
+#   vuln     : image = vulnerable image `vuln` (A or B, chosen by the calibration rule in PROTOCOL.md)
+#   secret   : env AAF_OB_TEST_POLICY_MARKER=exposed_test_secret (secret-like value in runtime config)
+# load: normal = 20 concurrent clients, high = `high` concurrent clients; low = 4 clients
+loads: {low: 4, normal: 20}
+cases:
+  # controls
+  - {id: OC-01, previous: [], current: [], replicas: 1, load: normal}
+  - {id: OC-02, previous: [], current: [feature], replicas: 1, load: normal}
+  # single-domain faults
+  - {id: OS-01, previous: [], current: [feature, perf], perf_cpu: 40m, replicas: 1, load: normal}
+  - {id: OS-02, previous: [], current: [feature, perf], perf_cpu: 25m, replicas: 1, load: normal}
+  - {id: OS-03, previous: [], current: [feature, crash], replicas: 1, load: normal}
+  - {id: OS-04, previous: [], current: [feature, vuln], vuln: A, replicas: 1, load: normal}
+  - {id: OS-05, previous: [], current: [feature, vuln], vuln: B, replicas: 1, load: normal}
+  - {id: OS-06, previous: [], current: [feature, secret], replicas: 1, load: normal}
+  - {id: OS-07, previous: [], current: [], replicas: 1, load: high, high: 100}
+  - {id: OS-08, previous: [], current: [], replicas: 1, load: high, high: 160}
+  - {id: OS-09, previous: [], current: [], replicas: 5, load: low}
+  - {id: OS-10, previous: [], current: [], replicas: 8, load: low}
+  - {id: OS-11, previous: [vuln], current: [vuln], vuln: A, replicas: 1, load: normal}
+  - {id: OS-12, previous: [vuln], current: [vuln], vuln: B, replicas: 1, load: normal}
+  # compound (cross-domain) faults
+  - {id: OX-01, previous: [], current: [feature, perf, vuln], perf_cpu: 40m, vuln: A, replicas: 1, load: normal}
+  - {id: OX-02, previous: [], current: [feature, perf, vuln], perf_cpu: 25m, vuln: B, replicas: 1, load: normal}
+  - {id: OX-03, previous: [], current: [feature, crash, secret], replicas: 1, load: normal}
+  - {id: OX-04, previous: [], current: [feature, crash, vuln], vuln: A, replicas: 1, load: normal}
+  - {id: OX-05, previous: [], current: [feature, vuln], vuln: A, replicas: 1, load: high, high: 100}
+  - {id: OX-06, previous: [], current: [feature, vuln], vuln: B, replicas: 1, load: high, high: 160}
+  - {id: OX-07, previous: [], current: [feature, secret], replicas: 5, load: low}
+  - {id: OX-08, previous: [], current: [feature, secret], replicas: 8, load: low}
+  - {id: OX-09, previous: [], current: [feature, perf], perf_cpu: 40m, replicas: 1, load: high, high: 100}
+  - {id: OX-10, previous: [], current: [feature, perf], perf_cpu: 25m, replicas: 1, load: high, high: 160}
+  - {id: OX-11, previous: [vuln], current: [vuln], vuln: A, replicas: 5, load: low}
+  - {id: OX-12, previous: [vuln], current: [vuln], vuln: B, replicas: 8, load: low}
+  - {id: OX-13, previous: [vuln], current: [vuln], vuln: A, replicas: 1, load: high, high: 100}
+  - {id: OX-14, previous: [vuln], current: [vuln], vuln: B, replicas: 1, load: high, high: 160}
+  - {id: OX-15, previous: [], current: [feature, perf, secret], perf_cpu: 40m, replicas: 1, load: normal}
+  - {id: OX-16, previous: [], current: [feature, perf, secret], perf_cpu: 25m, replicas: 1, load: normal}
+  - {id: OX-17, previous: [], current: [feature, perf, vuln], perf_cpu: 40m, vuln: A, replicas: 5, load: low}
+  - {id: OX-18, previous: [], current: [feature, secret, vuln], vuln: B, replicas: 1, load: high, high: 100}

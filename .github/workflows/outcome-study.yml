@@ -1,0 +1,102 @@
+name: Study 9 - outcome-based oracle on Online Boutique
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode: {description: "calibrate | outcomes", default: "calibrate"}
+      nshards: {description: "shards (outcomes)", default: "16"}
+      rep: {description: "replicate label (outcomes)", default: "1"}
+      cases: {description: "space-separated case ids (empty = all)", default: ""}
+  push:
+    branches: [text-evidence-pilot]
+    paths: ["outcome_study/RUN"]
+
+permissions:
+  contents: write
+
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    outputs:
+      shards: ${{ steps.cfg.outputs.shards }}
+      nshards: ${{ steps.cfg.outputs.nshards }}
+      mode: ${{ steps.cfg.outputs.mode }}
+      rep: ${{ steps.cfg.outputs.rep }}
+      cases: ${{ steps.cfg.outputs.cases }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: cfg
+        run: |
+          get() { grep -E "^$1=" outcome_study/RUN 2>/dev/null | cut -d= -f2-; }
+          MODE="${{ inputs.mode }}"; [ -z "$MODE" ] && MODE=$(get MODE); MODE=${MODE:-calibrate}
+          N="${{ inputs.nshards }}"; [ -z "$N" ] && N=$(get NSHARDS); N=${N:-16}
+          REP="${{ inputs.rep }}"; [ -z "$REP" ] && REP=$(get REP); REP=${REP:-1}
+          C="${{ inputs.cases }}"; [ -z "$C" ] && C=$(get CASES)
+          [ "$MODE" = "calibrate" ] && N=1
+          echo "shards=$(python3 -c "import json;print(json.dumps(list(range($N))))")" >> $GITHUB_OUTPUT
+          echo "nshards=$N" >> $GITHUB_OUTPUT; echo "mode=$MODE" >> $GITHUB_OUTPUT; echo "rep=$REP" >> $GITHUB_OUTPUT; echo "cases=$C" >> $GITHUB_OUTPUT
+
+  run:
+    needs: plan
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    strategy:
+      fail-fast: false
+      max-parallel: 16
+      matrix:
+        shard: ${{ fromJson(needs.plan.outputs.shards) }}
+    env:
+      PYTHONPATH: ${{ github.workspace }}
+      OB_COMMIT: b9a978db9e01f4ad3dca9494a22cb9edc17548fe
+      SHARD: ${{ matrix.shard }}
+      NSHARDS: ${{ needs.plan.outputs.nshards }}
+      REP: ${{ needs.plan.outputs.rep }}
+      CASES: ${{ needs.plan.outputs.cases }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install -r requirements.txt
+      - name: Tools (kind, trivy)
+        run: |
+          curl -Lo /tmp/kind https://kind.sigs.k8s.io/dl/v0.24.0/kind-linux-amd64 && chmod +x /tmp/kind && sudo mv /tmp/kind /usr/local/bin/kind
+          curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/v0.56.2/contrib/install.sh | sudo sh -s -- -b /usr/local/bin v0.56.2
+          trivy --version
+      - name: Cluster (port 30080 -> host 8080) and pinned Online Boutique
+        run: |
+          cat > /tmp/kind.yaml <<'K'
+          kind: Cluster
+          apiVersion: kind.x-k8s.io/v1alpha4
+          nodes:
+            - role: control-plane
+              extraPortMappings:
+                - {containerPort: 30080, hostPort: 8080}
+          K
+          kind create cluster --name aaf-oc --config /tmp/kind.yaml --wait 120s
+          git clone -q https://github.com/GoogleCloudPlatform/microservices-demo.git /tmp/ob && git -C /tmp/ob checkout -q "$OB_COMMIT"
+          kubectl apply -f /tmp/ob/release/kubernetes-manifests.yaml
+          kubectl delete deployment loadgenerator --ignore-not-found
+          kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/download/v0.7.2/components.yaml
+          kubectl -n kube-system patch deployment metrics-server --type=json -p='[{"op":"add","path":"/spec/template/spec/containers/0/args/-","value":"--kubelet-insecure-tls"}]'
+          kubectl expose deployment frontend --name=frontend-np --type=NodePort --port=80 --target-port=8080 --overrides='{"apiVersion":"v1","spec":{"ports":[{"port":80,"targetPort":8080,"nodePort":30080}]}}'
+          kubectl wait --for=condition=available deployment --all --timeout=600s
+          kubectl -n kube-system wait --for=condition=available deployment/metrics-server --timeout=300s
+          for i in $(seq 1 60); do curl -fsS http://127.0.0.1:8080/ >/dev/null && break; sleep 3; done
+          for i in $(seq 1 40); do kubectl top pods -l app=frontend >/dev/null 2>&1 && break; sleep 6; done
+          trivy image --download-db-only --quiet
+      - name: Calibrate
+        if: needs.plan.outputs.mode == 'calibrate'
+        run: python outcome_study/calibrate.py
+      - name: Outcomes
+        if: needs.plan.outputs.mode == 'outcomes'
+        run: python outcome_study/run_outcomes.py
+      - name: Commit
+        if: always()
+        run: |
+          kubectl get pods -o wide > /tmp/pods.txt 2>&1 || true
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f outcome_study/calibration outcome_study/measurements 2>/dev/null || true
+          git commit -m "Study 9 ${{ needs.plan.outputs.mode }} shard ${SHARD}: run ${GITHUB_RUN_ID} [skip ci]" || echo "nothing"
+          for i in 1 2 3 4 5 6 7 8; do git pull --rebase origin ${GITHUB_REF_NAME} && git push origin HEAD:${GITHUB_REF_NAME} && break; sleep $((i*9)); done
