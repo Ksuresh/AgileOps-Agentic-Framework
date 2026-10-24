@@ -13,7 +13,8 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 from external_validation.expert_study.analyze import holm, mcnemar, wilson  # noqa: E402
 
-HERE = ROOT / "outcome_study"
+import os as _os
+HERE = ROOT / _os.environ.get("OUTCOME_DIR", "outcome_study")
 STATE_OF = {"Rollback to stable deployment": "rollback", "Block release and fix pipeline": "rollback", "Patch or block release": "patch",
             "Mitigate and monitor": "mitigate", "Scale adjustment": "scale", "No action (observe)": "none",
             "Review scaling policy": "none", "Escalate for evidence/human review": "none"}
