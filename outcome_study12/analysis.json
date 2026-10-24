@@ -6,7 +6,9 @@
     "AAF": {
       "3": 49
     },
-    "AAF-12": {},
+    "AAF-12": {
+      "3": 49
+    },
     "B5": {
       "3": 49
     },
@@ -20,6 +22,7 @@
   "accuracy_O1": {
     "faults": {
       "AAF": 18,
+      "AAF-12": 20,
       "AlwaysNone": 3,
       "AlwaysRollback": 15,
       "B1": 18,
@@ -41,6 +44,7 @@
     },
     "predating": {
       "AAF": 7,
+      "AAF-12": 3,
       "AlwaysNone": 1,
       "AlwaysRollback": 3,
       "B1": 7,
@@ -62,6 +66,7 @@
     },
     "controls": {
       "AAF": 2,
+      "AAF-12": 2,
       "AlwaysNone": 2,
       "AlwaysRollback": 2,
       "B1": 2,
@@ -83,6 +88,7 @@
     },
     "withheld": {
       "AAF": 15,
+      "AAF-12": 18,
       "AlwaysNone": 2,
       "AlwaysRollback": 14,
       "B1": 11,
@@ -106,6 +112,7 @@
   "accuracy_O2": {
     "faults": {
       "AAF": 15,
+      "AAF-12": 10,
       "AlwaysNone": 1,
       "AlwaysRollback": 6,
       "B1": 15,
@@ -127,6 +134,7 @@
     },
     "predating": {
       "AAF": 6,
+      "AAF-12": 0,
       "AlwaysNone": 1,
       "AlwaysRollback": 0,
       "B1": 6,
@@ -148,6 +156,7 @@
     },
     "controls": {
       "AAF": 2,
+      "AAF-12": 1,
       "AlwaysNone": 2,
       "AlwaysRollback": 1,
       "B1": 2,
@@ -169,6 +178,7 @@
     },
     "withheld": {
       "AAF": 12,
+      "AAF-12": 9,
       "AlwaysNone": 1,
       "AlwaysRollback": 6,
       "B1": 8,
@@ -192,6 +202,7 @@
   "accuracy_O3": {
     "faults": {
       "AAF": 18,
+      "AAF-12": 20,
       "AlwaysNone": 3,
       "AlwaysRollback": 15,
       "B1": 18,
@@ -213,6 +224,7 @@
     },
     "predating": {
       "AAF": 7,
+      "AAF-12": 3,
       "AlwaysNone": 1,
       "AlwaysRollback": 3,
       "B1": 7,
@@ -234,6 +246,7 @@
     },
     "controls": {
       "AAF": 2,
+      "AAF-12": 2,
       "AlwaysNone": 2,
       "AlwaysRollback": 2,
       "B1": 2,
@@ -255,6 +268,7 @@
     },
     "withheld": {
       "AAF": 15,
+      "AAF-12": 18,
       "AlwaysNone": 2,
       "AlwaysRollback": 14,
       "B1": 11,
@@ -277,59 +291,59 @@
   },
   "H12_1_AAF12_vs_AAF": {
     "AAF": {
-      "a_only": 0,
-      "b_only": 18,
-      "p_exact": 7.62939453125e-06
+      "a_only": 6,
+      "b_only": 4,
+      "p_exact": 0.75390625
     }
   },
   "H12_2_vs_siloed": {
     "D-DevOps": {
-      "a_only": 0,
-      "b_only": 9,
-      "p_exact": 0.00390625,
-      "p_holm": 0.01953125
+      "a_only": 11,
+      "b_only": 0,
+      "p_exact": 0.0009765625,
+      "p_holm": 0.0048828125
     },
     "D-SRE": {
-      "a_only": 0,
-      "b_only": 8,
-      "p_exact": 0.0078125,
-      "p_holm": 0.03125
+      "a_only": 14,
+      "b_only": 2,
+      "p_exact": 0.004180908203125,
+      "p_holm": 0.0167236328125
     },
     "D-FinOps": {
-      "a_only": 0,
-      "b_only": 8,
-      "p_exact": 0.0078125,
-      "p_holm": 0.03125
+      "a_only": 12,
+      "b_only": 0,
+      "p_exact": 0.00048828125,
+      "p_holm": 0.00341796875
     },
     "D-Sec": {
-      "a_only": 0,
-      "b_only": 15,
-      "p_exact": 6.103515625e-05,
-      "p_holm": 0.00042724609375
+      "a_only": 7,
+      "b_only": 2,
+      "p_exact": 0.1796875,
+      "p_holm": 0.359375
     },
     "L-DevOps": {
-      "a_only": 0,
-      "b_only": 8,
-      "p_exact": 0.0078125,
-      "p_holm": 0.03125
+      "a_only": 12,
+      "b_only": 0,
+      "p_exact": 0.00048828125,
+      "p_holm": 0.00341796875
     },
     "L-SRE": {
-      "a_only": 0,
-      "b_only": 11,
-      "p_exact": 0.0009765625,
-      "p_holm": 0.005859375
+      "a_only": 11,
+      "b_only": 2,
+      "p_exact": 0.0224609375,
+      "p_holm": 0.0673828125
     },
     "L-FinOps": {
-      "a_only": 0,
-      "b_only": 6,
-      "p_exact": 0.03125,
-      "p_holm": 0.03125
+      "a_only": 14,
+      "b_only": 0,
+      "p_exact": 0.0001220703125,
+      "p_holm": 0.0009765625
     },
     "L-Sec": {
-      "a_only": 0,
-      "b_only": 16,
-      "p_exact": 3.0517578125e-05,
-      "p_holm": 0.000244140625
+      "a_only": 5,
+      "b_only": 1,
+      "p_exact": 0.21875,
+      "p_holm": 0.359375
     }
   },
   "H12_2b_original_AAF_vs_siloed": {
@@ -384,26 +398,26 @@
   },
   "H12_3_vs_LLM_and_policies": {
     "B5": {
-      "a_only": 0,
-      "b_only": 20,
-      "p_exact": 1.9073486328125e-06,
-      "p_holm": 5.7220458984375e-06
+      "a_only": 3,
+      "b_only": 3,
+      "p_exact": 1.0,
+      "p_holm": 1.0
     },
     "B6": {
-      "a_only": 0,
-      "b_only": 18,
-      "p_exact": 7.62939453125e-06,
-      "p_holm": 1.52587890625e-05
+      "a_only": 6,
+      "b_only": 4,
+      "p_exact": 0.75390625,
+      "p_holm": 1.0
     },
     "AlwaysRollback": {
-      "a_only": 0,
-      "b_only": 15,
-      "p_exact": 6.103515625e-05,
-      "p_holm": 6.103515625e-05
+      "a_only": 5,
+      "b_only": 0,
+      "p_exact": 0.0625,
+      "p_holm": 0.1875
     }
   },
   "H12_4_predating": {
-    "AAF-12": 0,
+    "AAF-12": 3,
     "AAF": 7,
     "B1-12": 3,
     "B1": 7,
@@ -411,22 +425,22 @@
   },
   "withheld_AAF12_vs": {
     "B1-12": {
-      "a_only": 0,
-      "b_only": 17,
-      "p_exact": 1.52587890625e-05,
-      "p_holm": 4.57763671875e-05
+      "a_only": 1,
+      "b_only": 0,
+      "p_exact": 1.0,
+      "p_holm": 1.0
     },
     "B2": {
-      "a_only": 0,
-      "b_only": 17,
-      "p_exact": 1.52587890625e-05,
-      "p_holm": 4.57763671875e-05
+      "a_only": 6,
+      "b_only": 5,
+      "p_exact": 1.0,
+      "p_holm": 1.0
     },
     "AAF": {
-      "a_only": 0,
-      "b_only": 15,
-      "p_exact": 6.103515625e-05,
-      "p_holm": 6.103515625e-05
+      "a_only": 6,
+      "b_only": 3,
+      "p_exact": 0.5078125,
+      "p_holm": 1.0
     }
   },
   "per_case": {
@@ -438,6 +452,7 @@
         "scale"
       ],
       "AAF": "Scale adjustment",
+      "AAF-12": "Rollback to stable deployment",
       "AlwaysNone": "No action (observe)",
       "AlwaysRollback": "Rollback to stable deployment",
       "B1": "Scale adjustment",
@@ -465,6 +480,7 @@
         "scale"
       ],
       "AAF": "No action (observe)",
+      "AAF-12": "No action (observe)",
       "AlwaysNone": "No action (observe)",
       "AlwaysRollback": "Rollback to stable deployment",
       "B1": "No action (observe)",
@@ -492,6 +508,7 @@
         "scale"
       ],
       "AAF": "Scale adjustment",
+      "AAF-12": "Scale adjustment",
       "AlwaysNone": "No action (observe)",
       "AlwaysRollback": "Rollback to stable deployment",
       "B1": "Scale adjustment",
@@ -515,6 +532,7 @@
         "patch"
       ],
       "AAF": "Patch or block release",
+      "AAF-12": "Patch or block release",
       "AlwaysNone": "No action (observe)",
       "AlwaysRollback": "Rollback to stable deployment",
       "B1": "Patch or block release",
@@ -539,6 +557,7 @@
         "rollback"
       ],
       "AAF": "Patch or block release",
+      "AAF-12": "Patch or block release",
       "AlwaysNone": "No action (observe)",
       "AlwaysRollback": "Rollback to stable deployment",
       "B1": "Patch or block release",
@@ -563,6 +582,7 @@
         "rollback"
       ],
       "AAF": "Patch or block release",
+      "AAF-12": "Rollback to stable deployment",
       "AlwaysNone": "No action (observe)",
       "AlwaysRollback": "Rollback to stable deployment",
       "B1": "Patch or block release",
@@ -588,6 +608,7 @@
         "scale"
       ],
       "AAF": "Scale adjustment",
+      "AAF-12": "Scale adjustment",
       "AlwaysNone": "No action (observe)",
       "AlwaysRollback": "Rollback to stable deployment",
       "B1": "Scale adjustment",
@@ -611,6 +632,7 @@
         "mitigate"
       ],
       "AAF": "Mitigate and monitor",
+      "AAF-12": "Rollback to stable deployment",
       "AlwaysNone": "No action (observe)",
       "AlwaysRollback": "Rollback to stable deployment",
       "B1": "Mitigate and monitor",
@@ -638,6 +660,7 @@
         "scale"
       ],
       "AAF": "Mitigate and monitor",
+      "AAF-12": "Rollback to stable deployment",
       "AlwaysNone": "No action (observe)",
       "AlwaysRollback": "Rollback to stable deployment",
       "B1": "Mitigate and monitor",
@@ -663,6 +686,7 @@
         "rollback"
       ],
       "AAF": "Patch or block release",
+      "AAF-12": "Rollback to stable deployment",
       "AlwaysNone": "No action (observe)",
       "AlwaysRollback": "Rollback to stable deployment",
       "B1": "Patch or block release",
@@ -686,6 +710,7 @@
         "patch"
       ],
       "AAF": "Patch or block release",
+      "AAF-12": "Rollback to stable deployment",
       "AlwaysNone": "No action (observe)",
       "AlwaysRollback": "Rollback to stable deployment",
       "B1": "Patch or block release",
@@ -709,6 +734,7 @@
         "mitigate"
       ],
       "AAF": "Mitigate and monitor",
+      "AAF-12": "Rollback to stable deployment",
       "AlwaysNone": "No action (observe)",
       "AlwaysRollback": "Rollback to stable deployment",
       "B1": "Mitigate and monitor",
@@ -734,6 +760,7 @@
         "rollback"
       ],
       "AAF": "Patch or block release",
+      "AAF-12": "Rollback to stable deployment",
       "AlwaysNone": "No action (observe)",
       "AlwaysRollback": "Rollback to stable deployment",
       "B1": "Patch or block release",
@@ -758,6 +785,7 @@
         "scale"
       ],
       "AAF": "Patch or block release",
+      "AAF-12": "Rollback to stable deployment",
       "AlwaysNone": "No action (observe)",
       "AlwaysRollback": "Rollback to stable deployment",
       "B1": "Patch or block release",
@@ -782,6 +810,7 @@
         "rollback"
       ],
       "AAF": "Mitigate and monitor",
+      "AAF-12": "Rollback to stable deployment",
       "AlwaysNone": "No action (observe)",
       "AlwaysRollback": "Rollback to stable deployment",
       "B1": "Mitigate and monitor",
@@ -805,6 +834,7 @@
         "rollback"
       ],
       "AAF": "Mitigate and monitor",
+      "AAF-12": "Rollback to stable deployment",
       "AlwaysNone": "No action (observe)",
       "AlwaysRollback": "Rollback to stable deployment",
       "B1": "Mitigate and monitor",
@@ -828,6 +858,7 @@
         "rollback"
       ],
       "AAF": "Mitigate and monitor",
+      "AAF-12": "Rollback to stable deployment",
       "AlwaysNone": "No action (observe)",
       "AlwaysRollback": "Rollback to stable deployment",
       "B1": "Mitigate and monitor",
@@ -851,6 +882,7 @@
         "rollback"
       ],
       "AAF": "Patch or block release",
+      "AAF-12": "Rollback to stable deployment",
       "AlwaysNone": "No action (observe)",
       "AlwaysRollback": "Rollback to stable deployment",
       "B1": "Patch or block release",
@@ -874,6 +906,7 @@
         "rollback"
       ],
       "AAF": "Scale adjustment",
+      "AAF-12": "Rollback to stable deployment",
       "AlwaysNone": "No action (observe)",
       "AlwaysRollback": "Rollback to stable deployment",
       "B1": "Scale adjustment",
@@ -897,6 +930,7 @@
         "rollback"
       ],
       "AAF": "Patch or block release",
+      "AAF-12": "Rollback to stable deployment",
       "AlwaysNone": "No action (observe)",
       "AlwaysRollback": "Rollback to stable deployment",
       "B1": "Patch or block release",
@@ -920,6 +954,7 @@
         "rollback"
       ],
       "AAF": "Patch or block release",
+      "AAF-12": "Rollback to stable deployment",
       "AlwaysNone": "No action (observe)",
       "AlwaysRollback": "Rollback to stable deployment",
       "B1": "Patch or block release",
@@ -944,6 +979,7 @@
         "scale"
       ],
       "AAF": "Scale adjustment",
+      "AAF-12": "Patch or block release",
       "AlwaysNone": "No action (observe)",
       "AlwaysRollback": "Rollback to stable deployment",
       "B1": "Scale adjustment",
@@ -968,6 +1004,7 @@
         "scale"
       ],
       "AAF": "Patch or block release",
+      "AAF-12": "Patch or block release",
       "AlwaysNone": "No action (observe)",
       "AlwaysRollback": "Rollback to stable deployment",
       "B1": "Patch or block release",
@@ -992,6 +1029,7 @@
         "scale"
       ],
       "AAF": "Scale adjustment",
+      "AAF-12": "Patch or block release",
       "AlwaysNone": "No action (observe)",
       "AlwaysRollback": "Rollback to stable deployment",
       "B1": "Scale adjustment",
@@ -1017,6 +1055,7 @@
         "scale"
       ],
       "AAF": "Patch or block release",
+      "AAF-12": "Patch or block release",
       "AlwaysNone": "No action (observe)",
       "AlwaysRollback": "Rollback to stable deployment",
       "B1": "Patch or block release",
@@ -1042,6 +1081,7 @@
         "scale"
       ],
       "AAF": "Scale adjustment",
+      "AAF-12": "Patch or block release",
       "AlwaysNone": "No action (observe)",
       "AlwaysRollback": "Rollback to stable deployment",
       "B1": "Scale adjustment",
@@ -1065,6 +1105,7 @@
         "patch"
       ],
       "AAF": "Mitigate and monitor",
+      "AAF-12": "Mitigate and monitor",
       "AlwaysNone": "No action (observe)",
       "AlwaysRollback": "Rollback to stable deployment",
       "B1": "Mitigate and monitor",
@@ -1089,6 +1130,7 @@
         "rollback"
       ],
       "AAF": "Patch or block release",
+      "AAF-12": "Patch or block release",
       "AlwaysNone": "No action (observe)",
       "AlwaysRollback": "Rollback to stable deployment",
       "B1": "No action (observe)",
@@ -1113,6 +1155,7 @@
         "rollback"
       ],
       "AAF": "Patch or block release",
+      "AAF-12": "Rollback to stable deployment",
       "AlwaysNone": "No action (observe)",
       "AlwaysRollback": "Rollback to stable deployment",
       "B1": "Mitigate and monitor",
@@ -1138,6 +1181,7 @@
         "scale"
       ],
       "AAF": "Scale adjustment",
+      "AAF-12": "Scale adjustment",
       "AlwaysNone": "No action (observe)",
       "AlwaysRollback": "Rollback to stable deployment",
       "B1": "Scale adjustment",
@@ -1161,6 +1205,7 @@
         "mitigate"
       ],
       "AAF": "Mitigate and monitor",
+      "AAF-12": "Rollback to stable deployment",
       "AlwaysNone": "No action (observe)",
       "AlwaysRollback": "Rollback to stable deployment",
       "B1": "Mitigate and monitor",
@@ -1188,6 +1233,7 @@
         "scale"
       ],
       "AAF": "Mitigate and monitor",
+      "AAF-12": "Rollback to stable deployment",
       "AlwaysNone": "No action (observe)",
       "AlwaysRollback": "Rollback to stable deployment",
       "B1": "No action (observe)",
@@ -1213,6 +1259,7 @@
         "rollback"
       ],
       "AAF": "Patch or block release",
+      "AAF-12": "Rollback to stable deployment",
       "AlwaysNone": "No action (observe)",
       "AlwaysRollback": "Rollback to stable deployment",
       "B1": "Mitigate and monitor",
@@ -1236,6 +1283,7 @@
         "patch"
       ],
       "AAF": "Mitigate and monitor",
+      "AAF-12": "Rollback to stable deployment",
       "AlwaysNone": "No action (observe)",
       "AlwaysRollback": "Rollback to stable deployment",
       "B1": "Mitigate and monitor",
@@ -1259,6 +1307,7 @@
         "mitigate"
       ],
       "AAF": "Mitigate and monitor",
+      "AAF-12": "Rollback to stable deployment",
       "AlwaysNone": "No action (observe)",
       "AlwaysRollback": "Rollback to stable deployment",
       "B1": "No action (observe)",
@@ -1284,6 +1333,7 @@
         "rollback"
       ],
       "AAF": "Patch or block release",
+      "AAF-12": "Rollback to stable deployment",
       "AlwaysNone": "No action (observe)",
       "AlwaysRollback": "Rollback to stable deployment",
       "B1": "Mitigate and monitor",
@@ -1308,6 +1358,7 @@
         "scale"
       ],
       "AAF": "Patch or block release",
+      "AAF-12": "Rollback to stable deployment",
       "AlwaysNone": "No action (observe)",
       "AlwaysRollback": "Rollback to stable deployment",
       "B1": "Mitigate and monitor",
@@ -1332,6 +1383,7 @@
         "rollback"
       ],
       "AAF": "Mitigate and monitor",
+      "AAF-12": "Rollback to stable deployment",
       "AlwaysNone": "No action (observe)",
       "AlwaysRollback": "Rollback to stable deployment",
       "B1": "Mitigate and monitor",
@@ -1355,6 +1407,7 @@
         "rollback"
       ],
       "AAF": "Mitigate and monitor",
+      "AAF-12": "Rollback to stable deployment",
       "AlwaysNone": "No action (observe)",
       "AlwaysRollback": "Rollback to stable deployment",
       "B1": "Mitigate and monitor",
@@ -1378,6 +1431,7 @@
         "rollback"
       ],
       "AAF": "Mitigate and monitor",
+      "AAF-12": "Rollback to stable deployment",
       "AlwaysNone": "No action (observe)",
       "AlwaysRollback": "Rollback to stable deployment",
       "B1": "Mitigate and monitor",
@@ -1401,6 +1455,7 @@
         "rollback"
       ],
       "AAF": "Patch or block release",
+      "AAF-12": "Rollback to stable deployment",
       "AlwaysNone": "No action (observe)",
       "AlwaysRollback": "Rollback to stable deployment",
       "B1": "Mitigate and monitor",
@@ -1424,6 +1479,7 @@
         "rollback"
       ],
       "AAF": "Scale adjustment",
+      "AAF-12": "Rollback to stable deployment",
       "AlwaysNone": "No action (observe)",
       "AlwaysRollback": "Rollback to stable deployment",
       "B1": "Scale adjustment",
@@ -1447,6 +1503,7 @@
         "rollback"
       ],
       "AAF": "Mitigate and monitor",
+      "AAF-12": "Rollback to stable deployment",
       "AlwaysNone": "No action (observe)",
       "AlwaysRollback": "Rollback to stable deployment",
       "B1": "Mitigate and monitor",
@@ -1470,6 +1527,7 @@
         "rollback"
       ],
       "AAF": "Patch or block release",
+      "AAF-12": "Rollback to stable deployment",
       "AlwaysNone": "No action (observe)",
       "AlwaysRollback": "Rollback to stable deployment",
       "B1": "Scale adjustment",
@@ -1494,6 +1552,7 @@
         "scale"
       ],
       "AAF": "Scale adjustment",
+      "AAF-12": "Scale adjustment",
       "AlwaysNone": "No action (observe)",
       "AlwaysRollback": "Rollback to stable deployment",
       "B1": "Scale adjustment",
@@ -1518,6 +1577,7 @@
         "scale"
       ],
       "AAF": "Patch or block release",
+      "AAF-12": "Patch or block release",
       "AlwaysNone": "No action (observe)",
       "AlwaysRollback": "Rollback to stable deployment",
       "B1": "Scale adjustment",
@@ -1542,6 +1602,7 @@
         "scale"
       ],
       "AAF": "Scale adjustment",
+      "AAF-12": "Patch or block release",
       "AlwaysNone": "No action (observe)",
       "AlwaysRollback": "Rollback to stable deployment",
       "B1": "Scale adjustment",
@@ -1567,6 +1628,7 @@
         "scale"
       ],
       "AAF": "Patch or block release",
+      "AAF-12": "Patch or block release",
       "AlwaysNone": "No action (observe)",
       "AlwaysRollback": "Rollback to stable deployment",
       "B1": "Patch or block release",
@@ -1592,6 +1654,7 @@
         "scale"
       ],
       "AAF": "Scale adjustment",
+      "AAF-12": "Patch or block release",
       "AlwaysNone": "No action (observe)",
       "AlwaysRollback": "Rollback to stable deployment",
       "B1": "Scale adjustment",
