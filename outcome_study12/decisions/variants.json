@@ -1,0 +1,4613 @@
+[
+ {
+  "id": "PC-01",
+  "variant": "full",
+  "evidence": {
+   "deploy": {
+    "restart_loops": 0,
+    "config_drift": false,
+    "_evidence": {
+     "restart_loops": {
+      "status": "measured",
+      "source": "container restart count"
+     },
+     "config_drift": {
+      "status": "measured",
+      "source": "deployment environment"
+     },
+     "recent_release": {
+      "status": "measured",
+      "source": "ReplicaSet history: newest vs previous pod spec"
+     }
+    },
+    "recent_release": true
+   },
+   "sre": {
+    "p95_latency_ms": 557.7435019999939,
+    "error_rate_pct": 0.0,
+    "availability_pct": 100.0,
+    "_evidence": {
+     "p95_latency_ms": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "error_rate_pct": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "availability_pct": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "saturation_pct": {
+      "status": "measured",
+      "source": "metrics-server CPU / limit"
+     }
+    },
+    "saturation_pct": 24.0
+   },
+   "finops": {
+    "cost_spike_pct": 100.0,
+    "cpu_request_increase_pct": 100.0,
+    "_evidence": {
+     "cost_spike_pct": {
+      "status": "proxy",
+      "source": "replicas x CPU request vs healthy"
+     },
+     "cpu_request_increase_pct": {
+      "status": "proxy",
+      "source": "replicas x CPU request vs healthy"
+     }
+    }
+   },
+   "sec": {
+    "critical_cves": 0,
+    "policy_violation": false,
+    "_evidence": {
+     "critical_cves": {
+      "status": "measured",
+      "source": "trivy image scan"
+     },
+     "policy_violation": {
+      "status": "measured",
+      "source": "configuration policy check"
+     }
+    }
+   }
+  },
+  "available_tools": [
+   "get_cost_proxy_history",
+   "get_deployment_history",
+   "get_error_rate_history",
+   "get_latency_history",
+   "get_pipeline_history",
+   "get_policy_gate_status",
+   "get_replica_history",
+   "get_restart_history",
+   "get_saturation_history",
+   "get_vulnerability_details"
+  ],
+  "stratum": "OUTCOME"
+ },
+ {
+  "id": "PC-02",
+  "variant": "full",
+  "evidence": {
+   "deploy": {
+    "restart_loops": 0,
+    "config_drift": false,
+    "_evidence": {
+     "restart_loops": {
+      "status": "measured",
+      "source": "container restart count"
+     },
+     "config_drift": {
+      "status": "measured",
+      "source": "deployment environment"
+     },
+     "recent_release": {
+      "status": "measured",
+      "source": "ReplicaSet history: newest vs previous pod spec"
+     }
+    },
+    "recent_release": false
+   },
+   "sre": {
+    "p95_latency_ms": 158.75037600000041,
+    "error_rate_pct": 0.0,
+    "availability_pct": 100.0,
+    "_evidence": {
+     "p95_latency_ms": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "error_rate_pct": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "availability_pct": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "saturation_pct": {
+      "status": "measured",
+      "source": "metrics-server CPU / limit"
+     }
+    },
+    "saturation_pct": 42.83333333333334
+   },
+   "finops": {
+    "cost_spike_pct": 0.0,
+    "cpu_request_increase_pct": 0.0,
+    "_evidence": {
+     "cost_spike_pct": {
+      "status": "proxy",
+      "source": "replicas x CPU request vs healthy"
+     },
+     "cpu_request_increase_pct": {
+      "status": "proxy",
+      "source": "replicas x CPU request vs healthy"
+     }
+    }
+   },
+   "sec": {
+    "critical_cves": 0,
+    "policy_violation": false,
+    "_evidence": {
+     "critical_cves": {
+      "status": "measured",
+      "source": "trivy image scan"
+     },
+     "policy_violation": {
+      "status": "measured",
+      "source": "configuration policy check"
+     }
+    }
+   }
+  },
+  "available_tools": [
+   "get_cost_proxy_history",
+   "get_deployment_history",
+   "get_error_rate_history",
+   "get_latency_history",
+   "get_pipeline_history",
+   "get_policy_gate_status",
+   "get_replica_history",
+   "get_restart_history",
+   "get_saturation_history",
+   "get_vulnerability_details"
+  ],
+  "stratum": "OUTCOME"
+ },
+ {
+  "id": "PD-01",
+  "variant": "full",
+  "evidence": {
+   "deploy": {
+    "restart_loops": 0,
+    "config_drift": false,
+    "_evidence": {
+     "restart_loops": {
+      "status": "measured",
+      "source": "container restart count"
+     },
+     "config_drift": {
+      "status": "measured",
+      "source": "deployment environment"
+     },
+     "recent_release": {
+      "status": "measured",
+      "source": "ReplicaSet history: newest vs previous pod spec"
+     }
+    },
+    "recent_release": false
+   },
+   "sre": {
+    "p95_latency_ms": 103.41736099999821,
+    "error_rate_pct": 0.0,
+    "availability_pct": 100.0,
+    "_evidence": {
+     "p95_latency_ms": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "error_rate_pct": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "availability_pct": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "saturation_pct": {
+      "status": "measured",
+      "source": "metrics-server CPU / limit"
+     }
+    },
+    "saturation_pct": 10.166666666666666
+   },
+   "finops": {
+    "cost_spike_pct": 500.0,
+    "cpu_request_increase_pct": 500.0,
+    "_evidence": {
+     "cost_spike_pct": {
+      "status": "proxy",
+      "source": "replicas x CPU request vs healthy"
+     },
+     "cpu_request_increase_pct": {
+      "status": "proxy",
+      "source": "replicas x CPU request vs healthy"
+     }
+    }
+   },
+   "sec": {
+    "critical_cves": 0,
+    "policy_violation": false,
+    "_evidence": {
+     "critical_cves": {
+      "status": "measured",
+      "source": "trivy image scan"
+     },
+     "policy_violation": {
+      "status": "measured",
+      "source": "configuration policy check"
+     }
+    }
+   }
+  },
+  "available_tools": [
+   "get_cost_proxy_history",
+   "get_deployment_history",
+   "get_error_rate_history",
+   "get_latency_history",
+   "get_pipeline_history",
+   "get_policy_gate_status",
+   "get_replica_history",
+   "get_restart_history",
+   "get_saturation_history",
+   "get_vulnerability_details"
+  ],
+  "stratum": "OUTCOME"
+ },
+ {
+  "id": "PD-02",
+  "variant": "full",
+  "evidence": {
+   "deploy": {
+    "restart_loops": 0,
+    "config_drift": false,
+    "_evidence": {
+     "restart_loops": {
+      "status": "measured",
+      "source": "container restart count"
+     },
+     "config_drift": {
+      "status": "measured",
+      "source": "deployment environment"
+     },
+     "recent_release": {
+      "status": "measured",
+      "source": "ReplicaSet history: newest vs previous pod spec"
+     }
+    },
+    "recent_release": false
+   },
+   "sre": {
+    "p95_latency_ms": 507.38104399999884,
+    "error_rate_pct": 0.0,
+    "availability_pct": 100.0,
+    "_evidence": {
+     "p95_latency_ms": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "error_rate_pct": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "availability_pct": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "saturation_pct": {
+      "status": "measured",
+      "source": "metrics-server CPU / limit"
+     }
+    },
+    "saturation_pct": 24.0
+   },
+   "finops": {
+    "cost_spike_pct": 0.0,
+    "cpu_request_increase_pct": 0.0,
+    "_evidence": {
+     "cost_spike_pct": {
+      "status": "proxy",
+      "source": "replicas x CPU request vs healthy"
+     },
+     "cpu_request_increase_pct": {
+      "status": "proxy",
+      "source": "replicas x CPU request vs healthy"
+     }
+    }
+   },
+   "sec": {
+    "critical_cves": 6,
+    "policy_violation": false,
+    "_evidence": {
+     "critical_cves": {
+      "status": "measured",
+      "source": "trivy image scan"
+     },
+     "policy_violation": {
+      "status": "measured",
+      "source": "configuration policy check"
+     }
+    }
+   }
+  },
+  "available_tools": [
+   "get_cost_proxy_history",
+   "get_deployment_history",
+   "get_error_rate_history",
+   "get_latency_history",
+   "get_pipeline_history",
+   "get_policy_gate_status",
+   "get_replica_history",
+   "get_restart_history",
+   "get_saturation_history",
+   "get_vulnerability_details"
+  ],
+  "stratum": "OUTCOME"
+ },
+ {
+  "id": "PD-02-W",
+  "variant": "withheld",
+  "evidence": {
+   "deploy": {
+    "restart_loops": 0,
+    "config_drift": false,
+    "_evidence": {
+     "restart_loops": {
+      "status": "measured",
+      "source": "container restart count"
+     },
+     "config_drift": {
+      "status": "measured",
+      "source": "deployment environment"
+     },
+     "recent_release": {
+      "status": "measured",
+      "source": "ReplicaSet history: newest vs previous pod spec"
+     }
+    },
+    "recent_release": false
+   },
+   "sre": {
+    "p95_latency_ms": 507.38104399999884,
+    "error_rate_pct": 0.0,
+    "availability_pct": 100.0,
+    "_evidence": {
+     "p95_latency_ms": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "error_rate_pct": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "availability_pct": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "saturation_pct": {
+      "status": "measured",
+      "source": "metrics-server CPU / limit"
+     }
+    },
+    "saturation_pct": 24.0
+   },
+   "finops": {
+    "cost_spike_pct": 0.0,
+    "cpu_request_increase_pct": 0.0,
+    "_evidence": {
+     "cost_spike_pct": {
+      "status": "proxy",
+      "source": "replicas x CPU request vs healthy"
+     },
+     "cpu_request_increase_pct": {
+      "status": "proxy",
+      "source": "replicas x CPU request vs healthy"
+     }
+    }
+   },
+   "sec": {
+    "critical_cves": null,
+    "policy_violation": false,
+    "_evidence": {
+     "critical_cves": {
+      "status": "missing"
+     },
+     "policy_violation": {
+      "status": "measured",
+      "source": "configuration policy check"
+     }
+    }
+   }
+  },
+  "available_tools": [
+   "get_cost_proxy_history",
+   "get_deployment_history",
+   "get_error_rate_history",
+   "get_latency_history",
+   "get_pipeline_history",
+   "get_policy_gate_status",
+   "get_replica_history",
+   "get_restart_history",
+   "get_saturation_history",
+   "get_vulnerability_details"
+  ],
+  "expected_tool": "get_vulnerability_details",
+  "tool_result": {
+   "id": "TOOL-PD-02-get_vulnerability_details",
+   "sec": {
+    "critical_cves": 6
+   }
+  },
+  "withheld": [
+   "sec.critical_cves"
+  ],
+  "stratum": "OUTCOME"
+ },
+ {
+  "id": "PD-03",
+  "variant": "full",
+  "evidence": {
+   "deploy": {
+    "restart_loops": 0,
+    "config_drift": true,
+    "_evidence": {
+     "restart_loops": {
+      "status": "measured",
+      "source": "container restart count"
+     },
+     "config_drift": {
+      "status": "measured",
+      "source": "deployment environment"
+     },
+     "recent_release": {
+      "status": "measured",
+      "source": "ReplicaSet history: newest vs previous pod spec"
+     }
+    },
+    "recent_release": true
+   },
+   "sre": {
+    "p95_latency_ms": 390.0393900000836,
+    "error_rate_pct": 0.0,
+    "availability_pct": 100.0,
+    "_evidence": {
+     "p95_latency_ms": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "error_rate_pct": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "availability_pct": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "saturation_pct": {
+      "status": "measured",
+      "source": "metrics-server CPU / limit"
+     }
+    },
+    "saturation_pct": 43.33333333333334
+   },
+   "finops": {
+    "cost_spike_pct": 0.0,
+    "cpu_request_increase_pct": 0.0,
+    "_evidence": {
+     "cost_spike_pct": {
+      "status": "proxy",
+      "source": "replicas x CPU request vs healthy"
+     },
+     "cpu_request_increase_pct": {
+      "status": "proxy",
+      "source": "replicas x CPU request vs healthy"
+     }
+    }
+   },
+   "sec": {
+    "critical_cves": 0,
+    "policy_violation": true,
+    "_evidence": {
+     "critical_cves": {
+      "status": "measured",
+      "source": "trivy image scan"
+     },
+     "policy_violation": {
+      "status": "measured",
+      "source": "configuration policy check"
+     }
+    }
+   }
+  },
+  "available_tools": [
+   "get_cost_proxy_history",
+   "get_deployment_history",
+   "get_error_rate_history",
+   "get_latency_history",
+   "get_pipeline_history",
+   "get_policy_gate_status",
+   "get_replica_history",
+   "get_restart_history",
+   "get_saturation_history",
+   "get_vulnerability_details"
+  ],
+  "stratum": "OUTCOME"
+ },
+ {
+  "id": "PD-03-W",
+  "variant": "withheld",
+  "evidence": {
+   "deploy": {
+    "restart_loops": 0,
+    "config_drift": null,
+    "_evidence": {
+     "restart_loops": {
+      "status": "measured",
+      "source": "container restart count"
+     },
+     "config_drift": {
+      "status": "missing"
+     },
+     "recent_release": {
+      "status": "measured",
+      "source": "ReplicaSet history: newest vs previous pod spec"
+     }
+    },
+    "recent_release": true
+   },
+   "sre": {
+    "p95_latency_ms": 390.0393900000836,
+    "error_rate_pct": 0.0,
+    "availability_pct": 100.0,
+    "_evidence": {
+     "p95_latency_ms": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "error_rate_pct": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "availability_pct": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "saturation_pct": {
+      "status": "measured",
+      "source": "metrics-server CPU / limit"
+     }
+    },
+    "saturation_pct": 43.33333333333334
+   },
+   "finops": {
+    "cost_spike_pct": 0.0,
+    "cpu_request_increase_pct": 0.0,
+    "_evidence": {
+     "cost_spike_pct": {
+      "status": "proxy",
+      "source": "replicas x CPU request vs healthy"
+     },
+     "cpu_request_increase_pct": {
+      "status": "proxy",
+      "source": "replicas x CPU request vs healthy"
+     }
+    }
+   },
+   "sec": {
+    "critical_cves": 0,
+    "policy_violation": null,
+    "_evidence": {
+     "critical_cves": {
+      "status": "measured",
+      "source": "trivy image scan"
+     },
+     "policy_violation": {
+      "status": "missing"
+     }
+    }
+   }
+  },
+  "available_tools": [
+   "get_cost_proxy_history",
+   "get_deployment_history",
+   "get_error_rate_history",
+   "get_latency_history",
+   "get_pipeline_history",
+   "get_policy_gate_status",
+   "get_replica_history",
+   "get_restart_history",
+   "get_saturation_history",
+   "get_vulnerability_details"
+  ],
+  "expected_tool": "get_policy_gate_status",
+  "tool_result": {
+   "id": "TOOL-PD-03-get_policy_gate_status",
+   "sec": {
+    "policy_violation": true
+   },
+   "deploy": {
+    "config_drift": true
+   }
+  },
+  "withheld": [
+   "sec.policy_violation",
+   "deploy.config_drift"
+  ],
+  "stratum": "OUTCOME"
+ },
+ {
+  "id": "PD-04",
+  "variant": "full",
+  "evidence": {
+   "deploy": {
+    "restart_loops": 0,
+    "config_drift": false,
+    "_evidence": {
+     "restart_loops": {
+      "status": "measured",
+      "source": "container restart count"
+     },
+     "config_drift": {
+      "status": "measured",
+      "source": "deployment environment"
+     },
+     "recent_release": {
+      "status": "measured",
+      "source": "ReplicaSet history: newest vs previous pod spec"
+     }
+    },
+    "recent_release": true
+   },
+   "sre": {
+    "p95_latency_ms": 548.9227010000093,
+    "error_rate_pct": 0.0,
+    "availability_pct": 100.0,
+    "_evidence": {
+     "p95_latency_ms": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "error_rate_pct": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "availability_pct": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "saturation_pct": {
+      "status": "measured",
+      "source": "metrics-server CPU / limit"
+     }
+    },
+    "saturation_pct": 80.0
+   },
+   "finops": {
+    "cost_spike_pct": 0.0,
+    "cpu_request_increase_pct": 0.0,
+    "_evidence": {
+     "cost_spike_pct": {
+      "status": "proxy",
+      "source": "replicas x CPU request vs healthy"
+     },
+     "cpu_request_increase_pct": {
+      "status": "proxy",
+      "source": "replicas x CPU request vs healthy"
+     }
+    }
+   },
+   "sec": {
+    "critical_cves": 6,
+    "policy_violation": false,
+    "_evidence": {
+     "critical_cves": {
+      "status": "measured",
+      "source": "trivy image scan"
+     },
+     "policy_violation": {
+      "status": "measured",
+      "source": "configuration policy check"
+     }
+    }
+   }
+  },
+  "available_tools": [
+   "get_cost_proxy_history",
+   "get_deployment_history",
+   "get_error_rate_history",
+   "get_latency_history",
+   "get_pipeline_history",
+   "get_policy_gate_status",
+   "get_replica_history",
+   "get_restart_history",
+   "get_saturation_history",
+   "get_vulnerability_details"
+  ],
+  "stratum": "OUTCOME"
+ },
+ {
+  "id": "PD-04-W",
+  "variant": "withheld",
+  "evidence": {
+   "deploy": {
+    "restart_loops": 0,
+    "config_drift": false,
+    "_evidence": {
+     "restart_loops": {
+      "status": "measured",
+      "source": "container restart count"
+     },
+     "config_drift": {
+      "status": "measured",
+      "source": "deployment environment"
+     },
+     "recent_release": {
+      "status": "measured",
+      "source": "ReplicaSet history: newest vs previous pod spec"
+     }
+    },
+    "recent_release": true
+   },
+   "sre": {
+    "p95_latency_ms": 548.9227010000093,
+    "error_rate_pct": 0.0,
+    "availability_pct": 100.0,
+    "_evidence": {
+     "p95_latency_ms": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "error_rate_pct": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "availability_pct": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "saturation_pct": {
+      "status": "measured",
+      "source": "metrics-server CPU / limit"
+     }
+    },
+    "saturation_pct": 80.0
+   },
+   "finops": {
+    "cost_spike_pct": 0.0,
+    "cpu_request_increase_pct": 0.0,
+    "_evidence": {
+     "cost_spike_pct": {
+      "status": "proxy",
+      "source": "replicas x CPU request vs healthy"
+     },
+     "cpu_request_increase_pct": {
+      "status": "proxy",
+      "source": "replicas x CPU request vs healthy"
+     }
+    }
+   },
+   "sec": {
+    "critical_cves": null,
+    "policy_violation": false,
+    "_evidence": {
+     "critical_cves": {
+      "status": "missing"
+     },
+     "policy_violation": {
+      "status": "measured",
+      "source": "configuration policy check"
+     }
+    }
+   }
+  },
+  "available_tools": [
+   "get_cost_proxy_history",
+   "get_deployment_history",
+   "get_error_rate_history",
+   "get_latency_history",
+   "get_pipeline_history",
+   "get_policy_gate_status",
+   "get_replica_history",
+   "get_restart_history",
+   "get_saturation_history",
+   "get_vulnerability_details"
+  ],
+  "expected_tool": "get_vulnerability_details",
+  "tool_result": {
+   "id": "TOOL-PD-04-get_vulnerability_details",
+   "sec": {
+    "critical_cves": 6
+   }
+  },
+  "withheld": [
+   "sec.critical_cves"
+  ],
+  "stratum": "OUTCOME"
+ },
+ {
+  "id": "PD-05",
+  "variant": "full",
+  "evidence": {
+   "deploy": {
+    "restart_loops": 0,
+    "config_drift": false,
+    "_evidence": {
+     "restart_loops": {
+      "status": "measured",
+      "source": "container restart count"
+     },
+     "config_drift": {
+      "status": "measured",
+      "source": "deployment environment"
+     },
+     "recent_release": {
+      "status": "measured",
+      "source": "ReplicaSet history: newest vs previous pod spec"
+     }
+    },
+    "recent_release": true
+   },
+   "sre": {
+    "p95_latency_ms": 295.90761599990856,
+    "error_rate_pct": 0.0,
+    "availability_pct": 100.0,
+    "_evidence": {
+     "p95_latency_ms": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "error_rate_pct": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "availability_pct": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "saturation_pct": {
+      "status": "measured",
+      "source": "metrics-server CPU / limit"
+     }
+    },
+    "saturation_pct": 40.74074074074075
+   },
+   "finops": {
+    "cost_spike_pct": 80.0,
+    "cpu_request_increase_pct": 80.0,
+    "_evidence": {
+     "cost_spike_pct": {
+      "status": "proxy",
+      "source": "replicas x CPU request vs healthy"
+     },
+     "cpu_request_increase_pct": {
+      "status": "proxy",
+      "source": "replicas x CPU request vs healthy"
+     }
+    }
+   },
+   "sec": {
+    "critical_cves": 0,
+    "policy_violation": false,
+    "_evidence": {
+     "critical_cves": {
+      "status": "measured",
+      "source": "trivy image scan"
+     },
+     "policy_violation": {
+      "status": "measured",
+      "source": "configuration policy check"
+     }
+    }
+   }
+  },
+  "available_tools": [
+   "get_cost_proxy_history",
+   "get_deployment_history",
+   "get_error_rate_history",
+   "get_latency_history",
+   "get_pipeline_history",
+   "get_policy_gate_status",
+   "get_replica_history",
+   "get_restart_history",
+   "get_saturation_history",
+   "get_vulnerability_details"
+  ],
+  "stratum": "OUTCOME"
+ },
+ {
+  "id": "PD-05-W",
+  "variant": "withheld",
+  "evidence": {
+   "deploy": {
+    "restart_loops": 0,
+    "config_drift": false,
+    "_evidence": {
+     "restart_loops": {
+      "status": "measured",
+      "source": "container restart count"
+     },
+     "config_drift": {
+      "status": "measured",
+      "source": "deployment environment"
+     },
+     "recent_release": {
+      "status": "measured",
+      "source": "ReplicaSet history: newest vs previous pod spec"
+     }
+    },
+    "recent_release": true
+   },
+   "sre": {
+    "p95_latency_ms": null,
+    "error_rate_pct": 0.0,
+    "availability_pct": 100.0,
+    "_evidence": {
+     "p95_latency_ms": {
+      "status": "missing"
+     },
+     "error_rate_pct": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "availability_pct": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "saturation_pct": {
+      "status": "missing"
+     }
+    },
+    "saturation_pct": null
+   },
+   "finops": {
+    "cost_spike_pct": 80.0,
+    "cpu_request_increase_pct": 80.0,
+    "_evidence": {
+     "cost_spike_pct": {
+      "status": "proxy",
+      "source": "replicas x CPU request vs healthy"
+     },
+     "cpu_request_increase_pct": {
+      "status": "proxy",
+      "source": "replicas x CPU request vs healthy"
+     }
+    }
+   },
+   "sec": {
+    "critical_cves": 0,
+    "policy_violation": false,
+    "_evidence": {
+     "critical_cves": {
+      "status": "measured",
+      "source": "trivy image scan"
+     },
+     "policy_violation": {
+      "status": "measured",
+      "source": "configuration policy check"
+     }
+    }
+   }
+  },
+  "available_tools": [
+   "get_cost_proxy_history",
+   "get_deployment_history",
+   "get_error_rate_history",
+   "get_latency_history",
+   "get_pipeline_history",
+   "get_policy_gate_status",
+   "get_replica_history",
+   "get_restart_history",
+   "get_saturation_history",
+   "get_vulnerability_details"
+  ],
+  "expected_tool": "get_latency_history",
+  "tool_result": {
+   "id": "TOOL-PD-05-get_latency_history",
+   "sre": {
+    "p95_latency_ms": 295.90761599990856,
+    "saturation_pct": 40.74074074074075
+   }
+  },
+  "withheld": [
+   "sre.p95_latency_ms",
+   "sre.saturation_pct"
+  ],
+  "stratum": "OUTCOME"
+ },
+ {
+  "id": "PP-01",
+  "variant": "full",
+  "evidence": {
+   "deploy": {
+    "restart_loops": 0,
+    "config_drift": false,
+    "_evidence": {
+     "restart_loops": {
+      "status": "measured",
+      "source": "container restart count"
+     },
+     "config_drift": {
+      "status": "measured",
+      "source": "deployment environment"
+     },
+     "recent_release": {
+      "status": "measured",
+      "source": "ReplicaSet history: newest vs previous pod spec"
+     }
+    },
+    "recent_release": true
+   },
+   "sre": {
+    "p95_latency_ms": 2001.9869980000067,
+    "error_rate_pct": 9.352517985611511,
+    "availability_pct": 90.64748201438849,
+    "_evidence": {
+     "p95_latency_ms": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "error_rate_pct": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "availability_pct": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "saturation_pct": {
+      "status": "measured",
+      "source": "metrics-server CPU / limit"
+     }
+    },
+    "saturation_pct": 71.1111111111111
+   },
+   "finops": {
+    "cost_spike_pct": -70.0,
+    "cpu_request_increase_pct": -70.0,
+    "_evidence": {
+     "cost_spike_pct": {
+      "status": "proxy",
+      "source": "replicas x CPU request vs healthy"
+     },
+     "cpu_request_increase_pct": {
+      "status": "proxy",
+      "source": "replicas x CPU request vs healthy"
+     }
+    }
+   },
+   "sec": {
+    "critical_cves": 0,
+    "policy_violation": false,
+    "_evidence": {
+     "critical_cves": {
+      "status": "measured",
+      "source": "trivy image scan"
+     },
+     "policy_violation": {
+      "status": "measured",
+      "source": "configuration policy check"
+     }
+    }
+   }
+  },
+  "available_tools": [
+   "get_cost_proxy_history",
+   "get_deployment_history",
+   "get_error_rate_history",
+   "get_latency_history",
+   "get_pipeline_history",
+   "get_policy_gate_status",
+   "get_replica_history",
+   "get_restart_history",
+   "get_saturation_history",
+   "get_vulnerability_details"
+  ],
+  "stratum": "OUTCOME"
+ },
+ {
+  "id": "PP-01-W",
+  "variant": "withheld",
+  "evidence": {
+   "deploy": {
+    "restart_loops": 0,
+    "config_drift": false,
+    "_evidence": {
+     "restart_loops": {
+      "status": "measured",
+      "source": "container restart count"
+     },
+     "config_drift": {
+      "status": "measured",
+      "source": "deployment environment"
+     },
+     "recent_release": {
+      "status": "measured",
+      "source": "ReplicaSet history: newest vs previous pod spec"
+     }
+    },
+    "recent_release": true
+   },
+   "sre": {
+    "p95_latency_ms": null,
+    "error_rate_pct": 9.352517985611511,
+    "availability_pct": 90.64748201438849,
+    "_evidence": {
+     "p95_latency_ms": {
+      "status": "missing"
+     },
+     "error_rate_pct": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "availability_pct": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "saturation_pct": {
+      "status": "missing"
+     }
+    },
+    "saturation_pct": null
+   },
+   "finops": {
+    "cost_spike_pct": -70.0,
+    "cpu_request_increase_pct": -70.0,
+    "_evidence": {
+     "cost_spike_pct": {
+      "status": "proxy",
+      "source": "replicas x CPU request vs healthy"
+     },
+     "cpu_request_increase_pct": {
+      "status": "proxy",
+      "source": "replicas x CPU request vs healthy"
+     }
+    }
+   },
+   "sec": {
+    "critical_cves": 0,
+    "policy_violation": false,
+    "_evidence": {
+     "critical_cves": {
+      "status": "measured",
+      "source": "trivy image scan"
+     },
+     "policy_violation": {
+      "status": "measured",
+      "source": "configuration policy check"
+     }
+    }
+   }
+  },
+  "available_tools": [
+   "get_cost_proxy_history",
+   "get_deployment_history",
+   "get_error_rate_history",
+   "get_latency_history",
+   "get_pipeline_history",
+   "get_policy_gate_status",
+   "get_replica_history",
+   "get_restart_history",
+   "get_saturation_history",
+   "get_vulnerability_details"
+  ],
+  "expected_tool": "get_latency_history",
+  "tool_result": {
+   "id": "TOOL-PP-01-get_latency_history",
+   "sre": {
+    "p95_latency_ms": 2001.9869980000067,
+    "saturation_pct": 71.1111111111111
+   }
+  },
+  "withheld": [
+   "sre.p95_latency_ms",
+   "sre.saturation_pct"
+  ],
+  "stratum": "OUTCOME"
+ },
+ {
+  "id": "PP-02",
+  "variant": "full",
+  "evidence": {
+   "deploy": {
+    "restart_loops": 0,
+    "config_drift": false,
+    "_evidence": {
+     "restart_loops": {
+      "status": "measured",
+      "source": "container restart count"
+     },
+     "config_drift": {
+      "status": "measured",
+      "source": "deployment environment"
+     },
+     "recent_release": {
+      "status": "measured",
+      "source": "ReplicaSet history: newest vs previous pod spec"
+     }
+    },
+    "recent_release": true
+   },
+   "sre": {
+    "p95_latency_ms": 1191.8505280000034,
+    "error_rate_pct": 0.0,
+    "availability_pct": 100.0,
+    "_evidence": {
+     "p95_latency_ms": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "error_rate_pct": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "availability_pct": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "saturation_pct": {
+      "status": "measured",
+      "source": "metrics-server CPU / limit"
+     }
+    },
+    "saturation_pct": 49.66666666666666
+   },
+   "finops": {
+    "cost_spike_pct": 0.0,
+    "cpu_request_increase_pct": 0.0,
+    "_evidence": {
+     "cost_spike_pct": {
+      "status": "proxy",
+      "source": "replicas x CPU request vs healthy"
+     },
+     "cpu_request_increase_pct": {
+      "status": "proxy",
+      "source": "replicas x CPU request vs healthy"
+     }
+    }
+   },
+   "sec": {
+    "critical_cves": 0,
+    "policy_violation": false,
+    "_evidence": {
+     "critical_cves": {
+      "status": "measured",
+      "source": "trivy image scan"
+     },
+     "policy_violation": {
+      "status": "measured",
+      "source": "configuration policy check"
+     }
+    }
+   }
+  },
+  "available_tools": [
+   "get_cost_proxy_history",
+   "get_deployment_history",
+   "get_error_rate_history",
+   "get_latency_history",
+   "get_pipeline_history",
+   "get_policy_gate_status",
+   "get_replica_history",
+   "get_restart_history",
+   "get_saturation_history",
+   "get_vulnerability_details"
+  ],
+  "stratum": "OUTCOME"
+ },
+ {
+  "id": "PP-02-W",
+  "variant": "withheld",
+  "evidence": {
+   "deploy": {
+    "restart_loops": 0,
+    "config_drift": false,
+    "_evidence": {
+     "restart_loops": {
+      "status": "measured",
+      "source": "container restart count"
+     },
+     "config_drift": {
+      "status": "measured",
+      "source": "deployment environment"
+     },
+     "recent_release": {
+      "status": "measured",
+      "source": "ReplicaSet history: newest vs previous pod spec"
+     }
+    },
+    "recent_release": true
+   },
+   "sre": {
+    "p95_latency_ms": null,
+    "error_rate_pct": 0.0,
+    "availability_pct": 100.0,
+    "_evidence": {
+     "p95_latency_ms": {
+      "status": "missing"
+     },
+     "error_rate_pct": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "availability_pct": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "saturation_pct": {
+      "status": "missing"
+     }
+    },
+    "saturation_pct": null
+   },
+   "finops": {
+    "cost_spike_pct": 0.0,
+    "cpu_request_increase_pct": 0.0,
+    "_evidence": {
+     "cost_spike_pct": {
+      "status": "proxy",
+      "source": "replicas x CPU request vs healthy"
+     },
+     "cpu_request_increase_pct": {
+      "status": "proxy",
+      "source": "replicas x CPU request vs healthy"
+     }
+    }
+   },
+   "sec": {
+    "critical_cves": 0,
+    "policy_violation": false,
+    "_evidence": {
+     "critical_cves": {
+      "status": "measured",
+      "source": "trivy image scan"
+     },
+     "policy_violation": {
+      "status": "measured",
+      "source": "configuration policy check"
+     }
+    }
+   }
+  },
+  "available_tools": [
+   "get_cost_proxy_history",
+   "get_deployment_history",
+   "get_error_rate_history",
+   "get_latency_history",
+   "get_pipeline_history",
+   "get_policy_gate_status",
+   "get_replica_history",
+   "get_restart_history",
+   "get_saturation_history",
+   "get_vulnerability_details"
+  ],
+  "expected_tool": "get_latency_history",
+  "tool_result": {
+   "id": "TOOL-PP-02-get_latency_history",
+   "sre": {
+    "p95_latency_ms": 1191.8505280000034,
+    "saturation_pct": 49.66666666666666
+   }
+  },
+  "withheld": [
+   "sre.p95_latency_ms",
+   "sre.saturation_pct"
+  ],
+  "stratum": "OUTCOME"
+ },
+ {
+  "id": "PP-03",
+  "variant": "full",
+  "evidence": {
+   "deploy": {
+    "restart_loops": 0,
+    "config_drift": true,
+    "_evidence": {
+     "restart_loops": {
+      "status": "measured",
+      "source": "container restart count"
+     },
+     "config_drift": {
+      "status": "measured",
+      "source": "deployment environment"
+     },
+     "recent_release": {
+      "status": "measured",
+      "source": "ReplicaSet history: newest vs previous pod spec"
+     }
+    },
+    "recent_release": true
+   },
+   "sre": {
+    "p95_latency_ms": 2002.4764979999645,
+    "error_rate_pct": 38.01980198019802,
+    "availability_pct": 61.98019801980198,
+    "_evidence": {
+     "p95_latency_ms": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "error_rate_pct": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "availability_pct": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "saturation_pct": {
+      "status": "measured",
+      "source": "metrics-server CPU / limit"
+     }
+    },
+    "saturation_pct": 56.666666666666664
+   },
+   "finops": {
+    "cost_spike_pct": -70.0,
+    "cpu_request_increase_pct": -70.0,
+    "_evidence": {
+     "cost_spike_pct": {
+      "status": "proxy",
+      "source": "replicas x CPU request vs healthy"
+     },
+     "cpu_request_increase_pct": {
+      "status": "proxy",
+      "source": "replicas x CPU request vs healthy"
+     }
+    }
+   },
+   "sec": {
+    "critical_cves": 0,
+    "policy_violation": true,
+    "_evidence": {
+     "critical_cves": {
+      "status": "measured",
+      "source": "trivy image scan"
+     },
+     "policy_violation": {
+      "status": "measured",
+      "source": "configuration policy check"
+     }
+    }
+   }
+  },
+  "available_tools": [
+   "get_cost_proxy_history",
+   "get_deployment_history",
+   "get_error_rate_history",
+   "get_latency_history",
+   "get_pipeline_history",
+   "get_policy_gate_status",
+   "get_replica_history",
+   "get_restart_history",
+   "get_saturation_history",
+   "get_vulnerability_details"
+  ],
+  "stratum": "OUTCOME"
+ },
+ {
+  "id": "PP-03-W",
+  "variant": "withheld",
+  "evidence": {
+   "deploy": {
+    "restart_loops": 0,
+    "config_drift": null,
+    "_evidence": {
+     "restart_loops": {
+      "status": "measured",
+      "source": "container restart count"
+     },
+     "config_drift": {
+      "status": "missing"
+     },
+     "recent_release": {
+      "status": "measured",
+      "source": "ReplicaSet history: newest vs previous pod spec"
+     }
+    },
+    "recent_release": true
+   },
+   "sre": {
+    "p95_latency_ms": 2002.4764979999645,
+    "error_rate_pct": 38.01980198019802,
+    "availability_pct": 61.98019801980198,
+    "_evidence": {
+     "p95_latency_ms": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "error_rate_pct": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "availability_pct": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "saturation_pct": {
+      "status": "measured",
+      "source": "metrics-server CPU / limit"
+     }
+    },
+    "saturation_pct": 56.666666666666664
+   },
+   "finops": {
+    "cost_spike_pct": -70.0,
+    "cpu_request_increase_pct": -70.0,
+    "_evidence": {
+     "cost_spike_pct": {
+      "status": "proxy",
+      "source": "replicas x CPU request vs healthy"
+     },
+     "cpu_request_increase_pct": {
+      "status": "proxy",
+      "source": "replicas x CPU request vs healthy"
+     }
+    }
+   },
+   "sec": {
+    "critical_cves": 0,
+    "policy_violation": null,
+    "_evidence": {
+     "critical_cves": {
+      "status": "measured",
+      "source": "trivy image scan"
+     },
+     "policy_violation": {
+      "status": "missing"
+     }
+    }
+   }
+  },
+  "available_tools": [
+   "get_cost_proxy_history",
+   "get_deployment_history",
+   "get_error_rate_history",
+   "get_latency_history",
+   "get_pipeline_history",
+   "get_policy_gate_status",
+   "get_replica_history",
+   "get_restart_history",
+   "get_saturation_history",
+   "get_vulnerability_details"
+  ],
+  "expected_tool": "get_policy_gate_status",
+  "tool_result": {
+   "id": "TOOL-PP-03-get_policy_gate_status",
+   "sec": {
+    "policy_violation": true
+   },
+   "deploy": {
+    "config_drift": true
+   }
+  },
+  "withheld": [
+   "sec.policy_violation",
+   "deploy.config_drift"
+  ],
+  "stratum": "OUTCOME"
+ },
+ {
+  "id": "PP-04",
+  "variant": "full",
+  "evidence": {
+   "deploy": {
+    "restart_loops": 0,
+    "config_drift": false,
+    "_evidence": {
+     "restart_loops": {
+      "status": "measured",
+      "source": "container restart count"
+     },
+     "config_drift": {
+      "status": "measured",
+      "source": "deployment environment"
+     },
+     "recent_release": {
+      "status": "measured",
+      "source": "ReplicaSet history: newest vs previous pod spec"
+     }
+    },
+    "recent_release": true
+   },
+   "sre": {
+    "p95_latency_ms": 686.3414210000087,
+    "error_rate_pct": 0.0,
+    "availability_pct": 100.0,
+    "_evidence": {
+     "p95_latency_ms": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "error_rate_pct": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "availability_pct": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "saturation_pct": {
+      "status": "measured",
+      "source": "metrics-server CPU / limit"
+     }
+    },
+    "saturation_pct": 75.83333333333333
+   },
+   "finops": {
+    "cost_spike_pct": 0.0,
+    "cpu_request_increase_pct": 0.0,
+    "_evidence": {
+     "cost_spike_pct": {
+      "status": "proxy",
+      "source": "replicas x CPU request vs healthy"
+     },
+     "cpu_request_increase_pct": {
+      "status": "proxy",
+      "source": "replicas x CPU request vs healthy"
+     }
+    }
+   },
+   "sec": {
+    "critical_cves": 6,
+    "policy_violation": false,
+    "_evidence": {
+     "critical_cves": {
+      "status": "measured",
+      "source": "trivy image scan"
+     },
+     "policy_violation": {
+      "status": "measured",
+      "source": "configuration policy check"
+     }
+    }
+   }
+  },
+  "available_tools": [
+   "get_cost_proxy_history",
+   "get_deployment_history",
+   "get_error_rate_history",
+   "get_latency_history",
+   "get_pipeline_history",
+   "get_policy_gate_status",
+   "get_replica_history",
+   "get_restart_history",
+   "get_saturation_history",
+   "get_vulnerability_details"
+  ],
+  "stratum": "OUTCOME"
+ },
+ {
+  "id": "PP-04-W",
+  "variant": "withheld",
+  "evidence": {
+   "deploy": {
+    "restart_loops": 0,
+    "config_drift": false,
+    "_evidence": {
+     "restart_loops": {
+      "status": "measured",
+      "source": "container restart count"
+     },
+     "config_drift": {
+      "status": "measured",
+      "source": "deployment environment"
+     },
+     "recent_release": {
+      "status": "measured",
+      "source": "ReplicaSet history: newest vs previous pod spec"
+     }
+    },
+    "recent_release": true
+   },
+   "sre": {
+    "p95_latency_ms": 686.3414210000087,
+    "error_rate_pct": 0.0,
+    "availability_pct": 100.0,
+    "_evidence": {
+     "p95_latency_ms": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "error_rate_pct": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "availability_pct": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "saturation_pct": {
+      "status": "measured",
+      "source": "metrics-server CPU / limit"
+     }
+    },
+    "saturation_pct": 75.83333333333333
+   },
+   "finops": {
+    "cost_spike_pct": 0.0,
+    "cpu_request_increase_pct": 0.0,
+    "_evidence": {
+     "cost_spike_pct": {
+      "status": "proxy",
+      "source": "replicas x CPU request vs healthy"
+     },
+     "cpu_request_increase_pct": {
+      "status": "proxy",
+      "source": "replicas x CPU request vs healthy"
+     }
+    }
+   },
+   "sec": {
+    "critical_cves": null,
+    "policy_violation": false,
+    "_evidence": {
+     "critical_cves": {
+      "status": "missing"
+     },
+     "policy_violation": {
+      "status": "measured",
+      "source": "configuration policy check"
+     }
+    }
+   }
+  },
+  "available_tools": [
+   "get_cost_proxy_history",
+   "get_deployment_history",
+   "get_error_rate_history",
+   "get_latency_history",
+   "get_pipeline_history",
+   "get_policy_gate_status",
+   "get_replica_history",
+   "get_restart_history",
+   "get_saturation_history",
+   "get_vulnerability_details"
+  ],
+  "expected_tool": "get_vulnerability_details",
+  "tool_result": {
+   "id": "TOOL-PP-04-get_vulnerability_details",
+   "sec": {
+    "critical_cves": 6
+   }
+  },
+  "withheld": [
+   "sec.critical_cves"
+  ],
+  "stratum": "OUTCOME"
+ },
+ {
+  "id": "PP-05",
+  "variant": "full",
+  "evidence": {
+   "deploy": {
+    "restart_loops": 0,
+    "config_drift": false,
+    "_evidence": {
+     "restart_loops": {
+      "status": "measured",
+      "source": "container restart count"
+     },
+     "config_drift": {
+      "status": "measured",
+      "source": "deployment environment"
+     },
+     "recent_release": {
+      "status": "measured",
+      "source": "ReplicaSet history: newest vs previous pod spec"
+     }
+    },
+    "recent_release": true
+   },
+   "sre": {
+    "p95_latency_ms": 1139.591778999943,
+    "error_rate_pct": 0.0,
+    "availability_pct": 100.0,
+    "_evidence": {
+     "p95_latency_ms": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "error_rate_pct": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "availability_pct": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "saturation_pct": {
+      "status": "measured",
+      "source": "metrics-server CPU / limit"
+     }
+    },
+    "saturation_pct": 94.0
+   },
+   "finops": {
+    "cost_spike_pct": 0.0,
+    "cpu_request_increase_pct": 0.0,
+    "_evidence": {
+     "cost_spike_pct": {
+      "status": "proxy",
+      "source": "replicas x CPU request vs healthy"
+     },
+     "cpu_request_increase_pct": {
+      "status": "proxy",
+      "source": "replicas x CPU request vs healthy"
+     }
+    }
+   },
+   "sec": {
+    "critical_cves": 0,
+    "policy_violation": false,
+    "_evidence": {
+     "critical_cves": {
+      "status": "measured",
+      "source": "trivy image scan"
+     },
+     "policy_violation": {
+      "status": "measured",
+      "source": "configuration policy check"
+     }
+    }
+   }
+  },
+  "available_tools": [
+   "get_cost_proxy_history",
+   "get_deployment_history",
+   "get_error_rate_history",
+   "get_latency_history",
+   "get_pipeline_history",
+   "get_policy_gate_status",
+   "get_replica_history",
+   "get_restart_history",
+   "get_saturation_history",
+   "get_vulnerability_details"
+  ],
+  "stratum": "OUTCOME"
+ },
+ {
+  "id": "PP-05-W",
+  "variant": "withheld",
+  "evidence": {
+   "deploy": {
+    "restart_loops": 0,
+    "config_drift": false,
+    "_evidence": {
+     "restart_loops": {
+      "status": "measured",
+      "source": "container restart count"
+     },
+     "config_drift": {
+      "status": "measured",
+      "source": "deployment environment"
+     },
+     "recent_release": {
+      "status": "measured",
+      "source": "ReplicaSet history: newest vs previous pod spec"
+     }
+    },
+    "recent_release": true
+   },
+   "sre": {
+    "p95_latency_ms": null,
+    "error_rate_pct": 0.0,
+    "availability_pct": 100.0,
+    "_evidence": {
+     "p95_latency_ms": {
+      "status": "missing"
+     },
+     "error_rate_pct": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "availability_pct": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "saturation_pct": {
+      "status": "missing"
+     }
+    },
+    "saturation_pct": null
+   },
+   "finops": {
+    "cost_spike_pct": 0.0,
+    "cpu_request_increase_pct": 0.0,
+    "_evidence": {
+     "cost_spike_pct": {
+      "status": "proxy",
+      "source": "replicas x CPU request vs healthy"
+     },
+     "cpu_request_increase_pct": {
+      "status": "proxy",
+      "source": "replicas x CPU request vs healthy"
+     }
+    }
+   },
+   "sec": {
+    "critical_cves": 0,
+    "policy_violation": false,
+    "_evidence": {
+     "critical_cves": {
+      "status": "measured",
+      "source": "trivy image scan"
+     },
+     "policy_violation": {
+      "status": "measured",
+      "source": "configuration policy check"
+     }
+    }
+   }
+  },
+  "available_tools": [
+   "get_cost_proxy_history",
+   "get_deployment_history",
+   "get_error_rate_history",
+   "get_latency_history",
+   "get_pipeline_history",
+   "get_policy_gate_status",
+   "get_replica_history",
+   "get_restart_history",
+   "get_saturation_history",
+   "get_vulnerability_details"
+  ],
+  "expected_tool": "get_latency_history",
+  "tool_result": {
+   "id": "TOOL-PP-05-get_latency_history",
+   "sre": {
+    "p95_latency_ms": 1139.591778999943,
+    "saturation_pct": 94.0
+   }
+  },
+  "withheld": [
+   "sre.p95_latency_ms",
+   "sre.saturation_pct"
+  ],
+  "stratum": "OUTCOME"
+ },
+ {
+  "id": "PP-06",
+  "variant": "full",
+  "evidence": {
+   "deploy": {
+    "restart_loops": 0,
+    "config_drift": false,
+    "_evidence": {
+     "restart_loops": {
+      "status": "measured",
+      "source": "container restart count"
+     },
+     "config_drift": {
+      "status": "measured",
+      "source": "deployment environment"
+     },
+     "recent_release": {
+      "status": "measured",
+      "source": "ReplicaSet history: newest vs previous pod spec"
+     }
+    },
+    "recent_release": true
+   },
+   "sre": {
+    "p95_latency_ms": 2000.0692859999845,
+    "error_rate_pct": 4.120443740095087,
+    "availability_pct": 95.87955625990492,
+    "_evidence": {
+     "p95_latency_ms": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "error_rate_pct": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "availability_pct": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "saturation_pct": {
+      "status": "measured",
+      "source": "metrics-server CPU / limit"
+     }
+    },
+    "saturation_pct": 67.77777777777777
+   },
+   "finops": {
+    "cost_spike_pct": -70.0,
+    "cpu_request_increase_pct": -70.0,
+    "_evidence": {
+     "cost_spike_pct": {
+      "status": "proxy",
+      "source": "replicas x CPU request vs healthy"
+     },
+     "cpu_request_increase_pct": {
+      "status": "proxy",
+      "source": "replicas x CPU request vs healthy"
+     }
+    }
+   },
+   "sec": {
+    "critical_cves": 6,
+    "policy_violation": false,
+    "_evidence": {
+     "critical_cves": {
+      "status": "measured",
+      "source": "trivy image scan"
+     },
+     "policy_violation": {
+      "status": "measured",
+      "source": "configuration policy check"
+     }
+    }
+   }
+  },
+  "available_tools": [
+   "get_cost_proxy_history",
+   "get_deployment_history",
+   "get_error_rate_history",
+   "get_latency_history",
+   "get_pipeline_history",
+   "get_policy_gate_status",
+   "get_replica_history",
+   "get_restart_history",
+   "get_saturation_history",
+   "get_vulnerability_details"
+  ],
+  "stratum": "OUTCOME"
+ },
+ {
+  "id": "PP-06-W",
+  "variant": "withheld",
+  "evidence": {
+   "deploy": {
+    "restart_loops": 0,
+    "config_drift": false,
+    "_evidence": {
+     "restart_loops": {
+      "status": "measured",
+      "source": "container restart count"
+     },
+     "config_drift": {
+      "status": "measured",
+      "source": "deployment environment"
+     },
+     "recent_release": {
+      "status": "measured",
+      "source": "ReplicaSet history: newest vs previous pod spec"
+     }
+    },
+    "recent_release": true
+   },
+   "sre": {
+    "p95_latency_ms": 2000.0692859999845,
+    "error_rate_pct": 4.120443740095087,
+    "availability_pct": 95.87955625990492,
+    "_evidence": {
+     "p95_latency_ms": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "error_rate_pct": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "availability_pct": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "saturation_pct": {
+      "status": "measured",
+      "source": "metrics-server CPU / limit"
+     }
+    },
+    "saturation_pct": 67.77777777777777
+   },
+   "finops": {
+    "cost_spike_pct": -70.0,
+    "cpu_request_increase_pct": -70.0,
+    "_evidence": {
+     "cost_spike_pct": {
+      "status": "proxy",
+      "source": "replicas x CPU request vs healthy"
+     },
+     "cpu_request_increase_pct": {
+      "status": "proxy",
+      "source": "replicas x CPU request vs healthy"
+     }
+    }
+   },
+   "sec": {
+    "critical_cves": null,
+    "policy_violation": false,
+    "_evidence": {
+     "critical_cves": {
+      "status": "missing"
+     },
+     "policy_violation": {
+      "status": "measured",
+      "source": "configuration policy check"
+     }
+    }
+   }
+  },
+  "available_tools": [
+   "get_cost_proxy_history",
+   "get_deployment_history",
+   "get_error_rate_history",
+   "get_latency_history",
+   "get_pipeline_history",
+   "get_policy_gate_status",
+   "get_replica_history",
+   "get_restart_history",
+   "get_saturation_history",
+   "get_vulnerability_details"
+  ],
+  "expected_tool": "get_vulnerability_details",
+  "tool_result": {
+   "id": "TOOL-PP-06-get_vulnerability_details",
+   "sec": {
+    "critical_cves": 6
+   }
+  },
+  "withheld": [
+   "sec.critical_cves"
+  ],
+  "stratum": "OUTCOME"
+ },
+ {
+  "id": "PP-07",
+  "variant": "full",
+  "evidence": {
+   "deploy": {
+    "restart_loops": 0,
+    "config_drift": true,
+    "_evidence": {
+     "restart_loops": {
+      "status": "measured",
+      "source": "container restart count"
+     },
+     "config_drift": {
+      "status": "measured",
+      "source": "deployment environment"
+     },
+     "recent_release": {
+      "status": "measured",
+      "source": "ReplicaSet history: newest vs previous pod spec"
+     }
+    },
+    "recent_release": true
+   },
+   "sre": {
+    "p95_latency_ms": 820.5187379999188,
+    "error_rate_pct": 0.0,
+    "availability_pct": 100.0,
+    "_evidence": {
+     "p95_latency_ms": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "error_rate_pct": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "availability_pct": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "saturation_pct": {
+      "status": "measured",
+      "source": "metrics-server CPU / limit"
+     }
+    },
+    "saturation_pct": 60.5
+   },
+   "finops": {
+    "cost_spike_pct": 0.0,
+    "cpu_request_increase_pct": 0.0,
+    "_evidence": {
+     "cost_spike_pct": {
+      "status": "proxy",
+      "source": "replicas x CPU request vs healthy"
+     },
+     "cpu_request_increase_pct": {
+      "status": "proxy",
+      "source": "replicas x CPU request vs healthy"
+     }
+    }
+   },
+   "sec": {
+    "critical_cves": 0,
+    "policy_violation": true,
+    "_evidence": {
+     "critical_cves": {
+      "status": "measured",
+      "source": "trivy image scan"
+     },
+     "policy_violation": {
+      "status": "measured",
+      "source": "configuration policy check"
+     }
+    }
+   }
+  },
+  "available_tools": [
+   "get_cost_proxy_history",
+   "get_deployment_history",
+   "get_error_rate_history",
+   "get_latency_history",
+   "get_pipeline_history",
+   "get_policy_gate_status",
+   "get_replica_history",
+   "get_restart_history",
+   "get_saturation_history",
+   "get_vulnerability_details"
+  ],
+  "stratum": "OUTCOME"
+ },
+ {
+  "id": "PP-07-W",
+  "variant": "withheld",
+  "evidence": {
+   "deploy": {
+    "restart_loops": 0,
+    "config_drift": null,
+    "_evidence": {
+     "restart_loops": {
+      "status": "measured",
+      "source": "container restart count"
+     },
+     "config_drift": {
+      "status": "missing"
+     },
+     "recent_release": {
+      "status": "measured",
+      "source": "ReplicaSet history: newest vs previous pod spec"
+     }
+    },
+    "recent_release": true
+   },
+   "sre": {
+    "p95_latency_ms": 820.5187379999188,
+    "error_rate_pct": 0.0,
+    "availability_pct": 100.0,
+    "_evidence": {
+     "p95_latency_ms": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "error_rate_pct": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "availability_pct": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "saturation_pct": {
+      "status": "measured",
+      "source": "metrics-server CPU / limit"
+     }
+    },
+    "saturation_pct": 60.5
+   },
+   "finops": {
+    "cost_spike_pct": 0.0,
+    "cpu_request_increase_pct": 0.0,
+    "_evidence": {
+     "cost_spike_pct": {
+      "status": "proxy",
+      "source": "replicas x CPU request vs healthy"
+     },
+     "cpu_request_increase_pct": {
+      "status": "proxy",
+      "source": "replicas x CPU request vs healthy"
+     }
+    }
+   },
+   "sec": {
+    "critical_cves": 0,
+    "policy_violation": null,
+    "_evidence": {
+     "critical_cves": {
+      "status": "measured",
+      "source": "trivy image scan"
+     },
+     "policy_violation": {
+      "status": "missing"
+     }
+    }
+   }
+  },
+  "available_tools": [
+   "get_cost_proxy_history",
+   "get_deployment_history",
+   "get_error_rate_history",
+   "get_latency_history",
+   "get_pipeline_history",
+   "get_policy_gate_status",
+   "get_replica_history",
+   "get_restart_history",
+   "get_saturation_history",
+   "get_vulnerability_details"
+  ],
+  "expected_tool": "get_policy_gate_status",
+  "tool_result": {
+   "id": "TOOL-PP-07-get_policy_gate_status",
+   "sec": {
+    "policy_violation": true
+   },
+   "deploy": {
+    "config_drift": true
+   }
+  },
+  "withheld": [
+   "sec.policy_violation",
+   "deploy.config_drift"
+  ],
+  "stratum": "OUTCOME"
+ },
+ {
+  "id": "PR-01",
+  "variant": "full",
+  "evidence": {
+   "deploy": {
+    "restart_loops": 0,
+    "config_drift": false,
+    "_evidence": {
+     "restart_loops": {
+      "status": "measured",
+      "source": "container restart count"
+     },
+     "config_drift": {
+      "status": "measured",
+      "source": "deployment environment"
+     },
+     "recent_release": {
+      "status": "measured",
+      "source": "ReplicaSet history: newest vs previous pod spec"
+     }
+    },
+    "recent_release": true
+   },
+   "sre": {
+    "p95_latency_ms": 2002.3604339999963,
+    "error_rate_pct": 18.01125703564728,
+    "availability_pct": 81.98874296435272,
+    "_evidence": {
+     "p95_latency_ms": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "error_rate_pct": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "availability_pct": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "saturation_pct": {
+      "status": "measured",
+      "source": "metrics-server CPU / limit"
+     }
+    },
+    "saturation_pct": 55.55555555555556
+   },
+   "finops": {
+    "cost_spike_pct": -70.0,
+    "cpu_request_increase_pct": -70.0,
+    "_evidence": {
+     "cost_spike_pct": {
+      "status": "proxy",
+      "source": "replicas x CPU request vs healthy"
+     },
+     "cpu_request_increase_pct": {
+      "status": "proxy",
+      "source": "replicas x CPU request vs healthy"
+     }
+    }
+   },
+   "sec": {
+    "critical_cves": 0,
+    "policy_violation": false,
+    "_evidence": {
+     "critical_cves": {
+      "status": "measured",
+      "source": "trivy image scan"
+     },
+     "policy_violation": {
+      "status": "measured",
+      "source": "configuration policy check"
+     }
+    }
+   }
+  },
+  "available_tools": [
+   "get_cost_proxy_history",
+   "get_deployment_history",
+   "get_error_rate_history",
+   "get_latency_history",
+   "get_pipeline_history",
+   "get_policy_gate_status",
+   "get_replica_history",
+   "get_restart_history",
+   "get_saturation_history",
+   "get_vulnerability_details"
+  ],
+  "stratum": "OUTCOME"
+ },
+ {
+  "id": "PR-01-W",
+  "variant": "withheld",
+  "evidence": {
+   "deploy": {
+    "restart_loops": 0,
+    "config_drift": false,
+    "_evidence": {
+     "restart_loops": {
+      "status": "measured",
+      "source": "container restart count"
+     },
+     "config_drift": {
+      "status": "measured",
+      "source": "deployment environment"
+     },
+     "recent_release": {
+      "status": "measured",
+      "source": "ReplicaSet history: newest vs previous pod spec"
+     }
+    },
+    "recent_release": true
+   },
+   "sre": {
+    "p95_latency_ms": null,
+    "error_rate_pct": 18.01125703564728,
+    "availability_pct": 81.98874296435272,
+    "_evidence": {
+     "p95_latency_ms": {
+      "status": "missing"
+     },
+     "error_rate_pct": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "availability_pct": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "saturation_pct": {
+      "status": "missing"
+     }
+    },
+    "saturation_pct": null
+   },
+   "finops": {
+    "cost_spike_pct": -70.0,
+    "cpu_request_increase_pct": -70.0,
+    "_evidence": {
+     "cost_spike_pct": {
+      "status": "proxy",
+      "source": "replicas x CPU request vs healthy"
+     },
+     "cpu_request_increase_pct": {
+      "status": "proxy",
+      "source": "replicas x CPU request vs healthy"
+     }
+    }
+   },
+   "sec": {
+    "critical_cves": 0,
+    "policy_violation": false,
+    "_evidence": {
+     "critical_cves": {
+      "status": "measured",
+      "source": "trivy image scan"
+     },
+     "policy_violation": {
+      "status": "measured",
+      "source": "configuration policy check"
+     }
+    }
+   }
+  },
+  "available_tools": [
+   "get_cost_proxy_history",
+   "get_deployment_history",
+   "get_error_rate_history",
+   "get_latency_history",
+   "get_pipeline_history",
+   "get_policy_gate_status",
+   "get_replica_history",
+   "get_restart_history",
+   "get_saturation_history",
+   "get_vulnerability_details"
+  ],
+  "expected_tool": "get_latency_history",
+  "tool_result": {
+   "id": "TOOL-PR-01-get_latency_history",
+   "sre": {
+    "p95_latency_ms": 2002.3604339999963,
+    "saturation_pct": 55.55555555555556
+   }
+  },
+  "withheld": [
+   "sre.p95_latency_ms",
+   "sre.saturation_pct"
+  ],
+  "stratum": "OUTCOME"
+ },
+ {
+  "id": "PR-02",
+  "variant": "full",
+  "evidence": {
+   "deploy": {
+    "restart_loops": 0,
+    "config_drift": false,
+    "_evidence": {
+     "restart_loops": {
+      "status": "measured",
+      "source": "container restart count"
+     },
+     "config_drift": {
+      "status": "measured",
+      "source": "deployment environment"
+     },
+     "recent_release": {
+      "status": "measured",
+      "source": "ReplicaSet history: newest vs previous pod spec"
+     }
+    },
+    "recent_release": true
+   },
+   "sre": {
+    "p95_latency_ms": 1927.7916329999698,
+    "error_rate_pct": 3.2679738562091503,
+    "availability_pct": 96.73202614379085,
+    "_evidence": {
+     "p95_latency_ms": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "error_rate_pct": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "availability_pct": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "saturation_pct": {
+      "status": "measured",
+      "source": "metrics-server CPU / limit"
+     }
+    },
+    "saturation_pct": 50.0
+   },
+   "finops": {
+    "cost_spike_pct": 0.0,
+    "cpu_request_increase_pct": 0.0,
+    "_evidence": {
+     "cost_spike_pct": {
+      "status": "proxy",
+      "source": "replicas x CPU request vs healthy"
+     },
+     "cpu_request_increase_pct": {
+      "status": "proxy",
+      "source": "replicas x CPU request vs healthy"
+     }
+    }
+   },
+   "sec": {
+    "critical_cves": 0,
+    "policy_violation": false,
+    "_evidence": {
+     "critical_cves": {
+      "status": "measured",
+      "source": "trivy image scan"
+     },
+     "policy_violation": {
+      "status": "measured",
+      "source": "configuration policy check"
+     }
+    }
+   }
+  },
+  "available_tools": [
+   "get_cost_proxy_history",
+   "get_deployment_history",
+   "get_error_rate_history",
+   "get_latency_history",
+   "get_pipeline_history",
+   "get_policy_gate_status",
+   "get_replica_history",
+   "get_restart_history",
+   "get_saturation_history",
+   "get_vulnerability_details"
+  ],
+  "stratum": "OUTCOME"
+ },
+ {
+  "id": "PR-02-W",
+  "variant": "withheld",
+  "evidence": {
+   "deploy": {
+    "restart_loops": 0,
+    "config_drift": false,
+    "_evidence": {
+     "restart_loops": {
+      "status": "measured",
+      "source": "container restart count"
+     },
+     "config_drift": {
+      "status": "measured",
+      "source": "deployment environment"
+     },
+     "recent_release": {
+      "status": "measured",
+      "source": "ReplicaSet history: newest vs previous pod spec"
+     }
+    },
+    "recent_release": true
+   },
+   "sre": {
+    "p95_latency_ms": null,
+    "error_rate_pct": 3.2679738562091503,
+    "availability_pct": 96.73202614379085,
+    "_evidence": {
+     "p95_latency_ms": {
+      "status": "missing"
+     },
+     "error_rate_pct": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "availability_pct": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "saturation_pct": {
+      "status": "missing"
+     }
+    },
+    "saturation_pct": null
+   },
+   "finops": {
+    "cost_spike_pct": 0.0,
+    "cpu_request_increase_pct": 0.0,
+    "_evidence": {
+     "cost_spike_pct": {
+      "status": "proxy",
+      "source": "replicas x CPU request vs healthy"
+     },
+     "cpu_request_increase_pct": {
+      "status": "proxy",
+      "source": "replicas x CPU request vs healthy"
+     }
+    }
+   },
+   "sec": {
+    "critical_cves": 0,
+    "policy_violation": false,
+    "_evidence": {
+     "critical_cves": {
+      "status": "measured",
+      "source": "trivy image scan"
+     },
+     "policy_violation": {
+      "status": "measured",
+      "source": "configuration policy check"
+     }
+    }
+   }
+  },
+  "available_tools": [
+   "get_cost_proxy_history",
+   "get_deployment_history",
+   "get_error_rate_history",
+   "get_latency_history",
+   "get_pipeline_history",
+   "get_policy_gate_status",
+   "get_replica_history",
+   "get_restart_history",
+   "get_saturation_history",
+   "get_vulnerability_details"
+  ],
+  "expected_tool": "get_latency_history",
+  "tool_result": {
+   "id": "TOOL-PR-02-get_latency_history",
+   "sre": {
+    "p95_latency_ms": 1927.7916329999698,
+    "saturation_pct": 50.0
+   }
+  },
+  "withheld": [
+   "sre.p95_latency_ms",
+   "sre.saturation_pct"
+  ],
+  "stratum": "OUTCOME"
+ },
+ {
+  "id": "PR-03",
+  "variant": "full",
+  "evidence": {
+   "deploy": {
+    "restart_loops": 5,
+    "config_drift": false,
+    "_evidence": {
+     "restart_loops": {
+      "status": "measured",
+      "source": "container restart count"
+     },
+     "config_drift": {
+      "status": "measured",
+      "source": "deployment environment"
+     },
+     "recent_release": {
+      "status": "measured",
+      "source": "ReplicaSet history: newest vs previous pod spec"
+     }
+    },
+    "recent_release": true
+   },
+   "sre": {
+    "p95_latency_ms": 2003.8259269999799,
+    "error_rate_pct": 100.0,
+    "availability_pct": 0.0,
+    "_evidence": {
+     "p95_latency_ms": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "error_rate_pct": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "availability_pct": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     }
+    }
+   },
+   "finops": {
+    "cost_spike_pct": 0.0,
+    "cpu_request_increase_pct": 0.0,
+    "_evidence": {
+     "cost_spike_pct": {
+      "status": "proxy",
+      "source": "replicas x CPU request vs healthy"
+     },
+     "cpu_request_increase_pct": {
+      "status": "proxy",
+      "source": "replicas x CPU request vs healthy"
+     }
+    }
+   },
+   "sec": {
+    "critical_cves": 6,
+    "policy_violation": false,
+    "_evidence": {
+     "critical_cves": {
+      "status": "measured",
+      "source": "trivy image scan"
+     },
+     "policy_violation": {
+      "status": "measured",
+      "source": "configuration policy check"
+     }
+    }
+   }
+  },
+  "available_tools": [
+   "get_cost_proxy_history",
+   "get_deployment_history",
+   "get_error_rate_history",
+   "get_latency_history",
+   "get_pipeline_history",
+   "get_policy_gate_status",
+   "get_replica_history",
+   "get_restart_history",
+   "get_saturation_history",
+   "get_vulnerability_details"
+  ],
+  "stratum": "OUTCOME"
+ },
+ {
+  "id": "PR-03-W",
+  "variant": "withheld",
+  "evidence": {
+   "deploy": {
+    "restart_loops": 5,
+    "config_drift": false,
+    "_evidence": {
+     "restart_loops": {
+      "status": "measured",
+      "source": "container restart count"
+     },
+     "config_drift": {
+      "status": "measured",
+      "source": "deployment environment"
+     },
+     "recent_release": {
+      "status": "measured",
+      "source": "ReplicaSet history: newest vs previous pod spec"
+     }
+    },
+    "recent_release": true
+   },
+   "sre": {
+    "p95_latency_ms": 2003.8259269999799,
+    "error_rate_pct": 100.0,
+    "availability_pct": 0.0,
+    "_evidence": {
+     "p95_latency_ms": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "error_rate_pct": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "availability_pct": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     }
+    }
+   },
+   "finops": {
+    "cost_spike_pct": 0.0,
+    "cpu_request_increase_pct": 0.0,
+    "_evidence": {
+     "cost_spike_pct": {
+      "status": "proxy",
+      "source": "replicas x CPU request vs healthy"
+     },
+     "cpu_request_increase_pct": {
+      "status": "proxy",
+      "source": "replicas x CPU request vs healthy"
+     }
+    }
+   },
+   "sec": {
+    "critical_cves": null,
+    "policy_violation": false,
+    "_evidence": {
+     "critical_cves": {
+      "status": "missing"
+     },
+     "policy_violation": {
+      "status": "measured",
+      "source": "configuration policy check"
+     }
+    }
+   }
+  },
+  "available_tools": [
+   "get_cost_proxy_history",
+   "get_deployment_history",
+   "get_error_rate_history",
+   "get_latency_history",
+   "get_pipeline_history",
+   "get_policy_gate_status",
+   "get_replica_history",
+   "get_restart_history",
+   "get_saturation_history",
+   "get_vulnerability_details"
+  ],
+  "expected_tool": "get_vulnerability_details",
+  "tool_result": {
+   "id": "TOOL-PR-03-get_vulnerability_details",
+   "sec": {
+    "critical_cves": 6
+   }
+  },
+  "withheld": [
+   "sec.critical_cves"
+  ],
+  "stratum": "OUTCOME"
+ },
+ {
+  "id": "PR-04",
+  "variant": "full",
+  "evidence": {
+   "deploy": {
+    "restart_loops": 0,
+    "config_drift": true,
+    "_evidence": {
+     "restart_loops": {
+      "status": "measured",
+      "source": "container restart count"
+     },
+     "config_drift": {
+      "status": "measured",
+      "source": "deployment environment"
+     },
+     "recent_release": {
+      "status": "measured",
+      "source": "ReplicaSet history: newest vs previous pod spec"
+     }
+    },
+    "recent_release": true
+   },
+   "sre": {
+    "p95_latency_ms": 2002.6539099999923,
+    "error_rate_pct": 53.97489539748954,
+    "availability_pct": 46.02510460251046,
+    "_evidence": {
+     "p95_latency_ms": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "error_rate_pct": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "availability_pct": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "saturation_pct": {
+      "status": "measured",
+      "source": "metrics-server CPU / limit"
+     }
+    },
+    "saturation_pct": 82.22222222222223
+   },
+   "finops": {
+    "cost_spike_pct": -70.0,
+    "cpu_request_increase_pct": -70.0,
+    "_evidence": {
+     "cost_spike_pct": {
+      "status": "proxy",
+      "source": "replicas x CPU request vs healthy"
+     },
+     "cpu_request_increase_pct": {
+      "status": "proxy",
+      "source": "replicas x CPU request vs healthy"
+     }
+    }
+   },
+   "sec": {
+    "critical_cves": 0,
+    "policy_violation": true,
+    "_evidence": {
+     "critical_cves": {
+      "status": "measured",
+      "source": "trivy image scan"
+     },
+     "policy_violation": {
+      "status": "measured",
+      "source": "configuration policy check"
+     }
+    }
+   }
+  },
+  "available_tools": [
+   "get_cost_proxy_history",
+   "get_deployment_history",
+   "get_error_rate_history",
+   "get_latency_history",
+   "get_pipeline_history",
+   "get_policy_gate_status",
+   "get_replica_history",
+   "get_restart_history",
+   "get_saturation_history",
+   "get_vulnerability_details"
+  ],
+  "stratum": "OUTCOME"
+ },
+ {
+  "id": "PR-04-W",
+  "variant": "withheld",
+  "evidence": {
+   "deploy": {
+    "restart_loops": 0,
+    "config_drift": null,
+    "_evidence": {
+     "restart_loops": {
+      "status": "measured",
+      "source": "container restart count"
+     },
+     "config_drift": {
+      "status": "missing"
+     },
+     "recent_release": {
+      "status": "measured",
+      "source": "ReplicaSet history: newest vs previous pod spec"
+     }
+    },
+    "recent_release": true
+   },
+   "sre": {
+    "p95_latency_ms": 2002.6539099999923,
+    "error_rate_pct": 53.97489539748954,
+    "availability_pct": 46.02510460251046,
+    "_evidence": {
+     "p95_latency_ms": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "error_rate_pct": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "availability_pct": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "saturation_pct": {
+      "status": "measured",
+      "source": "metrics-server CPU / limit"
+     }
+    },
+    "saturation_pct": 82.22222222222223
+   },
+   "finops": {
+    "cost_spike_pct": -70.0,
+    "cpu_request_increase_pct": -70.0,
+    "_evidence": {
+     "cost_spike_pct": {
+      "status": "proxy",
+      "source": "replicas x CPU request vs healthy"
+     },
+     "cpu_request_increase_pct": {
+      "status": "proxy",
+      "source": "replicas x CPU request vs healthy"
+     }
+    }
+   },
+   "sec": {
+    "critical_cves": 0,
+    "policy_violation": null,
+    "_evidence": {
+     "critical_cves": {
+      "status": "measured",
+      "source": "trivy image scan"
+     },
+     "policy_violation": {
+      "status": "missing"
+     }
+    }
+   }
+  },
+  "available_tools": [
+   "get_cost_proxy_history",
+   "get_deployment_history",
+   "get_error_rate_history",
+   "get_latency_history",
+   "get_pipeline_history",
+   "get_policy_gate_status",
+   "get_replica_history",
+   "get_restart_history",
+   "get_saturation_history",
+   "get_vulnerability_details"
+  ],
+  "expected_tool": "get_policy_gate_status",
+  "tool_result": {
+   "id": "TOOL-PR-04-get_policy_gate_status",
+   "sec": {
+    "policy_violation": true
+   },
+   "deploy": {
+    "config_drift": true
+   }
+  },
+  "withheld": [
+   "sec.policy_violation",
+   "deploy.config_drift"
+  ],
+  "stratum": "OUTCOME"
+ },
+ {
+  "id": "PR-05",
+  "variant": "full",
+  "evidence": {
+   "deploy": {
+    "restart_loops": 20,
+    "config_drift": false,
+    "_evidence": {
+     "restart_loops": {
+      "status": "measured",
+      "source": "container restart count"
+     },
+     "config_drift": {
+      "status": "measured",
+      "source": "deployment environment"
+     },
+     "recent_release": {
+      "status": "measured",
+      "source": "ReplicaSet history: newest vs previous pod spec"
+     }
+    },
+    "recent_release": true
+   },
+   "sre": {
+    "p95_latency_ms": 2002.302214999986,
+    "error_rate_pct": 100.0,
+    "availability_pct": 0.0,
+    "_evidence": {
+     "p95_latency_ms": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "error_rate_pct": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "availability_pct": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     }
+    }
+   },
+   "finops": {
+    "cost_spike_pct": 300.0,
+    "cpu_request_increase_pct": 300.0,
+    "_evidence": {
+     "cost_spike_pct": {
+      "status": "proxy",
+      "source": "replicas x CPU request vs healthy"
+     },
+     "cpu_request_increase_pct": {
+      "status": "proxy",
+      "source": "replicas x CPU request vs healthy"
+     }
+    }
+   },
+   "sec": {
+    "critical_cves": 0,
+    "policy_violation": false,
+    "_evidence": {
+     "critical_cves": {
+      "status": "measured",
+      "source": "trivy image scan"
+     },
+     "policy_violation": {
+      "status": "measured",
+      "source": "configuration policy check"
+     }
+    }
+   }
+  },
+  "available_tools": [
+   "get_cost_proxy_history",
+   "get_deployment_history",
+   "get_error_rate_history",
+   "get_latency_history",
+   "get_pipeline_history",
+   "get_policy_gate_status",
+   "get_replica_history",
+   "get_restart_history",
+   "get_saturation_history",
+   "get_vulnerability_details"
+  ],
+  "stratum": "OUTCOME"
+ },
+ {
+  "id": "PR-05-W",
+  "variant": "withheld",
+  "evidence": {
+   "deploy": {
+    "restart_loops": null,
+    "config_drift": false,
+    "_evidence": {
+     "restart_loops": {
+      "status": "missing"
+     },
+     "config_drift": {
+      "status": "measured",
+      "source": "deployment environment"
+     },
+     "recent_release": {
+      "status": "measured",
+      "source": "ReplicaSet history: newest vs previous pod spec"
+     }
+    },
+    "recent_release": true
+   },
+   "sre": {
+    "p95_latency_ms": 2002.302214999986,
+    "error_rate_pct": 100.0,
+    "availability_pct": 0.0,
+    "_evidence": {
+     "p95_latency_ms": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "error_rate_pct": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "availability_pct": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     }
+    }
+   },
+   "finops": {
+    "cost_spike_pct": 300.0,
+    "cpu_request_increase_pct": 300.0,
+    "_evidence": {
+     "cost_spike_pct": {
+      "status": "proxy",
+      "source": "replicas x CPU request vs healthy"
+     },
+     "cpu_request_increase_pct": {
+      "status": "proxy",
+      "source": "replicas x CPU request vs healthy"
+     }
+    }
+   },
+   "sec": {
+    "critical_cves": 0,
+    "policy_violation": false,
+    "_evidence": {
+     "critical_cves": {
+      "status": "measured",
+      "source": "trivy image scan"
+     },
+     "policy_violation": {
+      "status": "measured",
+      "source": "configuration policy check"
+     }
+    }
+   }
+  },
+  "available_tools": [
+   "get_cost_proxy_history",
+   "get_deployment_history",
+   "get_error_rate_history",
+   "get_latency_history",
+   "get_pipeline_history",
+   "get_policy_gate_status",
+   "get_replica_history",
+   "get_restart_history",
+   "get_saturation_history",
+   "get_vulnerability_details"
+  ],
+  "expected_tool": "get_restart_history",
+  "tool_result": {
+   "id": "TOOL-PR-05-get_restart_history",
+   "deploy": {
+    "restart_loops": 20
+   }
+  },
+  "withheld": [
+   "deploy.restart_loops"
+  ],
+  "stratum": "OUTCOME"
+ },
+ {
+  "id": "PR-06",
+  "variant": "full",
+  "evidence": {
+   "deploy": {
+    "restart_loops": 0,
+    "config_drift": false,
+    "_evidence": {
+     "restart_loops": {
+      "status": "measured",
+      "source": "container restart count"
+     },
+     "config_drift": {
+      "status": "measured",
+      "source": "deployment environment"
+     },
+     "recent_release": {
+      "status": "measured",
+      "source": "ReplicaSet history: newest vs previous pod spec"
+     }
+    },
+    "recent_release": true
+   },
+   "sre": {
+    "p95_latency_ms": 1293.3875230000353,
+    "error_rate_pct": 0.0,
+    "availability_pct": 100.0,
+    "_evidence": {
+     "p95_latency_ms": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "error_rate_pct": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "availability_pct": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "saturation_pct": {
+      "status": "measured",
+      "source": "metrics-server CPU / limit"
+     }
+    },
+    "saturation_pct": 58.0
+   },
+   "finops": {
+    "cost_spike_pct": -50.0,
+    "cpu_request_increase_pct": -50.0,
+    "_evidence": {
+     "cost_spike_pct": {
+      "status": "proxy",
+      "source": "replicas x CPU request vs healthy"
+     },
+     "cpu_request_increase_pct": {
+      "status": "proxy",
+      "source": "replicas x CPU request vs healthy"
+     }
+    }
+   },
+   "sec": {
+    "critical_cves": 6,
+    "policy_violation": false,
+    "_evidence": {
+     "critical_cves": {
+      "status": "measured",
+      "source": "trivy image scan"
+     },
+     "policy_violation": {
+      "status": "measured",
+      "source": "configuration policy check"
+     }
+    }
+   }
+  },
+  "available_tools": [
+   "get_cost_proxy_history",
+   "get_deployment_history",
+   "get_error_rate_history",
+   "get_latency_history",
+   "get_pipeline_history",
+   "get_policy_gate_status",
+   "get_replica_history",
+   "get_restart_history",
+   "get_saturation_history",
+   "get_vulnerability_details"
+  ],
+  "stratum": "OUTCOME"
+ },
+ {
+  "id": "PR-06-W",
+  "variant": "withheld",
+  "evidence": {
+   "deploy": {
+    "restart_loops": 0,
+    "config_drift": false,
+    "_evidence": {
+     "restart_loops": {
+      "status": "measured",
+      "source": "container restart count"
+     },
+     "config_drift": {
+      "status": "measured",
+      "source": "deployment environment"
+     },
+     "recent_release": {
+      "status": "measured",
+      "source": "ReplicaSet history: newest vs previous pod spec"
+     }
+    },
+    "recent_release": true
+   },
+   "sre": {
+    "p95_latency_ms": 1293.3875230000353,
+    "error_rate_pct": 0.0,
+    "availability_pct": 100.0,
+    "_evidence": {
+     "p95_latency_ms": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "error_rate_pct": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "availability_pct": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "saturation_pct": {
+      "status": "measured",
+      "source": "metrics-server CPU / limit"
+     }
+    },
+    "saturation_pct": 58.0
+   },
+   "finops": {
+    "cost_spike_pct": -50.0,
+    "cpu_request_increase_pct": -50.0,
+    "_evidence": {
+     "cost_spike_pct": {
+      "status": "proxy",
+      "source": "replicas x CPU request vs healthy"
+     },
+     "cpu_request_increase_pct": {
+      "status": "proxy",
+      "source": "replicas x CPU request vs healthy"
+     }
+    }
+   },
+   "sec": {
+    "critical_cves": null,
+    "policy_violation": false,
+    "_evidence": {
+     "critical_cves": {
+      "status": "missing"
+     },
+     "policy_violation": {
+      "status": "measured",
+      "source": "configuration policy check"
+     }
+    }
+   }
+  },
+  "available_tools": [
+   "get_cost_proxy_history",
+   "get_deployment_history",
+   "get_error_rate_history",
+   "get_latency_history",
+   "get_pipeline_history",
+   "get_policy_gate_status",
+   "get_replica_history",
+   "get_restart_history",
+   "get_saturation_history",
+   "get_vulnerability_details"
+  ],
+  "expected_tool": "get_vulnerability_details",
+  "tool_result": {
+   "id": "TOOL-PR-06-get_vulnerability_details",
+   "sec": {
+    "critical_cves": 6
+   }
+  },
+  "withheld": [
+   "sec.critical_cves"
+  ],
+  "stratum": "OUTCOME"
+ },
+ {
+  "id": "PR-07",
+  "variant": "full",
+  "evidence": {
+   "deploy": {
+    "restart_loops": 10,
+    "config_drift": true,
+    "_evidence": {
+     "restart_loops": {
+      "status": "measured",
+      "source": "container restart count"
+     },
+     "config_drift": {
+      "status": "measured",
+      "source": "deployment environment"
+     },
+     "recent_release": {
+      "status": "measured",
+      "source": "ReplicaSet history: newest vs previous pod spec"
+     }
+    },
+    "recent_release": true
+   },
+   "sre": {
+    "p95_latency_ms": 2003.8602950000381,
+    "error_rate_pct": 100.0,
+    "availability_pct": 0.0,
+    "_evidence": {
+     "p95_latency_ms": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "error_rate_pct": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "availability_pct": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     }
+    }
+   },
+   "finops": {
+    "cost_spike_pct": 100.0,
+    "cpu_request_increase_pct": 100.0,
+    "_evidence": {
+     "cost_spike_pct": {
+      "status": "proxy",
+      "source": "replicas x CPU request vs healthy"
+     },
+     "cpu_request_increase_pct": {
+      "status": "proxy",
+      "source": "replicas x CPU request vs healthy"
+     }
+    }
+   },
+   "sec": {
+    "critical_cves": 0,
+    "policy_violation": true,
+    "_evidence": {
+     "critical_cves": {
+      "status": "measured",
+      "source": "trivy image scan"
+     },
+     "policy_violation": {
+      "status": "measured",
+      "source": "configuration policy check"
+     }
+    }
+   }
+  },
+  "available_tools": [
+   "get_cost_proxy_history",
+   "get_deployment_history",
+   "get_error_rate_history",
+   "get_latency_history",
+   "get_pipeline_history",
+   "get_policy_gate_status",
+   "get_replica_history",
+   "get_restart_history",
+   "get_saturation_history",
+   "get_vulnerability_details"
+  ],
+  "stratum": "OUTCOME"
+ },
+ {
+  "id": "PR-07-W",
+  "variant": "withheld",
+  "evidence": {
+   "deploy": {
+    "restart_loops": 10,
+    "config_drift": null,
+    "_evidence": {
+     "restart_loops": {
+      "status": "measured",
+      "source": "container restart count"
+     },
+     "config_drift": {
+      "status": "missing"
+     },
+     "recent_release": {
+      "status": "measured",
+      "source": "ReplicaSet history: newest vs previous pod spec"
+     }
+    },
+    "recent_release": true
+   },
+   "sre": {
+    "p95_latency_ms": 2003.8602950000381,
+    "error_rate_pct": 100.0,
+    "availability_pct": 0.0,
+    "_evidence": {
+     "p95_latency_ms": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "error_rate_pct": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "availability_pct": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     }
+    }
+   },
+   "finops": {
+    "cost_spike_pct": 100.0,
+    "cpu_request_increase_pct": 100.0,
+    "_evidence": {
+     "cost_spike_pct": {
+      "status": "proxy",
+      "source": "replicas x CPU request vs healthy"
+     },
+     "cpu_request_increase_pct": {
+      "status": "proxy",
+      "source": "replicas x CPU request vs healthy"
+     }
+    }
+   },
+   "sec": {
+    "critical_cves": 0,
+    "policy_violation": null,
+    "_evidence": {
+     "critical_cves": {
+      "status": "measured",
+      "source": "trivy image scan"
+     },
+     "policy_violation": {
+      "status": "missing"
+     }
+    }
+   }
+  },
+  "available_tools": [
+   "get_cost_proxy_history",
+   "get_deployment_history",
+   "get_error_rate_history",
+   "get_latency_history",
+   "get_pipeline_history",
+   "get_policy_gate_status",
+   "get_replica_history",
+   "get_restart_history",
+   "get_saturation_history",
+   "get_vulnerability_details"
+  ],
+  "expected_tool": "get_policy_gate_status",
+  "tool_result": {
+   "id": "TOOL-PR-07-get_policy_gate_status",
+   "sec": {
+    "policy_violation": true
+   },
+   "deploy": {
+    "config_drift": true
+   }
+  },
+  "withheld": [
+   "sec.policy_violation",
+   "deploy.config_drift"
+  ],
+  "stratum": "OUTCOME"
+ },
+ {
+  "id": "PS-01",
+  "variant": "full",
+  "evidence": {
+   "deploy": {
+    "restart_loops": 0,
+    "config_drift": false,
+    "_evidence": {
+     "restart_loops": {
+      "status": "measured",
+      "source": "container restart count"
+     },
+     "config_drift": {
+      "status": "measured",
+      "source": "deployment environment"
+     },
+     "recent_release": {
+      "status": "measured",
+      "source": "ReplicaSet history: newest vs previous pod spec"
+     }
+    },
+    "recent_release": false
+   },
+   "sre": {
+    "p95_latency_ms": 102.93999800001075,
+    "error_rate_pct": 0.0,
+    "availability_pct": 100.0,
+    "_evidence": {
+     "p95_latency_ms": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "error_rate_pct": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "availability_pct": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "saturation_pct": {
+      "status": "measured",
+      "source": "metrics-server CPU / limit"
+     }
+    },
+    "saturation_pct": 15.25
+   },
+   "finops": {
+    "cost_spike_pct": 500.0,
+    "cpu_request_increase_pct": 500.0,
+    "_evidence": {
+     "cost_spike_pct": {
+      "status": "proxy",
+      "source": "replicas x CPU request vs healthy"
+     },
+     "cpu_request_increase_pct": {
+      "status": "proxy",
+      "source": "replicas x CPU request vs healthy"
+     }
+    }
+   },
+   "sec": {
+    "critical_cves": 6,
+    "policy_violation": false,
+    "_evidence": {
+     "critical_cves": {
+      "status": "measured",
+      "source": "trivy image scan"
+     },
+     "policy_violation": {
+      "status": "measured",
+      "source": "configuration policy check"
+     }
+    }
+   }
+  },
+  "available_tools": [
+   "get_cost_proxy_history",
+   "get_deployment_history",
+   "get_error_rate_history",
+   "get_latency_history",
+   "get_pipeline_history",
+   "get_policy_gate_status",
+   "get_replica_history",
+   "get_restart_history",
+   "get_saturation_history",
+   "get_vulnerability_details"
+  ],
+  "stratum": "OUTCOME"
+ },
+ {
+  "id": "PS-01-W",
+  "variant": "withheld",
+  "evidence": {
+   "deploy": {
+    "restart_loops": 0,
+    "config_drift": false,
+    "_evidence": {
+     "restart_loops": {
+      "status": "measured",
+      "source": "container restart count"
+     },
+     "config_drift": {
+      "status": "measured",
+      "source": "deployment environment"
+     },
+     "recent_release": {
+      "status": "measured",
+      "source": "ReplicaSet history: newest vs previous pod spec"
+     }
+    },
+    "recent_release": false
+   },
+   "sre": {
+    "p95_latency_ms": 102.93999800001075,
+    "error_rate_pct": 0.0,
+    "availability_pct": 100.0,
+    "_evidence": {
+     "p95_latency_ms": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "error_rate_pct": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "availability_pct": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "saturation_pct": {
+      "status": "measured",
+      "source": "metrics-server CPU / limit"
+     }
+    },
+    "saturation_pct": 15.25
+   },
+   "finops": {
+    "cost_spike_pct": 500.0,
+    "cpu_request_increase_pct": 500.0,
+    "_evidence": {
+     "cost_spike_pct": {
+      "status": "proxy",
+      "source": "replicas x CPU request vs healthy"
+     },
+     "cpu_request_increase_pct": {
+      "status": "proxy",
+      "source": "replicas x CPU request vs healthy"
+     }
+    }
+   },
+   "sec": {
+    "critical_cves": null,
+    "policy_violation": false,
+    "_evidence": {
+     "critical_cves": {
+      "status": "missing"
+     },
+     "policy_violation": {
+      "status": "measured",
+      "source": "configuration policy check"
+     }
+    }
+   }
+  },
+  "available_tools": [
+   "get_cost_proxy_history",
+   "get_deployment_history",
+   "get_error_rate_history",
+   "get_latency_history",
+   "get_pipeline_history",
+   "get_policy_gate_status",
+   "get_replica_history",
+   "get_restart_history",
+   "get_saturation_history",
+   "get_vulnerability_details"
+  ],
+  "expected_tool": "get_vulnerability_details",
+  "tool_result": {
+   "id": "TOOL-PS-01-get_vulnerability_details",
+   "sec": {
+    "critical_cves": 6
+   }
+  },
+  "withheld": [
+   "sec.critical_cves"
+  ],
+  "stratum": "OUTCOME"
+ },
+ {
+  "id": "PS-02",
+  "variant": "full",
+  "evidence": {
+   "deploy": {
+    "restart_loops": 0,
+    "config_drift": true,
+    "_evidence": {
+     "restart_loops": {
+      "status": "measured",
+      "source": "container restart count"
+     },
+     "config_drift": {
+      "status": "measured",
+      "source": "deployment environment"
+     },
+     "recent_release": {
+      "status": "measured",
+      "source": "ReplicaSet history: newest vs previous pod spec"
+     }
+    },
+    "recent_release": false
+   },
+   "sre": {
+    "p95_latency_ms": 285.2522559999784,
+    "error_rate_pct": 0.0,
+    "availability_pct": 100.0,
+    "_evidence": {
+     "p95_latency_ms": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "error_rate_pct": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "availability_pct": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "saturation_pct": {
+      "status": "measured",
+      "source": "metrics-server CPU / limit"
+     }
+    },
+    "saturation_pct": 9.761904761904761
+   },
+   "finops": {
+    "cost_spike_pct": 600.0,
+    "cpu_request_increase_pct": 600.0,
+    "_evidence": {
+     "cost_spike_pct": {
+      "status": "proxy",
+      "source": "replicas x CPU request vs healthy"
+     },
+     "cpu_request_increase_pct": {
+      "status": "proxy",
+      "source": "replicas x CPU request vs healthy"
+     }
+    }
+   },
+   "sec": {
+    "critical_cves": 0,
+    "policy_violation": true,
+    "_evidence": {
+     "critical_cves": {
+      "status": "measured",
+      "source": "trivy image scan"
+     },
+     "policy_violation": {
+      "status": "measured",
+      "source": "configuration policy check"
+     }
+    }
+   }
+  },
+  "available_tools": [
+   "get_cost_proxy_history",
+   "get_deployment_history",
+   "get_error_rate_history",
+   "get_latency_history",
+   "get_pipeline_history",
+   "get_policy_gate_status",
+   "get_replica_history",
+   "get_restart_history",
+   "get_saturation_history",
+   "get_vulnerability_details"
+  ],
+  "stratum": "OUTCOME"
+ },
+ {
+  "id": "PS-02-W",
+  "variant": "withheld",
+  "evidence": {
+   "deploy": {
+    "restart_loops": 0,
+    "config_drift": null,
+    "_evidence": {
+     "restart_loops": {
+      "status": "measured",
+      "source": "container restart count"
+     },
+     "config_drift": {
+      "status": "missing"
+     },
+     "recent_release": {
+      "status": "measured",
+      "source": "ReplicaSet history: newest vs previous pod spec"
+     }
+    },
+    "recent_release": false
+   },
+   "sre": {
+    "p95_latency_ms": 285.2522559999784,
+    "error_rate_pct": 0.0,
+    "availability_pct": 100.0,
+    "_evidence": {
+     "p95_latency_ms": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "error_rate_pct": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "availability_pct": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "saturation_pct": {
+      "status": "measured",
+      "source": "metrics-server CPU / limit"
+     }
+    },
+    "saturation_pct": 9.761904761904761
+   },
+   "finops": {
+    "cost_spike_pct": 600.0,
+    "cpu_request_increase_pct": 600.0,
+    "_evidence": {
+     "cost_spike_pct": {
+      "status": "proxy",
+      "source": "replicas x CPU request vs healthy"
+     },
+     "cpu_request_increase_pct": {
+      "status": "proxy",
+      "source": "replicas x CPU request vs healthy"
+     }
+    }
+   },
+   "sec": {
+    "critical_cves": 0,
+    "policy_violation": null,
+    "_evidence": {
+     "critical_cves": {
+      "status": "measured",
+      "source": "trivy image scan"
+     },
+     "policy_violation": {
+      "status": "missing"
+     }
+    }
+   }
+  },
+  "available_tools": [
+   "get_cost_proxy_history",
+   "get_deployment_history",
+   "get_error_rate_history",
+   "get_latency_history",
+   "get_pipeline_history",
+   "get_policy_gate_status",
+   "get_replica_history",
+   "get_restart_history",
+   "get_saturation_history",
+   "get_vulnerability_details"
+  ],
+  "expected_tool": "get_policy_gate_status",
+  "tool_result": {
+   "id": "TOOL-PS-02-get_policy_gate_status",
+   "sec": {
+    "policy_violation": true
+   },
+   "deploy": {
+    "config_drift": true
+   }
+  },
+  "withheld": [
+   "sec.policy_violation",
+   "deploy.config_drift"
+  ],
+  "stratum": "OUTCOME"
+ },
+ {
+  "id": "PS-03",
+  "variant": "full",
+  "evidence": {
+   "deploy": {
+    "restart_loops": 0,
+    "config_drift": false,
+    "_evidence": {
+     "restart_loops": {
+      "status": "measured",
+      "source": "container restart count"
+     },
+     "config_drift": {
+      "status": "measured",
+      "source": "deployment environment"
+     },
+     "recent_release": {
+      "status": "measured",
+      "source": "ReplicaSet history: newest vs previous pod spec"
+     }
+    },
+    "recent_release": true
+   },
+   "sre": {
+    "p95_latency_ms": 185.69027799992455,
+    "error_rate_pct": 0.0,
+    "availability_pct": 100.0,
+    "_evidence": {
+     "p95_latency_ms": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "error_rate_pct": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "availability_pct": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "saturation_pct": {
+      "status": "measured",
+      "source": "metrics-server CPU / limit"
+     }
+    },
+    "saturation_pct": 12.566666666666668
+   },
+   "finops": {
+    "cost_spike_pct": 400.0,
+    "cpu_request_increase_pct": 400.0,
+    "_evidence": {
+     "cost_spike_pct": {
+      "status": "proxy",
+      "source": "replicas x CPU request vs healthy"
+     },
+     "cpu_request_increase_pct": {
+      "status": "proxy",
+      "source": "replicas x CPU request vs healthy"
+     }
+    }
+   },
+   "sec": {
+    "critical_cves": 6,
+    "policy_violation": false,
+    "_evidence": {
+     "critical_cves": {
+      "status": "measured",
+      "source": "trivy image scan"
+     },
+     "policy_violation": {
+      "status": "measured",
+      "source": "configuration policy check"
+     }
+    }
+   }
+  },
+  "available_tools": [
+   "get_cost_proxy_history",
+   "get_deployment_history",
+   "get_error_rate_history",
+   "get_latency_history",
+   "get_pipeline_history",
+   "get_policy_gate_status",
+   "get_replica_history",
+   "get_restart_history",
+   "get_saturation_history",
+   "get_vulnerability_details"
+  ],
+  "stratum": "OUTCOME"
+ },
+ {
+  "id": "PS-03-W",
+  "variant": "withheld",
+  "evidence": {
+   "deploy": {
+    "restart_loops": 0,
+    "config_drift": false,
+    "_evidence": {
+     "restart_loops": {
+      "status": "measured",
+      "source": "container restart count"
+     },
+     "config_drift": {
+      "status": "measured",
+      "source": "deployment environment"
+     },
+     "recent_release": {
+      "status": "measured",
+      "source": "ReplicaSet history: newest vs previous pod spec"
+     }
+    },
+    "recent_release": true
+   },
+   "sre": {
+    "p95_latency_ms": 185.69027799992455,
+    "error_rate_pct": 0.0,
+    "availability_pct": 100.0,
+    "_evidence": {
+     "p95_latency_ms": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "error_rate_pct": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "availability_pct": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "saturation_pct": {
+      "status": "measured",
+      "source": "metrics-server CPU / limit"
+     }
+    },
+    "saturation_pct": 12.566666666666668
+   },
+   "finops": {
+    "cost_spike_pct": 400.0,
+    "cpu_request_increase_pct": 400.0,
+    "_evidence": {
+     "cost_spike_pct": {
+      "status": "proxy",
+      "source": "replicas x CPU request vs healthy"
+     },
+     "cpu_request_increase_pct": {
+      "status": "proxy",
+      "source": "replicas x CPU request vs healthy"
+     }
+    }
+   },
+   "sec": {
+    "critical_cves": null,
+    "policy_violation": false,
+    "_evidence": {
+     "critical_cves": {
+      "status": "missing"
+     },
+     "policy_violation": {
+      "status": "measured",
+      "source": "configuration policy check"
+     }
+    }
+   }
+  },
+  "available_tools": [
+   "get_cost_proxy_history",
+   "get_deployment_history",
+   "get_error_rate_history",
+   "get_latency_history",
+   "get_pipeline_history",
+   "get_policy_gate_status",
+   "get_replica_history",
+   "get_restart_history",
+   "get_saturation_history",
+   "get_vulnerability_details"
+  ],
+  "expected_tool": "get_vulnerability_details",
+  "tool_result": {
+   "id": "TOOL-PS-03-get_vulnerability_details",
+   "sec": {
+    "critical_cves": 6
+   }
+  },
+  "withheld": [
+   "sec.critical_cves"
+  ],
+  "stratum": "OUTCOME"
+ },
+ {
+  "id": "PS-04",
+  "variant": "full",
+  "evidence": {
+   "deploy": {
+    "restart_loops": 0,
+    "config_drift": true,
+    "_evidence": {
+     "restart_loops": {
+      "status": "measured",
+      "source": "container restart count"
+     },
+     "config_drift": {
+      "status": "measured",
+      "source": "deployment environment"
+     },
+     "recent_release": {
+      "status": "measured",
+      "source": "ReplicaSet history: newest vs previous pod spec"
+     }
+    },
+    "recent_release": true
+   },
+   "sre": {
+    "p95_latency_ms": 97.68222599996079,
+    "error_rate_pct": 0.0,
+    "availability_pct": 100.0,
+    "_evidence": {
+     "p95_latency_ms": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "error_rate_pct": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "availability_pct": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "saturation_pct": {
+      "status": "measured",
+      "source": "metrics-server CPU / limit"
+     }
+    },
+    "saturation_pct": 11.055555555555557
+   },
+   "finops": {
+    "cost_spike_pct": 500.0,
+    "cpu_request_increase_pct": 500.0,
+    "_evidence": {
+     "cost_spike_pct": {
+      "status": "proxy",
+      "source": "replicas x CPU request vs healthy"
+     },
+     "cpu_request_increase_pct": {
+      "status": "proxy",
+      "source": "replicas x CPU request vs healthy"
+     }
+    }
+   },
+   "sec": {
+    "critical_cves": 6,
+    "policy_violation": true,
+    "_evidence": {
+     "critical_cves": {
+      "status": "measured",
+      "source": "trivy image scan"
+     },
+     "policy_violation": {
+      "status": "measured",
+      "source": "configuration policy check"
+     }
+    }
+   }
+  },
+  "available_tools": [
+   "get_cost_proxy_history",
+   "get_deployment_history",
+   "get_error_rate_history",
+   "get_latency_history",
+   "get_pipeline_history",
+   "get_policy_gate_status",
+   "get_replica_history",
+   "get_restart_history",
+   "get_saturation_history",
+   "get_vulnerability_details"
+  ],
+  "stratum": "OUTCOME"
+ },
+ {
+  "id": "PS-04-W",
+  "variant": "withheld",
+  "evidence": {
+   "deploy": {
+    "restart_loops": 0,
+    "config_drift": true,
+    "_evidence": {
+     "restart_loops": {
+      "status": "measured",
+      "source": "container restart count"
+     },
+     "config_drift": {
+      "status": "measured",
+      "source": "deployment environment"
+     },
+     "recent_release": {
+      "status": "measured",
+      "source": "ReplicaSet history: newest vs previous pod spec"
+     }
+    },
+    "recent_release": true
+   },
+   "sre": {
+    "p95_latency_ms": 97.68222599996079,
+    "error_rate_pct": 0.0,
+    "availability_pct": 100.0,
+    "_evidence": {
+     "p95_latency_ms": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "error_rate_pct": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "availability_pct": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "saturation_pct": {
+      "status": "measured",
+      "source": "metrics-server CPU / limit"
+     }
+    },
+    "saturation_pct": 11.055555555555557
+   },
+   "finops": {
+    "cost_spike_pct": 500.0,
+    "cpu_request_increase_pct": 500.0,
+    "_evidence": {
+     "cost_spike_pct": {
+      "status": "proxy",
+      "source": "replicas x CPU request vs healthy"
+     },
+     "cpu_request_increase_pct": {
+      "status": "proxy",
+      "source": "replicas x CPU request vs healthy"
+     }
+    }
+   },
+   "sec": {
+    "critical_cves": null,
+    "policy_violation": true,
+    "_evidence": {
+     "critical_cves": {
+      "status": "missing"
+     },
+     "policy_violation": {
+      "status": "measured",
+      "source": "configuration policy check"
+     }
+    }
+   }
+  },
+  "available_tools": [
+   "get_cost_proxy_history",
+   "get_deployment_history",
+   "get_error_rate_history",
+   "get_latency_history",
+   "get_pipeline_history",
+   "get_policy_gate_status",
+   "get_replica_history",
+   "get_restart_history",
+   "get_saturation_history",
+   "get_vulnerability_details"
+  ],
+  "expected_tool": "get_vulnerability_details",
+  "tool_result": {
+   "id": "TOOL-PS-04-get_vulnerability_details",
+   "sec": {
+    "critical_cves": 6
+   }
+  },
+  "withheld": [
+   "sec.critical_cves"
+  ],
+  "stratum": "OUTCOME"
+ },
+ {
+  "id": "PS-05",
+  "variant": "full",
+  "evidence": {
+   "deploy": {
+    "restart_loops": 0,
+    "config_drift": false,
+    "_evidence": {
+     "restart_loops": {
+      "status": "measured",
+      "source": "container restart count"
+     },
+     "config_drift": {
+      "status": "measured",
+      "source": "deployment environment"
+     },
+     "recent_release": {
+      "status": "measured",
+      "source": "ReplicaSet history: newest vs previous pod spec"
+     }
+    },
+    "recent_release": true
+   },
+   "sre": {
+    "p95_latency_ms": 99.74445399996057,
+    "error_rate_pct": 0.0,
+    "availability_pct": 100.0,
+    "_evidence": {
+     "p95_latency_ms": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "error_rate_pct": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "availability_pct": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "saturation_pct": {
+      "status": "measured",
+      "source": "metrics-server CPU / limit"
+     }
+    },
+    "saturation_pct": 10.857142857142856
+   },
+   "finops": {
+    "cost_spike_pct": 600.0,
+    "cpu_request_increase_pct": 600.0,
+    "_evidence": {
+     "cost_spike_pct": {
+      "status": "proxy",
+      "source": "replicas x CPU request vs healthy"
+     },
+     "cpu_request_increase_pct": {
+      "status": "proxy",
+      "source": "replicas x CPU request vs healthy"
+     }
+    }
+   },
+   "sec": {
+    "critical_cves": 6,
+    "policy_violation": false,
+    "_evidence": {
+     "critical_cves": {
+      "status": "measured",
+      "source": "trivy image scan"
+     },
+     "policy_violation": {
+      "status": "measured",
+      "source": "configuration policy check"
+     }
+    }
+   }
+  },
+  "available_tools": [
+   "get_cost_proxy_history",
+   "get_deployment_history",
+   "get_error_rate_history",
+   "get_latency_history",
+   "get_pipeline_history",
+   "get_policy_gate_status",
+   "get_replica_history",
+   "get_restart_history",
+   "get_saturation_history",
+   "get_vulnerability_details"
+  ],
+  "stratum": "OUTCOME"
+ },
+ {
+  "id": "PS-05-W",
+  "variant": "withheld",
+  "evidence": {
+   "deploy": {
+    "restart_loops": 0,
+    "config_drift": false,
+    "_evidence": {
+     "restart_loops": {
+      "status": "measured",
+      "source": "container restart count"
+     },
+     "config_drift": {
+      "status": "measured",
+      "source": "deployment environment"
+     },
+     "recent_release": {
+      "status": "measured",
+      "source": "ReplicaSet history: newest vs previous pod spec"
+     }
+    },
+    "recent_release": true
+   },
+   "sre": {
+    "p95_latency_ms": 99.74445399996057,
+    "error_rate_pct": 0.0,
+    "availability_pct": 100.0,
+    "_evidence": {
+     "p95_latency_ms": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "error_rate_pct": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "availability_pct": {
+      "status": "measured",
+      "source": "HTTP load measurement"
+     },
+     "saturation_pct": {
+      "status": "measured",
+      "source": "metrics-server CPU / limit"
+     }
+    },
+    "saturation_pct": 10.857142857142856
+   },
+   "finops": {
+    "cost_spike_pct": 600.0,
+    "cpu_request_increase_pct": 600.0,
+    "_evidence": {
+     "cost_spike_pct": {
+      "status": "proxy",
+      "source": "replicas x CPU request vs healthy"
+     },
+     "cpu_request_increase_pct": {
+      "status": "proxy",
+      "source": "replicas x CPU request vs healthy"
+     }
+    }
+   },
+   "sec": {
+    "critical_cves": null,
+    "policy_violation": false,
+    "_evidence": {
+     "critical_cves": {
+      "status": "missing"
+     },
+     "policy_violation": {
+      "status": "measured",
+      "source": "configuration policy check"
+     }
+    }
+   }
+  },
+  "available_tools": [
+   "get_cost_proxy_history",
+   "get_deployment_history",
+   "get_error_rate_history",
+   "get_latency_history",
+   "get_pipeline_history",
+   "get_policy_gate_status",
+   "get_replica_history",
+   "get_restart_history",
+   "get_saturation_history",
+   "get_vulnerability_details"
+  ],
+  "expected_tool": "get_vulnerability_details",
+  "tool_result": {
+   "id": "TOOL-PS-05-get_vulnerability_details",
+   "sec": {
+    "critical_cves": 6
+   }
+  },
+  "withheld": [
+   "sec.critical_cves"
+  ],
+  "stratum": "OUTCOME"
+ }
+]
