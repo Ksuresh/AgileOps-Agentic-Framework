@@ -1,0 +1,12 @@
+AAF LR-03 1 Scale adjustment
+AAF LR-01 3 No action (observe)
+AAF CR-03-W 2 Mitigate and monitor
+AAF-12 CR-03 1 Rollback to stable deployment
+B5 CR-03 3 No action (observe)
+B6 LR-01-W 2 No action (observe)
+AAF-12 CR-03 2 Rollback to stable deployment
+AAF-12 CR-03 3 Rollback to stable deployment
+AAF CR-01-W 3 Scale adjustment
+AAF CR-03 1 Patch or block release
+AAF-12 CR-03-W 2 Rollback to stable deployment
+B6 CR-03 3 Patch or block release
