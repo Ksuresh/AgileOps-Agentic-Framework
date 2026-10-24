@@ -1,25 +1,6 @@
-B5 PP-07-W 2 Block release and fix pipeline
-AAF PD-03-W 2 Patch or block release
-AAF-12 PS-04 2 None
-AAF-12 PP-03 2 None
-AAF-12 PD-05-W 1 None
-B5 PD-03-W 1 Block release and fix pipeline
-B6 PR-03 1 Rollback to stable deployment
-AAF-12 PP-02-W 1 None
-B5 PP-04-W 1 Patch or block release
-B6 PR-07 1 Patch or block release
-B5 PR-05-W 3 Block release and fix pipeline
-AAF PD-01 3 Scale adjustment
-B6 PR-03 2 Escalate for evidence/human review
-AAF PS-03-W 2 Scale adjustment
-AAF PP-02 3 Mitigate and monitor
-AAF-12 PS-01 1 None
-B6 PP-04 3 Patch or block release
-AAF PS-04 3 Patch or block release
-B6 PD-05 2 Scale adjustment
-B6 PD-02 1 Patch or block release
-B6 PR-06-W 2 Patch or block release
-B6 PP-06-W 2 Patch or block release
-AAF-12 PC-01 1 None
-B5 PR-04-W 3 Block release and fix pipeline
-B6 PR-04 2 Patch or block release
+AAF-12 PS-04 2 Patch or block release
+AAF-12 PP-03 2 Rollback to stable deployment
+AAF-12 PD-05-W 1 Scale adjustment
+AAF-12 PP-02-W 1 Rollback to stable deployment
+AAF-12 PS-01 1 Patch or block release
+AAF-12 PC-01 1 Rollback to stable deployment
