@@ -151,6 +151,24 @@ def measure(load: int) -> dict:
     }
 
 
+def release_info() -> dict:
+    """Measured release signal: compare the two newest frontend ReplicaSets' container specs (image, env, resources),
+    ignoring annotations; recent_release = they differ and the newest is younger than 30 minutes."""
+    rss = kjson("get", "replicasets", "-l", "app=frontend")["items"]
+    rss.sort(key=lambda r: int(r["metadata"].get("annotations", {}).get("deployment.kubernetes.io/revision", "0")), reverse=True)
+    if len(rss) < 2:
+        return {"recent_release": False, "release_age_s": None}
+
+    def spec(r):
+        c = r["spec"]["template"]["spec"]["containers"][0]
+        return json.dumps({"image": c["image"], "env": sorted((e["name"], e.get("value", "")) for e in c.get("env", [])),
+                           "resources": c.get("resources", {})}, sort_keys=True)
+    import datetime as _dt
+    created = _dt.datetime.fromisoformat(rss[0]["metadata"]["creationTimestamp"].replace("Z", "+00:00"))
+    age = (_dt.datetime.now(_dt.timezone.utc) - created).total_seconds()
+    return {"recent_release": spec(rss[0]) != spec(rss[1]) and age < 1800, "release_age_s": round(age, 1)}
+
+
 def scale_target(snapshot: dict) -> int:
     """Scale adjustment: HPA rule (target 60% of request), bounded to 1..6 replicas, from the incident measurement."""
     u = snapshot.get("utilisation_of_request")

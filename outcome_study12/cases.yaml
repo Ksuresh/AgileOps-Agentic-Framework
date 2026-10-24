@@ -1,0 +1,36 @@
+# Study 12 fresh test cases (frozen before any Study 12 run). Same testbed and modifiers as Study 9 (see
+# outcome_study/cases.yaml); new parameter values, new vulnerable images (C, D), new combinations, and cases where the
+# fault predates the release (rolling back cannot fix it). No case names a correct action.
+loads: {low: 4, normal: 20}
+cases:
+  # controls
+  - {id: PC-01, previous: [], current: [feature], replicas: 2, load: normal}
+  - {id: PC-02, previous: [], current: [], replicas: 1, load: low}
+  # release-caused regressions
+  - {id: PR-01, previous: [], current: [feature, perf], perf_cpu: 30m, replicas: 1, load: normal}
+  - {id: PR-02, previous: [], current: [feature, perf], perf_cpu: 50m, replicas: 2, load: high, high: 60}
+  - {id: PR-03, previous: [], current: [feature, crash, vuln], vuln: C, replicas: 1, load: normal}
+  - {id: PR-04, previous: [], current: [feature, perf, secret], perf_cpu: 30m, replicas: 1, load: normal}
+  - {id: PR-05, previous: [], current: [feature, crash], replicas: 4, load: low}
+  - {id: PR-06, previous: [], current: [feature, perf, vuln], perf_cpu: 50m, vuln: D, replicas: 1, load: normal}
+  - {id: PR-07, previous: [], current: [feature, crash, secret], replicas: 2, load: normal}
+  # faults that predate the release (rollback cannot fix them)
+  - {id: PP-01, previous: [perf], current: [feature, perf], perf_cpu: 30m, replicas: 1, load: normal}
+  - {id: PP-02, previous: [perf], current: [feature, perf], perf_cpu: 50m, replicas: 2, load: normal}
+  - {id: PP-03, previous: [perf], current: [feature, perf, secret], perf_cpu: 30m, replicas: 1, load: normal}
+  - {id: PP-04, previous: [vuln], current: [feature, vuln], vuln: C, replicas: 1, load: high, high: 60}
+  - {id: PP-05, previous: [], current: [feature], replicas: 1, load: high, high: 80}
+  - {id: PP-06, previous: [vuln], current: [feature, vuln, perf], vuln: C, perf_cpu: 30m, replicas: 1, load: normal}
+  - {id: PP-07, previous: [secret], current: [feature, secret], replicas: 1, load: high, high: 60}
+  # security vs cost
+  - {id: PS-01, previous: [vuln], current: [vuln], vuln: C, replicas: 6, load: low}
+  - {id: PS-02, previous: [secret], current: [secret], replicas: 7, load: low}
+  - {id: PS-03, previous: [vuln], current: [feature, vuln], vuln: D, replicas: 5, load: low}
+  - {id: PS-04, previous: [], current: [feature, secret, vuln], vuln: C, replicas: 6, load: low}
+  - {id: PS-05, previous: [], current: [feature, vuln], vuln: D, replicas: 7, load: low}
+  # single-domain
+  - {id: PD-01, previous: [], current: [], replicas: 6, load: low}
+  - {id: PD-02, previous: [vuln], current: [vuln], vuln: D, replicas: 1, load: normal}
+  - {id: PD-03, previous: [], current: [feature, secret], replicas: 1, load: normal}
+  - {id: PD-04, previous: [], current: [feature, vuln], vuln: C, replicas: 1, load: normal}
+  - {id: PD-05, previous: [], current: [feature, perf], perf_cpu: 30m, replicas: 6, load: low}

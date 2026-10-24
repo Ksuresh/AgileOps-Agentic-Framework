@@ -14,7 +14,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 from outcome_study import testbed as T  # noqa: E402
 
-HERE = ROOT / "outcome_study"
+HERE = ROOT / os.environ.get("OUTCOME_DIR", "outcome_study")
 
 
 def main() -> None:
@@ -39,6 +39,7 @@ def main() -> None:
         ok = T.apply(T.template(case["current"], case, images), case["replicas"])
         snap = T.measure(load)
         snap["rollout_ok"] = ok
+        snap.update(T.release_info())
         outcomes = {}
         for action in T.ACTION_STATES:
             T.apply(T.template(case["previous"], case, images), case["replicas"])

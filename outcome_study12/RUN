@@ -1,0 +1,3 @@
+MODE=outcomes
+NSHARDS=13
+REP=1

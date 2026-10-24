@@ -19,8 +19,9 @@ from agentic_experiments.hybrid import deterministic_assessment, missing_fields,
 from orchestrator.decision_baselines import choose_dominant_domain_action  # noqa: E402
 from revision_2026 import run_llm_arms as RA  # noqa: E402
 from revision_2026.autofetch_baseline import FIELD_TO_TOOL  # noqa: E402
+from agentic_experiments.rules_v12 import deterministic_assessment_v12, run_hybrid_v12  # noqa: E402
 
-HERE = ROOT / "outcome_study"
+HERE = ROOT / os.environ.get("OUTCOME_DIR", "outcome_study")
 TOOLS = sorted(set().union(*AR.DOMAIN_TOOLS.values()))
 F2T = dict(FIELD_TO_TOOL, **{"deploy.restart_loops": "get_restart_history"})  # same tool family; field not in the frozen map
 BLOCK_OF = {"D-DevOps": "deploy", "D-SRE": "sre", "D-FinOps": "finops", "D-Sec": "sec"}
@@ -45,6 +46,9 @@ def evidence(s: dict) -> dict:
         sre["_evidence"]["saturation_pct"] = m("measured", "metrics-server CPU / limit")
     deploy = {"restart_loops": s["restarts"], "config_drift": bool(s["secret_in_config"]),
               "_evidence": {"restart_loops": m("measured", "container restart count"), "config_drift": m("measured", "deployment environment")}}
+    if "recent_release" in s:  # measured from ReplicaSet history (Study 12 onward)
+        deploy["recent_release"] = bool(s["recent_release"])
+        deploy["_evidence"]["recent_release"] = m("measured", "ReplicaSet history: newest vs previous pod spec")
     cost = 100.0 * (s["footprint_cpu_m"] / 100.0 - 1.0)
     finops = {"cost_spike_pct": cost, "cpu_request_increase_pct": cost,
               "_evidence": {"cost_spike_pct": m("proxy", "replicas x CPU request vs healthy"), "cpu_request_increase_pct": m("proxy", "replicas x CPU request vs healthy")}}
@@ -98,6 +102,7 @@ def b2(v: dict) -> str:
 def deterministic_rows(v: dict) -> list[dict]:
     ev = v["evidence"]
     rows = {"B1": deterministic_assessment(copy.deepcopy(ev))["selected_action"], "B2": b2(v),
+            "B1-12": deterministic_assessment_v12(copy.deepcopy(ev))["selected_action"],
             "Dominant": choose_dominant_domain_action(copy.deepcopy(ev))[0],
             "AlwaysRollback": "Rollback to stable deployment", "AlwaysNone": "No action (observe)"}
     for name, block in BLOCK_OF.items():
@@ -120,9 +125,11 @@ def main() -> None:
     if shard == 0:
         rows = [r for v in allv for r in deterministic_rows(v)]
         (out / "deterministic.jsonl").write_text("\n".join(json.dumps(r) for r in rows))
-    rt = {"AAF": QwenRuntime(False), "B5": QwenRuntime(False), "B6": QwenRuntime(True, RA.COORD_B6)}
-    fn = {"AAF": lambda c: run_hybrid(c, rt["AAF"]), "B5": lambda c: run_agentic_only(c, rt["B5"]), "B6": lambda c: run_agentic_only(c, rt["B6"])}
-    jobs = [(arm, v, run) for v in allv for arm in ("AAF", "B5", "B6") for run in (1, 2, 3)]
+    rt = {"AAF": QwenRuntime(False), "AAF-12": QwenRuntime(False), "B5": QwenRuntime(False), "B6": QwenRuntime(True, RA.COORD_B6)}
+    fn = {"AAF": lambda c: run_hybrid(c, rt["AAF"]), "AAF-12": lambda c: run_hybrid_v12(c, rt["AAF-12"]),
+          "B5": lambda c: run_agentic_only(c, rt["B5"]), "B6": lambda c: run_agentic_only(c, rt["B6"])}
+    arms = os.environ.get("LLM_ARMS", "AAF B5 B6").split()
+    jobs = [(arm, v, run) for v in allv for arm in arms for run in (1, 2, 3)]
     random.Random(9).shuffle(jobs)
     path = out / f"llm_shard_{shard:02d}.jsonl"
     done = set()
