@@ -4,9 +4,7 @@
 loads: {low: 4, normal: 20}
 cases:
   - {id: LR-01, previous: [], current: [feature, vuln], vuln: L1, replicas: 1, load: normal}
-  - {id: LR-02, previous: [], current: [feature, vuln], vuln: L2, replicas: 1, load: normal}
   - {id: LR-03, previous: [], current: [feature, vuln], vuln: L1, replicas: 2, load: normal}
-  - {id: LR-04, previous: [], current: [feature, vuln], vuln: L2, replicas: 2, load: normal}
   - {id: CR-01, previous: [], current: [feature, vuln], vuln: A, replicas: 2, load: normal}
   - {id: CR-02, previous: [], current: [feature, vuln], vuln: C, replicas: 2, load: normal}
   - {id: CR-03, previous: [], current: [feature, vuln], vuln: D, replicas: 1, load: normal}
