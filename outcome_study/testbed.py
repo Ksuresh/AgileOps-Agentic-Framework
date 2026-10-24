@@ -7,6 +7,7 @@ from __future__ import annotations
 
 import copy
 import json
+import os
 import math
 import re
 import subprocess
@@ -22,6 +23,7 @@ BASE_CPU_REQ_M = 100
 SECRET_RE = re.compile(r"(?i)(secret|passw|token|api[_-]?key)")
 MEASURE_S = 45
 _trivy_cache: dict[str, int] = {}
+_trivy_nc_cache: dict[str, int] = {}
 
 
 def sh(cmd: list[str], *, check: bool = True, timeout: int = 300, capture: bool = True) -> str:
@@ -113,6 +115,15 @@ def critical_cves(image: str) -> int:
     return _trivy_cache[image]
 
 
+def noncritical_cves(image: str) -> int:
+    """HIGH + MEDIUM vulnerabilities (distinct ids) in the image (Study 13 onward)."""
+    if image not in _trivy_nc_cache:
+        out = sh(["trivy", "image", "--quiet", "--severity", "HIGH,MEDIUM", "--format", "json", image], timeout=900)
+        doc = json.loads(out)
+        _trivy_nc_cache[image] = len({v["VulnerabilityID"] for r in doc.get("Results", []) or [] for v in r.get("Vulnerabilities", []) or []})
+    return _trivy_nc_cache[image]
+
+
 def measure(load: int) -> dict:
     """Measure the current state: HTTP under fixed load, CPU during load, restarts, image, config, footprint."""
     samples: list[list[float]] = []
@@ -146,7 +157,8 @@ def measure(load: int) -> dict:
         "cpu_used_per_pod_m": cpu_mean, "utilisation_of_request": (cpu_mean / req_m) if cpu_mean is not None else None,
         "saturation_pct": (100.0 * cpu_mean / lim_m) if cpu_mean is not None else None,
         "restarts": restarts, "image": c["image"], "critical_cves_total": cves, "critical_cves_new": max(0, cves - stable_cves),
-        "secret_in_config": secret, "feature_delivered": env.get("AAF_RELEASE") == "candidate",
+        "secret_in_config": secret,
+        "noncritical_cves": noncritical_cves(c["image"]) if os.environ.get("MEASURE_NONCRITICAL") else None, "feature_delivered": env.get("AAF_RELEASE") == "candidate",
         "release": dep["spec"]["template"]["metadata"].get("annotations", {}).get("aaf/release"),
     }
 

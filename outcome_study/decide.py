@@ -54,6 +54,9 @@ def evidence(s: dict) -> dict:
               "_evidence": {"cost_spike_pct": m("proxy", "replicas x CPU request vs healthy"), "cpu_request_increase_pct": m("proxy", "replicas x CPU request vs healthy")}}
     sec = {"critical_cves": s["critical_cves_new"], "policy_violation": bool(s["secret_in_config"]),
            "_evidence": {"critical_cves": m("measured", "trivy image scan"), "policy_violation": m("measured", "configuration policy check")}}
+    if s.get("noncritical_cves") is not None:  # Study 13: HIGH+MEDIUM findings (AAF's rules do not treat them as material)
+        sec["noncritical_cves"] = s["noncritical_cves"]
+        sec["_evidence"]["noncritical_cves"] = m("measured", "trivy image scan (HIGH, MEDIUM)")
     return {"deploy": deploy, "sre": sre, "finops": finops, "sec": sec}
 
 
@@ -105,6 +108,9 @@ def deterministic_rows(v: dict) -> list[dict]:
             "B1-12": deterministic_assessment_v12(copy.deepcopy(ev))["selected_action"],
             "Dominant": choose_dominant_domain_action(copy.deepcopy(ev))[0],
             "AlwaysRollback": "Rollback to stable deployment", "AlwaysNone": "No action (observe)"}
+    if "noncritical_cves" in ev["sec"]:  # Study 13 fixed policy: block on any vulnerability finding
+        anysec = ev["sec"]["critical_cves"] > 0 or ev["sec"]["noncritical_cves"] > 0 or ev["sec"]["policy_violation"]
+        rows["BlockAnyCVE"] = "Patch or block release" if anysec else "No action (observe)"
     for name, block in BLOCK_OF.items():
         rows[name] = deterministic_assessment({block: copy.deepcopy(ev[block])})["selected_action"]
     return [{"decider": k, "case": v["id"], "variant": v["variant"], "run": 0, "action": str(a), "error": None} for k, a in rows.items()]
