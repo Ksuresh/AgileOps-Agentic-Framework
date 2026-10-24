@@ -1,0 +1,12 @@
+AAF LR-03 2 Scale adjustment
+B6 LR-03 2 Scale adjustment
+B5 CR-01-W 1 Patch or block release
+B5 LR-03 2 Mitigate and monitor
+AAF CR-02-W 1 Scale adjustment
+AAF CR-01-W 1 Scale adjustment
+AAF-12 CR-02 1 Patch or block release
+AAF-12 LR-03 3 Rollback to stable deployment
+AAF CR-02-W 2 Scale adjustment
+AAF LR-03 3 Scale adjustment
+AAF-12 LR-01-W 3 No action (observe)
+AAF LR-01-W 3 No action (observe)
