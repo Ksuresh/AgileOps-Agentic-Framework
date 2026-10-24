@@ -1,0 +1,24 @@
+B6 PD-05 1 Scale adjustment
+B6 PP-02 1 Mitigate and monitor
+B6 PP-05-W 1 Mitigate and monitor
+AAF-12 PR-04 1 None
+B5 PP-05-W 3 Mitigate and monitor
+B6 PS-01 3 Escalate for evidence/human review
+AAF-12 PS-01 3 None
+B6 PP-01-W 3 Mitigate and monitor
+B5 PS-03 2 Block release and fix pipeline
+AAF PS-02-W 2 Patch or block release
+B5 PR-05-W 2 Block release and fix pipeline
+AAF PS-03 2 Scale adjustment
+B6 PS-01 2 Escalate for evidence/human review
+AAF-12 PR-03 1 None
+B5 PP-04-W 2 No action (observe)
+B5 PD-02 2 Patch or block release
+AAF PD-03 1 Patch or block release
+AAF-12 PD-03-W 1 None
+AAF PP-04-W 2 Mitigate and monitor
+B6 PP-02 2 Mitigate and monitor
+B6 PP-02-W 1 Mitigate and monitor
+AAF PP-07 1 Patch or block release
+AAF PR-06-W 3 Mitigate and monitor
+AAF PS-03 3 Scale adjustment
