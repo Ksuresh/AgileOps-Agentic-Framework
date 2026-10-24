@@ -1,0 +1,25 @@
+B5 PP-05 3 Mitigate and monitor
+B6 PP-01 3 Mitigate and monitor
+B5 PD-03-W 2 Block release and fix pipeline
+AAF PP-05 1 Mitigate and monitor
+B6 PS-03-W 2 Patch or block release
+AAF-12 PS-03 1 None
+B5 PS-04-W 3 Block release and fix pipeline
+AAF PR-07 3 Patch or block release
+AAF-12 PP-07-W 2 None
+AAF-12 PS-02-W 1 None
+B5 PP-02 2 No action (observe)
+B5 PD-04-W 1 Patch or block release
+AAF-12 PC-01 2 None
+B6 PR-04 3 Patch or block release
+AAF PP-07 2 Patch or block release
+AAF-12 PP-07 1 None
+AAF-12 PR-02-W 1 None
+B5 PC-01 2 No action (observe)
+B6 PD-03 3 Patch or block release
+AAF PC-02 2 No action (observe)
+B5 PP-07-W 1 Block release and fix pipeline
+AAF PR-01-W 1 Mitigate and monitor
+AAF-12 PC-02 3 None
+B6 PP-04 2 Patch or block release
+B6 PD-03-W 2 Patch or block release
