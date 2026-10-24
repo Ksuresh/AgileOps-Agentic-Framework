@@ -109,7 +109,7 @@ def deterministic_rows(v: dict) -> list[dict]:
             "Dominant": choose_dominant_domain_action(copy.deepcopy(ev))[0],
             "AlwaysRollback": "Rollback to stable deployment", "AlwaysNone": "No action (observe)"}
     if "noncritical_cves" in ev["sec"]:  # Study 13 fixed policy: block on any vulnerability finding
-        anysec = ev["sec"]["critical_cves"] > 0 or ev["sec"]["noncritical_cves"] > 0 or ev["sec"]["policy_violation"]
+        anysec = (ev["sec"]["critical_cves"] or 0) > 0 or (ev["sec"]["noncritical_cves"] or 0) > 0 or bool(ev["sec"]["policy_violation"])
         rows["BlockAnyCVE"] = "Patch or block release" if anysec else "No action (observe)"
     for name, block in BLOCK_OF.items():
         rows[name] = deterministic_assessment({block: copy.deepcopy(ev[block])})["selected_action"]
