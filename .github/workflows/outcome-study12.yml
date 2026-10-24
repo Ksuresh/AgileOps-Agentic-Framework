@@ -66,10 +66,10 @@ jobs:
           mkdir -p outcome_study12/ci_logs
           { curl -fsSL -o /tmp/trivy.deb https://github.com/aquasecurity/trivy/releases/download/v0.56.2/trivy_0.56.2_Linux-64bit.deb && sudo dpkg -i /tmp/trivy.deb; } \
             || { echo '#!/bin/sh' | sudo tee /usr/local/bin/trivy >/dev/null; echo 'exec docker run --rm -v /var/run/docker.sock:/var/run/docker.sock -v $HOME/.cache/trivy:/root/.cache/trivy aquasec/trivy:0.56.2 "$@"' | sudo tee -a /usr/local/bin/trivy >/dev/null; sudo chmod +x /usr/local/bin/trivy; }
-          trivy --version 2>&1 | tee outcome_study12/ci_logs/trivy_version_${SHARD}.txt
+          trivy --version 2>&1 | tee outcome_study12/ci_logs/trivy_version_rep${REP}_${SHARD}.txt
       - name: Cluster (port 30080 -> host 8080) and pinned Online Boutique
         run: |
-          exec > >(tee outcome_study12/ci_logs/setup_${SHARD}.txt) 2>&1
+          exec > >(tee outcome_study12/ci_logs/setup_rep${REP}_${SHARD}.txt) 2>&1
           cat > /tmp/kind.yaml <<'K'
           kind: Cluster
           apiVersion: kind.x-k8s.io/v1alpha4
@@ -104,4 +104,4 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           for p in outcome_study12/calibration outcome_study12/measurements outcome_study12/ci_logs; do [ -e "$p" ] && git add -f "$p"; done
           git commit -m "Study 12 ${{ needs.plan.outputs.mode }} shard ${SHARD}: run ${GITHUB_RUN_ID} [skip ci]" || echo "nothing"
-          for i in 1 2 3 4 5 6 7 8; do git pull --rebase origin ${GITHUB_REF_NAME} && git push origin HEAD:${GITHUB_REF_NAME} && break; sleep $((i*9)); done
+          for i in 1 2 3 4 5 6 7 8; do git pull --rebase -X theirs origin ${GITHUB_REF_NAME} && git push origin HEAD:${GITHUB_REF_NAME} && break; sleep $((i*9)); done
