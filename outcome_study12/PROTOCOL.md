@@ -35,3 +35,9 @@ B3 (from B5), B5, B6 (Qwen; 3 runs each LLM arm, majority), siloed experts D-* a
 - **H12.4 (over-application):** on the 7 predating-fault cases, AAF-12's correctness vs. AAF's (reported with counts).
 - Withheld-evidence variants (as in Study 9b) reported as secondary.
 AAF-12 can lose any comparison, including to the unrevised AAF; all results will be reported.
+
+## Execution note (after the first decider run)
+In the first decider run every AAF-12 call failed with a RecursionError: `run_hybrid_v12` temporarily replaced
+`hybrid.deterministic_assessment` with the v12 function, which then called the replaced attribute (itself). The rules
+were not affected (B1-12 calls the v12 function directly). The wrapper now keeps a reference to the original function;
+AAF-12 alone is rerun (completed AAF, B5 and B6 runs are kept); no rule, threshold, case or prompt changed.

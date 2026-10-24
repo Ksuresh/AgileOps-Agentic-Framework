@@ -21,11 +21,12 @@ from orchestrator.severity import severity_scores
 
 from agentic_experiments import hybrid as H
 
+_BASE_ASSESSMENT = H.deterministic_assessment  # captured once: run_hybrid_v12 swaps the module attribute
 COST_ONLY = {"Scale adjustment", "Review scaling policy", "No action (observe)"}
 
 
 def deterministic_assessment_v12(evidence: dict[str, Any]) -> dict[str, Any]:
-    det = H.deterministic_assessment(evidence)
+    det = _BASE_ASSESSMENT(evidence)
     sev = severity_scores(evidence)
     deploy = evidence.get("deploy", {}) or {}
     rr = bool_evidence(deploy, "recent_release")
