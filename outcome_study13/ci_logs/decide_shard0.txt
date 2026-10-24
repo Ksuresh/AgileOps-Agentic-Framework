@@ -1,0 +1,13 @@
+Traceback (most recent call last):
+  File "/home/runner/work/AgileOps-Agentic-Framework/AgileOps-Agentic-Framework/outcome_study/decide.py", line 165, in <module>
+    main()
+  File "/home/runner/work/AgileOps-Agentic-Framework/AgileOps-Agentic-Framework/outcome_study/decide.py", line 132, in main
+    rows = [r for v in allv for r in deterministic_rows(v)]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/AgileOps-Agentic-Framework/AgileOps-Agentic-Framework/outcome_study/decide.py", line 132, in <listcomp>
+    rows = [r for v in allv for r in deterministic_rows(v)]
+                                     ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/AgileOps-Agentic-Framework/AgileOps-Agentic-Framework/outcome_study/decide.py", line 112, in deterministic_rows
+    anysec = ev["sec"]["critical_cves"] > 0 or ev["sec"]["noncritical_cves"] > 0 or ev["sec"]["policy_violation"]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: '>' not supported between instances of 'NoneType' and 'int'
