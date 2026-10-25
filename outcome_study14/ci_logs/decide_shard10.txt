@@ -1,0 +1,25 @@
+AAF-14 QF-K01 1 Patch or block release
+B6 QP-D01 1 Escalate for evidence/human review
+B6 QP-K01-W 3 No action (observe)
+AAF-14 QP-S04-W 1 Patch or block release
+AAF-14 QP-S04 3 Patch or block release
+AAF QF-L01 1 No action (observe)
+AAF QP-P04 1 No action (observe)
+B6 QF-S02-W 3 Patch or block release
+AAF QP-P02 3 Patch or block release
+AAF-14 QF-X01-W 3 Rollback to stable deployment
+B5 QF-P03-W 2 No action (observe)
+B6 QF-S04 2 Patch or block release
+B6 QP-X01-W 2 Patch or block release
+B5 QF-R04 2 Rollback to stable deployment
+B5 QP-C01 2 Mitigate and monitor
+B5 QP-P04-W 1 Mitigate and monitor
+B6 QP-K01-W 1 Patch or block release
+B6 QP-R01-W 1 No action (observe)
+AAF QF-S04-W 1 Patch or block release
+B5 QF-S02 3 Mitigate and monitor
+B6 QF-R02-W 2 Rollback to stable deployment
+B5 QP-S02 2 Block release and fix pipeline
+B6 QF-L01 3 No action (observe)
+AAF QP-S02-W 3 Patch or block release
+AAF QF-K02 1 Scale adjustment
