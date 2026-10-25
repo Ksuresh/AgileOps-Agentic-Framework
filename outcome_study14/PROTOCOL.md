@@ -41,3 +41,8 @@ Dominant, AlwaysRollback, AlwaysNone, BlockAnyCVE.
 - **H14.7 (pooled, original AAF frozen since Study 9):** AAF (original) vs each siloed rule expert on the pooled fault cases
   of Studies 9, 12 and 14 (n = 30 + 24 + 34), Holm over 4.
 Withheld-evidence variants (as in Study 9b) are secondary. Any comparison may go against AAF; all are reported.
+
+## Calibration result (before any outcome measurement)
+Frontend E = `frontend:v0.4.0` (5 critical CVEs), F = `frontend:v0.3.0` (8); productcatalogservice P1 = `v0.8.0` (4),
+P2 = `v0.7.0` (5); all gcr.io, all roll out and keep the storefront serving. Stable images (v0.10.6) have 0 critical and
+32 HIGH/MEDIUM findings each.

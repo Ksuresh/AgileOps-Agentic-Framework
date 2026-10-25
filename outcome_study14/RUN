@@ -1,1 +1,3 @@
-MODE=calibrate
+MODE=outcomes
+NSHARDS=20
+REP=1
