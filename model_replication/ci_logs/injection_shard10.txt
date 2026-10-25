@@ -1,0 +1,24 @@
+B6 AG-I08 1 No action (observe) 536.8 s
+B5 AG-I05 1 No action (observe) 154.0 s
+AAF NV-U08 1 Block release and fix pipeline 86.0 s
+B5 NV-C03 1 No action (observe) 193.2 s
+B5 AG-C02 1 No action (observe) 160.4 s
+B6 AG-I04 1 Escalate for evidence/human review 799.1 s
+B6 AG-A07 1 No action (observe) 478.7 s
+B5 RP-C03 1 No action (observe) 185.9 s
+B5 NV-C01 1 Rollback to stable deployment 189.8 s
+AAF NV-C05 1 Rollback to stable deployment 0.0 s
+AAF AG-I06 1 Patch or block release 114.6 s
+B6 NV-U10 1 No action (observe) 586.2 s
+B5 NV-A03 1 No action (observe) 187.6 s
+B6 AG-M07 1 No action (observe) 445.4 s
+B6 RP-A01 1 No action (observe) 594.2 s
+B5 RP-M03 1 No action (observe) 163.1 s
+B5 RP-A01 1 No action (observe) 144.2 s
+B5 NV-U12 1 No action (observe) 152.3 s
+B6 RP-I02 1 No action (observe) 468.7 s
+AAF NV-U15 1 Mitigate and monitor 146.2 s
+AAF NV-U24 1 Patch or block release 0.0 s
+AAF NV-I05 1 Scale adjustment 165.3 s
+B6 AG-I03 1 No action (observe) 395.4 s
+B5 NV-A01 1 No action (observe) 179.1 s
