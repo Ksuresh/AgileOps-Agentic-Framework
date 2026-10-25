@@ -20,6 +20,7 @@ from orchestrator.decision_baselines import choose_dominant_domain_action  # noq
 from revision_2026 import run_llm_arms as RA  # noqa: E402
 from revision_2026.autofetch_baseline import FIELD_TO_TOOL  # noqa: E402
 from agentic_experiments.rules_v12 import deterministic_assessment_v12, run_hybrid_v12  # noqa: E402
+from agentic_experiments.rules_v14 import deterministic_assessment_v14, run_hybrid_v14  # noqa: E402
 
 HERE = ROOT / os.environ.get("OUTCOME_DIR", "outcome_study")
 TOOLS = sorted(set().union(*AR.DOMAIN_TOOLS.values()))
@@ -41,6 +42,11 @@ def evidence(s: dict) -> dict:
     h = s["http"]
     sre = {"p95_latency_ms": h["latency_p95_ms"], "error_rate_pct": h["error_rate_pct"], "availability_pct": h["availability_pct"],
            "_evidence": {k: m("measured", "HTTP load measurement") for k in ("p95_latency_ms", "error_rate_pct", "availability_pct")}}
+    if s.get("pre_release"):  # Study 14: measured pre-release baseline of the same service
+        sre["p95_pre_release_ms"] = s["pre_release"]["p95_ms"]
+        sre["error_rate_pre_release_pct"] = s["pre_release"]["error_rate_pct"]
+        for k in ("p95_pre_release_ms", "error_rate_pre_release_pct"):
+            sre["_evidence"][k] = m("measured", "HTTP load measurement before the release")
     if s.get("saturation_pct") is not None:
         sre["saturation_pct"] = s["saturation_pct"]
         sre["_evidence"]["saturation_pct"] = m("measured", "metrics-server CPU / limit")
@@ -106,6 +112,7 @@ def deterministic_rows(v: dict) -> list[dict]:
     ev = v["evidence"]
     rows = {"B1": deterministic_assessment(copy.deepcopy(ev))["selected_action"], "B2": b2(v),
             "B1-12": deterministic_assessment_v12(copy.deepcopy(ev))["selected_action"],
+            "B1-14": deterministic_assessment_v14(copy.deepcopy(ev))["selected_action"],
             "Dominant": choose_dominant_domain_action(copy.deepcopy(ev))[0],
             "AlwaysRollback": "Rollback to stable deployment", "AlwaysNone": "No action (observe)"}
     if "noncritical_cves" in ev["sec"]:  # Study 13 fixed policy: block on any vulnerability finding
@@ -131,8 +138,9 @@ def main() -> None:
     if shard == 0:
         rows = [r for v in allv for r in deterministic_rows(v)]
         (out / "deterministic.jsonl").write_text("\n".join(json.dumps(r) for r in rows))
-    rt = {"AAF": QwenRuntime(False), "AAF-12": QwenRuntime(False), "B5": QwenRuntime(False), "B6": QwenRuntime(True, RA.COORD_B6)}
+    rt = {"AAF": QwenRuntime(False), "AAF-12": QwenRuntime(False), "AAF-14": QwenRuntime(False), "B5": QwenRuntime(False), "B6": QwenRuntime(True, RA.COORD_B6)}
     fn = {"AAF": lambda c: run_hybrid(c, rt["AAF"]), "AAF-12": lambda c: run_hybrid_v12(c, rt["AAF-12"]),
+          "AAF-14": lambda c: run_hybrid_v14(c, rt["AAF-14"]),
           "B5": lambda c: run_agentic_only(c, rt["B5"]), "B6": lambda c: run_agentic_only(c, rt["B6"])}
     arms = os.environ.get("LLM_ARMS", "AAF B5 B6").split()
     jobs = [(arm, v, run) for v in allv for arm in arms for run in (1, 2, 3)]

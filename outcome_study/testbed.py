@@ -18,7 +18,8 @@ from pathlib import Path
 from runtime_validation.run_online_boutique_case import measure_http
 
 URL = "http://127.0.0.1:8080/"
-STATE = Path("/tmp/aaf_outcome_state.json")
+TARGET = os.environ.get("TARGET_SERVICE", "frontend")  # Study 14 also uses productcatalogservice
+STATE = Path(f"/tmp/aaf_outcome_state_{TARGET}.json")
 BASE_CPU_REQ_M = 100
 SECRET_RE = re.compile(r"(?i)(secret|passw|token|api[_-]?key)")
 MEASURE_S = 45
@@ -37,7 +38,7 @@ def kjson(*args: str) -> dict:
 
 def save_base() -> dict:
     """Record the frozen healthy frontend deployment (image, env, resources) once per cluster."""
-    d = kjson("get", "deployment/frontend")
+    d = kjson("get", f"deployment/{TARGET}")
     for k in ("status",):
         d.pop(k, None)
     md = d["metadata"]
@@ -85,17 +86,17 @@ def apply(dep: dict, replicas: int) -> bool:
     dep = copy.deepcopy(dep)
     dep["spec"]["replicas"] = int(replicas)
     subprocess.run(["kubectl", "replace", "-f", "-"], input=json.dumps(dep), text=True, check=True, capture_output=True)
-    ok = subprocess.run(["kubectl", "rollout", "status", "deployment/frontend", "--timeout=150s"], capture_output=True, text=True).returncode == 0
+    ok = subprocess.run(["kubectl", "rollout", "status", f"deployment/{TARGET}", "--timeout=150s"], capture_output=True, text=True).returncode == 0
     time.sleep(8 if ok else 20)
     return ok
 
 
 def pods() -> list[dict]:
-    return kjson("get", "pods", "-l", "app=frontend")["items"]
+    return kjson("get", "pods", "-l", f"app={TARGET}")["items"]
 
 
 def top_cpu_m() -> list[float]:
-    out = subprocess.run(["kubectl", "top", "pods", "-l", "app=frontend", "--no-headers"], capture_output=True, text=True).stdout
+    out = subprocess.run(["kubectl", "top", "pods", "-l", f"app={TARGET}", "--no-headers"], capture_output=True, text=True).stdout
     vals = []
     for line in out.splitlines():
         parts = line.split()
@@ -138,7 +139,7 @@ def measure(load: int) -> dict:
     t.start()
     http = measure_http(URL, MEASURE_S, load)
     t.join(timeout=30)
-    dep = kjson("get", "deployment/frontend")
+    dep = kjson("get", f"deployment/{TARGET}")
     c = dep["spec"]["template"]["spec"]["containers"][0]
     replicas = int(dep["spec"]["replicas"])
     req = c["resources"]["requests"]["cpu"]
@@ -166,7 +167,7 @@ def measure(load: int) -> dict:
 def release_info() -> dict:
     """Measured release signal: compare the two newest frontend ReplicaSets' container specs (image, env, resources),
     ignoring annotations; recent_release = they differ and the newest is younger than 30 minutes."""
-    rss = kjson("get", "replicasets", "-l", "app=frontend")["items"]
+    rss = kjson("get", "replicasets", "-l", f"app={TARGET}")["items"]
     rss.sort(key=lambda r: int(r["metadata"].get("annotations", {}).get("deployment.kubernetes.io/revision", "0")), reverse=True)
     if len(rss) < 2:
         return {"recent_release": False, "release_age_s": None}

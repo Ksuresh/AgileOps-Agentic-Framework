@@ -1,0 +1,47 @@
+# Study 14 fresh test cases (frozen before any Study 14 run). Two services: frontend (QF-*) and productcatalogservice
+# (QP-*, reached through the storefront). Groups: C control; L low-risk release (stable image: no critical CVE, HIGH/MEDIUM
+# findings present); R release-caused regression; P fault present before the release (rollback cannot fix it); S security vs
+# cost; K critical CVE with other domains healthy; D cost only; X compound. Vulnerable images: frontend E/F, productcatalog
+# P1/P2 (selected by calibrate14.py). No case names a correct action.
+loads: {low: 4, normal: 20}
+cases:
+  - {id: QF-C01, service: frontend, previous: [], current: [], replicas: 1, load: normal}
+  - {id: QF-L01, service: frontend, previous: [], current: [feature], replicas: 1, load: normal}
+  - {id: QF-L02, service: frontend, previous: [], current: [feature], replicas: 2, load: normal}
+  - {id: QF-R01, service: frontend, previous: [], current: [feature, perf], replicas: 1, load: normal, perf_cpu: 30m}
+  - {id: QF-R02, service: frontend, previous: [], current: [feature, crash], replicas: 1, load: normal}
+  - {id: QF-R03, service: frontend, previous: [], current: [feature, perf, vuln], replicas: 1, load: normal, perf_cpu: 50m, vuln: E}
+  - {id: QF-R04, service: frontend, previous: [], current: [feature, crash, secret], replicas: 2, load: normal}
+  - {id: QF-P01, service: frontend, previous: [perf], current: [feature, perf], replicas: 1, load: normal, perf_cpu: 30m}
+  - {id: QF-P02, service: frontend, previous: [perf], current: [feature, perf, secret], replicas: 1, load: normal, perf_cpu: 50m}
+  - {id: QF-P03, service: frontend, previous: [vuln], current: [feature, vuln], replicas: 1, load: normal, vuln: F}
+  - {id: QF-P04, service: frontend, previous: [perf], current: [feature, perf], replicas: 2, load: normal, perf_cpu: 50m}
+  - {id: QF-S01, service: frontend, previous: [vuln], current: [vuln], replicas: 6, load: low, vuln: E}
+  - {id: QF-S02, service: frontend, previous: [], current: [feature, secret], replicas: 5, load: low}
+  - {id: QF-S03, service: frontend, previous: [], current: [feature, vuln], replicas: 7, load: low, vuln: F}
+  - {id: QF-S04, service: frontend, previous: [secret], current: [feature, secret], replicas: 6, load: low}
+  - {id: QF-K01, service: frontend, previous: [], current: [feature, vuln], replicas: 1, load: normal, vuln: E}
+  - {id: QF-K02, service: frontend, previous: [], current: [feature, vuln], replicas: 2, load: normal, vuln: F}
+  - {id: QF-D01, service: frontend, previous: [], current: [], replicas: 6, load: low}
+  - {id: QF-X01, service: frontend, previous: [], current: [feature, perf, secret], replicas: 1, load: normal, perf_cpu: 30m}
+  - {id: QF-X02, service: frontend, previous: [], current: [feature, crash, vuln], replicas: 1, load: normal, vuln: F}
+  - {id: QP-C01, service: productcatalogservice, previous: [], current: [], replicas: 1, load: normal}
+  - {id: QP-L01, service: productcatalogservice, previous: [], current: [feature], replicas: 1, load: normal}
+  - {id: QP-L02, service: productcatalogservice, previous: [], current: [feature], replicas: 2, load: normal}
+  - {id: QP-R01, service: productcatalogservice, previous: [], current: [feature, perf], replicas: 1, load: normal, perf_cpu: 30m}
+  - {id: QP-R02, service: productcatalogservice, previous: [], current: [feature, crash], replicas: 1, load: normal}
+  - {id: QP-R03, service: productcatalogservice, previous: [], current: [feature, perf, vuln], replicas: 1, load: normal, perf_cpu: 50m, vuln: P1}
+  - {id: QP-R04, service: productcatalogservice, previous: [], current: [feature, crash, secret], replicas: 2, load: normal}
+  - {id: QP-P01, service: productcatalogservice, previous: [perf], current: [feature, perf], replicas: 1, load: normal, perf_cpu: 30m}
+  - {id: QP-P02, service: productcatalogservice, previous: [perf], current: [feature, perf, secret], replicas: 1, load: normal, perf_cpu: 50m}
+  - {id: QP-P03, service: productcatalogservice, previous: [vuln], current: [feature, vuln], replicas: 1, load: normal, vuln: P2}
+  - {id: QP-P04, service: productcatalogservice, previous: [perf], current: [feature, perf], replicas: 2, load: normal, perf_cpu: 50m}
+  - {id: QP-S01, service: productcatalogservice, previous: [vuln], current: [vuln], replicas: 6, load: low, vuln: P1}
+  - {id: QP-S02, service: productcatalogservice, previous: [], current: [feature, secret], replicas: 5, load: low}
+  - {id: QP-S03, service: productcatalogservice, previous: [], current: [feature, vuln], replicas: 7, load: low, vuln: P2}
+  - {id: QP-S04, service: productcatalogservice, previous: [secret], current: [feature, secret], replicas: 6, load: low}
+  - {id: QP-K01, service: productcatalogservice, previous: [], current: [feature, vuln], replicas: 1, load: normal, vuln: P1}
+  - {id: QP-K02, service: productcatalogservice, previous: [], current: [feature, vuln], replicas: 2, load: normal, vuln: P2}
+  - {id: QP-D01, service: productcatalogservice, previous: [], current: [], replicas: 6, load: low}
+  - {id: QP-X01, service: productcatalogservice, previous: [], current: [feature, perf, secret], replicas: 1, load: normal, perf_cpu: 30m}
+  - {id: QP-X02, service: productcatalogservice, previous: [], current: [feature, crash, vuln], replicas: 1, load: normal, vuln: P2}
