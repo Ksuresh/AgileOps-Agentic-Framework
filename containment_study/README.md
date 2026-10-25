@@ -21,5 +21,5 @@ Results: `results/containment_summary.json`, rows in `results/containment_rows.j
 Unlike the other revision studies, Study 11 has no protocol committed before its run: the fault models, the description and the
 results were committed together (commit b2a14ea). The study is a deterministic simulation with no tunable parameters and was run
 once as written. Of the 17 random-mode runs in which AAF's action differed from the rules-only action (each caused by a genuine
-tool result), 16 turned a wrong action into a correct one and one changed between two correct actions on the authors' keys of
+tool result), 16 turned a wrong action into a correct one and one replaced a wrong action with another wrong one (NV-U05) on the authors' keys of
 Studies 6 and 7; none made a correct action wrong.
