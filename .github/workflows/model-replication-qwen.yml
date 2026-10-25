@@ -27,6 +27,8 @@ jobs:
       over: ${{ steps.cfg.outputs.over }}
       arms: ${{ steps.cfg.outputs.arms }}
       nothink: ${{ steps.cfg.outputs.nothink }}
+      inject: ${{ steps.cfg.outputs.inject }}
+      runsper: ${{ steps.cfg.outputs.runsper }}
     steps:
       - uses: actions/checkout@v4
       - id: cfg
@@ -40,7 +42,7 @@ jobs:
           V="${{ inputs.ollama_version }}"; [ -z "$V" ] && V=$(get OLLAMA_VERSION); V=${V:-}
           echo "shards=$(python3 -c "import json;print(json.dumps(list(range($N))))")" >> $GITHUB_OUTPUT
           echo "nshards=$N" >> $GITHUB_OUTPUT; echo "model=$M" >> $GITHUB_OUTPUT; echo "limit=$L" >> $GITHUB_OUTPUT
-          echo "label=$R" >> $GITHUB_OUTPUT; echo "over=$V" >> $GITHUB_OUTPUT; echo "arms=$(get ARMS)" >> $GITHUB_OUTPUT; echo "nothink=$(get NO_THINK)" >> $GITHUB_OUTPUT
+          echo "label=$R" >> $GITHUB_OUTPUT; echo "over=$V" >> $GITHUB_OUTPUT; echo "arms=$(get ARMS)" >> $GITHUB_OUTPUT; echo "nothink=$(get NO_THINK)" >> $GITHUB_OUTPUT; echo "inject=$(get INJECT)" >> $GITHUB_OUTPUT; echo "runsper=$(get RUNS_PER_ARM)" >> $GITHUB_OUTPUT
 
   run:
     needs: plan
@@ -60,6 +62,8 @@ jobs:
       RUN_LABEL: ${{ needs.plan.outputs.label }}
       ARMS: ${{ needs.plan.outputs.arms }}
       NO_THINK: ${{ needs.plan.outputs.nothink }}
+      INJECT: ${{ needs.plan.outputs.inject }}
+      RUNS_PER_ARM: ${{ needs.plan.outputs.runsper }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
