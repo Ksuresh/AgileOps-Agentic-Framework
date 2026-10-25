@@ -1,6 +1,6 @@
 # AgileOps Agentic Framework (AAF)
 
-Reproducibility repository for the Hybrid AAF manuscript and its deterministic, runtime, selective-Agentic, prospective-replication, external-telemetry, and bounded-PM-interface evidence.
+Reproducibility repository for the AAF manuscript (IEEE Access, Access-2026-46118) and its deterministic, runtime, selective-Agentic, prospective-replication, external-telemetry, and bounded-PM-interface evidence.
 
 AAF is a **hybrid deterministic + selectively Agentic AI decision-support framework for Agile–DevOps project governance**. Deterministic cross-domain reasoning remains authoritative for final governance actions. Bounded **Agentic Evidence Investigation (AEI)** is invoked only when decision-relevant evidence is uncertain, incomplete, ambiguous, or requires additional evidence acquisition. A separate bounded LLM interface allows Project Managers to interrogate and understand an already-governed recommendation.
 
@@ -12,6 +12,10 @@ AAF is a **hybrid deterministic + selectively Agentic AI decision-support framew
 
 ## Reviewer quick links
 
+- **Revision studies (outcome-measured Studies 9-14, model replication 10/10b, failure containment 11/11b): how to reproduce every number:** [`REPRODUCE_REVISION_STUDIES.md`](REPRODUCE_REVISION_STUDIES.md)
+- **Models, digests, tool and benchmark versions:** [`MODELS_AND_VERSIONS.md`](MODELS_AND_VERSIONS.md)
+- **Protocols (committed before each study ran):** [`outcome_study/PROTOCOL.md`](outcome_study/PROTOCOL.md), [`outcome_study12/PROTOCOL.md`](outcome_study12/PROTOCOL.md), [`outcome_study13/PROTOCOL.md`](outcome_study13/PROTOCOL.md), [`outcome_study14/PROTOCOL.md`](outcome_study14/PROTOCOL.md), [`model_replication/PROTOCOL.md`](model_replication/PROTOCOL.md), [`model_replication/PROTOCOL_10b.md`](model_replication/PROTOCOL_10b.md), [`containment_study/README.md`](containment_study/README.md), [`containment_study/PROTOCOL_11b.md`](containment_study/PROTOCOL_11b.md)
+- **Governance rule sets:** v1.0 (`agentic_experiments/hybrid.py`, `orchestrator/`), v1.2 [`agentic_experiments/rules_v12.py`](agentic_experiments/rules_v12.py), v1.4 [`agentic_experiments/rules_v14.py`](agentic_experiments/rules_v14.py)
 - **Reproduce the current paper:** [`REPRODUCE_CURRENT_PAPER.md`](REPRODUCE_CURRENT_PAPER.md)
 - **Reviewer-facing study/results index:** [`paper_results/README.md`](paper_results/README.md)
 - **Manuscript claim → frozen execution provenance:** [`paper_results/MANUSCRIPT_RESULT_MAP.md`](paper_results/MANUSCRIPT_RESULT_MAP.md)

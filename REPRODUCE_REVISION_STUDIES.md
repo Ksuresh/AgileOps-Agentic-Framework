@@ -1,4 +1,4 @@
-# Reproducing the revision studies (Studies 9-14, 10b, 11, 11b)
+# Reproducing the revision studies (Studies 9-14, 10, 10b, 11, 11b)
 
 Studies 1-8 are reproduced as described in [`REPRODUCE_CURRENT_PAPER.md`](REPRODUCE_CURRENT_PAPER.md). This file covers the
 studies added in the 2026 revision. Versions, model digests and sampling settings are in
@@ -7,27 +7,28 @@ history shows the order (protocol commit, then result commits by `github-actions
 
 ## 0. Two ways to reproduce
 
-**A. Re-analyse the committed raw outputs (minutes, no cluster, no LLM).** Every live measurement, decision and LLM output is
-committed. The analysis scripts recompute every number in the paper from them:
+**A. Re-analyse the committed raw outputs (minutes; no cluster, no LLM, no API key).** Every live measurement, decision and
+LLM output is committed. These commands recompute every number reported for the revision studies:
 
 ```bash
-git clone -b text-evidence-pilot https://github.com/Ksuresh/AgileOps-Agentic-Framework.git && cd AgileOps-Agentic-Framework
+git clone https://github.com/Ksuresh/AgileOps-Agentic-Framework.git && cd AgileOps-Agentic-Framework
 python3 -m venv .venv && source .venv/bin/activate && pip install -r requirements.txt
 export PYTHONPATH=$PWD
-python containment_study/run_containment.py            # Study 11 (deterministic; reruns the fault models)
-python model_replication/analyze.py                    # Study 10   -> model_replication/analysis.json
-python model_replication/analyze_three.py              # Study 10b  -> model_replication/analysis_three_models.json
-python containment_study/analyze_injection.py          # Study 11b  -> containment_study/results/injection_analysis.json
-python outcome_study/analyze.py                        # Study 9    -> outcome_study/analysis.json
-python outcome_study12/analyze12.py                    # Study 12   -> outcome_study12/analysis.json
-python outcome_study13/analyze13.py                    # Study 13   -> outcome_study13/analysis.json
-python outcome_study14/analyze14.py                    # Study 14   -> outcome_study14/analysis.json (incl. pooled H14.7)
-python outcome_study/sensitivity.py                    # oracle-threshold sensitivity -> outcome_study/sensitivity.json
+python containment_study/run_containment.py                     # Study 11  (reruns the deterministic fault models)
+python model_replication/analyze.py                             # Study 10  -> model_replication/analysis.json
+python model_replication/analyze.py model_replication/results/llama3.1_8b/main analysis_llama.json   # Study 10b
+python model_replication/analyze_three.py                       # Study 10b -> analysis_three_models.json
+python containment_study/analyze_injection.py                   # Study 11b -> containment_study/results/injection_analysis.json
+python outcome_study/analyze.py                                 # Study 9   -> outcome_study/analysis.json
+python outcome_study12/analyze12.py                             # Study 12  -> outcome_study12/analysis.json
+python outcome_study13/analyze13.py                             # Study 13  -> outcome_study13/analysis.json
+python outcome_study14/analyze14.py                             # Study 14  -> outcome_study14/analysis.json (incl. pooled H14.7)
+python outcome_study/sensitivity.py                             # oracle-threshold sensitivity -> outcome_study/sensitivity.json
 ```
 
-The deterministic deciders (B1, B1-12, B1-14, B2, siloed rule experts, fixed policies) can also be recomputed from the
-committed snapshots without any LLM: `OUTCOME_DIR=outcome_study14 python -c "..."` is not needed; `decide.py` writes them in
-shard 0 and they are pure functions of `variants.json`.
+Each output file is committed, so `git diff` after running the commands should show no change. The deterministic
+deciders (B1, B1-12, B1-14, B2, single-domain rule experts, fixed policies) are pure functions of the committed
+`decisions/variants.json` and are recomputed by `outcome_study/decide.py` (shard 0) without any model.
 
 **B. Re-run the experiments (hours; GitHub Actions).** Fork the repository, enable Actions, and trigger the workflows below
 (`workflow_dispatch`, or edit the control file named in each section and push). Results are committed back to the branch by
@@ -74,7 +75,7 @@ Analysis: `python outcome_study14/analyze14.py`.
 
 Control file `model_replication/RUN` -> `model-replication-qwen.yml` (installs Ollama, pulls the model, runs
 `model_replication/run_qwen.py` in shards). Study 10: `MODEL=qwen3:8b`, `RUN_LABEL=main`. Study 10b:
-`MODEL=llama3.1:8b`, `NO_THINK=1`. Outputs: `model_replication/results/<model>/main/shard_*.jsonl` and `env_shard_*.txt`
+`MODEL=llama3.1:8b`, `NO_THINK=1`, `RUN_LABEL=main`. Study 11b: `MODEL=qwen3:8b`, `INJECT=1`, `RUNS_PER_ARM=1`, `RUN_LABEL=injection`. Outputs: `model_replication/results/<model>/main/shard_*.jsonl` and `env_shard_*.txt`
 (model digest, Ollama version, runner CPU/RAM). To run locally with Ollama installed:
 `QWEN_MODEL=qwen3:8b NSHARDS=1 SHARD=0 RUN_LABEL=local python model_replication/run_qwen.py` (resumable).
 
