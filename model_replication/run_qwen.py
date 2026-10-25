@@ -41,7 +41,7 @@ class QwenRuntime(AR.BoundedAgenticRuntime):
     def __init__(self, think: bool, coordinator_system: str | None = None):
         self.model = MODEL
         self.reasoning_effort = "medium" if think else "none"
-        self.think = think
+        self.think = think and not os.environ.get("NO_THINK")  # models without a thinking mode (Study 10b)
         self.coordinator_system = coordinator_system or AR.COORDINATOR_SYSTEM
         self.errors: list[str] = []
 

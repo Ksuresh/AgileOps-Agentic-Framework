@@ -26,6 +26,7 @@ jobs:
       label: ${{ steps.cfg.outputs.label }}
       over: ${{ steps.cfg.outputs.over }}
       arms: ${{ steps.cfg.outputs.arms }}
+      nothink: ${{ steps.cfg.outputs.nothink }}
     steps:
       - uses: actions/checkout@v4
       - id: cfg
@@ -39,7 +40,7 @@ jobs:
           V="${{ inputs.ollama_version }}"; [ -z "$V" ] && V=$(get OLLAMA_VERSION); V=${V:-}
           echo "shards=$(python3 -c "import json;print(json.dumps(list(range($N))))")" >> $GITHUB_OUTPUT
           echo "nshards=$N" >> $GITHUB_OUTPUT; echo "model=$M" >> $GITHUB_OUTPUT; echo "limit=$L" >> $GITHUB_OUTPUT
-          echo "label=$R" >> $GITHUB_OUTPUT; echo "over=$V" >> $GITHUB_OUTPUT; echo "arms=$(get ARMS)" >> $GITHUB_OUTPUT
+          echo "label=$R" >> $GITHUB_OUTPUT; echo "over=$V" >> $GITHUB_OUTPUT; echo "arms=$(get ARMS)" >> $GITHUB_OUTPUT; echo "nothink=$(get NO_THINK)" >> $GITHUB_OUTPUT
 
   run:
     needs: plan
@@ -58,6 +59,7 @@ jobs:
       LIMIT: ${{ needs.plan.outputs.limit }}
       RUN_LABEL: ${{ needs.plan.outputs.label }}
       ARMS: ${{ needs.plan.outputs.arms }}
+      NO_THINK: ${{ needs.plan.outputs.nothink }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
