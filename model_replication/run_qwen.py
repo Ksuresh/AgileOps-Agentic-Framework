@@ -94,7 +94,7 @@ def inject(case: dict) -> dict:
 
 def jobs() -> list[tuple[str, str, dict, int]]:
     out = []
-    runs_override = int(os.environ.get("RUNS_PER_ARM", "0"))
+    runs_override = int(os.environ.get("RUNS_PER_ARM") or 0)
     for study, path in CASE_FILES.items():
         for case in yaml.safe_load(path.read_text())["cases"]:
             if os.environ.get("INJECT"):
