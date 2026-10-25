@@ -1,50 +1,6 @@
-srv        update:    - prompt 0x278bd6f0:    1263 tokens, checkpoints:  0,   177.625 MiB
-srv        update:    - prompt 0x27b955a0:    1018 tokens, checkpoints:  0,   143.169 MiB
-srv        update:    - prompt 0x27a59280:    3354 tokens, checkpoints:  0,   471.695 MiB
-srv        update:    - prompt 0x2796d3a0:     758 tokens, checkpoints:  0,   106.603 MiB
-srv        update:    - prompt 0x27b8d350:     737 tokens, checkpoints:  0,   103.650 MiB
-srv        update:    - prompt 0x278eac20:    1365 tokens, checkpoints:  0,   191.970 MiB
-srv        update:    - prompt 0x2370d1e0:    2087 tokens, checkpoints:  0,   293.509 MiB
-srv        update:    - prompt 0x27b689a0:     818 tokens, checkpoints:  0,   115.041 MiB
-srv        update:    - prompt 0x281fbbe0:     761 tokens, checkpoints:  0,   107.025 MiB
-srv        update:    - prompt 0x27b43ae0:     873 tokens, checkpoints:  0,   122.776 MiB
-srv        update:    - prompt 0x2797ed80:     877 tokens, checkpoints:  0,   123.339 MiB
-srv        update:    - prompt 0x23722cb0:    1156 tokens, checkpoints:  0,   162.577 MiB
-srv        update:    - prompt 0x278c4d50:    2167 tokens, checkpoints:  0,   304.760 MiB
-srv        update:    - prompt 0x2790d1c0:     782 tokens, checkpoints:  0,   109.979 MiB
-srv        update:    - prompt 0x282d8370:    1260 tokens, checkpoints:  0,   177.203 MiB
-srv        update:    - prompt 0x27b954f0:    1249 tokens, checkpoints:  0,   175.656 MiB
-srv        update:    - prompt 0x27b8cee0:    1030 tokens, checkpoints:  0,   144.856 MiB
-srv        update:    - prompt 0x27a27750:    2279 tokens, checkpoints:  0,   320.511 MiB
-srv        update:    - prompt 0x27a08760:     880 tokens, checkpoints:  0,   123.761 MiB
-srv        update:    - prompt 0x2798aba0:     876 tokens, checkpoints:  0,   123.198 MiB
-srv        update:    - prompt 0x23735920:     533 tokens, checkpoints:  0,    74.960 MiB
-srv        update:    - prompt 0x25ad7da0:     584 tokens, checkpoints:  0,    82.133 MiB
-srv        update:    - prompt 0x27b06700:     840 tokens, checkpoints:  0,   118.135 MiB
-srv        update:    - prompt 0x2799a5e0:     553 tokens, checkpoints:  0,    77.773 MiB
-srv        update:    - prompt 0x27990be0:     544 tokens, checkpoints:  0,    76.507 MiB
-srv        update:    - prompt 0x23259760:     863 tokens, checkpoints:  0,   121.370 MiB
-srv        update:    - prompt 0x278d4780:     546 tokens, checkpoints:  0,    76.788 MiB
-srv        update:    - prompt 0x2795f6f0:     587 tokens, checkpoints:  0,    82.554 MiB
-srv        update:    - prompt 0x27b465b0:     470 tokens, checkpoints:  0,    66.100 MiB
-srv        update:    - prompt 0x279f8de0:     462 tokens, checkpoints:  0,    64.975 MiB
-srv  get_availabl: prompt cache update took 9.85 ms
-slot launch_slot_: id  0 | task -1 | sampler chain: logits -> ?penalties -> ?dry -> ?top-n-sigma -> top-k -> ?typical -> top-p -> ?min-p -> ?xtc -> temp-ext -> dist 
-slot launch_slot_: id  0 | task -1 | sampler params: 
-	repeat_last_n = 64, repeat_penalty = 1.000, frequency_penalty = 0.000, presence_penalty = 0.000
-	dry_multiplier = 0.000, dry_base = 1.750, dry_allowed_length = 2, dry_penalty_last_n = 64
-	top_k = 20, top_p = 0.950, min_p = 0.000, xtc_probability = 0.000, xtc_threshold = 0.100, typical_p = 1.000, top_n_sigma = -1.000, temp = 0.700
-	mirostat = 0, mirostat_lr = 0.100, mirostat_ent = 5.000, adaptive_target = -1.000, adaptive_decay = 0.900
-slot launch_slot_: id  0 | task 50059 | processing task, is_child = 0
-slot   operator(): id  0 | task 50059 | new prompt, n_ctx_slot = 8192, n_keep = 4, task.n_tokens = 657
-slot   operator(): id  0 | task 50059 | cached n_tokens = 5, memory_seq_rm [5, end)
-slot init_sampler: id  0 | task 50059 | init sampler, took 0.12 ms, tokens: text = 657, total = 657
-slot print_timing: id  0 | task 50059 | n_gen =    100, tg =   5.45 t/s, tg_3s =   5.51 t/s
-slot print_timing: id  0 | task 50059 | prompt eval time =   49486.37 ms /   652 tokens (   75.90 ms per token,    13.18 tokens per second)
-slot print_timing: id  0 | task 50059 |        eval time =   18344.40 ms /   101 tokens (  183.44 ms per token,     5.45 tokens per second)
-slot print_timing: id  0 | task 50059 |       total time =   67830.77 ms /   753 tokens
-slot print_timing: id  0 | task 50059 |    graphs reused =      49520
-slot print_timing: id  0 | task 50059 |   graph reallocs =          0    /     0        (same size) / (changed size)
-slot      release: id  0 | task 50059 | stop processing: n_tokens = 757, truncated = 0
-srv  update_slots: all slots are idle
-[GIN] 2026/10/23 - 13:07:41 | 200 |     1m0s |       127.0.0.1 | POST     "/api/chat"
+Couldn't find '/home/runner/.ollama/id_ed25519'. Generating new private key.
+Your new public key is: 
+
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJMLCFRS8TUTxo/cwxRJ9knvWcKbik7QOLgTXgfqyXfS
+
+Error: listen tcp 127.0.0.1:11434: bind: address already in use
