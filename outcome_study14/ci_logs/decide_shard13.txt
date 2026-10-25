@@ -1,0 +1,35 @@
+B5 QP-X01 2 Block release and fix pipeline
+B6 QP-L02 2 Scale adjustment
+B5 QF-S03 3 Patch or block release
+B6 QF-R04-W 2 Patch or block release
+B5 QF-R03 2 Patch or block release
+B5 QF-X02 1 Block release and fix pipeline
+AAF QP-P02-W 3 Patch or block release
+B5 QP-R04-W 2 Rollback to stable deployment
+B5 QP-P03-W 2 Mitigate and monitor
+AAF-14 QF-S04-W 2 Patch or block release
+B6 QP-R04 3 Patch or block release
+AAF-14 QF-S02-W 1 Patch or block release
+B6 QF-S03-W 2 Escalate for evidence/human review
+AAF QP-D01 2 Scale adjustment
+B5 QF-X01-W 2 Rollback to stable deployment
+AAF QF-P04 2 Mitigate and monitor
+AAF-14 QP-R01 3 No action (observe)
+AAF QP-K02 3 Scale adjustment
+AAF QF-R03 1 Patch or block release
+AAF QF-S03 2 Scale adjustment
+B5 QP-P02 2 Mitigate and monitor
+AAF-14 QF-K01-W 1 No action (observe)
+AAF-14 QP-X01 1 Patch or block release
+B5 QP-S03-W 2 Block release and fix pipeline
+B5 QF-R03 3 Rollback to stable deployment
+B6 QP-P01 3 No action (observe)
+AAF QF-D01 2 Scale adjustment
+AAF-14 QF-S01-W 1 Scale adjustment
+B6 QP-S02-W 3 Block release and fix pipeline
+B5 QF-X01 1 Block release and fix pipeline
+B6 QF-R01-W 3 Escalate for evidence/human review
+B6 QF-R04 2 Patch or block release
+AAF QF-L02 3 Scale adjustment
+AAF QF-X02-W 2 Mitigate and monitor
+AAF QP-S04 1 Patch or block release
