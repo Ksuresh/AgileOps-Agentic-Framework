@@ -1,0 +1,36 @@
+AAF QP-R01-W 3 No action (observe)
+AAF QF-X02-W 1 Mitigate and monitor
+AAF-14 QF-P01 2 Mitigate and monitor
+AAF QP-X02-W 3 Patch or block release
+AAF QP-R03 1 Patch or block release
+B5 QP-S03 1 Patch or block release
+B6 QP-X01-W 3 Block release and fix pipeline
+B6 QP-C01 1 No action (observe)
+B6 QP-R01 1 No action (observe)
+AAF QP-P04-W 2 No action (observe)
+AAF-14 QP-S02 2 Patch or block release
+AAF-14 QF-P03-W 1 Patch or block release
+AAF-14 QF-R01 1 Rollback to stable deployment
+AAF QF-D01 3 Scale adjustment
+B5 QF-K01 2 Patch or block release
+AAF QP-P02-W 1 Patch or block release
+AAF-14 QF-R03 3 Rollback to stable deployment
+B5 QF-R01 2 Mitigate and monitor
+B6 QP-L02 1 Scale adjustment
+AAF-14 QF-X01 3 Rollback to stable deployment
+AAF-14 QF-R01 3 Rollback to stable deployment
+B5 QF-R02 3 Rollback to stable deployment
+B6 QP-R02-W 3 Rollback to stable deployment
+AAF QP-S03 2 Scale adjustment
+B6 QF-K01 2 Patch or block release
+AAF-14 QP-R04-W 3 Rollback to stable deployment
+B5 QP-S03-W 1 Mitigate and monitor
+AAF-14 QP-X02 1 Rollback to stable deployment
+AAF-14 QP-K01 3 Patch or block release
+AAF-14 QP-R02-W 1 Rollback to stable deployment
+B6 QP-C01 3 No action (observe)
+AAF QP-R01 2 No action (observe)
+B5 QP-R02 1 Rollback to stable deployment
+B5 QF-P01-W 1 Mitigate and monitor
+AAF QF-R02-W 2 Mitigate and monitor
+AAF-14 QF-X01 2 Rollback to stable deployment
