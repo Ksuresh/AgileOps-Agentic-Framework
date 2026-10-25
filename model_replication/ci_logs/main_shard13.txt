@@ -1,6 +1,10 @@
-B5 NV-U01 2 Block release and fix pipeline 104.9 s
-AAF AG-A07 3 Patch or block release 61.8 s
-B6 AG-C05 1 Patch or block release 106.9 s
-B5 RP-C04 3 Rollback to stable deployment 97.1 s
-AAF NV-U08 3 Block release and fix pipeline 50.5 s
-AAF NV-A05 1 Patch or block release 29.4 s
+Traceback (most recent call last):
+  File "/home/runner/work/AgileOps-Agentic-Framework/AgileOps-Agentic-Framework/model_replication/run_qwen.py", line 150, in <module>
+    main()
+  File "/home/runner/work/AgileOps-Agentic-Framework/AgileOps-Agentic-Framework/model_replication/run_qwen.py", line 121, in main
+    mine = [j for j in jobs() if not arms or j[0] in arms][shard::nshards]
+                       ^^^^^^
+  File "/home/runner/work/AgileOps-Agentic-Framework/AgileOps-Agentic-Framework/model_replication/run_qwen.py", line 97, in jobs
+    runs_override = int(os.environ.get("RUNS_PER_ARM", "0"))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: invalid literal for int() with base 10: ''
