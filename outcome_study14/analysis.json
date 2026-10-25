@@ -4,21 +4,16 @@
   "n_withheld": 32,
   "runs": {
     "AAF": {
-      "3": 70,
-      "2": 2
+      "3": 72
     },
     "AAF-14": {
-      "3": 67,
-      "2": 5
+      "3": 72
     },
     "B5": {
-      "3": 65,
-      "2": 7
+      "3": 72
     },
     "B6": {
-      "3": 64,
-      "2": 6,
-      "1": 2
+      "3": 72
     }
   },
   "accuracy_O1": {
@@ -41,7 +36,7 @@
       "D-Sec": 26,
       "Dominant": 21,
       "L-DevOps": 14,
-      "L-FinOps": 10,
+      "L-FinOps": 9,
       "L-SRE": 15,
       "L-Sec": 23,
       "n": 34
@@ -65,7 +60,7 @@
       "D-Sec": 10,
       "Dominant": 7,
       "L-DevOps": 6,
-      "L-FinOps": 6,
+      "L-FinOps": 5,
       "L-SRE": 9,
       "L-Sec": 10,
       "n": 17
@@ -209,7 +204,7 @@
       "D-Sec": 8,
       "Dominant": 4,
       "L-DevOps": 2,
-      "L-FinOps": 1,
+      "L-FinOps": 0,
       "L-SRE": 0,
       "L-Sec": 4,
       "n": 8
@@ -288,7 +283,7 @@
     },
     "withheld": {
       "AAF": 21,
-      "AAF-14": 26,
+      "AAF-14": 27,
       "AlwaysNone": 5,
       "AlwaysRollback": 25,
       "B1": 11,
@@ -578,7 +573,7 @@
     },
     "withheld": {
       "AAF": 16,
-      "AAF-14": 16,
+      "AAF-14": 17,
       "AlwaysNone": 4,
       "AlwaysRollback": 5,
       "B1": 8,
@@ -621,7 +616,7 @@
       "D-Sec": 26,
       "Dominant": 21,
       "L-DevOps": 14,
-      "L-FinOps": 10,
+      "L-FinOps": 9,
       "L-SRE": 15,
       "L-Sec": 23,
       "n": 34
@@ -645,7 +640,7 @@
       "D-Sec": 10,
       "Dominant": 7,
       "L-DevOps": 6,
-      "L-FinOps": 6,
+      "L-FinOps": 5,
       "L-SRE": 9,
       "L-Sec": 10,
       "n": 17
@@ -789,7 +784,7 @@
       "D-Sec": 8,
       "Dominant": 4,
       "L-DevOps": 2,
-      "L-FinOps": 1,
+      "L-FinOps": 0,
       "L-SRE": 0,
       "L-Sec": 4,
       "n": 8
@@ -868,7 +863,7 @@
     },
     "withheld": {
       "AAF": 21,
-      "AAF-14": 26,
+      "AAF-14": 27,
       "AlwaysNone": 5,
       "AlwaysRollback": 25,
       "B1": 11,
@@ -929,10 +924,10 @@
       "p_holm": 1.1444091796875e-05
     },
     "L-FinOps": {
-      "a_only": 24,
+      "a_only": 25,
       "b_only": 0,
-      "p_exact": 1.1920928955078125e-07,
-      "p_holm": 8.344650268554688e-07
+      "p_exact": 5.960464477539063e-08,
+      "p_holm": 4.76837158203125e-07
     },
     "L-Sec": {
       "a_only": 11,
@@ -1010,7 +1005,7 @@
       "D-Sec": "12/12",
       "Dominant": "6/12",
       "L-DevOps": "2/12",
-      "L-FinOps": "1/12",
+      "L-FinOps": "0/12",
       "L-SRE": "0/12",
       "L-Sec": "8/12"
     },
@@ -1045,7 +1040,7 @@
           "a_only": 11,
           "b_only": 0,
           "p_exact": 0.0009765625,
-          "p_holm": 0.005859375
+          "p_holm": 0.0048828125
         },
         "D-SRE": {
           "a_only": 12,
@@ -1069,7 +1064,7 @@
           "a_only": 11,
           "b_only": 0,
           "p_exact": 0.0009765625,
-          "p_holm": 0.005859375
+          "p_holm": 0.0048828125
         },
         "L-SRE": {
           "a_only": 8,
@@ -1078,10 +1073,10 @@
           "p_holm": 0.0234375
         },
         "L-FinOps": {
-          "a_only": 11,
+          "a_only": 12,
           "b_only": 0,
-          "p_exact": 0.0009765625,
-          "p_holm": 0.005859375
+          "p_exact": 0.00048828125,
+          "p_holm": 0.00341796875
         },
         "L-Sec": {
           "a_only": 7,
@@ -1186,22 +1181,22 @@
   },
   "withheld_AAF14_vs": {
     "B1-14": {
-      "a_only": 8,
+      "a_only": 9,
       "b_only": 0,
-      "p_exact": 0.0078125,
-      "p_holm": 0.0234375
+      "p_exact": 0.00390625,
+      "p_holm": 0.01171875
     },
     "B2": {
       "a_only": 6,
-      "b_only": 3,
-      "p_exact": 0.5078125,
-      "p_holm": 0.5078125
+      "b_only": 2,
+      "p_exact": 0.2890625,
+      "p_holm": 0.2890625
     },
     "AAF": {
       "a_only": 8,
-      "b_only": 3,
-      "p_exact": 0.2265625,
-      "p_holm": 0.453125
+      "b_only": 2,
+      "p_exact": 0.109375,
+      "p_holm": 0.21875
     }
   },
   "H14_7_pooled": {
@@ -1763,7 +1758,7 @@
       "D-Sec": "Patch or block release",
       "Dominant": "Scale adjustment",
       "L-DevOps": "No action (observe)",
-      "L-FinOps": "Block release and fix pipeline",
+      "L-FinOps": "Mitigate and monitor",
       "L-SRE": "Mitigate and monitor",
       "L-Sec": "Mitigate and monitor"
     },
@@ -2297,7 +2292,7 @@
       "D-SRE": "Mitigate and monitor",
       "D-Sec": "Patch or block release",
       "Dominant": "Scale adjustment",
-      "L-DevOps": "Block release and fix pipeline",
+      "L-DevOps": "Rollback to stable deployment",
       "L-FinOps": "Mitigate and monitor",
       "L-SRE": "Rollback to stable deployment",
       "L-Sec": "Block release and fix pipeline"
@@ -2389,7 +2384,7 @@
       "D-SRE": "No action (observe)",
       "D-Sec": "Patch or block release",
       "Dominant": "Scale adjustment",
-      "L-DevOps": "Mitigate and monitor",
+      "L-DevOps": "No action (observe)",
       "L-FinOps": "Mitigate and monitor",
       "L-SRE": "Mitigate and monitor",
       "L-Sec": "Block release and fix pipeline"
@@ -3064,7 +3059,7 @@
         "patch"
       ],
       "AAF": "Patch or block release",
-      "AAF-14": "No action (observe)",
+      "AAF-14": "Patch or block release",
       "AlwaysNone": "No action (observe)",
       "AlwaysRollback": "Rollback to stable deployment",
       "B1": "No action (observe)",
