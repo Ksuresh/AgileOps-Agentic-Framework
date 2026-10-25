@@ -1,50 +1,6 @@
-slot print_timing: id  0 | task 51309 | n_gen =   2319, tg =   3.70 t/s, tg_3s =   3.29 t/s
-slot print_timing: id  0 | task 51309 | n_gen =   2329, tg =   3.69 t/s, tg_3s =   3.22 t/s
-slot print_timing: id  0 | task 51309 | n_gen =   2339, tg =   3.69 t/s, tg_3s =   3.22 t/s
-slot print_timing: id  0 | task 51309 | n_gen =   2349, tg =   3.69 t/s, tg_3s =   3.15 t/s
-slot print_timing: id  0 | task 51309 | n_gen =   2359, tg =   3.69 t/s, tg_3s =   3.28 t/s
-slot print_timing: id  0 | task 51309 | n_gen =   2369, tg =   3.69 t/s, tg_3s =   3.19 t/s
-slot print_timing: id  0 | task 51309 | n_gen =   2379, tg =   3.68 t/s, tg_3s =   3.24 t/s
-slot print_timing: id  0 | task 51309 | n_gen =   2389, tg =   3.68 t/s, tg_3s =   3.15 t/s
-slot print_timing: id  0 | task 51309 | n_gen =   2399, tg =   3.68 t/s, tg_3s =   3.19 t/s
-slot print_timing: id  0 | task 51309 | n_gen =   2409, tg =   3.68 t/s, tg_3s =   3.16 t/s
-slot print_timing: id  0 | task 51309 | n_gen =   2419, tg =   3.67 t/s, tg_3s =   3.13 t/s
-slot print_timing: id  0 | task 51309 | n_gen =   2429, tg =   3.67 t/s, tg_3s =   3.10 t/s
-slot print_timing: id  0 | task 51309 | n_gen =   2439, tg =   3.67 t/s, tg_3s =   3.17 t/s
-slot print_timing: id  0 | task 51309 | n_gen =   2449, tg =   3.67 t/s, tg_3s =   3.19 t/s
-slot print_timing: id  0 | task 51309 | n_gen =   2459, tg =   3.66 t/s, tg_3s =   3.19 t/s
-slot print_timing: id  0 | task 51309 | n_gen =   2469, tg =   3.66 t/s, tg_3s =   3.13 t/s
-slot print_timing: id  0 | task 51309 | n_gen =   2479, tg =   3.66 t/s, tg_3s =   3.21 t/s
-slot print_timing: id  0 | task 51309 | n_gen =   2489, tg =   3.66 t/s, tg_3s =   3.13 t/s
-slot print_timing: id  0 | task 51309 | n_gen =   2499, tg =   3.65 t/s, tg_3s =   3.05 t/s
-slot print_timing: id  0 | task 51309 | n_gen =   2509, tg =   3.65 t/s, tg_3s =   3.11 t/s
-slot print_timing: id  0 | task 51309 | n_gen =   2519, tg =   3.65 t/s, tg_3s =   3.11 t/s
-slot print_timing: id  0 | task 51309 | n_gen =   2529, tg =   3.65 t/s, tg_3s =   3.12 t/s
-slot print_timing: id  0 | task 51309 | n_gen =   2539, tg =   3.64 t/s, tg_3s =   3.21 t/s
-slot print_timing: id  0 | task 51309 | n_gen =   2549, tg =   3.64 t/s, tg_3s =   3.19 t/s
-slot print_timing: id  0 | task 51309 | n_gen =   2559, tg =   3.64 t/s, tg_3s =   3.22 t/s
-slot print_timing: id  0 | task 51309 | n_gen =   2569, tg =   3.64 t/s, tg_3s =   3.22 t/s
-slot print_timing: id  0 | task 51309 | n_gen =   2579, tg =   3.64 t/s, tg_3s =   3.18 t/s
-slot print_timing: id  0 | task 51309 | n_gen =   2589, tg =   3.63 t/s, tg_3s =   3.19 t/s
-slot print_timing: id  0 | task 51309 | n_gen =   2599, tg =   3.63 t/s, tg_3s =   3.23 t/s
-slot print_timing: id  0 | task 51309 | n_gen =   2609, tg =   3.63 t/s, tg_3s =   3.20 t/s
-slot print_timing: id  0 | task 51309 | n_gen =   2619, tg =   3.63 t/s, tg_3s =   3.12 t/s
-slot print_timing: id  0 | task 51309 | n_gen =   2629, tg =   3.63 t/s, tg_3s =   3.16 t/s
-slot print_timing: id  0 | task 51309 | n_gen =   2639, tg =   3.62 t/s, tg_3s =   3.14 t/s
-slot print_timing: id  0 | task 51309 | n_gen =   2649, tg =   3.62 t/s, tg_3s =   3.16 t/s
-slot print_timing: id  0 | task 51309 | n_gen =   2659, tg =   3.62 t/s, tg_3s =   3.11 t/s
-slot print_timing: id  0 | task 51309 | n_gen =   2669, tg =   3.62 t/s, tg_3s =   3.14 t/s
-slot print_timing: id  0 | task 51309 | n_gen =   2679, tg =   3.62 t/s, tg_3s =   3.09 t/s
-slot print_timing: id  0 | task 51309 | n_gen =   2689, tg =   3.61 t/s, tg_3s =   3.14 t/s
-slot print_timing: id  0 | task 51309 | n_gen =   2699, tg =   3.61 t/s, tg_3s =   3.07 t/s
-slot print_timing: id  0 | task 51309 | n_gen =   2709, tg =   3.61 t/s, tg_3s =   3.12 t/s
-slot print_timing: id  0 | task 51309 | n_gen =   2719, tg =   3.61 t/s, tg_3s =   3.11 t/s
-slot print_timing: id  0 | task 51309 | n_gen =   2729, tg =   3.60 t/s, tg_3s =   3.11 t/s
-slot print_timing: id  0 | task 51309 | prompt eval time =   80876.42 ms /  1047 tokens (   77.25 ms per token,    12.95 tokens per second)
-slot print_timing: id  0 | task 51309 |        eval time =  759331.37 ms /  2737 tokens (  277.53 ms per token,     3.60 tokens per second)
-slot print_timing: id  0 | task 51309 |       total time =  840207.79 ms /  3784 tokens
-slot print_timing: id  0 | task 51309 |    graphs reused =      53390
-slot print_timing: id  0 | task 51309 |   graph reallocs =          0    /     0        (same size) / (changed size)
-slot      release: id  0 | task 51309 | stop processing: n_tokens = 3788, truncated = 0
-srv  update_slots: all slots are idle
-[GIN] 2026/10/23 - 13:41:06 | 200 |    14m0s |       127.0.0.1 | POST     "/api/chat"
+Couldn't find '/home/runner/.ollama/id_ed25519'. Generating new private key.
+Your new public key is: 
+
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIH0u4DtaXX+onY15DEwOkQU/JVDqefrXbw/BDETdTmn6
+
+Error: listen tcp 127.0.0.1:11434: bind: address already in use
