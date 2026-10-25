@@ -1,10 +1,38 @@
-Traceback (most recent call last):
-  File "/home/runner/work/AgileOps-Agentic-Framework/AgileOps-Agentic-Framework/model_replication/run_qwen.py", line 150, in <module>
-    main()
-  File "/home/runner/work/AgileOps-Agentic-Framework/AgileOps-Agentic-Framework/model_replication/run_qwen.py", line 121, in main
-    mine = [j for j in jobs() if not arms or j[0] in arms][shard::nshards]
-                       ^^^^^^
-  File "/home/runner/work/AgileOps-Agentic-Framework/AgileOps-Agentic-Framework/model_replication/run_qwen.py", line 97, in jobs
-    runs_override = int(os.environ.get("RUNS_PER_ARM", "0"))
-                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-ValueError: invalid literal for int() with base 10: ''
+B6 RP-I02 1 Patch or block release 166.4 s
+AAF NV-A02 3 Review scaling policy 134.7 s
+AAF NV-U03 2 Block release and fix pipeline 71.3 s
+B5 NV-I02 2 Block release and fix pipeline 128.3 s
+AAF AG-M02 3 Block release and fix pipeline 49.3 s
+B5 NV-U23 1 Mitigate and monitor 122.5 s
+B5 NV-U06 3 Patch or block release 155.4 s
+B5 RP-M03 3 Patch or block release 136.8 s
+B5 NV-U10 2 Scale adjustment 121.1 s
+B6 AG-I02 1 Patch or block release 114.6 s
+B5 RP-A01 2 Block release and fix pipeline 122.2 s
+B5 AG-C05 3 Block release and fix pipeline 123.3 s
+B6 AG-M01 1 Block release and fix pipeline 119.3 s
+AAF AG-M01 3 Scale adjustment 0.0 s
+AAF AG-M08 1 Scale adjustment 92.6 s
+B5 AG-A02 3 Block release and fix pipeline 135.5 s
+B6 RP-A02 2 Block release and fix pipeline 114.4 s
+AAF NV-U02 1 Scale adjustment 78.4 s
+B5 RP-C02 1 No action (observe) 143.5 s
+B5 NV-A03 3 Block release and fix pipeline 134.4 s
+B5 AG-C08 3 No action (observe) 137.0 s
+AAF NV-I04 3 Scale adjustment 96.0 s
+AAF AG-I05 2 Scale adjustment 116.3 s
+B5 NV-M03 1 Scale adjustment 122.1 s
+AAF AG-C08 1 Patch or block release 0.0 s
+AAF AG-A05 1 Mitigate and monitor 49.8 s
+B6 NV-U23 2 Block release and fix pipeline 122.9 s
+B6 AG-A01 2 Block release and fix pipeline 119.7 s
+AAF RP-M02 2 Patch or block release 38.2 s
+B5 NV-I05 2 Scale adjustment 143.7 s
+B6 NV-M04 2 Block release and fix pipeline 146.0 s
+B6 NV-I06 2 Block release and fix pipeline 124.2 s
+AAF AG-I04 2 Mitigate and monitor 109.6 s
+B5 AG-A08 2 Block release and fix pipeline 137.7 s
+AAF RP-C02 1 Mitigate and monitor 0.0 s
+B5 NV-U11 2 Mitigate and monitor 140.0 s
+AAF NV-U23 2 Mitigate and monitor 103.9 s
+B6 NV-U05 2 Block release and fix pipeline 158.2 s
