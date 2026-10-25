@@ -1,24 +1,50 @@
-Couldn't find '/home/runner/.ollama/id_ed25519'. Generating new private key.
-Your new public key is: 
-
-ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAyNXY+nXfbirPWG5AT6czad7+32KODGqt3V0+At1lI+
-
-time=2026-10-25T13:03:26.833Z level=INFO source=routes.go:2451 msg="server config" env="map[CUDA_VISIBLE_DEVICES: GGML_VK_VISIBLE_DEVICES: GPU_DEVICE_ORDINAL: HIP_VISIBLE_DEVICES: HSA_OVERRIDE_GFX_VERSION: HTTPS_PROXY: HTTP_PROXY: LLAMA_ARG_FIT: LLAMA_ARG_FIT_TARGET: NO_PROXY: OLLAMA_CONTEXT_LENGTH:0 OLLAMA_CREATE_REMOTE:false OLLAMA_DEBUG:INFO OLLAMA_DEBUG_LOG_REQUESTS:false OLLAMA_EDITOR: OLLAMA_FLASH_ATTENTION:false OLLAMA_GO_TEMPLATE:true OLLAMA_GPU_OVERHEAD:0 OLLAMA_HOST:http://127.0.0.1:11434 OLLAMA_IGPU_ENABLE: OLLAMA_KEEP_ALIVE:5m0s OLLAMA_KV_CACHE_TYPE: OLLAMA_LLM_LIBRARY: OLLAMA_LOAD_TIMEOUT:5m0s OLLAMA_MAX_LOADED_MODELS:0 OLLAMA_MAX_QUEUE:512 OLLAMA_MAX_TRANSFER_STREAMS:4 OLLAMA_MODELS:/home/runner/.ollama/models OLLAMA_NOHISTORY:false OLLAMA_NOPRUNE:false OLLAMA_NO_CLOUD:false OLLAMA_NUM_PARALLEL:1 OLLAMA_ORIGINS:[http://localhost https://localhost http://localhost:* https://localhost:* http://127.0.0.1 https://127.0.0.1 http://127.0.0.1:* https://127.0.0.1:* http://0.0.0.0 https://0.0.0.0 http://0.0.0.0:* https://0.0.0.0:* app://* file://* tauri://* vscode-webview://* vscode-file://*] OLLAMA_REMOTES:[ollama.com] OLLAMA_SCHED_SPREAD:false OLLAMA_VULKAN:true ROCR_VISIBLE_DEVICES: http_proxy: https_proxy: no_proxy:]"
-time=2026-10-25T13:03:26.833Z level=INFO source=routes.go:2453 msg="Ollama cloud disabled: false"
-time=2026-10-25T13:03:26.833Z level=INFO source=images.go:1007 msg="total blobs: 0"
-time=2026-10-25T13:03:26.834Z level=INFO source=images.go:1016 msg="total unused blobs removed: 0"
-time=2026-10-25T13:03:26.834Z level=INFO source=routes.go:2513 msg="Listening on 127.0.0.1:11434 (version 0.40.9)"
-time=2026-10-25T13:03:26.834Z level=INFO source=runner.go:60 msg="discovering available GPUs..."
-time=2026-10-25T13:03:26.959Z level=INFO source=types.go:50 msg="inference compute" id=cpu library=cpu compute="" name=cpu description=cpu libdirs=ollama driver="" pci_id="" type="" total="15.6 GiB" available="14.6 GiB"
-time=2026-10-25T13:03:26.959Z level=INFO source=routes.go:2563 msg="vram-based default context" total_vram="0 B" default_num_ctx=4096
-time=2026-10-25T13:03:27.003Z level=INFO source=model_recommendations.go:177 msg="model recommendations cache sleep scheduled" wait=3h13m56.784771294s consecutive_failures=0
-[GIN] 2026/10/25 - 13:03:31 | 200 | 53.059µs |       127.0.0.1 | HEAD     "/"
-time=2026-10-25T13:03:32.821Z level=INFO source=download.go:182 msg="downloading 667b0c1932bc in 16 307 MB part(s)"
-time=2026-10-25T13:03:52.415Z level=INFO source=download.go:182 msg="downloading 948af2743fc7 in 1 1.5 KB part(s)"
-time=2026-10-25T13:03:52.875Z level=INFO source=download.go:182 msg="downloading 0ba8f0e314b4 in 1 12 KB part(s)"
-time=2026-10-25T13:03:53.240Z level=INFO source=download.go:182 msg="downloading 56bb8bd477a5 in 1 96 B part(s)"
-[GIN] 2026/10/25 - 13:03:56 | 200 |   24.39s |       127.0.0.1 | POST     "/api/pull"
-[GIN] 2026/10/25 - 13:03:56 | 200 | 35.452µs |       127.0.0.1 | GET      "/api/version"
-[GIN] 2026/10/25 - 13:03:56 | 200 | 182.53ms |       127.0.0.1 | GET      "/api/tags"
-[GIN] 2026/10/25 - 13:03:56 | 200 | 24.426µs |       127.0.0.1 | HEAD     "/"
-[GIN] 2026/10/25 - 13:03:56 | 200 |  29.44ms |       127.0.0.1 | POST     "/api/show"
+srv          load:    - prompt with length    1087, lcp =     101, f_keep = 0.093, f_sim = 0.162
+srv          load:    - prompt with length     544, lcp =       7, f_keep = 0.013, f_sim = 0.011
+srv          load:    - prompt with length     574, lcp =       7, f_keep = 0.012, f_sim = 0.011
+srv          load:    - prompt with length     475, lcp =       7, f_keep = 0.015, f_sim = 0.011
+srv          load:    - prompt with length     440, lcp =       7, f_keep = 0.016, f_sim = 0.011
+srv        update:  - cache state: 24 prompts, 1966.323 MiB (limits: 8192.000 MiB, 8192 tokens, 65529 est)
+srv        update:    - prompt 0x388c260:     754 tokens, checkpoints:  0,    94.259 MiB
+srv        update:    - prompt 0x3999cf0:     636 tokens, checkpoints:  0,    79.508 MiB
+srv        update:    - prompt 0x39c81a0:     619 tokens, checkpoints:  0,    77.383 MiB
+srv        update:    - prompt 0x4e28c80:     806 tokens, checkpoints:  0,   100.760 MiB
+srv        update:    - prompt 0x3946f10:     767 tokens, checkpoints:  0,    95.885 MiB
+srv        update:    - prompt 0x394af80:     740 tokens, checkpoints:  0,    92.509 MiB
+srv        update:    - prompt 0x38a4430:     767 tokens, checkpoints:  0,    95.885 MiB
+srv        update:    - prompt 0x386eea0:     741 tokens, checkpoints:  0,    92.634 MiB
+srv        update:    - prompt 0x394f6b0:     524 tokens, checkpoints:  0,    65.507 MiB
+srv        update:    - prompt 0x508abc0:     769 tokens, checkpoints:  0,    96.135 MiB
+srv        update:    - prompt 0x394cba0:     534 tokens, checkpoints:  0,    66.757 MiB
+srv        update:    - prompt 0x38677a0:     733 tokens, checkpoints:  0,    91.634 MiB
+srv        update:    - prompt 0x4fb97f0:     770 tokens, checkpoints:  0,    96.260 MiB
+srv        update:    - prompt 0x78ca8a0:     524 tokens, checkpoints:  0,    65.507 MiB
+srv        update:    - prompt 0x4fcb7f0:     660 tokens, checkpoints:  0,    82.508 MiB
+srv        update:    - prompt 0x4feb780:     582 tokens, checkpoints:  0,    72.757 MiB
+srv        update:    - prompt 0x6c687a0:     718 tokens, checkpoints:  0,    89.759 MiB
+srv        update:    - prompt 0x3acc060:     553 tokens, checkpoints:  0,    69.132 MiB
+srv        update:    - prompt 0x394c1f0:     412 tokens, checkpoints:  0,    51.505 MiB
+srv        update:    - prompt 0x394dfd0:    1087 tokens, checkpoints:  0,   135.888 MiB
+srv        update:    - prompt 0x3ad1830:     544 tokens, checkpoints:  0,    68.007 MiB
+srv        update:    - prompt 0x394ecc0:     574 tokens, checkpoints:  0,    71.757 MiB
+srv        update:    - prompt 0x3ad0750:     475 tokens, checkpoints:  0,    59.381 MiB
+srv        update:    - prompt 0x394d290:     440 tokens, checkpoints:  0,    55.006 MiB
+srv  get_availabl: prompt cache update took 30.64 ms
+slot launch_slot_: id  0 | task -1 | sampler chain: logits -> ?penalties -> ?dry -> ?top-n-sigma -> top-k -> ?typical -> top-p -> ?min-p -> ?xtc -> temp-ext -> dist 
+slot launch_slot_: id  0 | task -1 | sampler params: 
+	repeat_last_n = 64, repeat_penalty = 1.000, frequency_penalty = 0.000, presence_penalty = 0.000
+	dry_multiplier = 0.000, dry_base = 1.750, dry_allowed_length = 2, dry_penalty_last_n = 64
+	top_k = 40, top_p = 0.900, min_p = 0.000, xtc_probability = 0.000, xtc_threshold = 0.100, typical_p = 1.000, top_n_sigma = -1.000, temp = 0.700
+	mirostat = 0, mirostat_lr = 0.100, mirostat_ent = 5.000, adaptive_target = -1.000, adaptive_decay = 0.900
+slot launch_slot_: id  0 | task 17218 | processing task, is_child = 0
+slot   operator(): id  0 | task 17218 | new prompt, n_ctx_slot = 8192, n_keep = 4, task.n_tokens = 625
+slot   operator(): id  0 | task 17218 | cached n_tokens = 7, memory_seq_rm [7, end)
+slot init_sampler: id  0 | task 17218 | init sampler, took 0.12 ms, tokens: text = 625, total = 625
+slot print_timing: id  0 | task 17218 | n_gen =    100, tg =   5.49 t/s, tg_3s =   5.54 t/s
+slot print_timing: id  0 | task 17218 | prompt eval time =   46489.45 ms /   618 tokens (   75.23 ms per token,    13.29 tokens per second)
+slot print_timing: id  0 | task 17218 |        eval time =   19685.94 ms /   109 tokens (  182.28 ms per token,     5.49 tokens per second)
+slot print_timing: id  0 | task 17218 |       total time =   66175.39 ms /   727 tokens
+slot print_timing: id  0 | task 17218 |    graphs reused =      16855
+slot print_timing: id  0 | task 17218 |   graph reallocs =          0    /     0        (same size) / (changed size)
+slot      release: id  0 | task 17218 | stop processing: n_tokens = 733, truncated = 0
+srv  update_slots: all slots are idle
+[GIN] 2026/10/25 - 16:26:56 | 200 |     1m0s |       127.0.0.1 | POST     "/api/chat"
