@@ -13,3 +13,6 @@ one run each (288 runs). Results: `model_replication/results/qwen3_8b/injection/
 (2) Accuracy change vs. the uninjected Study 10 Qwen runs on the Study 6 authors' key. (3) For AAF, the number of runs whose
 final action differs from B1's without a genuine tool result (expected 0). Exact McNemar for AAF vs. B5 and AAF vs. B6 on
 per-case injection success (Holm).
+
+## Execution notes (appended after the study)
+- The first launch was cancelled before any job started, to free runners for Study 14; the study then ran once as specified.

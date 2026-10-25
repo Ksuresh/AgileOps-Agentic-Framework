@@ -41,3 +41,10 @@ In the first decider run every AAF-12 call failed with a RecursionError: `run_hy
 `hybrid.deterministic_assessment` with the v12 function, which then called the replaced attribute (itself). The rules
 were not affected (B1-12 calls the v12 function directly). The wrapper now keeps a reference to the original function;
 AAF-12 alone is rerun (completed AAF, B5 and B6 runs are kept); no rule, threshold, case or prompt changed.
+
+## Execution notes (appended after the study; no case, rule, threshold or prompt changed)
+- Replicates 1 and 2 ran at the same time and wrote CI log files with the same names; the resulting push conflicts lost the
+  results of 10 replicate-1 cases and 14 replicate-2 cases. Those cases were measured again (commits 1bc562a, 903c919); log
+  names now include the replicate.
+- The comparison deciders (siloed rule experts D-*, B2, B3) use rule set v1.0 domain rules, as in Study 9; only B1-12 and
+  AAF-12 use v1.2. Rule set v1.2 contains both R1 (release regression) and R2 (security over cost).

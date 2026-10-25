@@ -1,0 +1,58 @@
+{
+  "faults_n": 34,
+  "withheld_n": 32,
+  "faults_correct": {
+    "D-DevOps(v1.4)": 17,
+    "D-SRE(v1.4)": 9,
+    "D-FinOps(v1.4)": 11,
+    "D-Sec(v1.4)": 26,
+    "B2(v1.4)": 34,
+    "B3(v1.4)": 34,
+    "AAF-14": 34
+  },
+  "withheld_correct": {
+    "D-DevOps(v1.4)": 9,
+    "D-SRE(v1.4)": 7,
+    "D-FinOps(v1.4)": 9,
+    "D-Sec(v1.4)": 5,
+    "B2(v1.4)": 32,
+    "B3(v1.4)": 29,
+    "AAF-14": 27
+  },
+  "AAF14_vs_v14_siloed_rules": {
+    "D-DevOps(v1.4)": {
+      "a_only": 17,
+      "b_only": 0,
+      "p_exact": 1.52587890625e-05,
+      "p_holm": 3.0517578125e-05
+    },
+    "D-SRE(v1.4)": {
+      "a_only": 25,
+      "b_only": 0,
+      "p_exact": 5.960464477539063e-08,
+      "p_holm": 2.384185791015625e-07
+    },
+    "D-FinOps(v1.4)": {
+      "a_only": 23,
+      "b_only": 0,
+      "p_exact": 2.384185791015625e-07,
+      "p_holm": 7.152557373046875e-07
+    },
+    "D-Sec(v1.4)": {
+      "a_only": 8,
+      "b_only": 0,
+      "p_exact": 0.0078125,
+      "p_holm": 0.0078125
+    }
+  },
+  "AAF14_vs_B2v14_withheld": {
+    "a_only": 0,
+    "b_only": 5,
+    "p_exact": 0.0625
+  },
+  "AAF14_vs_B3v14_withheld": {
+    "a_only": 0,
+    "b_only": 2,
+    "p_exact": 0.5
+  }
+}

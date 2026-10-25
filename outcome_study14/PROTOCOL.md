@@ -46,3 +46,11 @@ Withheld-evidence variants (as in Study 9b) are secondary. Any comparison may go
 Frontend E = `frontend:v0.4.0` (5 critical CVEs), F = `frontend:v0.3.0` (8); productcatalogservice P1 = `v0.8.0` (4),
 P2 = `v0.7.0` (5); all gcr.io, all roll out and keep the storefront serving. Stable images (v0.10.6) have 0 critical and
 32 HIGH/MEDIUM findings each.
+
+## Execution notes (appended after the study)
+- Five decider batches reached the GitHub runner time limit; the remaining 24 of 864 LLM decisions were completed by a resumed
+  run with identical settings (commit f411d8f). Completed decisions were not rerun.
+- As in Studies 9 and 12, the comparison deciders D-*, B2 and B3 use the v1.0 domain rules; only B1-14 and AAF-14 use v1.4.
+  A post hoc recomputation with v1.4 (`posthoc_v14_baselines.py`, no model calls) changes the siloed DevOps expert from 14 to
+  17 of 34 (all other siloed experts unchanged; AAF-14 still better than each), and gives a v1.4 fetch rule (B2) 32 of 32
+  withheld-evidence variants against 27 for AAF-14 (5 vs 0 discordant, p = 0.0625) and B3 29.

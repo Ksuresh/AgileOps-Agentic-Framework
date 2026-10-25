@@ -26,3 +26,7 @@ findings); the other candidate tags could not be scanned and no older tag has 0 
 so LR-02 and LR-04 (the L2 cases) are dropped. Study 13 has 2 low-risk cases (LR-01, LR-03) and 3 critical cases.
 Note: because the stable image carries 32 HIGH/MEDIUM findings, every healthy state in Studies 9 and 12 was also a
 low-risk-finding state; Study 13 makes that finding visible to the deciders.
+
+## Execution notes (appended after the study)
+- One decider batch stopped because the block-on-any-finding comparison policy received a withheld (missing) CVE count; the
+  policy was fixed to treat a missing count as zero and the batch was rerun (commits 83eca4f, ba43872). No AAF code changed.
