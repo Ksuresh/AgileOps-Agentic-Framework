@@ -41,7 +41,8 @@ def majority(actions: list[str]) -> str | None:
 
 
 def main() -> None:
-    qdir = Path(sys.argv[1]) if len(sys.argv) > 1 else ROOT / "model_replication/results/qwen3_8b/main"
+    qdir = (ROOT / sys.argv[1]).resolve() if len(sys.argv) > 1 else ROOT / "model_replication/results/qwen3_8b/main"
+    out_name = sys.argv[2] if len(sys.argv) > 2 else "analysis.json"
     cases = {c["id"]: c for f in ("cases_v1.yaml", "cases_replication_v1.yaml") for c in yaml.safe_load((ROOT / "agentic_experiments" / f).read_text())["cases"]}
     new = {c["id"]: c for c in yaml.safe_load((ES / "cases_new_v1.yaml").read_text())["cases"]}
     cases.update(new)
@@ -110,7 +111,7 @@ def main() -> None:
     res["H10_3_accuracy"] = acc
     res["H10_4_malformed_case_runs"] = dict(malformed)
     res["H10_4_aaf_malformed_changed_final_action_without_tool_result"] = aaf_malformed_changed
-    out = ROOT / "model_replication" / "analysis.json"
+    out = ROOT / "model_replication" / out_name
     out.write_text(json.dumps(res, indent=2, default=str))
     print(json.dumps(res, indent=2, default=str)[:6000])
 

@@ -1,5 +1,5 @@
 {
-  "qwen_dir": "model_replication/results/qwen3_8b/main",
+  "qwen_dir": "model_replication/results/llama3.1_8b/main",
   "errors": {},
   "n_cases": 96,
   "qwen_runs_per_arm": {
@@ -18,85 +18,85 @@
   },
   "H10_1_cross_model_same_action": {
     "AAF": {
-      "k": 95,
+      "k": 93,
       "n": 96,
       "wilson": [
-        94.3,
-        99.8
+        91.2,
+        98.9
       ]
     },
     "B3": {
-      "k": 94,
+      "k": 90,
       "n": 96,
       "wilson": [
-        92.7,
-        99.4
+        87.0,
+        97.1
       ]
     },
     "B5": {
-      "k": 38,
+      "k": 18,
       "n": 96,
       "wilson": [
-        30.4,
-        49.6
+        12.2,
+        27.7
       ]
     },
     "B6": {
-      "k": 68,
+      "k": 25,
       "n": 96,
       "wilson": [
-        61.1,
-        79.0
+        18.3,
+        35.6
       ]
     }
   },
   "H10_1_tests": {
     "AAF_vs_B5": {
-      "a_only": 58,
-      "b_only": 1,
-      "p_exact": 2.0816681711721685e-16,
-      "p_holm": 4.163336342344337e-16
+      "a_only": 75,
+      "b_only": 0,
+      "p_exact": 5.293955920339377e-23,
+      "p_holm": 1.0587911840678754e-22
     },
     "AAF_vs_B6": {
-      "a_only": 28,
-      "b_only": 1,
-      "p_exact": 1.1175870895385742e-07,
-      "p_holm": 1.1175870895385742e-07
+      "a_only": 68,
+      "b_only": 0,
+      "p_exact": 6.776263578034403e-21,
+      "p_holm": 6.776263578034403e-21
     }
   },
   "H10_2_identical_in_all_runs": {
-    "AAF": 94,
-    "B3": 89,
-    "B5": 70,
-    "B6": 70
+    "AAF": 93,
+    "B3": 92,
+    "B5": 31,
+    "B6": 48
   },
   "H10_3_accuracy": {
     "authors_s6": {
       "n": 48,
       "B1": 39,
-      "AAF": 40,
+      "AAF": 39,
       "AAF_gpt": 41,
-      "B3": 41,
+      "B3": 40,
       "B3_gpt": 41,
-      "B5": 10,
+      "B5": 6,
       "B5_gpt": 16,
-      "B6": 28,
+      "B6": 12,
       "B6_gpt": 39,
       "tests_qwen": {
         "AAF_vs_B1": {
-          "a_only": 1,
+          "a_only": 0,
           "b_only": 0,
           "p_exact": 1.0
         },
         "AAF_vs_B5": {
-          "a_only": 31,
+          "a_only": 34,
           "b_only": 1,
-          "p_exact": 1.5366822481155396e-08
+          "p_exact": 2.0954757928848267e-09
         },
         "AAF_vs_B6": {
-          "a_only": 14,
+          "a_only": 29,
           "b_only": 2,
-          "p_exact": 0.004180908203125
+          "p_exact": 4.628673195838928e-07
         },
         "AAF_vs_B3": {
           "a_only": 0,
@@ -108,63 +108,63 @@
     "authors_s7": {
       "n": 48,
       "B1": 28,
-      "AAF": 30,
+      "AAF": 29,
       "AAF_gpt": 30,
-      "B3": 33,
+      "B3": 30,
       "B3_gpt": 34,
-      "B5": 14,
+      "B5": 7,
       "B5_gpt": 18,
-      "B6": 31,
+      "B6": 10,
       "B6_gpt": 39,
       "tests_qwen": {
         "AAF_vs_B1": {
-          "a_only": 2,
+          "a_only": 1,
           "b_only": 0,
-          "p_exact": 0.5
+          "p_exact": 1.0
         },
         "AAF_vs_B5": {
-          "a_only": 18,
-          "b_only": 2,
-          "p_exact": 0.0004024505615234375
+          "a_only": 25,
+          "b_only": 3,
+          "p_exact": 2.744048833847046e-05
         },
         "AAF_vs_B6": {
-          "a_only": 7,
-          "b_only": 8,
-          "p_exact": 1.0
+          "a_only": 21,
+          "b_only": 2,
+          "p_exact": 6.604194641113281e-05
         },
         "AAF_vs_B3": {
           "a_only": 0,
-          "b_only": 3,
-          "p_exact": 0.25
+          "b_only": 1,
+          "p_exact": 1.0
         }
       }
     },
     "practitioner_s6": {
       "n": 48,
       "B1": 33,
-      "AAF": 32,
+      "AAF": 33,
       "AAF_gpt": 31,
-      "B3": 31,
+      "B3": 32,
       "B3_gpt": 31,
-      "B5": 14,
+      "B5": 9,
       "B5_gpt": 20,
-      "B6": 32,
+      "B6": 15,
       "B6_gpt": 37,
       "tests_qwen": {
         "AAF_vs_B1": {
           "a_only": 0,
-          "b_only": 1,
+          "b_only": 0,
           "p_exact": 1.0
         },
         "AAF_vs_B5": {
-          "a_only": 23,
-          "b_only": 5,
-          "p_exact": 0.0009122341871261597
+          "a_only": 25,
+          "b_only": 1,
+          "p_exact": 8.046627044677734e-07
         },
         "AAF_vs_B6": {
-          "a_only": 6,
-          "b_only": 6,
-          "p_exact": 1.0
+          "a_only": 21,
+          "b_only": 3,
+          "p_exact": 0.0002771615982055664
         },
         "AAF_vs_B3": {
           "a_only": 1,
@@ -176,41 +176,42 @@
     "practitioner_s7": {
       "n": 48,
       "B1": 23,
-      "AAF": 23,
+      "AAF": 24,
       "AAF_gpt": 23,
-      "B3": 26,
+      "B3": 25,
       "B3_gpt": 27,
-      "B5": 12,
+      "B5": 8,
       "B5_gpt": 15,
-      "B6": 27,
+      "B6": 7,
       "B6_gpt": 35,
       "tests_qwen": {
         "AAF_vs_B1": {
           "a_only": 1,
-          "b_only": 1,
+          "b_only": 0,
           "p_exact": 1.0
         },
         "AAF_vs_B5": {
-          "a_only": 14,
-          "b_only": 3,
-          "p_exact": 0.012725830078125
+          "a_only": 20,
+          "b_only": 4,
+          "p_exact": 0.001543879508972168
         },
         "AAF_vs_B6": {
-          "a_only": 5,
-          "b_only": 9,
-          "p_exact": 0.4239501953125
+          "a_only": 18,
+          "b_only": 1,
+          "p_exact": 7.62939453125e-05
         },
         "AAF_vs_B3": {
           "a_only": 0,
-          "b_only": 3,
-          "p_exact": 0.25
+          "b_only": 1,
+          "p_exact": 1.0
         }
       }
     }
   },
   "H10_4_malformed_case_runs": {
-    "B6": 36,
-    "AAF": 2
+    "B6": 74,
+    "B5": 108,
+    "AAF": 95
   },
   "H10_4_aaf_malformed_changed_final_action_without_tool_result": 0
 }
