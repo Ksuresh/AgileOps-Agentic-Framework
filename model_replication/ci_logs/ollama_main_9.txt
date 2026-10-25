@@ -1,6 +1,50 @@
-Couldn't find '/home/runner/.ollama/id_ed25519'. Generating new private key.
-Your new public key is: 
-
-ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGscRpziiZYy/Mzoq33Jdxi4APVpULysiC7HiQgBJOWK
-
-Error: listen tcp 127.0.0.1:11434: bind: address already in use
+srv        update:    - prompt 0x5fbfdc0:     438 tokens, checkpoints:  0,    54.756 MiB
+srv  get_availabl: prompt cache update took 22.50 ms
+slot launch_slot_: id  0 | task -1 | sampler chain: logits -> ?penalties -> ?dry -> ?top-n-sigma -> top-k -> ?typical -> top-p -> ?min-p -> ?xtc -> temp-ext -> dist 
+slot launch_slot_: id  0 | task -1 | sampler params: 
+	repeat_last_n = 64, repeat_penalty = 1.000, frequency_penalty = 0.000, presence_penalty = 0.000
+	dry_multiplier = 0.000, dry_base = 1.750, dry_allowed_length = 2, dry_penalty_last_n = 64
+	top_k = 40, top_p = 0.900, min_p = 0.000, xtc_probability = 0.000, xtc_threshold = 0.100, typical_p = 1.000, top_n_sigma = -1.000, temp = 0.700
+	mirostat = 0, mirostat_lr = 0.100, mirostat_ent = 5.000, adaptive_target = -1.000, adaptive_decay = 0.900
+slot launch_slot_: id  0 | task 778 | processing task, is_child = 0
+slot   operator(): id  0 | task 778 | new prompt, n_ctx_slot = 8192, n_keep = 4, task.n_tokens = 980
+slot   operator(): id  0 | task 778 | cached n_tokens = 7, memory_seq_rm [7, end)
+slot init_sampler: id  0 | task 778 | init sampler, took 0.17 ms, tokens: text = 980, total = 980
+slot print_timing: id  0 | task 778 | prompt eval time =   34371.50 ms /   973 tokens (   35.33 ms per token,    28.31 tokens per second)
+slot print_timing: id  0 | task 778 |        eval time =   22002.42 ms /    72 tokens (  309.89 ms per token,     3.23 tokens per second)
+slot print_timing: id  0 | task 778 |       total time =   56373.92 ms /  1045 tokens
+slot print_timing: id  0 | task 778 |    graphs reused =        827
+slot print_timing: id  0 | task 778 |   graph reallocs =          0    /     0        (same size) / (changed size)
+slot      release: id  0 | task 778 | stop processing: n_tokens = 1051, truncated = 0
+srv  update_slots: all slots are idle
+[GIN] 2026/10/25 - 01:57:24 | 200 |    56.4s |       127.0.0.1 | POST     "/api/chat"
+srv  server_strea: conv_id= (empty=1)
+slot get_availabl: id  0 | task -1 |  - checking sim = 0.021 (7/335) > 0.100
+slot get_availabl: id  0 | task -1 | selected slot by LRU, n_tokens = 1051, t_last = 498558032
+srv  get_availabl: updating prompt cache
+srv   prompt_save:  - saving prompt with length 1051, total state size = 131.388 MiB (draft: 0.000 MiB)
+srv          load:  - looking for better prompt, base f_keep = 0.007, f_sim = 0.021
+srv          load:    - prompt with length     430, lcp =       7, f_keep = 0.016, f_sim = 0.021
+srv          load:    - prompt with length     542, lcp =     296, f_keep = 0.546, f_sim = 0.884
+srv          load:    - prompt with length     566, lcp =     217, f_keep = 0.383, f_sim = 0.648
+srv          load:    - prompt with length     465, lcp =     217, f_keep = 0.467, f_sim = 0.648
+srv          load:    - prompt with length     438, lcp =     218, f_keep = 0.498, f_sim = 0.651
+srv          load:    - prompt with length    1051, lcp =       7, f_keep = 0.007, f_sim = 0.021
+srv          load:  - found better prompt with f_keep = 0.546, f_sim = 0.884
+srv        update:  - cache state: 5 prompts, 368.788 MiB (limits: 8192.000 MiB, 8192 tokens, 65529 est)
+srv        update:    - prompt 0x5fc6550:     430 tokens, checkpoints:  0,    53.756 MiB
+srv        update:    - prompt 0x5fc14a0:     566 tokens, checkpoints:  0,    70.757 MiB
+srv        update:    - prompt 0x5fc0ab0:     465 tokens, checkpoints:  0,    58.131 MiB
+srv        update:    - prompt 0x5fbfdc0:     438 tokens, checkpoints:  0,    54.756 MiB
+srv        update:    - prompt 0x5fbdfe0:    1051 tokens, checkpoints:  0,   131.388 MiB
+srv  get_availabl: prompt cache update took 73.63 ms
+slot launch_slot_: id  0 | task -1 | sampler chain: logits -> ?penalties -> ?dry -> ?top-n-sigma -> top-k -> ?typical -> top-p -> ?min-p -> ?xtc -> temp-ext -> dist 
+slot launch_slot_: id  0 | task -1 | sampler params: 
+	repeat_last_n = 64, repeat_penalty = 1.000, frequency_penalty = 0.000, presence_penalty = 0.000
+	dry_multiplier = 0.000, dry_base = 1.750, dry_allowed_length = 2, dry_penalty_last_n = 64
+	top_k = 40, top_p = 0.900, min_p = 0.000, xtc_probability = 0.000, xtc_threshold = 0.100, typical_p = 1.000, top_n_sigma = -1.000, temp = 0.700
+	mirostat = 0, mirostat_lr = 0.100, mirostat_ent = 5.000, adaptive_target = -1.000, adaptive_decay = 0.900
+slot launch_slot_: id  0 | task 851 | processing task, is_child = 0
+slot   operator(): id  0 | task 851 | new prompt, n_ctx_slot = 8192, n_keep = 4, task.n_tokens = 335
+slot   operator(): id  0 | task 851 | cached n_tokens = 296, memory_seq_rm [296, end)
+slot init_sampler: id  0 | task 851 | init sampler, took 0.06 ms, tokens: text = 335, total = 335
