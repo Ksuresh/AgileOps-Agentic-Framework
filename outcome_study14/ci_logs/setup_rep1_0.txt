@@ -13,7 +13,7 @@ Creating cluster "aaf-oc" ...
  ✓ Installing StorageClass 💾
  • Waiting ≤ 2m0s for control-plane = Ready ⏳  ...
  ✓ Waiting ≤ 2m0s for control-plane = Ready ⏳
- • Ready after 18s 💚
+ • Ready after 17s 💚
 Set kubectl context to "kind-aaf-oc"
 You can now use your cluster with:
 
