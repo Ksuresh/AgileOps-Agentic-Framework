@@ -1,10 +1,37 @@
-Traceback (most recent call last):
-  File "/home/runner/work/AgileOps-Agentic-Framework/AgileOps-Agentic-Framework/model_replication/run_qwen.py", line 150, in <module>
-    main()
-  File "/home/runner/work/AgileOps-Agentic-Framework/AgileOps-Agentic-Framework/model_replication/run_qwen.py", line 121, in main
-    mine = [j for j in jobs() if not arms or j[0] in arms][shard::nshards]
-                       ^^^^^^
-  File "/home/runner/work/AgileOps-Agentic-Framework/AgileOps-Agentic-Framework/model_replication/run_qwen.py", line 97, in jobs
-    runs_override = int(os.environ.get("RUNS_PER_ARM", "0"))
-                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-ValueError: invalid literal for int() with base 10: ''
+AAF RP-M04 3 Scale adjustment 182.3 s
+B6 NV-C05 2 Patch or block release 217.6 s
+B6 NV-U16 1 Rollback to stable deployment 151.8 s
+B6 NV-U13 1 Patch or block release 167.2 s
+B5 NV-I02 1 Mitigate and monitor 176.4 s
+B5 RP-A03 2 Block release and fix pipeline 182.1 s
+B5 AG-M04 3 Patch or block release 154.1 s
+B5 NV-U04 1 Block release and fix pipeline 195.4 s
+B6 NV-U24 2 Escalate for evidence/human review 171.7 s
+B6 AG-C07 2 Mitigate and monitor 157.5 s
+B5 RP-M02 2 Block release and fix pipeline 166.4 s
+AAF AG-I03 3 Scale adjustment 195.2 s
+B5 NV-U17 3 Block release and fix pipeline 157.1 s
+AAF AG-A03 2 No action (observe) 170.1 s
+B5 NV-U12 1 Block release and fix pipeline 150.0 s
+AAF NV-U05 1 Mitigate and monitor 86.0 s
+AAF AG-A07 1 Patch or block release 90.7 s
+B5 AG-C08 2 No action (observe) 174.5 s
+B5 AG-I03 2 Mitigate and monitor 204.0 s
+AAF NV-U17 2 Review scaling policy 86.0 s
+B6 AG-C08 1 Patch or block release 164.5 s
+B5 NV-C06 2 Block release and fix pipeline 168.9 s
+AAF NV-C03 1 Patch or block release 0.0 s
+B5 NV-C03 3 Block release and fix pipeline 174.5 s
+B6 NV-A03 2 Block release and fix pipeline 173.3 s
+B6 AG-I08 1 Block release and fix pipeline 179.6 s
+AAF RP-I04 1 Scale adjustment 169.4 s
+B5 AG-A02 1 Block release and fix pipeline 168.1 s
+AAF NV-U24 2 Patch or block release 0.0 s
+AAF AG-C01 1 No action (observe) 0.0 s
+AAF NV-U19 3 Block release and fix pipeline 86.0 s
+B5 RP-C03 1 Block release and fix pipeline 185.0 s
+AAF AG-I03 2 Scale adjustment 170.8 s
+B5 NV-U21 2 Block release and fix pipeline 205.7 s
+AAF NV-U22 2 Scale adjustment 128.5 s
+B5 NV-A04 2 Block release and fix pipeline 172.8 s
+B6 NV-U11 1 Patch or block release 174.5 s
