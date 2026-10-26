@@ -169,8 +169,10 @@ def part_c(cs) -> str:
          r"For each study and for the pooled data, Table (a) gives each decider's outcome-correct actions on fault cases under $O_1$ and the "
          r"stricter $O_2$, on discriminating cases and on cases with one correct action; Table (b) compares AAF (pre-specified Qwen3-8B investigator) "
          r"with each comparison decider: cases only AAF got right, cases only the other got right, the Holm-adjusted exact McNemar $p$ within the "
-         r"pre-specified family, and the same comparison over families of related cases (sign test). A dagger marks configurations whose runs were "
-         r"incomplete when this appendix was generated; their denominators are the completed cases."]
+         r"pre-specified family, and the same comparison over families of related cases (sign test). A dagger marks a denominator smaller than "
+         r"the number of fault cases: the v1.4 fetch rule (B2-14) and the always-on agents with v1.4 authority (B3-14) were added in Studies~15 and~16 "
+         r"and are not available for Study~14 (for Study~14 the v1.4 fetch rule was computed post hoc on the withheld-evidence variants only). "
+         r"All Qwen3-8B and GPT-5.6 Luna runs are complete."]
     for scope in list(S) + ["pooled"]:
         P = cs["pooled"] if scope == "pooled" else cs["per_study"][scope]
         name = "Pooled, Studies 14--16" if scope == "pooled" else SN[scope]
@@ -179,7 +181,7 @@ def part_c(cs) -> str:
         L += [rf"\subsection*{{C.{(list(S) + ['pooled']).index(scope) + 1} {name}}}",
               rf"Fault cases {full}; families {P['n_families']}; discriminating {P['n_discriminating']}; one correct action {P['n_unique_answer']}.",
               r"\begin{longtable}{L{6.4cm}L{1.7cm}L{1.7cm}L{2.2cm}L{2.2cm}}",
-              rf"\multicolumn{{5}}{{l}}{{\textbf{{(a) Outcome-correct actions on fault cases, {name}}} (complete unless marked $^\dagger$)}} \\", r"\toprule",
+              rf"\multicolumn{{5}}{{l}}{{\textbf{{(a) Outcome-correct actions on fault cases, {name}}} (dagger: denominator below the number of fault cases)}} \\", r"\toprule",
               r"\textbf{Decider} & \textbf{$O_1$} & \textbf{$O_2$ (strict)} & \textbf{Discriminating cases} & \textbf{One-correct-action cases} \\", r"\midrule", r"\endfirsthead",
               rf"\multicolumn{{5}}{{l}}{{\textbf{{(a) continued, {name}}}}} \\", r"\toprule",
               r"\textbf{Decider} & \textbf{$O_1$} & \textbf{$O_2$ (strict)} & \textbf{Discriminating cases} & \textbf{One-correct-action cases} \\", r"\midrule", r"\endhead"]
