@@ -1,0 +1,82 @@
+{
+  "outcome_study14": {
+    "n_faults": 34,
+    "n_discriminating": 29,
+    "best_single_domain": "D-Sec",
+    "O1": {
+      "full": 34,
+      "-R1'": 29,
+      "-R2": 30,
+      "-R1'-R2": 25,
+      "-baseline": 32,
+      "-interaction": 34,
+      "-interaction-R1'-R2": 22,
+      "single-domain(best)": 26
+    },
+    "O2": {
+      "full": 24,
+      "-R1'": 22,
+      "-R2": 22,
+      "-R1'-R2": 20,
+      "-baseline": 21,
+      "-interaction": 24,
+      "-interaction-R1'-R2": 19,
+      "single-domain(best)": 20
+    },
+    "O1_discriminating": {
+      "full": 29,
+      "-R1'": 24,
+      "-R2": 25,
+      "-R1'-R2": 20,
+      "-baseline": 27,
+      "-interaction": 29,
+      "-interaction-R1'-R2": 17,
+      "single-domain(best)": 21
+    },
+    "check_full_equals_B1-14": true,
+    "tests_full_vs": {
+      "-R1'": {
+        "a_only": 5,
+        "b_only": 0,
+        "p_exact": 0.0625,
+        "p_holm": 0.25
+      },
+      "-R2": {
+        "a_only": 4,
+        "b_only": 0,
+        "p_exact": 0.125,
+        "p_holm": 0.375
+      },
+      "-R1'-R2": {
+        "a_only": 9,
+        "b_only": 0,
+        "p_exact": 0.00390625,
+        "p_holm": 0.0234375
+      },
+      "-baseline": {
+        "a_only": 2,
+        "b_only": 0,
+        "p_exact": 0.5,
+        "p_holm": 1.0
+      },
+      "-interaction": {
+        "a_only": 0,
+        "b_only": 0,
+        "p_exact": 1.0,
+        "p_holm": 1.0
+      },
+      "-interaction-R1'-R2": {
+        "a_only": 12,
+        "b_only": 0,
+        "p_exact": 0.00048828125,
+        "p_holm": 0.00341796875
+      },
+      "single-domain(best)": {
+        "a_only": 8,
+        "b_only": 0,
+        "p_exact": 0.0078125,
+        "p_holm": 0.0390625
+      }
+    }
+  }
+}
