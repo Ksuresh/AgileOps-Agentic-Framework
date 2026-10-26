@@ -6,11 +6,13 @@
 \toprule
 \textbf{Decider} & \textbf{All faults (104)} & \textbf{Discriminating (98)} & \textbf{One correct action (46)} \\
 \midrule
-AAF & 86/86$^\dagger$ & 80/80$^\dagger$ & 37/37$^\dagger$ \\
+AAF, GPT investigator & 104/104 & 98/98 & 46/46 \\
+AAF rules alone & 104/104 & 98/98 & 46/46 \\
+AAF, Qwen investigator & 89/89$^\dagger$ & 83/83$^\dagger$ & 39/39$^\dagger$ \\
 GPT-5.6 Luna + rules (B6) & 80/104 & 74/98 & 23/46 \\
 GPT-5.6 Luna (B5) & 78/104 & 72/98 & 26/46 \\
-Qwen3-8B + rules (B6) & 61/80$^\dagger$ & 55/74$^\dagger$ & 17/32$^\dagger$ \\
-Qwen3-8B (B5) & 58/82$^\dagger$ & 52/76$^\dagger$ & 19/34$^\dagger$ \\
+Qwen3-8B + rules (B6) & 64/83$^\dagger$ & 58/77$^\dagger$ & 17/32$^\dagger$ \\
+Qwen3-8B (B5) & 63/87$^\dagger$ & 57/81$^\dagger$ & 22/37$^\dagger$ \\
 Always roll back & 77/104 & 71/98 & 25/46 \\
 Act on most severe domain & 63/104 & 57/98 & 19/46 \\
 Security expert (rules) & 62/104 & 56/98 & 10/46 \\

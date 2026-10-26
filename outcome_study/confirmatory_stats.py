@@ -46,6 +46,13 @@ def sign_test(wins: int, losses: int) -> float:
 
 
 def gather():
+    import os
+    os.environ["OUTCOME_DIR"] = "outcome_study14"
+    from outcome_study.decide import b2 as _b2
+    from agentic_experiments.rules_v14 import deterministic_assessment_v14 as _v14
+    global VARIANTS, B2, V14
+    B2, V14 = _b2, _v14
+    VARIANTS = {st: {v["id"]: v for v in json.loads((ROOT / st / "decisions" / "variants.json").read_text())} for st in STUDIES}
     data = {}  # (study, case) -> dict
     for st in STUDIES:
         A, table, dec, ok, maj, usage = load(st)
@@ -71,6 +78,12 @@ def gather():
                 for d in ("AAF-14", "AAF-14-GPT", "B1-14", "B2-14", "B2", "B1", "B5", "B6", "B5-GPT", "B6-GPT", "B3-14"):
                     if dec[d].get(c + "-W"):
                         w["correct"]["AAF" if d == "AAF-14" else d] = ok(d, c + "-W")
+                if "B2-14" not in w["correct"]:  # Study 14 predates the v1.4 fetch rule: computed post hoc (no model calls)
+                    v = VARIANTS[st].get(c + "-W")
+                    if v:
+                        a_ = B2(v, V14)
+                        w["correct"]["B2-14"] = A.STATE_OF.get(a_) in table[c]["O1"]
+                        w["b2_14_post_hoc"] = True
                 data[(st, c + "-W")] = w
     return data
 
@@ -171,7 +184,12 @@ def main() -> None:
                    "faults_rules_correct_in_each_replicate_separately": f"{rules_ok_each}/{len(fb)}"}
     res["replicates"] = rep
     allc = [r for r in data.values() if not r["case"].endswith("-W")]
-    res["model_independence_outcome"] = {"cases": sum(1 for r in allc if "AAF" in r["action"] and "AAF-14-GPT" in r["action"]),
+    res["completion"] = {st: {"AAF_qwen_cases": sum(1 for r in allc if r["study"] == st and "AAF" in r["action"]),
+                              "B5_qwen_cases": sum(1 for r in allc if r["study"] == st and "B5" in r["action"]),
+                              "B6_qwen_cases": sum(1 for r in allc if r["study"] == st and "B6" in r["action"]),
+                              "all_cases": sum(1 for r in allc if r["study"] == st)} for st in STUDIES}
+    res["model_independence_outcome"] = {"population": "all full-evidence cases (fault, control and low-risk) on which both investigators ran",
+                                         "cases": sum(1 for r in allc if "AAF" in r["action"] and "AAF-14-GPT" in r["action"]),
                                          "same_action_qwen_vs_gpt_investigator": sum(1 for r in allc if r["action"].get("AAF") and r["action"].get("AAF") == r["action"].get("AAF-14-GPT")),
                                          "same_action_AAF_vs_rules_only": sum(1 for r in allc if r["action"].get("AAF") and r["action"].get("AAF") == r["action"].get("B1-14"))}
     (ROOT / "outcome_study" / "confirmatory_stats.json").write_text(json.dumps(res, indent=2, default=str))

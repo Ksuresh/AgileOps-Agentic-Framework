@@ -26,7 +26,8 @@ GROUP_NAMES = {"R": "Release regression", "P": "Fault before release", "S": "Sec
 # decider -> (label, family); siloed rule experts use v1.4 rules where the study has them (Studies 15-16) and the
 # post hoc v1.4 recomputation is not mixed in for Study 14 (v1.0 there, as pre-specified)
 SHOW = [
-    ("AAF", "AAF (rules + investigator)", "AAF"),
+    ("AAF-14-GPT", "AAF, GPT-5.6 Luna investigator", "AAF"),
+    ("B1-14", "AAF rules alone (no investigation)", "AAF"),
     ("B6-GPT", "GPT-5.6 Luna decides, with AAF's rules", "LLM decides"),
     ("B5-GPT", "GPT-5.6 Luna decides", "LLM decides"),
     ("B6", "Qwen3-8B decides, with AAF's rules", "LLM decides"),
@@ -51,14 +52,14 @@ def collect():
     rows = {}
     for st in STUDIES:
         A, table, dec, ok, maj, _ = load(st)
-        alias = {"AAF": "AAF-14"}
+        alias = {}
         for key, _, _ in SHOW:
             src = alias.get(key, key)
             if key.startswith("D-") and (src + "-14") in dec:
                 src = src + "-14"
             for c in sorted(table):
                 g = c.split("-")[1][0]
-                s2 = src if dec[src].get(c) or key != "AAF" else "AAF-14-GPT"  # AAF with the GPT investigator if a Qwen row is absent
+                s2 = src
                 if g in FAULT and dec[s2].get(c):
                     rows.setdefault(key, []).append((st, c, g, ok(s2, c)))
     if PREVIEW:  # drop deciders whose runs are incomplete
@@ -100,9 +101,9 @@ def fig_accuracy(rows, out: Path):
 
 
 def fig_groups(rows, out: Path):
-    keys = [k for k in ("AAF", "B6-GPT", "B5-GPT", "AlwaysRollback", "BlockAnyCVE", "D-Sec", "D-DevOps", "D-SRE", "D-FinOps") if k in rows]
+    keys = [k for k in ("AAF-14-GPT", "B6-GPT", "B5-GPT", "AlwaysRollback", "BlockAnyCVE", "D-Sec", "D-DevOps", "D-SRE", "D-FinOps") if k in rows]
     labels = {k: lab for k, lab, _ in SHOW}
-    short = {"AAF": "AAF", "B6-GPT": "GPT+rules", "B5-GPT": "GPT", "AlwaysRollback": "Rollback", "BlockAnyCVE": "Block CVE",
+    short = {"AAF-14-GPT": "AAF", "B6-GPT": "GPT+rules", "B5-GPT": "GPT", "AlwaysRollback": "Rollback", "BlockAnyCVE": "Block CVE",
              "D-Sec": "Security", "D-DevOps": "DevOps", "D-SRE": "SRE", "D-FinOps": "FinOps"}
     groups = [g for g in "RPSKXD"]
     import numpy as np
@@ -139,7 +140,7 @@ def fig_groups(rows, out: Path):
 def fig_paired(rows, out: Path):
     comps = [k for k, _, _ in SHOW if k != "AAF" and k in rows]
     labels = {k: lab for k, lab, _ in SHOW}
-    a = {(r[0], r[1]): r[3] for r in rows["AAF"]}
+    a = {(r[0], r[1]): r[3] for r in rows["AAF-14-GPT"]}
     data = []
     for k in comps:
         b = {(r[0], r[1]): r[3] for r in rows[k]}

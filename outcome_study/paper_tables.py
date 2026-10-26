@@ -13,8 +13,9 @@ ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "paper_tables"
 S = ("outcome_study14", "outcome_study15", "outcome_study16")
 ROWS = [  # key in confirmatory_stats, label, group
-    ("AAF", "AAF (v1.4 rules + Qwen3-8B investigator)", 0),
-    ("AAF-14-GPT", "AAF with GPT-5.6 Luna investigator", 0),
+    ("AAF-14-GPT", "AAF, GPT-5.6 Luna investigator", 0),
+    ("AAF", "AAF, Qwen3-8B investigator", 0),
+    ("B1-14", "AAF rules alone (no investigation)", 0),
     ("B6-GPT", "GPT-5.6 Luna decides, AAF's rules in prompt (B6)", 1),
     ("B5-GPT", "GPT-5.6 Luna decides (B5)", 1),
     ("B6", "Qwen3-8B decides, AAF's rules in prompt (B6)", 1),
@@ -82,11 +83,13 @@ def main() -> None:
           r"the pre-specified families (single-domain experts; LLM deciders and always-rollback); family-level: cases of the same design on "
           r"different services of one study (" + str(P["n_families"]) + r" families), sign test in the text. Single-domain rule experts use AAF's own "
           r"rules on one domain (v1.4 in Studies 15--16; v1.0 in Study 14 as pre-specified). Qwen3-8B: majority of three runs; GPT-5.6 Luna: one run. "
+          r"Comparisons use AAF with the pre-specified Qwen3-8B investigator on the cases where its runs completed; AAF's action with the GPT-5.6 Luna "
+          r"investigator and with the rules alone was identical on every one of these cases. "
           r"$^\dagger$Fewer cases than the study has: runs incomplete.", r"\end{table*}"]
     (OUT / "tab_confirm.tex").write_text("\n".join(L) + "\n")
 
     # Table: could the benchmark favour AAF by construction?
-    keys = [("AAF", "AAF"), ("B6-GPT", "GPT-5.6 Luna + rules (B6)"), ("B5-GPT", "GPT-5.6 Luna (B5)"), ("B6", "Qwen3-8B + rules (B6)"),
+    keys = [("AAF-14-GPT", "AAF, GPT investigator"), ("B1-14", "AAF rules alone"), ("AAF", "AAF, Qwen investigator"), ("B6-GPT", "GPT-5.6 Luna + rules (B6)"), ("B5-GPT", "GPT-5.6 Luna (B5)"), ("B6", "Qwen3-8B + rules (B6)"),
             ("B5", "Qwen3-8B (B5)"), ("AlwaysRollback", "Always roll back"), ("Dominant", "Act on most severe domain"), ("S:D-Sec", "Security expert (rules)")]
     L = [r"\begin{table}[!t]", r"\caption{Accuracy on Subsets Where the Choice of Action Matters More (Studies 14--16 Pooled, $O_1$)}",
          r"\label{tab:construct}", r"\centering\footnotesize", r"\begin{tabular}{L{2.45cm}L{1.2cm}L{1.55cm}L{1.55cm}}", r"\toprule",
@@ -117,11 +120,15 @@ def main() -> None:
     def k_of(v): return v.split("/")[0] if v else "--"
     num = {
         "NFaults": P["n_faults"], "NFamilies": P["n_families"], "NDisc": P["n_discriminating"], "NUnique": P["n_unique_answer"],
-        "AAFPooled": k_of(P["O1"].get("AAF")), "RulesPooled": k_of(P["O1"].get("B1-14")), "AAFGPTPooled": k_of(P["O1"].get("AAF-14-GPT")),
-        "BSixGPT": k_of(P["O1"].get("B6-GPT")), "BFiveGPT": k_of(P["O1"].get("B5-GPT")), "BSixQwen": k_of(P["O1"].get("B6")), "BFiveQwen": k_of(P["O1"].get("B5")),
+        "AAFQwenKN": P["O1"].get("AAF", "--"), "AAFQwenK": k_of(P["O1"].get("AAF")), "AAFQwenN": (P["O1"].get("AAF") or "-/-").split("/")[1],
+        "RulesPooled": k_of(P["O1"].get("B1-14")), "AAFGPTPooled": k_of(P["O1"].get("AAF-14-GPT")),
+        "AAFQwenComplete": "complete" if (P["O1"].get("AAF") or "0/0").split("/")[1] == str(P["n_faults"]) else "incomplete",
+        "UniqueRules": k_of(P["O1_unique_answer"].get("B1-14")), "UniqueAAFGPT": k_of(P["O1_unique_answer"].get("AAF-14-GPT")),
+        "QwenDone": sum(v["AAF_qwen_cases"] for v in cs["completion"].values()), "AllCases": sum(v["all_cases"] for v in cs["completion"].values()),
+        "BSixGPT": k_of(P["O1"].get("B6-GPT")), "BFiveGPT": k_of(P["O1"].get("B5-GPT")), "BSixQwen": P["O1"].get("B6", "--"), "BFiveQwen": P["O1"].get("B5", "--"),
         "Rollback": k_of(P["O1"].get("AlwaysRollback")), "DominantPooled": k_of(P["O1"].get("Dominant")), "SecExpert": k_of(P["O1"].get("S:D-Sec")),
-        "AAFSFifteen": k_of(per["outcome_study15"]["O1"].get("AAF")), "AAFSSixteen": k_of(per["outcome_study16"]["O1"].get("AAF")),
-        "UniqueAAF": k_of(P["O1_unique_answer"].get("AAF")), "UniqueBSixGPT": k_of(P["O1_unique_answer"].get("B6-GPT")),
+        "RulesSFifteen": k_of(per["outcome_study15"]["O1"].get("B1-14")), "RulesSSixteen": k_of(per["outcome_study16"]["O1"].get("B1-14")),
+"UniqueBSixGPT": k_of(P["O1_unique_answer"].get("B6-GPT")),
         "UniqueBFiveGPT": k_of(P["O1_unique_answer"].get("B5-GPT")), "UniqueDominant": k_of(P["O1_unique_answer"].get("Dominant")),
         "UniqueRollback": k_of(P["O1_unique_answer"].get("AlwaysRollback")),
         "MIcases": cs["model_independence_outcome"]["cases"], "MIsame": cs["model_independence_outcome"]["same_action_qwen_vs_gpt_investigator"],

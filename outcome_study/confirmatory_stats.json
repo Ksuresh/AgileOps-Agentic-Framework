@@ -760,6 +760,7 @@
           "B1": "11/32",
           "B1-14": "18/32",
           "B2": "23/32",
+          "B2-14": "32/32",
           "B5": "22/32",
           "B5-GPT": "27/32",
           "B6": "25/32",
@@ -771,6 +772,12 @@
             "b_only": 0,
             "p_exact": 0.00390625,
             "n": 32
+          },
+          "B2-14": {
+            "a_only": 0,
+            "b_only": 5,
+            "p_exact": 0.0625,
+            "n": 32
           }
         },
         "AAF_GPT_vs": {
@@ -778,6 +785,12 @@
             "a_only": 11,
             "b_only": 0,
             "p_exact": 0.0009765625,
+            "n": 32
+          },
+          "B2-14": {
+            "a_only": 0,
+            "b_only": 3,
+            "p_exact": 0.25,
             "n": 32
           }
         }
@@ -789,7 +802,7 @@
       "n_discriminating": 42,
       "n_unique_answer": 21,
       "O1": {
-        "AAF": "41/41",
+        "AAF": "42/42",
         "AAF-14-GPT": "42/42",
         "AlwaysNone": "0/42",
         "AlwaysRollback": "30/42",
@@ -797,10 +810,10 @@
         "B1-12": "37/42",
         "B1-14": "42/42",
         "B2-14": "42/42",
-        "B3-14": "39/39",
+        "B3-14": "40/40",
         "B3-14-GPT": "42/42",
         "B3-GPT": "28/42",
-        "B5": "25/39",
+        "B5": "26/40",
         "B5-GPT": "29/42",
         "B6": "29/40",
         "B6-GPT": "30/42",
@@ -814,21 +827,21 @@
         "D-Sec": "21/42",
         "D-Sec-14": "21/42",
         "Dominant": "25/42",
-        "L-DevOps": "13/39",
-        "L-FinOps": "2/39",
-        "L-SRE": "12/39",
-        "L-Sec": "23/39",
+        "L-DevOps": "12/40",
+        "L-FinOps": "2/40",
+        "L-SRE": "12/40",
+        "L-Sec": "24/40",
         "S:D-DevOps": "18/42",
         "S:D-FinOps": "10/42",
         "S:D-SRE": "6/42",
         "S:D-Sec": "21/42",
-        "S:L-DevOps": "13/39",
-        "S:L-FinOps": "2/39",
-        "S:L-SRE": "12/39",
-        "S:L-Sec": "23/39"
+        "S:L-DevOps": "12/40",
+        "S:L-FinOps": "2/40",
+        "S:L-SRE": "12/40",
+        "S:L-Sec": "24/40"
       },
       "O2": {
-        "AAF": "31/41",
+        "AAF": "32/42",
         "AAF-14-GPT": "32/42",
         "AlwaysNone": "0/42",
         "AlwaysRollback": "12/42",
@@ -836,10 +849,10 @@
         "B1-12": "23/42",
         "B1-14": "32/42",
         "B2-14": "32/42",
-        "B3-14": "30/39",
+        "B3-14": "31/40",
         "B3-14-GPT": "32/42",
         "B3-GPT": "25/42",
-        "B5": "13/39",
+        "B5": "14/40",
         "B5-GPT": "16/42",
         "B6": "23/40",
         "B6-GPT": "22/42",
@@ -853,21 +866,21 @@
         "D-Sec": "14/42",
         "D-Sec-14": "14/42",
         "Dominant": "22/42",
-        "L-DevOps": "5/39",
-        "L-FinOps": "2/39",
-        "L-SRE": "9/39",
-        "L-Sec": "11/39",
+        "L-DevOps": "4/40",
+        "L-FinOps": "2/40",
+        "L-SRE": "9/40",
+        "L-Sec": "12/40",
         "S:D-DevOps": "9/42",
         "S:D-FinOps": "10/42",
         "S:D-SRE": "6/42",
         "S:D-Sec": "14/42",
-        "S:L-DevOps": "5/39",
-        "S:L-FinOps": "2/39",
-        "S:L-SRE": "9/39",
-        "S:L-Sec": "11/39"
+        "S:L-DevOps": "4/40",
+        "S:L-FinOps": "2/40",
+        "S:L-SRE": "9/40",
+        "S:L-Sec": "12/40"
       },
       "O1_discriminating": {
-        "AAF": "41/41",
+        "AAF": "42/42",
         "AAF-14-GPT": "42/42",
         "AlwaysNone": "0/42",
         "AlwaysRollback": "30/42",
@@ -875,10 +888,10 @@
         "B1-12": "37/42",
         "B1-14": "42/42",
         "B2-14": "42/42",
-        "B3-14": "39/39",
+        "B3-14": "40/40",
         "B3-14-GPT": "42/42",
         "B3-GPT": "28/42",
-        "B5": "25/39",
+        "B5": "26/40",
         "B5-GPT": "29/42",
         "B6": "29/40",
         "B6-GPT": "30/42",
@@ -892,21 +905,21 @@
         "D-Sec": "21/42",
         "D-Sec-14": "21/42",
         "Dominant": "25/42",
-        "L-DevOps": "13/39",
-        "L-FinOps": "2/39",
-        "L-SRE": "12/39",
-        "L-Sec": "23/39",
+        "L-DevOps": "12/40",
+        "L-FinOps": "2/40",
+        "L-SRE": "12/40",
+        "L-Sec": "24/40",
         "S:D-DevOps": "18/42",
         "S:D-FinOps": "10/42",
         "S:D-SRE": "6/42",
         "S:D-Sec": "21/42",
-        "S:L-DevOps": "13/39",
-        "S:L-FinOps": "2/39",
-        "S:L-SRE": "12/39",
-        "S:L-Sec": "23/39"
+        "S:L-DevOps": "12/40",
+        "S:L-FinOps": "2/40",
+        "S:L-SRE": "12/40",
+        "S:L-Sec": "24/40"
       },
       "O1_unique_answer": {
-        "AAF": "20/20",
+        "AAF": "21/21",
         "AAF-14-GPT": "21/21",
         "AlwaysNone": "0/21",
         "AlwaysRollback": "12/21",
@@ -914,10 +927,10 @@
         "B1-12": "16/21",
         "B1-14": "21/21",
         "B2-14": "21/21",
-        "B3-14": "19/19",
+        "B3-14": "20/20",
         "B3-14-GPT": "21/21",
         "B3-GPT": "9/21",
-        "B5": "11/19",
+        "B5": "12/20",
         "B5-GPT": "12/21",
         "B6": "11/19",
         "B6-GPT": "10/21",
@@ -931,146 +944,146 @@
         "D-Sec": "3/21",
         "D-Sec-14": "3/21",
         "Dominant": "9/21",
-        "L-DevOps": "5/19",
-        "L-FinOps": "1/19",
-        "L-SRE": "8/19",
-        "L-Sec": "6/19",
+        "L-DevOps": "4/20",
+        "L-FinOps": "1/20",
+        "L-SRE": "8/20",
+        "L-Sec": "7/20",
         "S:D-DevOps": "9/21",
         "S:D-FinOps": "3/21",
         "S:D-SRE": "3/21",
         "S:D-Sec": "3/21",
-        "S:L-DevOps": "5/19",
-        "S:L-FinOps": "1/19",
-        "S:L-SRE": "8/19",
-        "S:L-Sec": "6/19"
+        "S:L-DevOps": "4/20",
+        "S:L-FinOps": "1/20",
+        "S:L-SRE": "8/20",
+        "S:L-Sec": "7/20"
       },
       "H1_case_level": {
         "S:D-DevOps": {
-          "a_only": 23,
+          "a_only": 24,
           "b_only": 0,
-          "p_exact": 2.384185791015625e-07,
-          "n": 41,
-          "p_holm": 4.76837158203125e-07
+          "p_exact": 1.1920928955078125e-07,
+          "n": 42,
+          "p_holm": 2.384185791015625e-07
         },
         "S:D-SRE": {
           "a_only": 36,
           "b_only": 0,
           "p_exact": 2.9103830456733704e-11,
-          "n": 41,
+          "n": 42,
           "p_holm": 1.1641532182693481e-10
         },
         "S:D-FinOps": {
-          "a_only": 31,
+          "a_only": 32,
           "b_only": 0,
-          "p_exact": 9.313225746154785e-10,
-          "n": 41,
-          "p_holm": 2.7939677238464355e-09
+          "p_exact": 4.656612873077393e-10,
+          "n": 42,
+          "p_holm": 1.3969838619232178e-09
         },
         "S:D-Sec": {
-          "a_only": 20,
+          "a_only": 21,
           "b_only": 0,
-          "p_exact": 1.9073486328125e-06,
-          "n": 41,
-          "p_holm": 1.9073486328125e-06
+          "p_exact": 9.5367431640625e-07,
+          "n": 42,
+          "p_holm": 9.5367431640625e-07
         }
       },
       "H2_case_level": {
         "B5": {
+          "a_only": 12,
+          "b_only": 0,
+          "p_exact": 0.00048828125,
+          "n": 38,
+          "p_holm": 0.00244140625
+        },
+        "B6": {
+          "a_only": 10,
+          "b_only": 0,
+          "p_exact": 0.001953125,
+          "n": 38,
+          "p_holm": 0.00390625
+        },
+        "B5-GPT": {
           "a_only": 11,
           "b_only": 0,
           "p_exact": 0.0009765625,
-          "n": 36,
-          "p_holm": 0.00390625
-        },
-        "B6": {
-          "a_only": 9,
-          "b_only": 0,
-          "p_exact": 0.00390625,
-          "n": 36,
-          "p_holm": 0.01171875
-        },
-        "B5-GPT": {
-          "a_only": 9,
-          "b_only": 0,
-          "p_exact": 0.00390625,
-          "n": 36,
-          "p_holm": 0.01171875
+          "n": 38,
+          "p_holm": 0.0029296875
         },
         "B6-GPT": {
           "a_only": 12,
           "b_only": 0,
           "p_exact": 0.00048828125,
-          "n": 36,
+          "n": 38,
           "p_holm": 0.00244140625
         },
         "AlwaysRollback": {
-          "a_only": 7,
+          "a_only": 9,
           "b_only": 0,
-          "p_exact": 0.015625,
-          "n": 36,
-          "p_holm": 0.015625
+          "p_exact": 0.00390625,
+          "n": 38,
+          "p_holm": 0.00390625
         }
       },
       "H1_discriminating": {
         "S:D-DevOps": {
-          "a_only": 23,
+          "a_only": 24,
           "b_only": 0,
-          "p_exact": 2.384185791015625e-07,
-          "n": 41,
-          "p_holm": 4.76837158203125e-07
+          "p_exact": 1.1920928955078125e-07,
+          "n": 42,
+          "p_holm": 2.384185791015625e-07
         },
         "S:D-SRE": {
           "a_only": 36,
           "b_only": 0,
           "p_exact": 2.9103830456733704e-11,
-          "n": 41,
+          "n": 42,
           "p_holm": 1.1641532182693481e-10
         },
         "S:D-FinOps": {
-          "a_only": 31,
+          "a_only": 32,
           "b_only": 0,
-          "p_exact": 9.313225746154785e-10,
-          "n": 41,
-          "p_holm": 2.7939677238464355e-09
+          "p_exact": 4.656612873077393e-10,
+          "n": 42,
+          "p_holm": 1.3969838619232178e-09
         },
         "S:D-Sec": {
-          "a_only": 20,
+          "a_only": 21,
           "b_only": 0,
-          "p_exact": 1.9073486328125e-06,
-          "n": 41,
-          "p_holm": 1.9073486328125e-06
+          "p_exact": 9.5367431640625e-07,
+          "n": 42,
+          "p_holm": 9.5367431640625e-07
         }
       },
       "H2_unique_answer": {
         "B5": {
-          "a_only": 5,
-          "b_only": 0,
-          "p_exact": 0.0625,
-          "n": 16
-        },
-        "B6": {
           "a_only": 6,
           "b_only": 0,
           "p_exact": 0.03125,
-          "n": 16
+          "n": 18
+        },
+        "B6": {
+          "a_only": 7,
+          "b_only": 0,
+          "p_exact": 0.015625,
+          "n": 18
         },
         "B5-GPT": {
-          "a_only": 5,
+          "a_only": 7,
           "b_only": 0,
-          "p_exact": 0.0625,
-          "n": 16
+          "p_exact": 0.015625,
+          "n": 18
         },
         "B6-GPT": {
           "a_only": 11,
           "b_only": 0,
           "p_exact": 0.0009765625,
-          "n": 16
+          "n": 18
         },
         "AlwaysRollback": {
-          "a_only": 4,
+          "a_only": 6,
           "b_only": 0,
-          "p_exact": 0.125,
-          "n": 16
+          "p_exact": 0.03125,
+          "n": 18
         }
       },
       "family_level": {
@@ -1079,10 +1092,10 @@
           "families_a_better": 8,
           "families_b_better": 0,
           "sign_test_p": 0.0078125,
-          "acc_diff": 0.561,
+          "acc_diff": 0.571,
           "cluster_bootstrap_95": [
             0.286,
-            0.842
+            0.857
           ]
         },
         "S:D-SRE": {
@@ -1090,9 +1103,9 @@
           "families_a_better": 12,
           "families_b_better": 0,
           "sign_test_p": 0.00048828125,
-          "acc_diff": 0.878,
+          "acc_diff": 0.857,
           "cluster_bootstrap_95": [
-            0.692,
+            0.643,
             1.0
           ]
         },
@@ -1101,10 +1114,10 @@
           "families_a_better": 11,
           "families_b_better": 0,
           "sign_test_p": 0.0009765625,
-          "acc_diff": 0.756,
+          "acc_diff": 0.762,
           "cluster_bootstrap_95": [
-            0.537,
-            0.951
+            0.548,
+            0.952
           ]
         },
         "S:D-Sec": {
@@ -1112,10 +1125,10 @@
           "families_a_better": 7,
           "families_b_better": 0,
           "sign_test_p": 0.015625,
-          "acc_diff": 0.488,
+          "acc_diff": 0.5,
           "cluster_bootstrap_95": [
             0.214,
-            0.769
+            0.786
           ]
         },
         "S:L-DevOps": {
@@ -1123,21 +1136,21 @@
           "families_a_better": 10,
           "families_b_better": 0,
           "sign_test_p": 0.001953125,
-          "acc_diff": 0.658,
+          "acc_diff": 0.7,
           "cluster_bootstrap_95": [
-            0.41,
-            0.886
+            0.474,
+            0.905
           ]
         },
         "S:L-SRE": {
           "families": 14,
-          "families_a_better": 10,
+          "families_a_better": 11,
           "families_b_better": 0,
-          "sign_test_p": 0.001953125,
-          "acc_diff": 0.684,
+          "sign_test_p": 0.0009765625,
+          "acc_diff": 0.7,
           "cluster_bootstrap_95": [
-            0.444,
-            0.897
+            0.475,
+            0.9
           ]
         },
         "S:L-FinOps": {
@@ -1145,9 +1158,9 @@
           "families_a_better": 14,
           "families_b_better": 0,
           "sign_test_p": 0.0001220703125,
-          "acc_diff": 0.974,
+          "acc_diff": 0.95,
           "cluster_bootstrap_95": [
-            0.919,
+            0.872,
             1.0
           ]
         },
@@ -1156,21 +1169,21 @@
           "families_a_better": 7,
           "families_b_better": 0,
           "sign_test_p": 0.015625,
-          "acc_diff": 0.421,
+          "acc_diff": 0.4,
           "cluster_bootstrap_95": [
-            0.194,
-            0.657
+            0.179,
+            0.619
           ]
         },
         "B5": {
           "families": 14,
-          "families_a_better": 6,
+          "families_a_better": 7,
           "families_b_better": 0,
-          "sign_test_p": 0.03125,
-          "acc_diff": 0.342,
+          "sign_test_p": 0.015625,
+          "acc_diff": 0.35,
           "cluster_bootstrap_95": [
-            0.132,
-            0.576
+            0.158,
+            0.55
           ]
         },
         "B6": {
@@ -1178,10 +1191,10 @@
           "families_a_better": 6,
           "families_b_better": 0,
           "sign_test_p": 0.03125,
-          "acc_diff": 0.256,
+          "acc_diff": 0.275,
           "cluster_bootstrap_95": [
-            0.095,
-            0.45
+            0.1,
+            0.475
           ]
         },
         "B5-GPT": {
@@ -1189,10 +1202,10 @@
           "families_a_better": 7,
           "families_b_better": 0,
           "sign_test_p": 0.015625,
-          "acc_diff": 0.293,
+          "acc_diff": 0.31,
           "cluster_bootstrap_95": [
             0.119,
-            0.488
+            0.524
           ]
         },
         "B6-GPT": {
@@ -1200,10 +1213,10 @@
           "families_a_better": 6,
           "families_b_better": 0,
           "sign_test_p": 0.03125,
-          "acc_diff": 0.293,
+          "acc_diff": 0.286,
           "cluster_bootstrap_95": [
-            0.1,
-            0.512
+            0.095,
+            0.5
           ]
         },
         "AlwaysRollback": {
@@ -1211,9 +1224,9 @@
           "families_a_better": 4,
           "families_b_better": 0,
           "sign_test_p": 0.125,
-          "acc_diff": 0.268,
+          "acc_diff": 0.286,
           "cluster_bootstrap_95": [
-            0.049,
+            0.071,
             0.5
           ]
         },
@@ -1222,10 +1235,10 @@
           "families_a_better": 6,
           "families_b_better": 0,
           "sign_test_p": 0.03125,
-          "acc_diff": 0.415,
+          "acc_diff": 0.405,
           "cluster_bootstrap_95": [
-            0.15,
-            0.667
+            0.143,
+            0.643
           ]
         }
       },
@@ -1553,7 +1566,7 @@
           "B3-14": "33/38",
           "B5": "28/38",
           "B5-GPT": "32/39",
-          "B6": "21/37",
+          "B6": "22/38",
           "B6-GPT": "27/39"
         },
         "AAF_vs": {
@@ -1592,7 +1605,7 @@
       "n_discriminating": 27,
       "n_unique_answer": 14,
       "O1": {
-        "AAF": "11/11",
+        "AAF": "13/13",
         "AAF-14-GPT": "28/28",
         "AlwaysNone": "1/28",
         "AlwaysRollback": "21/28",
@@ -1600,12 +1613,12 @@
         "B1-12": "26/28",
         "B1-14": "28/28",
         "B2-14": "28/28",
-        "B3-14": "9/9",
+        "B3-14": "13/13",
         "B3-14-GPT": "28/28",
         "B3-GPT": "18/28",
-        "B5": "7/9",
+        "B5": "11/13",
         "B5-GPT": "20/28",
-        "B6": "3/6",
+        "B6": "6/9",
         "B6-GPT": "22/28",
         "BlockAnyCVE": "15/28",
         "D-DevOps": "15/28",
@@ -1617,21 +1630,21 @@
         "D-Sec": "15/28",
         "D-Sec-14": "15/28",
         "Dominant": "17/28",
-        "L-DevOps": "5/9",
-        "L-FinOps": "2/9",
-        "L-SRE": "5/9",
-        "L-Sec": "5/9",
+        "L-DevOps": "7/13",
+        "L-FinOps": "4/13",
+        "L-SRE": "7/13",
+        "L-Sec": "9/13",
         "S:D-DevOps": "16/28",
         "S:D-FinOps": "5/28",
         "S:D-SRE": "5/28",
         "S:D-Sec": "15/28",
-        "S:L-DevOps": "5/9",
-        "S:L-FinOps": "2/9",
-        "S:L-SRE": "5/9",
-        "S:L-Sec": "5/9"
+        "S:L-DevOps": "7/13",
+        "S:L-FinOps": "4/13",
+        "S:L-SRE": "7/13",
+        "S:L-Sec": "9/13"
       },
       "O2": {
-        "AAF": "8/11",
+        "AAF": "10/13",
         "AAF-14-GPT": "22/28",
         "AlwaysNone": "1/28",
         "AlwaysRollback": "8/28",
@@ -1639,12 +1652,12 @@
         "B1-12": "17/28",
         "B1-14": "22/28",
         "B2-14": "22/28",
-        "B3-14": "7/9",
+        "B3-14": "9/13",
         "B3-14-GPT": "22/28",
         "B3-GPT": "14/28",
-        "B5": "3/9",
+        "B5": "5/13",
         "B5-GPT": "11/28",
-        "B6": "0/6",
+        "B6": "2/9",
         "B6-GPT": "18/28",
         "BlockAnyCVE": "12/28",
         "D-DevOps": "7/28",
@@ -1656,21 +1669,21 @@
         "D-Sec": "12/28",
         "D-Sec-14": "12/28",
         "Dominant": "12/28",
-        "L-DevOps": "2/9",
-        "L-FinOps": "0/9",
-        "L-SRE": "3/9",
-        "L-Sec": "1/9",
+        "L-DevOps": "3/13",
+        "L-FinOps": "1/13",
+        "L-SRE": "4/13",
+        "L-Sec": "4/13",
         "S:D-DevOps": "8/28",
         "S:D-FinOps": "4/28",
         "S:D-SRE": "5/28",
         "S:D-Sec": "12/28",
-        "S:L-DevOps": "2/9",
-        "S:L-FinOps": "0/9",
-        "S:L-SRE": "3/9",
-        "S:L-Sec": "1/9"
+        "S:L-DevOps": "3/13",
+        "S:L-FinOps": "1/13",
+        "S:L-SRE": "4/13",
+        "S:L-Sec": "4/13"
       },
       "O1_discriminating": {
-        "AAF": "10/10",
+        "AAF": "12/12",
         "AAF-14-GPT": "27/27",
         "AlwaysNone": "0/27",
         "AlwaysRollback": "20/27",
@@ -1678,12 +1691,12 @@
         "B1-12": "25/27",
         "B1-14": "27/27",
         "B2-14": "27/27",
-        "B3-14": "8/8",
+        "B3-14": "12/12",
         "B3-14-GPT": "27/27",
         "B3-GPT": "17/27",
-        "B5": "6/8",
+        "B5": "10/12",
         "B5-GPT": "19/27",
-        "B6": "2/5",
+        "B6": "5/8",
         "B6-GPT": "21/27",
         "BlockAnyCVE": "14/27",
         "D-DevOps": "14/27",
@@ -1695,21 +1708,21 @@
         "D-Sec": "14/27",
         "D-Sec-14": "14/27",
         "Dominant": "16/27",
-        "L-DevOps": "4/8",
-        "L-FinOps": "1/8",
-        "L-SRE": "4/8",
-        "L-Sec": "4/8",
+        "L-DevOps": "6/12",
+        "L-FinOps": "3/12",
+        "L-SRE": "6/12",
+        "L-Sec": "8/12",
         "S:D-DevOps": "15/27",
         "S:D-FinOps": "4/27",
         "S:D-SRE": "4/27",
         "S:D-Sec": "14/27",
-        "S:L-DevOps": "4/8",
-        "S:L-FinOps": "1/8",
-        "S:L-SRE": "4/8",
-        "S:L-Sec": "4/8"
+        "S:L-DevOps": "6/12",
+        "S:L-FinOps": "3/12",
+        "S:L-SRE": "6/12",
+        "S:L-Sec": "8/12"
       },
       "O1_unique_answer": {
-        "AAF": "6/6",
+        "AAF": "7/7",
         "AAF-14-GPT": "14/14",
         "AlwaysNone": "0/14",
         "AlwaysRollback": "8/14",
@@ -1717,10 +1730,10 @@
         "B1-12": "12/14",
         "B1-14": "14/14",
         "B2-14": "14/14",
-        "B3-14": "4/4",
+        "B3-14": "6/6",
         "B3-14-GPT": "14/14",
         "B3-GPT": "5/14",
-        "B5": "2/4",
+        "B5": "4/6",
         "B5-GPT": "7/14",
         "B6": "0/2",
         "B6-GPT": "8/14",
@@ -1734,47 +1747,47 @@
         "D-Sec": "3/14",
         "D-Sec-14": "3/14",
         "Dominant": "6/14",
-        "L-DevOps": "1/4",
-        "L-FinOps": "0/4",
-        "L-SRE": "2/4",
-        "L-Sec": "0/4",
+        "L-DevOps": "2/6",
+        "L-FinOps": "0/6",
+        "L-SRE": "3/6",
+        "L-Sec": "2/6",
         "S:D-DevOps": "7/14",
         "S:D-FinOps": "1/14",
         "S:D-SRE": "2/14",
         "S:D-Sec": "3/14",
-        "S:L-DevOps": "1/4",
-        "S:L-FinOps": "0/4",
-        "S:L-SRE": "2/4",
-        "S:L-Sec": "0/4"
+        "S:L-DevOps": "2/6",
+        "S:L-FinOps": "0/6",
+        "S:L-SRE": "3/6",
+        "S:L-Sec": "2/6"
       },
       "H1_case_level": {
         "S:D-DevOps": {
-          "a_only": 5,
+          "a_only": 6,
           "b_only": 0,
-          "p_exact": 0.0625,
-          "n": 11,
-          "p_holm": 0.0625
+          "p_exact": 0.03125,
+          "n": 13,
+          "p_holm": 0.03125
         },
         "S:D-SRE": {
-          "a_only": 7,
+          "a_only": 9,
           "b_only": 0,
-          "p_exact": 0.015625,
-          "n": 11,
-          "p_holm": 0.046875
+          "p_exact": 0.00390625,
+          "n": 13,
+          "p_holm": 0.01171875
         },
         "S:D-FinOps": {
-          "a_only": 10,
+          "a_only": 12,
           "b_only": 0,
-          "p_exact": 0.001953125,
-          "n": 11,
-          "p_holm": 0.0078125
+          "p_exact": 0.00048828125,
+          "n": 13,
+          "p_holm": 0.001953125
         },
         "S:D-Sec": {
           "a_only": 7,
           "b_only": 0,
           "p_exact": 0.015625,
-          "n": 11,
-          "p_holm": 0.046875
+          "n": 13,
+          "p_holm": 0.03125
         }
       },
       "H2_case_level": {
@@ -1782,66 +1795,66 @@
           "a_only": 0,
           "b_only": 0,
           "p_exact": 1.0,
-          "n": 1,
+          "n": 4,
           "p_holm": 1.0
         },
         "B6": {
-          "a_only": 0,
+          "a_only": 2,
           "b_only": 0,
-          "p_exact": 1.0,
-          "n": 1,
+          "p_exact": 0.5,
+          "n": 4,
           "p_holm": 1.0
         },
         "B5-GPT": {
           "a_only": 0,
           "b_only": 0,
           "p_exact": 1.0,
-          "n": 1,
+          "n": 4,
           "p_holm": 1.0
         },
         "B6-GPT": {
-          "a_only": 0,
+          "a_only": 1,
           "b_only": 0,
           "p_exact": 1.0,
-          "n": 1,
+          "n": 4,
           "p_holm": 1.0
         },
         "AlwaysRollback": {
           "a_only": 0,
           "b_only": 0,
           "p_exact": 1.0,
-          "n": 1,
+          "n": 4,
           "p_holm": 1.0
         }
       },
       "H1_discriminating": {
         "S:D-DevOps": {
-          "a_only": 5,
+          "a_only": 6,
           "b_only": 0,
-          "p_exact": 0.0625,
-          "n": 10,
-          "p_holm": 0.0625
+          "p_exact": 0.03125,
+          "n": 12,
+          "p_holm": 0.03125
         },
         "S:D-SRE": {
-          "a_only": 7,
+          "a_only": 9,
           "b_only": 0,
-          "p_exact": 0.015625,
-          "n": 10,
-          "p_holm": 0.046875
+          "p_exact": 0.00390625,
+          "n": 12,
+          "p_holm": 0.01171875
         },
         "S:D-FinOps": {
-          "a_only": 10,
+          "a_only": 12,
           "b_only": 0,
-          "p_exact": 0.001953125,
-          "n": 10,
-          "p_holm": 0.0078125
+          "p_exact": 0.00048828125,
+          "n": 12,
+          "p_holm": 0.001953125
         },
         "S:D-Sec": {
           "a_only": 7,
           "b_only": 0,
           "p_exact": 0.015625,
-          "n": 10,
-          "p_holm": 0.046875
+          "n": 12,
+          "p_holm": 0.03125
         }
       },
       "H2_unique_answer": {
@@ -1849,185 +1862,185 @@
           "a_only": 0,
           "b_only": 0,
           "p_exact": 1.0,
-          "n": 0
+          "n": 1
         },
         "B6": {
-          "a_only": 0,
+          "a_only": 1,
           "b_only": 0,
           "p_exact": 1.0,
-          "n": 0
+          "n": 1
         },
         "B5-GPT": {
           "a_only": 0,
           "b_only": 0,
           "p_exact": 1.0,
-          "n": 0
+          "n": 1
         },
         "B6-GPT": {
-          "a_only": 0,
+          "a_only": 1,
           "b_only": 0,
           "p_exact": 1.0,
-          "n": 0
+          "n": 1
         },
         "AlwaysRollback": {
           "a_only": 0,
           "b_only": 0,
           "p_exact": 1.0,
-          "n": 0
+          "n": 1
         }
       },
       "family_level": {
         "S:D-DevOps": {
-          "families": 8,
-          "families_a_better": 4,
-          "families_b_better": 0,
-          "sign_test_p": 0.125,
-          "acc_diff": 0.455,
-          "cluster_bootstrap_95": [
-            0.1,
-            0.833
-          ]
-        },
-        "S:D-SRE": {
-          "families": 8,
+          "families": 10,
           "families_a_better": 5,
           "families_b_better": 0,
           "sign_test_p": 0.0625,
-          "acc_diff": 0.636,
+          "acc_diff": 0.462,
           "cluster_bootstrap_95": [
-            0.273,
-            0.929
+            0.154,
+            0.818
           ]
         },
-        "S:D-FinOps": {
-          "families": 8,
+        "S:D-SRE": {
+          "families": 10,
           "families_a_better": 7,
           "families_b_better": 0,
           "sign_test_p": 0.015625,
-          "acc_diff": 0.909,
+          "acc_diff": 0.692,
           "cluster_bootstrap_95": [
-            0.667,
+            0.385,
+            1.0
+          ]
+        },
+        "S:D-FinOps": {
+          "families": 10,
+          "families_a_better": 9,
+          "families_b_better": 0,
+          "sign_test_p": 0.00390625,
+          "acc_diff": 0.923,
+          "cluster_bootstrap_95": [
+            0.727,
             1.0
           ]
         },
         "S:D-Sec": {
+          "families": 10,
+          "families_a_better": 5,
+          "families_b_better": 0,
+          "sign_test_p": 0.0625,
+          "acc_diff": 0.538,
+          "cluster_bootstrap_95": [
+            0.2,
+            0.846
+          ]
+        },
+        "S:L-DevOps": {
           "families": 8,
           "families_a_better": 5,
           "families_b_better": 0,
           "sign_test_p": 0.0625,
-          "acc_diff": 0.636,
+          "acc_diff": 0.6,
           "cluster_bootstrap_95": [
-            0.273,
-            0.929
-          ]
-        },
-        "S:L-DevOps": {
-          "families": 6,
-          "families_a_better": 4,
-          "families_b_better": 0,
-          "sign_test_p": 0.125,
-          "acc_diff": 0.571,
-          "cluster_bootstrap_95": [
-            0.222,
+            0.25,
             1.0
           ]
         },
         "S:L-SRE": {
-          "families": 6,
-          "families_a_better": 3,
-          "families_b_better": 0,
-          "sign_test_p": 0.25,
-          "acc_diff": 0.571,
-          "cluster_bootstrap_95": [
-            0.167,
-            0.889
-          ]
-        },
-        "S:L-FinOps": {
-          "families": 6,
+          "families": 8,
           "families_a_better": 4,
           "families_b_better": 0,
           "sign_test_p": 0.125,
-          "acc_diff": 0.714,
+          "acc_diff": 0.5,
+          "cluster_bootstrap_95": [
+            0.111,
+            0.875
+          ]
+        },
+        "S:L-FinOps": {
+          "families": 8,
+          "families_a_better": 6,
+          "families_b_better": 0,
+          "sign_test_p": 0.03125,
+          "acc_diff": 0.7,
           "cluster_bootstrap_95": [
             0.333,
             1.0
           ]
         },
         "S:L-Sec": {
-          "families": 6,
+          "families": 8,
           "families_a_better": 3,
           "families_b_better": 0,
           "sign_test_p": 0.25,
-          "acc_diff": 0.429,
+          "acc_diff": 0.3,
           "cluster_bootstrap_95": [
-            0.111,
-            0.833
+            0.077,
+            0.625
           ]
         },
         "B5": {
-          "families": 6,
+          "families": 8,
           "families_a_better": 2,
           "families_b_better": 0,
           "sign_test_p": 0.5,
-          "acc_diff": 0.286,
+          "acc_diff": 0.2,
           "cluster_bootstrap_95": [
             0.0,
-            0.667
+            0.5
           ]
         },
         "B6": {
-          "families": 3,
+          "families": 4,
           "families_a_better": 2,
           "families_b_better": 0,
           "sign_test_p": 0.5,
-          "acc_diff": 0.667,
+          "acc_diff": 0.5,
           "cluster_bootstrap_95": [
             0.0,
             1.0
           ]
         },
         "B5-GPT": {
-          "families": 8,
+          "families": 10,
           "families_a_better": 3,
           "families_b_better": 0,
           "sign_test_p": 0.25,
-          "acc_diff": 0.273,
+          "acc_diff": 0.231,
           "cluster_bootstrap_95": [
-            0.071,
-            0.667
+            0.0,
+            0.545
           ]
         },
         "B6-GPT": {
-          "families": 8,
+          "families": 10,
           "families_a_better": 3,
           "families_b_better": 0,
           "sign_test_p": 0.25,
-          "acc_diff": 0.273,
+          "acc_diff": 0.231,
           "cluster_bootstrap_95": [
-            0.0,
-            0.667
+            0.059,
+            0.545
           ]
         },
         "AlwaysRollback": {
-          "families": 8,
-          "families_a_better": 2,
-          "families_b_better": 0,
-          "sign_test_p": 0.5,
-          "acc_diff": 0.182,
-          "cluster_bootstrap_95": [
-            0.0,
-            0.5
-          ]
-        },
-        "Dominant": {
-          "families": 8,
+          "families": 10,
           "families_a_better": 3,
           "families_b_better": 0,
           "sign_test_p": 0.25,
-          "acc_diff": 0.364,
+          "acc_diff": 0.231,
           "cluster_bootstrap_95": [
-            0.077,
+            0.0,
+            0.545
+          ]
+        },
+        "Dominant": {
+          "families": 10,
+          "families_a_better": 4,
+          "families_b_better": 0,
+          "sign_test_p": 0.125,
+          "acc_diff": 0.385,
+          "cluster_bootstrap_95": [
+            0.083,
             0.727
           ]
         }
@@ -2140,10 +2153,10 @@
             ]
           },
           "B6": {
-            "k": 1,
-            "n": 1,
+            "k": 2,
+            "n": 2,
             "wilson95_pct": [
-              20.7,
+              34.2,
               100.0
             ]
           },
@@ -2336,7 +2349,7 @@
           "AAF": "3/3",
           "AAF-14-GPT": "8/8",
           "B5": "1/1",
-          "B6": "1/1",
+          "B6": "2/2",
           "B5-GPT": "8/8",
           "B6-GPT": "8/8",
           "AlwaysRollback": "0/8",
@@ -2347,30 +2360,30 @@
       "withheld": {
         "n": 26,
         "O1": {
-          "AAF": "7/8",
+          "AAF": "8/10",
           "AAF-14-GPT": "26/26",
           "B1": "4/26",
           "B1-14": "12/26",
           "B2": "16/26",
           "B2-14": "26/26",
-          "B3-14": "9/12",
-          "B5": "8/12",
+          "B3-14": "12/15",
+          "B5": "11/15",
           "B5-GPT": "20/26",
           "B6": "6/9",
           "B6-GPT": "16/26"
         },
         "AAF_vs": {
           "B1-14": {
-            "a_only": 3,
+            "a_only": 4,
             "b_only": 0,
-            "p_exact": 0.25,
-            "n": 8
+            "p_exact": 0.125,
+            "n": 10
           },
           "B2-14": {
             "a_only": 0,
-            "b_only": 1,
-            "p_exact": 1.0,
-            "n": 8
+            "b_only": 2,
+            "p_exact": 0.5,
+            "n": 10
           }
         },
         "AAF_GPT_vs": {
@@ -2396,7 +2409,7 @@
     "n_discriminating": 98,
     "n_unique_answer": 46,
     "O1": {
-      "AAF": "86/86",
+      "AAF": "89/89",
       "AAF-14-GPT": "104/104",
       "AlwaysNone": "7/104",
       "AlwaysRollback": "77/104",
@@ -2404,12 +2417,12 @@
       "B1-12": "95/104",
       "B1-14": "104/104",
       "B2-14": "70/70",
-      "B3-14": "48/48",
+      "B3-14": "53/53",
       "B3-14-GPT": "104/104",
       "B3-GPT": "71/104",
-      "B5": "58/82",
+      "B5": "63/87",
       "B5-GPT": "78/104",
-      "B6": "61/80",
+      "B6": "64/83",
       "B6-GPT": "80/104",
       "BlockAnyCVE": "62/104",
       "D-DevOps": "44/104",
@@ -2421,21 +2434,21 @@
       "D-Sec": "62/104",
       "D-Sec-14": "36/70",
       "Dominant": "63/104",
-      "L-DevOps": "32/82",
-      "L-FinOps": "13/82",
-      "L-SRE": "32/82",
-      "L-Sec": "51/82",
+      "L-DevOps": "33/87",
+      "L-FinOps": "15/87",
+      "L-SRE": "34/87",
+      "L-Sec": "56/87",
       "S:D-DevOps": "48/104",
       "S:D-FinOps": "26/104",
       "S:D-SRE": "20/104",
       "S:D-Sec": "62/104",
-      "S:L-DevOps": "32/82",
-      "S:L-FinOps": "13/82",
-      "S:L-SRE": "32/82",
-      "S:L-Sec": "51/82"
+      "S:L-DevOps": "33/87",
+      "S:L-FinOps": "15/87",
+      "S:L-SRE": "34/87",
+      "S:L-Sec": "56/87"
     },
     "O2": {
-      "AAF": "63/86",
+      "AAF": "66/89",
       "AAF-14-GPT": "78/104",
       "AlwaysNone": "5/104",
       "AlwaysRollback": "25/104",
@@ -2443,12 +2456,12 @@
       "B1-12": "61/104",
       "B1-14": "78/104",
       "B2-14": "54/70",
-      "B3-14": "37/48",
+      "B3-14": "40/53",
       "B3-14-GPT": "78/104",
       "B3-GPT": "59/104",
-      "B5": "29/82",
+      "B5": "32/87",
       "B5-GPT": "43/104",
-      "B6": "44/80",
+      "B6": "46/83",
       "B6-GPT": "63/104",
       "BlockAnyCVE": "46/104",
       "D-DevOps": "19/104",
@@ -2460,21 +2473,21 @@
       "D-Sec": "46/104",
       "D-Sec-14": "26/70",
       "Dominant": "49/104",
-      "L-DevOps": "12/82",
-      "L-FinOps": "6/82",
-      "L-SRE": "19/82",
-      "L-Sec": "22/82",
+      "L-DevOps": "12/87",
+      "L-FinOps": "7/87",
+      "L-SRE": "20/87",
+      "L-Sec": "26/87",
       "S:D-DevOps": "23/104",
       "S:D-FinOps": "24/104",
       "S:D-SRE": "15/104",
       "S:D-Sec": "46/104",
-      "S:L-DevOps": "12/82",
-      "S:L-FinOps": "6/82",
-      "S:L-SRE": "19/82",
-      "S:L-Sec": "22/82"
+      "S:L-DevOps": "12/87",
+      "S:L-FinOps": "7/87",
+      "S:L-SRE": "20/87",
+      "S:L-Sec": "26/87"
     },
     "O1_discriminating": {
-      "AAF": "80/80",
+      "AAF": "83/83",
       "AAF-14-GPT": "98/98",
       "AlwaysNone": "1/98",
       "AlwaysRollback": "71/98",
@@ -2482,12 +2495,12 @@
       "B1-12": "89/98",
       "B1-14": "98/98",
       "B2-14": "69/69",
-      "B3-14": "47/47",
+      "B3-14": "52/52",
       "B3-14-GPT": "98/98",
       "B3-GPT": "65/98",
-      "B5": "52/76",
+      "B5": "57/81",
       "B5-GPT": "72/98",
-      "B6": "55/74",
+      "B6": "58/77",
       "B6-GPT": "74/98",
       "BlockAnyCVE": "56/98",
       "D-DevOps": "38/98",
@@ -2499,21 +2512,21 @@
       "D-Sec": "56/98",
       "D-Sec-14": "35/69",
       "Dominant": "57/98",
-      "L-DevOps": "26/76",
-      "L-FinOps": "7/76",
-      "L-SRE": "26/76",
-      "L-Sec": "45/76",
+      "L-DevOps": "27/81",
+      "L-FinOps": "9/81",
+      "L-SRE": "28/81",
+      "L-Sec": "50/81",
       "S:D-DevOps": "42/98",
       "S:D-FinOps": "20/98",
       "S:D-SRE": "14/98",
       "S:D-Sec": "56/98",
-      "S:L-DevOps": "26/76",
-      "S:L-FinOps": "7/76",
-      "S:L-SRE": "26/76",
-      "S:L-Sec": "45/76"
+      "S:L-DevOps": "27/81",
+      "S:L-FinOps": "9/81",
+      "S:L-SRE": "28/81",
+      "S:L-Sec": "50/81"
     },
     "O1_unique_answer": {
-      "AAF": "37/37",
+      "AAF": "39/39",
       "AAF-14-GPT": "46/46",
       "AlwaysNone": "0/46",
       "AlwaysRollback": "25/46",
@@ -2521,10 +2534,10 @@
       "B1-12": "37/46",
       "B1-14": "46/46",
       "B2-14": "35/35",
-      "B3-14": "23/23",
+      "B3-14": "26/26",
       "B3-14-GPT": "46/46",
       "B3-GPT": "19/46",
-      "B5": "19/34",
+      "B5": "22/37",
       "B5-GPT": "26/46",
       "B6": "17/32",
       "B6-GPT": "23/46",
@@ -2538,301 +2551,301 @@
       "D-Sec": "10/46",
       "D-Sec-14": "6/35",
       "Dominant": "19/46",
-      "L-DevOps": "8/34",
-      "L-FinOps": "2/34",
-      "L-SRE": "15/34",
-      "L-Sec": "9/34",
+      "L-DevOps": "8/37",
+      "L-FinOps": "2/37",
+      "L-SRE": "16/37",
+      "L-Sec": "12/37",
       "S:D-DevOps": "18/46",
       "S:D-FinOps": "5/46",
       "S:D-SRE": "6/46",
       "S:D-Sec": "10/46",
-      "S:L-DevOps": "8/34",
-      "S:L-FinOps": "2/34",
-      "S:L-SRE": "15/34",
-      "S:L-Sec": "9/34"
+      "S:L-DevOps": "8/37",
+      "S:L-FinOps": "2/37",
+      "S:L-SRE": "16/37",
+      "S:L-Sec": "12/37"
     },
     "H1_case_level": {
       "S:D-DevOps": {
-        "a_only": 48,
+        "a_only": 50,
         "b_only": 0,
-        "p_exact": 7.105427357601002e-15,
-        "n": 86,
-        "p_holm": 1.4210854715202004e-14
+        "p_exact": 1.7763568394002505e-15,
+        "n": 89,
+        "p_holm": 3.552713678800501e-15
       },
       "S:D-SRE": {
-        "a_only": 68,
+        "a_only": 70,
         "b_only": 0,
-        "p_exact": 6.776263578034403e-21,
-        "n": 86,
-        "p_holm": 2.710505431213761e-20
+        "p_exact": 1.6940658945086007e-21,
+        "n": 89,
+        "p_holm": 6.776263578034403e-21
       },
       "S:D-FinOps": {
-        "a_only": 64,
+        "a_only": 67,
         "b_only": 0,
-        "p_exact": 1.0842021724855044e-19,
-        "n": 86,
-        "p_holm": 3.2526065174565133e-19
+        "p_exact": 1.3552527156068805e-20,
+        "n": 89,
+        "p_holm": 4.0657581468206416e-20
       },
       "S:D-Sec": {
-        "a_only": 35,
+        "a_only": 36,
         "b_only": 0,
-        "p_exact": 5.820766091346741e-11,
-        "n": 86,
-        "p_holm": 5.820766091346741e-11
+        "p_exact": 2.9103830456733704e-11,
+        "n": 89,
+        "p_holm": 2.9103830456733704e-11
       }
     },
     "H2_case_level": {
       "B5": {
+        "a_only": 20,
+        "b_only": 0,
+        "p_exact": 1.9073486328125e-06,
+        "n": 76,
+        "p_holm": 9.5367431640625e-06
+      },
+      "B6": {
+        "a_only": 17,
+        "b_only": 0,
+        "p_exact": 1.52587890625e-05,
+        "n": 76,
+        "p_holm": 4.57763671875e-05
+      },
+      "B5-GPT": {
+        "a_only": 16,
+        "b_only": 0,
+        "p_exact": 3.0517578125e-05,
+        "n": 76,
+        "p_holm": 4.57763671875e-05
+      },
+      "B6-GPT": {
         "a_only": 19,
         "b_only": 0,
         "p_exact": 3.814697265625e-06,
-        "n": 71,
-        "p_holm": 1.9073486328125e-05
+        "n": 76,
+        "p_holm": 1.52587890625e-05
+      },
+      "AlwaysRollback": {
+        "a_only": 17,
+        "b_only": 0,
+        "p_exact": 1.52587890625e-05,
+        "n": 76,
+        "p_holm": 4.57763671875e-05
+      }
+    },
+    "H1_discriminating": {
+      "S:D-DevOps": {
+        "a_only": 50,
+        "b_only": 0,
+        "p_exact": 1.7763568394002505e-15,
+        "n": 83,
+        "p_holm": 3.552713678800501e-15
+      },
+      "S:D-SRE": {
+        "a_only": 70,
+        "b_only": 0,
+        "p_exact": 1.6940658945086007e-21,
+        "n": 83,
+        "p_holm": 6.776263578034403e-21
+      },
+      "S:D-FinOps": {
+        "a_only": 67,
+        "b_only": 0,
+        "p_exact": 1.3552527156068805e-20,
+        "n": 83,
+        "p_holm": 4.0657581468206416e-20
+      },
+      "S:D-Sec": {
+        "a_only": 36,
+        "b_only": 0,
+        "p_exact": 2.9103830456733704e-11,
+        "n": 83,
+        "p_holm": 2.9103830456733704e-11
+      }
+    },
+    "H2_unique_answer": {
+      "B5": {
+        "a_only": 11,
+        "b_only": 0,
+        "p_exact": 0.0009765625,
+        "n": 30
       },
       "B6": {
-        "a_only": 14,
+        "a_only": 13,
         "b_only": 0,
-        "p_exact": 0.0001220703125,
-        "n": 71,
-        "p_holm": 0.000244140625
+        "p_exact": 0.000244140625,
+        "n": 30
       },
       "B5-GPT": {
-        "a_only": 14,
+        "a_only": 11,
         "b_only": 0,
-        "p_exact": 0.0001220703125,
-        "n": 71,
-        "p_holm": 0.000244140625
+        "p_exact": 0.0009765625,
+        "n": 30
       },
       "B6-GPT": {
         "a_only": 18,
         "b_only": 0,
         "p_exact": 7.62939453125e-06,
-        "n": 71,
-        "p_holm": 3.0517578125e-05
+        "n": 30
       },
       "AlwaysRollback": {
-        "a_only": 15,
+        "a_only": 12,
         "b_only": 0,
-        "p_exact": 6.103515625e-05,
-        "n": 71,
-        "p_holm": 0.00018310546875
-      }
-    },
-    "H1_discriminating": {
-      "S:D-DevOps": {
-        "a_only": 48,
-        "b_only": 0,
-        "p_exact": 7.105427357601002e-15,
-        "n": 80,
-        "p_holm": 1.4210854715202004e-14
-      },
-      "S:D-SRE": {
-        "a_only": 68,
-        "b_only": 0,
-        "p_exact": 6.776263578034403e-21,
-        "n": 80,
-        "p_holm": 2.710505431213761e-20
-      },
-      "S:D-FinOps": {
-        "a_only": 64,
-        "b_only": 0,
-        "p_exact": 1.0842021724855044e-19,
-        "n": 80,
-        "p_holm": 3.2526065174565133e-19
-      },
-      "S:D-Sec": {
-        "a_only": 35,
-        "b_only": 0,
-        "p_exact": 5.820766091346741e-11,
-        "n": 80,
-        "p_holm": 5.820766091346741e-11
-      }
-    },
-    "H2_unique_answer": {
-      "B5": {
-        "a_only": 10,
-        "b_only": 0,
-        "p_exact": 0.001953125,
-        "n": 27
-      },
-      "B6": {
-        "a_only": 11,
-        "b_only": 0,
-        "p_exact": 0.0009765625,
-        "n": 27
-      },
-      "B5-GPT": {
-        "a_only": 9,
-        "b_only": 0,
-        "p_exact": 0.00390625,
-        "n": 27
-      },
-      "B6-GPT": {
-        "a_only": 17,
-        "b_only": 0,
-        "p_exact": 1.52587890625e-05,
-        "n": 27
-      },
-      "AlwaysRollback": {
-        "a_only": 10,
-        "b_only": 0,
-        "p_exact": 0.001953125,
-        "n": 27
+        "p_exact": 0.00048828125,
+        "n": 30
       }
     },
     "family_level": {
       "S:D-DevOps": {
-        "families": 39,
-        "families_a_better": 24,
+        "families": 41,
+        "families_a_better": 25,
         "families_b_better": 0,
-        "sign_test_p": 1.1920928955078125e-07,
-        "acc_diff": 0.558,
+        "sign_test_p": 5.960464477539063e-08,
+        "acc_diff": 0.562,
         "cluster_bootstrap_95": [
-          0.4,
-          0.716
+          0.411,
+          0.711
         ]
       },
       "S:D-SRE": {
-        "families": 39,
-        "families_a_better": 31,
-        "families_b_better": 0,
-        "sign_test_p": 9.313225746154785e-10,
-        "acc_diff": 0.791,
-        "cluster_bootstrap_95": [
-          0.655,
-          0.902
-        ]
-      },
-      "S:D-FinOps": {
-        "families": 39,
+        "families": 41,
         "families_a_better": 33,
         "families_b_better": 0,
         "sign_test_p": 2.3283064365386963e-10,
-        "acc_diff": 0.744,
+        "acc_diff": 0.787,
         "cluster_bootstrap_95": [
-          0.612,
-          0.864
+          0.656,
+          0.9
+        ]
+      },
+      "S:D-FinOps": {
+        "families": 41,
+        "families_a_better": 35,
+        "families_b_better": 0,
+        "sign_test_p": 5.820766091346741e-11,
+        "acc_diff": 0.753,
+        "cluster_bootstrap_95": [
+          0.622,
+          0.868
         ]
       },
       "S:D-Sec": {
-        "families": 39,
+        "families": 41,
         "families_a_better": 20,
         "families_b_better": 0,
         "sign_test_p": 1.9073486328125e-06,
-        "acc_diff": 0.407,
+        "acc_diff": 0.404,
         "cluster_bootstrap_95": [
-          0.261,
-          0.553
+          0.264,
+          0.549
         ]
       },
       "S:L-DevOps": {
-        "families": 37,
-        "families_a_better": 26,
+        "families": 39,
+        "families_a_better": 27,
         "families_b_better": 0,
-        "sign_test_p": 2.9802322387695312e-08,
-        "acc_diff": 0.62,
+        "sign_test_p": 1.4901161193847656e-08,
+        "acc_diff": 0.643,
         "cluster_bootstrap_95": [
-          0.463,
-          0.763
+          0.5,
+          0.787
         ]
       },
       "S:L-SRE": {
-        "families": 37,
-        "families_a_better": 24,
+        "families": 39,
+        "families_a_better": 26,
         "families_b_better": 0,
-        "sign_test_p": 1.1920928955078125e-07,
-        "acc_diff": 0.62,
+        "sign_test_p": 2.9802322387695312e-08,
+        "acc_diff": 0.619,
         "cluster_bootstrap_95": [
-          0.464,
-          0.763
+          0.468,
+          0.756
         ]
       },
       "S:L-FinOps": {
-        "families": 37,
-        "families_a_better": 32,
+        "families": 39,
+        "families_a_better": 34,
         "families_b_better": 0,
-        "sign_test_p": 4.656612873077393e-10,
-        "acc_diff": 0.848,
+        "sign_test_p": 1.1641532182693481e-10,
+        "acc_diff": 0.833,
         "cluster_bootstrap_95": [
-          0.743,
-          0.935
+          0.725,
+          0.928
         ]
       },
       "S:L-Sec": {
-        "families": 37,
+        "families": 39,
         "families_a_better": 19,
         "families_b_better": 0,
         "sign_test_p": 3.814697265625e-06,
-        "acc_diff": 0.38,
+        "acc_diff": 0.357,
         "cluster_bootstrap_95": [
-          0.247,
-          0.524
+          0.235,
+          0.494
         ]
       },
       "B5": {
-        "families": 37,
-        "families_a_better": 13,
+        "families": 39,
+        "families_a_better": 14,
         "families_b_better": 0,
-        "sign_test_p": 0.000244140625,
-        "acc_diff": 0.291,
+        "sign_test_p": 0.0001220703125,
+        "acc_diff": 0.286,
         "cluster_bootstrap_95": [
-          0.152,
-          0.43
+          0.167,
+          0.42
         ]
       },
       "B6": {
-        "families": 34,
+        "families": 35,
         "families_a_better": 13,
         "families_b_better": 0,
         "sign_test_p": 0.000244140625,
-        "acc_diff": 0.224,
+        "acc_diff": 0.231,
         "cluster_bootstrap_95": [
-          0.118,
-          0.338
+          0.125,
+          0.354
         ]
       },
       "B5-GPT": {
-        "families": 39,
+        "families": 41,
         "families_a_better": 13,
         "families_b_better": 0,
         "sign_test_p": 0.000244140625,
-        "acc_diff": 0.233,
+        "acc_diff": 0.236,
         "cluster_bootstrap_95": [
           0.125,
-          0.355
+          0.36
         ]
       },
       "B6-GPT": {
-        "families": 39,
+        "families": 41,
         "families_a_better": 15,
         "families_b_better": 0,
         "sign_test_p": 6.103515625e-05,
-        "acc_diff": 0.244,
+        "acc_diff": 0.236,
         "cluster_bootstrap_95": [
-          0.138,
-          0.361
+          0.133,
+          0.352
         ]
       },
       "AlwaysRollback": {
-        "families": 39,
-        "families_a_better": 11,
+        "families": 41,
+        "families_a_better": 12,
         "families_b_better": 0,
-        "sign_test_p": 0.0009765625,
-        "acc_diff": 0.244,
+        "sign_test_p": 0.00048828125,
+        "acc_diff": 0.258,
         "cluster_bootstrap_95": [
-          0.118,
-          0.381
+          0.129,
+          0.398
         ]
       },
       "Dominant": {
-        "families": 39,
-        "families_a_better": 19,
+        "families": 41,
+        "families_a_better": 20,
         "families_b_better": 0,
-        "sign_test_p": 3.814697265625e-06,
-        "acc_diff": 0.395,
+        "sign_test_p": 1.9073486328125e-06,
+        "acc_diff": 0.393,
         "cluster_bootstrap_95": [
-          0.256,
-          0.539
+          0.258,
+          0.537
         ]
       }
     },
@@ -2944,11 +2957,11 @@
           ]
         },
         "B6": {
-          "k": 15,
-          "n": 17,
+          "k": 16,
+          "n": 18,
           "wilson95_pct": [
-            65.7,
-            96.7
+            67.2,
+            96.9
           ]
         },
         "B6-GPT": {
@@ -3140,7 +3153,7 @@
         "AAF": "19/19",
         "AAF-14-GPT": "24/24",
         "B5": "15/15",
-        "B6": "17/17",
+        "B6": "18/18",
         "B5-GPT": "24/24",
         "B6-GPT": "24/24",
         "AlwaysRollback": "0/24",
@@ -3151,24 +3164,30 @@
     "withheld": {
       "n": 97,
       "O1": {
-        "AAF": "68/79",
+        "AAF": "69/81",
         "AAF-14-GPT": "93/97",
         "B1": "26/97",
         "B1-14": "53/97",
         "B2": "64/97",
-        "B2-14": "65/65",
-        "B3-14": "42/50",
-        "B5": "58/82",
+        "B2-14": "97/97",
+        "B3-14": "45/53",
+        "B5": "61/85",
         "B5-GPT": "79/97",
-        "B6": "52/78",
+        "B6": "53/79",
         "B6-GPT": "68/97"
       },
       "AAF_vs": {
         "B1-14": {
-          "a_only": 23,
+          "a_only": 24,
           "b_only": 0,
-          "p_exact": 2.384185791015625e-07,
-          "n": 79
+          "p_exact": 1.1920928955078125e-07,
+          "n": 81
+        },
+        "B2-14": {
+          "a_only": 0,
+          "b_only": 12,
+          "p_exact": 0.00048828125,
+          "n": 81
         }
       },
       "AAF_GPT_vs": {
@@ -3176,6 +3195,12 @@
           "a_only": 40,
           "b_only": 0,
           "p_exact": 1.8189894035458565e-12,
+          "n": 97
+        },
+        "B2-14": {
+          "a_only": 0,
+          "b_only": 4,
+          "p_exact": 0.125,
           "n": 97
         }
       }
@@ -3216,9 +3241,30 @@
       "faults_rules_correct_in_each_replicate_separately": "28/28"
     }
   },
+  "completion": {
+    "outcome_study14": {
+      "AAF_qwen_cases": 40,
+      "B5_qwen_cases": 40,
+      "B6_qwen_cases": 40,
+      "all_cases": 40
+    },
+    "outcome_study15": {
+      "AAF_qwen_cases": 56,
+      "B5_qwen_cases": 53,
+      "B6_qwen_cases": 55,
+      "all_cases": 57
+    },
+    "outcome_study16": {
+      "AAF_qwen_cases": 18,
+      "B5_qwen_cases": 14,
+      "B6_qwen_cases": 13,
+      "all_cases": 38
+    }
+  },
   "model_independence_outcome": {
-    "cases": 109,
-    "same_action_qwen_vs_gpt_investigator": 109,
-    "same_action_AAF_vs_rules_only": 109
+    "population": "all full-evidence cases (fault, control and low-risk) on which both investigators ran",
+    "cases": 114,
+    "same_action_qwen_vs_gpt_investigator": 114,
+    "same_action_AAF_vs_rules_only": 114
   }
 }

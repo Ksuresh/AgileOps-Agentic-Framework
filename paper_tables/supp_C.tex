@@ -76,7 +76,7 @@ SRE expert (v1.0 rules) & 9/34 & 4/34 & 4/29 & 1/11 & -- & -- \\
 
 \end{longtable}
 
-\textit{Withheld-evidence variants} (32): AAF (Qwen investigator) 27/32; AAF (GPT investigator) 29/32; Rules v1.0 (B1) 11/32; Rules v1.4 alone (B1-14) 18/32; Qwen3-8B (B5) 22/32; GPT-5.6 Luna (B5) 27/32; Qwen3-8B + rules (B6) 25/32; GPT-5.6 Luna + rules (B6) 25/32.
+\textit{Withheld-evidence variants} (32): AAF (Qwen investigator) 27/32; AAF (GPT investigator) 29/32; Rules v1.0 (B1) 11/32; Rules v1.4 alone (B1-14) 18/32; Rules v1.4 + fetch rule (B2-14) 32/32; Qwen3-8B (B5) 22/32; GPT-5.6 Luna (B5) 27/32; Qwen3-8B + rules (B6) 25/32; GPT-5.6 Luna + rules (B6) 25/32.
 
 \textit{Low-risk releases} (4), release continued: AAF (Qwen investigator) 4/4; AAF (GPT investigator) 4/4; Qwen3-8B (B5) 4/4; Qwen3-8B + rules (B6) 4/4; GPT-5.6 Luna (B5) 4/4; GPT-5.6 Luna + rules (B6) 4/4; Always roll back 0/4; Block on any vulnerability 4/4; Always no action 4/4.
 
@@ -94,7 +94,7 @@ Fault cases 42; families 14; discriminating 42; one correct action 21.
 
 \endhead
 
-AAF (Qwen investigator) & 41/41 & 31/41 & 41/41 & 20/20 & -- & -- \\
+AAF (Qwen investigator) & 42/42 & 32/42 & 42/42 & 21/21 & -- & -- \\
 
 AAF (GPT investigator) & 42/42 & 32/42 & 42/42 & 21/21 & -- & -- \\
 
@@ -108,19 +108,19 @@ Rules v1.2 (B1-12) & 37/42 & 23/42 & 37/42 & 16/21 & -- & -- \\
 
 GPT-5.6 Luna + rules (B6) & 30/42 & 22/42 & 30/42 & 10/21 & 12 / 0, 0.002 & 6 / 0, 0.031 \\
 
-GPT-5.6 Luna (B5) & 29/42 & 16/42 & 29/42 & 12/21 & 9 / 0, 0.012 & 7 / 0, 0.016 \\
+GPT-5.6 Luna (B5) & 29/42 & 16/42 & 29/42 & 12/21 & 11 / 0, 0.003 & 7 / 0, 0.016 \\
 
-Qwen3-8B + rules (B6) & 29/40 & 23/40 & 29/40 & 11/19 & 9 / 0, 0.012 & 6 / 0, 0.031 \\
+Qwen3-8B + rules (B6) & 29/40 & 23/40 & 29/40 & 11/19 & 10 / 0, 0.004 & 6 / 0, 0.031 \\
 
-Qwen3-8B (B5) & 25/39 & 13/39 & 25/39 & 11/19 & 11 / 0, 0.004 & 6 / 0, 0.031 \\
+Qwen3-8B (B5) & 26/40 & 14/40 & 26/40 & 12/20 & 12 / 0, 0.002 & 7 / 0, 0.016 \\
 
 Agents always on, v1.4 decides (GPT) & 42/42 & 32/42 & 42/42 & 21/21 & -- & -- \\
 
 Agents always on, v1.0 decides (GPT) & 28/42 & 25/42 & 28/42 & 9/21 & -- & -- \\
 
-Agents always on, v1.4 decides (Qwen) & 39/39 & 30/39 & 39/39 & 19/19 & -- & -- \\
+Agents always on, v1.4 decides (Qwen) & 40/40 & 31/40 & 40/40 & 20/20 & -- & -- \\
 
-Always roll back & 30/42 & 12/42 & 30/42 & 12/21 & 7 / 0, 0.016 & 4 / 0, 0.125 \\
+Always roll back & 30/42 & 12/42 & 30/42 & 12/21 & 9 / 0, 0.004 & 4 / 0, 0.125 \\
 
 Always no action & 0/42 & 0/42 & 0/42 & 0/21 & -- & -- \\
 
@@ -128,21 +128,21 @@ Act on most severe domain & 25/42 & 22/42 & 25/42 & 9/21 & -- & 6 / 0, 0.031 \\
 
 Block on any vulnerability & 21/42 & 14/42 & 21/42 & 3/21 & -- & -- \\
 
-Security expert (rules) & 21/42 & 14/42 & 21/42 & 3/21 & 20 / 0, $1.9\times10^{-6}$ & 7 / 0, 0.016 \\
+Security expert (rules) & 21/42 & 14/42 & 21/42 & 3/21 & 21 / 0, $9.5\times10^{-7}$ & 7 / 0, 0.016 \\
 
-DevOps expert (rules) & 18/42 & 9/42 & 18/42 & 9/21 & 23 / 0, $4.8\times10^{-7}$ & 8 / 0, 0.008 \\
+DevOps expert (rules) & 18/42 & 9/42 & 18/42 & 9/21 & 24 / 0, $2.4\times10^{-7}$ & 8 / 0, 0.008 \\
 
-FinOps expert (rules) & 10/42 & 10/42 & 10/42 & 3/21 & 31 / 0, $2.8\times10^{-9}$ & 11 / 0, $9.8\times10^{-4}$ \\
+FinOps expert (rules) & 10/42 & 10/42 & 10/42 & 3/21 & 32 / 0, $1.4\times10^{-9}$ & 11 / 0, $9.8\times10^{-4}$ \\
 
 SRE expert (rules) & 6/42 & 6/42 & 6/42 & 3/21 & 36 / 0, $1.2\times10^{-10}$ & 12 / 0, $4.9\times10^{-4}$ \\
 
-Security expert (LLM) & 23/39 & 11/39 & 23/39 & 6/19 & -- & 7 / 0, 0.016 \\
+Security expert (LLM) & 24/40 & 12/40 & 24/40 & 7/20 & -- & 7 / 0, 0.016 \\
 
-DevOps expert (LLM) & 13/39 & 5/39 & 13/39 & 5/19 & -- & 10 / 0, 0.002 \\
+DevOps expert (LLM) & 12/40 & 4/40 & 12/40 & 4/20 & -- & 10 / 0, 0.002 \\
 
-SRE expert (LLM) & 12/39 & 9/39 & 12/39 & 8/19 & -- & 10 / 0, 0.002 \\
+SRE expert (LLM) & 12/40 & 9/40 & 12/40 & 8/20 & -- & 11 / 0, $9.8\times10^{-4}$ \\
 
-FinOps expert (LLM) & 2/39 & 2/39 & 2/39 & 1/19 & -- & 14 / 0, $1.2\times10^{-4}$ \\
+FinOps expert (LLM) & 2/40 & 2/40 & 2/40 & 1/20 & -- & 14 / 0, $1.2\times10^{-4}$ \\
 
 Security expert (v1.0 rules) & 21/42 & 14/42 & 21/42 & 3/21 & -- & -- \\
 
@@ -156,7 +156,7 @@ SRE expert (v1.0 rules) & 6/42 & 6/42 & 6/42 & 3/21 & -- & -- \\
 
 \end{longtable}
 
-\textit{Withheld-evidence variants} (39): AAF (Qwen investigator) 34/39; AAF (GPT investigator) 38/39; Rules v1.0 (B1) 11/39; Rules v1.4 alone (B1-14) 23/39; Rules v1.4 + fetch rule (B2-14) 39/39; Agents always on, v1.4 decides (Qwen) 33/38; Qwen3-8B (B5) 28/38; GPT-5.6 Luna (B5) 32/39; Qwen3-8B + rules (B6) 21/37; GPT-5.6 Luna + rules (B6) 27/39.
+\textit{Withheld-evidence variants} (39): AAF (Qwen investigator) 34/39; AAF (GPT investigator) 38/39; Rules v1.0 (B1) 11/39; Rules v1.4 alone (B1-14) 23/39; Rules v1.4 + fetch rule (B2-14) 39/39; Agents always on, v1.4 decides (Qwen) 33/38; Qwen3-8B (B5) 28/38; GPT-5.6 Luna (B5) 32/39; Qwen3-8B + rules (B6) 22/38; GPT-5.6 Luna + rules (B6) 27/39.
 
 \textit{Low-risk releases} (12), release continued: AAF (Qwen investigator) 12/12; AAF (GPT investigator) 12/12; Qwen3-8B (B5) 10/10; Qwen3-8B + rules (B6) 12/12; GPT-5.6 Luna (B5) 12/12; GPT-5.6 Luna + rules (B6) 12/12; Always roll back 0/12; Block on any vulnerability 12/12; Always no action 12/12.
 
@@ -174,7 +174,7 @@ Fault cases 28; families 14; discriminating 27; one correct action 14.
 
 \endhead
 
-AAF (Qwen investigator) & 11/11 & 8/11 & 10/10 & 6/6 & -- & -- \\
+AAF (Qwen investigator) & 13/13 & 10/13 & 12/12 & 7/7 & -- & -- \\
 
 AAF (GPT investigator) & 28/28 & 22/28 & 27/27 & 14/14 & -- & -- \\
 
@@ -186,43 +186,43 @@ Rules v1.0 (B1) & 18/28 & 14/28 & 17/27 & 5/14 & -- & -- \\
 
 Rules v1.2 (B1-12) & 26/28 & 17/28 & 25/27 & 12/14 & -- & -- \\
 
-GPT-5.6 Luna + rules (B6) & 22/28 & 18/28 & 21/27 & 8/14 & 0 / 0, 1.000 & 3 / 0, 0.250 \\
+GPT-5.6 Luna + rules (B6) & 22/28 & 18/28 & 21/27 & 8/14 & 1 / 0, 1.000 & 3 / 0, 0.250 \\
 
 GPT-5.6 Luna (B5) & 20/28 & 11/28 & 19/27 & 7/14 & 0 / 0, 1.000 & 3 / 0, 0.250 \\
 
-Qwen3-8B + rules (B6) & 3/6 & 0/6 & 2/5 & 0/2 & 0 / 0, 1.000 & 2 / 0, 0.500 \\
+Qwen3-8B + rules (B6) & 6/9 & 2/9 & 5/8 & 0/2 & 2 / 0, 1.000 & 2 / 0, 0.500 \\
 
-Qwen3-8B (B5) & 7/9 & 3/9 & 6/8 & 2/4 & 0 / 0, 1.000 & 2 / 0, 0.500 \\
+Qwen3-8B (B5) & 11/13 & 5/13 & 10/12 & 4/6 & 0 / 0, 1.000 & 2 / 0, 0.500 \\
 
 Agents always on, v1.4 decides (GPT) & 28/28 & 22/28 & 27/27 & 14/14 & -- & -- \\
 
 Agents always on, v1.0 decides (GPT) & 18/28 & 14/28 & 17/27 & 5/14 & -- & -- \\
 
-Agents always on, v1.4 decides (Qwen) & 9/9 & 7/9 & 8/8 & 4/4 & -- & -- \\
+Agents always on, v1.4 decides (Qwen) & 13/13 & 9/13 & 12/12 & 6/6 & -- & -- \\
 
-Always roll back & 21/28 & 8/28 & 20/27 & 8/14 & 0 / 0, 1.000 & 2 / 0, 0.500 \\
+Always roll back & 21/28 & 8/28 & 20/27 & 8/14 & 0 / 0, 1.000 & 3 / 0, 0.250 \\
 
 Always no action & 1/28 & 1/28 & 0/27 & 0/14 & -- & -- \\
 
-Act on most severe domain & 17/28 & 12/28 & 16/27 & 6/14 & -- & 3 / 0, 0.250 \\
+Act on most severe domain & 17/28 & 12/28 & 16/27 & 6/14 & -- & 4 / 0, 0.125 \\
 
 Block on any vulnerability & 15/28 & 12/28 & 14/27 & 3/14 & -- & -- \\
 
-Security expert (rules) & 15/28 & 12/28 & 14/27 & 3/14 & 7 / 0, 0.047 & 5 / 0, 0.062 \\
+Security expert (rules) & 15/28 & 12/28 & 14/27 & 3/14 & 7 / 0, 0.031 & 5 / 0, 0.062 \\
 
-DevOps expert (rules) & 16/28 & 8/28 & 15/27 & 7/14 & 5 / 0, 0.062 & 4 / 0, 0.125 \\
+DevOps expert (rules) & 16/28 & 8/28 & 15/27 & 7/14 & 6 / 0, 0.031 & 5 / 0, 0.062 \\
 
-FinOps expert (rules) & 5/28 & 4/28 & 4/27 & 1/14 & 10 / 0, 0.008 & 7 / 0, 0.016 \\
+FinOps expert (rules) & 5/28 & 4/28 & 4/27 & 1/14 & 12 / 0, 0.002 & 9 / 0, 0.004 \\
 
-SRE expert (rules) & 5/28 & 5/28 & 4/27 & 2/14 & 7 / 0, 0.047 & 5 / 0, 0.062 \\
+SRE expert (rules) & 5/28 & 5/28 & 4/27 & 2/14 & 9 / 0, 0.012 & 7 / 0, 0.016 \\
 
-Security expert (LLM) & 5/9 & 1/9 & 4/8 & 0/4 & -- & 3 / 0, 0.250 \\
+Security expert (LLM) & 9/13 & 4/13 & 8/12 & 2/6 & -- & 3 / 0, 0.250 \\
 
-DevOps expert (LLM) & 5/9 & 2/9 & 4/8 & 1/4 & -- & 4 / 0, 0.125 \\
+DevOps expert (LLM) & 7/13 & 3/13 & 6/12 & 2/6 & -- & 5 / 0, 0.062 \\
 
-SRE expert (LLM) & 5/9 & 3/9 & 4/8 & 2/4 & -- & 3 / 0, 0.250 \\
+SRE expert (LLM) & 7/13 & 4/13 & 6/12 & 3/6 & -- & 4 / 0, 0.125 \\
 
-FinOps expert (LLM) & 2/9 & 0/9 & 1/8 & 0/4 & -- & 4 / 0, 0.125 \\
+FinOps expert (LLM) & 4/13 & 1/13 & 3/12 & 0/6 & -- & 6 / 0, 0.031 \\
 
 Security expert (v1.0 rules) & 15/28 & 12/28 & 14/27 & 3/14 & -- & -- \\
 
@@ -236,9 +236,9 @@ SRE expert (v1.0 rules) & 5/28 & 5/28 & 4/27 & 2/14 & -- & -- \\
 
 \end{longtable}
 
-\textit{Withheld-evidence variants} (26): AAF (Qwen investigator) 7/8; AAF (GPT investigator) 26/26; Rules v1.0 (B1) 4/26; Rules v1.4 alone (B1-14) 12/26; Rules v1.4 + fetch rule (B2-14) 26/26; Agents always on, v1.4 decides (Qwen) 9/12; Qwen3-8B (B5) 8/12; GPT-5.6 Luna (B5) 20/26; Qwen3-8B + rules (B6) 6/9; GPT-5.6 Luna + rules (B6) 16/26.
+\textit{Withheld-evidence variants} (26): AAF (Qwen investigator) 8/10; AAF (GPT investigator) 26/26; Rules v1.0 (B1) 4/26; Rules v1.4 alone (B1-14) 12/26; Rules v1.4 + fetch rule (B2-14) 26/26; Agents always on, v1.4 decides (Qwen) 12/15; Qwen3-8B (B5) 11/15; GPT-5.6 Luna (B5) 20/26; Qwen3-8B + rules (B6) 6/9; GPT-5.6 Luna + rules (B6) 16/26.
 
-\textit{Low-risk releases} (8), release continued: AAF (Qwen investigator) 3/3; AAF (GPT investigator) 8/8; Qwen3-8B (B5) 1/1; Qwen3-8B + rules (B6) 1/1; GPT-5.6 Luna (B5) 8/8; GPT-5.6 Luna + rules (B6) 8/8; Always roll back 0/8; Block on any vulnerability 8/8; Always no action 8/8.
+\textit{Low-risk releases} (8), release continued: AAF (Qwen investigator) 3/3; AAF (GPT investigator) 8/8; Qwen3-8B (B5) 1/1; Qwen3-8B + rules (B6) 2/2; GPT-5.6 Luna (B5) 8/8; GPT-5.6 Luna + rules (B6) 8/8; Always roll back 0/8; Block on any vulnerability 8/8; Always no action 8/8.
 
 \subsection*{C.4 Pooled, Studies 14--16}
 
@@ -254,7 +254,7 @@ Fault cases 104; families 45; discriminating 98; one correct action 46.
 
 \endhead
 
-AAF (Qwen investigator) & 86/86 & 63/86 & 80/80 & 37/37 & -- & -- \\
+AAF (Qwen investigator) & 89/89 & 66/89 & 83/83 & 39/39 & -- & -- \\
 
 AAF (GPT investigator) & 104/104 & 78/104 & 98/98 & 46/46 & -- & -- \\
 
@@ -266,43 +266,43 @@ Rules v1.0 (B1) & 71/104 & 59/104 & 65/98 & 19/46 & -- & -- \\
 
 Rules v1.2 (B1-12) & 95/104 & 61/104 & 89/98 & 37/46 & -- & -- \\
 
-GPT-5.6 Luna + rules (B6) & 80/104 & 63/104 & 74/98 & 23/46 & 18 / 0, $3.1\times10^{-5}$ & 15 / 0, $6.1\times10^{-5}$ \\
+GPT-5.6 Luna + rules (B6) & 80/104 & 63/104 & 74/98 & 23/46 & 19 / 0, $1.5\times10^{-5}$ & 15 / 0, $6.1\times10^{-5}$ \\
 
-GPT-5.6 Luna (B5) & 78/104 & 43/104 & 72/98 & 26/46 & 14 / 0, $2.4\times10^{-4}$ & 13 / 0, $2.4\times10^{-4}$ \\
+GPT-5.6 Luna (B5) & 78/104 & 43/104 & 72/98 & 26/46 & 16 / 0, $4.6\times10^{-5}$ & 13 / 0, $2.4\times10^{-4}$ \\
 
-Qwen3-8B + rules (B6) & 61/80 & 44/80 & 55/74 & 17/32 & 14 / 0, $2.4\times10^{-4}$ & 13 / 0, $2.4\times10^{-4}$ \\
+Qwen3-8B + rules (B6) & 64/83 & 46/83 & 58/77 & 17/32 & 17 / 0, $4.6\times10^{-5}$ & 13 / 0, $2.4\times10^{-4}$ \\
 
-Qwen3-8B (B5) & 58/82 & 29/82 & 52/76 & 19/34 & 19 / 0, $1.9\times10^{-5}$ & 13 / 0, $2.4\times10^{-4}$ \\
+Qwen3-8B (B5) & 63/87 & 32/87 & 57/81 & 22/37 & 20 / 0, $9.5\times10^{-6}$ & 14 / 0, $1.2\times10^{-4}$ \\
 
 Agents always on, v1.4 decides (GPT) & 104/104 & 78/104 & 98/98 & 46/46 & -- & -- \\
 
 Agents always on, v1.0 decides (GPT) & 71/104 & 59/104 & 65/98 & 19/46 & -- & -- \\
 
-Agents always on, v1.4 decides (Qwen) & 48/48 & 37/48 & 47/47 & 23/23 & -- & -- \\
+Agents always on, v1.4 decides (Qwen) & 53/53 & 40/53 & 52/52 & 26/26 & -- & -- \\
 
-Always roll back & 77/104 & 25/104 & 71/98 & 25/46 & 15 / 0, $1.8\times10^{-4}$ & 11 / 0, $9.8\times10^{-4}$ \\
+Always roll back & 77/104 & 25/104 & 71/98 & 25/46 & 17 / 0, $4.6\times10^{-5}$ & 12 / 0, $4.9\times10^{-4}$ \\
 
 Always no action & 7/104 & 5/104 & 1/98 & 0/46 & -- & -- \\
 
-Act on most severe domain & 63/104 & 49/104 & 57/98 & 19/46 & -- & 19 / 0, $3.8\times10^{-6}$ \\
+Act on most severe domain & 63/104 & 49/104 & 57/98 & 19/46 & -- & 20 / 0, $1.9\times10^{-6}$ \\
 
 Block on any vulnerability & 62/104 & 46/104 & 56/98 & 10/46 & -- & -- \\
 
-Security expert (rules) & 62/104 & 46/104 & 56/98 & 10/46 & 35 / 0, $5.8\times10^{-11}$ & 20 / 0, $1.9\times10^{-6}$ \\
+Security expert (rules) & 62/104 & 46/104 & 56/98 & 10/46 & 36 / 0, $2.9\times10^{-11}$ & 20 / 0, $1.9\times10^{-6}$ \\
 
-DevOps expert (rules) & 48/104 & 23/104 & 42/98 & 18/46 & 48 / 0, $1.4\times10^{-14}$ & 24 / 0, $1.2\times10^{-7}$ \\
+DevOps expert (rules) & 48/104 & 23/104 & 42/98 & 18/46 & 50 / 0, $3.6\times10^{-15}$ & 25 / 0, $6.0\times10^{-8}$ \\
 
-FinOps expert (rules) & 26/104 & 24/104 & 20/98 & 5/46 & 64 / 0, $3.3\times10^{-19}$ & 33 / 0, $2.3\times10^{-10}$ \\
+FinOps expert (rules) & 26/104 & 24/104 & 20/98 & 5/46 & 67 / 0, $4.1\times10^{-20}$ & 35 / 0, $5.8\times10^{-11}$ \\
 
-SRE expert (rules) & 20/104 & 15/104 & 14/98 & 6/46 & 68 / 0, $2.7\times10^{-20}$ & 31 / 0, $9.3\times10^{-10}$ \\
+SRE expert (rules) & 20/104 & 15/104 & 14/98 & 6/46 & 70 / 0, $6.8\times10^{-21}$ & 33 / 0, $2.3\times10^{-10}$ \\
 
-Security expert (LLM) & 51/82 & 22/82 & 45/76 & 9/34 & -- & 19 / 0, $3.8\times10^{-6}$ \\
+Security expert (LLM) & 56/87 & 26/87 & 50/81 & 12/37 & -- & 19 / 0, $3.8\times10^{-6}$ \\
 
-DevOps expert (LLM) & 32/82 & 12/82 & 26/76 & 8/34 & -- & 26 / 0, $3.0\times10^{-8}$ \\
+DevOps expert (LLM) & 33/87 & 12/87 & 27/81 & 8/37 & -- & 27 / 0, $1.5\times10^{-8}$ \\
 
-SRE expert (LLM) & 32/82 & 19/82 & 26/76 & 15/34 & -- & 24 / 0, $1.2\times10^{-7}$ \\
+SRE expert (LLM) & 34/87 & 20/87 & 28/81 & 16/37 & -- & 26 / 0, $3.0\times10^{-8}$ \\
 
-FinOps expert (LLM) & 13/82 & 6/82 & 7/76 & 2/34 & -- & 32 / 0, $4.7\times10^{-10}$ \\
+FinOps expert (LLM) & 15/87 & 7/87 & 9/81 & 2/37 & -- & 34 / 0, $1.2\times10^{-10}$ \\
 
 Security expert (v1.0 rules) & 62/104 & 46/104 & 56/98 & 10/46 & -- & -- \\
 
@@ -316,8 +316,8 @@ SRE expert (v1.0 rules) & 20/104 & 15/104 & 14/98 & 6/46 & -- & -- \\
 
 \end{longtable}
 
-\textit{Withheld-evidence variants} (97): AAF (Qwen investigator) 68/79; AAF (GPT investigator) 93/97; Rules v1.0 (B1) 26/97; Rules v1.4 alone (B1-14) 53/97; Rules v1.4 + fetch rule (B2-14) 65/65; Agents always on, v1.4 decides (Qwen) 42/50; Qwen3-8B (B5) 58/82; GPT-5.6 Luna (B5) 79/97; Qwen3-8B + rules (B6) 52/78; GPT-5.6 Luna + rules (B6) 68/97.
+\textit{Withheld-evidence variants} (97): AAF (Qwen investigator) 69/81; AAF (GPT investigator) 93/97; Rules v1.0 (B1) 26/97; Rules v1.4 alone (B1-14) 53/97; Rules v1.4 + fetch rule (B2-14) 97/97; Agents always on, v1.4 decides (Qwen) 45/53; Qwen3-8B (B5) 61/85; GPT-5.6 Luna (B5) 79/97; Qwen3-8B + rules (B6) 53/79; GPT-5.6 Luna + rules (B6) 68/97.
 
-\textit{Low-risk releases} (24), release continued: AAF (Qwen investigator) 19/19; AAF (GPT investigator) 24/24; Qwen3-8B (B5) 15/15; Qwen3-8B + rules (B6) 17/17; GPT-5.6 Luna (B5) 24/24; GPT-5.6 Luna + rules (B6) 24/24; Always roll back 0/24; Block on any vulnerability 24/24; Always no action 24/24.
+\textit{Low-risk releases} (24), release continued: AAF (Qwen investigator) 19/19; AAF (GPT investigator) 24/24; Qwen3-8B (B5) 15/15; Qwen3-8B + rules (B6) 18/18; GPT-5.6 Luna (B5) 24/24; GPT-5.6 Luna + rules (B6) 24/24; Always roll back 0/24; Block on any vulnerability 24/24; Always no action 24/24.
 
 \twocolumn

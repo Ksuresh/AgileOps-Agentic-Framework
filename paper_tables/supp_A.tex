@@ -24,3 +24,18 @@ GPT-5.6 Luna first decision & \texttt{57d7406} & 2026-10-26 02:14 \\
 \textit{Study 15, amendment 1.} The first calibration run showed (i) that the storefront kept failing for minutes after a backend recovered, because its gRPC client backs off before reconnecting (healthy currency service measured with 66.6\% errors), and (ii) that CPU starvation does not degrade the product-catalog service (p95 $\le$ 498 ms down to a 5m CPU limit). Before any outcome was measured, the storefront was set to restart after every backend change, and the degradation of services that CPU starvation does not affect became the service's own latency-injection setting, mildest violating value first. The superseded calibration is kept in the repository. The same reconnection effect is visible in three Study~14 backend cases (QP-R02, QP-R04, QP-X02), in which the healthy rollback state was measured with 50--100\% errors; they are reported as non-discriminating and favour no decider.
 \subsection*{A.2 Execution notes}
 Study~14: five decider batches reached the runner time limit and 24 of 864 LLM decisions were completed by a resumed run with identical settings. Studies~15 and~16: Qwen3-8B decider batches that reached the runner time limit were resumed with identical settings; completed decisions were not rerun (details in each protocol). GPT-5.6 Luna deciders ran once per case under a call and token cap that was not reached (Table~F1). In Study~16 no older catalogue image both carried extra critical CVEs and started, so, as pre-specified, its vulnerable-image cases carry an exposed secret instead; no low-risk image qualified for any service, so low-risk cases use the stable image, which carries HIGH/MEDIUM findings.
+\subsection*{A.3 Completeness of the Qwen3-8B runs}
+Qwen3-8B runs on CPU-only runners; some decider batches reached the runner's six-hour limit. The decider jobs are assigned to batches in a fixed pseudo-random order (seed 9) before any decision is made, so the cases left without a decision when a batch stops are not selected by case type or difficulty. Cases counted below have at least one completed run per configuration; every reported Qwen3-8B result uses only completed cases, and its denominator is shown.
+\begin{table}[!h]
+\caption*{Table A2. Full-evidence cases with a completed Qwen3-8B decision}
+\centering\scriptsize
+\begin{tabular}{L{1.4cm}L{1.0cm}L{1.6cm}L{1.0cm}L{1.0cm}}
+\toprule
+\textbf{Study} & \textbf{Cases} & \textbf{AAF (Qwen investigator)} & \textbf{B5} & \textbf{B6} \\
+\midrule
+Study 14 & 40 & 40 & 40 & 40 \\
+Study 15 & 57 & 56 & 53 & 55 \\
+Study 16 & 38 & 18 & 14 & 13 \\
+\bottomrule
+\end{tabular}
+\end{table}

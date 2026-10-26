@@ -6,27 +6,28 @@
 \toprule
 \textbf{Decider} & \textbf{S14 (OB, 2 svc)} & \textbf{S15 (OB, 3 svc)} & \textbf{S16 (Sock Shop)} & \textbf{Pooled} & \textbf{Cases: AAF only / other only} & \textbf{$p_{\text{Holm}}$ (cases)} & \textbf{Families: AAF / other better} \\
 \midrule
-AAF (v1.4 rules + Qwen3-8B investigator) & 34/34 & 41/41$^\dagger$ & 11/11$^\dagger$ & 86/86$^\dagger$ & -- & -- & -- \\
-AAF with GPT-5.6 Luna investigator & 34/34 & 42/42 & 28/28 & 104/104 & -- & -- & -- \\
+AAF, GPT-5.6 Luna investigator & 34/34 & 42/42 & 28/28 & 104/104 & -- & -- & -- \\
+AAF, Qwen3-8B investigator & 34/34 & 42/42 & 13/13$^\dagger$ & 89/89$^\dagger$ & -- & -- & -- \\
+AAF rules alone (no investigation) & 34/34 & 42/42 & 28/28 & 104/104 & -- & -- & -- \\
 \midrule
-GPT-5.6 Luna decides, AAF's rules in prompt (B6) & 28/34 & 30/42 & 22/28 & 80/104 & 18 / 0 & $3.1\times10^{-5}$ & 15 / 0 \\
-GPT-5.6 Luna decides (B5) & 29/34 & 29/42 & 20/28 & 78/104 & 14 / 0 & $2.4\times10^{-4}$ & 13 / 0 \\
-Qwen3-8B decides, AAF's rules in prompt (B6) & 29/34 & 29/40$^\dagger$ & 3/6$^\dagger$ & 61/80$^\dagger$ & 14 / 0 & $2.4\times10^{-4}$ & 13 / 0 \\
-Qwen3-8B decides (B5) & 26/34 & 25/39$^\dagger$ & 7/9$^\dagger$ & 58/82$^\dagger$ & 19 / 0 & $1.9\times10^{-5}$ & 13 / 0 \\
+GPT-5.6 Luna decides, AAF's rules in prompt (B6) & 28/34 & 30/42 & 22/28 & 80/104 & 19 / 0 & $1.5\times10^{-5}$ & 15 / 0 \\
+GPT-5.6 Luna decides (B5) & 29/34 & 29/42 & 20/28 & 78/104 & 16 / 0 & $4.6\times10^{-5}$ & 13 / 0 \\
+Qwen3-8B decides, AAF's rules in prompt (B6) & 29/34 & 29/40$^\dagger$ & 6/9$^\dagger$ & 64/83$^\dagger$ & 17 / 0 & $4.6\times10^{-5}$ & 13 / 0 \\
+Qwen3-8B decides (B5) & 26/34 & 26/40$^\dagger$ & 11/13$^\dagger$ & 63/87$^\dagger$ & 20 / 0 & $9.5\times10^{-6}$ & 14 / 0 \\
 \midrule
-Always roll back & 26/34 & 30/42 & 21/28 & 77/104 & 15 / 0 & $1.8\times10^{-4}$ & 11 / 0 \\
-Act on most severe domain & 21/34 & 25/42 & 17/28 & 63/104 & -- & -- & 19 / 0 \\
+Always roll back & 26/34 & 30/42 & 21/28 & 77/104 & 17 / 0 & $4.6\times10^{-5}$ & 12 / 0 \\
+Act on most severe domain & 21/34 & 25/42 & 17/28 & 63/104 & -- & -- & 20 / 0 \\
 Block on any vulnerability & 26/34 & 21/42 & 15/28 & 62/104 & -- & -- & -- \\
 \midrule
-Security expert (rules) & 26/34 & 21/42 & 15/28 & 62/104 & 35 / 0 & $5.8\times10^{-11}$ & 20 / 0 \\
-DevOps expert (rules) & 14/34 & 18/42 & 16/28 & 48/104 & 48 / 0 & $1.4\times10^{-14}$ & 24 / 0 \\
-FinOps expert (rules) & 11/34 & 10/42 & 5/28 & 26/104 & 64 / 0 & $3.3\times10^{-19}$ & 33 / 0 \\
-SRE expert (rules) & 9/34 & 6/42 & 5/28 & 20/104 & 68 / 0 & $2.7\times10^{-20}$ & 31 / 0 \\
-Security expert (LLM) & 23/34 & 23/39$^\dagger$ & 5/9$^\dagger$ & 51/82$^\dagger$ & -- & -- & 19 / 0 \\
-DevOps expert (LLM) & 14/34 & 13/39$^\dagger$ & 5/9$^\dagger$ & 32/82$^\dagger$ & -- & -- & 26 / 0 \\
-SRE expert (LLM) & 15/34 & 12/39$^\dagger$ & 5/9$^\dagger$ & 32/82$^\dagger$ & -- & -- & 24 / 0 \\
-FinOps expert (LLM) & 9/34 & 2/39$^\dagger$ & 2/9$^\dagger$ & 13/82$^\dagger$ & -- & -- & 32 / 0 \\
+Security expert (rules) & 26/34 & 21/42 & 15/28 & 62/104 & 36 / 0 & $2.9\times10^{-11}$ & 20 / 0 \\
+DevOps expert (rules) & 14/34 & 18/42 & 16/28 & 48/104 & 50 / 0 & $3.6\times10^{-15}$ & 25 / 0 \\
+FinOps expert (rules) & 11/34 & 10/42 & 5/28 & 26/104 & 67 / 0 & $4.1\times10^{-20}$ & 35 / 0 \\
+SRE expert (rules) & 9/34 & 6/42 & 5/28 & 20/104 & 70 / 0 & $6.8\times10^{-21}$ & 33 / 0 \\
+Security expert (LLM) & 23/34 & 24/40$^\dagger$ & 9/13$^\dagger$ & 56/87$^\dagger$ & -- & -- & 19 / 0 \\
+DevOps expert (LLM) & 14/34 & 12/40$^\dagger$ & 7/13$^\dagger$ & 33/87$^\dagger$ & -- & -- & 27 / 0 \\
+SRE expert (LLM) & 15/34 & 12/40$^\dagger$ & 7/13$^\dagger$ & 34/87$^\dagger$ & -- & -- & 26 / 0 \\
+FinOps expert (LLM) & 9/34 & 2/40$^\dagger$ & 4/13$^\dagger$ & 15/87$^\dagger$ & -- & -- & 34 / 0 \\
 \bottomrule
 \end{tabular}
-\par\vspace{2pt}\raggedright\scriptsize OB: Online Boutique. Pooled tests: exact McNemar on cases, Holm-adjusted within the pre-specified families (single-domain experts; LLM deciders and always-rollback); family-level: cases of the same design on different services of one study (45 families), sign test in the text. Single-domain rule experts use AAF's own rules on one domain (v1.4 in Studies 15--16; v1.0 in Study 14 as pre-specified). Qwen3-8B: majority of three runs; GPT-5.6 Luna: one run. $^\dagger$Fewer cases than the study has: runs incomplete.
+\par\vspace{2pt}\raggedright\scriptsize OB: Online Boutique. Pooled tests: exact McNemar on cases, Holm-adjusted within the pre-specified families (single-domain experts; LLM deciders and always-rollback); family-level: cases of the same design on different services of one study (45 families), sign test in the text. Single-domain rule experts use AAF's own rules on one domain (v1.4 in Studies 15--16; v1.0 in Study 14 as pre-specified). Qwen3-8B: majority of three runs; GPT-5.6 Luna: one run. Comparisons use AAF with the pre-specified Qwen3-8B investigator on the cases where its runs completed; AAF's action with the GPT-5.6 Luna investigator and with the rules alone was identical on every one of these cases. $^\dagger$Fewer cases than the study has: runs incomplete.
 \end{table*}

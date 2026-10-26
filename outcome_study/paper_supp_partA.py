@@ -74,6 +74,18 @@ def part_a(cs) -> str:
           r"decisions were not rerun (details in each protocol). GPT-5.6 Luna deciders ran once per case under a call and token cap that was not reached "
           r"(Table~F1). In Study~16 no older catalogue image both carried extra critical CVEs and started, so, as pre-specified, its vulnerable-image cases "
           r"carry an exposed secret instead; no low-risk image qualified for any service, so low-risk cases use the stable image, which carries HIGH/MEDIUM findings."]
+    comp = cs["completion"]
+    L += [r"\subsection*{A.3 Completeness of the Qwen3-8B runs}",
+          r"Qwen3-8B runs on CPU-only runners; some decider batches reached the runner's six-hour limit. The decider jobs are assigned to batches "
+          r"in a fixed pseudo-random order (seed 9) before any decision is made, so the cases left without a decision when a batch stops are not "
+          r"selected by case type or difficulty. Cases counted below have at least one completed run per configuration; every reported Qwen3-8B "
+          r"result uses only completed cases, and its denominator is shown.",
+          r"\begin{table}[!h]", r"\caption*{Table A2. Full-evidence cases with a completed Qwen3-8B decision}", r"\centering\scriptsize",
+          r"\begin{tabular}{L{1.4cm}L{1.0cm}L{1.6cm}L{1.0cm}L{1.0cm}}", r"\toprule",
+          r"\textbf{Study} & \textbf{Cases} & \textbf{AAF (Qwen investigator)} & \textbf{B5} & \textbf{B6} \\", r"\midrule"]
+    for st, v in comp.items():
+        L.append(f"{SN[st]} & {v['all_cases']} & {v['AAF_qwen_cases']} & {v['B5_qwen_cases']} & {v['B6_qwen_cases']}" + r" \\")
+    L += [r"\bottomrule", r"\end{tabular}", r"\end{table}"]
     return "\n".join(L) + "\n"
 
 
