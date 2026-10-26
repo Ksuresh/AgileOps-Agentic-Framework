@@ -1,3 +1,4 @@
 MODE=calibrate
 NSHARDS=1
 REP=1
+RUN=2

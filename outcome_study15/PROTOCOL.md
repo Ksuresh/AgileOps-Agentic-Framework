@@ -68,3 +68,21 @@ Any comparison may go against AAF; every pre-specified comparison is reported.
 Calibration (one job), then two measurement replicates (sharded; decisions use replicate 1 snapshots), then deciders
 (sharded). Runs that hit runner limits are resumed with identical settings; completed results are not rerun. Deviations are
 appended below as execution notes.
+
+## Amendment 1 (after the first calibration run, before any outcome measurement)
+The first calibration run (`calibration/calibration_run1_superseded.json`) showed two testbed problems; no action outcome
+had been measured and no decider had run.
+1. Storefront reconnect back-off. After a backend service had been failing (here the productcatalogservice crash check),
+   the storefront kept failing for minutes after the backend recovered (currencyservice healthy measurement: 66.6% errors),
+   because its gRPC client backs off before reconnecting. The same effect is visible in Study 14: in QP-R02 and QP-R04 the
+   rollback state, which is healthy, was measured with 50-69% errors, and in QP-X02 with 100%, so every action violated the
+   reliability threshold and those cases did not discriminate between deciders. Fix: for backend targets the storefront is
+   restarted after every state change (`RESTART_FRONTEND=1`, `testbed.apply`), so each measurement starts from fresh
+   connections. Frontend cases are unaffected.
+2. CPU starvation does not degrade productcatalogservice (p95 <= 498 ms down to a 5m CPU limit, consistent with Study 14,
+   where its perf cases did not violate the threshold). Fix: if no CPU level violates, the degradation is injected latency
+   through the service's own EXTRA_LATENCY setting, candidates 100ms, 200ms, 400ms, 800ms, 1600ms, mildest first; the first
+   that violates. The mitigate action removes the degradation, as it does for CPU starvation.
+Calibration is rerun in full with these fixes. The image selections of run 1 are recorded; no low-risk image qualified in
+run 1 for any service (every older tag carries critical CVEs), so L03-L04 fall back to the stable image, which carries
+32-74 HIGH/MEDIUM findings and no critical CVE beyond stable. Cases, deciders, hypotheses and analysis are unchanged.

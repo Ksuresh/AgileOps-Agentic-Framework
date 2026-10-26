@@ -50,6 +50,7 @@ jobs:
       OUTCOME_DIR: outcome_study15
       MEASURE_NONCRITICAL: "1"
       MEASURE_PRE_RELEASE: "1"
+      RESTART_FRONTEND: "1"
       LLM_ARMS: "AAF-14 B5 B6"
       OB_COMMIT: b9a978db9e01f4ad3dca9494a22cb9edc17548fe
       SHARD: ${{ matrix.shard }}

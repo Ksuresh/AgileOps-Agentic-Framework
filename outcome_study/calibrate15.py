@@ -10,7 +10,8 @@ file is completed (PROTOCOL.md, outcome_study15):
    tag qualifies, the low-risk cases of that service use the stable image (as in Study 14).
 3. Degradation level: CPU limit candidates 50m, 30m, 20m, 10m, 5m, largest first, applied to the service at 1 replica under
    normal load; the largest that violates the Study 9 reliability threshold (p95 > 816 ms or errors > 1%) is the service's
-   perf level. If none violates, 5m is used and this is recorded.
+   perf level. Amendment 1: if none violates, injected latency through the service's EXTRA_LATENCY setting, candidates
+   100ms to 1600ms, mildest first; the first that violates (else 1600ms, recorded).
 4. Crash check (descriptive): the invalid-port release is applied once per service and its rollout and storefront errors
    are recorded.
 The healthy storefront latency with each service at its stable release is recorded for reference."""
@@ -33,6 +34,7 @@ USED = {"frontend": {"v0.8.0", "v0.7.0", "v0.6.0", "v0.5.0", "v0.4.0", "v0.3.0"}
         "productcatalogservice": {"v0.8.0", "v0.7.0"}, "currencyservice": set()}
 KEYS = {"frontend": ("G", "H", "NF"), "productcatalogservice": ("P3", "P4", "NP"), "currencyservice": ("C1", "C2", "NC")}
 PERF = ["50m", "30m", "20m", "10m", "5m"]
+LATENCY = ["100ms", "200ms", "400ms", "800ms", "1600ms"]  # Amendment 1, used only if no CPU level violates
 P95_MAX, ERR_MAX = 816.0, 1.0
 LOAD = 20  # normal load (cases.yaml)
 
@@ -104,8 +106,19 @@ def calibrate(service: str) -> dict:
         if rec["violates"]:
             out["perf_cpu"] = cpu
             break
+    if out["perf_cpu"] is None:  # Amendment 1: injected latency for services that CPU starvation does not degrade
+        for lat in LATENCY:
+            T.apply(T.template(["perf"], {"perf_cpu": "lat:" + lat}, {}), 1)
+            m = T.measure(LOAD)
+            rec = {"latency": lat, "p95_ms": m["http"]["latency_p95_ms"], "error_rate_pct": m["http"]["error_rate_pct"]}
+            rec["violates"] = rec["p95_ms"] > P95_MAX or rec["error_rate_pct"] > ERR_MAX
+            out["perf_scans"].append(rec)
+            print(service, "perf", rec, flush=True)
+            if rec["violates"]:
+                out["perf_cpu"] = "lat:" + lat
+                break
     if out["perf_cpu"] is None:
-        out["perf_cpu"], out["perf_note"] = PERF[-1], "no candidate violated; smallest used"
+        out["perf_cpu"], out["perf_note"] = "lat:" + LATENCY[-1], "no candidate violated; strongest used"
     ok = T.apply(T.template(["crash"], {}, {}), 1)
     m = T.measure(LOAD)
     out["crash_check"] = {"rollout_ok": ok, "storefront_error_rate_pct": m["http"]["error_rate_pct"], "restarts": m["restarts"]}

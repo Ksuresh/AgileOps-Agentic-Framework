@@ -59,7 +59,7 @@ def template(mods: list[str], case: dict, images: dict[str, str]) -> dict:
     st = base()
     d = copy.deepcopy(st["deployment"])
     c = d["spec"]["template"]["spec"]["containers"][0]
-    env = [e for e in c.get("env", []) if e["name"] not in {"AAF_RELEASE", "AAF_OB_TEST_POLICY_MARKER", "PORT"}]
+    env = [e for e in c.get("env", []) if e["name"] not in {"AAF_RELEASE", "AAF_OB_TEST_POLICY_MARKER", "PORT", "EXTRA_LATENCY"}]
     port_env = [e for e in c.get("env", []) if e["name"] == "PORT"]
     if "feature" in mods:
         env.append({"name": "AAF_RELEASE", "value": "candidate"})
@@ -74,7 +74,9 @@ def template(mods: list[str], case: dict, images: dict[str, str]) -> dict:
         c["image"] = images[case["vuln"]]
     if "lowrisk" in mods:  # Study 15: image with HIGH/MEDIUM findings but no critical CVE beyond stable
         c["image"] = images[case["lowrisk"]]
-    if "perf" in mods:
+    if "perf" in mods and str(case["perf_cpu"]).startswith("lat:"):  # Study 15: injected latency (EXTRA_LATENCY)
+        env.append({"name": "EXTRA_LATENCY", "value": str(case["perf_cpu"])[4:]})
+    elif "perf" in mods:
         cpu = case["perf_cpu"]
         c["resources"] = {"requests": {"cpu": cpu, "memory": "64Mi"}, "limits": {"cpu": cpu, "memory": "128Mi"}}
     if "mitigated" in mods:
@@ -90,6 +92,12 @@ def apply(dep: dict, replicas: int) -> bool:
     subprocess.run(["kubectl", "replace", "-f", "-"], input=json.dumps(dep), text=True, check=True, capture_output=True)
     ok = subprocess.run(["kubectl", "rollout", "status", f"deployment/{TARGET}", "--timeout=150s"], capture_output=True, text=True).returncode == 0
     time.sleep(8 if ok else 20)
+    if TARGET != "frontend" and os.environ.get("RESTART_FRONTEND"):
+        # Study 15: a fresh storefront connection after every backend change, so a measurement is not contaminated by the
+        # storefront's gRPC reconnect back-off to a backend that was failing in the previous state
+        subprocess.run(["kubectl", "rollout", "restart", "deployment/frontend"], capture_output=True, text=True)
+        subprocess.run(["kubectl", "rollout", "status", "deployment/frontend", "--timeout=150s"], capture_output=True, text=True)
+        time.sleep(8)
     return ok
 
 
