@@ -32,6 +32,20 @@ LABEL = {"AAF": "AAF (Qwen investigator)", "AAF-14-GPT": "AAF (GPT investigator)
          "D-Sec": "Security expert (v1.0 rules)", "D-DevOps": "DevOps expert (v1.0 rules)", "D-FinOps": "FinOps expert (v1.0 rules)",
          "D-SRE": "SRE expert (v1.0 rules)"}
 ORDER = list(LABEL)
+GROUP = {**{k: "AAF and its rules" for k in ("AAF", "AAF-14-GPT", "B1-14", "B2-14", "B1", "B1-12", "B3-14-GPT", "B3-GPT", "B3-14", "B3")},
+         **{k: "LLM decides" for k in ("B6-GPT", "B5-GPT", "B6", "B5")},
+         **{k: "Fixed policies" for k in ("AlwaysRollback", "AlwaysNone", "Dominant", "BlockAnyCVE")}}
+GROUP_ORDER = ["AAF and its rules", "LLM decides", "Fixed policies", "Single-domain experts"]
+
+
+def grouped(keys):
+    """Yield (group header or None, key) in a fixed group order."""
+    for g in GROUP_ORDER:
+        ks = [k for k in keys if GROUP.get(k, "Single-domain experts") == g]
+        if ks:
+            yield g, None
+            for k in ks:
+                yield None, k
 
 
 def esc(s) -> str:
@@ -133,24 +147,31 @@ def part_c(cs) -> str:
         mark = lambda v, n: (v + r"$^\dagger$") if v and v.split("/")[1] != str(n) else (v or "--")
         L += [rf"\subsection*{{C.{(list(S) + ['pooled']).index(scope) + 1} {name}}}",
               rf"Fault cases {full}; families {P['n_families']}; discriminating {P['n_discriminating']}; one correct action {P['n_unique_answer']}.",
-              r"\begin{longtable}{L{6.2cm}L{1.6cm}L{1.6cm}L{1.9cm}L{1.9cm}}",
-              rf"\multicolumn{{5}}{{l}}{{\textbf{{(a) Outcome-correct actions, {name}}}}} \\", r"\toprule",
-              r"\textbf{Decider} & \textbf{$O_1$} & \textbf{$O_2$} & \textbf{Discriminating} & \textbf{One correct action} \\", r"\midrule", r"\endhead"]
-        for d in ORDER:
-            if d not in P["O1"]:
+              r"\begin{longtable}{L{6.4cm}L{1.7cm}L{1.7cm}L{2.2cm}L{2.2cm}}",
+              rf"\multicolumn{{5}}{{l}}{{\textbf{{(a) Outcome-correct actions on fault cases, {name}}} (complete unless marked $^\dagger$)}} \\", r"\toprule",
+              r"\textbf{Decider} & \textbf{$O_1$} & \textbf{$O_2$ (strict)} & \textbf{Discriminating cases} & \textbf{One-correct-action cases} \\", r"\midrule", r"\endfirsthead",
+              rf"\multicolumn{{5}}{{l}}{{\textbf{{(a) continued, {name}}}}} \\", r"\toprule",
+              r"\textbf{Decider} & \textbf{$O_1$} & \textbf{$O_2$ (strict)} & \textbf{Discriminating cases} & \textbf{One-correct-action cases} \\", r"\midrule", r"\endhead"]
+        for g, d in grouped([d for d in ORDER if d in P["O1"]]):
+            if g:
+                L.append(rf"\multicolumn{{5}}{{l}}{{\textit{{{g}}}}} \\")
                 continue
-            L.append(f"{esc(LABEL[d])} & {mark(P['O1'][d], full)} & {mark(P['O2'].get(d), full)} & {mark(P['O1_discriminating'].get(d), P['n_discriminating'])} & {mark(P['O1_unique_answer'].get(d), P['n_unique_answer'])}" + r" \\")
+            L.append(f"\\quad {esc(LABEL[d])} & {mark(P['O1'][d], full)} & {mark(P['O2'].get(d), full)} & {mark(P['O1_discriminating'].get(d), P['n_discriminating'])} & {mark(P['O1_unique_answer'].get(d), P['n_unique_answer'])}" + r" \\")
         L += [r"\bottomrule", r"\end{longtable}"]
         tests = {**P["H1_case_level"], **P["H2_case_level"]}
-        L += [r"\begin{longtable}{L{5.4cm}L{1.5cm}L{1.5cm}L{2.0cm}L{1.9cm}L{1.9cm}}",
-              rf"\multicolumn{{6}}{{l}}{{\textbf{{(b) Paired comparisons with AAF, {name}}}}} \\", r"\toprule",
-              r"\textbf{Comparison decider} & \textbf{AAF only} & \textbf{Other only} & \textbf{$p_{\text{Holm}}$ (cases)} & \textbf{Families AAF / other} & \textbf{$p$ (families)} \\",
-              r"\midrule", r"\endhead"]
-        for d in ORDER:
-            t_, f = tests.get(d), P["family_level"].get(d)
-            if not t_ and not f:
+        hdr = (r"& \multicolumn{3}{l}{\textbf{Case level (exact McNemar)}} & \multicolumn{2}{l}{\textbf{Family level (sign test)}} \\",
+               r"\textbf{Comparison decider} & \textbf{AAF only right} & \textbf{Other only right} & \textbf{$p_{\text{Holm}}$} & \textbf{Families AAF / other better} & \textbf{$p$} \\")
+        L += [r"\begin{longtable}{L{5.2cm}L{1.5cm}L{1.5cm}L{1.9cm}L{2.2cm}L{1.7cm}}",
+              rf"\multicolumn{{6}}{{l}}{{\textbf{{(b) Paired comparisons with AAF (Qwen3-8B investigator, completed cases), {name}}}}} \\", r"\toprule",
+              *hdr, r"\midrule", r"\endfirsthead",
+              rf"\multicolumn{{6}}{{l}}{{\textbf{{(b) continued, {name}}}}} \\", r"\toprule", *hdr, r"\midrule", r"\endhead"]
+        keys = [d for d in ORDER if tests.get(d) or P["family_level"].get(d)]
+        for g, d in grouped(keys):
+            if g:
+                L.append(rf"\multicolumn{{6}}{{l}}{{\textit{{{g}}}}} \\")
                 continue
-            L.append(f"{esc(LABEL[d])} & {t_['a_only'] if t_ else '--'} & {t_['b_only'] if t_ else '--'} & {p_fmt(t_.get('p_holm', t_['p_exact'])) if t_ else '--'} & "
+            t_, f = tests.get(d), P["family_level"].get(d)
+            L.append("\\quad " + f"{esc(LABEL[d])} & {t_['a_only'] if t_ else '--'} & {t_['b_only'] if t_ else '--'} & {p_fmt(t_.get('p_holm', t_['p_exact'])) if t_ else '--'} & "
                      f"{str(f['families_a_better']) + ' / ' + str(f['families_b_better']) if f else '--'} & {p_fmt(f['sign_test_p']) if f else '--'}" + r" \\")
         L += [r"\bottomrule", r"\end{longtable}"]
         w, h3 = P["withheld"], P["H3_low_risk"]
