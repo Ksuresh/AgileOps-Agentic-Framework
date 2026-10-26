@@ -27,6 +27,7 @@ GROUP_NAMES = {"R": "Release regression", "P": "Fault before release", "S": "Sec
 # post hoc v1.4 recomputation is not mixed in for Study 14 (v1.0 there, as pre-specified)
 SHOW = [
     ("AAF-14-GPT", "AAF, GPT-5.6 Luna investigator", "AAF"),
+    ("AAF-14", "AAF, Qwen3-8B investigator", "AAF"),
     ("B1-14", "AAF rules alone (no investigation)", "AAF"),
     ("B6-GPT", "GPT-5.6 Luna decides, with AAF's rules", "LLM decides"),
     ("B5-GPT", "GPT-5.6 Luna decides", "LLM decides"),

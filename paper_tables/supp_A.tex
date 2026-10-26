@@ -47,7 +47,7 @@ Protocol files were changed after their first commit only as recorded in Appendi
 \subsection*{A.4 Analysis code written after the data}
 The tests were specified in the protocols and implemented in the per-study analysis scripts before any data existed. The code that assembles this paper's tables, figures and pooled statistics (\texttt{confirmatory\_stats.py}, \texttt{paper\_tables.py}, \texttt{figures.py}, \texttt{paper\_supp\_partA.py}) was written after the data were collected; it implements the pre-specified tests and adds analyses that are reported as post hoc: family-level tests, the discriminating and one-correct-action subsets, the oracle and rule-threshold sensitivity for Studies~15--16, the ablation, and the v1.4 fetch rule for Study~14. Two changes were made to the GPT analysis script after its first data: listing only the deciders present in a study, and reading the LLM single-domain experts from the decision records. Neither changes a decision or an outcome.
 \subsection*{A.5 Completeness of the Qwen3-8B runs}
-Qwen3-8B runs on CPU-only runners; some decider batches reached the runner's six-hour limit, and completion is uneven across studies (Table~A3). Decider jobs are assigned to batches in a fixed pseudo-random order (seed 9) before any decision is made, which makes it unlikely that the missing cases were selected by type or difficulty, but it does not prove that they are unbiased: slow cases, for example those where the model reasons longer, are more likely to be in a batch that stops. We therefore treat the missingness as a limitation. Every Qwen3-8B result uses only completed cases and shows its denominator; the conclusions rest on the complete results with the GPT-5.6 Luna investigator and with the rules alone, which agree with the Qwen3-8B investigator on every completed case.
+Qwen3-8B runs on CPU-only runners, and some decider batches reached the runner's six-hour limit (Study~14: five batches; Study~15: nine; Study~16: one). Each was resumed with identical settings, filling only the decisions that were missing; no completed decision was rerun. All Qwen3-8B decisions of Studies~14--16 are complete (Table~A3), so no reported result rests on a subset of cases.
 \begin{table}[!h]
 \caption*{Table A3. Full-evidence cases with a completed Qwen3-8B decision}
 \centering\scriptsize
@@ -56,8 +56,8 @@ Qwen3-8B runs on CPU-only runners; some decider batches reached the runner's six
 \textbf{Study} & \textbf{Cases} & \textbf{AAF (Qwen investigator)} & \textbf{B5} & \textbf{B6} \\
 \midrule
 Study 14 & 40 & 40 & 40 & 40 \\
-Study 15 & 57 & 56 & 55 & 56 \\
-Study 16 & 38 & 26 & 18 & 21 \\
+Study 15 & 57 & 57 & 57 & 57 \\
+Study 16 & 38 & 38 & 38 & 38 \\
 \bottomrule
 \end{tabular}
 \end{table}

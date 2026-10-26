@@ -80,12 +80,12 @@ def main() -> None:
         L.append(lab + " & " + " & ".join(cells) + r" \\")
     L += [r"\bottomrule", r"\end{tabular}",
           r"\par\vspace{2pt}\raggedright\scriptsize OB: Online Boutique. Pooled tests: exact McNemar on cases, Holm-adjusted within "
-          r"the pre-specified families (single-domain experts; LLM deciders and always-rollback); family-level: cases of the same design on "
+          r"the pre-specified families (single-domain experts; Qwen3-8B deciders and always-rollback; GPT-5.6 Luna deciders); family-level: cases of the same design on "
           r"different services of one study (" + str(P["n_families"]) + r" families), sign test in the text. Single-domain rule experts use AAF's own "
           r"rules on one domain (v1.4 in Studies 15--16; v1.0 in Study 14 as pre-specified). Qwen3-8B: majority of three runs; GPT-5.6 Luna: one run. "
-          r"Comparisons use AAF with the pre-specified Qwen3-8B investigator on the cases where its runs completed; AAF's action with the GPT-5.6 Luna "
-          r"investigator and with the rules alone was identical on every one of these cases. "
-          r"$O_2$: among the $O_1$-correct actions, those that keep the feature delivered and then use the least resources. $^\dagger$Fewer cases than the study has: runs incomplete.", r"\end{table*}"]
+          r"Comparisons use AAF with the pre-specified Qwen3-8B investigator; AAF's action with the GPT-5.6 Luna "
+          r"investigator and with the rules alone was identical on every case. "
+          r"$O_2$: among the $O_1$-correct actions, those that keep the feature delivered and then use the least resources." + (r" $^\dagger$Fewer cases than the study has: runs incomplete." if any("dagger" in x for x in L) else ""), r"\end{table*}"]
     (OUT / "tab_confirm.tex").write_text("\n".join(L) + "\n")
 
     # Table: could the benchmark favour AAF by construction?
@@ -99,7 +99,7 @@ def main() -> None:
         L.append(f"{lab} & {kn(P['O1'].get(k), P['n_faults'])} & {kn(P['O1_discriminating'].get(k), P['n_discriminating'])} & "
                  f"{kn(P['O1_unique_answer'].get(k), P['n_unique_answer'])}" + r" \\")
     L += [r"\bottomrule", r"\end{tabular}", r"\par\vspace{2pt}\raggedright\scriptsize Discriminating: not every action is $O_1$-correct. "
-          r"One correct action: exactly one of the five actions leaves the fewest domains in violation. $^\dagger$Runs incomplete.", r"\end{table}"]
+          r"One correct action: exactly one of the five actions leaves the fewest domains in violation." + (" $^\\dagger$Runs incomplete." if any("dagger" in x for x in L) else ""), r"\end{table}"]
     (OUT / "tab_construct.tex").write_text("\n".join(L) + "\n")
 
     # Table: ablation
