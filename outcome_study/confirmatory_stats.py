@@ -190,6 +190,11 @@ def main() -> None:
                               "all_cases": sum(1 for r in allc if r["study"] == st)} for st in STUDIES}
     res["model_independence_outcome"] = {"population": "all full-evidence cases (fault, control and low-risk) on which both investigators ran",
                                          "cases": sum(1 for r in allc if "AAF" in r["action"] and "AAF-14-GPT" in r["action"]),
+                                         "by_group": {k: sum(1 for r in allc if "AAF" in r["action"] and "AAF-14-GPT" in r["action"] and
+                                                             (r["group"] in FAULT if k == "fault" else r["group"] == ("C" if k == "control" else "L")))
+                                                      for k in ("fault", "control", "low_risk")},
+                                         "all_by_group": {k: sum(1 for r in allc if (r["group"] in FAULT if k == "fault" else r["group"] == ("C" if k == "control" else "L")))
+                                                          for k in ("fault", "control", "low_risk")},
                                          "same_action_qwen_vs_gpt_investigator": sum(1 for r in allc if r["action"].get("AAF") and r["action"].get("AAF") == r["action"].get("AAF-14-GPT")),
                                          "same_action_AAF_vs_rules_only": sum(1 for r in allc if r["action"].get("AAF") and r["action"].get("AAF") == r["action"].get("B1-14"))}
     (ROOT / "outcome_study" / "confirmatory_stats.json").write_text(json.dumps(res, indent=2, default=str))

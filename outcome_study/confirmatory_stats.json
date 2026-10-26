@@ -3264,6 +3264,16 @@
   "model_independence_outcome": {
     "population": "all full-evidence cases (fault, control and low-risk) on which both investigators ran",
     "cases": 114,
+    "by_group": {
+      "fault": 89,
+      "control": 6,
+      "low_risk": 19
+    },
+    "all_by_group": {
+      "fault": 104,
+      "control": 7,
+      "low_risk": 24
+    },
     "same_action_qwen_vs_gpt_investigator": 114,
     "same_action_AAF_vs_rules_only": 114
   }

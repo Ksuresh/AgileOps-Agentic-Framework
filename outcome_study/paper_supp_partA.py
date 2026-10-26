@@ -76,10 +76,12 @@ def part_a(cs) -> str:
           r"carry an exposed secret instead; no low-risk image qualified for any service, so low-risk cases use the stable image, which carries HIGH/MEDIUM findings."]
     comp = cs["completion"]
     L += [r"\subsection*{A.3 Completeness of the Qwen3-8B runs}",
-          r"Qwen3-8B runs on CPU-only runners; some decider batches reached the runner's six-hour limit. The decider jobs are assigned to batches "
-          r"in a fixed pseudo-random order (seed 9) before any decision is made, so the cases left without a decision when a batch stops are not "
-          r"selected by case type or difficulty. Cases counted below have at least one completed run per configuration; every reported Qwen3-8B "
-          r"result uses only completed cases, and its denominator is shown.",
+          r"Qwen3-8B runs on CPU-only runners; some decider batches reached the runner's six-hour limit, and completion is uneven across studies "
+          r"(Table~A2). Decider jobs are assigned to batches in a fixed pseudo-random order (seed 9) before any decision is made, which makes it "
+          r"unlikely that the missing cases were selected by type or difficulty, but it does not prove that they are unbiased: slow cases, for "
+          r"example those where the model reasons longer, are more likely to be in a batch that stops. We therefore treat the missingness as a "
+          r"limitation. Every Qwen3-8B result uses only completed cases and shows its denominator; the conclusions rest on the complete results with "
+          r"the GPT-5.6 Luna investigator and with the rules alone, which agree with the Qwen3-8B investigator on every completed case.",
           r"\begin{table}[!h]", r"\caption*{Table A2. Full-evidence cases with a completed Qwen3-8B decision}", r"\centering\scriptsize",
           r"\begin{tabular}{L{1.4cm}L{1.0cm}L{1.6cm}L{1.0cm}L{1.0cm}}", r"\toprule",
           r"\textbf{Study} & \textbf{Cases} & \textbf{AAF (Qwen investigator)} & \textbf{B5} & \textbf{B6} \\", r"\midrule"]
