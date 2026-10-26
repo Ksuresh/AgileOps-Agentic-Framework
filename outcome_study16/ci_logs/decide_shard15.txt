@@ -1,0 +1,24 @@
+AAF-14 SC-S01 3 Patch or block release
+B6 SC-R02-W 3 Rollback to stable deployment
+B5 SF-X01-W 3 Mitigate and monitor
+AAF-14 SF-P03-W 1 Patch or block release
+AAF-14 SF-R01-W 1 Rollback to stable deployment
+B6 SC-X02-W 1 Patch or block release
+B5 SF-R03-W 3 Mitigate and monitor
+AAF-14 SC-X01-W 3 Rollback to stable deployment
+B5 SC-L03 3 Mitigate and monitor
+AAF-14 SF-P03-W 3 Patch or block release
+B6 SF-X02 2 Rollback to stable deployment
+AAF-14 SC-K02 3 Patch or block release
+AAF-14 SF-P03 2 Patch or block release
+B6 SC-S02 2 Patch or block release
+B5 SF-R01 3 Rollback to stable deployment
+B6 SC-R01 2 Mitigate and monitor
+AAF-14 SF-S02 1 Patch or block release
+B5 SF-L03 1 Mitigate and monitor
+B5 SC-S02 3 Block release and fix pipeline
+B5 SF-D01 3 Mitigate and monitor
+AAF-14 SF-X01 1 Rollback to stable deployment
+B6 SC-D01 3 Scale adjustment
+B6 SC-S01-W 2 Block release and fix pipeline
+B6 SF-X02-W 3 Rollback to stable deployment
