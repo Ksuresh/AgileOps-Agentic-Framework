@@ -1,0 +1,20 @@
+\begin{table}[!t]
+\caption{Accuracy on Subsets Where the Choice of Action Matters More (Studies 14--16 Pooled, $O_1$)}
+\label{tab:construct}
+\centering\footnotesize
+\begin{tabular}{L{2.75cm}L{1.25cm}L{1.35cm}L{1.35cm}}
+\toprule
+\textbf{Decider} & \textbf{All faults (104)} & \textbf{Discriminating (98)} & \textbf{One correct action (46)} \\
+\midrule
+AAF & 86/86$^\dagger$ & 80/80$^\dagger$ & 37/37$^\dagger$ \\
+GPT-5.6 Luna + rules (B6) & 80/104 & 74/98 & 23/46 \\
+GPT-5.6 Luna (B5) & 78/104 & 72/98 & 26/46 \\
+Qwen3-8B + rules (B6) & 61/80$^\dagger$ & 55/74$^\dagger$ & 17/32$^\dagger$ \\
+Qwen3-8B (B5) & 58/82$^\dagger$ & 52/76$^\dagger$ & 19/34$^\dagger$ \\
+Always roll back & 77/104 & 71/98 & 25/46 \\
+Act on most severe domain & 63/104 & 57/98 & 19/46 \\
+Security expert (rules) & 62/104 & 56/98 & 10/46 \\
+\bottomrule
+\end{tabular}
+\par\vspace{2pt}\raggedright\scriptsize Discriminating: not every action is $O_1$-correct. One correct action: exactly one of the five actions leaves the fewest domains in violation. $^\dagger$Runs incomplete.
+\end{table}

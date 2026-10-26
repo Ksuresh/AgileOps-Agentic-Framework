@@ -27,6 +27,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 from external_validation.expert_study.analyze import holm, mcnemar, wilson  # noqa: E402
 from outcome_study.analyze_gpt import load  # noqa: E402
+from outcome_study.analyze import STATE_OF  # noqa: E402
 
 STUDIES = ("outcome_study14", "outcome_study15", "outcome_study16")
 FAULT = "RPSKDX"
@@ -152,6 +153,23 @@ def main() -> None:
         out["withheld"] = {"n": len(W), "O1": counts(W), "AAF_vs": compare(W, "AAF", [b for b in ("B1-14", "B2-14") if all(b in r["correct"] for r in W)], adjust=False),
                            "AAF_GPT_vs": compare(W, "AAF-14-GPT", [b for b in ("B1-14", "B2-14") if all(b in r["correct"] for r in W)], adjust=False)}
         (res["per_study"].__setitem__(scope, out) if scope != "pooled" else res.__setitem__("pooled", out))
+    rep = {}
+    for st in STUDIES:  # O1 set per replicate, same violation rules as outcome_study/analyze.py
+        cal = json.loads((ROOT / st / "calibration" / "calibration.json").read_text())
+        p95_max = 2 * cal["healthy_p95_median_ms"]
+        sets = defaultdict(dict)
+        for pth in sorted((ROOT / st / "measurements").glob("rep*/*.json")):
+            d = json.loads(pth.read_text())
+            nv = {a: (m["http"]["latency_p95_ms"] > p95_max or m["http"]["error_rate_pct"] > 1.0) + (m["critical_cves_new"] > 0 or m["secret_in_config"])
+                  + (m["footprint_cpu_m"] > 300.0) for a, m in d["outcomes"].items()}
+            sets[d["case"]["id"]][pth.parent.name] = sorted(a for a, v in nv.items() if v == min(nv.values()))
+        both = [c for c, r in sets.items() if len(r) == 2]
+        same = [c for c in both if len(set(map(tuple, sets[c].values()))) == 1]
+        fb = [c for c in both if c.split("-")[1][0] in FAULT]
+        rules_ok_each = sum(all(STATE_OF.get(data[(st, c)]["action"].get("B1-14")) in s for s in sets[c].values()) for c in fb)
+        rep[st] = {"cases_two_replicates": len(both), "O1_identical": len(same), "differing": sorted(set(both) - set(same)),
+                   "faults_rules_correct_in_each_replicate_separately": f"{rules_ok_each}/{len(fb)}"}
+    res["replicates"] = rep
     allc = [r for r in data.values() if not r["case"].endswith("-W")]
     res["model_independence_outcome"] = {"cases": sum(1 for r in allc if "AAF" in r["action"] and "AAF-14-GPT" in r["action"]),
                                          "same_action_qwen_vs_gpt_investigator": sum(1 for r in allc if r["action"].get("AAF") and r["action"].get("AAF") == r["action"].get("AAF-14-GPT")),
