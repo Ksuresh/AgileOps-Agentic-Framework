@@ -89,7 +89,7 @@ def main() -> None:
     keys = [("AAF", "AAF"), ("B6-GPT", "GPT-5.6 Luna + rules (B6)"), ("B5-GPT", "GPT-5.6 Luna (B5)"), ("B6", "Qwen3-8B + rules (B6)"),
             ("B5", "Qwen3-8B (B5)"), ("AlwaysRollback", "Always roll back"), ("Dominant", "Act on most severe domain"), ("S:D-Sec", "Security expert (rules)")]
     L = [r"\begin{table}[!t]", r"\caption{Accuracy on Subsets Where the Choice of Action Matters More (Studies 14--16 Pooled, $O_1$)}",
-         r"\label{tab:construct}", r"\centering\footnotesize", r"\begin{tabular}{L{2.75cm}L{1.25cm}L{1.35cm}L{1.35cm}}", r"\toprule",
+         r"\label{tab:construct}", r"\centering\footnotesize", r"\begin{tabular}{L{2.45cm}L{1.2cm}L{1.55cm}L{1.55cm}}", r"\toprule",
          rf"\textbf{{Decider}} & \textbf{{All faults ({P['n_faults']})}} & \textbf{{Discriminating ({P['n_discriminating']})}} & \textbf{{One correct action ({P['n_unique_answer']})}} \\",
          r"\midrule"]
     for k, lab in keys:
