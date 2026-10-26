@@ -1,0 +1,869 @@
+{
+  "per_study": {
+    "outcome_study14": {
+      "n_faults": 34,
+      "n_faults_with_gpt": 34,
+      "O1_faults": {
+        "AAF-14": 34,
+        "AAF-14-GPT": 34,
+        "B5": 26,
+        "B6": 29,
+        "B5-GPT": 29,
+        "B6-GPT": 28,
+        "B3-GPT": 25,
+        "B3-14-GPT": 34,
+        "B1-14": 34,
+        "AlwaysRollback": 26,
+        "D-Sec": 26
+      },
+      "O2_faults": {
+        "AAF-14": 24,
+        "AAF-14-GPT": 24,
+        "B5": 13,
+        "B6": 21,
+        "B5-GPT": 16,
+        "B6-GPT": 23,
+        "B3-GPT": 20,
+        "B3-14-GPT": 24,
+        "B1-14": 24,
+        "AlwaysRollback": 5,
+        "D-Sec": 20
+      },
+      "G1": {
+        "B5-GPT": {
+          "a_only": 5,
+          "b_only": 0,
+          "p_exact": 0.0625
+        },
+        "B6-GPT": {
+          "a_only": 6,
+          "b_only": 0,
+          "p_exact": 0.03125
+        }
+      },
+      "G2_agreement": {
+        "variants": 72,
+        "same_action": 65,
+        "full_evidence_same": 40,
+        "full_evidence_n": 40
+      },
+      "G3_withheld": {
+        "n": 32,
+        "correct": {
+          "AAF-14-GPT": 29,
+          "AAF-14": 27,
+          "B1-14": 18,
+          "B2": 23,
+          "B5-GPT": 27,
+          "B6-GPT": 25
+        },
+        "tests": {
+          "B1-14": {
+            "a_only": 11,
+            "b_only": 0,
+            "p_exact": 0.0009765625
+          },
+          "B2": {
+            "a_only": 7,
+            "b_only": 1,
+            "p_exact": 0.0703125
+          }
+        }
+      },
+      "usage_mean_per_variant": {
+        "AAF-14-GPT": {
+          "calls": 2.15,
+          "tokens": 1284.15
+        },
+        "B5-GPT": {
+          "calls": 5.39,
+          "tokens": 3418.69
+        },
+        "B6-GPT": {
+          "calls": 5.4,
+          "tokens": 4248.39
+        }
+      },
+      "per_case": {
+        "QF-C01": {
+          "O1": [
+            "mitigate",
+            "none",
+            "patch",
+            "rollback",
+            "scale"
+          ],
+          "AAF-14": "No action (observe)",
+          "AAF-14-GPT": "No action (observe)",
+          "B5-GPT": "No action (observe)",
+          "B6-GPT": "No action (observe)"
+        },
+        "QF-D01": {
+          "O1": [
+            "mitigate",
+            "none",
+            "patch",
+            "rollback",
+            "scale"
+          ],
+          "AAF-14": "Scale adjustment",
+          "AAF-14-GPT": "Scale adjustment",
+          "B5-GPT": "Escalate for evidence/human review",
+          "B6-GPT": "Scale adjustment"
+        },
+        "QF-K01": {
+          "O1": [
+            "patch",
+            "rollback"
+          ],
+          "AAF-14": "Patch or block release",
+          "AAF-14-GPT": "Patch or block release",
+          "B5-GPT": "Patch or block release",
+          "B6-GPT": "Patch or block release"
+        },
+        "QF-K01-W": {
+          "O1": [
+            "patch",
+            "rollback"
+          ],
+          "AAF-14": "No action (observe)",
+          "AAF-14-GPT": "Patch or block release",
+          "B5-GPT": "Patch or block release",
+          "B6-GPT": "Patch or block release"
+        },
+        "QF-K02": {
+          "O1": [
+            "patch",
+            "rollback"
+          ],
+          "AAF-14": "Patch or block release",
+          "AAF-14-GPT": "Patch or block release",
+          "B5-GPT": "Patch or block release",
+          "B6-GPT": "Patch or block release"
+        },
+        "QF-K02-W": {
+          "O1": [
+            "patch",
+            "rollback"
+          ],
+          "AAF-14": "Scale adjustment",
+          "AAF-14-GPT": "Patch or block release",
+          "B5-GPT": "Escalate for evidence/human review",
+          "B6-GPT": "Patch or block release"
+        },
+        "QF-L01": {
+          "O1": [
+            "mitigate",
+            "none",
+            "patch",
+            "rollback",
+            "scale"
+          ],
+          "AAF-14": "No action (observe)",
+          "AAF-14-GPT": "No action (observe)",
+          "B5-GPT": "No action (observe)",
+          "B6-GPT": "No action (observe)"
+        },
+        "QF-L02": {
+          "O1": [
+            "none",
+            "patch",
+            "rollback",
+            "scale"
+          ],
+          "AAF-14": "Scale adjustment",
+          "AAF-14-GPT": "Scale adjustment",
+          "B5-GPT": "Mitigate and monitor",
+          "B6-GPT": "Scale adjustment"
+        },
+        "QF-P01": {
+          "O1": [
+            "mitigate"
+          ],
+          "AAF-14": "Mitigate and monitor",
+          "AAF-14-GPT": "Mitigate and monitor",
+          "B5-GPT": "Mitigate and monitor",
+          "B6-GPT": "No action (observe)"
+        },
+        "QF-P01-W": {
+          "O1": [
+            "mitigate"
+          ],
+          "AAF-14": "Mitigate and monitor",
+          "AAF-14-GPT": "Mitigate and monitor",
+          "B5-GPT": "Mitigate and monitor",
+          "B6-GPT": "Mitigate and monitor"
+        },
+        "QF-P02": {
+          "O1": [
+            "mitigate",
+            "patch",
+            "rollback"
+          ],
+          "AAF-14": "Patch or block release",
+          "AAF-14-GPT": "Patch or block release",
+          "B5-GPT": "Block release and fix pipeline",
+          "B6-GPT": "Patch or block release"
+        },
+        "QF-P02-W": {
+          "O1": [
+            "mitigate",
+            "patch",
+            "rollback"
+          ],
+          "AAF-14": "Patch or block release",
+          "AAF-14-GPT": "Patch or block release",
+          "B5-GPT": "Block release and fix pipeline",
+          "B6-GPT": "Patch or block release"
+        },
+        "QF-P03": {
+          "O1": [
+            "patch"
+          ],
+          "AAF-14": "Patch or block release",
+          "AAF-14-GPT": "Patch or block release",
+          "B5-GPT": "Escalate for evidence/human review",
+          "B6-GPT": "Patch or block release"
+        },
+        "QF-P03-W": {
+          "O1": [
+            "patch"
+          ],
+          "AAF-14": "Patch or block release",
+          "AAF-14-GPT": "Patch or block release",
+          "B5-GPT": "Patch or block release",
+          "B6-GPT": "Patch or block release"
+        },
+        "QF-P04": {
+          "O1": [
+            "mitigate",
+            "none",
+            "patch",
+            "rollback",
+            "scale"
+          ],
+          "AAF-14": "Mitigate and monitor",
+          "AAF-14-GPT": "Mitigate and monitor",
+          "B5-GPT": "No action (observe)",
+          "B6-GPT": "No action (observe)"
+        },
+        "QF-P04-W": {
+          "O1": [
+            "mitigate",
+            "none",
+            "patch",
+            "rollback",
+            "scale"
+          ],
+          "AAF-14": "Mitigate and monitor",
+          "AAF-14-GPT": "Mitigate and monitor",
+          "B5-GPT": "No action (observe)",
+          "B6-GPT": "No action (observe)"
+        },
+        "QF-R01": {
+          "O1": [
+            "mitigate",
+            "rollback"
+          ],
+          "AAF-14": "Rollback to stable deployment",
+          "AAF-14-GPT": "Rollback to stable deployment",
+          "B5-GPT": "Rollback to stable deployment",
+          "B6-GPT": "Mitigate and monitor"
+        },
+        "QF-R01-W": {
+          "O1": [
+            "mitigate",
+            "rollback"
+          ],
+          "AAF-14": "Rollback to stable deployment",
+          "AAF-14-GPT": "Rollback to stable deployment",
+          "B5-GPT": "Rollback to stable deployment",
+          "B6-GPT": "Mitigate and monitor"
+        },
+        "QF-R02": {
+          "O1": [
+            "rollback"
+          ],
+          "AAF-14": "Rollback to stable deployment",
+          "AAF-14-GPT": "Rollback to stable deployment",
+          "B5-GPT": "Rollback to stable deployment",
+          "B6-GPT": "Mitigate and monitor"
+        },
+        "QF-R02-W": {
+          "O1": [
+            "rollback"
+          ],
+          "AAF-14": "Rollback to stable deployment",
+          "AAF-14-GPT": "Rollback to stable deployment",
+          "B5-GPT": "Rollback to stable deployment",
+          "B6-GPT": "No action (observe)"
+        },
+        "QF-R03": {
+          "O1": [
+            "rollback"
+          ],
+          "AAF-14": "Rollback to stable deployment",
+          "AAF-14-GPT": "Rollback to stable deployment",
+          "B5-GPT": "Rollback to stable deployment",
+          "B6-GPT": "Patch or block release"
+        },
+        "QF-R03-W": {
+          "O1": [
+            "rollback"
+          ],
+          "AAF-14": "Rollback to stable deployment",
+          "AAF-14-GPT": "Rollback to stable deployment",
+          "B5-GPT": "Rollback to stable deployment",
+          "B6-GPT": "Patch or block release"
+        },
+        "QF-R04": {
+          "O1": [
+            "rollback"
+          ],
+          "AAF-14": "Rollback to stable deployment",
+          "AAF-14-GPT": "Rollback to stable deployment",
+          "B5-GPT": "Rollback to stable deployment",
+          "B6-GPT": "Patch or block release"
+        },
+        "QF-R04-W": {
+          "O1": [
+            "rollback"
+          ],
+          "AAF-14": "Rollback to stable deployment",
+          "AAF-14-GPT": "Rollback to stable deployment",
+          "B5-GPT": "Rollback to stable deployment",
+          "B6-GPT": "Scale adjustment"
+        },
+        "QF-S01": {
+          "O1": [
+            "patch"
+          ],
+          "AAF-14": "Patch or block release",
+          "AAF-14-GPT": "Patch or block release",
+          "B5-GPT": "Patch or block release",
+          "B6-GPT": "Patch or block release"
+        },
+        "QF-S01-W": {
+          "O1": [
+            "patch"
+          ],
+          "AAF-14": "Scale adjustment",
+          "AAF-14-GPT": "Scale adjustment",
+          "B5-GPT": "Patch or block release",
+          "B6-GPT": "Patch or block release"
+        },
+        "QF-S02": {
+          "O1": [
+            "patch",
+            "rollback"
+          ],
+          "AAF-14": "Patch or block release",
+          "AAF-14-GPT": "Patch or block release",
+          "B5-GPT": "Block release and fix pipeline",
+          "B6-GPT": "Patch or block release"
+        },
+        "QF-S02-W": {
+          "O1": [
+            "patch",
+            "rollback"
+          ],
+          "AAF-14": "Patch or block release",
+          "AAF-14-GPT": "Patch or block release",
+          "B5-GPT": "Block release and fix pipeline",
+          "B6-GPT": "Scale adjustment"
+        },
+        "QF-S03": {
+          "O1": [
+            "patch",
+            "rollback"
+          ],
+          "AAF-14": "Patch or block release",
+          "AAF-14-GPT": "Patch or block release",
+          "B5-GPT": "Patch or block release",
+          "B6-GPT": "Patch or block release"
+        },
+        "QF-S03-W": {
+          "O1": [
+            "patch",
+            "rollback"
+          ],
+          "AAF-14": "Scale adjustment",
+          "AAF-14-GPT": "Patch or block release",
+          "B5-GPT": "Patch or block release",
+          "B6-GPT": "Scale adjustment"
+        },
+        "QF-S04": {
+          "O1": [
+            "patch"
+          ],
+          "AAF-14": "Patch or block release",
+          "AAF-14-GPT": "Patch or block release",
+          "B5-GPT": "Block release and fix pipeline",
+          "B6-GPT": "Patch or block release"
+        },
+        "QF-S04-W": {
+          "O1": [
+            "patch"
+          ],
+          "AAF-14": "Patch or block release",
+          "AAF-14-GPT": "Patch or block release",
+          "B5-GPT": "Block release and fix pipeline",
+          "B6-GPT": "Patch or block release"
+        },
+        "QF-X01": {
+          "O1": [
+            "rollback"
+          ],
+          "AAF-14": "Rollback to stable deployment",
+          "AAF-14-GPT": "Rollback to stable deployment",
+          "B5-GPT": "Rollback to stable deployment",
+          "B6-GPT": "Patch or block release"
+        },
+        "QF-X01-W": {
+          "O1": [
+            "rollback"
+          ],
+          "AAF-14": "Rollback to stable deployment",
+          "AAF-14-GPT": "Rollback to stable deployment",
+          "B5-GPT": "Rollback to stable deployment",
+          "B6-GPT": "Patch or block release"
+        },
+        "QF-X02": {
+          "O1": [
+            "rollback"
+          ],
+          "AAF-14": "Rollback to stable deployment",
+          "AAF-14-GPT": "Rollback to stable deployment",
+          "B5-GPT": "Rollback to stable deployment",
+          "B6-GPT": "Mitigate and monitor"
+        },
+        "QF-X02-W": {
+          "O1": [
+            "rollback"
+          ],
+          "AAF-14": "Rollback to stable deployment",
+          "AAF-14-GPT": "Rollback to stable deployment",
+          "B5-GPT": "Patch or block release",
+          "B6-GPT": "Patch or block release"
+        },
+        "QP-C01": {
+          "O1": [
+            "mitigate",
+            "none",
+            "patch",
+            "rollback",
+            "scale"
+          ],
+          "AAF-14": "No action (observe)",
+          "AAF-14-GPT": "No action (observe)",
+          "B5-GPT": "Mitigate and monitor",
+          "B6-GPT": "No action (observe)"
+        },
+        "QP-D01": {
+          "O1": [
+            "scale"
+          ],
+          "AAF-14": "Scale adjustment",
+          "AAF-14-GPT": "Scale adjustment",
+          "B5-GPT": "Escalate for evidence/human review",
+          "B6-GPT": "Scale adjustment"
+        },
+        "QP-K01": {
+          "O1": [
+            "patch",
+            "rollback"
+          ],
+          "AAF-14": "Patch or block release",
+          "AAF-14-GPT": "Patch or block release",
+          "B5-GPT": "Patch or block release",
+          "B6-GPT": "Patch or block release"
+        },
+        "QP-K01-W": {
+          "O1": [
+            "patch",
+            "rollback"
+          ],
+          "AAF-14": "Patch or block release",
+          "AAF-14-GPT": "Patch or block release",
+          "B5-GPT": "Escalate for evidence/human review",
+          "B6-GPT": "Patch or block release"
+        },
+        "QP-K02": {
+          "O1": [
+            "patch",
+            "rollback"
+          ],
+          "AAF-14": "Patch or block release",
+          "AAF-14-GPT": "Patch or block release",
+          "B5-GPT": "Patch or block release",
+          "B6-GPT": "Patch or block release"
+        },
+        "QP-K02-W": {
+          "O1": [
+            "patch",
+            "rollback"
+          ],
+          "AAF-14": "Patch or block release",
+          "AAF-14-GPT": "Scale adjustment",
+          "B5-GPT": "Patch or block release",
+          "B6-GPT": "Patch or block release"
+        },
+        "QP-L01": {
+          "O1": [
+            "mitigate",
+            "none",
+            "patch",
+            "rollback",
+            "scale"
+          ],
+          "AAF-14": "No action (observe)",
+          "AAF-14-GPT": "No action (observe)",
+          "B5-GPT": "No action (observe)",
+          "B6-GPT": "No action (observe)"
+        },
+        "QP-L02": {
+          "O1": [
+            "none",
+            "patch",
+            "rollback",
+            "scale"
+          ],
+          "AAF-14": "Scale adjustment",
+          "AAF-14-GPT": "Scale adjustment",
+          "B5-GPT": "Escalate for evidence/human review",
+          "B6-GPT": "Scale adjustment"
+        },
+        "QP-P01": {
+          "O1": [
+            "mitigate",
+            "none",
+            "patch",
+            "rollback",
+            "scale"
+          ],
+          "AAF-14": "No action (observe)",
+          "AAF-14-GPT": "No action (observe)",
+          "B5-GPT": "No action (observe)",
+          "B6-GPT": "No action (observe)"
+        },
+        "QP-P01-W": {
+          "O1": [
+            "mitigate",
+            "none",
+            "patch",
+            "rollback",
+            "scale"
+          ],
+          "AAF-14": "No action (observe)",
+          "AAF-14-GPT": "No action (observe)",
+          "B5-GPT": "No action (observe)",
+          "B6-GPT": "No action (observe)"
+        },
+        "QP-P02": {
+          "O1": [
+            "patch",
+            "rollback"
+          ],
+          "AAF-14": "Patch or block release",
+          "AAF-14-GPT": "Patch or block release",
+          "B5-GPT": "Block release and fix pipeline",
+          "B6-GPT": "Patch or block release"
+        },
+        "QP-P02-W": {
+          "O1": [
+            "patch",
+            "rollback"
+          ],
+          "AAF-14": "Patch or block release",
+          "AAF-14-GPT": "Patch or block release",
+          "B5-GPT": "Block release and fix pipeline",
+          "B6-GPT": "Patch or block release"
+        },
+        "QP-P03": {
+          "O1": [
+            "patch"
+          ],
+          "AAF-14": "Patch or block release",
+          "AAF-14-GPT": "Patch or block release",
+          "B5-GPT": "No action (observe)",
+          "B6-GPT": "Patch or block release"
+        },
+        "QP-P03-W": {
+          "O1": [
+            "patch"
+          ],
+          "AAF-14": "Patch or block release",
+          "AAF-14-GPT": "No action (observe)",
+          "B5-GPT": "Patch or block release",
+          "B6-GPT": "Patch or block release"
+        },
+        "QP-P04": {
+          "O1": [
+            "none",
+            "patch",
+            "rollback",
+            "scale"
+          ],
+          "AAF-14": "No action (observe)",
+          "AAF-14-GPT": "No action (observe)",
+          "B5-GPT": "Escalate for evidence/human review",
+          "B6-GPT": "No action (observe)"
+        },
+        "QP-P04-W": {
+          "O1": [
+            "none",
+            "patch",
+            "rollback",
+            "scale"
+          ],
+          "AAF-14": "No action (observe)",
+          "AAF-14-GPT": "No action (observe)",
+          "B5-GPT": "No action (observe)",
+          "B6-GPT": "No action (observe)"
+        },
+        "QP-R01": {
+          "O1": [
+            "mitigate",
+            "none",
+            "patch",
+            "rollback",
+            "scale"
+          ],
+          "AAF-14": "No action (observe)",
+          "AAF-14-GPT": "No action (observe)",
+          "B5-GPT": "No action (observe)",
+          "B6-GPT": "No action (observe)"
+        },
+        "QP-R01-W": {
+          "O1": [
+            "mitigate",
+            "none",
+            "patch",
+            "rollback",
+            "scale"
+          ],
+          "AAF-14": "No action (observe)",
+          "AAF-14-GPT": "No action (observe)",
+          "B5-GPT": "No action (observe)",
+          "B6-GPT": "No action (observe)"
+        },
+        "QP-R02": {
+          "O1": [
+            "mitigate",
+            "none",
+            "patch",
+            "rollback",
+            "scale"
+          ],
+          "AAF-14": "Rollback to stable deployment",
+          "AAF-14-GPT": "Rollback to stable deployment",
+          "B5-GPT": "Rollback to stable deployment",
+          "B6-GPT": "No action (observe)"
+        },
+        "QP-R02-W": {
+          "O1": [
+            "mitigate",
+            "none",
+            "patch",
+            "rollback",
+            "scale"
+          ],
+          "AAF-14": "Rollback to stable deployment",
+          "AAF-14-GPT": "Rollback to stable deployment",
+          "B5-GPT": "Rollback to stable deployment",
+          "B6-GPT": "Mitigate and monitor"
+        },
+        "QP-R03": {
+          "O1": [
+            "patch",
+            "rollback"
+          ],
+          "AAF-14": "Patch or block release",
+          "AAF-14-GPT": "Patch or block release",
+          "B5-GPT": "Patch or block release",
+          "B6-GPT": "Patch or block release"
+        },
+        "QP-R03-W": {
+          "O1": [
+            "patch",
+            "rollback"
+          ],
+          "AAF-14": "No action (observe)",
+          "AAF-14-GPT": "Patch or block release",
+          "B5-GPT": "Patch or block release",
+          "B6-GPT": "Patch or block release"
+        },
+        "QP-R04": {
+          "O1": [
+            "patch",
+            "rollback"
+          ],
+          "AAF-14": "Rollback to stable deployment",
+          "AAF-14-GPT": "Rollback to stable deployment",
+          "B5-GPT": "Rollback to stable deployment",
+          "B6-GPT": "Patch or block release"
+        },
+        "QP-R04-W": {
+          "O1": [
+            "patch",
+            "rollback"
+          ],
+          "AAF-14": "Rollback to stable deployment",
+          "AAF-14-GPT": "Rollback to stable deployment",
+          "B5-GPT": "Rollback to stable deployment",
+          "B6-GPT": "Patch or block release"
+        },
+        "QP-S01": {
+          "O1": [
+            "patch",
+            "scale"
+          ],
+          "AAF-14": "Patch or block release",
+          "AAF-14-GPT": "Patch or block release",
+          "B5-GPT": "Patch or block release",
+          "B6-GPT": "Patch or block release"
+        },
+        "QP-S01-W": {
+          "O1": [
+            "patch",
+            "scale"
+          ],
+          "AAF-14": "Patch or block release",
+          "AAF-14-GPT": "Patch or block release",
+          "B5-GPT": "Patch or block release",
+          "B6-GPT": "Patch or block release"
+        },
+        "QP-S02": {
+          "O1": [
+            "patch",
+            "rollback",
+            "scale"
+          ],
+          "AAF-14": "Patch or block release",
+          "AAF-14-GPT": "Patch or block release",
+          "B5-GPT": "Block release and fix pipeline",
+          "B6-GPT": "Patch or block release"
+        },
+        "QP-S02-W": {
+          "O1": [
+            "patch",
+            "rollback",
+            "scale"
+          ],
+          "AAF-14": "Patch or block release",
+          "AAF-14-GPT": "Patch or block release",
+          "B5-GPT": "Block release and fix pipeline",
+          "B6-GPT": "Scale adjustment"
+        },
+        "QP-S03": {
+          "O1": [
+            "patch",
+            "rollback",
+            "scale"
+          ],
+          "AAF-14": "Patch or block release",
+          "AAF-14-GPT": "Patch or block release",
+          "B5-GPT": "Patch or block release",
+          "B6-GPT": "Patch or block release"
+        },
+        "QP-S03-W": {
+          "O1": [
+            "patch",
+            "rollback",
+            "scale"
+          ],
+          "AAF-14": "Patch or block release",
+          "AAF-14-GPT": "Scale adjustment",
+          "B5-GPT": "Patch or block release",
+          "B6-GPT": "Patch or block release"
+        },
+        "QP-S04": {
+          "O1": [
+            "patch",
+            "scale"
+          ],
+          "AAF-14": "Patch or block release",
+          "AAF-14-GPT": "Patch or block release",
+          "B5-GPT": "Block release and fix pipeline",
+          "B6-GPT": "Patch or block release"
+        },
+        "QP-S04-W": {
+          "O1": [
+            "patch",
+            "scale"
+          ],
+          "AAF-14": "Patch or block release",
+          "AAF-14-GPT": "Patch or block release",
+          "B5-GPT": "Block release and fix pipeline",
+          "B6-GPT": "Patch or block release"
+        },
+        "QP-X01": {
+          "O1": [
+            "patch",
+            "rollback"
+          ],
+          "AAF-14": "Patch or block release",
+          "AAF-14-GPT": "Patch or block release",
+          "B5-GPT": "Block release and fix pipeline",
+          "B6-GPT": "Patch or block release"
+        },
+        "QP-X01-W": {
+          "O1": [
+            "patch",
+            "rollback"
+          ],
+          "AAF-14": "Patch or block release",
+          "AAF-14-GPT": "Patch or block release",
+          "B5-GPT": "Block release and fix pipeline",
+          "B6-GPT": "Patch or block release"
+        },
+        "QP-X02": {
+          "O1": [
+            "patch",
+            "rollback"
+          ],
+          "AAF-14": "Rollback to stable deployment",
+          "AAF-14-GPT": "Rollback to stable deployment",
+          "B5-GPT": "Rollback to stable deployment",
+          "B6-GPT": "Patch or block release"
+        },
+        "QP-X02-W": {
+          "O1": [
+            "patch",
+            "rollback"
+          ],
+          "AAF-14": "Rollback to stable deployment",
+          "AAF-14-GPT": "Rollback to stable deployment",
+          "B5-GPT": "Rollback to stable deployment",
+          "B6-GPT": "Patch or block release"
+        }
+      }
+    }
+  },
+  "G1_pooled": {
+    "n": 34,
+    "studies": [
+      "outcome_study14"
+    ],
+    "correct": {
+      "AAF-14": 34,
+      "B5-GPT": 29,
+      "B6-GPT": 28,
+      "AAF-14-GPT": 34
+    },
+    "tests": {
+      "B5-GPT": {
+        "a_only": 5,
+        "b_only": 0,
+        "p_exact": 0.0625,
+        "p_holm": 0.0625
+      },
+      "B6-GPT": {
+        "a_only": 6,
+        "b_only": 0,
+        "p_exact": 0.03125,
+        "p_holm": 0.0625
+      }
+    }
+  }
+}

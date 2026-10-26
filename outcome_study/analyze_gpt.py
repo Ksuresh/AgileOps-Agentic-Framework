@@ -83,7 +83,7 @@ def main() -> None:
                               "full_evidence_same": sum(1 for c in cases if dec["AAF-14-GPT"].get(c) and dec["AAF-14"].get(c)
                                                         and maj(dec["AAF-14-GPT"][c]) == maj(dec["AAF-14"][c])),
                               "full_evidence_n": sum(1 for c in cases if dec["AAF-14-GPT"].get(c) and dec["AAF-14"].get(c))},
-             "G3_withheld": {"n": len(withheld), "correct": {d: sum(ok(d, c) for c in withheld) for d in ("AAF-14-GPT", "AAF-14", "B1-14", "B2-14", "B2", "B5-GPT", "B6-GPT")},
+             "G3_withheld": {"n": len(withheld), "correct": {d: sum(ok(d, c) for c in withheld) for d in ("AAF-14-GPT", "AAF-14", "B1-14", "B2-14", "B2", "B5-GPT", "B6-GPT") if dec[d]},
                              "tests": tests(ok, "AAF-14-GPT", [d for d in ("B1-14", "B2-14", "B2") if dec[d]], withheld, adjust=False)},
              "usage_mean_per_variant": {d: {k: round(sum(v) / len(v), 2) for k, v in u.items() if v} for d, u in usage.items()},
              "per_case": {c: {"O1": table[c.replace("-W", "")]["O1"], **{d: maj(dec[d].get(c) or []) for d in ("AAF-14", "AAF-14-GPT", "B5-GPT", "B6-GPT")}}
