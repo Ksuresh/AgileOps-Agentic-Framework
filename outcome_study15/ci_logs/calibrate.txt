@@ -1,0 +1,40 @@
+frontend perf {'cpu': '50m', 'p95_ms': 1614.253840999993, 'error_rate_pct': 0.141643059490085, 'violates': True}
+frontend {"G": "gcr.io/google-samples/microservices-demo/frontend:v0.9.0", "H": "gcr.io/google-samples/microservices-demo/frontend:v0.2.0", "NF": null} 50m {'rollout_ok': False, 'storefront_error_rate_pct': 100.0, 'restarts': 5}
+productcatalogservice perf {'cpu': '50m', 'p95_ms': 404.2011609999463, 'error_rate_pct': 0.0, 'violates': False}
+productcatalogservice perf {'cpu': '30m', 'p95_ms': 411.46964399990793, 'error_rate_pct': 0.0, 'violates': False}
+productcatalogservice perf {'cpu': '20m', 'p95_ms': 473.2947239999703, 'error_rate_pct': 0.0, 'violates': False}
+productcatalogservice perf {'cpu': '10m', 'p95_ms': 555.5153230000087, 'error_rate_pct': 0.0, 'violates': False}
+productcatalogservice perf {'cpu': '5m', 'p95_ms': 493.51349299990943, 'error_rate_pct': 0.0, 'violates': False}
+productcatalogservice perf {'latency': '100ms', 'p95_ms': 484.665115000098, 'error_rate_pct': 0.0, 'violates': False}
+productcatalogservice perf {'latency': '200ms', 'p95_ms': 577.4733660000493, 'error_rate_pct': 0.0, 'violates': False}
+productcatalogservice perf {'latency': '400ms', 'p95_ms': 609.7891949998484, 'error_rate_pct': 0.0, 'violates': False}
+productcatalogservice perf {'latency': '800ms', 'p95_ms': 996.6289389999474, 'error_rate_pct': 0.0, 'violates': True}
+productcatalogservice {"P3": "gcr.io/google-samples/microservices-demo/productcatalogservice:v0.9.0", "P4": "gcr.io/google-samples/microservices-demo/productcatalogservice:v0.6.0", "NP": null} lat:800ms {'rollout_ok': False, 'storefront_error_rate_pct': 100.0, 'restarts': 5}
+currencyservice perf {'cpu': '50m', 'p95_ms': 2004.4443779997891, 'error_rate_pct': 27.392739273927393, 'violates': True}
+currencyservice {"C1": "gcr.io/google-samples/microservices-demo/currencyservice:v0.9.0", "C2": "gcr.io/google-samples/microservices-demo/currencyservice:v0.8.0", "NC": null} 50m {'rollout_ok': False, 'storefront_error_rate_pct': 100.0, 'restarts': 5}
+{
+  "images": {
+    "A": "gcr.io/google-samples/microservices-demo/frontend:v0.8.0",
+    "B": "gcr.io/google-samples/microservices-demo/frontend:v0.7.0",
+    "C": "gcr.io/google-samples/microservices-demo/frontend:v0.6.0",
+    "D": "gcr.io/google-samples/microservices-demo/frontend:v0.5.0",
+    "E": "gcr.io/google-samples/microservices-demo/frontend:v0.4.0",
+    "F": "gcr.io/google-samples/microservices-demo/frontend:v0.3.0",
+    "P1": "gcr.io/google-samples/microservices-demo/productcatalogservice:v0.8.0",
+    "P2": "gcr.io/google-samples/microservices-demo/productcatalogservice:v0.7.0",
+    "G": "gcr.io/google-samples/microservices-demo/frontend:v0.9.0",
+    "H": "gcr.io/google-samples/microservices-demo/frontend:v0.2.0",
+    "NF": null,
+    "P3": "gcr.io/google-samples/microservices-demo/productcatalogservice:v0.9.0",
+    "P4": "gcr.io/google-samples/microservices-demo/productcatalogservice:v0.6.0",
+    "NP": null,
+    "C1": "gcr.io/google-samples/microservices-demo/currencyservice:v0.9.0",
+    "C2": "gcr.io/google-samples/microservices-demo/currencyservice:v0.8.0",
+    "NC": null
+  },
+  "perf_cpu": {
+    "frontend": "50m",
+    "productcatalogservice": "lat:800ms",
+    "currencyservice": "50m"
+  }
+}

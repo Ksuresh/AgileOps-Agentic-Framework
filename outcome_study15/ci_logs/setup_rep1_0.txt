@@ -13,13 +13,13 @@ Creating cluster "aaf-oc" ...
  ✓ Installing StorageClass 💾
  • Waiting ≤ 2m0s for control-plane = Ready ⏳  ...
  ✓ Waiting ≤ 2m0s for control-plane = Ready ⏳
- • Ready after 18s 💚
+ • Ready after 19s 💚
 Set kubectl context to "kind-aaf-oc"
 You can now use your cluster with:
 
 kubectl cluster-info --context kind-aaf-oc
 
-Have a question, bug, or feature request? Let us know! https://kind.sigs.k8s.io/#community 🙂
+Thanks for using kind! 😊
 deployment.apps/frontend created
 service/frontend created
 service/frontend-external created
