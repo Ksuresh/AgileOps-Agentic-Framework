@@ -24,10 +24,32 @@ GPT-5.6 Luna first decision & \texttt{57d7406} & 2026-10-26 02:14 \\
 \textit{Study 15, amendment 1.} The first calibration run showed (i) that the storefront kept failing for minutes after a backend recovered, because its gRPC client backs off before reconnecting (healthy currency service measured with 66.6\% errors), and (ii) that CPU starvation does not degrade the product-catalog service (p95 $\le$ 498 ms down to a 5m CPU limit). Before any outcome was measured, the storefront was set to restart after every backend change, and the degradation of services that CPU starvation does not affect became the service's own latency-injection setting, mildest violating value first. The superseded calibration is kept in the repository. The same reconnection effect is visible in three Study~14 backend cases (QP-R02, QP-R04, QP-X02), in which the healthy rollback state was measured with 50--100\% errors; they are reported as non-discriminating and favour no decider.
 \subsection*{A.2 Execution notes}
 Study~14: five decider batches reached the runner time limit and 24 of 864 LLM decisions were completed by a resumed run with identical settings. Studies~15 and~16: Qwen3-8B decider batches that reached the runner time limit were resumed with identical settings; completed decisions were not rerun (details in each protocol). GPT-5.6 Luna deciders ran once per case under a call and token cap that was not reached (Table~F1). In Study~16 no older catalogue image both carried extra critical CVEs and started, so, as pre-specified, its vulnerable-image cases carry an exposed secret instead; no low-risk image qualified for any service, so low-risk cases use the stable image, which carries HIGH/MEDIUM findings.
-\subsection*{A.3 Completeness of the Qwen3-8B runs}
-Qwen3-8B runs on CPU-only runners; some decider batches reached the runner's six-hour limit, and completion is uneven across studies (Table~A2). Decider jobs are assigned to batches in a fixed pseudo-random order (seed 9) before any decision is made, which makes it unlikely that the missing cases were selected by type or difficulty, but it does not prove that they are unbiased: slow cases, for example those where the model reasons longer, are more likely to be in a batch that stops. We therefore treat the missingness as a limitation. Every Qwen3-8B result uses only completed cases and shows its denominator; the conclusions rest on the complete results with the GPT-5.6 Luna investigator and with the rules alone, which agree with the Qwen3-8B investigator on every completed case.
+\subsection*{A.3 Artifact integrity}
+Table~A2 gives, for each frozen artifact, its first commit and the SHA-256 (first 12 hex digits) of its content at that commit and at the commit used for this paper. Equal hashes mean the artifact is unchanged since it was frozen.
 \begin{table}[!h]
-\caption*{Table A2. Full-evidence cases with a completed Qwen3-8B decision}
+\caption*{Table A2. Frozen artifacts: content hash at first commit and now}
+\centering\scriptsize
+\begin{tabular}{L{2.4cm}L{0.95cm}L{1.55cm}L{1.55cm}}
+\toprule
+\textbf{Artifact} & \textbf{First commit} & \textbf{SHA-256 then} & \textbf{SHA-256 now} \\
+\midrule
+Rule set v1.4 & \texttt{3b25e5b} & \texttt{cc5ea536a91f} & \texttt{cc5ea536a91f} \\
+Study 14 cases & \texttt{3b25e5b} & \texttt{59045abd46a5} & \texttt{59045abd46a5} \\
+Study 15 cases & \texttt{093039d} & \texttt{4192be61df27} & \texttt{4192be61df27} \\
+Study 16 cases & \texttt{ba9f4bb} & \texttt{46cadbff9bb6} & \texttt{46cadbff9bb6} \\
+Study 15 analysis script & \texttt{f8d179c} & \texttt{718e30361d6a} & \texttt{718e30361d6a} \\
+Study 16 analysis script & \texttt{ba9f4bb} & \texttt{fe1121a99872} & \texttt{fe1121a99872} \\
+GPT decider runner & \texttt{135af50} & \texttt{a7667fd89d4e} & \texttt{a7667fd89d4e} \\
+\bottomrule
+\end{tabular}
+\end{table}
+Protocol files were changed after their first commit only as recorded in Appendix~A.1--A.2: the Study~15 protocol received a wording correction and Amendment~1 before any outcome was measured, and execution notes were appended to the Study~14 protocol after its runs. The outcome measurements of each study were written by the GitHub Actions runs named in their commit messages (for example Study~14: run 40153012585), whose logs are committed under each study's \texttt{ci\_logs/} folder.
+\subsection*{A.4 Analysis code written after the data}
+The tests were specified in the protocols and implemented in the per-study analysis scripts before any data existed. The code that assembles this paper's tables, figures and pooled statistics (\texttt{confirmatory\_stats.py}, \texttt{paper\_tables.py}, \texttt{figures.py}, \texttt{paper\_supp\_partA.py}) was written after the data were collected; it implements the pre-specified tests and adds analyses that are reported as post hoc: family-level tests, the discriminating and one-correct-action subsets, the oracle and rule-threshold sensitivity for Studies~15--16, the ablation, and the v1.4 fetch rule for Study~14. Two changes were made to the GPT analysis script after its first data: listing only the deciders present in a study, and reading the LLM single-domain experts from the decision records. Neither changes a decision or an outcome.
+\subsection*{A.5 Completeness of the Qwen3-8B runs}
+Qwen3-8B runs on CPU-only runners; some decider batches reached the runner's six-hour limit, and completion is uneven across studies (Table~A3). Decider jobs are assigned to batches in a fixed pseudo-random order (seed 9) before any decision is made, which makes it unlikely that the missing cases were selected by type or difficulty, but it does not prove that they are unbiased: slow cases, for example those where the model reasons longer, are more likely to be in a batch that stops. We therefore treat the missingness as a limitation. Every Qwen3-8B result uses only completed cases and shows its denominator; the conclusions rest on the complete results with the GPT-5.6 Luna investigator and with the rules alone, which agree with the Qwen3-8B investigator on every completed case.
+\begin{table}[!h]
+\caption*{Table A3. Full-evidence cases with a completed Qwen3-8B decision}
 \centering\scriptsize
 \begin{tabular}{L{1.4cm}L{1.0cm}L{1.6cm}L{1.0cm}L{1.0cm}}
 \toprule

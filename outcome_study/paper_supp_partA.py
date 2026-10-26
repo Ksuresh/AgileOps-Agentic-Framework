@@ -88,15 +88,45 @@ def part_a(cs) -> str:
           r"decisions were not rerun (details in each protocol). GPT-5.6 Luna deciders ran once per case under a call and token cap that was not reached "
           r"(Table~F1). In Study~16 no older catalogue image both carried extra critical CVEs and started, so, as pre-specified, its vulnerable-image cases "
           r"carry an exposed secret instead; no low-risk image qualified for any service, so low-risk cases use the stable image, which carries HIGH/MEDIUM findings."]
+    import hashlib
+    def sha(rev, path):
+        out = subprocess.run(["git", "show", f"{rev}:{path}"], cwd=ROOT, capture_output=True).stdout
+        return hashlib.sha256(out).hexdigest()[:12] if out else "--"
+    arts = [("Rule set v1.4", "agentic_experiments/rules_v14.py"), ("Study 14 cases", "outcome_study14/cases.yaml"),
+            ("Study 15 cases", "outcome_study15/cases.yaml"), ("Study 16 cases", "outcome_study16/cases.yaml"),
+            ("Study 15 analysis script", "outcome_study15/analyze15.py"), ("Study 16 analysis script", "outcome_study16/analyze16.py"),
+            ("GPT decider runner", "outcome_study/decide_gpt.py")]
+    L += [r"\subsection*{A.3 Artifact integrity}",
+          r"Table~A2 gives, for each frozen artifact, its first commit and the SHA-256 (first 12 hex digits) of its content at that commit and at the "
+          r"commit used for this paper. Equal hashes mean the artifact is unchanged since it was frozen.",
+          r"\begin{table}[!h]", r"\caption*{Table A2. Frozen artifacts: content hash at first commit and now}", r"\centering\scriptsize",
+          r"\begin{tabular}{L{2.4cm}L{0.95cm}L{1.55cm}L{1.55cm}}", r"\toprule",
+          r"\textbf{Artifact} & \textbf{First commit} & \textbf{SHA-256 then} & \textbf{SHA-256 now} \\", r"\midrule"]
+    for lab, path in arts:
+        h = git_first(path).split("|")[0]
+        L.append(f"{lab} & \\texttt{{{h}}} & \\texttt{{{sha(h, path)}}} & \\texttt{{{sha('HEAD', path)}}}" + r" \\")
+    L += [r"\bottomrule", r"\end{tabular}", r"\end{table}",
+          r"Protocol files were changed after their first commit only as recorded in Appendix~A.1--A.2: the Study~15 protocol received a wording "
+          r"correction and Amendment~1 before any outcome was measured, and execution notes were appended to the Study~14 protocol after its runs. "
+          r"The outcome measurements of each study were written by the GitHub Actions runs named in their commit messages (for example Study~14: run "
+          r"40153012585), whose logs are committed under each study's \texttt{ci\_logs/} folder.",
+          r"\subsection*{A.4 Analysis code written after the data}",
+          r"The tests were specified in the protocols and implemented in the per-study analysis scripts before any data existed. The code that "
+          r"assembles this paper's tables, figures and pooled statistics (\texttt{confirmatory\_stats.py}, \texttt{paper\_tables.py}, "
+          r"\texttt{figures.py}, \texttt{paper\_supp\_partA.py}) was written after the data were collected; it implements the pre-specified tests "
+          r"and adds analyses that are reported as post hoc: family-level tests, the discriminating and one-correct-action subsets, the oracle and "
+          r"rule-threshold sensitivity for Studies~15--16, the ablation, and the v1.4 fetch rule for Study~14. Two changes were made to the GPT "
+          r"analysis script after its first data: listing only the deciders present in a study, and reading the LLM single-domain experts from the "
+          r"decision records. Neither changes a decision or an outcome."]
     comp = cs["completion"]
-    L += [r"\subsection*{A.3 Completeness of the Qwen3-8B runs}",
+    L += [r"\subsection*{A.5 Completeness of the Qwen3-8B runs}",
           r"Qwen3-8B runs on CPU-only runners; some decider batches reached the runner's six-hour limit, and completion is uneven across studies "
-          r"(Table~A2). Decider jobs are assigned to batches in a fixed pseudo-random order (seed 9) before any decision is made, which makes it "
+          r"(Table~A3). Decider jobs are assigned to batches in a fixed pseudo-random order (seed 9) before any decision is made, which makes it "
           r"unlikely that the missing cases were selected by type or difficulty, but it does not prove that they are unbiased: slow cases, for "
           r"example those where the model reasons longer, are more likely to be in a batch that stops. We therefore treat the missingness as a "
           r"limitation. Every Qwen3-8B result uses only completed cases and shows its denominator; the conclusions rest on the complete results with "
           r"the GPT-5.6 Luna investigator and with the rules alone, which agree with the Qwen3-8B investigator on every completed case.",
-          r"\begin{table}[!h]", r"\caption*{Table A2. Full-evidence cases with a completed Qwen3-8B decision}", r"\centering\scriptsize",
+          r"\begin{table}[!h]", r"\caption*{Table A3. Full-evidence cases with a completed Qwen3-8B decision}", r"\centering\scriptsize",
           r"\begin{tabular}{L{1.4cm}L{1.0cm}L{1.6cm}L{1.0cm}L{1.0cm}}", r"\toprule",
           r"\textbf{Study} & \textbf{Cases} & \textbf{AAF (Qwen investigator)} & \textbf{B5} & \textbf{B6} \\", r"\midrule"]
     for st, v in comp.items():
