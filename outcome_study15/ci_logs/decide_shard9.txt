@@ -1,0 +1,32 @@
+B5 UF-K01 3 Patch or block release
+B6 UP-C01 3 No action (observe)
+B5 UF-L03 3 Mitigate and monitor
+B6 UP-S03-W 1 Patch or block release
+B5 UP-P02-W 2 Mitigate and monitor
+AAF-14 UP-S03 2 Patch or block release
+AAF-14 UF-C01 2 No action (observe)
+B6 UF-S01-W 2 Patch or block release
+B5 UC-S02 3 Block release and fix pipeline
+B5 UP-L01 3 No action (observe)
+B6 UP-S03 1 Escalate for evidence/human review
+AAF-14 UF-S02-W 1 Patch or block release
+AAF-14 UF-K01-W 3 Patch or block release
+AAF-14 UP-X02-W 2 Rollback to stable deployment
+B6 UP-L04 3 Scale adjustment
+B5 UP-X01 2 Block release and fix pipeline
+B5 UC-C01 2 Mitigate and monitor
+B6 UC-X01 3 Patch or block release
+AAF-14 UP-R02-W 3 Rollback to stable deployment
+B6 UC-K02 2 Patch or block release
+B6 UF-K01 1 Patch or block release
+B6 UC-C01 2 Mitigate and monitor
+B6 UC-S03 2 Escalate for evidence/human review
+B6 UF-P01-W 3 Rollback to stable deployment
+B5 UF-P03 3 Mitigate and monitor
+B6 UF-X01-W 1 Patch or block release
+B6 UF-R02-W 3 Rollback to stable deployment
+B5 UP-R01-W 3 Mitigate and monitor
+AAF-14 UP-K02-W 1 Patch or block release
+B5 UF-L02 1 Mitigate and monitor
+AAF-14 UC-K01 1 Patch or block release
+AAF-14 UP-S02 2 Patch or block release
