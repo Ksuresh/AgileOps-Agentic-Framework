@@ -32,6 +32,12 @@ def load(study: str):
             r = json.loads(line)
             if not r.get("error"):
                 dec[r["decider"]][r["case"]].append(r["action"])
+                if r["decider"] == "B5":  # siloed LLM experts: B5's domain agents (as in the per-study analyses)
+                    if r.get("b3_14_action"):
+                        dec["B3-14"][r["case"]].append(r["b3_14_action"])
+                    for o in r.get("agent_outputs") or []:
+                        if o.get("proposed_action") and o.get("agent_type"):
+                            dec["L-" + {"DevSecOps": "Sec"}.get(o["agent_type"], o["agent_type"])][r["case"]].append(o["proposed_action"])
     g = here / "decisions_gpt" / "gpt_rows.jsonl"
     for line in (g.read_text().splitlines() if g.exists() else []):
         r = json.loads(line)
