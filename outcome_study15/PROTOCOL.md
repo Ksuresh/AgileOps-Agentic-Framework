@@ -86,3 +86,13 @@ had been measured and no decider had run.
 Calibration is rerun in full with these fixes. The image selections of run 1 are recorded; no low-risk image qualified in
 run 1 for any service (every older tag carries critical CVEs), so L03-L04 fall back to the stable image, which carries
 32-74 HIGH/MEDIUM findings and no critical CVE beyond stable. Cases, deciders, hypotheses and analysis are unchanged.
+
+## Execution notes (appended after the study)
+- Amendment 1 (above) was made before any outcome was measured.
+- Outcome measurements: both replicates complete (57 cases each).
+- Qwen3-8B deciders: nine of 24 batches reached the GitHub runner's six-hour limit; 840 of 864 decisions were complete when the
+  run ended. The remaining 24 were filled by a resumed run with identical settings (run 40373563191); completed decisions were not
+  rerun.
+- GPT-5.6 Luna deciders: run under `outcome_study/PROTOCOL_GPT.md` (one run per variant, 1,238 calls, cap not reached).
+- The paper's tables are assembled by `outcome_study/confirmatory_stats.py` (written after the data); its pre-specified counts and
+  Holm-adjusted p-values were checked against this study's `analyze15.py` output and are identical.

@@ -114,8 +114,8 @@
         "D-SRE-14": 6,
         "D-FinOps-14": 10,
         "D-Sec-14": 21,
-        "B5": 25,
-        "B6": 29,
+        "B5": 27,
+        "B6": 32,
         "AlwaysRollback": 30
       },
       "share_settings_ge_comparator": {
@@ -189,8 +189,8 @@
         "D-SRE-14": 5,
         "D-FinOps-14": 5,
         "D-Sec-14": 15,
-        "B5": 7,
-        "B6": 3,
+        "B5": 21,
+        "B6": 19,
         "AlwaysRollback": 21
       },
       "share_settings_ge_comparator": {

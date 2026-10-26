@@ -119,13 +119,14 @@ def part_a(cs) -> str:
           r"analysis script after its first data: listing only the deciders present in a study, and reading the LLM single-domain experts from the "
           r"decision records. Neither changes a decision or an outcome."]
     comp = cs["completion"]
+    complete = all(v["AAF_qwen_cases"] == v["B5_qwen_cases"] == v["B6_qwen_cases"] == v["all_cases"] for v in comp.values())
     L += [r"\subsection*{A.5 Completeness of the Qwen3-8B runs}",
-          r"Qwen3-8B runs on CPU-only runners; some decider batches reached the runner's six-hour limit, and completion is uneven across studies "
-          r"(Table~A3). Decider jobs are assigned to batches in a fixed pseudo-random order (seed 9) before any decision is made, which makes it "
-          r"unlikely that the missing cases were selected by type or difficulty, but it does not prove that they are unbiased: slow cases, for "
-          r"example those where the model reasons longer, are more likely to be in a batch that stops. We therefore treat the missingness as a "
-          r"limitation. Every Qwen3-8B result uses only completed cases and shows its denominator; the conclusions rest on the complete results with "
-          r"the GPT-5.6 Luna investigator and with the rules alone, which agree with the Qwen3-8B investigator on every completed case.",
+          (r"Qwen3-8B runs on CPU-only runners, and some decider batches reached the runner's six-hour limit (Study~14: five batches; "
+           r"Study~15: nine; Study~16: one). Each was resumed with identical settings, filling only the decisions that were missing; no completed "
+           r"decision was rerun. All Qwen3-8B decisions of Studies~14--16 are complete (Table~A3), so no reported result rests on a subset of cases."
+           if complete else
+           r"Qwen3-8B runs on CPU-only runners; some decider batches reached the runner's six-hour limit, and completion is uneven across studies "
+           r"(Table~A3). Every Qwen3-8B result uses only completed cases and shows its denominator; missingness is treated as a limitation."),
           r"\begin{table}[!h]", r"\caption*{Table A3. Full-evidence cases with a completed Qwen3-8B decision}", r"\centering\scriptsize",
           r"\begin{tabular}{L{1.4cm}L{1.0cm}L{1.6cm}L{1.0cm}L{1.0cm}}", r"\toprule",
           r"\textbf{Study} & \textbf{Cases} & \textbf{AAF (Qwen investigator)} & \textbf{B5} & \textbf{B6} \\", r"\midrule"]

@@ -23,3 +23,9 @@ measurement, oracle, rule, prompt or threshold changes; only the model behind th
 - **G3 (secondary):** on withheld-evidence variants, AAF-14-GPT vs B1-14 and B2-14 (fetch rule).
 - **Descriptive:** GPT calls and tokens per variant per arm; O2 accuracy; security-priority and low-risk-release counts.
 Any comparison may go against AAF; all are reported. Analysis: `outcome_study/analyze_gpt.py`, committed with this file.
+
+## Execution notes (appended after the runs)
+- Study 14: 933 calls, 665,572 tokens; Study 15: 1,238 calls, 882,241 tokens; Study 16: 857 calls, 612,581 tokens. No cap was reached and
+  every variant has a decision for each arm.
+- After the first data, `analyze_gpt.py` was changed twice: to list only the deciders present in a study, and to read the LLM single-domain
+  experts and the v1.4 re-decision from the Qwen decision records for the paper's combined statistics. Neither change affects a GPT decision.

@@ -47,3 +47,14 @@ Any comparison may go against AAF; every pre-specified comparison is reported. T
 ## Execution
 Calibration, two measurement replicates (decisions use replicate 1), deciders. Resumed runs use identical settings;
 deviations are appended below as execution notes.
+
+## Execution notes (appended after the study)
+- Calibration: healthy p95 172 ms (threshold 345 ms); degradation 50m CPU for both services; front-end vulnerable images 0.3.5 and
+  0.3.4; no catalogue image both carried extra critical CVEs and started, so as pre-specified the catalogue vulnerable-image cases carry an
+  exposed secret instead (`vuln_fallback`); no low-risk image qualified, so low-risk cases use the stable image.
+- Outcome measurements: both replicates complete (38 cases each).
+- Qwen3-8B deciders: one of 24 batches reached the runner's six-hour limit with one decision left; it was filled by a resumed run with
+  identical settings (run 40394467877); completed decisions were not rerun.
+- GPT-5.6 Luna deciders: run under `outcome_study/PROTOCOL_GPT.md` (857 calls, cap not reached).
+- The paper's pre-specified counts and Holm-adjusted p-values from `outcome_study/confirmatory_stats.py` are identical to this study's
+  `analyze16.py` output.
