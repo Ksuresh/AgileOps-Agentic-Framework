@@ -27,6 +27,10 @@ def resolve(case: dict, cal: dict) -> dict:
         case["previous"] = [x for x in case["previous"] if x != "lowrisk"]
         case["current"] = [x for x in case["current"] if x != "lowrisk"]
         case["lowrisk_fallback"] = "stable image (no low-risk tag qualified in calibration)"
+    if case.get("vuln") and not cal["vuln_images"].get(case["vuln"]):  # Study 16: no qualifying vulnerable tag
+        case["previous"] = ["secret" if x == "vuln" else x for x in case["previous"]]
+        case["current"] = ["secret" if x == "vuln" else x for x in case["current"]]
+        case["vuln_fallback"] = "secret (no vulnerable tag qualified in calibration)"
     return case
 
 

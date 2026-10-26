@@ -17,7 +17,11 @@ from pathlib import Path
 
 from runtime_validation.run_online_boutique_case import measure_http
 
-URL = "http://127.0.0.1:8080/"
+URL = os.environ.get("MEASURE_URL", "http://127.0.0.1:8080/")  # Study 16 (Sock Shop): http://127.0.0.1:8080/catalogue
+LABEL = os.environ.get("LABEL_KEY", "app")  # Sock Shop labels pods with name=<service>
+FRONT = os.environ.get("FRONT_DEPLOY", "frontend")  # storefront deployment (Sock Shop: front-end)
+CRASH_MODE = os.environ.get("CRASH_MODE", "port")  # "command": an entrypoint that does not exist (services without a PORT setting)
+KEEP_MEMORY = bool(os.environ.get("KEEP_MEMORY"))  # keep the manifest's memory settings (Sock Shop's Node and Java services)
 TARGET = os.environ.get("TARGET_SERVICE", "frontend")  # Study 14 also uses productcatalogservice
 STATE = Path(f"/tmp/aaf_outcome_state_{TARGET}.json")
 BASE_CPU_REQ_M = 100
@@ -45,9 +49,14 @@ def save_base() -> dict:
     d["metadata"] = {"name": md["name"], "namespace": md.get("namespace", "default"), "labels": md.get("labels", {})}
     d["spec"]["strategy"] = {"type": "Recreate"}  # a broken release must not hide behind the old pod
     c = d["spec"]["template"]["spec"]["containers"][0]
-    c["resources"] = {"requests": {"cpu": f"{BASE_CPU_REQ_M}m", "memory": "64Mi"}, "limits": {"cpu": "200m", "memory": "128Mi"}}
-    STATE.write_text(json.dumps({"deployment": d, "stable_image": c["image"]}))
+    mem = _mem(c.get("resources") or {}) if KEEP_MEMORY else ("64Mi", "128Mi")
+    c["resources"] = {"requests": {"cpu": f"{BASE_CPU_REQ_M}m", "memory": mem[0]}, "limits": {"cpu": "200m", "memory": mem[1]}}
+    STATE.write_text(json.dumps({"deployment": d, "stable_image": c["image"], "memory": list(mem)}))
     return d
+
+
+def _mem(res: dict) -> tuple[str, str]:
+    return (res.get("requests", {}).get("memory", "64Mi"), res.get("limits", {}).get("memory", "128Mi"))
 
 
 def base() -> dict:
@@ -65,7 +74,10 @@ def template(mods: list[str], case: dict, images: dict[str, str]) -> dict:
         env.append({"name": "AAF_RELEASE", "value": "candidate"})
     if "secret" in mods:
         env.append({"name": "AAF_OB_TEST_POLICY_MARKER", "value": "exposed_test_secret"})
-    if "crash" in mods:
+    if "crash" in mods and CRASH_MODE == "command":
+        c["command"] = ["/aaf-invalid-entrypoint"]
+        env.extend(port_env)
+    elif "crash" in mods:
         env.append({"name": "PORT", "value": "invalid-port"})
     else:
         env.extend(port_env)
@@ -78,9 +90,11 @@ def template(mods: list[str], case: dict, images: dict[str, str]) -> dict:
         env.append({"name": "EXTRA_LATENCY", "value": str(case["perf_cpu"])[4:]})
     elif "perf" in mods:
         cpu = case["perf_cpu"]
-        c["resources"] = {"requests": {"cpu": cpu, "memory": "64Mi"}, "limits": {"cpu": cpu, "memory": "128Mi"}}
+        mem = st.get("memory", ["64Mi", "128Mi"])
+        c["resources"] = {"requests": {"cpu": cpu, "memory": mem[0]}, "limits": {"cpu": cpu, "memory": mem[1]}}
     if "mitigated" in mods:
-        c["resources"] = {"requests": {"cpu": "200m", "memory": "64Mi"}, "limits": {"cpu": "500m", "memory": "256Mi"}}
+        mem = st.get("memory", ["64Mi", "128Mi"])
+        c["resources"] = {"requests": {"cpu": "200m", "memory": mem[0]}, "limits": {"cpu": "500m", "memory": "256Mi" if not KEEP_MEMORY else mem[1]}}
     d["spec"]["template"]["metadata"].setdefault("annotations", {})["aaf/release"] = ",".join(sorted(mods)) or "stable"
     d["spec"]["template"]["metadata"]["annotations"]["aaf/applied"] = str(time.time())
     return d
@@ -92,21 +106,21 @@ def apply(dep: dict, replicas: int) -> bool:
     subprocess.run(["kubectl", "replace", "-f", "-"], input=json.dumps(dep), text=True, check=True, capture_output=True)
     ok = subprocess.run(["kubectl", "rollout", "status", f"deployment/{TARGET}", "--timeout=150s"], capture_output=True, text=True).returncode == 0
     time.sleep(8 if ok else 20)
-    if TARGET != "frontend" and os.environ.get("RESTART_FRONTEND"):
+    if TARGET != FRONT and os.environ.get("RESTART_FRONTEND"):
         # Study 15: a fresh storefront connection after every backend change, so a measurement is not contaminated by the
         # storefront's gRPC reconnect back-off to a backend that was failing in the previous state
-        subprocess.run(["kubectl", "rollout", "restart", "deployment/frontend"], capture_output=True, text=True)
-        subprocess.run(["kubectl", "rollout", "status", "deployment/frontend", "--timeout=150s"], capture_output=True, text=True)
+        subprocess.run(["kubectl", "rollout", "restart", f"deployment/{FRONT}"], capture_output=True, text=True)
+        subprocess.run(["kubectl", "rollout", "status", f"deployment/{FRONT}", "--timeout=150s"], capture_output=True, text=True)
         time.sleep(8)
     return ok
 
 
 def pods() -> list[dict]:
-    return kjson("get", "pods", "-l", f"app={TARGET}")["items"]
+    return kjson("get", "pods", "-l", f"{LABEL}={TARGET}")["items"]
 
 
 def top_cpu_m() -> list[float]:
-    out = subprocess.run(["kubectl", "top", "pods", "-l", f"app={TARGET}", "--no-headers"], capture_output=True, text=True).stdout
+    out = subprocess.run(["kubectl", "top", "pods", "-l", f"{LABEL}={TARGET}", "--no-headers"], capture_output=True, text=True).stdout
     vals = []
     for line in out.splitlines():
         parts = line.split()
@@ -177,7 +191,7 @@ def measure(load: int) -> dict:
 def release_info() -> dict:
     """Measured release signal: compare the two newest frontend ReplicaSets' container specs (image, env, resources),
     ignoring annotations; recent_release = they differ and the newest is younger than 30 minutes."""
-    rss = kjson("get", "replicasets", "-l", f"app={TARGET}")["items"]
+    rss = kjson("get", "replicasets", "-l", f"{LABEL}={TARGET}")["items"]
     rss.sort(key=lambda r: int(r["metadata"].get("annotations", {}).get("deployment.kubernetes.io/revision", "0")), reverse=True)
     if len(rss) < 2:
         return {"recent_release": False, "release_age_s": None}
@@ -185,7 +199,7 @@ def release_info() -> dict:
     def spec(r):
         c = r["spec"]["template"]["spec"]["containers"][0]
         return json.dumps({"image": c["image"], "env": sorted((e["name"], e.get("value", "")) for e in c.get("env", [])),
-                           "resources": c.get("resources", {})}, sort_keys=True)
+                           "resources": c.get("resources", {}), "command": c.get("command")}, sort_keys=True)
     import datetime as _dt
     created = _dt.datetime.fromisoformat(rss[0]["metadata"]["creationTimestamp"].replace("Z", "+00:00"))
     age = (_dt.datetime.now(_dt.timezone.utc) - created).total_seconds()

@@ -1,0 +1,3 @@
+MODE=calibrate
+NSHARDS=1
+REP=1

@@ -118,7 +118,7 @@ def calibrate(service: str) -> dict:
                 out["perf_cpu"] = "lat:" + lat
                 break
     if out["perf_cpu"] is None:
-        out["perf_cpu"], out["perf_note"] = "lat:" + LATENCY[-1], "no candidate violated; strongest used"
+        out["perf_cpu"], out["perf_note"] = ("lat:" + LATENCY[-1]) if LATENCY else PERF[-1], "no candidate violated; strongest used"
     ok = T.apply(T.template(["crash"], {}, {}), 1)
     m = T.measure(LOAD)
     out["crash_check"] = {"rollout_ok": ok, "storefront_error_rate_pct": m["http"]["error_rate_pct"], "restarts": m["restarts"]}

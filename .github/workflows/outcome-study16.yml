@@ -1,0 +1,116 @@
+name: Study 16 - frozen v1.4 rules on a second application (Sock Shop)
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode: {description: "calibrate | outcomes", default: "calibrate"}
+      nshards: {description: "shards (outcomes)", default: "16"}
+      rep: {description: "replicate label (outcomes)", default: "1"}
+      cases: {description: "space-separated case ids (empty = all)", default: ""}
+  push:
+    branches: [text-evidence-pilot]
+    paths: ["outcome_study16/RUN"]
+
+permissions:
+  contents: write
+
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    outputs:
+      shards: ${{ steps.cfg.outputs.shards }}
+      nshards: ${{ steps.cfg.outputs.nshards }}
+      mode: ${{ steps.cfg.outputs.mode }}
+      rep: ${{ steps.cfg.outputs.rep }}
+      cases: ${{ steps.cfg.outputs.cases }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: cfg
+        run: |
+          get() { grep -E "^$1=" outcome_study16/RUN 2>/dev/null | cut -d= -f2-; }
+          MODE="${{ inputs.mode }}"; [ -z "$MODE" ] && MODE=$(get MODE); MODE=${MODE:-calibrate}
+          N="${{ inputs.nshards }}"; [ -z "$N" ] && N=$(get NSHARDS); N=${N:-16}
+          REP="${{ inputs.rep }}"; [ -z "$REP" ] && REP=$(get REP); REP=${REP:-1}
+          C="${{ inputs.cases }}"; [ -z "$C" ] && C=$(get CASES)
+          [ "$MODE" = "calibrate" ] && N=1
+          echo "shards=$(python3 -c "import json;print(json.dumps(list(range($N))))")" >> $GITHUB_OUTPUT
+          echo "nshards=$N" >> $GITHUB_OUTPUT; echo "mode=$MODE" >> $GITHUB_OUTPUT; echo "rep=$REP" >> $GITHUB_OUTPUT; echo "cases=$C" >> $GITHUB_OUTPUT
+
+  run:
+    needs: plan
+    runs-on: ubuntu-latest
+    timeout-minutes: 355
+    strategy:
+      fail-fast: false
+      max-parallel: 20
+      matrix:
+        shard: ${{ fromJson(needs.plan.outputs.shards) }}
+    env:
+      PYTHONPATH: ${{ github.workspace }}
+      OUTCOME_DIR: outcome_study16
+      MEASURE_NONCRITICAL: "1"
+      MEASURE_PRE_RELEASE: "1"
+      RESTART_FRONTEND: "1"
+      SS_COMMIT: 9dff06fae4981921caec6a62393a6ebfce4b3e3f
+      MEASURE_URL: http://127.0.0.1:8080/catalogue
+      LABEL_KEY: name
+      FRONT_DEPLOY: front-end
+      CRASH_MODE: command
+      KEEP_MEMORY: "1"
+      SHARD: ${{ matrix.shard }}
+      NSHARDS: ${{ needs.plan.outputs.nshards }}
+      REP: ${{ needs.plan.outputs.rep }}
+      CASES: ${{ needs.plan.outputs.cases }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install -r requirements.txt
+      - name: Tools (kind, trivy)
+        run: |
+          curl -Lo /tmp/kind https://kind.sigs.k8s.io/dl/v0.24.0/kind-linux-amd64 && chmod +x /tmp/kind && sudo mv /tmp/kind /usr/local/bin/kind
+          mkdir -p outcome_study16/ci_logs
+          { curl -fsSL -o /tmp/trivy.deb https://github.com/aquasecurity/trivy/releases/download/v0.56.2/trivy_0.56.2_Linux-64bit.deb && sudo dpkg -i /tmp/trivy.deb; } \
+            || { echo '#!/bin/sh' | sudo tee /usr/local/bin/trivy >/dev/null; echo 'exec docker run --rm -v /var/run/docker.sock:/var/run/docker.sock -v $HOME/.cache/trivy:/root/.cache/trivy aquasec/trivy:0.56.2 "$@"' | sudo tee -a /usr/local/bin/trivy >/dev/null; sudo chmod +x /usr/local/bin/trivy; }
+          trivy --version 2>&1 | tee outcome_study16/ci_logs/trivy_version_rep${REP}_${SHARD}.txt
+      - name: Cluster (port 30001 -> host 8080) and pinned Sock Shop
+        run: |
+          exec > >(tee outcome_study16/ci_logs/setup_rep${REP}_${SHARD}.txt) 2>&1
+          cat > /tmp/kind.yaml <<'K'
+          kind: Cluster
+          apiVersion: kind.x-k8s.io/v1alpha4
+          nodes:
+            - role: control-plane
+              extraPortMappings:
+                - {containerPort: 30001, hostPort: 8080}
+          K
+          kind create cluster --name aaf-ss --config /tmp/kind.yaml --wait 120s
+          git clone -q https://github.com/microservices-demo/microservices-demo.git /tmp/ss && git -C /tmp/ss checkout -q "$SS_COMMIT"
+          # deploy into the default namespace (testbed convention): drop the Namespace object and namespace fields
+          python3 -c "import yaml,sys; ds=[d for d in yaml.safe_load_all(open('/tmp/ss/deploy/kubernetes/complete-demo.yaml')) if d and d.get('kind')!='Namespace']; [d['metadata'].pop('namespace',None) for d in ds]; yaml.safe_dump_all(ds, open('/tmp/ss.yaml','w'))"
+          kubectl apply -f /tmp/ss.yaml
+          kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/download/v0.7.2/components.yaml
+          kubectl -n kube-system patch deployment metrics-server --type=json -p='[{"op":"add","path":"/spec/template/spec/containers/0/args/-","value":"--kubelet-insecure-tls"}]'
+          kubectl wait --for=condition=available deployment --all --timeout=900s
+          kubectl -n kube-system wait --for=condition=available deployment/metrics-server --timeout=300s
+          for i in $(seq 1 100); do curl -fsS http://127.0.0.1:8080/catalogue >/dev/null && break; sleep 3; done
+          curl -sS http://127.0.0.1:8080/catalogue | head -c 300; echo
+          for i in $(seq 1 40); do kubectl top pods -l name=front-end >/dev/null 2>&1 && break; sleep 6; done
+          kubectl get pods -o wide
+          trivy image --download-db-only --quiet
+      - name: Calibrate
+        if: needs.plan.outputs.mode == 'calibrate'
+        run: python outcome_study/calibrate16.py 2>&1 | tee outcome_study16/ci_logs/calibrate.txt; exit ${PIPESTATUS[0]}
+      - name: Outcomes
+        if: needs.plan.outputs.mode == 'outcomes'
+        run: python outcome_study/run_outcomes.py 2>&1 | tee outcome_study16/ci_logs/outcomes_rep${REP}_shard${SHARD}.txt; exit ${PIPESTATUS[0]}
+      - name: Commit
+        if: always()
+        run: |
+          kubectl get pods -o wide > /tmp/pods.txt 2>&1 || true
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          for p in outcome_study16/calibration outcome_study16/measurements outcome_study16/ci_logs; do [ -e "$p" ] && git add -f "$p"; done
+          git commit -m "Study 16 ${{ needs.plan.outputs.mode }} shard ${SHARD}: run ${GITHUB_RUN_ID} [skip ci]" || echo "nothing"
+          for i in 1 2 3 4 5 6 7 8; do git pull --rebase -X theirs origin ${GITHUB_REF_NAME} && git push origin HEAD:${GITHUB_REF_NAME} && break; sleep $((i*9)); done
