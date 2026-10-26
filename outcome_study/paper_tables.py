@@ -27,6 +27,10 @@ ROWS = [  # key in confirmatory_stats, label, group
     ("S:D-DevOps", "DevOps expert (rules)", 3),
     ("S:D-FinOps", "FinOps expert (rules)", 3),
     ("S:D-SRE", "SRE expert (rules)", 3),
+    ("S:L-Sec", "Security expert (LLM)", 3),
+    ("S:L-DevOps", "DevOps expert (LLM)", 3),
+    ("S:L-SRE", "SRE expert (LLM)", 3),
+    ("S:L-FinOps", "FinOps expert (LLM)", 3),
 ]
 
 
@@ -81,7 +85,7 @@ def main() -> None:
           r"rules on one domain (v1.4 in Studies 15--16; v1.0 in Study 14 as pre-specified). Qwen3-8B: majority of three runs; GPT-5.6 Luna: one run. "
           r"Comparisons use AAF with the pre-specified Qwen3-8B investigator on the cases where its runs completed; AAF's action with the GPT-5.6 Luna "
           r"investigator and with the rules alone was identical on every one of these cases. "
-          r"$O_2$: among the $O_1$-correct actions, those that keep the feature delivered and then use the least resources. LLM single-domain experts are in Supplementary Appendix~C. $^\dagger$Fewer cases than the study has: runs incomplete.", r"\end{table*}"]
+          r"$O_2$: among the $O_1$-correct actions, those that keep the feature delivered and then use the least resources. $^\dagger$Fewer cases than the study has: runs incomplete.", r"\end{table*}"]
     (OUT / "tab_confirm.tex").write_text("\n".join(L) + "\n")
 
     # Table: could the benchmark favour AAF by construction?
