@@ -72,6 +72,8 @@ def template(mods: list[str], case: dict, images: dict[str, str]) -> dict:
     c["env"] = env
     if "vuln" in mods:
         c["image"] = images[case["vuln"]]
+    if "lowrisk" in mods:  # Study 15: image with HIGH/MEDIUM findings but no critical CVE beyond stable
+        c["image"] = images[case["lowrisk"]]
     if "perf" in mods:
         cpu = case["perf_cpu"]
         c["resources"] = {"requests": {"cpu": cpu, "memory": "64Mi"}, "limits": {"cpu": cpu, "memory": "128Mi"}}
@@ -202,7 +204,7 @@ def action_release(action: str, case: dict, snapshot: dict) -> tuple[list[str], 
     if action == "rollback":
         return prev, r
     if action == "patch":
-        return [m for m in cur if m not in {"vuln", "secret"}], r
+        return [m for m in cur if m not in {"vuln", "secret", "lowrisk"}], r
     if action == "mitigate":
         return [m for m in cur if m != "perf"] + ["mitigated"], r
     if action == "scale":

@@ -1,0 +1,66 @@
+# Study 15 fresh test cases (frozen before calibration and before any Study 15 run). Three services: frontend (UF-*),
+# productcatalogservice (UP-*) and currencyservice (UC-*), the last two reached through the storefront home page.
+# Groups: C control; L low-risk release (L01, L02 stable image; L03, L04 an image with more HIGH/MEDIUM findings than
+# stable and no extra critical CVE); R release-caused regression; P fault present before the release (rollback cannot fix
+# it); S security vs cost; K critical CVE with other domains healthy; D cost only; X compound. Symbolic values filled by
+# calibrate15.py under the fixed rules in PROTOCOL.md: perf_cpu PERF = the service's calibrated degradation level;
+# image keys V1/V2 (vulnerable) and N (low-risk) per service. No case names a correct action.
+loads: {low: 4, normal: 20}
+cases:
+  - {id: UF-C01, service: frontend, previous: [], current: [], replicas: 1, load: normal}
+  - {id: UF-L01, service: frontend, previous: [], current: [feature], replicas: 1, load: normal}
+  - {id: UF-L02, service: frontend, previous: [], current: [feature], replicas: 1, load: low}
+  - {id: UF-L03, service: frontend, previous: [], current: [feature, lowrisk], replicas: 1, load: normal, lowrisk: NF}
+  - {id: UF-L04, service: frontend, previous: [], current: [feature, lowrisk], replicas: 2, load: normal, lowrisk: NF}
+  - {id: UF-R01, service: frontend, previous: [], current: [feature, perf], replicas: 1, load: normal, perf_cpu: PERF}
+  - {id: UF-R02, service: frontend, previous: [], current: [feature, crash], replicas: 2, load: normal}
+  - {id: UF-R03, service: frontend, previous: [], current: [feature, perf, vuln], replicas: 1, load: normal, perf_cpu: PERF, vuln: G}
+  - {id: UF-P01, service: frontend, previous: [perf], current: [feature, perf], replicas: 1, load: normal, perf_cpu: PERF}
+  - {id: UF-P02, service: frontend, previous: [perf], current: [feature, perf, secret], replicas: 2, load: normal, perf_cpu: PERF}
+  - {id: UF-P03, service: frontend, previous: [vuln], current: [feature, vuln], replicas: 1, load: normal, vuln: H}
+  - {id: UF-S01, service: frontend, previous: [vuln], current: [vuln], replicas: 5, load: low, vuln: H}
+  - {id: UF-S02, service: frontend, previous: [], current: [feature, secret], replicas: 6, load: low}
+  - {id: UF-S03, service: frontend, previous: [], current: [feature, vuln], replicas: 6, load: low, vuln: G}
+  - {id: UF-K01, service: frontend, previous: [], current: [feature, vuln], replicas: 1, load: normal, vuln: H}
+  - {id: UF-K02, service: frontend, previous: [], current: [feature, secret], replicas: 1, load: normal}
+  - {id: UF-D01, service: frontend, previous: [], current: [feature], replicas: 5, load: low}
+  - {id: UF-X01, service: frontend, previous: [], current: [feature, perf, secret], replicas: 1, load: normal, perf_cpu: PERF}
+  - {id: UF-X02, service: frontend, previous: [], current: [feature, crash, vuln], replicas: 1, load: normal, vuln: G}
+  - {id: UP-C01, service: productcatalogservice, previous: [], current: [], replicas: 1, load: normal}
+  - {id: UP-L01, service: productcatalogservice, previous: [], current: [feature], replicas: 1, load: normal}
+  - {id: UP-L02, service: productcatalogservice, previous: [], current: [feature], replicas: 1, load: low}
+  - {id: UP-L03, service: productcatalogservice, previous: [], current: [feature, lowrisk], replicas: 1, load: normal, lowrisk: NP}
+  - {id: UP-L04, service: productcatalogservice, previous: [], current: [feature, lowrisk], replicas: 2, load: normal, lowrisk: NP}
+  - {id: UP-R01, service: productcatalogservice, previous: [], current: [feature, perf], replicas: 1, load: normal, perf_cpu: PERF}
+  - {id: UP-R02, service: productcatalogservice, previous: [], current: [feature, crash], replicas: 2, load: normal}
+  - {id: UP-R03, service: productcatalogservice, previous: [], current: [feature, perf, vuln], replicas: 1, load: normal, perf_cpu: PERF, vuln: P3}
+  - {id: UP-P01, service: productcatalogservice, previous: [perf], current: [feature, perf], replicas: 1, load: normal, perf_cpu: PERF}
+  - {id: UP-P02, service: productcatalogservice, previous: [perf], current: [feature, perf, secret], replicas: 2, load: normal, perf_cpu: PERF}
+  - {id: UP-P03, service: productcatalogservice, previous: [vuln], current: [feature, vuln], replicas: 1, load: normal, vuln: P4}
+  - {id: UP-S01, service: productcatalogservice, previous: [vuln], current: [vuln], replicas: 5, load: low, vuln: P4}
+  - {id: UP-S02, service: productcatalogservice, previous: [], current: [feature, secret], replicas: 6, load: low}
+  - {id: UP-S03, service: productcatalogservice, previous: [], current: [feature, vuln], replicas: 6, load: low, vuln: P3}
+  - {id: UP-K01, service: productcatalogservice, previous: [], current: [feature, vuln], replicas: 1, load: normal, vuln: P4}
+  - {id: UP-K02, service: productcatalogservice, previous: [], current: [feature, secret], replicas: 1, load: normal}
+  - {id: UP-D01, service: productcatalogservice, previous: [], current: [feature], replicas: 5, load: low}
+  - {id: UP-X01, service: productcatalogservice, previous: [], current: [feature, perf, secret], replicas: 1, load: normal, perf_cpu: PERF}
+  - {id: UP-X02, service: productcatalogservice, previous: [], current: [feature, crash, vuln], replicas: 1, load: normal, vuln: P3}
+  - {id: UC-C01, service: currencyservice, previous: [], current: [], replicas: 1, load: normal}
+  - {id: UC-L01, service: currencyservice, previous: [], current: [feature], replicas: 1, load: normal}
+  - {id: UC-L02, service: currencyservice, previous: [], current: [feature], replicas: 1, load: low}
+  - {id: UC-L03, service: currencyservice, previous: [], current: [feature, lowrisk], replicas: 1, load: normal, lowrisk: NC}
+  - {id: UC-L04, service: currencyservice, previous: [], current: [feature, lowrisk], replicas: 2, load: normal, lowrisk: NC}
+  - {id: UC-R01, service: currencyservice, previous: [], current: [feature, perf], replicas: 1, load: normal, perf_cpu: PERF}
+  - {id: UC-R02, service: currencyservice, previous: [], current: [feature, crash], replicas: 2, load: normal}
+  - {id: UC-R03, service: currencyservice, previous: [], current: [feature, perf, vuln], replicas: 1, load: normal, perf_cpu: PERF, vuln: C1}
+  - {id: UC-P01, service: currencyservice, previous: [perf], current: [feature, perf], replicas: 1, load: normal, perf_cpu: PERF}
+  - {id: UC-P02, service: currencyservice, previous: [perf], current: [feature, perf, secret], replicas: 2, load: normal, perf_cpu: PERF}
+  - {id: UC-P03, service: currencyservice, previous: [vuln], current: [feature, vuln], replicas: 1, load: normal, vuln: C2}
+  - {id: UC-S01, service: currencyservice, previous: [vuln], current: [vuln], replicas: 5, load: low, vuln: C2}
+  - {id: UC-S02, service: currencyservice, previous: [], current: [feature, secret], replicas: 6, load: low}
+  - {id: UC-S03, service: currencyservice, previous: [], current: [feature, vuln], replicas: 6, load: low, vuln: C1}
+  - {id: UC-K01, service: currencyservice, previous: [], current: [feature, vuln], replicas: 1, load: normal, vuln: C2}
+  - {id: UC-K02, service: currencyservice, previous: [], current: [feature, secret], replicas: 1, load: normal}
+  - {id: UC-D01, service: currencyservice, previous: [], current: [feature], replicas: 5, load: low}
+  - {id: UC-X01, service: currencyservice, previous: [], current: [feature, perf, secret], replicas: 1, load: normal, perf_cpu: PERF}
+  - {id: UC-X02, service: currencyservice, previous: [], current: [feature, crash, vuln], replicas: 1, load: normal, vuln: C1}

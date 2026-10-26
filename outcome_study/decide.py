@@ -96,7 +96,8 @@ def variants(case: dict, snap: dict) -> list[dict]:
     return out
 
 
-def b2(v: dict) -> str:
+def b2(v: dict, decide=None) -> str:
+    decide = decide or deterministic_assessment
     ev = copy.deepcopy(v["evidence"])
     called = set()
     for f in missing_fields(ev):
@@ -105,7 +106,7 @@ def b2(v: dict) -> str:
             called.add(tool)
             if tool == v.get("expected_tool"):
                 ev = AR.merge_tool_result(ev, copy.deepcopy(v["tool_result"]))
-    return str(deterministic_assessment(ev)["selected_action"])
+    return str(decide(ev)["selected_action"])
 
 
 def deterministic_rows(v: dict) -> list[dict]:
@@ -120,6 +121,10 @@ def deterministic_rows(v: dict) -> list[dict]:
         rows["BlockAnyCVE"] = "Patch or block release" if anysec else "No action (observe)"
     for name, block in BLOCK_OF.items():
         rows[name] = deterministic_assessment({block: copy.deepcopy(ev[block])})["selected_action"]
+    if os.environ.get("V14_BASELINES"):  # Study 15: comparison deciders also with the current rule set v1.4
+        rows["B2-14"] = b2(v, deterministic_assessment_v14)
+        for name, block in BLOCK_OF.items():
+            rows[name + "-14"] = deterministic_assessment_v14({block: copy.deepcopy(ev[block])})["selected_action"]
     return [{"decider": k, "case": v["id"], "variant": v["variant"], "run": 0, "action": str(a), "error": None} for k, a in rows.items()]
 
 
@@ -130,7 +135,7 @@ def main() -> None:
     allv = []
     for p in snaps:
         d = json.loads(p.read_text())
-        allv += variants(cfg[d["case"]["id"]], d["snapshot"])
+        allv += variants(d["case"] if os.environ.get("V14_BASELINES") else cfg[d["case"]["id"]], d["snapshot"])  # Study 15: resolved case
     shard, nshards = int(os.environ.get("SHARD", "0")), int(os.environ.get("NSHARDS", "1"))
     out = HERE / os.environ.get("DECISIONS_DIR", "decisions")
     out.mkdir(parents=True, exist_ok=True)
@@ -163,6 +168,8 @@ def main() -> None:
                         if t.get("tool") == v.get("expected_tool") and isinstance(t.get("result"), dict):
                             ev = AR.merge_tool_result(ev, t["result"])
                     row["b3_action"] = str(deterministic_assessment(ev)["selected_action"])
+                    if os.environ.get("V14_BASELINES"):
+                        row["b3_14_action"] = str(deterministic_assessment_v14(ev)["selected_action"])
             except Exception as exc:
                 row = {"decider": arm, "case": v["id"], "variant": v["variant"], "run": run, "action": None, "error": f"{type(exc).__name__}: {str(exc)[:300]}"}
             fh.write(json.dumps(row, default=str) + "\n"); fh.flush()

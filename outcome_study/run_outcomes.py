@@ -17,6 +17,19 @@ from outcome_study import testbed as T  # noqa: E402
 HERE = ROOT / os.environ.get("OUTCOME_DIR", "outcome_study")
 
 
+def resolve(case: dict, cal: dict) -> dict:
+    """Study 15: cases name calibrated quantities symbolically (perf_cpu: PERF -> the service's calibrated CPU limit; a
+    low-risk image key that calibration could not fill -> the case uses the stable image). Earlier studies are unchanged."""
+    case = dict(case)
+    if case.get("perf_cpu") == "PERF":
+        case["perf_cpu"] = cal["perf_cpu"][case.get("service", "frontend")]
+    if case.get("lowrisk") and not cal["vuln_images"].get(case["lowrisk"]):
+        case["previous"] = [x for x in case["previous"] if x != "lowrisk"]
+        case["current"] = [x for x in case["current"] if x != "lowrisk"]
+        case["lowrisk_fallback"] = "stable image (no low-risk tag qualified in calibration)"
+    return case
+
+
 def main() -> None:
     cfg = yaml.safe_load((HERE / "cases.yaml").read_text())
     cal = json.loads((HERE / "calibration" / "calibration.json").read_text())
@@ -33,6 +46,7 @@ def main() -> None:
         importlib.reload(T)
         T.save_base()
     for case in cases:
+        case = resolve(case, cal)
         os.environ["TARGET_SERVICE"] = case.get("service", "frontend")
         importlib.reload(T)
         load = int(case["high"]) if case["load"] == "high" else int(cfg["loads"][case["load"]])
