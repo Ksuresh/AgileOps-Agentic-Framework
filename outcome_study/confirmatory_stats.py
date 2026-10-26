@@ -152,7 +152,9 @@ def main() -> None:
         out = {"n_faults": len(F), "n_families": len({r["family"] for r in F}), "n_discriminating": len(disc), "n_unique_answer": len(uniq),
                "O1": counts(F), "O2": counts(F, "correct_O2"), "O1_discriminating": counts(disc), "O1_unique_answer": counts(uniq),
                "H1_case_level": compare(F, "AAF", [s for s in sil if all(s in r["correct"] for r in F)]),
-               "H2_case_level": compare(F, "AAF", [b for b in LLM + ["AlwaysRollback"] if any(b in r["correct"] for r in F)]),
+               # pre-specified Holm families: study protocols (Qwen deciders + always-rollback) and PROTOCOL_GPT (two GPT deciders)
+               "H2_case_level": {**compare(F, "AAF", [b for b in ("B5", "B6", "AlwaysRollback") if any(b in r["correct"] for r in F)]),
+                                 **compare(F, "AAF", [b for b in ("B5-GPT", "B6-GPT") if any(b in r["correct"] for r in F)])},
                "H1_discriminating": compare(disc, "AAF", [s for s in sil if all(s in r["correct"] for r in disc)]),
                "H2_unique_answer": compare(uniq, "AAF", [b for b in LLM + ["AlwaysRollback"] if any(b in r["correct"] for r in uniq)], adjust=False),
                "family_level": {b: family_level(F, "AAF", b) for b in sil + LLM + ["AlwaysRollback", "Dominant"] if any(b in r["correct"] for r in F)}}

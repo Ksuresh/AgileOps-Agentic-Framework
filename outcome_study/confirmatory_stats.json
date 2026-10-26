@@ -211,35 +211,35 @@
           "b_only": 0,
           "p_exact": 0.0078125,
           "n": 34,
-          "p_holm": 0.0390625
+          "p_holm": 0.0234375
         },
         "B6": {
           "a_only": 5,
           "b_only": 0,
           "p_exact": 0.0625,
           "n": 34,
-          "p_holm": 0.125
-        },
-        "B5-GPT": {
-          "a_only": 5,
-          "b_only": 0,
-          "p_exact": 0.0625,
-          "n": 34,
-          "p_holm": 0.125
-        },
-        "B6-GPT": {
-          "a_only": 6,
-          "b_only": 0,
-          "p_exact": 0.03125,
-          "n": 34,
-          "p_holm": 0.09375
+          "p_holm": 0.0625
         },
         "AlwaysRollback": {
           "a_only": 8,
           "b_only": 0,
           "p_exact": 0.0078125,
           "n": 34,
-          "p_holm": 0.0390625
+          "p_holm": 0.0234375
+        },
+        "B5-GPT": {
+          "a_only": 5,
+          "b_only": 0,
+          "p_exact": 0.0625,
+          "n": 34,
+          "p_holm": 0.0625
+        },
+        "B6-GPT": {
+          "a_only": 6,
+          "b_only": 0,
+          "p_exact": 0.03125,
+          "n": 34,
+          "p_holm": 0.0625
         }
       },
       "H1_discriminating": {
@@ -847,12 +847,12 @@
         "B1-12": "37/42",
         "B1-14": "42/42",
         "B2-14": "42/42",
-        "B3-14": "40/40",
+        "B3-14": "42/42",
         "B3-14-GPT": "42/42",
         "B3-GPT": "28/42",
-        "B5": "25/40",
+        "B5": "27/42",
         "B5-GPT": "29/42",
-        "B6": "30/41",
+        "B6": "32/42",
         "B6-GPT": "30/42",
         "BlockAnyCVE": "21/42",
         "D-DevOps": "15/42",
@@ -864,18 +864,18 @@
         "D-Sec": "21/42",
         "D-Sec-14": "21/42",
         "Dominant": "25/42",
-        "L-DevOps": "12/40",
-        "L-FinOps": "2/40",
-        "L-SRE": "12/40",
-        "L-Sec": "23/40",
+        "L-DevOps": "12/42",
+        "L-FinOps": "3/42",
+        "L-SRE": "12/42",
+        "L-Sec": "24/42",
         "S:D-DevOps": "18/42",
         "S:D-FinOps": "10/42",
         "S:D-SRE": "6/42",
         "S:D-Sec": "21/42",
-        "S:L-DevOps": "12/40",
-        "S:L-FinOps": "2/40",
-        "S:L-SRE": "12/40",
-        "S:L-Sec": "23/40"
+        "S:L-DevOps": "12/42",
+        "S:L-FinOps": "3/42",
+        "S:L-SRE": "12/42",
+        "S:L-Sec": "24/42"
       },
       "O2": {
         "AAF": "32/42",
@@ -886,12 +886,12 @@
         "B1-12": "23/42",
         "B1-14": "32/42",
         "B2-14": "32/42",
-        "B3-14": "31/40",
+        "B3-14": "32/42",
         "B3-14-GPT": "32/42",
         "B3-GPT": "25/42",
-        "B5": "13/40",
+        "B5": "14/42",
         "B5-GPT": "16/42",
-        "B6": "24/41",
+        "B6": "26/42",
         "B6-GPT": "22/42",
         "BlockAnyCVE": "14/42",
         "D-DevOps": "6/42",
@@ -903,18 +903,18 @@
         "D-Sec": "14/42",
         "D-Sec-14": "14/42",
         "Dominant": "22/42",
-        "L-DevOps": "4/40",
-        "L-FinOps": "2/40",
-        "L-SRE": "9/40",
-        "L-Sec": "11/40",
+        "L-DevOps": "3/42",
+        "L-FinOps": "3/42",
+        "L-SRE": "9/42",
+        "L-Sec": "12/42",
         "S:D-DevOps": "9/42",
         "S:D-FinOps": "10/42",
         "S:D-SRE": "6/42",
         "S:D-Sec": "14/42",
-        "S:L-DevOps": "4/40",
-        "S:L-FinOps": "2/40",
-        "S:L-SRE": "9/40",
-        "S:L-Sec": "11/40"
+        "S:L-DevOps": "3/42",
+        "S:L-FinOps": "3/42",
+        "S:L-SRE": "9/42",
+        "S:L-Sec": "12/42"
       },
       "O1_discriminating": {
         "AAF": "42/42",
@@ -925,12 +925,12 @@
         "B1-12": "37/42",
         "B1-14": "42/42",
         "B2-14": "42/42",
-        "B3-14": "40/40",
+        "B3-14": "42/42",
         "B3-14-GPT": "42/42",
         "B3-GPT": "28/42",
-        "B5": "25/40",
+        "B5": "27/42",
         "B5-GPT": "29/42",
-        "B6": "30/41",
+        "B6": "32/42",
         "B6-GPT": "30/42",
         "BlockAnyCVE": "21/42",
         "D-DevOps": "15/42",
@@ -942,18 +942,18 @@
         "D-Sec": "21/42",
         "D-Sec-14": "21/42",
         "Dominant": "25/42",
-        "L-DevOps": "12/40",
-        "L-FinOps": "2/40",
-        "L-SRE": "12/40",
-        "L-Sec": "23/40",
+        "L-DevOps": "12/42",
+        "L-FinOps": "3/42",
+        "L-SRE": "12/42",
+        "L-Sec": "24/42",
         "S:D-DevOps": "18/42",
         "S:D-FinOps": "10/42",
         "S:D-SRE": "6/42",
         "S:D-Sec": "21/42",
-        "S:L-DevOps": "12/40",
-        "S:L-FinOps": "2/40",
-        "S:L-SRE": "12/40",
-        "S:L-Sec": "23/40"
+        "S:L-DevOps": "12/42",
+        "S:L-FinOps": "3/42",
+        "S:L-SRE": "12/42",
+        "S:L-Sec": "24/42"
       },
       "O1_unique_answer": {
         "AAF": "21/21",
@@ -964,12 +964,12 @@
         "B1-12": "16/21",
         "B1-14": "21/21",
         "B2-14": "21/21",
-        "B3-14": "20/20",
+        "B3-14": "21/21",
         "B3-14-GPT": "21/21",
         "B3-GPT": "9/21",
-        "B5": "11/20",
+        "B5": "11/21",
         "B5-GPT": "12/21",
-        "B6": "12/20",
+        "B6": "14/21",
         "B6-GPT": "10/21",
         "BlockAnyCVE": "3/21",
         "D-DevOps": "6/21",
@@ -981,18 +981,18 @@
         "D-Sec": "3/21",
         "D-Sec-14": "3/21",
         "Dominant": "9/21",
-        "L-DevOps": "4/20",
-        "L-FinOps": "1/20",
-        "L-SRE": "8/20",
-        "L-Sec": "6/20",
+        "L-DevOps": "3/21",
+        "L-FinOps": "2/21",
+        "L-SRE": "8/21",
+        "L-Sec": "6/21",
         "S:D-DevOps": "9/21",
         "S:D-FinOps": "3/21",
         "S:D-SRE": "3/21",
         "S:D-Sec": "3/21",
-        "S:L-DevOps": "4/20",
-        "S:L-FinOps": "1/20",
-        "S:L-SRE": "8/20",
-        "S:L-Sec": "6/20"
+        "S:L-DevOps": "3/21",
+        "S:L-FinOps": "2/21",
+        "S:L-SRE": "8/21",
+        "S:L-Sec": "6/21"
       },
       "H1_case_level": {
         "S:D-DevOps": {
@@ -1000,65 +1000,93 @@
           "b_only": 0,
           "p_exact": 1.1920928955078125e-07,
           "n": 42,
-          "p_holm": 2.384185791015625e-07
+          "p_holm": 3.5762786865234375e-07
         },
         "S:D-SRE": {
           "a_only": 36,
           "b_only": 0,
           "p_exact": 2.9103830456733704e-11,
           "n": 42,
-          "p_holm": 1.1641532182693481e-10
+          "p_holm": 2.0372681319713593e-10
         },
         "S:D-FinOps": {
           "a_only": 32,
           "b_only": 0,
           "p_exact": 4.656612873077393e-10,
           "n": 42,
-          "p_holm": 1.3969838619232178e-09
+          "p_holm": 2.7939677238464355e-09
         },
         "S:D-Sec": {
           "a_only": 21,
           "b_only": 0,
           "p_exact": 9.5367431640625e-07,
           "n": 42,
-          "p_holm": 9.5367431640625e-07
+          "p_holm": 1.9073486328125e-06
+        },
+        "S:L-DevOps": {
+          "a_only": 30,
+          "b_only": 0,
+          "p_exact": 1.862645149230957e-09,
+          "n": 42,
+          "p_holm": 9.313225746154785e-09
+        },
+        "S:L-SRE": {
+          "a_only": 30,
+          "b_only": 0,
+          "p_exact": 1.862645149230957e-09,
+          "n": 42,
+          "p_holm": 9.313225746154785e-09
+        },
+        "S:L-FinOps": {
+          "a_only": 39,
+          "b_only": 0,
+          "p_exact": 3.637978807091713e-12,
+          "n": 42,
+          "p_holm": 2.9103830456733704e-11
+        },
+        "S:L-Sec": {
+          "a_only": 18,
+          "b_only": 0,
+          "p_exact": 7.62939453125e-06,
+          "n": 42,
+          "p_holm": 7.62939453125e-06
         }
       },
       "H2_case_level": {
         "B5": {
-          "a_only": 14,
+          "a_only": 15,
           "b_only": 0,
-          "p_exact": 0.0001220703125,
-          "n": 39,
-          "p_holm": 0.0006103515625
+          "p_exact": 6.103515625e-05,
+          "n": 42,
+          "p_holm": 0.00018310546875
         },
         "B6": {
           "a_only": 10,
           "b_only": 0,
           "p_exact": 0.001953125,
-          "n": 39,
-          "p_holm": 0.00390625
+          "n": 42,
+          "p_holm": 0.001953125
+        },
+        "AlwaysRollback": {
+          "a_only": 12,
+          "b_only": 0,
+          "p_exact": 0.00048828125,
+          "n": 42,
+          "p_holm": 0.0009765625
         },
         "B5-GPT": {
-          "a_only": 11,
+          "a_only": 13,
           "b_only": 0,
-          "p_exact": 0.0009765625,
-          "n": 39,
-          "p_holm": 0.0029296875
+          "p_exact": 0.000244140625,
+          "n": 42,
+          "p_holm": 0.00048828125
         },
         "B6-GPT": {
           "a_only": 12,
           "b_only": 0,
           "p_exact": 0.00048828125,
-          "n": 39,
-          "p_holm": 0.001953125
-        },
-        "AlwaysRollback": {
-          "a_only": 10,
-          "b_only": 0,
-          "p_exact": 0.001953125,
-          "n": 39,
-          "p_holm": 0.00390625
+          "n": 42,
+          "p_holm": 0.00048828125
         }
       },
       "H1_discriminating": {
@@ -1067,60 +1095,88 @@
           "b_only": 0,
           "p_exact": 1.1920928955078125e-07,
           "n": 42,
-          "p_holm": 2.384185791015625e-07
+          "p_holm": 3.5762786865234375e-07
         },
         "S:D-SRE": {
           "a_only": 36,
           "b_only": 0,
           "p_exact": 2.9103830456733704e-11,
           "n": 42,
-          "p_holm": 1.1641532182693481e-10
+          "p_holm": 2.0372681319713593e-10
         },
         "S:D-FinOps": {
           "a_only": 32,
           "b_only": 0,
           "p_exact": 4.656612873077393e-10,
           "n": 42,
-          "p_holm": 1.3969838619232178e-09
+          "p_holm": 2.7939677238464355e-09
         },
         "S:D-Sec": {
           "a_only": 21,
           "b_only": 0,
           "p_exact": 9.5367431640625e-07,
           "n": 42,
-          "p_holm": 9.5367431640625e-07
+          "p_holm": 1.9073486328125e-06
+        },
+        "S:L-DevOps": {
+          "a_only": 30,
+          "b_only": 0,
+          "p_exact": 1.862645149230957e-09,
+          "n": 42,
+          "p_holm": 9.313225746154785e-09
+        },
+        "S:L-SRE": {
+          "a_only": 30,
+          "b_only": 0,
+          "p_exact": 1.862645149230957e-09,
+          "n": 42,
+          "p_holm": 9.313225746154785e-09
+        },
+        "S:L-FinOps": {
+          "a_only": 39,
+          "b_only": 0,
+          "p_exact": 3.637978807091713e-12,
+          "n": 42,
+          "p_holm": 2.9103830456733704e-11
+        },
+        "S:L-Sec": {
+          "a_only": 18,
+          "b_only": 0,
+          "p_exact": 7.62939453125e-06,
+          "n": 42,
+          "p_holm": 7.62939453125e-06
         }
       },
       "H2_unique_answer": {
         "B5": {
-          "a_only": 8,
+          "a_only": 10,
           "b_only": 0,
-          "p_exact": 0.0078125,
-          "n": 19
+          "p_exact": 0.001953125,
+          "n": 21
         },
         "B6": {
           "a_only": 7,
           "b_only": 0,
           "p_exact": 0.015625,
-          "n": 19
+          "n": 21
         },
         "B5-GPT": {
-          "a_only": 7,
+          "a_only": 9,
           "b_only": 0,
-          "p_exact": 0.015625,
-          "n": 19
+          "p_exact": 0.00390625,
+          "n": 21
         },
         "B6-GPT": {
           "a_only": 11,
           "b_only": 0,
           "p_exact": 0.0009765625,
-          "n": 19
+          "n": 21
         },
         "AlwaysRollback": {
-          "a_only": 7,
+          "a_only": 9,
           "b_only": 0,
-          "p_exact": 0.015625,
-          "n": 19
+          "p_exact": 0.00390625,
+          "n": 21
         }
       },
       "family_level": {
@@ -1173,10 +1229,10 @@
           "families_a_better": 10,
           "families_b_better": 0,
           "sign_test_p": 0.001953125,
-          "acc_diff": 0.7,
+          "acc_diff": 0.714,
           "cluster_bootstrap_95": [
-            0.474,
-            0.905
+            0.5,
+            0.929
           ]
         },
         "S:L-SRE": {
@@ -1184,10 +1240,10 @@
           "families_a_better": 11,
           "families_b_better": 0,
           "sign_test_p": 0.0009765625,
-          "acc_diff": 0.7,
+          "acc_diff": 0.714,
           "cluster_bootstrap_95": [
-            0.475,
-            0.9
+            0.5,
+            0.905
           ]
         },
         "S:L-FinOps": {
@@ -1195,9 +1251,9 @@
           "families_a_better": 14,
           "families_b_better": 0,
           "sign_test_p": 0.0001220703125,
-          "acc_diff": 0.95,
+          "acc_diff": 0.929,
           "cluster_bootstrap_95": [
-            0.872,
+            0.81,
             1.0
           ]
         },
@@ -1206,10 +1262,10 @@
           "families_a_better": 7,
           "families_b_better": 0,
           "sign_test_p": 0.015625,
-          "acc_diff": 0.425,
+          "acc_diff": 0.429,
           "cluster_bootstrap_95": [
-            0.195,
-            0.659
+            0.19,
+            0.667
           ]
         },
         "B5": {
@@ -1217,21 +1273,21 @@
           "families_a_better": 7,
           "families_b_better": 0,
           "sign_test_p": 0.015625,
-          "acc_diff": 0.375,
+          "acc_diff": 0.357,
           "cluster_bootstrap_95": [
-            0.171,
-            0.585
+            0.167,
+            0.548
           ]
         },
         "B6": {
           "families": 14,
-          "families_a_better": 6,
+          "families_a_better": 5,
           "families_b_better": 0,
-          "sign_test_p": 0.03125,
-          "acc_diff": 0.268,
+          "sign_test_p": 0.0625,
+          "acc_diff": 0.238,
           "cluster_bootstrap_95": [
-            0.098,
-            0.463
+            0.071,
+            0.429
           ]
         },
         "B5-GPT": {
@@ -1520,11 +1576,11 @@
             ]
           },
           "L-DevOps": {
-            "k": 9,
+            "k": 10,
             "n": 12,
             "wilson95_pct": [
-              46.8,
-              91.1
+              55.2,
+              95.3
             ]
           },
           "L-FinOps": {
@@ -1544,11 +1600,11 @@
             ]
           },
           "L-Sec": {
-            "k": 2,
+            "k": 1,
             "n": 12,
             "wilson95_pct": [
-              4.7,
-              44.8
+              1.5,
+              35.4
             ]
           },
           "S:D-DevOps": {
@@ -1584,11 +1640,11 @@
             ]
           },
           "S:L-DevOps": {
-            "k": 9,
+            "k": 10,
             "n": 12,
             "wilson95_pct": [
-              46.8,
-              91.1
+              55.2,
+              95.3
             ]
           },
           "S:L-FinOps": {
@@ -1608,11 +1664,11 @@
             ]
           },
           "S:L-Sec": {
-            "k": 2,
+            "k": 1,
             "n": 12,
             "wilson95_pct": [
-              4.7,
-              44.8
+              1.5,
+              35.4
             ]
           }
         },
@@ -1631,29 +1687,29 @@
       "withheld": {
         "n": 39,
         "O1": {
-          "AAF": "34/39",
+          "AAF": "35/39",
           "AAF-14-GPT": "38/39",
           "B1": "11/39",
           "B1-14": "23/39",
           "B2": "25/39",
           "B2-14": "39/39",
-          "B3-14": "33/38",
-          "B5": "28/38",
+          "B3-14": "34/39",
+          "B5": "28/39",
           "B5-GPT": "32/39",
-          "B6": "22/38",
+          "B6": "25/39",
           "B6-GPT": "27/39"
         },
         "AAF_vs": {
           "B1-14": {
-            "a_only": 11,
+            "a_only": 12,
             "b_only": 0,
-            "p_exact": 0.0009765625,
+            "p_exact": 0.00048828125,
             "n": 39
           },
           "B2-14": {
             "a_only": 0,
-            "b_only": 5,
-            "p_exact": 0.0625,
+            "b_only": 4,
+            "p_exact": 0.125,
             "n": 39
           }
         },
@@ -1679,7 +1735,7 @@
       "n_discriminating": 27,
       "n_unique_answer": 14,
       "O1": {
-        "AAF": "20/20",
+        "AAF": "28/28",
         "AAF-14-GPT": "28/28",
         "AlwaysNone": "1/28",
         "AlwaysRollback": "21/28",
@@ -1687,12 +1743,12 @@
         "B1-12": "26/28",
         "B1-14": "28/28",
         "B2-14": "28/28",
-        "B3-14": "15/15",
+        "B3-14": "28/28",
         "B3-14-GPT": "28/28",
         "B3-GPT": "18/28",
-        "B5": "12/15",
+        "B5": "20/28",
         "B5-GPT": "20/28",
-        "B6": "10/15",
+        "B6": "19/28",
         "B6-GPT": "22/28",
         "BlockAnyCVE": "15/28",
         "D-DevOps": "15/28",
@@ -1704,21 +1760,21 @@
         "D-Sec": "15/28",
         "D-Sec-14": "15/28",
         "Dominant": "17/28",
-        "L-DevOps": "9/15",
-        "L-FinOps": "4/15",
-        "L-SRE": "7/15",
-        "L-Sec": "10/15",
+        "L-DevOps": "14/28",
+        "L-FinOps": "3/28",
+        "L-SRE": "9/28",
+        "L-Sec": "18/28",
         "S:D-DevOps": "16/28",
         "S:D-FinOps": "5/28",
         "S:D-SRE": "5/28",
         "S:D-Sec": "15/28",
-        "S:L-DevOps": "9/15",
-        "S:L-FinOps": "4/15",
-        "S:L-SRE": "7/15",
-        "S:L-Sec": "10/15"
+        "S:L-DevOps": "14/28",
+        "S:L-FinOps": "3/28",
+        "S:L-SRE": "9/28",
+        "S:L-Sec": "18/28"
       },
       "O2": {
-        "AAF": "16/20",
+        "AAF": "22/28",
         "AAF-14-GPT": "22/28",
         "AlwaysNone": "1/28",
         "AlwaysRollback": "8/28",
@@ -1726,12 +1782,12 @@
         "B1-12": "17/28",
         "B1-14": "22/28",
         "B2-14": "22/28",
-        "B3-14": "11/15",
+        "B3-14": "22/28",
         "B3-14-GPT": "22/28",
         "B3-GPT": "14/28",
-        "B5": "5/15",
+        "B5": "10/28",
         "B5-GPT": "11/28",
-        "B6": "6/15",
+        "B6": "15/28",
         "B6-GPT": "18/28",
         "BlockAnyCVE": "12/28",
         "D-DevOps": "7/28",
@@ -1743,21 +1799,21 @@
         "D-Sec": "12/28",
         "D-Sec-14": "12/28",
         "Dominant": "12/28",
-        "L-DevOps": "3/15",
-        "L-FinOps": "1/15",
-        "L-SRE": "4/15",
-        "L-Sec": "4/15",
+        "L-DevOps": "6/28",
+        "L-FinOps": "2/28",
+        "L-SRE": "7/28",
+        "L-Sec": "10/28",
         "S:D-DevOps": "8/28",
         "S:D-FinOps": "4/28",
         "S:D-SRE": "5/28",
         "S:D-Sec": "12/28",
-        "S:L-DevOps": "3/15",
-        "S:L-FinOps": "1/15",
-        "S:L-SRE": "4/15",
-        "S:L-Sec": "4/15"
+        "S:L-DevOps": "6/28",
+        "S:L-FinOps": "2/28",
+        "S:L-SRE": "7/28",
+        "S:L-Sec": "10/28"
       },
       "O1_discriminating": {
-        "AAF": "19/19",
+        "AAF": "27/27",
         "AAF-14-GPT": "27/27",
         "AlwaysNone": "0/27",
         "AlwaysRollback": "20/27",
@@ -1765,12 +1821,12 @@
         "B1-12": "25/27",
         "B1-14": "27/27",
         "B2-14": "27/27",
-        "B3-14": "14/14",
+        "B3-14": "27/27",
         "B3-14-GPT": "27/27",
         "B3-GPT": "17/27",
-        "B5": "11/14",
+        "B5": "19/27",
         "B5-GPT": "19/27",
-        "B6": "9/14",
+        "B6": "18/27",
         "B6-GPT": "21/27",
         "BlockAnyCVE": "14/27",
         "D-DevOps": "14/27",
@@ -1782,21 +1838,21 @@
         "D-Sec": "14/27",
         "D-Sec-14": "14/27",
         "Dominant": "16/27",
-        "L-DevOps": "8/14",
-        "L-FinOps": "3/14",
-        "L-SRE": "6/14",
-        "L-Sec": "9/14",
+        "L-DevOps": "13/27",
+        "L-FinOps": "2/27",
+        "L-SRE": "8/27",
+        "L-Sec": "17/27",
         "S:D-DevOps": "15/27",
         "S:D-FinOps": "4/27",
         "S:D-SRE": "4/27",
         "S:D-Sec": "14/27",
-        "S:L-DevOps": "8/14",
-        "S:L-FinOps": "3/14",
-        "S:L-SRE": "6/14",
-        "S:L-Sec": "9/14"
+        "S:L-DevOps": "13/27",
+        "S:L-FinOps": "2/27",
+        "S:L-SRE": "8/27",
+        "S:L-Sec": "17/27"
       },
       "O1_unique_answer": {
-        "AAF": "12/12",
+        "AAF": "14/14",
         "AAF-14-GPT": "14/14",
         "AlwaysNone": "0/14",
         "AlwaysRollback": "8/14",
@@ -1804,12 +1860,12 @@
         "B1-12": "12/14",
         "B1-14": "14/14",
         "B2-14": "14/14",
-        "B3-14": "6/6",
+        "B3-14": "14/14",
         "B3-14-GPT": "14/14",
         "B3-GPT": "5/14",
-        "B5": "4/6",
+        "B5": "9/14",
         "B5-GPT": "7/14",
-        "B6": "1/4",
+        "B6": "7/14",
         "B6-GPT": "8/14",
         "BlockAnyCVE": "3/14",
         "D-DevOps": "6/14",
@@ -1821,301 +1877,357 @@
         "D-Sec": "3/14",
         "D-Sec-14": "3/14",
         "Dominant": "6/14",
-        "L-DevOps": "2/6",
-        "L-FinOps": "0/6",
-        "L-SRE": "3/6",
-        "L-Sec": "2/6",
+        "L-DevOps": "5/14",
+        "L-FinOps": "0/14",
+        "L-SRE": "6/14",
+        "L-Sec": "7/14",
         "S:D-DevOps": "7/14",
         "S:D-FinOps": "1/14",
         "S:D-SRE": "2/14",
         "S:D-Sec": "3/14",
-        "S:L-DevOps": "2/6",
-        "S:L-FinOps": "0/6",
-        "S:L-SRE": "3/6",
-        "S:L-Sec": "2/6"
+        "S:L-DevOps": "5/14",
+        "S:L-FinOps": "0/14",
+        "S:L-SRE": "6/14",
+        "S:L-Sec": "7/14"
       },
       "H1_case_level": {
         "S:D-DevOps": {
-          "a_only": 11,
+          "a_only": 12,
           "b_only": 0,
-          "p_exact": 0.0009765625,
-          "n": 20,
-          "p_holm": 0.001953125
+          "p_exact": 0.00048828125,
+          "n": 28,
+          "p_holm": 0.0009765625
         },
         "S:D-SRE": {
-          "a_only": 15,
+          "a_only": 23,
           "b_only": 0,
-          "p_exact": 6.103515625e-05,
-          "n": 20,
-          "p_holm": 0.00018310546875
+          "p_exact": 2.384185791015625e-07,
+          "n": 28,
+          "p_holm": 1.6689300537109375e-06
         },
         "S:D-FinOps": {
-          "a_only": 17,
+          "a_only": 23,
           "b_only": 0,
-          "p_exact": 1.52587890625e-05,
-          "n": 20,
-          "p_holm": 6.103515625e-05
+          "p_exact": 2.384185791015625e-07,
+          "n": 28,
+          "p_holm": 1.6689300537109375e-06
         },
         "S:D-Sec": {
-          "a_only": 11,
+          "a_only": 13,
           "b_only": 0,
-          "p_exact": 0.0009765625,
-          "n": 20,
+          "p_exact": 0.000244140625,
+          "n": 28,
+          "p_holm": 0.000732421875
+        },
+        "S:L-DevOps": {
+          "a_only": 14,
+          "b_only": 0,
+          "p_exact": 0.0001220703125,
+          "n": 28,
+          "p_holm": 0.00048828125
+        },
+        "S:L-SRE": {
+          "a_only": 19,
+          "b_only": 0,
+          "p_exact": 3.814697265625e-06,
+          "n": 28,
+          "p_holm": 1.9073486328125e-05
+        },
+        "S:L-FinOps": {
+          "a_only": 25,
+          "b_only": 0,
+          "p_exact": 5.960464477539063e-08,
+          "n": 28,
+          "p_holm": 4.76837158203125e-07
+        },
+        "S:L-Sec": {
+          "a_only": 10,
+          "b_only": 0,
+          "p_exact": 0.001953125,
+          "n": 28,
           "p_holm": 0.001953125
         }
       },
       "H2_case_level": {
         "B5": {
-          "a_only": 0,
+          "a_only": 8,
           "b_only": 0,
-          "p_exact": 1.0,
-          "n": 7,
-          "p_holm": 1.0
+          "p_exact": 0.0078125,
+          "n": 28,
+          "p_holm": 0.015625
         },
         "B6": {
-          "a_only": 4,
+          "a_only": 9,
           "b_only": 0,
-          "p_exact": 0.125,
-          "n": 7,
-          "p_holm": 0.625
-        },
-        "B5-GPT": {
-          "a_only": 1,
-          "b_only": 0,
-          "p_exact": 1.0,
-          "n": 7,
-          "p_holm": 1.0
-        },
-        "B6-GPT": {
-          "a_only": 2,
-          "b_only": 0,
-          "p_exact": 0.5,
-          "n": 7,
-          "p_holm": 1.0
+          "p_exact": 0.00390625,
+          "n": 28,
+          "p_holm": 0.01171875
         },
         "AlwaysRollback": {
-          "a_only": 1,
+          "a_only": 7,
           "b_only": 0,
-          "p_exact": 1.0,
-          "n": 7,
-          "p_holm": 1.0
+          "p_exact": 0.015625,
+          "n": 28,
+          "p_holm": 0.015625
+        },
+        "B5-GPT": {
+          "a_only": 8,
+          "b_only": 0,
+          "p_exact": 0.0078125,
+          "n": 28,
+          "p_holm": 0.015625
+        },
+        "B6-GPT": {
+          "a_only": 6,
+          "b_only": 0,
+          "p_exact": 0.03125,
+          "n": 28,
+          "p_holm": 0.03125
         }
       },
       "H1_discriminating": {
         "S:D-DevOps": {
-          "a_only": 11,
+          "a_only": 12,
           "b_only": 0,
-          "p_exact": 0.0009765625,
-          "n": 19,
-          "p_holm": 0.001953125
+          "p_exact": 0.00048828125,
+          "n": 27,
+          "p_holm": 0.0009765625
         },
         "S:D-SRE": {
-          "a_only": 15,
+          "a_only": 23,
           "b_only": 0,
-          "p_exact": 6.103515625e-05,
-          "n": 19,
-          "p_holm": 0.00018310546875
+          "p_exact": 2.384185791015625e-07,
+          "n": 27,
+          "p_holm": 1.6689300537109375e-06
         },
         "S:D-FinOps": {
-          "a_only": 17,
+          "a_only": 23,
           "b_only": 0,
-          "p_exact": 1.52587890625e-05,
-          "n": 19,
-          "p_holm": 6.103515625e-05
+          "p_exact": 2.384185791015625e-07,
+          "n": 27,
+          "p_holm": 1.6689300537109375e-06
         },
         "S:D-Sec": {
-          "a_only": 11,
+          "a_only": 13,
           "b_only": 0,
-          "p_exact": 0.0009765625,
-          "n": 19,
+          "p_exact": 0.000244140625,
+          "n": 27,
+          "p_holm": 0.000732421875
+        },
+        "S:L-DevOps": {
+          "a_only": 14,
+          "b_only": 0,
+          "p_exact": 0.0001220703125,
+          "n": 27,
+          "p_holm": 0.00048828125
+        },
+        "S:L-SRE": {
+          "a_only": 19,
+          "b_only": 0,
+          "p_exact": 3.814697265625e-06,
+          "n": 27,
+          "p_holm": 1.9073486328125e-05
+        },
+        "S:L-FinOps": {
+          "a_only": 25,
+          "b_only": 0,
+          "p_exact": 5.960464477539063e-08,
+          "n": 27,
+          "p_holm": 4.76837158203125e-07
+        },
+        "S:L-Sec": {
+          "a_only": 10,
+          "b_only": 0,
+          "p_exact": 0.001953125,
+          "n": 27,
           "p_holm": 0.001953125
         }
       },
       "H2_unique_answer": {
         "B5": {
-          "a_only": 0,
+          "a_only": 5,
           "b_only": 0,
-          "p_exact": 1.0,
-          "n": 2
+          "p_exact": 0.0625,
+          "n": 14
         },
         "B6": {
-          "a_only": 2,
+          "a_only": 7,
           "b_only": 0,
-          "p_exact": 0.5,
-          "n": 2
+          "p_exact": 0.015625,
+          "n": 14
         },
         "B5-GPT": {
-          "a_only": 1,
+          "a_only": 7,
           "b_only": 0,
-          "p_exact": 1.0,
-          "n": 2
+          "p_exact": 0.015625,
+          "n": 14
         },
         "B6-GPT": {
-          "a_only": 2,
+          "a_only": 6,
           "b_only": 0,
-          "p_exact": 0.5,
-          "n": 2
+          "p_exact": 0.03125,
+          "n": 14
         },
         "AlwaysRollback": {
-          "a_only": 1,
+          "a_only": 6,
           "b_only": 0,
-          "p_exact": 1.0,
-          "n": 2
+          "p_exact": 0.03125,
+          "n": 14
         }
       },
       "family_level": {
         "S:D-DevOps": {
-          "families": 11,
-          "families_a_better": 7,
+          "families": 14,
+          "families_a_better": 8,
           "families_b_better": 0,
-          "sign_test_p": 0.015625,
-          "acc_diff": 0.55,
+          "sign_test_p": 0.0078125,
+          "acc_diff": 0.429,
           "cluster_bootstrap_95": [
-            0.278,
-            0.81
+            0.214,
+            0.643
           ]
         },
         "S:D-SRE": {
-          "families": 11,
-          "families_a_better": 9,
+          "families": 14,
+          "families_a_better": 12,
           "families_b_better": 0,
-          "sign_test_p": 0.00390625,
-          "acc_diff": 0.75,
+          "sign_test_p": 0.00048828125,
+          "acc_diff": 0.821,
           "cluster_bootstrap_95": [
-            0.476,
+            0.607,
             1.0
           ]
         },
         "S:D-FinOps": {
-          "families": 11,
-          "families_a_better": 10,
+          "families": 14,
+          "families_a_better": 13,
           "families_b_better": 0,
-          "sign_test_p": 0.001953125,
-          "acc_diff": 0.85,
+          "sign_test_p": 0.000244140625,
+          "acc_diff": 0.821,
           "cluster_bootstrap_95": [
-            0.632,
-            1.0
+            0.643,
+            0.964
           ]
         },
         "S:D-Sec": {
-          "families": 11,
-          "families_a_better": 6,
-          "families_b_better": 0,
-          "sign_test_p": 0.03125,
-          "acc_diff": 0.55,
-          "cluster_bootstrap_95": [
-            0.25,
-            0.818
-          ]
-        },
-        "S:L-DevOps": {
-          "families": 9,
-          "families_a_better": 5,
-          "families_b_better": 0,
-          "sign_test_p": 0.0625,
-          "acc_diff": 0.545,
-          "cluster_bootstrap_95": [
-            0.2,
-            0.9
-          ]
-        },
-        "S:L-SRE": {
-          "families": 9,
-          "families_a_better": 5,
-          "families_b_better": 0,
-          "sign_test_p": 0.0625,
-          "acc_diff": 0.545,
-          "cluster_bootstrap_95": [
-            0.2,
-            0.9
-          ]
-        },
-        "S:L-FinOps": {
-          "families": 9,
+          "families": 14,
           "families_a_better": 7,
           "families_b_better": 0,
           "sign_test_p": 0.015625,
-          "acc_diff": 0.727,
+          "acc_diff": 0.464,
           "cluster_bootstrap_95": [
-            0.417,
+            0.214,
+            0.714
+          ]
+        },
+        "S:L-DevOps": {
+          "families": 14,
+          "families_a_better": 9,
+          "families_b_better": 0,
+          "sign_test_p": 0.00390625,
+          "acc_diff": 0.5,
+          "cluster_bootstrap_95": [
+            0.286,
+            0.714
+          ]
+        },
+        "S:L-SRE": {
+          "families": 14,
+          "families_a_better": 10,
+          "families_b_better": 0,
+          "sign_test_p": 0.001953125,
+          "acc_diff": 0.679,
+          "cluster_bootstrap_95": [
+            0.429,
+            0.893
+          ]
+        },
+        "S:L-FinOps": {
+          "families": 14,
+          "families_a_better": 13,
+          "families_b_better": 0,
+          "sign_test_p": 0.000244140625,
+          "acc_diff": 0.893,
+          "cluster_bootstrap_95": [
+            0.714,
             1.0
           ]
         },
         "S:L-Sec": {
-          "families": 9,
-          "families_a_better": 3,
+          "families": 14,
+          "families_a_better": 8,
           "families_b_better": 0,
-          "sign_test_p": 0.25,
-          "acc_diff": 0.273,
+          "sign_test_p": 0.0078125,
+          "acc_diff": 0.357,
           "cluster_bootstrap_95": [
-            0.067,
-            0.6
+            0.179,
+            0.536
           ]
         },
         "B5": {
-          "families": 9,
-          "families_a_better": 2,
-          "families_b_better": 0,
-          "sign_test_p": 0.5,
-          "acc_diff": 0.182,
-          "cluster_bootstrap_95": [
-            0.0,
-            0.455
-          ]
-        },
-        "B6": {
-          "families": 8,
-          "families_a_better": 5,
-          "families_b_better": 0,
-          "sign_test_p": 0.0625,
-          "acc_diff": 0.556,
-          "cluster_bootstrap_95": [
-            0.25,
-            0.875
-          ]
-        },
-        "B5-GPT": {
-          "families": 11,
-          "families_a_better": 5,
-          "families_b_better": 0,
-          "sign_test_p": 0.0625,
-          "acc_diff": 0.4,
-          "cluster_bootstrap_95": [
-            0.143,
-            0.667
-          ]
-        },
-        "B6-GPT": {
-          "families": 11,
-          "families_a_better": 3,
-          "families_b_better": 0,
-          "sign_test_p": 0.25,
-          "acc_diff": 0.2,
-          "cluster_bootstrap_95": [
-            0.0,
-            0.421
-          ]
-        },
-        "AlwaysRollback": {
-          "families": 11,
-          "families_a_better": 4,
-          "families_b_better": 0,
-          "sign_test_p": 0.125,
-          "acc_diff": 0.35,
-          "cluster_bootstrap_95": [
-            0.095,
-            0.619
-          ]
-        },
-        "Dominant": {
-          "families": 11,
+          "families": 14,
           "families_a_better": 6,
           "families_b_better": 0,
           "sign_test_p": 0.03125,
-          "acc_diff": 0.35,
+          "acc_diff": 0.286,
           "cluster_bootstrap_95": [
-            0.15,
-            0.562
+            0.107,
+            0.464
+          ]
+        },
+        "B6": {
+          "families": 14,
+          "families_a_better": 7,
+          "families_b_better": 0,
+          "sign_test_p": 0.015625,
+          "acc_diff": 0.321,
+          "cluster_bootstrap_95": [
+            0.143,
+            0.5
+          ]
+        },
+        "B5-GPT": {
+          "families": 14,
+          "families_a_better": 5,
+          "families_b_better": 0,
+          "sign_test_p": 0.0625,
+          "acc_diff": 0.286,
+          "cluster_bootstrap_95": [
+            0.107,
+            0.536
+          ]
+        },
+        "B6-GPT": {
+          "families": 14,
+          "families_a_better": 4,
+          "families_b_better": 0,
+          "sign_test_p": 0.125,
+          "acc_diff": 0.214,
+          "cluster_bootstrap_95": [
+            0.036,
+            0.429
+          ]
+        },
+        "AlwaysRollback": {
+          "families": 14,
+          "families_a_better": 4,
+          "families_b_better": 0,
+          "sign_test_p": 0.125,
+          "acc_diff": 0.25,
+          "cluster_bootstrap_95": [
+            0.071,
+            0.464
+          ]
+        },
+        "Dominant": {
+          "families": 14,
+          "families_a_better": 9,
+          "families_b_better": 0,
+          "sign_test_p": 0.00390625,
+          "acc_diff": 0.393,
+          "cluster_bootstrap_95": [
+            0.214,
+            0.571
           ]
         }
       },
@@ -2160,11 +2272,11 @@
         "n": 8,
         "O2": {
           "AAF": {
-            "k": 3,
-            "n": 4,
+            "k": 6,
+            "n": 8,
             "wilson95_pct": [
-              30.1,
-              95.4
+              40.9,
+              92.9
             ]
           },
           "AAF-14-GPT": {
@@ -2224,11 +2336,11 @@
             ]
           },
           "B3-14": {
-            "k": 2,
-            "n": 3,
+            "k": 6,
+            "n": 8,
             "wilson95_pct": [
-              20.8,
-              93.9
+              40.9,
+              92.9
             ]
           },
           "B3-14-GPT": {
@@ -2249,10 +2361,10 @@
           },
           "B5": {
             "k": 1,
-            "n": 3,
+            "n": 8,
             "wilson95_pct": [
-              6.1,
-              79.2
+              2.2,
+              47.1
             ]
           },
           "B5-GPT": {
@@ -2264,11 +2376,11 @@
             ]
           },
           "B6": {
-            "k": 4,
-            "n": 4,
+            "k": 6,
+            "n": 8,
             "wilson95_pct": [
-              51.0,
-              100.0
+              40.9,
+              92.9
             ]
           },
           "B6-GPT": {
@@ -2360,35 +2472,35 @@
             ]
           },
           "L-DevOps": {
-            "k": 3,
-            "n": 3,
+            "k": 7,
+            "n": 8,
             "wilson95_pct": [
-              43.8,
-              100.0
+              52.9,
+              97.8
             ]
           },
           "L-FinOps": {
-            "k": 2,
-            "n": 3,
+            "k": 6,
+            "n": 8,
             "wilson95_pct": [
-              20.8,
-              93.9
+              40.9,
+              92.9
             ]
           },
           "L-SRE": {
             "k": 1,
-            "n": 3,
+            "n": 8,
             "wilson95_pct": [
-              6.1,
-              79.2
+              2.2,
+              47.1
             ]
           },
           "L-Sec": {
             "k": 0,
-            "n": 3,
+            "n": 8,
             "wilson95_pct": [
               0.0,
-              56.2
+              32.4
             ]
           },
           "S:D-DevOps": {
@@ -2424,43 +2536,43 @@
             ]
           },
           "S:L-DevOps": {
-            "k": 3,
-            "n": 3,
+            "k": 7,
+            "n": 8,
             "wilson95_pct": [
-              43.8,
-              100.0
+              52.9,
+              97.8
             ]
           },
           "S:L-FinOps": {
-            "k": 2,
-            "n": 3,
+            "k": 6,
+            "n": 8,
             "wilson95_pct": [
-              20.8,
-              93.9
+              40.9,
+              92.9
             ]
           },
           "S:L-SRE": {
             "k": 1,
-            "n": 3,
+            "n": 8,
             "wilson95_pct": [
-              6.1,
-              79.2
+              2.2,
+              47.1
             ]
           },
           "S:L-Sec": {
             "k": 0,
-            "n": 3,
+            "n": 8,
             "wilson95_pct": [
               0.0,
-              56.2
+              32.4
             ]
           }
         },
         "release_continued": {
-          "AAF": "4/4",
+          "AAF": "8/8",
           "AAF-14-GPT": "8/8",
-          "B5": "3/3",
-          "B6": "4/4",
+          "B5": "8/8",
+          "B6": "8/8",
           "B5-GPT": "8/8",
           "B6-GPT": "8/8",
           "AlwaysRollback": "0/8",
@@ -2471,30 +2583,30 @@
       "withheld": {
         "n": 26,
         "O1": {
-          "AAF": "15/18",
+          "AAF": "25/26",
           "AAF-14-GPT": "26/26",
           "B1": "4/26",
           "B1-14": "12/26",
           "B2": "16/26",
           "B2-14": "26/26",
-          "B3-14": "14/18",
-          "B5": "13/18",
+          "B3-14": "22/26",
+          "B5": "19/26",
           "B5-GPT": "20/26",
-          "B6": "11/15",
+          "B6": "18/26",
           "B6-GPT": "16/26"
         },
         "AAF_vs": {
           "B1-14": {
-            "a_only": 7,
+            "a_only": 13,
             "b_only": 0,
-            "p_exact": 0.015625,
-            "n": 18
+            "p_exact": 0.000244140625,
+            "n": 26
           },
           "B2-14": {
             "a_only": 0,
-            "b_only": 3,
-            "p_exact": 0.25,
-            "n": 18
+            "b_only": 1,
+            "p_exact": 1.0,
+            "n": 26
           }
         },
         "AAF_GPT_vs": {
@@ -2520,7 +2632,7 @@
     "n_discriminating": 98,
     "n_unique_answer": 46,
     "O1": {
-      "AAF": "96/96",
+      "AAF": "104/104",
       "AAF-14-GPT": "104/104",
       "AlwaysNone": "7/104",
       "AlwaysRollback": "77/104",
@@ -2528,12 +2640,12 @@
       "B1-12": "95/104",
       "B1-14": "104/104",
       "B2-14": "70/70",
-      "B3-14": "55/55",
+      "B3-14": "70/70",
       "B3-14-GPT": "104/104",
       "B3-GPT": "71/104",
-      "B5": "63/89",
+      "B5": "73/104",
       "B5-GPT": "78/104",
-      "B6": "69/90",
+      "B6": "80/104",
       "B6-GPT": "80/104",
       "BlockAnyCVE": "62/104",
       "D-DevOps": "44/104",
@@ -2545,21 +2657,21 @@
       "D-Sec": "62/104",
       "D-Sec-14": "36/70",
       "Dominant": "63/104",
-      "L-DevOps": "35/89",
-      "L-FinOps": "15/89",
-      "L-SRE": "34/89",
-      "L-Sec": "56/89",
+      "L-DevOps": "40/104",
+      "L-FinOps": "15/104",
+      "L-SRE": "36/104",
+      "L-Sec": "65/104",
       "S:D-DevOps": "48/104",
       "S:D-FinOps": "26/104",
       "S:D-SRE": "20/104",
       "S:D-Sec": "62/104",
-      "S:L-DevOps": "35/89",
-      "S:L-FinOps": "15/89",
-      "S:L-SRE": "34/89",
-      "S:L-Sec": "56/89"
+      "S:L-DevOps": "40/104",
+      "S:L-FinOps": "15/104",
+      "S:L-SRE": "36/104",
+      "S:L-Sec": "65/104"
     },
     "O2": {
-      "AAF": "72/96",
+      "AAF": "78/104",
       "AAF-14-GPT": "78/104",
       "AlwaysNone": "5/104",
       "AlwaysRollback": "25/104",
@@ -2567,12 +2679,12 @@
       "B1-12": "61/104",
       "B1-14": "78/104",
       "B2-14": "54/70",
-      "B3-14": "42/55",
+      "B3-14": "54/70",
       "B3-14-GPT": "78/104",
       "B3-GPT": "59/104",
-      "B5": "31/89",
+      "B5": "37/104",
       "B5-GPT": "43/104",
-      "B6": "51/90",
+      "B6": "62/104",
       "B6-GPT": "63/104",
       "BlockAnyCVE": "46/104",
       "D-DevOps": "19/104",
@@ -2584,21 +2696,21 @@
       "D-Sec": "46/104",
       "D-Sec-14": "26/70",
       "Dominant": "49/104",
-      "L-DevOps": "12/89",
-      "L-FinOps": "7/89",
-      "L-SRE": "20/89",
-      "L-Sec": "25/89",
+      "L-DevOps": "14/104",
+      "L-FinOps": "9/104",
+      "L-SRE": "23/104",
+      "L-Sec": "32/104",
       "S:D-DevOps": "23/104",
       "S:D-FinOps": "24/104",
       "S:D-SRE": "15/104",
       "S:D-Sec": "46/104",
-      "S:L-DevOps": "12/89",
-      "S:L-FinOps": "7/89",
-      "S:L-SRE": "20/89",
-      "S:L-Sec": "25/89"
+      "S:L-DevOps": "14/104",
+      "S:L-FinOps": "9/104",
+      "S:L-SRE": "23/104",
+      "S:L-Sec": "32/104"
     },
     "O1_discriminating": {
-      "AAF": "90/90",
+      "AAF": "98/98",
       "AAF-14-GPT": "98/98",
       "AlwaysNone": "1/98",
       "AlwaysRollback": "71/98",
@@ -2606,12 +2718,12 @@
       "B1-12": "89/98",
       "B1-14": "98/98",
       "B2-14": "69/69",
-      "B3-14": "54/54",
+      "B3-14": "69/69",
       "B3-14-GPT": "98/98",
       "B3-GPT": "65/98",
-      "B5": "57/83",
+      "B5": "67/98",
       "B5-GPT": "72/98",
-      "B6": "63/84",
+      "B6": "74/98",
       "B6-GPT": "74/98",
       "BlockAnyCVE": "56/98",
       "D-DevOps": "38/98",
@@ -2623,21 +2735,21 @@
       "D-Sec": "56/98",
       "D-Sec-14": "35/69",
       "Dominant": "57/98",
-      "L-DevOps": "29/83",
-      "L-FinOps": "9/83",
-      "L-SRE": "28/83",
-      "L-Sec": "50/83",
+      "L-DevOps": "34/98",
+      "L-FinOps": "9/98",
+      "L-SRE": "30/98",
+      "L-Sec": "59/98",
       "S:D-DevOps": "42/98",
       "S:D-FinOps": "20/98",
       "S:D-SRE": "14/98",
       "S:D-Sec": "56/98",
-      "S:L-DevOps": "29/83",
-      "S:L-FinOps": "9/83",
-      "S:L-SRE": "28/83",
-      "S:L-Sec": "50/83"
+      "S:L-DevOps": "34/98",
+      "S:L-FinOps": "9/98",
+      "S:L-SRE": "30/98",
+      "S:L-Sec": "59/98"
     },
     "O1_unique_answer": {
-      "AAF": "44/44",
+      "AAF": "46/46",
       "AAF-14-GPT": "46/46",
       "AlwaysNone": "0/46",
       "AlwaysRollback": "25/46",
@@ -2645,12 +2757,12 @@
       "B1-12": "37/46",
       "B1-14": "46/46",
       "B2-14": "35/35",
-      "B3-14": "26/26",
+      "B3-14": "35/35",
       "B3-14-GPT": "46/46",
       "B3-GPT": "19/46",
-      "B5": "21/37",
+      "B5": "26/46",
       "B5-GPT": "26/46",
-      "B6": "19/35",
+      "B6": "27/46",
       "B6-GPT": "23/46",
       "BlockAnyCVE": "10/46",
       "D-DevOps": "14/46",
@@ -2662,301 +2774,357 @@
       "D-Sec": "10/46",
       "D-Sec-14": "6/35",
       "Dominant": "19/46",
-      "L-DevOps": "8/37",
-      "L-FinOps": "2/37",
-      "L-SRE": "16/37",
-      "L-Sec": "11/37",
+      "L-DevOps": "10/46",
+      "L-FinOps": "3/46",
+      "L-SRE": "19/46",
+      "L-Sec": "16/46",
       "S:D-DevOps": "18/46",
       "S:D-FinOps": "5/46",
       "S:D-SRE": "6/46",
       "S:D-Sec": "10/46",
-      "S:L-DevOps": "8/37",
-      "S:L-FinOps": "2/37",
-      "S:L-SRE": "16/37",
-      "S:L-Sec": "11/37"
+      "S:L-DevOps": "10/46",
+      "S:L-FinOps": "3/46",
+      "S:L-SRE": "19/46",
+      "S:L-Sec": "16/46"
     },
     "H1_case_level": {
       "S:D-DevOps": {
-        "a_only": 55,
+        "a_only": 56,
         "b_only": 0,
-        "p_exact": 5.551115123125783e-17,
-        "n": 96,
-        "p_holm": 1.1102230246251565e-16
+        "p_exact": 2.7755575615628914e-17,
+        "n": 104,
+        "p_holm": 8.326672684688674e-17
       },
       "S:D-SRE": {
-        "a_only": 76,
+        "a_only": 84,
         "b_only": 0,
-        "p_exact": 2.6469779601696886e-23,
-        "n": 96,
-        "p_holm": 1.0587911840678754e-22
+        "p_exact": 1.0339757656912846e-25,
+        "n": 104,
+        "p_holm": 7.237830359838992e-25
       },
       "S:D-FinOps": {
-        "a_only": 72,
+        "a_only": 78,
         "b_only": 0,
-        "p_exact": 4.235164736271502e-22,
-        "n": 96,
-        "p_holm": 1.2705494208814505e-21
+        "p_exact": 6.617444900424222e-24,
+        "n": 104,
+        "p_holm": 3.970466940254533e-23
       },
       "S:D-Sec": {
-        "a_only": 40,
+        "a_only": 42,
         "b_only": 0,
-        "p_exact": 1.8189894035458565e-12,
-        "n": 96,
-        "p_holm": 1.8189894035458565e-12
+        "p_exact": 4.547473508864641e-13,
+        "n": 104,
+        "p_holm": 9.094947017729282e-13
+      },
+      "S:L-DevOps": {
+        "a_only": 64,
+        "b_only": 0,
+        "p_exact": 1.0842021724855044e-19,
+        "n": 104,
+        "p_holm": 4.336808689942018e-19
+      },
+      "S:L-SRE": {
+        "a_only": 68,
+        "b_only": 0,
+        "p_exact": 6.776263578034403e-21,
+        "n": 104,
+        "p_holm": 3.3881317890172014e-20
+      },
+      "S:L-FinOps": {
+        "a_only": 89,
+        "b_only": 0,
+        "p_exact": 3.2311742677852644e-27,
+        "n": 104,
+        "p_holm": 2.5849394142282115e-26
+      },
+      "S:L-Sec": {
+        "a_only": 39,
+        "b_only": 0,
+        "p_exact": 3.637978807091713e-12,
+        "n": 104,
+        "p_holm": 3.637978807091713e-12
       }
     },
     "H2_case_level": {
       "B5": {
-        "a_only": 22,
+        "a_only": 31,
         "b_only": 0,
-        "p_exact": 4.76837158203125e-07,
-        "n": 80,
-        "p_holm": 2.384185791015625e-06
+        "p_exact": 9.313225746154785e-10,
+        "n": 104,
+        "p_holm": 2.7939677238464355e-09
       },
       "B6": {
-        "a_only": 19,
+        "a_only": 24,
         "b_only": 0,
-        "p_exact": 3.814697265625e-06,
-        "n": 80,
-        "p_holm": 1.1444091796875e-05
-      },
-      "B5-GPT": {
-        "a_only": 17,
-        "b_only": 0,
-        "p_exact": 1.52587890625e-05,
-        "n": 80,
-        "p_holm": 1.52587890625e-05
-      },
-      "B6-GPT": {
-        "a_only": 20,
-        "b_only": 0,
-        "p_exact": 1.9073486328125e-06,
-        "n": 80,
-        "p_holm": 7.62939453125e-06
+        "p_exact": 1.1920928955078125e-07,
+        "n": 104,
+        "p_holm": 1.1920928955078125e-07
       },
       "AlwaysRollback": {
-        "a_only": 19,
+        "a_only": 27,
         "b_only": 0,
-        "p_exact": 3.814697265625e-06,
-        "n": 80,
-        "p_holm": 1.1444091796875e-05
+        "p_exact": 1.4901161193847656e-08,
+        "n": 104,
+        "p_holm": 2.9802322387695312e-08
+      },
+      "B5-GPT": {
+        "a_only": 26,
+        "b_only": 0,
+        "p_exact": 2.9802322387695312e-08,
+        "n": 104,
+        "p_holm": 5.960464477539063e-08
+      },
+      "B6-GPT": {
+        "a_only": 24,
+        "b_only": 0,
+        "p_exact": 1.1920928955078125e-07,
+        "n": 104,
+        "p_holm": 1.1920928955078125e-07
       }
     },
     "H1_discriminating": {
       "S:D-DevOps": {
-        "a_only": 55,
+        "a_only": 56,
         "b_only": 0,
-        "p_exact": 5.551115123125783e-17,
-        "n": 90,
-        "p_holm": 1.1102230246251565e-16
+        "p_exact": 2.7755575615628914e-17,
+        "n": 98,
+        "p_holm": 8.326672684688674e-17
       },
       "S:D-SRE": {
-        "a_only": 76,
+        "a_only": 84,
         "b_only": 0,
-        "p_exact": 2.6469779601696886e-23,
-        "n": 90,
-        "p_holm": 1.0587911840678754e-22
+        "p_exact": 1.0339757656912846e-25,
+        "n": 98,
+        "p_holm": 7.237830359838992e-25
       },
       "S:D-FinOps": {
-        "a_only": 72,
+        "a_only": 78,
         "b_only": 0,
-        "p_exact": 4.235164736271502e-22,
-        "n": 90,
-        "p_holm": 1.2705494208814505e-21
+        "p_exact": 6.617444900424222e-24,
+        "n": 98,
+        "p_holm": 3.970466940254533e-23
       },
       "S:D-Sec": {
-        "a_only": 40,
+        "a_only": 42,
         "b_only": 0,
-        "p_exact": 1.8189894035458565e-12,
-        "n": 90,
-        "p_holm": 1.8189894035458565e-12
+        "p_exact": 4.547473508864641e-13,
+        "n": 98,
+        "p_holm": 9.094947017729282e-13
+      },
+      "S:L-DevOps": {
+        "a_only": 64,
+        "b_only": 0,
+        "p_exact": 1.0842021724855044e-19,
+        "n": 98,
+        "p_holm": 4.336808689942018e-19
+      },
+      "S:L-SRE": {
+        "a_only": 68,
+        "b_only": 0,
+        "p_exact": 6.776263578034403e-21,
+        "n": 98,
+        "p_holm": 3.3881317890172014e-20
+      },
+      "S:L-FinOps": {
+        "a_only": 89,
+        "b_only": 0,
+        "p_exact": 3.2311742677852644e-27,
+        "n": 98,
+        "p_holm": 2.5849394142282115e-26
+      },
+      "S:L-Sec": {
+        "a_only": 39,
+        "b_only": 0,
+        "p_exact": 3.637978807091713e-12,
+        "n": 98,
+        "p_holm": 3.637978807091713e-12
       }
     },
     "H2_unique_answer": {
       "B5": {
-        "a_only": 13,
+        "a_only": 20,
         "b_only": 0,
-        "p_exact": 0.000244140625,
-        "n": 32
+        "p_exact": 1.9073486328125e-06,
+        "n": 46
       },
       "B6": {
-        "a_only": 14,
-        "b_only": 0,
-        "p_exact": 0.0001220703125,
-        "n": 32
-      },
-      "B5-GPT": {
-        "a_only": 12,
-        "b_only": 0,
-        "p_exact": 0.00048828125,
-        "n": 32
-      },
-      "B6-GPT": {
         "a_only": 19,
         "b_only": 0,
         "p_exact": 3.814697265625e-06,
-        "n": 32
+        "n": 46
+      },
+      "B5-GPT": {
+        "a_only": 20,
+        "b_only": 0,
+        "p_exact": 1.9073486328125e-06,
+        "n": 46
+      },
+      "B6-GPT": {
+        "a_only": 23,
+        "b_only": 0,
+        "p_exact": 2.384185791015625e-07,
+        "n": 46
       },
       "AlwaysRollback": {
-        "a_only": 14,
+        "a_only": 21,
         "b_only": 0,
-        "p_exact": 0.0001220703125,
-        "n": 32
+        "p_exact": 9.5367431640625e-07,
+        "n": 46
       }
     },
     "family_level": {
       "S:D-DevOps": {
-        "families": 42,
-        "families_a_better": 27,
+        "families": 45,
+        "families_a_better": 28,
         "families_b_better": 0,
-        "sign_test_p": 1.4901161193847656e-08,
-        "acc_diff": 0.573,
+        "sign_test_p": 7.450580596923828e-09,
+        "acc_diff": 0.538,
         "cluster_bootstrap_95": [
-          0.429,
-          0.714
+          0.402,
+          0.673
         ]
       },
       "S:D-SRE": {
-        "families": 42,
-        "families_a_better": 35,
+        "families": 45,
+        "families_a_better": 38,
         "families_b_better": 0,
-        "sign_test_p": 5.820766091346741e-11,
-        "acc_diff": 0.792,
+        "sign_test_p": 7.275957614183426e-12,
+        "acc_diff": 0.808,
         "cluster_bootstrap_95": [
-          0.66,
-          0.901
+          0.692,
+          0.907
         ]
       },
       "S:D-FinOps": {
-        "families": 42,
-        "families_a_better": 36,
+        "families": 45,
+        "families_a_better": 39,
         "families_b_better": 0,
-        "sign_test_p": 2.9103830456733704e-11,
+        "sign_test_p": 3.637978807091713e-12,
         "acc_diff": 0.75,
         "cluster_bootstrap_95": [
-          0.624,
-          0.86
+          0.633,
+          0.856
         ]
       },
       "S:D-Sec": {
-        "families": 42,
-        "families_a_better": 21,
-        "families_b_better": 0,
-        "sign_test_p": 9.5367431640625e-07,
-        "acc_diff": 0.417,
-        "cluster_bootstrap_95": [
-          0.278,
-          0.558
-        ]
-      },
-      "S:L-DevOps": {
-        "families": 40,
-        "families_a_better": 27,
-        "families_b_better": 0,
-        "sign_test_p": 1.4901161193847656e-08,
-        "acc_diff": 0.635,
-        "cluster_bootstrap_95": [
-          0.488,
-          0.778
-        ]
-      },
-      "S:L-SRE": {
-        "families": 40,
-        "families_a_better": 27,
-        "families_b_better": 0,
-        "sign_test_p": 1.4901161193847656e-08,
-        "acc_diff": 0.624,
-        "cluster_bootstrap_95": [
-          0.477,
-          0.764
-        ]
-      },
-      "S:L-FinOps": {
-        "families": 40,
-        "families_a_better": 35,
-        "families_b_better": 0,
-        "sign_test_p": 5.820766091346741e-11,
-        "acc_diff": 0.835,
-        "cluster_bootstrap_95": [
-          0.729,
-          0.926
-        ]
-      },
-      "S:L-Sec": {
-        "families": 40,
-        "families_a_better": 19,
-        "families_b_better": 0,
-        "sign_test_p": 3.814697265625e-06,
-        "acc_diff": 0.365,
-        "cluster_bootstrap_95": [
-          0.235,
-          0.506
-        ]
-      },
-      "B5": {
-        "families": 40,
-        "families_a_better": 14,
-        "families_b_better": 0,
-        "sign_test_p": 0.0001220703125,
-        "acc_diff": 0.294,
-        "cluster_bootstrap_95": [
-          0.17,
-          0.437
-        ]
-      },
-      "B6": {
-        "families": 39,
-        "families_a_better": 16,
-        "families_b_better": 0,
-        "sign_test_p": 3.0517578125e-05,
-        "acc_diff": 0.25,
-        "cluster_bootstrap_95": [
-          0.146,
-          0.365
-        ]
-      },
-      "B5-GPT": {
-        "families": 42,
-        "families_a_better": 15,
-        "families_b_better": 0,
-        "sign_test_p": 6.103515625e-05,
-        "acc_diff": 0.271,
-        "cluster_bootstrap_95": [
-          0.161,
-          0.392
-        ]
-      },
-      "B6-GPT": {
-        "families": 42,
-        "families_a_better": 15,
-        "families_b_better": 0,
-        "sign_test_p": 6.103515625e-05,
-        "acc_diff": 0.229,
-        "cluster_bootstrap_95": [
-          0.129,
-          0.333
-        ]
-      },
-      "AlwaysRollback": {
-        "families": 42,
-        "families_a_better": 13,
-        "families_b_better": 0,
-        "sign_test_p": 0.000244140625,
-        "acc_diff": 0.281,
-        "cluster_bootstrap_95": [
-          0.152,
-          0.418
-        ]
-      },
-      "Dominant": {
-        "families": 42,
+        "families": 45,
         "families_a_better": 22,
         "families_b_better": 0,
         "sign_test_p": 4.76837158203125e-07,
-        "acc_diff": 0.385,
+        "acc_diff": 0.404,
         "cluster_bootstrap_95": [
-          0.257,
-          0.519
+          0.272,
+          0.539
+        ]
+      },
+      "S:L-DevOps": {
+        "families": 45,
+        "families_a_better": 31,
+        "families_b_better": 0,
+        "sign_test_p": 9.313225746154785e-10,
+        "acc_diff": 0.615,
+        "cluster_bootstrap_95": [
+          0.485,
+          0.741
+        ]
+      },
+      "S:L-SRE": {
+        "families": 45,
+        "families_a_better": 32,
+        "families_b_better": 0,
+        "sign_test_p": 4.656612873077393e-10,
+        "acc_diff": 0.654,
+        "cluster_bootstrap_95": [
+          0.515,
+          0.774
+        ]
+      },
+      "S:L-FinOps": {
+        "families": 45,
+        "families_a_better": 41,
+        "families_b_better": 0,
+        "sign_test_p": 9.094947017729282e-13,
+        "acc_diff": 0.856,
+        "cluster_bootstrap_95": [
+          0.762,
+          0.933
+        ]
+      },
+      "S:L-Sec": {
+        "families": 45,
+        "families_a_better": 24,
+        "families_b_better": 0,
+        "sign_test_p": 1.1920928955078125e-07,
+        "acc_diff": 0.375,
+        "cluster_bootstrap_95": [
+          0.255,
+          0.5
+        ]
+      },
+      "B5": {
+        "families": 45,
+        "families_a_better": 18,
+        "families_b_better": 0,
+        "sign_test_p": 7.62939453125e-06,
+        "acc_diff": 0.298,
+        "cluster_bootstrap_95": [
+          0.188,
+          0.414
+        ]
+      },
+      "B6": {
+        "families": 45,
+        "families_a_better": 17,
+        "families_b_better": 0,
+        "sign_test_p": 1.52587890625e-05,
+        "acc_diff": 0.231,
+        "cluster_bootstrap_95": [
+          0.139,
+          0.33
+        ]
+      },
+      "B5-GPT": {
+        "families": 45,
+        "families_a_better": 15,
+        "families_b_better": 0,
+        "sign_test_p": 6.103515625e-05,
+        "acc_diff": 0.25,
+        "cluster_bootstrap_95": [
+          0.146,
+          0.362
+        ]
+      },
+      "B6-GPT": {
+        "families": 45,
+        "families_a_better": 16,
+        "families_b_better": 0,
+        "sign_test_p": 3.0517578125e-05,
+        "acc_diff": 0.231,
+        "cluster_bootstrap_95": [
+          0.135,
+          0.337
+        ]
+      },
+      "AlwaysRollback": {
+        "families": 45,
+        "families_a_better": 13,
+        "families_b_better": 0,
+        "sign_test_p": 0.000244140625,
+        "acc_diff": 0.26,
+        "cluster_bootstrap_95": [
+          0.139,
+          0.39
+        ]
+      },
+      "Dominant": {
+        "families": 45,
+        "families_a_better": 25,
+        "families_b_better": 0,
+        "sign_test_p": 5.960464477539063e-08,
+        "acc_diff": 0.394,
+        "cluster_bootstrap_95": [
+          0.272,
+          0.514
         ]
       }
     },
@@ -3001,11 +3169,11 @@
       "n": 24,
       "O2": {
         "AAF": {
-          "k": 15,
-          "n": 20,
+          "k": 18,
+          "n": 24,
           "wilson95_pct": [
-            53.1,
-            88.8
+            55.1,
+            88.0
           ]
         },
         "AAF-14-GPT": {
@@ -3065,11 +3233,11 @@
           ]
         },
         "B3-14": {
-          "k": 11,
-          "n": 15,
+          "k": 15,
+          "n": 20,
           "wilson95_pct": [
-            48.0,
-            89.1
+            53.1,
+            88.8
           ]
         },
         "B3-14-GPT": {
@@ -3090,10 +3258,10 @@
         },
         "B5": {
           "k": 2,
-          "n": 19,
+          "n": 24,
           "wilson95_pct": [
-            2.9,
-            31.4
+            2.3,
+            25.8
           ]
         },
         "B5-GPT": {
@@ -3105,11 +3273,11 @@
           ]
         },
         "B6": {
-          "k": 18,
-          "n": 20,
+          "k": 20,
+          "n": 24,
           "wilson95_pct": [
-            69.9,
-            97.2
+            64.1,
+            93.3
           ]
         },
         "B6-GPT": {
@@ -3201,35 +3369,35 @@
           ]
         },
         "L-DevOps": {
-          "k": 15,
-          "n": 19,
+          "k": 20,
+          "n": 24,
           "wilson95_pct": [
-            56.7,
-            91.5
+            64.1,
+            93.3
           ]
         },
         "L-FinOps": {
-          "k": 13,
-          "n": 19,
+          "k": 17,
+          "n": 24,
           "wilson95_pct": [
-            46.0,
-            84.6
+            50.8,
+            85.1
           ]
         },
         "L-SRE": {
           "k": 2,
-          "n": 19,
+          "n": 24,
           "wilson95_pct": [
-            2.9,
-            31.4
+            2.3,
+            25.8
           ]
         },
         "L-Sec": {
-          "k": 2,
-          "n": 19,
+          "k": 1,
+          "n": 24,
           "wilson95_pct": [
-            2.9,
-            31.4
+            0.7,
+            20.2
           ]
         },
         "S:D-DevOps": {
@@ -3265,43 +3433,43 @@
           ]
         },
         "S:L-DevOps": {
-          "k": 15,
-          "n": 19,
+          "k": 20,
+          "n": 24,
           "wilson95_pct": [
-            56.7,
-            91.5
+            64.1,
+            93.3
           ]
         },
         "S:L-FinOps": {
-          "k": 13,
-          "n": 19,
+          "k": 17,
+          "n": 24,
           "wilson95_pct": [
-            46.0,
-            84.6
+            50.8,
+            85.1
           ]
         },
         "S:L-SRE": {
           "k": 2,
-          "n": 19,
+          "n": 24,
           "wilson95_pct": [
-            2.9,
-            31.4
+            2.3,
+            25.8
           ]
         },
         "S:L-Sec": {
-          "k": 2,
-          "n": 19,
+          "k": 1,
+          "n": 24,
           "wilson95_pct": [
-            2.9,
-            31.4
+            0.7,
+            20.2
           ]
         }
       },
       "release_continued": {
-        "AAF": "20/20",
+        "AAF": "24/24",
         "AAF-14-GPT": "24/24",
-        "B5": "19/19",
-        "B6": "20/20",
+        "B5": "24/24",
+        "B6": "24/24",
         "B5-GPT": "24/24",
         "B6-GPT": "24/24",
         "AlwaysRollback": "0/24",
@@ -3312,30 +3480,30 @@
     "withheld": {
       "n": 97,
       "O1": {
-        "AAF": "76/89",
+        "AAF": "87/97",
         "AAF-14-GPT": "93/97",
         "B1": "26/97",
         "B1-14": "53/97",
         "B2": "64/97",
         "B2-14": "97/97",
-        "B3-14": "47/56",
-        "B5": "63/88",
+        "B3-14": "56/65",
+        "B5": "69/97",
         "B5-GPT": "79/97",
-        "B6": "58/85",
+        "B6": "68/97",
         "B6-GPT": "68/97"
       },
       "AAF_vs": {
         "B1-14": {
-          "a_only": 27,
+          "a_only": 34,
           "b_only": 0,
-          "p_exact": 1.4901161193847656e-08,
-          "n": 89
+          "p_exact": 1.1641532182693481e-10,
+          "n": 97
         },
         "B2-14": {
           "a_only": 0,
-          "b_only": 13,
-          "p_exact": 0.000244140625,
-          "n": 89
+          "b_only": 10,
+          "p_exact": 0.001953125,
+          "n": 97
         }
       },
       "AAF_GPT_vs": {
@@ -3397,32 +3565,32 @@
       "all_cases": 40
     },
     "outcome_study15": {
-      "AAF_qwen_cases": 56,
-      "B5_qwen_cases": 55,
-      "B6_qwen_cases": 56,
+      "AAF_qwen_cases": 57,
+      "B5_qwen_cases": 57,
+      "B6_qwen_cases": 57,
       "all_cases": 57
     },
     "outcome_study16": {
-      "AAF_qwen_cases": 26,
-      "B5_qwen_cases": 18,
-      "B6_qwen_cases": 21,
+      "AAF_qwen_cases": 38,
+      "B5_qwen_cases": 38,
+      "B6_qwen_cases": 38,
       "all_cases": 38
     }
   },
   "model_independence_outcome": {
     "population": "all full-evidence cases (fault, control and low-risk) on which both investigators ran",
-    "cases": 122,
+    "cases": 135,
     "by_group": {
-      "fault": 96,
-      "control": 6,
-      "low_risk": 20
+      "fault": 104,
+      "control": 7,
+      "low_risk": 24
     },
     "all_by_group": {
       "fault": 104,
       "control": 7,
       "low_risk": 24
     },
-    "same_action_qwen_vs_gpt_investigator": 122,
-    "same_action_AAF_vs_rules_only": 122
+    "same_action_qwen_vs_gpt_investigator": 135,
+    "same_action_AAF_vs_rules_only": 135
   }
 }
