@@ -488,6 +488,43 @@
           ]
         }
       },
+      "O2_case_level": {
+        "B6-GPT": {
+          "a_only": 6,
+          "b_only": 5,
+          "p_exact": 1.0,
+          "n": 34,
+          "p_holm": 1.0
+        },
+        "B5-GPT": {
+          "a_only": 9,
+          "b_only": 1,
+          "p_exact": 0.021484375,
+          "n": 34,
+          "p_holm": 0.0859375
+        },
+        "AlwaysRollback": {
+          "a_only": 19,
+          "b_only": 0,
+          "p_exact": 3.814697265625e-06,
+          "n": 34,
+          "p_holm": 1.9073486328125e-05
+        },
+        "Dominant": {
+          "a_only": 14,
+          "b_only": 5,
+          "p_exact": 0.063568115234375,
+          "n": 34,
+          "p_holm": 0.190704345703125
+        },
+        "S:D-Sec": {
+          "a_only": 8,
+          "b_only": 4,
+          "p_exact": 0.3876953125,
+          "n": 34,
+          "p_holm": 0.775390625
+        }
+      },
       "H3_low_risk": {
         "n": 4,
         "O2": {
@@ -813,9 +850,9 @@
         "B3-14": "40/40",
         "B3-14-GPT": "42/42",
         "B3-GPT": "28/42",
-        "B5": "26/40",
+        "B5": "25/40",
         "B5-GPT": "29/42",
-        "B6": "29/40",
+        "B6": "30/41",
         "B6-GPT": "30/42",
         "BlockAnyCVE": "21/42",
         "D-DevOps": "15/42",
@@ -830,7 +867,7 @@
         "L-DevOps": "12/40",
         "L-FinOps": "2/40",
         "L-SRE": "12/40",
-        "L-Sec": "24/40",
+        "L-Sec": "23/40",
         "S:D-DevOps": "18/42",
         "S:D-FinOps": "10/42",
         "S:D-SRE": "6/42",
@@ -838,7 +875,7 @@
         "S:L-DevOps": "12/40",
         "S:L-FinOps": "2/40",
         "S:L-SRE": "12/40",
-        "S:L-Sec": "24/40"
+        "S:L-Sec": "23/40"
       },
       "O2": {
         "AAF": "32/42",
@@ -852,9 +889,9 @@
         "B3-14": "31/40",
         "B3-14-GPT": "32/42",
         "B3-GPT": "25/42",
-        "B5": "14/40",
+        "B5": "13/40",
         "B5-GPT": "16/42",
-        "B6": "23/40",
+        "B6": "24/41",
         "B6-GPT": "22/42",
         "BlockAnyCVE": "14/42",
         "D-DevOps": "6/42",
@@ -869,7 +906,7 @@
         "L-DevOps": "4/40",
         "L-FinOps": "2/40",
         "L-SRE": "9/40",
-        "L-Sec": "12/40",
+        "L-Sec": "11/40",
         "S:D-DevOps": "9/42",
         "S:D-FinOps": "10/42",
         "S:D-SRE": "6/42",
@@ -877,7 +914,7 @@
         "S:L-DevOps": "4/40",
         "S:L-FinOps": "2/40",
         "S:L-SRE": "9/40",
-        "S:L-Sec": "12/40"
+        "S:L-Sec": "11/40"
       },
       "O1_discriminating": {
         "AAF": "42/42",
@@ -891,9 +928,9 @@
         "B3-14": "40/40",
         "B3-14-GPT": "42/42",
         "B3-GPT": "28/42",
-        "B5": "26/40",
+        "B5": "25/40",
         "B5-GPT": "29/42",
-        "B6": "29/40",
+        "B6": "30/41",
         "B6-GPT": "30/42",
         "BlockAnyCVE": "21/42",
         "D-DevOps": "15/42",
@@ -908,7 +945,7 @@
         "L-DevOps": "12/40",
         "L-FinOps": "2/40",
         "L-SRE": "12/40",
-        "L-Sec": "24/40",
+        "L-Sec": "23/40",
         "S:D-DevOps": "18/42",
         "S:D-FinOps": "10/42",
         "S:D-SRE": "6/42",
@@ -916,7 +953,7 @@
         "S:L-DevOps": "12/40",
         "S:L-FinOps": "2/40",
         "S:L-SRE": "12/40",
-        "S:L-Sec": "24/40"
+        "S:L-Sec": "23/40"
       },
       "O1_unique_answer": {
         "AAF": "21/21",
@@ -930,9 +967,9 @@
         "B3-14": "20/20",
         "B3-14-GPT": "21/21",
         "B3-GPT": "9/21",
-        "B5": "12/20",
+        "B5": "11/20",
         "B5-GPT": "12/21",
-        "B6": "11/19",
+        "B6": "12/20",
         "B6-GPT": "10/21",
         "BlockAnyCVE": "3/21",
         "D-DevOps": "6/21",
@@ -947,7 +984,7 @@
         "L-DevOps": "4/20",
         "L-FinOps": "1/20",
         "L-SRE": "8/20",
-        "L-Sec": "7/20",
+        "L-Sec": "6/20",
         "S:D-DevOps": "9/21",
         "S:D-FinOps": "3/21",
         "S:D-SRE": "3/21",
@@ -955,7 +992,7 @@
         "S:L-DevOps": "4/20",
         "S:L-FinOps": "1/20",
         "S:L-SRE": "8/20",
-        "S:L-Sec": "7/20"
+        "S:L-Sec": "6/20"
       },
       "H1_case_level": {
         "S:D-DevOps": {
@@ -989,38 +1026,38 @@
       },
       "H2_case_level": {
         "B5": {
-          "a_only": 12,
+          "a_only": 14,
           "b_only": 0,
-          "p_exact": 0.00048828125,
-          "n": 38,
-          "p_holm": 0.00244140625
+          "p_exact": 0.0001220703125,
+          "n": 39,
+          "p_holm": 0.0006103515625
         },
         "B6": {
           "a_only": 10,
           "b_only": 0,
           "p_exact": 0.001953125,
-          "n": 38,
+          "n": 39,
           "p_holm": 0.00390625
         },
         "B5-GPT": {
           "a_only": 11,
           "b_only": 0,
           "p_exact": 0.0009765625,
-          "n": 38,
+          "n": 39,
           "p_holm": 0.0029296875
         },
         "B6-GPT": {
           "a_only": 12,
           "b_only": 0,
           "p_exact": 0.00048828125,
-          "n": 38,
-          "p_holm": 0.00244140625
+          "n": 39,
+          "p_holm": 0.001953125
         },
         "AlwaysRollback": {
-          "a_only": 9,
+          "a_only": 10,
           "b_only": 0,
-          "p_exact": 0.00390625,
-          "n": 38,
+          "p_exact": 0.001953125,
+          "n": 39,
           "p_holm": 0.00390625
         }
       },
@@ -1056,34 +1093,34 @@
       },
       "H2_unique_answer": {
         "B5": {
-          "a_only": 6,
+          "a_only": 8,
           "b_only": 0,
-          "p_exact": 0.03125,
-          "n": 18
+          "p_exact": 0.0078125,
+          "n": 19
         },
         "B6": {
           "a_only": 7,
           "b_only": 0,
           "p_exact": 0.015625,
-          "n": 18
+          "n": 19
         },
         "B5-GPT": {
           "a_only": 7,
           "b_only": 0,
           "p_exact": 0.015625,
-          "n": 18
+          "n": 19
         },
         "B6-GPT": {
           "a_only": 11,
           "b_only": 0,
           "p_exact": 0.0009765625,
-          "n": 18
+          "n": 19
         },
         "AlwaysRollback": {
-          "a_only": 6,
+          "a_only": 7,
           "b_only": 0,
-          "p_exact": 0.03125,
-          "n": 18
+          "p_exact": 0.015625,
+          "n": 19
         }
       },
       "family_level": {
@@ -1169,10 +1206,10 @@
           "families_a_better": 7,
           "families_b_better": 0,
           "sign_test_p": 0.015625,
-          "acc_diff": 0.4,
+          "acc_diff": 0.425,
           "cluster_bootstrap_95": [
-            0.179,
-            0.619
+            0.195,
+            0.659
           ]
         },
         "B5": {
@@ -1180,10 +1217,10 @@
           "families_a_better": 7,
           "families_b_better": 0,
           "sign_test_p": 0.015625,
-          "acc_diff": 0.35,
+          "acc_diff": 0.375,
           "cluster_bootstrap_95": [
-            0.158,
-            0.55
+            0.171,
+            0.585
           ]
         },
         "B6": {
@@ -1191,10 +1228,10 @@
           "families_a_better": 6,
           "families_b_better": 0,
           "sign_test_p": 0.03125,
-          "acc_diff": 0.275,
+          "acc_diff": 0.268,
           "cluster_bootstrap_95": [
-            0.1,
-            0.475
+            0.098,
+            0.463
           ]
         },
         "B5-GPT": {
@@ -1240,6 +1277,43 @@
             0.143,
             0.643
           ]
+        }
+      },
+      "O2_case_level": {
+        "B6-GPT": {
+          "a_only": 13,
+          "b_only": 3,
+          "p_exact": 0.021270751953125,
+          "n": 42,
+          "p_holm": 0.04254150390625
+        },
+        "B5-GPT": {
+          "a_only": 17,
+          "b_only": 1,
+          "p_exact": 0.00014495849609375,
+          "n": 42,
+          "p_holm": 0.00043487548828125
+        },
+        "AlwaysRollback": {
+          "a_only": 20,
+          "b_only": 0,
+          "p_exact": 1.9073486328125e-06,
+          "n": 42,
+          "p_holm": 9.5367431640625e-06
+        },
+        "Dominant": {
+          "a_only": 20,
+          "b_only": 10,
+          "p_exact": 0.09873714670538902,
+          "n": 42,
+          "p_holm": 0.09873714670538902
+        },
+        "S:D-Sec": {
+          "a_only": 18,
+          "b_only": 0,
+          "p_exact": 7.62939453125e-06,
+          "n": 42,
+          "p_holm": 3.0517578125e-05
         }
       },
       "H3_low_risk": {
@@ -1310,11 +1384,11 @@
             ]
           },
           "B3-14": {
-            "k": 8,
-            "n": 10,
+            "k": 9,
+            "n": 12,
             "wilson95_pct": [
-              49.0,
-              94.3
+              46.8,
+              91.1
             ]
           },
           "B3-14-GPT": {
@@ -1335,10 +1409,10 @@
           },
           "B5": {
             "k": 1,
-            "n": 10,
+            "n": 12,
             "wilson95_pct": [
-              1.8,
-              40.4
+              1.5,
+              35.4
             ]
           },
           "B5-GPT": {
@@ -1446,35 +1520,35 @@
             ]
           },
           "L-DevOps": {
-            "k": 7,
-            "n": 10,
+            "k": 9,
+            "n": 12,
             "wilson95_pct": [
-              39.7,
-              89.2
+              46.8,
+              91.1
             ]
           },
           "L-FinOps": {
-            "k": 8,
-            "n": 10,
+            "k": 9,
+            "n": 12,
             "wilson95_pct": [
-              49.0,
-              94.3
+              46.8,
+              91.1
             ]
           },
           "L-SRE": {
             "k": 1,
-            "n": 10,
+            "n": 12,
             "wilson95_pct": [
-              1.8,
-              40.4
+              1.5,
+              35.4
             ]
           },
           "L-Sec": {
             "k": 2,
-            "n": 10,
+            "n": 12,
             "wilson95_pct": [
-              5.7,
-              51.0
+              4.7,
+              44.8
             ]
           },
           "S:D-DevOps": {
@@ -1510,42 +1584,42 @@
             ]
           },
           "S:L-DevOps": {
-            "k": 7,
-            "n": 10,
+            "k": 9,
+            "n": 12,
             "wilson95_pct": [
-              39.7,
-              89.2
+              46.8,
+              91.1
             ]
           },
           "S:L-FinOps": {
-            "k": 8,
-            "n": 10,
+            "k": 9,
+            "n": 12,
             "wilson95_pct": [
-              49.0,
-              94.3
+              46.8,
+              91.1
             ]
           },
           "S:L-SRE": {
             "k": 1,
-            "n": 10,
+            "n": 12,
             "wilson95_pct": [
-              1.8,
-              40.4
+              1.5,
+              35.4
             ]
           },
           "S:L-Sec": {
             "k": 2,
-            "n": 10,
+            "n": 12,
             "wilson95_pct": [
-              5.7,
-              51.0
+              4.7,
+              44.8
             ]
           }
         },
         "release_continued": {
           "AAF": "12/12",
           "AAF-14-GPT": "12/12",
-          "B5": "10/10",
+          "B5": "12/12",
           "B6": "12/12",
           "B5-GPT": "12/12",
           "B6-GPT": "12/12",
@@ -1605,7 +1679,7 @@
       "n_discriminating": 27,
       "n_unique_answer": 14,
       "O1": {
-        "AAF": "13/13",
+        "AAF": "17/17",
         "AAF-14-GPT": "28/28",
         "AlwaysNone": "1/28",
         "AlwaysRollback": "21/28",
@@ -1613,12 +1687,12 @@
         "B1-12": "26/28",
         "B1-14": "28/28",
         "B2-14": "28/28",
-        "B3-14": "13/13",
+        "B3-14": "15/15",
         "B3-14-GPT": "28/28",
         "B3-GPT": "18/28",
-        "B5": "11/13",
+        "B5": "12/15",
         "B5-GPT": "20/28",
-        "B6": "6/9",
+        "B6": "8/12",
         "B6-GPT": "22/28",
         "BlockAnyCVE": "15/28",
         "D-DevOps": "15/28",
@@ -1630,21 +1704,21 @@
         "D-Sec": "15/28",
         "D-Sec-14": "15/28",
         "Dominant": "17/28",
-        "L-DevOps": "7/13",
-        "L-FinOps": "4/13",
-        "L-SRE": "7/13",
-        "L-Sec": "9/13",
+        "L-DevOps": "9/15",
+        "L-FinOps": "4/15",
+        "L-SRE": "7/15",
+        "L-Sec": "10/15",
         "S:D-DevOps": "16/28",
         "S:D-FinOps": "5/28",
         "S:D-SRE": "5/28",
         "S:D-Sec": "15/28",
-        "S:L-DevOps": "7/13",
-        "S:L-FinOps": "4/13",
-        "S:L-SRE": "7/13",
-        "S:L-Sec": "9/13"
+        "S:L-DevOps": "9/15",
+        "S:L-FinOps": "4/15",
+        "S:L-SRE": "7/15",
+        "S:L-Sec": "10/15"
       },
       "O2": {
-        "AAF": "10/13",
+        "AAF": "13/17",
         "AAF-14-GPT": "22/28",
         "AlwaysNone": "1/28",
         "AlwaysRollback": "8/28",
@@ -1652,12 +1726,12 @@
         "B1-12": "17/28",
         "B1-14": "22/28",
         "B2-14": "22/28",
-        "B3-14": "9/13",
+        "B3-14": "11/15",
         "B3-14-GPT": "22/28",
         "B3-GPT": "14/28",
-        "B5": "5/13",
+        "B5": "5/15",
         "B5-GPT": "11/28",
-        "B6": "2/9",
+        "B6": "4/12",
         "B6-GPT": "18/28",
         "BlockAnyCVE": "12/28",
         "D-DevOps": "7/28",
@@ -1669,21 +1743,21 @@
         "D-Sec": "12/28",
         "D-Sec-14": "12/28",
         "Dominant": "12/28",
-        "L-DevOps": "3/13",
-        "L-FinOps": "1/13",
-        "L-SRE": "4/13",
-        "L-Sec": "4/13",
+        "L-DevOps": "3/15",
+        "L-FinOps": "1/15",
+        "L-SRE": "4/15",
+        "L-Sec": "4/15",
         "S:D-DevOps": "8/28",
         "S:D-FinOps": "4/28",
         "S:D-SRE": "5/28",
         "S:D-Sec": "12/28",
-        "S:L-DevOps": "3/13",
-        "S:L-FinOps": "1/13",
-        "S:L-SRE": "4/13",
-        "S:L-Sec": "4/13"
+        "S:L-DevOps": "3/15",
+        "S:L-FinOps": "1/15",
+        "S:L-SRE": "4/15",
+        "S:L-Sec": "4/15"
       },
       "O1_discriminating": {
-        "AAF": "12/12",
+        "AAF": "16/16",
         "AAF-14-GPT": "27/27",
         "AlwaysNone": "0/27",
         "AlwaysRollback": "20/27",
@@ -1691,12 +1765,12 @@
         "B1-12": "25/27",
         "B1-14": "27/27",
         "B2-14": "27/27",
-        "B3-14": "12/12",
+        "B3-14": "14/14",
         "B3-14-GPT": "27/27",
         "B3-GPT": "17/27",
-        "B5": "10/12",
+        "B5": "11/14",
         "B5-GPT": "19/27",
-        "B6": "5/8",
+        "B6": "7/11",
         "B6-GPT": "21/27",
         "BlockAnyCVE": "14/27",
         "D-DevOps": "14/27",
@@ -1708,21 +1782,21 @@
         "D-Sec": "14/27",
         "D-Sec-14": "14/27",
         "Dominant": "16/27",
-        "L-DevOps": "6/12",
-        "L-FinOps": "3/12",
-        "L-SRE": "6/12",
-        "L-Sec": "8/12",
+        "L-DevOps": "8/14",
+        "L-FinOps": "3/14",
+        "L-SRE": "6/14",
+        "L-Sec": "9/14",
         "S:D-DevOps": "15/27",
         "S:D-FinOps": "4/27",
         "S:D-SRE": "4/27",
         "S:D-Sec": "14/27",
-        "S:L-DevOps": "6/12",
-        "S:L-FinOps": "3/12",
-        "S:L-SRE": "6/12",
-        "S:L-Sec": "8/12"
+        "S:L-DevOps": "8/14",
+        "S:L-FinOps": "3/14",
+        "S:L-SRE": "6/14",
+        "S:L-Sec": "9/14"
       },
       "O1_unique_answer": {
-        "AAF": "7/7",
+        "AAF": "10/10",
         "AAF-14-GPT": "14/14",
         "AlwaysNone": "0/14",
         "AlwaysRollback": "8/14",
@@ -1735,7 +1809,7 @@
         "B3-GPT": "5/14",
         "B5": "4/6",
         "B5-GPT": "7/14",
-        "B6": "0/2",
+        "B6": "0/3",
         "B6-GPT": "8/14",
         "BlockAnyCVE": "3/14",
         "D-DevOps": "6/14",
@@ -1762,32 +1836,32 @@
       },
       "H1_case_level": {
         "S:D-DevOps": {
-          "a_only": 6,
-          "b_only": 0,
-          "p_exact": 0.03125,
-          "n": 13,
-          "p_holm": 0.03125
-        },
-        "S:D-SRE": {
           "a_only": 9,
           "b_only": 0,
           "p_exact": 0.00390625,
-          "n": 13,
-          "p_holm": 0.01171875
+          "n": 17,
+          "p_holm": 0.00390625
         },
-        "S:D-FinOps": {
+        "S:D-SRE": {
           "a_only": 12,
           "b_only": 0,
           "p_exact": 0.00048828125,
-          "n": 13,
-          "p_holm": 0.001953125
+          "n": 17,
+          "p_holm": 0.00146484375
+        },
+        "S:D-FinOps": {
+          "a_only": 14,
+          "b_only": 0,
+          "p_exact": 0.0001220703125,
+          "n": 17,
+          "p_holm": 0.00048828125
         },
         "S:D-Sec": {
-          "a_only": 7,
+          "a_only": 10,
           "b_only": 0,
-          "p_exact": 0.015625,
-          "n": 13,
-          "p_holm": 0.03125
+          "p_exact": 0.001953125,
+          "n": 17,
+          "p_holm": 0.00390625
         }
       },
       "H2_case_level": {
@@ -1795,66 +1869,66 @@
           "a_only": 0,
           "b_only": 0,
           "p_exact": 1.0,
-          "n": 4,
+          "n": 6,
           "p_holm": 1.0
         },
         "B6": {
-          "a_only": 2,
+          "a_only": 3,
           "b_only": 0,
-          "p_exact": 0.5,
-          "n": 4,
+          "p_exact": 0.25,
+          "n": 6,
           "p_holm": 1.0
         },
         "B5-GPT": {
-          "a_only": 0,
-          "b_only": 0,
-          "p_exact": 1.0,
-          "n": 4,
-          "p_holm": 1.0
-        },
-        "B6-GPT": {
           "a_only": 1,
           "b_only": 0,
           "p_exact": 1.0,
-          "n": 4,
+          "n": 6,
+          "p_holm": 1.0
+        },
+        "B6-GPT": {
+          "a_only": 2,
+          "b_only": 0,
+          "p_exact": 0.5,
+          "n": 6,
           "p_holm": 1.0
         },
         "AlwaysRollback": {
-          "a_only": 0,
+          "a_only": 1,
           "b_only": 0,
           "p_exact": 1.0,
-          "n": 4,
+          "n": 6,
           "p_holm": 1.0
         }
       },
       "H1_discriminating": {
         "S:D-DevOps": {
-          "a_only": 6,
-          "b_only": 0,
-          "p_exact": 0.03125,
-          "n": 12,
-          "p_holm": 0.03125
-        },
-        "S:D-SRE": {
           "a_only": 9,
           "b_only": 0,
           "p_exact": 0.00390625,
-          "n": 12,
-          "p_holm": 0.01171875
+          "n": 16,
+          "p_holm": 0.00390625
         },
-        "S:D-FinOps": {
+        "S:D-SRE": {
           "a_only": 12,
           "b_only": 0,
           "p_exact": 0.00048828125,
-          "n": 12,
-          "p_holm": 0.001953125
+          "n": 16,
+          "p_holm": 0.00146484375
+        },
+        "S:D-FinOps": {
+          "a_only": 14,
+          "b_only": 0,
+          "p_exact": 0.0001220703125,
+          "n": 16,
+          "p_holm": 0.00048828125
         },
         "S:D-Sec": {
-          "a_only": 7,
+          "a_only": 10,
           "b_only": 0,
-          "p_exact": 0.015625,
-          "n": 12,
-          "p_holm": 0.03125
+          "p_exact": 0.001953125,
+          "n": 16,
+          "p_holm": 0.00390625
         }
       },
       "H2_unique_answer": {
@@ -1862,53 +1936,53 @@
           "a_only": 0,
           "b_only": 0,
           "p_exact": 1.0,
-          "n": 1
+          "n": 2
         },
         "B6": {
-          "a_only": 1,
+          "a_only": 2,
           "b_only": 0,
-          "p_exact": 1.0,
-          "n": 1
+          "p_exact": 0.5,
+          "n": 2
         },
         "B5-GPT": {
-          "a_only": 0,
-          "b_only": 0,
-          "p_exact": 1.0,
-          "n": 1
-        },
-        "B6-GPT": {
           "a_only": 1,
           "b_only": 0,
           "p_exact": 1.0,
-          "n": 1
+          "n": 2
+        },
+        "B6-GPT": {
+          "a_only": 2,
+          "b_only": 0,
+          "p_exact": 0.5,
+          "n": 2
         },
         "AlwaysRollback": {
-          "a_only": 0,
+          "a_only": 1,
           "b_only": 0,
           "p_exact": 1.0,
-          "n": 1
+          "n": 2
         }
       },
       "family_level": {
         "S:D-DevOps": {
           "families": 10,
-          "families_a_better": 5,
+          "families_a_better": 6,
           "families_b_better": 0,
-          "sign_test_p": 0.0625,
-          "acc_diff": 0.462,
+          "sign_test_p": 0.03125,
+          "acc_diff": 0.529,
           "cluster_bootstrap_95": [
-            0.154,
-            0.818
+            0.235,
+            0.824
           ]
         },
         "S:D-SRE": {
           "families": 10,
-          "families_a_better": 7,
+          "families_a_better": 8,
           "families_b_better": 0,
-          "sign_test_p": 0.015625,
-          "acc_diff": 0.692,
+          "sign_test_p": 0.0078125,
+          "acc_diff": 0.706,
           "cluster_bootstrap_95": [
-            0.385,
+            0.421,
             1.0
           ]
         },
@@ -1917,98 +1991,98 @@
           "families_a_better": 9,
           "families_b_better": 0,
           "sign_test_p": 0.00390625,
-          "acc_diff": 0.923,
+          "acc_diff": 0.824,
           "cluster_bootstrap_95": [
-            0.727,
+            0.562,
             1.0
           ]
         },
         "S:D-Sec": {
           "families": 10,
-          "families_a_better": 5,
-          "families_b_better": 0,
-          "sign_test_p": 0.0625,
-          "acc_diff": 0.538,
-          "cluster_bootstrap_95": [
-            0.2,
-            0.846
-          ]
-        },
-        "S:L-DevOps": {
-          "families": 8,
-          "families_a_better": 5,
-          "families_b_better": 0,
-          "sign_test_p": 0.0625,
-          "acc_diff": 0.6,
-          "cluster_bootstrap_95": [
-            0.25,
-            1.0
-          ]
-        },
-        "S:L-SRE": {
-          "families": 8,
-          "families_a_better": 4,
-          "families_b_better": 0,
-          "sign_test_p": 0.125,
-          "acc_diff": 0.5,
-          "cluster_bootstrap_95": [
-            0.111,
-            0.875
-          ]
-        },
-        "S:L-FinOps": {
-          "families": 8,
           "families_a_better": 6,
           "families_b_better": 0,
           "sign_test_p": 0.03125,
-          "acc_diff": 0.7,
+          "acc_diff": 0.588,
           "cluster_bootstrap_95": [
-            0.333,
+            0.278,
+            0.842
+          ]
+        },
+        "S:L-DevOps": {
+          "families": 9,
+          "families_a_better": 5,
+          "families_b_better": 0,
+          "sign_test_p": 0.0625,
+          "acc_diff": 0.545,
+          "cluster_bootstrap_95": [
+            0.2,
+            0.9
+          ]
+        },
+        "S:L-SRE": {
+          "families": 9,
+          "families_a_better": 5,
+          "families_b_better": 0,
+          "sign_test_p": 0.0625,
+          "acc_diff": 0.545,
+          "cluster_bootstrap_95": [
+            0.2,
+            0.9
+          ]
+        },
+        "S:L-FinOps": {
+          "families": 9,
+          "families_a_better": 7,
+          "families_b_better": 0,
+          "sign_test_p": 0.015625,
+          "acc_diff": 0.727,
+          "cluster_bootstrap_95": [
+            0.417,
             1.0
           ]
         },
         "S:L-Sec": {
-          "families": 8,
+          "families": 9,
           "families_a_better": 3,
           "families_b_better": 0,
           "sign_test_p": 0.25,
-          "acc_diff": 0.3,
+          "acc_diff": 0.273,
           "cluster_bootstrap_95": [
-            0.077,
-            0.625
+            0.067,
+            0.6
           ]
         },
         "B5": {
-          "families": 8,
+          "families": 9,
           "families_a_better": 2,
           "families_b_better": 0,
           "sign_test_p": 0.5,
-          "acc_diff": 0.2,
+          "acc_diff": 0.182,
           "cluster_bootstrap_95": [
             0.0,
-            0.5
+            0.455
           ]
         },
         "B6": {
-          "families": 4,
-          "families_a_better": 2,
+          "families": 6,
+          "families_a_better": 3,
           "families_b_better": 0,
-          "sign_test_p": 0.5,
-          "acc_diff": 0.5,
+          "sign_test_p": 0.25,
+          "acc_diff": 0.429,
           "cluster_bootstrap_95": [
-            0.0,
-            1.0
+            0.143,
+            0.75
           ]
         },
         "B5-GPT": {
           "families": 10,
-          "families_a_better": 3,
+          "families_a_better": 5,
           "families_b_better": 0,
-          "sign_test_p": 0.25,
-          "acc_diff": 0.231,
+          "sign_test_p": 0.0625,
+          "acc_diff": 0.353,
           "cluster_bootstrap_95": [
-            0.0,
-            0.545
+            0.111,
+            0.625
           ]
         },
         "B6-GPT": {
@@ -2016,33 +2090,70 @@
           "families_a_better": 3,
           "families_b_better": 0,
           "sign_test_p": 0.25,
-          "acc_diff": 0.231,
+          "acc_diff": 0.176,
           "cluster_bootstrap_95": [
-            0.059,
-            0.545
+            0.0,
+            0.353
           ]
         },
         "AlwaysRollback": {
           "families": 10,
-          "families_a_better": 3,
+          "families_a_better": 4,
           "families_b_better": 0,
-          "sign_test_p": 0.25,
-          "acc_diff": 0.231,
+          "sign_test_p": 0.125,
+          "acc_diff": 0.353,
           "cluster_bootstrap_95": [
-            0.0,
-            0.545
+            0.071,
+            0.632
           ]
         },
         "Dominant": {
           "families": 10,
-          "families_a_better": 4,
+          "families_a_better": 5,
           "families_b_better": 0,
-          "sign_test_p": 0.125,
-          "acc_diff": 0.385,
+          "sign_test_p": 0.0625,
+          "acc_diff": 0.353,
           "cluster_bootstrap_95": [
-            0.083,
-            0.727
+            0.111,
+            0.625
           ]
+        }
+      },
+      "O2_case_level": {
+        "B6-GPT": {
+          "a_only": 6,
+          "b_only": 2,
+          "p_exact": 0.2890625,
+          "n": 28,
+          "p_holm": 0.2890625
+        },
+        "B5-GPT": {
+          "a_only": 13,
+          "b_only": 2,
+          "p_exact": 0.00738525390625,
+          "n": 28,
+          "p_holm": 0.025390625
+        },
+        "AlwaysRollback": {
+          "a_only": 14,
+          "b_only": 0,
+          "p_exact": 0.0001220703125,
+          "n": 28,
+          "p_holm": 0.0006103515625
+        },
+        "Dominant": {
+          "a_only": 15,
+          "b_only": 5,
+          "p_exact": 0.04138946533203125,
+          "n": 28,
+          "p_holm": 0.0827789306640625
+        },
+        "S:D-Sec": {
+          "a_only": 11,
+          "b_only": 1,
+          "p_exact": 0.00634765625,
+          "n": 28,
+          "p_holm": 0.025390625
         }
       },
       "H3_low_risk": {
@@ -2114,10 +2225,10 @@
           },
           "B3-14": {
             "k": 1,
-            "n": 1,
+            "n": 2,
             "wilson95_pct": [
-              20.7,
-              100.0
+              9.5,
+              90.5
             ]
           },
           "B3-14-GPT": {
@@ -2138,10 +2249,10 @@
           },
           "B5": {
             "k": 0,
-            "n": 1,
+            "n": 2,
             "wilson95_pct": [
               0.0,
-              79.3
+              65.8
             ]
           },
           "B5-GPT": {
@@ -2153,10 +2264,10 @@
             ]
           },
           "B6": {
-            "k": 2,
-            "n": 2,
+            "k": 3,
+            "n": 3,
             "wilson95_pct": [
-              34.2,
+              43.8,
               100.0
             ]
           },
@@ -2249,35 +2360,35 @@
             ]
           },
           "L-DevOps": {
-            "k": 0,
-            "n": 1,
+            "k": 1,
+            "n": 2,
             "wilson95_pct": [
-              0.0,
-              79.3
+              9.5,
+              90.5
             ]
           },
           "L-FinOps": {
             "k": 1,
-            "n": 1,
+            "n": 2,
             "wilson95_pct": [
-              20.7,
-              100.0
+              9.5,
+              90.5
             ]
           },
           "L-SRE": {
             "k": 0,
-            "n": 1,
+            "n": 2,
             "wilson95_pct": [
               0.0,
-              79.3
+              65.8
             ]
           },
           "L-Sec": {
             "k": 0,
-            "n": 1,
+            "n": 2,
             "wilson95_pct": [
               0.0,
-              79.3
+              65.8
             ]
           },
           "S:D-DevOps": {
@@ -2313,43 +2424,43 @@
             ]
           },
           "S:L-DevOps": {
-            "k": 0,
-            "n": 1,
+            "k": 1,
+            "n": 2,
             "wilson95_pct": [
-              0.0,
-              79.3
+              9.5,
+              90.5
             ]
           },
           "S:L-FinOps": {
             "k": 1,
-            "n": 1,
+            "n": 2,
             "wilson95_pct": [
-              20.7,
-              100.0
+              9.5,
+              90.5
             ]
           },
           "S:L-SRE": {
             "k": 0,
-            "n": 1,
+            "n": 2,
             "wilson95_pct": [
               0.0,
-              79.3
+              65.8
             ]
           },
           "S:L-Sec": {
             "k": 0,
-            "n": 1,
+            "n": 2,
             "wilson95_pct": [
               0.0,
-              79.3
+              65.8
             ]
           }
         },
         "release_continued": {
           "AAF": "3/3",
           "AAF-14-GPT": "8/8",
-          "B5": "1/1",
-          "B6": "2/2",
+          "B5": "2/2",
+          "B6": "3/3",
           "B5-GPT": "8/8",
           "B6-GPT": "8/8",
           "AlwaysRollback": "0/8",
@@ -2360,30 +2471,30 @@
       "withheld": {
         "n": 26,
         "O1": {
-          "AAF": "8/10",
+          "AAF": "10/12",
           "AAF-14-GPT": "26/26",
           "B1": "4/26",
           "B1-14": "12/26",
           "B2": "16/26",
           "B2-14": "26/26",
-          "B3-14": "12/15",
-          "B5": "11/15",
+          "B3-14": "14/18",
+          "B5": "13/18",
           "B5-GPT": "20/26",
-          "B6": "6/9",
+          "B6": "9/13",
           "B6-GPT": "16/26"
         },
         "AAF_vs": {
           "B1-14": {
-            "a_only": 4,
+            "a_only": 5,
             "b_only": 0,
-            "p_exact": 0.125,
-            "n": 10
+            "p_exact": 0.0625,
+            "n": 12
           },
           "B2-14": {
             "a_only": 0,
             "b_only": 2,
             "p_exact": 0.5,
-            "n": 10
+            "n": 12
           }
         },
         "AAF_GPT_vs": {
@@ -2409,7 +2520,7 @@
     "n_discriminating": 98,
     "n_unique_answer": 46,
     "O1": {
-      "AAF": "89/89",
+      "AAF": "93/93",
       "AAF-14-GPT": "104/104",
       "AlwaysNone": "7/104",
       "AlwaysRollback": "77/104",
@@ -2417,12 +2528,12 @@
       "B1-12": "95/104",
       "B1-14": "104/104",
       "B2-14": "70/70",
-      "B3-14": "53/53",
+      "B3-14": "55/55",
       "B3-14-GPT": "104/104",
       "B3-GPT": "71/104",
-      "B5": "63/87",
+      "B5": "63/89",
       "B5-GPT": "78/104",
-      "B6": "64/83",
+      "B6": "67/87",
       "B6-GPT": "80/104",
       "BlockAnyCVE": "62/104",
       "D-DevOps": "44/104",
@@ -2434,21 +2545,21 @@
       "D-Sec": "62/104",
       "D-Sec-14": "36/70",
       "Dominant": "63/104",
-      "L-DevOps": "33/87",
-      "L-FinOps": "15/87",
-      "L-SRE": "34/87",
-      "L-Sec": "56/87",
+      "L-DevOps": "35/89",
+      "L-FinOps": "15/89",
+      "L-SRE": "34/89",
+      "L-Sec": "56/89",
       "S:D-DevOps": "48/104",
       "S:D-FinOps": "26/104",
       "S:D-SRE": "20/104",
       "S:D-Sec": "62/104",
-      "S:L-DevOps": "33/87",
-      "S:L-FinOps": "15/87",
-      "S:L-SRE": "34/87",
-      "S:L-Sec": "56/87"
+      "S:L-DevOps": "35/89",
+      "S:L-FinOps": "15/89",
+      "S:L-SRE": "34/89",
+      "S:L-Sec": "56/89"
     },
     "O2": {
-      "AAF": "66/89",
+      "AAF": "69/93",
       "AAF-14-GPT": "78/104",
       "AlwaysNone": "5/104",
       "AlwaysRollback": "25/104",
@@ -2456,12 +2567,12 @@
       "B1-12": "61/104",
       "B1-14": "78/104",
       "B2-14": "54/70",
-      "B3-14": "40/53",
+      "B3-14": "42/55",
       "B3-14-GPT": "78/104",
       "B3-GPT": "59/104",
-      "B5": "32/87",
+      "B5": "31/89",
       "B5-GPT": "43/104",
-      "B6": "46/83",
+      "B6": "49/87",
       "B6-GPT": "63/104",
       "BlockAnyCVE": "46/104",
       "D-DevOps": "19/104",
@@ -2473,21 +2584,21 @@
       "D-Sec": "46/104",
       "D-Sec-14": "26/70",
       "Dominant": "49/104",
-      "L-DevOps": "12/87",
-      "L-FinOps": "7/87",
-      "L-SRE": "20/87",
-      "L-Sec": "26/87",
+      "L-DevOps": "12/89",
+      "L-FinOps": "7/89",
+      "L-SRE": "20/89",
+      "L-Sec": "25/89",
       "S:D-DevOps": "23/104",
       "S:D-FinOps": "24/104",
       "S:D-SRE": "15/104",
       "S:D-Sec": "46/104",
-      "S:L-DevOps": "12/87",
-      "S:L-FinOps": "7/87",
-      "S:L-SRE": "20/87",
-      "S:L-Sec": "26/87"
+      "S:L-DevOps": "12/89",
+      "S:L-FinOps": "7/89",
+      "S:L-SRE": "20/89",
+      "S:L-Sec": "25/89"
     },
     "O1_discriminating": {
-      "AAF": "83/83",
+      "AAF": "87/87",
       "AAF-14-GPT": "98/98",
       "AlwaysNone": "1/98",
       "AlwaysRollback": "71/98",
@@ -2495,12 +2606,12 @@
       "B1-12": "89/98",
       "B1-14": "98/98",
       "B2-14": "69/69",
-      "B3-14": "52/52",
+      "B3-14": "54/54",
       "B3-14-GPT": "98/98",
       "B3-GPT": "65/98",
-      "B5": "57/81",
+      "B5": "57/83",
       "B5-GPT": "72/98",
-      "B6": "58/77",
+      "B6": "61/81",
       "B6-GPT": "74/98",
       "BlockAnyCVE": "56/98",
       "D-DevOps": "38/98",
@@ -2512,21 +2623,21 @@
       "D-Sec": "56/98",
       "D-Sec-14": "35/69",
       "Dominant": "57/98",
-      "L-DevOps": "27/81",
-      "L-FinOps": "9/81",
-      "L-SRE": "28/81",
-      "L-Sec": "50/81",
+      "L-DevOps": "29/83",
+      "L-FinOps": "9/83",
+      "L-SRE": "28/83",
+      "L-Sec": "50/83",
       "S:D-DevOps": "42/98",
       "S:D-FinOps": "20/98",
       "S:D-SRE": "14/98",
       "S:D-Sec": "56/98",
-      "S:L-DevOps": "27/81",
-      "S:L-FinOps": "9/81",
-      "S:L-SRE": "28/81",
-      "S:L-Sec": "50/81"
+      "S:L-DevOps": "29/83",
+      "S:L-FinOps": "9/83",
+      "S:L-SRE": "28/83",
+      "S:L-Sec": "50/83"
     },
     "O1_unique_answer": {
-      "AAF": "39/39",
+      "AAF": "42/42",
       "AAF-14-GPT": "46/46",
       "AlwaysNone": "0/46",
       "AlwaysRollback": "25/46",
@@ -2537,9 +2648,9 @@
       "B3-14": "26/26",
       "B3-14-GPT": "46/46",
       "B3-GPT": "19/46",
-      "B5": "22/37",
+      "B5": "21/37",
       "B5-GPT": "26/46",
-      "B6": "17/32",
+      "B6": "18/34",
       "B6-GPT": "23/46",
       "BlockAnyCVE": "10/46",
       "D-DevOps": "14/46",
@@ -2554,7 +2665,7 @@
       "L-DevOps": "8/37",
       "L-FinOps": "2/37",
       "L-SRE": "16/37",
-      "L-Sec": "12/37",
+      "L-Sec": "11/37",
       "S:D-DevOps": "18/46",
       "S:D-FinOps": "5/46",
       "S:D-SRE": "6/46",
@@ -2562,158 +2673,158 @@
       "S:L-DevOps": "8/37",
       "S:L-FinOps": "2/37",
       "S:L-SRE": "16/37",
-      "S:L-Sec": "12/37"
+      "S:L-Sec": "11/37"
     },
     "H1_case_level": {
       "S:D-DevOps": {
-        "a_only": 50,
+        "a_only": 53,
         "b_only": 0,
-        "p_exact": 1.7763568394002505e-15,
-        "n": 89,
-        "p_holm": 3.552713678800501e-15
+        "p_exact": 2.220446049250313e-16,
+        "n": 93,
+        "p_holm": 4.440892098500626e-16
       },
       "S:D-SRE": {
-        "a_only": 70,
+        "a_only": 73,
         "b_only": 0,
-        "p_exact": 1.6940658945086007e-21,
-        "n": 89,
-        "p_holm": 6.776263578034403e-21
+        "p_exact": 2.117582368135751e-22,
+        "n": 93,
+        "p_holm": 8.470329472543003e-22
       },
       "S:D-FinOps": {
-        "a_only": 67,
+        "a_only": 69,
         "b_only": 0,
-        "p_exact": 1.3552527156068805e-20,
-        "n": 89,
-        "p_holm": 4.0657581468206416e-20
+        "p_exact": 3.3881317890172014e-21,
+        "n": 93,
+        "p_holm": 1.0164395367051604e-20
       },
       "S:D-Sec": {
-        "a_only": 36,
+        "a_only": 39,
         "b_only": 0,
-        "p_exact": 2.9103830456733704e-11,
-        "n": 89,
-        "p_holm": 2.9103830456733704e-11
+        "p_exact": 3.637978807091713e-12,
+        "n": 93,
+        "p_holm": 3.637978807091713e-12
       }
     },
     "H2_case_level": {
       "B5": {
-        "a_only": 20,
+        "a_only": 22,
         "b_only": 0,
-        "p_exact": 1.9073486328125e-06,
-        "n": 76,
-        "p_holm": 9.5367431640625e-06
+        "p_exact": 4.76837158203125e-07,
+        "n": 79,
+        "p_holm": 2.384185791015625e-06
       },
       "B6": {
+        "a_only": 18,
+        "b_only": 0,
+        "p_exact": 7.62939453125e-06,
+        "n": 79,
+        "p_holm": 1.52587890625e-05
+      },
+      "B5-GPT": {
         "a_only": 17,
         "b_only": 0,
         "p_exact": 1.52587890625e-05,
-        "n": 76,
-        "p_holm": 4.57763671875e-05
+        "n": 79,
+        "p_holm": 1.52587890625e-05
+      },
+      "B6-GPT": {
+        "a_only": 20,
+        "b_only": 0,
+        "p_exact": 1.9073486328125e-06,
+        "n": 79,
+        "p_holm": 7.62939453125e-06
+      },
+      "AlwaysRollback": {
+        "a_only": 19,
+        "b_only": 0,
+        "p_exact": 3.814697265625e-06,
+        "n": 79,
+        "p_holm": 1.1444091796875e-05
+      }
+    },
+    "H1_discriminating": {
+      "S:D-DevOps": {
+        "a_only": 53,
+        "b_only": 0,
+        "p_exact": 2.220446049250313e-16,
+        "n": 87,
+        "p_holm": 4.440892098500626e-16
+      },
+      "S:D-SRE": {
+        "a_only": 73,
+        "b_only": 0,
+        "p_exact": 2.117582368135751e-22,
+        "n": 87,
+        "p_holm": 8.470329472543003e-22
+      },
+      "S:D-FinOps": {
+        "a_only": 69,
+        "b_only": 0,
+        "p_exact": 3.3881317890172014e-21,
+        "n": 87,
+        "p_holm": 1.0164395367051604e-20
+      },
+      "S:D-Sec": {
+        "a_only": 39,
+        "b_only": 0,
+        "p_exact": 3.637978807091713e-12,
+        "n": 87,
+        "p_holm": 3.637978807091713e-12
+      }
+    },
+    "H2_unique_answer": {
+      "B5": {
+        "a_only": 13,
+        "b_only": 0,
+        "p_exact": 0.000244140625,
+        "n": 32
+      },
+      "B6": {
+        "a_only": 14,
+        "b_only": 0,
+        "p_exact": 0.0001220703125,
+        "n": 32
       },
       "B5-GPT": {
-        "a_only": 16,
+        "a_only": 12,
         "b_only": 0,
-        "p_exact": 3.0517578125e-05,
-        "n": 76,
-        "p_holm": 4.57763671875e-05
+        "p_exact": 0.00048828125,
+        "n": 32
       },
       "B6-GPT": {
         "a_only": 19,
         "b_only": 0,
         "p_exact": 3.814697265625e-06,
-        "n": 76,
-        "p_holm": 1.52587890625e-05
+        "n": 32
       },
       "AlwaysRollback": {
-        "a_only": 17,
+        "a_only": 14,
         "b_only": 0,
-        "p_exact": 1.52587890625e-05,
-        "n": 76,
-        "p_holm": 4.57763671875e-05
-      }
-    },
-    "H1_discriminating": {
-      "S:D-DevOps": {
-        "a_only": 50,
-        "b_only": 0,
-        "p_exact": 1.7763568394002505e-15,
-        "n": 83,
-        "p_holm": 3.552713678800501e-15
-      },
-      "S:D-SRE": {
-        "a_only": 70,
-        "b_only": 0,
-        "p_exact": 1.6940658945086007e-21,
-        "n": 83,
-        "p_holm": 6.776263578034403e-21
-      },
-      "S:D-FinOps": {
-        "a_only": 67,
-        "b_only": 0,
-        "p_exact": 1.3552527156068805e-20,
-        "n": 83,
-        "p_holm": 4.0657581468206416e-20
-      },
-      "S:D-Sec": {
-        "a_only": 36,
-        "b_only": 0,
-        "p_exact": 2.9103830456733704e-11,
-        "n": 83,
-        "p_holm": 2.9103830456733704e-11
-      }
-    },
-    "H2_unique_answer": {
-      "B5": {
-        "a_only": 11,
-        "b_only": 0,
-        "p_exact": 0.0009765625,
-        "n": 30
-      },
-      "B6": {
-        "a_only": 13,
-        "b_only": 0,
-        "p_exact": 0.000244140625,
-        "n": 30
-      },
-      "B5-GPT": {
-        "a_only": 11,
-        "b_only": 0,
-        "p_exact": 0.0009765625,
-        "n": 30
-      },
-      "B6-GPT": {
-        "a_only": 18,
-        "b_only": 0,
-        "p_exact": 7.62939453125e-06,
-        "n": 30
-      },
-      "AlwaysRollback": {
-        "a_only": 12,
-        "b_only": 0,
-        "p_exact": 0.00048828125,
-        "n": 30
+        "p_exact": 0.0001220703125,
+        "n": 32
       }
     },
     "family_level": {
       "S:D-DevOps": {
         "families": 41,
-        "families_a_better": 25,
+        "families_a_better": 26,
         "families_b_better": 0,
-        "sign_test_p": 5.960464477539063e-08,
-        "acc_diff": 0.562,
+        "sign_test_p": 2.9802322387695312e-08,
+        "acc_diff": 0.57,
         "cluster_bootstrap_95": [
-          0.411,
-          0.711
+          0.423,
+          0.717
         ]
       },
       "S:D-SRE": {
         "families": 41,
-        "families_a_better": 33,
+        "families_a_better": 34,
         "families_b_better": 0,
-        "sign_test_p": 2.3283064365386963e-10,
-        "acc_diff": 0.787,
+        "sign_test_p": 1.1641532182693481e-10,
+        "acc_diff": 0.785,
         "cluster_bootstrap_95": [
-          0.656,
-          0.9
+          0.659,
+          0.896
         ]
       },
       "S:D-FinOps": {
@@ -2721,98 +2832,98 @@
         "families_a_better": 35,
         "families_b_better": 0,
         "sign_test_p": 5.820766091346741e-11,
-        "acc_diff": 0.753,
+        "acc_diff": 0.742,
         "cluster_bootstrap_95": [
-          0.622,
-          0.868
+          0.617,
+          0.857
         ]
       },
       "S:D-Sec": {
         "families": 41,
-        "families_a_better": 20,
+        "families_a_better": 21,
         "families_b_better": 0,
-        "sign_test_p": 1.9073486328125e-06,
-        "acc_diff": 0.404,
+        "sign_test_p": 9.5367431640625e-07,
+        "acc_diff": 0.419,
         "cluster_bootstrap_95": [
-          0.264,
-          0.549
+          0.28,
+          0.564
         ]
       },
       "S:L-DevOps": {
-        "families": 39,
+        "families": 40,
         "families_a_better": 27,
         "families_b_better": 0,
         "sign_test_p": 1.4901161193847656e-08,
-        "acc_diff": 0.643,
+        "acc_diff": 0.635,
         "cluster_bootstrap_95": [
-          0.5,
-          0.787
+          0.488,
+          0.778
         ]
       },
       "S:L-SRE": {
-        "families": 39,
-        "families_a_better": 26,
+        "families": 40,
+        "families_a_better": 27,
         "families_b_better": 0,
-        "sign_test_p": 2.9802322387695312e-08,
-        "acc_diff": 0.619,
+        "sign_test_p": 1.4901161193847656e-08,
+        "acc_diff": 0.624,
         "cluster_bootstrap_95": [
-          0.468,
-          0.756
+          0.477,
+          0.764
         ]
       },
       "S:L-FinOps": {
-        "families": 39,
-        "families_a_better": 34,
+        "families": 40,
+        "families_a_better": 35,
         "families_b_better": 0,
-        "sign_test_p": 1.1641532182693481e-10,
-        "acc_diff": 0.833,
+        "sign_test_p": 5.820766091346741e-11,
+        "acc_diff": 0.835,
         "cluster_bootstrap_95": [
-          0.725,
-          0.928
+          0.729,
+          0.926
         ]
       },
       "S:L-Sec": {
-        "families": 39,
+        "families": 40,
         "families_a_better": 19,
         "families_b_better": 0,
         "sign_test_p": 3.814697265625e-06,
-        "acc_diff": 0.357,
+        "acc_diff": 0.365,
         "cluster_bootstrap_95": [
           0.235,
-          0.494
+          0.506
         ]
       },
       "B5": {
-        "families": 39,
+        "families": 40,
         "families_a_better": 14,
         "families_b_better": 0,
         "sign_test_p": 0.0001220703125,
-        "acc_diff": 0.286,
+        "acc_diff": 0.294,
         "cluster_bootstrap_95": [
-          0.167,
-          0.42
+          0.17,
+          0.437
         ]
       },
       "B6": {
-        "families": 35,
-        "families_a_better": 13,
+        "families": 37,
+        "families_a_better": 14,
         "families_b_better": 0,
-        "sign_test_p": 0.000244140625,
-        "acc_diff": 0.231,
+        "sign_test_p": 0.0001220703125,
+        "acc_diff": 0.232,
         "cluster_bootstrap_95": [
-          0.125,
-          0.354
+          0.129,
+          0.348
         ]
       },
       "B5-GPT": {
         "families": 41,
-        "families_a_better": 13,
+        "families_a_better": 15,
         "families_b_better": 0,
-        "sign_test_p": 0.000244140625,
-        "acc_diff": 0.236,
+        "sign_test_p": 6.103515625e-05,
+        "acc_diff": 0.258,
         "cluster_bootstrap_95": [
-          0.125,
-          0.36
+          0.152,
+          0.376
         ]
       },
       "B6-GPT": {
@@ -2820,33 +2931,70 @@
         "families_a_better": 15,
         "families_b_better": 0,
         "sign_test_p": 6.103515625e-05,
-        "acc_diff": 0.236,
+        "acc_diff": 0.226,
         "cluster_bootstrap_95": [
-          0.133,
-          0.352
+          0.129,
+          0.333
         ]
       },
       "AlwaysRollback": {
         "families": 41,
-        "families_a_better": 12,
+        "families_a_better": 13,
         "families_b_better": 0,
-        "sign_test_p": 0.00048828125,
-        "acc_diff": 0.258,
+        "sign_test_p": 0.000244140625,
+        "acc_diff": 0.28,
         "cluster_bootstrap_95": [
-          0.129,
-          0.398
+          0.151,
+          0.415
         ]
       },
       "Dominant": {
         "families": 41,
-        "families_a_better": 20,
+        "families_a_better": 21,
         "families_b_better": 0,
-        "sign_test_p": 1.9073486328125e-06,
-        "acc_diff": 0.393,
+        "sign_test_p": 9.5367431640625e-07,
+        "acc_diff": 0.387,
         "cluster_bootstrap_95": [
-          0.258,
-          0.537
+          0.253,
+          0.527
         ]
+      }
+    },
+    "O2_case_level": {
+      "B6-GPT": {
+        "a_only": 25,
+        "b_only": 10,
+        "p_exact": 0.01667384780012071,
+        "n": 104,
+        "p_holm": 0.01667384780012071
+      },
+      "B5-GPT": {
+        "a_only": 39,
+        "b_only": 4,
+        "p_exact": 3.1081526685738936e-08,
+        "n": 104,
+        "p_holm": 1.2432610674295574e-07
+      },
+      "AlwaysRollback": {
+        "a_only": 53,
+        "b_only": 0,
+        "p_exact": 2.220446049250313e-16,
+        "n": 104,
+        "p_holm": 1.1102230246251565e-15
+      },
+      "Dominant": {
+        "a_only": 49,
+        "b_only": 20,
+        "p_exact": 0.0006361729964503618,
+        "n": 104,
+        "p_holm": 0.0012723459929007237
+      },
+      "S:D-Sec": {
+        "a_only": 37,
+        "b_only": 5,
+        "p_exact": 4.4337048166198656e-07,
+        "n": 104,
+        "p_holm": 1.3301114449859597e-06
       }
     },
     "H3_low_risk": {
@@ -2917,11 +3065,11 @@
           ]
         },
         "B3-14": {
-          "k": 9,
-          "n": 11,
+          "k": 10,
+          "n": 14,
           "wilson95_pct": [
-            52.3,
-            94.9
+            45.4,
+            88.3
           ]
         },
         "B3-14-GPT": {
@@ -2942,10 +3090,10 @@
         },
         "B5": {
           "k": 1,
-          "n": 15,
+          "n": 18,
           "wilson95_pct": [
-            1.2,
-            29.8
+            1.0,
+            25.8
           ]
         },
         "B5-GPT": {
@@ -2957,11 +3105,11 @@
           ]
         },
         "B6": {
-          "k": 16,
-          "n": 18,
+          "k": 17,
+          "n": 19,
           "wilson95_pct": [
-            67.2,
-            96.9
+            68.6,
+            97.1
           ]
         },
         "B6-GPT": {
@@ -3053,35 +3201,35 @@
           ]
         },
         "L-DevOps": {
-          "k": 10,
-          "n": 15,
+          "k": 13,
+          "n": 18,
           "wilson95_pct": [
-            41.7,
-            84.8
+            49.1,
+            87.5
           ]
         },
         "L-FinOps": {
-          "k": 11,
-          "n": 15,
+          "k": 12,
+          "n": 18,
           "wilson95_pct": [
-            48.0,
-            89.1
+            43.7,
+            83.7
           ]
         },
         "L-SRE": {
           "k": 1,
-          "n": 15,
+          "n": 18,
           "wilson95_pct": [
-            1.2,
-            29.8
+            1.0,
+            25.8
           ]
         },
         "L-Sec": {
           "k": 2,
-          "n": 15,
+          "n": 18,
           "wilson95_pct": [
-            3.7,
-            37.9
+            3.1,
+            32.8
           ]
         },
         "S:D-DevOps": {
@@ -3117,43 +3265,43 @@
           ]
         },
         "S:L-DevOps": {
-          "k": 10,
-          "n": 15,
+          "k": 13,
+          "n": 18,
           "wilson95_pct": [
-            41.7,
-            84.8
+            49.1,
+            87.5
           ]
         },
         "S:L-FinOps": {
-          "k": 11,
-          "n": 15,
+          "k": 12,
+          "n": 18,
           "wilson95_pct": [
-            48.0,
-            89.1
+            43.7,
+            83.7
           ]
         },
         "S:L-SRE": {
           "k": 1,
-          "n": 15,
+          "n": 18,
           "wilson95_pct": [
-            1.2,
-            29.8
+            1.0,
+            25.8
           ]
         },
         "S:L-Sec": {
           "k": 2,
-          "n": 15,
+          "n": 18,
           "wilson95_pct": [
-            3.7,
-            37.9
+            3.1,
+            32.8
           ]
         }
       },
       "release_continued": {
         "AAF": "19/19",
         "AAF-14-GPT": "24/24",
-        "B5": "15/15",
-        "B6": "18/18",
+        "B5": "18/18",
+        "B6": "19/19",
         "B5-GPT": "24/24",
         "B6-GPT": "24/24",
         "AlwaysRollback": "0/24",
@@ -3164,30 +3312,30 @@
     "withheld": {
       "n": 97,
       "O1": {
-        "AAF": "69/81",
+        "AAF": "71/83",
         "AAF-14-GPT": "93/97",
         "B1": "26/97",
         "B1-14": "53/97",
         "B2": "64/97",
         "B2-14": "97/97",
-        "B3-14": "45/53",
-        "B5": "61/85",
+        "B3-14": "47/56",
+        "B5": "63/88",
         "B5-GPT": "79/97",
-        "B6": "53/79",
+        "B6": "56/83",
         "B6-GPT": "68/97"
       },
       "AAF_vs": {
         "B1-14": {
-          "a_only": 24,
+          "a_only": 25,
           "b_only": 0,
-          "p_exact": 1.1920928955078125e-07,
-          "n": 81
+          "p_exact": 5.960464477539063e-08,
+          "n": 83
         },
         "B2-14": {
           "a_only": 0,
           "b_only": 12,
           "p_exact": 0.00048828125,
-          "n": 81
+          "n": 83
         }
       },
       "AAF_GPT_vs": {
@@ -3250,22 +3398,22 @@
     },
     "outcome_study15": {
       "AAF_qwen_cases": 56,
-      "B5_qwen_cases": 53,
-      "B6_qwen_cases": 55,
+      "B5_qwen_cases": 55,
+      "B6_qwen_cases": 56,
       "all_cases": 57
     },
     "outcome_study16": {
-      "AAF_qwen_cases": 18,
-      "B5_qwen_cases": 14,
-      "B6_qwen_cases": 13,
+      "AAF_qwen_cases": 22,
+      "B5_qwen_cases": 17,
+      "B6_qwen_cases": 17,
       "all_cases": 38
     }
   },
   "model_independence_outcome": {
     "population": "all full-evidence cases (fault, control and low-risk) on which both investigators ran",
-    "cases": 114,
+    "cases": 118,
     "by_group": {
-      "fault": 89,
+      "fault": 93,
       "control": 6,
       "low_risk": 19
     },
@@ -3274,7 +3422,7 @@
       "control": 7,
       "low_risk": 24
     },
-    "same_action_qwen_vs_gpt_investigator": 114,
-    "same_action_AAF_vs_rules_only": 114
+    "same_action_qwen_vs_gpt_investigator": 118,
+    "same_action_AAF_vs_rules_only": 118
   }
 }

@@ -63,10 +63,10 @@ UC-K02 & stable $\rightarrow$ feature+secret & PA,RB & PA & PA & PA & PA & BL & 
 UC-L01 & stable $\rightarrow$ feature & MI,NO,PA,RB,SC & NO,PA & NO & NO & NO & ES & NO & MI & NO & RB \\
 UC-L02 & stable $\rightarrow$ feature & MI,NO,PA,RB,SC & NO,PA & NO & NO & NO & NO & NO & MI & ES & RB \\
 UC-L03 & stable $\rightarrow$ feature & MI,NO,PA,RB,SC & NO,PA & MI & MI & MI & MI & MI & MI & MI & RB \\
-UC-L04 & stable $\rightarrow$ feature & NO,PA,RB & NO,PA & \textbf{SC} & \textbf{SC} & \textbf{SC} & \textbf{MI} & \textbf{SC} & -- & ES & RB \\
+UC-L04 & stable $\rightarrow$ feature & NO,PA,RB & NO,PA & \textbf{SC} & \textbf{SC} & \textbf{SC} & \textbf{MI} & \textbf{SC} & \textbf{MI} & ES & RB \\
 UC-P01 & perf $\rightarrow$ feature+perf & MI & MI & MI & MI & MI & \textbf{ES} & MI & \textbf{RB} & \textbf{ES} & \textbf{RB} \\
 UC-P02 & perf $\rightarrow$ feature+perf+secret & PA,RB & PA & PA & PA & PA & \textbf{ES} & PA & BL & PA & RB \\
-UC-P03 & vuln $\rightarrow$ feature+vuln & PA & PA & PA & PA & PA & \textbf{ES} & PA & PA & PA & \textbf{RB} \\
+UC-P03 & vuln $\rightarrow$ feature+vuln & PA & PA & PA & PA & PA & \textbf{ES} & PA & \textbf{NO} & PA & \textbf{RB} \\
 UC-R01 & stable $\rightarrow$ feature+perf & MI,RB & MI & RB & RB & RB & RB & MI & RB & RB & RB \\
 UC-R02 & stable $\rightarrow$ feature+crash & RB & RB & RB & RB & RB & RB & \textbf{SC} & RB & RB & RB \\
 UC-R03 & stable $\rightarrow$ feature+perf+vuln & RB & RB & RB & RB & RB & RB & RB & RB & RB & RB \\
@@ -80,7 +80,7 @@ UF-D01 & stable $\rightarrow$ feature & SC & SC & SC & SC & SC & \textbf{NO} & S
 UF-K01 & stable $\rightarrow$ feature+vuln & PA,RB & PA & PA & PA & PA & \textbf{ES} & PA & \textbf{MI} & PA & RB \\
 UF-K02 & stable $\rightarrow$ feature+secret & PA,RB & PA & PA & PA & PA & BL & PA & BL & PA & RB \\
 UF-L01 & stable $\rightarrow$ feature & MI,NO,PA,RB,SC & NO,PA & NO & NO & NO & NO & NO & MI & NO & RB \\
-UF-L02 & stable $\rightarrow$ feature & MI,NO,PA,RB,SC & NO,PA & NO & NO & NO & NO & NO & -- & NO & RB \\
+UF-L02 & stable $\rightarrow$ feature & MI,NO,PA,RB,SC & NO,PA & NO & NO & NO & NO & NO & MI & NO & RB \\
 UF-L03 & stable $\rightarrow$ feature & MI,NO,PA,RB,SC & NO,PA & NO & NO & NO & NO & NO & MI & NO & RB \\
 UF-L04 & stable $\rightarrow$ feature & NO,PA,RB,SC & NO,PA & SC & SC & SC & NO & SC & \textbf{MI} & ES & RB \\
 UF-P01 & perf $\rightarrow$ feature+perf & MI & MI & MI & MI & MI & \textbf{RB} & MI & -- & \textbf{ES} & \textbf{RB} \\
@@ -104,7 +104,7 @@ UP-L03 & stable $\rightarrow$ feature & MI,NO,PA,RB,SC & NO,PA,SC & NO & NO & NO
 UP-L04 & stable $\rightarrow$ feature & NO,PA,RB,SC & SC & SC & SC & SC & ES & SC & \textbf{MI} & SC & RB \\
 UP-P01 & perf $\rightarrow$ feature+perf & MI & MI & MI & MI & MI & \textbf{NO} & \textbf{NO} & MI & MI & \textbf{RB} \\
 UP-P02 & perf $\rightarrow$ feature+perf+secret & PA,RB & PA & PA & PA & PA & BL & PA & BL & PA & RB \\
-UP-P03 & vuln $\rightarrow$ feature+vuln & PA & PA & PA & PA & PA & PA & PA & \textbf{NO} & -- & \textbf{RB} \\
+UP-P03 & vuln $\rightarrow$ feature+vuln & PA & PA & PA & PA & PA & PA & PA & \textbf{NO} & PA & \textbf{RB} \\
 UP-R01 & stable $\rightarrow$ feature+perf & MI,RB & MI & RB & RB & RB & MI & MI & MI & MI & RB \\
 UP-R02 & stable $\rightarrow$ feature+crash & RB & RB & RB & RB & RB & RB & \textbf{MI} & BL & RB & RB \\
 UP-R03 & stable $\rightarrow$ feature+perf+vuln & RB & RB & RB & RB & RB & \textbf{PA} & \textbf{PA} & \textbf{MI} & \textbf{MI} & RB \\
@@ -122,20 +122,20 @@ UP-X02 & stable $\rightarrow$ feature+crash+vuln & RB & RB & RB & RB & RB & RB &
 \midrule
 \endhead
 SC-C01 & stable $\rightarrow$ stable & MI,NO,PA,RB,SC & NO,PA,RB,SC & NO & NO & NO & MI & NO & -- & NO & RB \\
-SC-D01 & stable $\rightarrow$ feature & SC & SC & -- & SC & SC & \textbf{ES} & SC & -- & -- & \textbf{RB} \\
-SC-K01 & stable $\rightarrow$ feature+secret & PA,RB & PA & -- & PA & PA & BL & PA & -- & -- & RB \\
+SC-D01 & stable $\rightarrow$ feature & SC & SC & SC & SC & SC & \textbf{ES} & SC & -- & -- & \textbf{RB} \\
+SC-K01 & stable $\rightarrow$ feature+secret & PA,RB & PA & -- & PA & PA & BL & PA & -- & PA & RB \\
 SC-K02 & stable $\rightarrow$ feature+secret & PA,RB & PA & PA & PA & PA & BL & PA & BL & PA & RB \\
 SC-L01 & stable $\rightarrow$ feature & MI,NO,PA,RB,SC & NO,PA & -- & NO & NO & ES & NO & -- & NO & RB \\
 SC-L02 & stable $\rightarrow$ feature & MI,NO,PA,RB,SC & NO,PA & -- & NO & NO & NO & NO & MI & -- & RB \\
 SC-L03 & stable $\rightarrow$ feature & MI,NO,PA,RB,SC & NO,PA,SC & NO & NO & NO & MI & NO & -- & -- & RB \\
 SC-L04 & stable $\rightarrow$ feature & NO,PA,RB,SC & SC & -- & SC & SC & ES & SC & -- & -- & RB \\
-SC-P01 & perf $\rightarrow$ feature+perf & MI & MI & MI & MI & MI & \textbf{ES} & \textbf{NO} & MI & -- & \textbf{RB} \\
-SC-P02 & perf $\rightarrow$ feature+perf+secret & PA,RB & PA & PA & PA & PA & BL & PA & -- & -- & RB \\
+SC-P01 & perf $\rightarrow$ feature+perf & MI & MI & MI & MI & MI & \textbf{ES} & \textbf{NO} & MI & \textbf{NO} & \textbf{RB} \\
+SC-P02 & perf $\rightarrow$ feature+perf+secret & PA,RB & PA & PA & PA & PA & BL & PA & BL & -- & RB \\
 SC-P03 & secret $\rightarrow$ feature+secret & PA & PA & PA & PA & PA & \textbf{BL} & PA & \textbf{BL} & -- & \textbf{RB} \\
-SC-R01 & stable $\rightarrow$ feature+perf & MI,RB & MI & RB & RB & RB & MI & MI & MI & -- & RB \\
+SC-R01 & stable $\rightarrow$ feature+perf & MI,RB & MI & RB & RB & RB & MI & MI & MI & MI & RB \\
 SC-R02 & stable $\rightarrow$ feature+crash & RB & RB & RB & RB & RB & RB & RB & RB & -- & RB \\
 SC-R03 & stable $\rightarrow$ feature+perf+secret & RB & RB & -- & RB & RB & \textbf{ES} & \textbf{PA} & -- & \textbf{PA} & RB \\
-SC-S01 & secret $\rightarrow$ secret & PA,SC & SC & -- & PA & PA & \textbf{BL} & PA & -- & PA & \textbf{RB} \\
+SC-S01 & secret $\rightarrow$ secret & PA,SC & SC & PA & PA & PA & \textbf{BL} & PA & -- & PA & \textbf{RB} \\
 SC-S02 & stable $\rightarrow$ feature+secret & PA,RB,SC & SC & -- & PA & PA & BL & PA & -- & -- & RB \\
 SC-S03 & stable $\rightarrow$ feature+secret & PA,RB,SC & SC & -- & PA & PA & BL & PA & BL & PA & RB \\
 SC-X01 & stable $\rightarrow$ feature+perf+secret & RB & RB & RB & RB & RB & BL & \textbf{PA} & BL & \textbf{PA} & RB \\
@@ -145,19 +145,19 @@ SF-D01 & stable $\rightarrow$ feature & MI,NO,PA,RB,SC & NO,PA & SC & SC & SC & 
 SF-K01 & stable $\rightarrow$ feature+vuln & PA,RB & PA & -- & PA & PA & PA & PA & -- & PA & RB \\
 SF-K02 & stable $\rightarrow$ feature+secret & PA,RB & PA & PA & PA & PA & BL & PA & BL & -- & RB \\
 SF-L01 & stable $\rightarrow$ feature & MI,NO,PA,RB,SC & NO,PA & -- & MI & MI & MI & MI & -- & -- & RB \\
-SF-L02 & stable $\rightarrow$ feature & MI,NO,PA,RB,SC & NO,PA & NO & NO & NO & NO & NO & -- & -- & RB \\
+SF-L02 & stable $\rightarrow$ feature & MI,NO,PA,RB,SC & NO,PA & NO & NO & NO & NO & NO & -- & NO & RB \\
 SF-L03 & stable $\rightarrow$ feature & MI,NO,PA,RB,SC & NO,PA & -- & NO & NO & ES & NO & -- & NO & RB \\
-SF-L04 & stable $\rightarrow$ feature & NO,PA,RB & NO,PA & \textbf{SC} & \textbf{SC} & \textbf{SC} & ES & \textbf{SC} & -- & -- & RB \\
-SF-P01 & perf $\rightarrow$ feature+perf & MI & MI & -- & MI & MI & \textbf{NO} & MI & -- & -- & \textbf{RB} \\
+SF-L04 & stable $\rightarrow$ feature & NO,PA,RB & NO,PA & \textbf{SC} & \textbf{SC} & \textbf{SC} & ES & \textbf{SC} & \textbf{MI} & -- & RB \\
+SF-P01 & perf $\rightarrow$ feature+perf & MI & MI & MI & MI & MI & \textbf{NO} & MI & -- & -- & \textbf{RB} \\
 SF-P02 & perf $\rightarrow$ feature+perf+secret & PA,RB & PA & -- & PA & PA & BL & PA & BL & -- & RB \\
 SF-P03 & vuln $\rightarrow$ feature+vuln & PA & PA & -- & PA & PA & \textbf{ES} & PA & -- & -- & \textbf{RB} \\
 SF-R01 & stable $\rightarrow$ feature+perf & MI,RB & MI & RB & RB & RB & RB & MI & RB & \textbf{ES} & RB \\
 SF-R02 & stable $\rightarrow$ feature+crash & RB & RB & RB & RB & RB & RB & BL & -- & -- & RB \\
 SF-R03 & stable $\rightarrow$ feature+perf+vuln & RB & RB & RB & RB & RB & \textbf{MI} & \textbf{PA} & \textbf{PA} & -- & RB \\
 SF-S01 & vuln $\rightarrow$ vuln & PA & PA & PA & PA & PA & PA & PA & -- & -- & \textbf{RB} \\
-SF-S02 & stable $\rightarrow$ feature+secret & PA,RB & PA & -- & PA & PA & BL & PA & -- & RB & RB \\
+SF-S02 & stable $\rightarrow$ feature+secret & PA,RB & PA & -- & PA & PA & BL & PA & \textbf{MI} & RB & RB \\
 SF-S03 & stable $\rightarrow$ feature+vuln & PA,RB & PA & -- & PA & PA & PA & PA & -- & -- & RB \\
-SF-X01 & stable $\rightarrow$ feature+perf+secret & RB & RB & -- & RB & RB & RB & RB & -- & -- & RB \\
+SF-X01 & stable $\rightarrow$ feature+perf+secret & RB & RB & RB & RB & RB & RB & RB & -- & -- & RB \\
 SF-X02 & stable $\rightarrow$ feature+crash+vuln & RB & RB & -- & RB & RB & RB & \textbf{PA} & BL & -- & RB \\
 \bottomrule
 \end{longtable}}

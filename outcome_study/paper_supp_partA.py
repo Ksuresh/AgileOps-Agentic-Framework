@@ -121,24 +121,37 @@ def part_b() -> str:
 
 def part_c(cs) -> str:
     L = [r"\section*{Appendix C. Confirmatory Studies 14--16: Statistics per Study}",
-         r"Counts are outcome-correct actions under $O_1$ (and $O_2$) on fault cases. Tests are exact McNemar on cases, Holm-adjusted within the "
-         r"pre-specified families; family-level tests group cases of the same design on different services of one study. A dagger marks runs that were incomplete when this appendix was generated."]
+         r"For each study and for the pooled data, Table (a) gives each decider's outcome-correct actions on fault cases under $O_1$ and the "
+         r"stricter $O_2$, on discriminating cases and on cases with one correct action; Table (b) compares AAF (pre-specified Qwen3-8B investigator) "
+         r"with each comparison decider: cases only AAF got right, cases only the other got right, the Holm-adjusted exact McNemar $p$ within the "
+         r"pre-specified family, and the same comparison over families of related cases (sign test). A dagger marks configurations whose runs were "
+         r"incomplete when this appendix was generated; their denominators are the completed cases."]
     for scope in list(S) + ["pooled"]:
         P = cs["pooled"] if scope == "pooled" else cs["per_study"][scope]
         name = "Pooled, Studies 14--16" if scope == "pooled" else SN[scope]
+        full = P["n_faults"]
+        mark = lambda v, n: (v + r"$^\dagger$") if v and v.split("/")[1] != str(n) else (v or "--")
         L += [rf"\subsection*{{C.{(list(S) + ['pooled']).index(scope) + 1} {name}}}",
-              rf"Fault cases {P['n_faults']}; families {P['n_families']}; discriminating {P['n_discriminating']}; one correct action {P['n_unique_answer']}.",
-              r"\begin{longtable}{L{4.6cm}L{1.3cm}L{1.3cm}L{1.6cm}L{1.6cm}L{2.0cm}L{2.2cm}}", r"\toprule",
-              r"\textbf{Decider} & \textbf{$O_1$} & \textbf{$O_2$} & \textbf{Discrim.} & \textbf{One correct} & \textbf{vs.\ AAF: AAF only / other only, $p_{\text{Holm}}$} & \textbf{Families AAF / other better, $p$} \\",
-              r"\midrule", r"\endhead"]
-        tests = {**P["H1_case_level"], **P["H2_case_level"]}
+              rf"Fault cases {full}; families {P['n_families']}; discriminating {P['n_discriminating']}; one correct action {P['n_unique_answer']}.",
+              r"\begin{longtable}{L{6.2cm}L{1.6cm}L{1.6cm}L{1.9cm}L{1.9cm}}",
+              rf"\multicolumn{{5}}{{l}}{{\textbf{{(a) Outcome-correct actions, {name}}}}} \\", r"\toprule",
+              r"\textbf{Decider} & \textbf{$O_1$} & \textbf{$O_2$} & \textbf{Discriminating} & \textbf{One correct action} \\", r"\midrule", r"\endhead"]
         for d in ORDER:
             if d not in P["O1"]:
                 continue
-            t, f = tests.get(d), P["family_level"].get(d)
-            tc = f"{t['a_only']} / {t['b_only']}, {p_fmt(t.get('p_holm', t['p_exact']))}" if t else "--"
-            fc = f"{f['families_a_better']} / {f['families_b_better']}, {p_fmt(f['sign_test_p'])}" if f else "--"
-            L.append(f"{esc(LABEL[d])} & {P['O1'][d]} & {P['O2'].get(d, '--')} & {P['O1_discriminating'].get(d, '--')} & {P['O1_unique_answer'].get(d, '--')} & {tc} & {fc}" + r" \\")
+            L.append(f"{esc(LABEL[d])} & {mark(P['O1'][d], full)} & {mark(P['O2'].get(d), full)} & {mark(P['O1_discriminating'].get(d), P['n_discriminating'])} & {mark(P['O1_unique_answer'].get(d), P['n_unique_answer'])}" + r" \\")
+        L += [r"\bottomrule", r"\end{longtable}"]
+        tests = {**P["H1_case_level"], **P["H2_case_level"]}
+        L += [r"\begin{longtable}{L{5.4cm}L{1.5cm}L{1.5cm}L{2.0cm}L{1.9cm}L{1.9cm}}",
+              rf"\multicolumn{{6}}{{l}}{{\textbf{{(b) Paired comparisons with AAF, {name}}}}} \\", r"\toprule",
+              r"\textbf{Comparison decider} & \textbf{AAF only} & \textbf{Other only} & \textbf{$p_{\text{Holm}}$ (cases)} & \textbf{Families AAF / other} & \textbf{$p$ (families)} \\",
+              r"\midrule", r"\endhead"]
+        for d in ORDER:
+            t_, f = tests.get(d), P["family_level"].get(d)
+            if not t_ and not f:
+                continue
+            L.append(f"{esc(LABEL[d])} & {t_['a_only'] if t_ else '--'} & {t_['b_only'] if t_ else '--'} & {p_fmt(t_.get('p_holm', t_['p_exact'])) if t_ else '--'} & "
+                     f"{str(f['families_a_better']) + ' / ' + str(f['families_b_better']) if f else '--'} & {p_fmt(f['sign_test_p']) if f else '--'}" + r" \\")
         L += [r"\bottomrule", r"\end{longtable}"]
         w, h3 = P["withheld"], P["H3_low_risk"]
         L.append(rf"\textit{{Withheld-evidence variants}} ({w['n']}): " + "; ".join(f"{esc(LABEL.get(k, k))} {v}" for k, v in w["O1"].items() if k in LABEL) + ".")

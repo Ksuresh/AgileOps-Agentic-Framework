@@ -156,6 +156,8 @@ def main() -> None:
                "H1_discriminating": compare(disc, "AAF", [s for s in sil if all(s in r["correct"] for r in disc)]),
                "H2_unique_answer": compare(uniq, "AAF", [b for b in LLM + ["AlwaysRollback"] if any(b in r["correct"] for r in uniq)], adjust=False),
                "family_level": {b: family_level(F, "AAF", b) for b in sil + LLM + ["AlwaysRollback", "Dominant"] if any(b in r["correct"] for r in F)}}
+        o2rows = [{"correct": r["correct_O2"]} for r in F]
+        out["O2_case_level"] = compare(o2rows, "AAF-14-GPT", [b for b in ("B6-GPT", "B5-GPT", "AlwaysRollback", "Dominant", "S:D-Sec") if all(b in r["correct"] for r in o2rows)])
         L = [r for r in low if sel(r)]
         out["H3_low_risk"] = {"n": len(L), "O2": {d: dict(zip(("k", "n"), map(int, v.split("/"))), wilson95_pct=wilson(*map(int, v.split("/"))))
                                                   for d, v in counts(L, "correct_O2").items()},

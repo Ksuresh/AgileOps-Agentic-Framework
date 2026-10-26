@@ -27,10 +27,6 @@ ROWS = [  # key in confirmatory_stats, label, group
     ("S:D-DevOps", "DevOps expert (rules)", 3),
     ("S:D-FinOps", "FinOps expert (rules)", 3),
     ("S:D-SRE", "SRE expert (rules)", 3),
-    ("S:L-Sec", "Security expert (LLM)", 3),
-    ("S:L-DevOps", "DevOps expert (LLM)", 3),
-    ("S:L-SRE", "SRE expert (LLM)", 3),
-    ("S:L-FinOps", "FinOps expert (LLM)", 3),
 ]
 
 
@@ -63,8 +59,8 @@ def main() -> None:
     # Table: confirmatory results
     L = [r"\begin{table*}[!t]", r"\caption{Confirmatory Outcome Studies: Outcome-Correct Actions on Fresh Fault Cases ($O_1$)}",
          r"\label{tab:confirm}", r"\centering\footnotesize",
-         r"\begin{tabular}{L{4.9cm}L{1.15cm}L{1.15cm}L{1.15cm}L{1.25cm}L{1.6cm}L{1.6cm}L{1.6cm}}", r"\toprule",
-         r"\textbf{Decider} & \textbf{S14 (OB, 2 svc)} & \textbf{S15 (OB, 3 svc)} & \textbf{S16 (Sock Shop)} & \textbf{Pooled} & "
+         r"\begin{tabular}{L{4.3cm}L{1.05cm}L{1.05cm}L{1.05cm}L{1.1cm}L{1.1cm}L{1.5cm}L{1.5cm}L{1.4cm}}", r"\toprule",
+         r"\textbf{Decider} & \textbf{S14 (OB, 2 svc)} & \textbf{S15 (OB, 3 svc)} & \textbf{S16 (Sock Shop)} & \textbf{Pooled} & \textbf{Pooled, strict ($O_2$)} & "
          r"\textbf{Cases: AAF only / other only} & \textbf{$p_{\text{Holm}}$ (cases)} & \textbf{Families: AAF / other better} \\", r"\midrule"]
     last = 0
     for key, lab, grp in ROWS:
@@ -72,7 +68,7 @@ def main() -> None:
             continue
         if grp != last:
             L.append(r"\midrule"); last = grp
-        cells = [kn(per[s]["O1"].get(key), nf[s]) for s in S] + [kn(P["O1"].get(key), P["n_faults"])]
+        cells = [kn(per[s]["O1"].get(key), nf[s]) for s in S] + [kn(P["O1"].get(key), P["n_faults"]), kn(P["O2"].get(key), P["n_faults"])]
         t = tests.get(key)
         fam = P["family_level"].get(key)
         cells += [f"{t['a_only']} / {t['b_only']}" if t else "--", p_fmt(t.get("p_holm", t["p_exact"])) if t else "--",
@@ -85,7 +81,7 @@ def main() -> None:
           r"rules on one domain (v1.4 in Studies 15--16; v1.0 in Study 14 as pre-specified). Qwen3-8B: majority of three runs; GPT-5.6 Luna: one run. "
           r"Comparisons use AAF with the pre-specified Qwen3-8B investigator on the cases where its runs completed; AAF's action with the GPT-5.6 Luna "
           r"investigator and with the rules alone was identical on every one of these cases. "
-          r"$^\dagger$Fewer cases than the study has: runs incomplete.", r"\end{table*}"]
+          r"$O_2$: among the $O_1$-correct actions, those that keep the feature delivered and then use the least resources. LLM single-domain experts are in Supplementary Appendix~C. $^\dagger$Fewer cases than the study has: runs incomplete.", r"\end{table*}"]
     (OUT / "tab_confirm.tex").write_text("\n".join(L) + "\n")
 
     # Table: could the benchmark favour AAF by construction?
@@ -147,7 +143,16 @@ def main() -> None:
             num[m + "Worse"] = f"{fam[k]['families_b_better']}"
             num[m + "P"] = p_fmt(fam[k]["sign_test_p"])
             num[m + "CI"] = f"{100 * fam[k]['cluster_bootstrap_95'][0]:.0f} to {100 * fam[k]['cluster_bootstrap_95'][1]:.0f}"
+    for k, m in (("AAF-14-GPT", "OtwoAAF"), ("B1-14", "OtwoRules"), ("B6-GPT", "OtwoBSixGPT"), ("B5-GPT", "OtwoBFiveGPT"), ("AlwaysRollback", "OtwoRollback"), ("S:D-Sec", "OtwoSec"), ("Dominant", "OtwoDominant")):
+        num[m] = k_of(P["O2"].get(k))
+    oc = P["O2_case_level"]
+    num["OtwoPBSixGPT"] = p_fmt(oc["B6-GPT"].get("p_holm", oc["B6-GPT"]["p_exact"]))
+    num["OtwoDiscBSixGPT"] = f"{oc['B6-GPT']['a_only']} vs.\\ {oc['B6-GPT']['b_only']}"
     h3 = P["H3_low_risk"]
+    num["LowContinuedAAFGPT"] = h3["release_continued"].get("AAF-14-GPT", "--")
+    num["LowOtwoAAFGPT"] = f"{h3['O2'].get('AAF-14-GPT', {}).get('k', '--')}/{h3['O2'].get('AAF-14-GPT', {}).get('n', '--')}"
+    num["LowOtwoAAFGPTCI"] = "--".join(str(x) for x in h3["O2"].get("AAF-14-GPT", {}).get("wilson95_pct", []))
+    num["LowOtwoNone"] = f"{h3['O2'].get('AlwaysNone', {}).get('k', '--')}/{h3['O2'].get('AlwaysNone', {}).get('n', '--')}"
     num["LowN"] = h3["n"]
     num["LowContinuedAAF"] = h3["release_continued"].get("AAF", "--")
     num["LowOtwoAAF"] = f"{h3['O2'].get('AAF', {}).get('k', '--')}/{h3['O2'].get('AAF', {}).get('n', '--')}"
