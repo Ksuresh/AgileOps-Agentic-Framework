@@ -42,8 +42,8 @@ calibration rules below, before any outcome is measured.
 AAF-14 (v1.4 rules + selective investigation, Qwen3-8B); B1-14 (v1.4 rules, no investigation); B2-14 (v1.4 rules + fetch
 every missing field); B3 and B3-14 (v1.0 / v1.4 rules re-deciding on B5's retrieved evidence); B5, B6 (LLM decides; B6 with
 thinking and tools); siloed rule experts with v1.4 domain rules (D-DevOps-14, D-SRE-14, D-FinOps-14, D-Sec-14) and, for
-continuity with Studies 9-14, with v1.0 domain rules (D-*); LLM domain agents (L-*, from the AAF-14 and B5 traces as in
-Study 14); B1, B1-12, B2, Dominant, AlwaysRollback, AlwaysNone, BlockAnyCVE. LLM arms: AAF-14, B5, B6 (the original-rule
+continuity with Studies 9-14, with v1.0 domain rules (D-*); LLM domain agents (L-*, the domain agents' proposals in the B5
+traces, as in Study 14); B1, B1-12, B2, Dominant, AlwaysRollback, AlwaysNone, BlockAnyCVE. LLM arms: AAF-14, B5, B6 (the original-rule
 hybrid AAF was tested in Studies 9-14 and is not rerun).
 
 ## Hypotheses (exact McNemar on paired per-case O1 correctness, fault cases n = 42 unless stated)
