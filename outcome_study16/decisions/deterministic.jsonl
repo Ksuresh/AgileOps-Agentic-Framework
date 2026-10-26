@@ -1,0 +1,1088 @@
+{"decider": "B1", "case": "SC-C01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B2", "case": "SC-C01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B1-12", "case": "SC-C01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B1-14", "case": "SC-C01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "Dominant", "case": "SC-C01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "AlwaysRollback", "case": "SC-C01", "variant": "full", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "SC-C01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "BlockAnyCVE", "case": "SC-C01", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "D-DevOps", "case": "SC-C01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE", "case": "SC-C01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-FinOps", "case": "SC-C01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec", "case": "SC-C01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B2-14", "case": "SC-C01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-DevOps-14", "case": "SC-C01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE-14", "case": "SC-C01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-FinOps-14", "case": "SC-C01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec-14", "case": "SC-C01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B1", "case": "SC-D01", "variant": "full", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "B2", "case": "SC-D01", "variant": "full", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "B1-12", "case": "SC-D01", "variant": "full", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "B1-14", "case": "SC-D01", "variant": "full", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "Dominant", "case": "SC-D01", "variant": "full", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "AlwaysRollback", "case": "SC-D01", "variant": "full", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "SC-D01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "BlockAnyCVE", "case": "SC-D01", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "D-DevOps", "case": "SC-D01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE", "case": "SC-D01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-FinOps", "case": "SC-D01", "variant": "full", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "D-Sec", "case": "SC-D01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B2-14", "case": "SC-D01", "variant": "full", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "D-DevOps-14", "case": "SC-D01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE-14", "case": "SC-D01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-FinOps-14", "case": "SC-D01", "variant": "full", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "D-Sec-14", "case": "SC-D01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B1", "case": "SC-K01", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B2", "case": "SC-K01", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B1-12", "case": "SC-K01", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B1-14", "case": "SC-K01", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "Dominant", "case": "SC-K01", "variant": "full", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysRollback", "case": "SC-K01", "variant": "full", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "SC-K01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "BlockAnyCVE", "case": "SC-K01", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "D-DevOps", "case": "SC-K01", "variant": "full", "run": 0, "action": "Block release and fix pipeline", "error": null}
+{"decider": "D-SRE", "case": "SC-K01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-FinOps", "case": "SC-K01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec", "case": "SC-K01", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B2-14", "case": "SC-K01", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "D-DevOps-14", "case": "SC-K01", "variant": "full", "run": 0, "action": "Block release and fix pipeline", "error": null}
+{"decider": "D-SRE-14", "case": "SC-K01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-FinOps-14", "case": "SC-K01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec-14", "case": "SC-K01", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B1", "case": "SC-K01-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B2", "case": "SC-K01-W", "variant": "withheld", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B1-12", "case": "SC-K01-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B1-14", "case": "SC-K01-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "Dominant", "case": "SC-K01-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "AlwaysRollback", "case": "SC-K01-W", "variant": "withheld", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "SC-K01-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "BlockAnyCVE", "case": "SC-K01-W", "variant": "withheld", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "D-DevOps", "case": "SC-K01-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE", "case": "SC-K01-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-FinOps", "case": "SC-K01-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec", "case": "SC-K01-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B2-14", "case": "SC-K01-W", "variant": "withheld", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "D-DevOps-14", "case": "SC-K01-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE-14", "case": "SC-K01-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-FinOps-14", "case": "SC-K01-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec-14", "case": "SC-K01-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B1", "case": "SC-K02", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B2", "case": "SC-K02", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B1-12", "case": "SC-K02", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B1-14", "case": "SC-K02", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "Dominant", "case": "SC-K02", "variant": "full", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysRollback", "case": "SC-K02", "variant": "full", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "SC-K02", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "BlockAnyCVE", "case": "SC-K02", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "D-DevOps", "case": "SC-K02", "variant": "full", "run": 0, "action": "Block release and fix pipeline", "error": null}
+{"decider": "D-SRE", "case": "SC-K02", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-FinOps", "case": "SC-K02", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec", "case": "SC-K02", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B2-14", "case": "SC-K02", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "D-DevOps-14", "case": "SC-K02", "variant": "full", "run": 0, "action": "Block release and fix pipeline", "error": null}
+{"decider": "D-SRE-14", "case": "SC-K02", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-FinOps-14", "case": "SC-K02", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec-14", "case": "SC-K02", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B1", "case": "SC-K02-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B2", "case": "SC-K02-W", "variant": "withheld", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B1-12", "case": "SC-K02-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B1-14", "case": "SC-K02-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "Dominant", "case": "SC-K02-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "AlwaysRollback", "case": "SC-K02-W", "variant": "withheld", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "SC-K02-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "BlockAnyCVE", "case": "SC-K02-W", "variant": "withheld", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "D-DevOps", "case": "SC-K02-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE", "case": "SC-K02-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-FinOps", "case": "SC-K02-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec", "case": "SC-K02-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B2-14", "case": "SC-K02-W", "variant": "withheld", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "D-DevOps-14", "case": "SC-K02-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE-14", "case": "SC-K02-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-FinOps-14", "case": "SC-K02-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec-14", "case": "SC-K02-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B1", "case": "SC-L01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B2", "case": "SC-L01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B1-12", "case": "SC-L01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B1-14", "case": "SC-L01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "Dominant", "case": "SC-L01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "AlwaysRollback", "case": "SC-L01", "variant": "full", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "SC-L01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "BlockAnyCVE", "case": "SC-L01", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "D-DevOps", "case": "SC-L01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE", "case": "SC-L01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-FinOps", "case": "SC-L01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec", "case": "SC-L01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B2-14", "case": "SC-L01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-DevOps-14", "case": "SC-L01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE-14", "case": "SC-L01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-FinOps-14", "case": "SC-L01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec-14", "case": "SC-L01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B1", "case": "SC-L02", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B2", "case": "SC-L02", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B1-12", "case": "SC-L02", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B1-14", "case": "SC-L02", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "Dominant", "case": "SC-L02", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "AlwaysRollback", "case": "SC-L02", "variant": "full", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "SC-L02", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "BlockAnyCVE", "case": "SC-L02", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "D-DevOps", "case": "SC-L02", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE", "case": "SC-L02", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-FinOps", "case": "SC-L02", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec", "case": "SC-L02", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B2-14", "case": "SC-L02", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-DevOps-14", "case": "SC-L02", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE-14", "case": "SC-L02", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-FinOps-14", "case": "SC-L02", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec-14", "case": "SC-L02", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B1", "case": "SC-L03", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B2", "case": "SC-L03", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B1-12", "case": "SC-L03", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B1-14", "case": "SC-L03", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "Dominant", "case": "SC-L03", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "AlwaysRollback", "case": "SC-L03", "variant": "full", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "SC-L03", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "BlockAnyCVE", "case": "SC-L03", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "D-DevOps", "case": "SC-L03", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE", "case": "SC-L03", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-FinOps", "case": "SC-L03", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec", "case": "SC-L03", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B2-14", "case": "SC-L03", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-DevOps-14", "case": "SC-L03", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE-14", "case": "SC-L03", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-FinOps-14", "case": "SC-L03", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec-14", "case": "SC-L03", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B1", "case": "SC-L04", "variant": "full", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "B2", "case": "SC-L04", "variant": "full", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "B1-12", "case": "SC-L04", "variant": "full", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "B1-14", "case": "SC-L04", "variant": "full", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "Dominant", "case": "SC-L04", "variant": "full", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "AlwaysRollback", "case": "SC-L04", "variant": "full", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "SC-L04", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "BlockAnyCVE", "case": "SC-L04", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "D-DevOps", "case": "SC-L04", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE", "case": "SC-L04", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-FinOps", "case": "SC-L04", "variant": "full", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "D-Sec", "case": "SC-L04", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B2-14", "case": "SC-L04", "variant": "full", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "D-DevOps-14", "case": "SC-L04", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE-14", "case": "SC-L04", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-FinOps-14", "case": "SC-L04", "variant": "full", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "D-Sec-14", "case": "SC-L04", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B1", "case": "SC-P01", "variant": "full", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "B2", "case": "SC-P01", "variant": "full", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "B1-12", "case": "SC-P01", "variant": "full", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "B1-14", "case": "SC-P01", "variant": "full", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "Dominant", "case": "SC-P01", "variant": "full", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "AlwaysRollback", "case": "SC-P01", "variant": "full", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "SC-P01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "BlockAnyCVE", "case": "SC-P01", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "D-DevOps", "case": "SC-P01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE", "case": "SC-P01", "variant": "full", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "D-FinOps", "case": "SC-P01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec", "case": "SC-P01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B2-14", "case": "SC-P01", "variant": "full", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "D-DevOps-14", "case": "SC-P01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE-14", "case": "SC-P01", "variant": "full", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "D-FinOps-14", "case": "SC-P01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec-14", "case": "SC-P01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B1", "case": "SC-P01-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B2", "case": "SC-P01-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "B1-12", "case": "SC-P01-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B1-14", "case": "SC-P01-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "Dominant", "case": "SC-P01-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "AlwaysRollback", "case": "SC-P01-W", "variant": "withheld", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "SC-P01-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "BlockAnyCVE", "case": "SC-P01-W", "variant": "withheld", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "D-DevOps", "case": "SC-P01-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE", "case": "SC-P01-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-FinOps", "case": "SC-P01-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec", "case": "SC-P01-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B2-14", "case": "SC-P01-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "D-DevOps-14", "case": "SC-P01-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE-14", "case": "SC-P01-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-FinOps-14", "case": "SC-P01-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec-14", "case": "SC-P01-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B1", "case": "SC-P02", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B2", "case": "SC-P02", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B1-12", "case": "SC-P02", "variant": "full", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "B1-14", "case": "SC-P02", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "Dominant", "case": "SC-P02", "variant": "full", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysRollback", "case": "SC-P02", "variant": "full", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "SC-P02", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "BlockAnyCVE", "case": "SC-P02", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "D-DevOps", "case": "SC-P02", "variant": "full", "run": 0, "action": "Block release and fix pipeline", "error": null}
+{"decider": "D-SRE", "case": "SC-P02", "variant": "full", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "D-FinOps", "case": "SC-P02", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec", "case": "SC-P02", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B2-14", "case": "SC-P02", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "D-DevOps-14", "case": "SC-P02", "variant": "full", "run": 0, "action": "Block release and fix pipeline", "error": null}
+{"decider": "D-SRE-14", "case": "SC-P02", "variant": "full", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "D-FinOps-14", "case": "SC-P02", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec-14", "case": "SC-P02", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B1", "case": "SC-P02-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "B2", "case": "SC-P02-W", "variant": "withheld", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B1-12", "case": "SC-P02-W", "variant": "withheld", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "B1-14", "case": "SC-P02-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "Dominant", "case": "SC-P02-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "AlwaysRollback", "case": "SC-P02-W", "variant": "withheld", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "SC-P02-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "BlockAnyCVE", "case": "SC-P02-W", "variant": "withheld", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "D-DevOps", "case": "SC-P02-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE", "case": "SC-P02-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "D-FinOps", "case": "SC-P02-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec", "case": "SC-P02-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B2-14", "case": "SC-P02-W", "variant": "withheld", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "D-DevOps-14", "case": "SC-P02-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE-14", "case": "SC-P02-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "D-FinOps-14", "case": "SC-P02-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec-14", "case": "SC-P02-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B1", "case": "SC-P03", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B2", "case": "SC-P03", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B1-12", "case": "SC-P03", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B1-14", "case": "SC-P03", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "Dominant", "case": "SC-P03", "variant": "full", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysRollback", "case": "SC-P03", "variant": "full", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "SC-P03", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "BlockAnyCVE", "case": "SC-P03", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "D-DevOps", "case": "SC-P03", "variant": "full", "run": 0, "action": "Block release and fix pipeline", "error": null}
+{"decider": "D-SRE", "case": "SC-P03", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-FinOps", "case": "SC-P03", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec", "case": "SC-P03", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B2-14", "case": "SC-P03", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "D-DevOps-14", "case": "SC-P03", "variant": "full", "run": 0, "action": "Block release and fix pipeline", "error": null}
+{"decider": "D-SRE-14", "case": "SC-P03", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-FinOps-14", "case": "SC-P03", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec-14", "case": "SC-P03", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B1", "case": "SC-P03-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B2", "case": "SC-P03-W", "variant": "withheld", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B1-12", "case": "SC-P03-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B1-14", "case": "SC-P03-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "Dominant", "case": "SC-P03-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "AlwaysRollback", "case": "SC-P03-W", "variant": "withheld", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "SC-P03-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "BlockAnyCVE", "case": "SC-P03-W", "variant": "withheld", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "D-DevOps", "case": "SC-P03-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE", "case": "SC-P03-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-FinOps", "case": "SC-P03-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec", "case": "SC-P03-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B2-14", "case": "SC-P03-W", "variant": "withheld", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "D-DevOps-14", "case": "SC-P03-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE-14", "case": "SC-P03-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-FinOps-14", "case": "SC-P03-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec-14", "case": "SC-P03-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B1", "case": "SC-R01", "variant": "full", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "B2", "case": "SC-R01", "variant": "full", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "B1-12", "case": "SC-R01", "variant": "full", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "B1-14", "case": "SC-R01", "variant": "full", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "Dominant", "case": "SC-R01", "variant": "full", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "AlwaysRollback", "case": "SC-R01", "variant": "full", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "SC-R01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "BlockAnyCVE", "case": "SC-R01", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "D-DevOps", "case": "SC-R01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE", "case": "SC-R01", "variant": "full", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "D-FinOps", "case": "SC-R01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec", "case": "SC-R01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B2-14", "case": "SC-R01", "variant": "full", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "D-DevOps-14", "case": "SC-R01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE-14", "case": "SC-R01", "variant": "full", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "D-FinOps-14", "case": "SC-R01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec-14", "case": "SC-R01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B1", "case": "SC-R01-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B2", "case": "SC-R01-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "B1-12", "case": "SC-R01-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B1-14", "case": "SC-R01-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "Dominant", "case": "SC-R01-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "AlwaysRollback", "case": "SC-R01-W", "variant": "withheld", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "SC-R01-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "BlockAnyCVE", "case": "SC-R01-W", "variant": "withheld", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "D-DevOps", "case": "SC-R01-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE", "case": "SC-R01-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-FinOps", "case": "SC-R01-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec", "case": "SC-R01-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B2-14", "case": "SC-R01-W", "variant": "withheld", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "D-DevOps-14", "case": "SC-R01-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE-14", "case": "SC-R01-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-FinOps-14", "case": "SC-R01-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec-14", "case": "SC-R01-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B1", "case": "SC-R02", "variant": "full", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "B2", "case": "SC-R02", "variant": "full", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "B1-12", "case": "SC-R02", "variant": "full", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "B1-14", "case": "SC-R02", "variant": "full", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "Dominant", "case": "SC-R02", "variant": "full", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "AlwaysRollback", "case": "SC-R02", "variant": "full", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "SC-R02", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "BlockAnyCVE", "case": "SC-R02", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "D-DevOps", "case": "SC-R02", "variant": "full", "run": 0, "action": "Block release and fix pipeline", "error": null}
+{"decider": "D-SRE", "case": "SC-R02", "variant": "full", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "D-FinOps", "case": "SC-R02", "variant": "full", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "D-Sec", "case": "SC-R02", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B2-14", "case": "SC-R02", "variant": "full", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "D-DevOps-14", "case": "SC-R02", "variant": "full", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "D-SRE-14", "case": "SC-R02", "variant": "full", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "D-FinOps-14", "case": "SC-R02", "variant": "full", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "D-Sec-14", "case": "SC-R02", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B1", "case": "SC-R02-W", "variant": "withheld", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "B2", "case": "SC-R02-W", "variant": "withheld", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "B1-12", "case": "SC-R02-W", "variant": "withheld", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "B1-14", "case": "SC-R02-W", "variant": "withheld", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "Dominant", "case": "SC-R02-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "AlwaysRollback", "case": "SC-R02-W", "variant": "withheld", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "SC-R02-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "BlockAnyCVE", "case": "SC-R02-W", "variant": "withheld", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "D-DevOps", "case": "SC-R02-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE", "case": "SC-R02-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "D-FinOps", "case": "SC-R02-W", "variant": "withheld", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "D-Sec", "case": "SC-R02-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B2-14", "case": "SC-R02-W", "variant": "withheld", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "D-DevOps-14", "case": "SC-R02-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE-14", "case": "SC-R02-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "D-FinOps-14", "case": "SC-R02-W", "variant": "withheld", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "D-Sec-14", "case": "SC-R02-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B1", "case": "SC-R03", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B2", "case": "SC-R03", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B1-12", "case": "SC-R03", "variant": "full", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "B1-14", "case": "SC-R03", "variant": "full", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "Dominant", "case": "SC-R03", "variant": "full", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysRollback", "case": "SC-R03", "variant": "full", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "SC-R03", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "BlockAnyCVE", "case": "SC-R03", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "D-DevOps", "case": "SC-R03", "variant": "full", "run": 0, "action": "Block release and fix pipeline", "error": null}
+{"decider": "D-SRE", "case": "SC-R03", "variant": "full", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "D-FinOps", "case": "SC-R03", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec", "case": "SC-R03", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B2-14", "case": "SC-R03", "variant": "full", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "D-DevOps-14", "case": "SC-R03", "variant": "full", "run": 0, "action": "Block release and fix pipeline", "error": null}
+{"decider": "D-SRE-14", "case": "SC-R03", "variant": "full", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "D-FinOps-14", "case": "SC-R03", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec-14", "case": "SC-R03", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B1", "case": "SC-R03-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "B2", "case": "SC-R03-W", "variant": "withheld", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B1-12", "case": "SC-R03-W", "variant": "withheld", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "B1-14", "case": "SC-R03-W", "variant": "withheld", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "Dominant", "case": "SC-R03-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "AlwaysRollback", "case": "SC-R03-W", "variant": "withheld", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "SC-R03-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "BlockAnyCVE", "case": "SC-R03-W", "variant": "withheld", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "D-DevOps", "case": "SC-R03-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE", "case": "SC-R03-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "D-FinOps", "case": "SC-R03-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec", "case": "SC-R03-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B2-14", "case": "SC-R03-W", "variant": "withheld", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "D-DevOps-14", "case": "SC-R03-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE-14", "case": "SC-R03-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "D-FinOps-14", "case": "SC-R03-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec-14", "case": "SC-R03-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B1", "case": "SC-S01", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B2", "case": "SC-S01", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B1-12", "case": "SC-S01", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B1-14", "case": "SC-S01", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "Dominant", "case": "SC-S01", "variant": "full", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "AlwaysRollback", "case": "SC-S01", "variant": "full", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "SC-S01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "BlockAnyCVE", "case": "SC-S01", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "D-DevOps", "case": "SC-S01", "variant": "full", "run": 0, "action": "Block release and fix pipeline", "error": null}
+{"decider": "D-SRE", "case": "SC-S01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-FinOps", "case": "SC-S01", "variant": "full", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "D-Sec", "case": "SC-S01", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B2-14", "case": "SC-S01", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "D-DevOps-14", "case": "SC-S01", "variant": "full", "run": 0, "action": "Block release and fix pipeline", "error": null}
+{"decider": "D-SRE-14", "case": "SC-S01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-FinOps-14", "case": "SC-S01", "variant": "full", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "D-Sec-14", "case": "SC-S01", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B1", "case": "SC-S01-W", "variant": "withheld", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "B2", "case": "SC-S01-W", "variant": "withheld", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B1-12", "case": "SC-S01-W", "variant": "withheld", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "B1-14", "case": "SC-S01-W", "variant": "withheld", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "Dominant", "case": "SC-S01-W", "variant": "withheld", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "AlwaysRollback", "case": "SC-S01-W", "variant": "withheld", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "SC-S01-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "BlockAnyCVE", "case": "SC-S01-W", "variant": "withheld", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "D-DevOps", "case": "SC-S01-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE", "case": "SC-S01-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-FinOps", "case": "SC-S01-W", "variant": "withheld", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "D-Sec", "case": "SC-S01-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B2-14", "case": "SC-S01-W", "variant": "withheld", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "D-DevOps-14", "case": "SC-S01-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE-14", "case": "SC-S01-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-FinOps-14", "case": "SC-S01-W", "variant": "withheld", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "D-Sec-14", "case": "SC-S01-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B1", "case": "SC-S02", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B2", "case": "SC-S02", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B1-12", "case": "SC-S02", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B1-14", "case": "SC-S02", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "Dominant", "case": "SC-S02", "variant": "full", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "AlwaysRollback", "case": "SC-S02", "variant": "full", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "SC-S02", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "BlockAnyCVE", "case": "SC-S02", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "D-DevOps", "case": "SC-S02", "variant": "full", "run": 0, "action": "Block release and fix pipeline", "error": null}
+{"decider": "D-SRE", "case": "SC-S02", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-FinOps", "case": "SC-S02", "variant": "full", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "D-Sec", "case": "SC-S02", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B2-14", "case": "SC-S02", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "D-DevOps-14", "case": "SC-S02", "variant": "full", "run": 0, "action": "Block release and fix pipeline", "error": null}
+{"decider": "D-SRE-14", "case": "SC-S02", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-FinOps-14", "case": "SC-S02", "variant": "full", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "D-Sec-14", "case": "SC-S02", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B1", "case": "SC-S02-W", "variant": "withheld", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "B2", "case": "SC-S02-W", "variant": "withheld", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B1-12", "case": "SC-S02-W", "variant": "withheld", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "B1-14", "case": "SC-S02-W", "variant": "withheld", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "Dominant", "case": "SC-S02-W", "variant": "withheld", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "AlwaysRollback", "case": "SC-S02-W", "variant": "withheld", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "SC-S02-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "BlockAnyCVE", "case": "SC-S02-W", "variant": "withheld", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "D-DevOps", "case": "SC-S02-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE", "case": "SC-S02-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-FinOps", "case": "SC-S02-W", "variant": "withheld", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "D-Sec", "case": "SC-S02-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B2-14", "case": "SC-S02-W", "variant": "withheld", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "D-DevOps-14", "case": "SC-S02-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE-14", "case": "SC-S02-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-FinOps-14", "case": "SC-S02-W", "variant": "withheld", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "D-Sec-14", "case": "SC-S02-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B1", "case": "SC-S03", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B2", "case": "SC-S03", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B1-12", "case": "SC-S03", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B1-14", "case": "SC-S03", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "Dominant", "case": "SC-S03", "variant": "full", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "AlwaysRollback", "case": "SC-S03", "variant": "full", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "SC-S03", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "BlockAnyCVE", "case": "SC-S03", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "D-DevOps", "case": "SC-S03", "variant": "full", "run": 0, "action": "Block release and fix pipeline", "error": null}
+{"decider": "D-SRE", "case": "SC-S03", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-FinOps", "case": "SC-S03", "variant": "full", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "D-Sec", "case": "SC-S03", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B2-14", "case": "SC-S03", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "D-DevOps-14", "case": "SC-S03", "variant": "full", "run": 0, "action": "Block release and fix pipeline", "error": null}
+{"decider": "D-SRE-14", "case": "SC-S03", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-FinOps-14", "case": "SC-S03", "variant": "full", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "D-Sec-14", "case": "SC-S03", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B1", "case": "SC-S03-W", "variant": "withheld", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "B2", "case": "SC-S03-W", "variant": "withheld", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B1-12", "case": "SC-S03-W", "variant": "withheld", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "B1-14", "case": "SC-S03-W", "variant": "withheld", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "Dominant", "case": "SC-S03-W", "variant": "withheld", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "AlwaysRollback", "case": "SC-S03-W", "variant": "withheld", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "SC-S03-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "BlockAnyCVE", "case": "SC-S03-W", "variant": "withheld", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "D-DevOps", "case": "SC-S03-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE", "case": "SC-S03-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-FinOps", "case": "SC-S03-W", "variant": "withheld", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "D-Sec", "case": "SC-S03-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B2-14", "case": "SC-S03-W", "variant": "withheld", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "D-DevOps-14", "case": "SC-S03-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE-14", "case": "SC-S03-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-FinOps-14", "case": "SC-S03-W", "variant": "withheld", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "D-Sec-14", "case": "SC-S03-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B1", "case": "SC-X01", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B2", "case": "SC-X01", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B1-12", "case": "SC-X01", "variant": "full", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "B1-14", "case": "SC-X01", "variant": "full", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "Dominant", "case": "SC-X01", "variant": "full", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysRollback", "case": "SC-X01", "variant": "full", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "SC-X01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "BlockAnyCVE", "case": "SC-X01", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "D-DevOps", "case": "SC-X01", "variant": "full", "run": 0, "action": "Block release and fix pipeline", "error": null}
+{"decider": "D-SRE", "case": "SC-X01", "variant": "full", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "D-FinOps", "case": "SC-X01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec", "case": "SC-X01", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B2-14", "case": "SC-X01", "variant": "full", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "D-DevOps-14", "case": "SC-X01", "variant": "full", "run": 0, "action": "Block release and fix pipeline", "error": null}
+{"decider": "D-SRE-14", "case": "SC-X01", "variant": "full", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "D-FinOps-14", "case": "SC-X01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec-14", "case": "SC-X01", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B1", "case": "SC-X01-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "B2", "case": "SC-X01-W", "variant": "withheld", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B1-12", "case": "SC-X01-W", "variant": "withheld", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "B1-14", "case": "SC-X01-W", "variant": "withheld", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "Dominant", "case": "SC-X01-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "AlwaysRollback", "case": "SC-X01-W", "variant": "withheld", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "SC-X01-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "BlockAnyCVE", "case": "SC-X01-W", "variant": "withheld", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "D-DevOps", "case": "SC-X01-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE", "case": "SC-X01-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "D-FinOps", "case": "SC-X01-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec", "case": "SC-X01-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B2-14", "case": "SC-X01-W", "variant": "withheld", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "D-DevOps-14", "case": "SC-X01-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE-14", "case": "SC-X01-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "D-FinOps-14", "case": "SC-X01-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec-14", "case": "SC-X01-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B1", "case": "SC-X02", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B2", "case": "SC-X02", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B1-12", "case": "SC-X02", "variant": "full", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "B1-14", "case": "SC-X02", "variant": "full", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "Dominant", "case": "SC-X02", "variant": "full", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "AlwaysRollback", "case": "SC-X02", "variant": "full", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "SC-X02", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "BlockAnyCVE", "case": "SC-X02", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "D-DevOps", "case": "SC-X02", "variant": "full", "run": 0, "action": "Block release and fix pipeline", "error": null}
+{"decider": "D-SRE", "case": "SC-X02", "variant": "full", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "D-FinOps", "case": "SC-X02", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec", "case": "SC-X02", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B2-14", "case": "SC-X02", "variant": "full", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "D-DevOps-14", "case": "SC-X02", "variant": "full", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "D-SRE-14", "case": "SC-X02", "variant": "full", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "D-FinOps-14", "case": "SC-X02", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec-14", "case": "SC-X02", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B1", "case": "SC-X02-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "B2", "case": "SC-X02-W", "variant": "withheld", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B1-12", "case": "SC-X02-W", "variant": "withheld", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "B1-14", "case": "SC-X02-W", "variant": "withheld", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "Dominant", "case": "SC-X02-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "AlwaysRollback", "case": "SC-X02-W", "variant": "withheld", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "SC-X02-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "BlockAnyCVE", "case": "SC-X02-W", "variant": "withheld", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "D-DevOps", "case": "SC-X02-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE", "case": "SC-X02-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "D-FinOps", "case": "SC-X02-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec", "case": "SC-X02-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B2-14", "case": "SC-X02-W", "variant": "withheld", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "D-DevOps-14", "case": "SC-X02-W", "variant": "withheld", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "D-SRE-14", "case": "SC-X02-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "D-FinOps-14", "case": "SC-X02-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec-14", "case": "SC-X02-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B1", "case": "SF-C01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B2", "case": "SF-C01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B1-12", "case": "SF-C01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B1-14", "case": "SF-C01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "Dominant", "case": "SF-C01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "AlwaysRollback", "case": "SF-C01", "variant": "full", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "SF-C01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "BlockAnyCVE", "case": "SF-C01", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "D-DevOps", "case": "SF-C01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE", "case": "SF-C01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-FinOps", "case": "SF-C01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec", "case": "SF-C01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B2-14", "case": "SF-C01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-DevOps-14", "case": "SF-C01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE-14", "case": "SF-C01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-FinOps-14", "case": "SF-C01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec-14", "case": "SF-C01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B1", "case": "SF-D01", "variant": "full", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "B2", "case": "SF-D01", "variant": "full", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "B1-12", "case": "SF-D01", "variant": "full", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "B1-14", "case": "SF-D01", "variant": "full", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "Dominant", "case": "SF-D01", "variant": "full", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "AlwaysRollback", "case": "SF-D01", "variant": "full", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "SF-D01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "BlockAnyCVE", "case": "SF-D01", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "D-DevOps", "case": "SF-D01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE", "case": "SF-D01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-FinOps", "case": "SF-D01", "variant": "full", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "D-Sec", "case": "SF-D01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B2-14", "case": "SF-D01", "variant": "full", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "D-DevOps-14", "case": "SF-D01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE-14", "case": "SF-D01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-FinOps-14", "case": "SF-D01", "variant": "full", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "D-Sec-14", "case": "SF-D01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B1", "case": "SF-K01", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B2", "case": "SF-K01", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B1-12", "case": "SF-K01", "variant": "full", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "B1-14", "case": "SF-K01", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "Dominant", "case": "SF-K01", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "AlwaysRollback", "case": "SF-K01", "variant": "full", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "SF-K01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "BlockAnyCVE", "case": "SF-K01", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "D-DevOps", "case": "SF-K01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE", "case": "SF-K01", "variant": "full", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "D-FinOps", "case": "SF-K01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec", "case": "SF-K01", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B2-14", "case": "SF-K01", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "D-DevOps-14", "case": "SF-K01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE-14", "case": "SF-K01", "variant": "full", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "D-FinOps-14", "case": "SF-K01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec-14", "case": "SF-K01", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B1", "case": "SF-K01-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "B2", "case": "SF-K01-W", "variant": "withheld", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B1-12", "case": "SF-K01-W", "variant": "withheld", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "B1-14", "case": "SF-K01-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "Dominant", "case": "SF-K01-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "AlwaysRollback", "case": "SF-K01-W", "variant": "withheld", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "SF-K01-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "BlockAnyCVE", "case": "SF-K01-W", "variant": "withheld", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "D-DevOps", "case": "SF-K01-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE", "case": "SF-K01-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "D-FinOps", "case": "SF-K01-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec", "case": "SF-K01-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B2-14", "case": "SF-K01-W", "variant": "withheld", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "D-DevOps-14", "case": "SF-K01-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE-14", "case": "SF-K01-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "D-FinOps-14", "case": "SF-K01-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec-14", "case": "SF-K01-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B1", "case": "SF-K02", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B2", "case": "SF-K02", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B1-12", "case": "SF-K02", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B1-14", "case": "SF-K02", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "Dominant", "case": "SF-K02", "variant": "full", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysRollback", "case": "SF-K02", "variant": "full", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "SF-K02", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "BlockAnyCVE", "case": "SF-K02", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "D-DevOps", "case": "SF-K02", "variant": "full", "run": 0, "action": "Block release and fix pipeline", "error": null}
+{"decider": "D-SRE", "case": "SF-K02", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-FinOps", "case": "SF-K02", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec", "case": "SF-K02", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B2-14", "case": "SF-K02", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "D-DevOps-14", "case": "SF-K02", "variant": "full", "run": 0, "action": "Block release and fix pipeline", "error": null}
+{"decider": "D-SRE-14", "case": "SF-K02", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-FinOps-14", "case": "SF-K02", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec-14", "case": "SF-K02", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B1", "case": "SF-K02-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B2", "case": "SF-K02-W", "variant": "withheld", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B1-12", "case": "SF-K02-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B1-14", "case": "SF-K02-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "Dominant", "case": "SF-K02-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "AlwaysRollback", "case": "SF-K02-W", "variant": "withheld", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "SF-K02-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "BlockAnyCVE", "case": "SF-K02-W", "variant": "withheld", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "D-DevOps", "case": "SF-K02-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE", "case": "SF-K02-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-FinOps", "case": "SF-K02-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec", "case": "SF-K02-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B2-14", "case": "SF-K02-W", "variant": "withheld", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "D-DevOps-14", "case": "SF-K02-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE-14", "case": "SF-K02-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-FinOps-14", "case": "SF-K02-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec-14", "case": "SF-K02-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B1", "case": "SF-L01", "variant": "full", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "B2", "case": "SF-L01", "variant": "full", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "B1-12", "case": "SF-L01", "variant": "full", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "B1-14", "case": "SF-L01", "variant": "full", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "Dominant", "case": "SF-L01", "variant": "full", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "AlwaysRollback", "case": "SF-L01", "variant": "full", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "SF-L01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "BlockAnyCVE", "case": "SF-L01", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "D-DevOps", "case": "SF-L01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE", "case": "SF-L01", "variant": "full", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "D-FinOps", "case": "SF-L01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec", "case": "SF-L01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B2-14", "case": "SF-L01", "variant": "full", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "D-DevOps-14", "case": "SF-L01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE-14", "case": "SF-L01", "variant": "full", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "D-FinOps-14", "case": "SF-L01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec-14", "case": "SF-L01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B1", "case": "SF-L02", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B2", "case": "SF-L02", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B1-12", "case": "SF-L02", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B1-14", "case": "SF-L02", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "Dominant", "case": "SF-L02", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "AlwaysRollback", "case": "SF-L02", "variant": "full", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "SF-L02", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "BlockAnyCVE", "case": "SF-L02", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "D-DevOps", "case": "SF-L02", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE", "case": "SF-L02", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-FinOps", "case": "SF-L02", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec", "case": "SF-L02", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B2-14", "case": "SF-L02", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-DevOps-14", "case": "SF-L02", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE-14", "case": "SF-L02", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-FinOps-14", "case": "SF-L02", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec-14", "case": "SF-L02", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B1", "case": "SF-L03", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B2", "case": "SF-L03", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B1-12", "case": "SF-L03", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B1-14", "case": "SF-L03", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "Dominant", "case": "SF-L03", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "AlwaysRollback", "case": "SF-L03", "variant": "full", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "SF-L03", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "BlockAnyCVE", "case": "SF-L03", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "D-DevOps", "case": "SF-L03", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE", "case": "SF-L03", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-FinOps", "case": "SF-L03", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec", "case": "SF-L03", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B2-14", "case": "SF-L03", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-DevOps-14", "case": "SF-L03", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE-14", "case": "SF-L03", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-FinOps-14", "case": "SF-L03", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec-14", "case": "SF-L03", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B1", "case": "SF-L04", "variant": "full", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "B2", "case": "SF-L04", "variant": "full", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "B1-12", "case": "SF-L04", "variant": "full", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "B1-14", "case": "SF-L04", "variant": "full", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "Dominant", "case": "SF-L04", "variant": "full", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "AlwaysRollback", "case": "SF-L04", "variant": "full", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "SF-L04", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "BlockAnyCVE", "case": "SF-L04", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "D-DevOps", "case": "SF-L04", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE", "case": "SF-L04", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-FinOps", "case": "SF-L04", "variant": "full", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "D-Sec", "case": "SF-L04", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B2-14", "case": "SF-L04", "variant": "full", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "D-DevOps-14", "case": "SF-L04", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE-14", "case": "SF-L04", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-FinOps-14", "case": "SF-L04", "variant": "full", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "D-Sec-14", "case": "SF-L04", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B1", "case": "SF-P01", "variant": "full", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "B2", "case": "SF-P01", "variant": "full", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "B1-12", "case": "SF-P01", "variant": "full", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "B1-14", "case": "SF-P01", "variant": "full", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "Dominant", "case": "SF-P01", "variant": "full", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "AlwaysRollback", "case": "SF-P01", "variant": "full", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "SF-P01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "BlockAnyCVE", "case": "SF-P01", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "D-DevOps", "case": "SF-P01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE", "case": "SF-P01", "variant": "full", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "D-FinOps", "case": "SF-P01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec", "case": "SF-P01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B2-14", "case": "SF-P01", "variant": "full", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "D-DevOps-14", "case": "SF-P01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE-14", "case": "SF-P01", "variant": "full", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "D-FinOps-14", "case": "SF-P01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec-14", "case": "SF-P01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B1", "case": "SF-P01-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B2", "case": "SF-P01-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "B1-12", "case": "SF-P01-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B1-14", "case": "SF-P01-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "Dominant", "case": "SF-P01-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "AlwaysRollback", "case": "SF-P01-W", "variant": "withheld", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "SF-P01-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "BlockAnyCVE", "case": "SF-P01-W", "variant": "withheld", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "D-DevOps", "case": "SF-P01-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE", "case": "SF-P01-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-FinOps", "case": "SF-P01-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec", "case": "SF-P01-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B2-14", "case": "SF-P01-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "D-DevOps-14", "case": "SF-P01-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE-14", "case": "SF-P01-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-FinOps-14", "case": "SF-P01-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec-14", "case": "SF-P01-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B1", "case": "SF-P02", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B2", "case": "SF-P02", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B1-12", "case": "SF-P02", "variant": "full", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "B1-14", "case": "SF-P02", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "Dominant", "case": "SF-P02", "variant": "full", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "AlwaysRollback", "case": "SF-P02", "variant": "full", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "SF-P02", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "BlockAnyCVE", "case": "SF-P02", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "D-DevOps", "case": "SF-P02", "variant": "full", "run": 0, "action": "Block release and fix pipeline", "error": null}
+{"decider": "D-SRE", "case": "SF-P02", "variant": "full", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "D-FinOps", "case": "SF-P02", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec", "case": "SF-P02", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B2-14", "case": "SF-P02", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "D-DevOps-14", "case": "SF-P02", "variant": "full", "run": 0, "action": "Block release and fix pipeline", "error": null}
+{"decider": "D-SRE-14", "case": "SF-P02", "variant": "full", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "D-FinOps-14", "case": "SF-P02", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec-14", "case": "SF-P02", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B1", "case": "SF-P02-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "B2", "case": "SF-P02-W", "variant": "withheld", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B1-12", "case": "SF-P02-W", "variant": "withheld", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "B1-14", "case": "SF-P02-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "Dominant", "case": "SF-P02-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "AlwaysRollback", "case": "SF-P02-W", "variant": "withheld", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "SF-P02-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "BlockAnyCVE", "case": "SF-P02-W", "variant": "withheld", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "D-DevOps", "case": "SF-P02-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE", "case": "SF-P02-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "D-FinOps", "case": "SF-P02-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec", "case": "SF-P02-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B2-14", "case": "SF-P02-W", "variant": "withheld", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "D-DevOps-14", "case": "SF-P02-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE-14", "case": "SF-P02-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "D-FinOps-14", "case": "SF-P02-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec-14", "case": "SF-P02-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B1", "case": "SF-P03", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B2", "case": "SF-P03", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B1-12", "case": "SF-P03", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B1-14", "case": "SF-P03", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "Dominant", "case": "SF-P03", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "AlwaysRollback", "case": "SF-P03", "variant": "full", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "SF-P03", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "BlockAnyCVE", "case": "SF-P03", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "D-DevOps", "case": "SF-P03", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE", "case": "SF-P03", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-FinOps", "case": "SF-P03", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec", "case": "SF-P03", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B2-14", "case": "SF-P03", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "D-DevOps-14", "case": "SF-P03", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE-14", "case": "SF-P03", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-FinOps-14", "case": "SF-P03", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec-14", "case": "SF-P03", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B1", "case": "SF-P03-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B2", "case": "SF-P03-W", "variant": "withheld", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B1-12", "case": "SF-P03-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B1-14", "case": "SF-P03-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "Dominant", "case": "SF-P03-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "AlwaysRollback", "case": "SF-P03-W", "variant": "withheld", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "SF-P03-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "BlockAnyCVE", "case": "SF-P03-W", "variant": "withheld", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "D-DevOps", "case": "SF-P03-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE", "case": "SF-P03-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-FinOps", "case": "SF-P03-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec", "case": "SF-P03-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B2-14", "case": "SF-P03-W", "variant": "withheld", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "D-DevOps-14", "case": "SF-P03-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE-14", "case": "SF-P03-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-FinOps-14", "case": "SF-P03-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec-14", "case": "SF-P03-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B1", "case": "SF-R01", "variant": "full", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "B2", "case": "SF-R01", "variant": "full", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "B1-12", "case": "SF-R01", "variant": "full", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "B1-14", "case": "SF-R01", "variant": "full", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "Dominant", "case": "SF-R01", "variant": "full", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "AlwaysRollback", "case": "SF-R01", "variant": "full", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "SF-R01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "BlockAnyCVE", "case": "SF-R01", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "D-DevOps", "case": "SF-R01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE", "case": "SF-R01", "variant": "full", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "D-FinOps", "case": "SF-R01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec", "case": "SF-R01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B2-14", "case": "SF-R01", "variant": "full", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "D-DevOps-14", "case": "SF-R01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE-14", "case": "SF-R01", "variant": "full", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "D-FinOps-14", "case": "SF-R01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec-14", "case": "SF-R01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B1", "case": "SF-R01-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "B2", "case": "SF-R01-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "B1-12", "case": "SF-R01-W", "variant": "withheld", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "B1-14", "case": "SF-R01-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "Dominant", "case": "SF-R01-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "AlwaysRollback", "case": "SF-R01-W", "variant": "withheld", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "SF-R01-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "BlockAnyCVE", "case": "SF-R01-W", "variant": "withheld", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "D-DevOps", "case": "SF-R01-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE", "case": "SF-R01-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "D-FinOps", "case": "SF-R01-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec", "case": "SF-R01-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B2-14", "case": "SF-R01-W", "variant": "withheld", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "D-DevOps-14", "case": "SF-R01-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE-14", "case": "SF-R01-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "D-FinOps-14", "case": "SF-R01-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec-14", "case": "SF-R01-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B1", "case": "SF-R02", "variant": "full", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "B2", "case": "SF-R02", "variant": "full", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "B1-12", "case": "SF-R02", "variant": "full", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "B1-14", "case": "SF-R02", "variant": "full", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "Dominant", "case": "SF-R02", "variant": "full", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "AlwaysRollback", "case": "SF-R02", "variant": "full", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "SF-R02", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "BlockAnyCVE", "case": "SF-R02", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "D-DevOps", "case": "SF-R02", "variant": "full", "run": 0, "action": "Block release and fix pipeline", "error": null}
+{"decider": "D-SRE", "case": "SF-R02", "variant": "full", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "D-FinOps", "case": "SF-R02", "variant": "full", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "D-Sec", "case": "SF-R02", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B2-14", "case": "SF-R02", "variant": "full", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "D-DevOps-14", "case": "SF-R02", "variant": "full", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "D-SRE-14", "case": "SF-R02", "variant": "full", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "D-FinOps-14", "case": "SF-R02", "variant": "full", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "D-Sec-14", "case": "SF-R02", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B1", "case": "SF-R02-W", "variant": "withheld", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "B2", "case": "SF-R02-W", "variant": "withheld", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "B1-12", "case": "SF-R02-W", "variant": "withheld", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "B1-14", "case": "SF-R02-W", "variant": "withheld", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "Dominant", "case": "SF-R02-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "AlwaysRollback", "case": "SF-R02-W", "variant": "withheld", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "SF-R02-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "BlockAnyCVE", "case": "SF-R02-W", "variant": "withheld", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "D-DevOps", "case": "SF-R02-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE", "case": "SF-R02-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "D-FinOps", "case": "SF-R02-W", "variant": "withheld", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "D-Sec", "case": "SF-R02-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B2-14", "case": "SF-R02-W", "variant": "withheld", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "D-DevOps-14", "case": "SF-R02-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE-14", "case": "SF-R02-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "D-FinOps-14", "case": "SF-R02-W", "variant": "withheld", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "D-Sec-14", "case": "SF-R02-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B1", "case": "SF-R03", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B2", "case": "SF-R03", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B1-12", "case": "SF-R03", "variant": "full", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "B1-14", "case": "SF-R03", "variant": "full", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "Dominant", "case": "SF-R03", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "AlwaysRollback", "case": "SF-R03", "variant": "full", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "SF-R03", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "BlockAnyCVE", "case": "SF-R03", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "D-DevOps", "case": "SF-R03", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE", "case": "SF-R03", "variant": "full", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "D-FinOps", "case": "SF-R03", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec", "case": "SF-R03", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B2-14", "case": "SF-R03", "variant": "full", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "D-DevOps-14", "case": "SF-R03", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE-14", "case": "SF-R03", "variant": "full", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "D-FinOps-14", "case": "SF-R03", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec-14", "case": "SF-R03", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B1", "case": "SF-R03-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "B2", "case": "SF-R03-W", "variant": "withheld", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B1-12", "case": "SF-R03-W", "variant": "withheld", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "B1-14", "case": "SF-R03-W", "variant": "withheld", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "Dominant", "case": "SF-R03-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "AlwaysRollback", "case": "SF-R03-W", "variant": "withheld", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "SF-R03-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "BlockAnyCVE", "case": "SF-R03-W", "variant": "withheld", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "D-DevOps", "case": "SF-R03-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE", "case": "SF-R03-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "D-FinOps", "case": "SF-R03-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec", "case": "SF-R03-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B2-14", "case": "SF-R03-W", "variant": "withheld", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "D-DevOps-14", "case": "SF-R03-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE-14", "case": "SF-R03-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "D-FinOps-14", "case": "SF-R03-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec-14", "case": "SF-R03-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B1", "case": "SF-S01", "variant": "full", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "B2", "case": "SF-S01", "variant": "full", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "B1-12", "case": "SF-S01", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B1-14", "case": "SF-S01", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "Dominant", "case": "SF-S01", "variant": "full", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "AlwaysRollback", "case": "SF-S01", "variant": "full", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "SF-S01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "BlockAnyCVE", "case": "SF-S01", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "D-DevOps", "case": "SF-S01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE", "case": "SF-S01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-FinOps", "case": "SF-S01", "variant": "full", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "D-Sec", "case": "SF-S01", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B2-14", "case": "SF-S01", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "D-DevOps-14", "case": "SF-S01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE-14", "case": "SF-S01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-FinOps-14", "case": "SF-S01", "variant": "full", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "D-Sec-14", "case": "SF-S01", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B1", "case": "SF-S01-W", "variant": "withheld", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "B2", "case": "SF-S01-W", "variant": "withheld", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "B1-12", "case": "SF-S01-W", "variant": "withheld", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "B1-14", "case": "SF-S01-W", "variant": "withheld", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "Dominant", "case": "SF-S01-W", "variant": "withheld", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "AlwaysRollback", "case": "SF-S01-W", "variant": "withheld", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "SF-S01-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "BlockAnyCVE", "case": "SF-S01-W", "variant": "withheld", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "D-DevOps", "case": "SF-S01-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE", "case": "SF-S01-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-FinOps", "case": "SF-S01-W", "variant": "withheld", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "D-Sec", "case": "SF-S01-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B2-14", "case": "SF-S01-W", "variant": "withheld", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "D-DevOps-14", "case": "SF-S01-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE-14", "case": "SF-S01-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-FinOps-14", "case": "SF-S01-W", "variant": "withheld", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "D-Sec-14", "case": "SF-S01-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B1", "case": "SF-S02", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B2", "case": "SF-S02", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B1-12", "case": "SF-S02", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B1-14", "case": "SF-S02", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "Dominant", "case": "SF-S02", "variant": "full", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "AlwaysRollback", "case": "SF-S02", "variant": "full", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "SF-S02", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "BlockAnyCVE", "case": "SF-S02", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "D-DevOps", "case": "SF-S02", "variant": "full", "run": 0, "action": "Block release and fix pipeline", "error": null}
+{"decider": "D-SRE", "case": "SF-S02", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-FinOps", "case": "SF-S02", "variant": "full", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "D-Sec", "case": "SF-S02", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B2-14", "case": "SF-S02", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "D-DevOps-14", "case": "SF-S02", "variant": "full", "run": 0, "action": "Block release and fix pipeline", "error": null}
+{"decider": "D-SRE-14", "case": "SF-S02", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-FinOps-14", "case": "SF-S02", "variant": "full", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "D-Sec-14", "case": "SF-S02", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B1", "case": "SF-S02-W", "variant": "withheld", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "B2", "case": "SF-S02-W", "variant": "withheld", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B1-12", "case": "SF-S02-W", "variant": "withheld", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "B1-14", "case": "SF-S02-W", "variant": "withheld", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "Dominant", "case": "SF-S02-W", "variant": "withheld", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "AlwaysRollback", "case": "SF-S02-W", "variant": "withheld", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "SF-S02-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "BlockAnyCVE", "case": "SF-S02-W", "variant": "withheld", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "D-DevOps", "case": "SF-S02-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE", "case": "SF-S02-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-FinOps", "case": "SF-S02-W", "variant": "withheld", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "D-Sec", "case": "SF-S02-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B2-14", "case": "SF-S02-W", "variant": "withheld", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "D-DevOps-14", "case": "SF-S02-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE-14", "case": "SF-S02-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-FinOps-14", "case": "SF-S02-W", "variant": "withheld", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "D-Sec-14", "case": "SF-S02-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B1", "case": "SF-S03", "variant": "full", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "B2", "case": "SF-S03", "variant": "full", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "B1-12", "case": "SF-S03", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B1-14", "case": "SF-S03", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "Dominant", "case": "SF-S03", "variant": "full", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "AlwaysRollback", "case": "SF-S03", "variant": "full", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "SF-S03", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "BlockAnyCVE", "case": "SF-S03", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "D-DevOps", "case": "SF-S03", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE", "case": "SF-S03", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-FinOps", "case": "SF-S03", "variant": "full", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "D-Sec", "case": "SF-S03", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B2-14", "case": "SF-S03", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "D-DevOps-14", "case": "SF-S03", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE-14", "case": "SF-S03", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-FinOps-14", "case": "SF-S03", "variant": "full", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "D-Sec-14", "case": "SF-S03", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B1", "case": "SF-S03-W", "variant": "withheld", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "B2", "case": "SF-S03-W", "variant": "withheld", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "B1-12", "case": "SF-S03-W", "variant": "withheld", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "B1-14", "case": "SF-S03-W", "variant": "withheld", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "Dominant", "case": "SF-S03-W", "variant": "withheld", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "AlwaysRollback", "case": "SF-S03-W", "variant": "withheld", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "SF-S03-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "BlockAnyCVE", "case": "SF-S03-W", "variant": "withheld", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "D-DevOps", "case": "SF-S03-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE", "case": "SF-S03-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-FinOps", "case": "SF-S03-W", "variant": "withheld", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "D-Sec", "case": "SF-S03-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B2-14", "case": "SF-S03-W", "variant": "withheld", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "D-DevOps-14", "case": "SF-S03-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE-14", "case": "SF-S03-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-FinOps-14", "case": "SF-S03-W", "variant": "withheld", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "D-Sec-14", "case": "SF-S03-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B1", "case": "SF-X01", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B2", "case": "SF-X01", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B1-12", "case": "SF-X01", "variant": "full", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "B1-14", "case": "SF-X01", "variant": "full", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "Dominant", "case": "SF-X01", "variant": "full", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "AlwaysRollback", "case": "SF-X01", "variant": "full", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "SF-X01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "BlockAnyCVE", "case": "SF-X01", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "D-DevOps", "case": "SF-X01", "variant": "full", "run": 0, "action": "Block release and fix pipeline", "error": null}
+{"decider": "D-SRE", "case": "SF-X01", "variant": "full", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "D-FinOps", "case": "SF-X01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec", "case": "SF-X01", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B2-14", "case": "SF-X01", "variant": "full", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "D-DevOps-14", "case": "SF-X01", "variant": "full", "run": 0, "action": "Block release and fix pipeline", "error": null}
+{"decider": "D-SRE-14", "case": "SF-X01", "variant": "full", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "D-FinOps-14", "case": "SF-X01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec-14", "case": "SF-X01", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B1", "case": "SF-X01-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "B2", "case": "SF-X01-W", "variant": "withheld", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B1-12", "case": "SF-X01-W", "variant": "withheld", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "B1-14", "case": "SF-X01-W", "variant": "withheld", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "Dominant", "case": "SF-X01-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "AlwaysRollback", "case": "SF-X01-W", "variant": "withheld", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "SF-X01-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "BlockAnyCVE", "case": "SF-X01-W", "variant": "withheld", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "D-DevOps", "case": "SF-X01-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE", "case": "SF-X01-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "D-FinOps", "case": "SF-X01-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec", "case": "SF-X01-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B2-14", "case": "SF-X01-W", "variant": "withheld", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "D-DevOps-14", "case": "SF-X01-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE-14", "case": "SF-X01-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "D-FinOps-14", "case": "SF-X01-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec-14", "case": "SF-X01-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B1", "case": "SF-X02", "variant": "full", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "B2", "case": "SF-X02", "variant": "full", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "B1-12", "case": "SF-X02", "variant": "full", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "B1-14", "case": "SF-X02", "variant": "full", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "Dominant", "case": "SF-X02", "variant": "full", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "AlwaysRollback", "case": "SF-X02", "variant": "full", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "SF-X02", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "BlockAnyCVE", "case": "SF-X02", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "D-DevOps", "case": "SF-X02", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE", "case": "SF-X02", "variant": "full", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "D-FinOps", "case": "SF-X02", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec", "case": "SF-X02", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B2-14", "case": "SF-X02", "variant": "full", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "D-DevOps-14", "case": "SF-X02", "variant": "full", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "D-SRE-14", "case": "SF-X02", "variant": "full", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "D-FinOps-14", "case": "SF-X02", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec-14", "case": "SF-X02", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B1", "case": "SF-X02-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "B2", "case": "SF-X02-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "B1-12", "case": "SF-X02-W", "variant": "withheld", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "B1-14", "case": "SF-X02-W", "variant": "withheld", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "Dominant", "case": "SF-X02-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "AlwaysRollback", "case": "SF-X02-W", "variant": "withheld", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "SF-X02-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "BlockAnyCVE", "case": "SF-X02-W", "variant": "withheld", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "D-DevOps", "case": "SF-X02-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE", "case": "SF-X02-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "D-FinOps", "case": "SF-X02-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec", "case": "SF-X02-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B2-14", "case": "SF-X02-W", "variant": "withheld", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "D-DevOps-14", "case": "SF-X02-W", "variant": "withheld", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "D-SRE-14", "case": "SF-X02-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "D-FinOps-14", "case": "SF-X02-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec-14", "case": "SF-X02-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
