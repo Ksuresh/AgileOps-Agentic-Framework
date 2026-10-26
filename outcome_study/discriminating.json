@@ -1,0 +1,342 @@
+{
+  "outcome_study": {
+    "primary": "AAF",
+    "n_faults": 30,
+    "n_discriminating": 26,
+    "non_discriminating": [
+      "OS-07",
+      "OS-08",
+      "OX-09",
+      "OX-10"
+    ],
+    "correct_all_faults": {
+      "AAF": 21,
+      "B1": 21,
+      "D-DevOps": 11,
+      "D-SRE": 6,
+      "D-FinOps": 8,
+      "D-Sec": 19,
+      "B5": 22,
+      "B6": 22,
+      "AlwaysRollback": 21,
+      "AlwaysNone": 4
+    },
+    "correct_discriminating": {
+      "AAF": 17,
+      "B1": 17,
+      "D-DevOps": 7,
+      "D-SRE": 2,
+      "D-FinOps": 4,
+      "D-Sec": 15,
+      "B5": 18,
+      "B6": 18,
+      "AlwaysRollback": 17,
+      "AlwaysNone": 0
+    },
+    "tests_discriminating": {
+      "siloed": {
+        "D-DevOps": {
+          "a_only": 13,
+          "b_only": 3,
+          "p_exact": 0.021270751953125,
+          "p_holm": 0.04254150390625
+        },
+        "D-SRE": {
+          "a_only": 15,
+          "b_only": 0,
+          "p_exact": 6.103515625e-05,
+          "p_holm": 0.000244140625
+        },
+        "D-FinOps": {
+          "a_only": 13,
+          "b_only": 0,
+          "p_exact": 0.000244140625,
+          "p_holm": 0.000732421875
+        },
+        "D-Sec": {
+          "a_only": 4,
+          "b_only": 2,
+          "p_exact": 0.6875,
+          "p_holm": 0.6875
+        }
+      },
+      "llm_and_policies": {
+        "B5": {
+          "a_only": 5,
+          "b_only": 6,
+          "p_exact": 1.0,
+          "p_holm": 1.0
+        },
+        "B6": {
+          "a_only": 3,
+          "b_only": 4,
+          "p_exact": 1.0,
+          "p_holm": 1.0
+        },
+        "AlwaysRollback": {
+          "a_only": 7,
+          "b_only": 7,
+          "p_exact": 1.0,
+          "p_holm": 1.0
+        }
+      }
+    }
+  },
+  "outcome_study12": {
+    "primary": "AAF-12",
+    "n_faults": 24,
+    "n_discriminating": 22,
+    "non_discriminating": [
+      "PD-01",
+      "PP-02"
+    ],
+    "correct_all_faults": {
+      "AAF": 18,
+      "AAF-12": 20,
+      "B1": 18,
+      "D-DevOps": 9,
+      "D-SRE": 8,
+      "D-FinOps": 8,
+      "D-Sec": 15,
+      "B5": 20,
+      "B6": 18,
+      "AlwaysRollback": 15,
+      "AlwaysNone": 3
+    },
+    "correct_discriminating": {
+      "AAF": 16,
+      "AAF-12": 18,
+      "B1": 16,
+      "D-DevOps": 7,
+      "D-SRE": 6,
+      "D-FinOps": 6,
+      "D-Sec": 13,
+      "B5": 18,
+      "B6": 16,
+      "AlwaysRollback": 13,
+      "AlwaysNone": 1
+    },
+    "tests_discriminating": {
+      "siloed": {
+        "D-DevOps": {
+          "a_only": 11,
+          "b_only": 0,
+          "p_exact": 0.0009765625,
+          "p_holm": 0.0029296875
+        },
+        "D-SRE": {
+          "a_only": 14,
+          "b_only": 2,
+          "p_exact": 0.004180908203125,
+          "p_holm": 0.00836181640625
+        },
+        "D-FinOps": {
+          "a_only": 12,
+          "b_only": 0,
+          "p_exact": 0.00048828125,
+          "p_holm": 0.001953125
+        },
+        "D-Sec": {
+          "a_only": 7,
+          "b_only": 2,
+          "p_exact": 0.1796875,
+          "p_holm": 0.1796875
+        }
+      },
+      "llm_and_policies": {
+        "B5": {
+          "a_only": 3,
+          "b_only": 3,
+          "p_exact": 1.0,
+          "p_holm": 1.0
+        },
+        "B6": {
+          "a_only": 6,
+          "b_only": 4,
+          "p_exact": 0.75390625,
+          "p_holm": 1.0
+        },
+        "AlwaysRollback": {
+          "a_only": 5,
+          "b_only": 0,
+          "p_exact": 0.0625,
+          "p_holm": 0.1875
+        }
+      }
+    }
+  },
+  "outcome_study13": {
+    "primary": "AAF-12",
+    "n_faults": 5,
+    "n_discriminating": 4,
+    "non_discriminating": [
+      "LR-01"
+    ],
+    "correct_all_faults": {
+      "AAF": 3,
+      "AAF-12": 5,
+      "B1": 3,
+      "D-DevOps": 2,
+      "D-SRE": 1,
+      "D-FinOps": 2,
+      "D-Sec": 5,
+      "B5": 3,
+      "B6": 5,
+      "AlwaysRollback": 5,
+      "AlwaysNone": 2,
+      "BlockAnyCVE": 5
+    },
+    "correct_discriminating": {
+      "AAF": 2,
+      "AAF-12": 4,
+      "B1": 2,
+      "D-DevOps": 1,
+      "D-SRE": 0,
+      "D-FinOps": 1,
+      "D-Sec": 4,
+      "B5": 2,
+      "B6": 4,
+      "AlwaysRollback": 4,
+      "AlwaysNone": 1,
+      "BlockAnyCVE": 4
+    },
+    "tests_discriminating": {
+      "siloed": {
+        "D-DevOps": {
+          "a_only": 3,
+          "b_only": 0,
+          "p_exact": 0.25,
+          "p_holm": 0.75
+        },
+        "D-SRE": {
+          "a_only": 4,
+          "b_only": 0,
+          "p_exact": 0.125,
+          "p_holm": 0.5
+        },
+        "D-FinOps": {
+          "a_only": 3,
+          "b_only": 0,
+          "p_exact": 0.25,
+          "p_holm": 0.75
+        },
+        "D-Sec": {
+          "a_only": 0,
+          "b_only": 0,
+          "p_exact": 1.0,
+          "p_holm": 1.0
+        }
+      },
+      "llm_and_policies": {
+        "B5": {
+          "a_only": 2,
+          "b_only": 0,
+          "p_exact": 0.5,
+          "p_holm": 1.0
+        },
+        "B6": {
+          "a_only": 0,
+          "b_only": 0,
+          "p_exact": 1.0,
+          "p_holm": 1.0
+        },
+        "AlwaysRollback": {
+          "a_only": 0,
+          "b_only": 0,
+          "p_exact": 1.0,
+          "p_holm": 1.0
+        }
+      }
+    }
+  },
+  "outcome_study14": {
+    "primary": "AAF-14",
+    "n_faults": 34,
+    "n_discriminating": 29,
+    "non_discriminating": [
+      "QF-D01",
+      "QF-P04",
+      "QP-P01",
+      "QP-R01",
+      "QP-R02"
+    ],
+    "correct_all_faults": {
+      "AAF": 25,
+      "AAF-14": 34,
+      "B1": 25,
+      "B1-14": 34,
+      "D-DevOps": 14,
+      "D-SRE": 9,
+      "D-FinOps": 11,
+      "D-Sec": 26,
+      "B5": 26,
+      "B6": 29,
+      "AlwaysRollback": 26,
+      "AlwaysNone": 6,
+      "BlockAnyCVE": 26
+    },
+    "correct_discriminating": {
+      "AAF": 20,
+      "AAF-14": 29,
+      "B1": 20,
+      "B1-14": 29,
+      "D-DevOps": 9,
+      "D-SRE": 4,
+      "D-FinOps": 6,
+      "D-Sec": 21,
+      "B5": 21,
+      "B6": 24,
+      "AlwaysRollback": 21,
+      "AlwaysNone": 1,
+      "BlockAnyCVE": 21
+    },
+    "tests_discriminating": {
+      "siloed": {
+        "D-DevOps": {
+          "a_only": 20,
+          "b_only": 0,
+          "p_exact": 1.9073486328125e-06,
+          "p_holm": 3.814697265625e-06
+        },
+        "D-SRE": {
+          "a_only": 25,
+          "b_only": 0,
+          "p_exact": 5.960464477539063e-08,
+          "p_holm": 2.384185791015625e-07
+        },
+        "D-FinOps": {
+          "a_only": 23,
+          "b_only": 0,
+          "p_exact": 2.384185791015625e-07,
+          "p_holm": 7.152557373046875e-07
+        },
+        "D-Sec": {
+          "a_only": 8,
+          "b_only": 0,
+          "p_exact": 0.0078125,
+          "p_holm": 0.0078125
+        }
+      },
+      "llm_and_policies": {
+        "B5": {
+          "a_only": 8,
+          "b_only": 0,
+          "p_exact": 0.0078125,
+          "p_holm": 0.0234375
+        },
+        "B6": {
+          "a_only": 5,
+          "b_only": 0,
+          "p_exact": 0.0625,
+          "p_holm": 0.0625
+        },
+        "AlwaysRollback": {
+          "a_only": 8,
+          "b_only": 0,
+          "p_exact": 0.0078125,
+          "p_holm": 0.0234375
+        }
+      }
+    }
+  }
+}
