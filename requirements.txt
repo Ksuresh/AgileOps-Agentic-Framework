@@ -7,3 +7,4 @@ gradio>=4.0
 scikit-learn>=1.3
 pytest>=7.4
 openai>=1.0
+matplotlib>=3.8
