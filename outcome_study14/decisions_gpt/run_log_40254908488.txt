@@ -1,0 +1,216 @@
+AAF-14-GPT QF-C01 No action (observe) calls 1 tokens 35
+AAF-14-GPT QF-D01 Scale adjustment calls 1 tokens 35
+AAF-14-GPT QF-K01 Patch or block release calls 3 tokens 924
+AAF-14-GPT QF-K01-W Patch or block release calls 6 tokens 2370
+AAF-14-GPT QF-K02 Patch or block release calls 6 tokens 2370
+AAF-14-GPT QF-K02-W Patch or block release calls 10 tokens 4631
+AAF-14-GPT QF-L01 No action (observe) calls 10 tokens 4631
+AAF-14-GPT QF-L02 Scale adjustment calls 10 tokens 4631
+AAF-14-GPT QF-P01 Mitigate and monitor calls 12 tokens 5884
+AAF-14-GPT QF-P01-W Mitigate and monitor calls 15 tokens 7900
+AAF-14-GPT QF-P02 Patch or block release calls 17 tokens 9203
+AAF-14-GPT QF-P02-W Patch or block release calls 22 tokens 12524
+AAF-14-GPT QF-P03 Patch or block release calls 24 tokens 13509
+AAF-14-GPT QF-P03-W Patch or block release calls 27 tokens 15087
+AAF-14-GPT QF-P04 Mitigate and monitor calls 29 tokens 16253
+AAF-14-GPT QF-P04-W Mitigate and monitor calls 32 tokens 18226
+AAF-14-GPT QF-R01 Rollback to stable deployment calls 32 tokens 18226
+AAF-14-GPT QF-R01-W Rollback to stable deployment calls 35 tokens 20211
+AAF-14-GPT QF-R02 Rollback to stable deployment calls 35 tokens 20211
+AAF-14-GPT QF-R02-W Rollback to stable deployment calls 38 tokens 22019
+AAF-14-GPT QF-R03 Rollback to stable deployment calls 38 tokens 22019
+AAF-14-GPT QF-R03-W Rollback to stable deployment calls 42 tokens 24460
+AAF-14-GPT QF-R04 Rollback to stable deployment calls 46 tokens 27107
+AAF-14-GPT QF-R04-W Rollback to stable deployment calls 52 tokens 30926
+AAF-14-GPT QF-S01 Patch or block release calls 52 tokens 30926
+AAF-14-GPT QF-S01-W Scale adjustment calls 55 tokens 32586
+AAF-14-GPT QF-S02 Patch or block release calls 55 tokens 32586
+AAF-14-GPT QF-S02-W Patch or block release calls 60 tokens 35566
+AAF-14-GPT QF-S03 Patch or block release calls 60 tokens 35566
+AAF-14-GPT QF-S03-W Patch or block release calls 64 tokens 37854
+AAF-14-GPT QF-S04 Patch or block release calls 64 tokens 37854
+AAF-14-GPT QF-S04-W Patch or block release calls 69 tokens 40813
+AAF-14-GPT QF-X01 Rollback to stable deployment calls 69 tokens 40813
+AAF-14-GPT QF-X01-W Rollback to stable deployment calls 74 tokens 44112
+AAF-14-GPT QF-X02 Rollback to stable deployment calls 74 tokens 44112
+AAF-14-GPT QF-X02-W Rollback to stable deployment calls 78 tokens 46480
+AAF-14-GPT QP-C01 No action (observe) calls 78 tokens 46480
+AAF-14-GPT QP-D01 Scale adjustment calls 78 tokens 46480
+AAF-14-GPT QP-K01 Patch or block release calls 80 tokens 47378
+AAF-14-GPT QP-K01-W Patch or block release calls 83 tokens 48897
+AAF-14-GPT QP-K02 Patch or block release calls 83 tokens 48897
+AAF-14-GPT QP-K02-W Scale adjustment calls 86 tokens 50576
+AAF-14-GPT QP-L01 No action (observe) calls 86 tokens 50576
+AAF-14-GPT QP-L02 Scale adjustment calls 86 tokens 50576
+AAF-14-GPT QP-P01 No action (observe) calls 86 tokens 50576
+AAF-14-GPT QP-P01-W No action (observe) calls 89 tokens 52556
+AAF-14-GPT QP-P02 Patch or block release calls 94 tokens 55800
+AAF-14-GPT QP-P02-W Patch or block release calls 98 tokens 58115
+AAF-14-GPT QP-P03 Patch or block release calls 100 tokens 59125
+AAF-14-GPT QP-P03-W No action (observe) calls 102 tokens 60104
+AAF-14-GPT QP-P04 No action (observe) calls 102 tokens 60104
+AAF-14-GPT QP-P04-W No action (observe) calls 105 tokens 62074
+AAF-14-GPT QP-R01 No action (observe) calls 105 tokens 62074
+AAF-14-GPT QP-R01-W No action (observe) calls 108 tokens 64017
+AAF-14-GPT QP-R02 Rollback to stable deployment calls 108 tokens 64017
+AAF-14-GPT QP-R02-W Rollback to stable deployment calls 111 tokens 65804
+AAF-14-GPT QP-R03 Patch or block release calls 113 tokens 66801
+AAF-14-GPT QP-R03-W Patch or block release calls 116 tokens 68284
+AAF-14-GPT QP-R04 Rollback to stable deployment calls 120 tokens 70822
+AAF-14-GPT QP-R04-W Rollback to stable deployment calls 126 tokens 74701
+AAF-14-GPT QP-S01 Patch or block release calls 126 tokens 74701
+AAF-14-GPT QP-S01-W Patch or block release calls 130 tokens 76952
+AAF-14-GPT QP-S02 Patch or block release calls 130 tokens 76952
+AAF-14-GPT QP-S02-W Patch or block release calls 135 tokens 79939
+AAF-14-GPT QP-S03 Patch or block release calls 135 tokens 79939
+AAF-14-GPT QP-S03-W Scale adjustment calls 138 tokens 81638
+AAF-14-GPT QP-S04 Patch or block release calls 138 tokens 81638
+AAF-14-GPT QP-S04-W Patch or block release calls 143 tokens 84625
+AAF-14-GPT QP-X01 Patch or block release calls 148 tokens 87922
+AAF-14-GPT QP-X01-W Patch or block release calls 152 tokens 90157
+AAF-14-GPT QP-X02 Rollback to stable deployment calls 152 tokens 90157
+AAF-14-GPT QP-X02-W Rollback to stable deployment calls 156 tokens 92494
+B5-GPT QF-K01 Patch or block release calls 181 tokens 107225
+B5-GPT QF-D01 Escalate for evidence/human review calls 182 tokens 108123
+B5-GPT QF-K02 Patch or block release calls 183 tokens 109015
+B5-GPT QF-C01 No action (observe) calls 185 tokens 110499
+B5-GPT QF-K01-W Patch or block release calls 190 tokens 113606
+B5-GPT QF-K02-W Escalate for evidence/human review calls 192 tokens 115123
+B5-GPT QF-L01 No action (observe) calls 211 tokens 127052
+B5-GPT QF-L02 Mitigate and monitor calls 212 tokens 128081
+B5-GPT QF-P01 Mitigate and monitor calls 213 tokens 128932
+B5-GPT QF-P02 Block release and fix pipeline calls 218 tokens 132036
+B5-GPT QF-P01-W Mitigate and monitor calls 221 tokens 133973
+B5-GPT QF-P02-W Block release and fix pipeline calls 226 tokens 137464
+B5-GPT QF-P03 Escalate for evidence/human review calls 237 tokens 144193
+B5-GPT QF-P04 No action (observe) calls 246 tokens 149963
+B5-GPT QF-P03-W Patch or block release calls 248 tokens 151430
+B5-GPT QF-R01 Rollback to stable deployment calls 253 tokens 154702
+B5-GPT QF-R01-W Rollback to stable deployment calls 255 tokens 156202
+B5-GPT QF-P04-W No action (observe) calls 257 tokens 157710
+B5-GPT QF-R02 Rollback to stable deployment calls 266 tokens 163290
+B5-GPT QF-R02-W Rollback to stable deployment calls 273 tokens 167875
+B5-GPT QF-R03 Rollback to stable deployment calls 276 tokens 169962
+B5-GPT QF-R04 Rollback to stable deployment calls 284 tokens 174845
+B5-GPT QF-R04-W Rollback to stable deployment calls 293 tokens 180509
+B5-GPT QF-R03-W Rollback to stable deployment calls 294 tokens 181444
+B5-GPT QF-S01 Patch or block release calls 295 tokens 182301
+B5-GPT QF-S02 Block release and fix pipeline calls 308 tokens 190361
+B5-GPT QF-S01-W Patch or block release calls 309 tokens 191242
+B5-GPT QF-S02-W Block release and fix pipeline calls 320 tokens 197668
+B5-GPT QF-S03 Patch or block release calls 323 tokens 200038
+B5-GPT QF-S04 Block release and fix pipeline calls 324 tokens 200957
+B5-GPT QF-S03-W Patch or block release calls 329 tokens 204055
+B5-GPT QF-X01 Rollback to stable deployment calls 337 tokens 209151
+B5-GPT QF-S04-W Block release and fix pipeline calls 345 tokens 214088
+B5-GPT QF-X02 Rollback to stable deployment calls 354 tokens 219458
+B5-GPT QF-X01-W Rollback to stable deployment calls 358 tokens 222265
+B5-GPT QP-C01 Mitigate and monitor calls 359 tokens 223226
+B5-GPT QF-X02-W Patch or block release calls 360 tokens 223943
+B5-GPT QP-D01 Escalate for evidence/human review calls 367 tokens 228060
+B5-GPT QP-K01 Patch or block release calls 371 tokens 230809
+B5-GPT QP-K02 Patch or block release calls 384 tokens 238658
+B5-GPT QP-L01 No action (observe) calls 385 tokens 239570
+B5-GPT QP-K02-W Patch or block release calls 390 tokens 242657
+B5-GPT QP-L02 Escalate for evidence/human review calls 393 tokens 244707
+B5-GPT QP-P01 No action (observe) calls 397 tokens 247603
+B5-GPT QP-P02 Block release and fix pipeline calls 412 tokens 256929
+B5-GPT QP-K01-W Escalate for evidence/human review calls 415 tokens 258909
+B5-GPT QP-P01-W No action (observe) calls 419 tokens 261398
+B5-GPT QP-P03 No action (observe) calls 423 tokens 263940
+B5-GPT QP-P02-W Block release and fix pipeline calls 427 tokens 266693
+B5-GPT QP-P04 Escalate for evidence/human review calls 439 tokens 274340
+B5-GPT QP-R01 No action (observe) calls 446 tokens 278683
+B5-GPT QP-P03-W Patch or block release calls 447 tokens 279558
+B5-GPT QP-P04-W No action (observe) calls 449 tokens 281043
+B5-GPT QP-R02 Rollback to stable deployment calls 454 tokens 284109
+B5-GPT QP-R01-W No action (observe) calls 456 tokens 285640
+B5-GPT QP-R02-W Rollback to stable deployment calls 470 tokens 294138
+B5-GPT QP-R03 Patch or block release calls 476 tokens 297661
+B5-GPT QP-R04 Rollback to stable deployment calls 479 tokens 299677
+B5-GPT QP-R03-W Patch or block release calls 481 tokens 301096
+B5-GPT QP-S01 Patch or block release calls 485 tokens 303806
+B5-GPT QP-R04-W Rollback to stable deployment calls 490 tokens 307104
+B5-GPT QP-S02 Block release and fix pipeline calls 505 tokens 316311
+B5-GPT QP-S01-W Patch or block release calls 507 tokens 317693
+B5-GPT QP-S03 Patch or block release calls 512 tokens 320825
+B5-GPT QP-S02-W Block release and fix pipeline calls 515 tokens 322855
+B5-GPT QP-S04 Block release and fix pipeline calls 519 tokens 325599
+B5-GPT QP-S03-W Patch or block release calls 521 tokens 327262
+B5-GPT QP-X01 Block release and fix pipeline calls 534 tokens 335046
+B5-GPT QP-S04-W Block release and fix pipeline calls 537 tokens 337064
+B5-GPT QP-X02 Rollback to stable deployment calls 541 tokens 339606
+B5-GPT QP-X02-W Rollback to stable deployment calls 543 tokens 341026
+B5-GPT QP-X01-W Block release and fix pipeline calls 544 tokens 341949
+B6-GPT QF-C01 No action (observe) calls 567 tokens 358545
+B6-GPT QF-D01 Scale adjustment calls 570 tokens 361106
+B6-GPT QF-K01 Patch or block release calls 574 tokens 364502
+B6-GPT QF-K02 Patch or block release calls 576 tokens 366642
+B6-GPT QF-K02-W Patch or block release calls 577 tokens 368034
+B6-GPT QF-K01-W Patch or block release calls 578 tokens 369245
+B6-GPT QF-L01 No action (observe) calls 594 tokens 381798
+B6-GPT QF-L02 Scale adjustment calls 602 tokens 388291
+B6-GPT QF-P01 No action (observe) calls 605 tokens 390799
+B6-GPT QF-P02 Patch or block release calls 607 tokens 392951
+B6-GPT QF-P02-W Patch or block release calls 609 tokens 394988
+B6-GPT QF-P01-W Mitigate and monitor calls 615 tokens 399726
+B6-GPT QF-P03 Patch or block release calls 623 tokens 405962
+B6-GPT QF-P04 No action (observe) calls 636 tokens 416177
+B6-GPT QF-P03-W Patch or block release calls 637 tokens 417536
+B6-GPT QF-R01 Mitigate and monitor calls 641 tokens 421080
+B6-GPT QF-R01-W Mitigate and monitor calls 644 tokens 423723
+B6-GPT QF-P04-W No action (observe) calls 645 tokens 425116
+B6-GPT QF-R02 Mitigate and monitor calls 653 tokens 432113
+B6-GPT QF-R03 Patch or block release calls 669 tokens 444117
+B6-GPT QF-R04 Patch or block release calls 672 tokens 446882
+B6-GPT QF-R02-W No action (observe) calls 675 tokens 449527
+B6-GPT QF-R03-W Patch or block release calls 676 tokens 450991
+B6-GPT QF-S01 Patch or block release calls 679 tokens 453777
+B6-GPT QF-R04-W Scale adjustment calls 688 tokens 461294
+B6-GPT QF-S02 Patch or block release calls 700 tokens 470224
+B6-GPT QF-S03 Patch or block release calls 702 tokens 472315
+B6-GPT QF-S01-W Patch or block release calls 707 tokens 476262
+B6-GPT QF-S03-W Scale adjustment calls 709 tokens 478257
+B6-GPT QF-S02-W Scale adjustment calls 710 tokens 479576
+B6-GPT QF-S04 Patch or block release calls 716 tokens 484658
+B6-GPT QF-X01 Patch or block release calls 731 tokens 496029
+B6-GPT QF-S04-W Patch or block release calls 738 tokens 501568
+B6-GPT QF-X01-W Patch or block release calls 743 tokens 505963
+B6-GPT QP-C01 No action (observe) calls 744 tokens 507372
+B6-GPT QF-X02-W Patch or block release calls 748 tokens 510991
+B6-GPT QF-X02 Mitigate and monitor calls 750 tokens 513630
+B6-GPT QP-D01 Scale adjustment calls 757 tokens 519148
+B6-GPT QP-K01 Patch or block release calls 765 tokens 525392
+B6-GPT QP-K02 Patch or block release calls 771 tokens 530326
+B6-GPT QP-L01 No action (observe) calls 777 tokens 535208
+B6-GPT QP-K01-W Patch or block release calls 780 tokens 537854
+B6-GPT QP-K02-W Patch or block release calls 783 tokens 540371
+B6-GPT QP-L02 Scale adjustment calls 787 tokens 543956
+B6-GPT QP-P01 No action (observe) calls 796 tokens 551201
+B6-GPT QP-P02 Patch or block release calls 807 tokens 559248
+B6-GPT QP-P03 Patch or block release calls 809 tokens 561309
+B6-GPT QP-P01-W No action (observe) calls 810 tokens 562769
+B6-GPT QP-P02-W Patch or block release calls 817 tokens 568143
+B6-GPT QP-P03-W Patch or block release calls 823 tokens 573232
+B6-GPT QP-P04 No action (observe) calls 826 tokens 576047
+B6-GPT QP-R01 No action (observe) calls 840 tokens 586613
+B6-GPT QP-R02 No action (observe) calls 844 tokens 590108
+B6-GPT QP-R01-W No action (observe) calls 845 tokens 591423
+B6-GPT QP-P04-W No action (observe) calls 848 tokens 594146
+B6-GPT QP-R03 Patch or block release calls 857 tokens 601361
+B6-GPT QP-R02-W Mitigate and monitor calls 859 tokens 603675
+B6-GPT QP-R03-W Patch or block release calls 871 tokens 612657
+B6-GPT QP-S01 Patch or block release calls 876 tokens 616838
+B6-GPT QP-R04 Patch or block release calls 880 tokens 620232
+B6-GPT QP-R04-W Patch or block release calls 881 tokens 621493
+B6-GPT QP-S01-W Patch or block release calls 888 tokens 627146
+B6-GPT QP-S02 Patch or block release calls 890 tokens 629196
+B6-GPT QP-S02-W Scale adjustment calls 903 tokens 639262
+B6-GPT QP-S03 Patch or block release calls 907 tokens 642547
+B6-GPT QP-S04 Patch or block release calls 908 tokens 643905
+B6-GPT QP-S03-W Patch or block release calls 912 tokens 647175
+B6-GPT QP-X01 Patch or block release calls 921 tokens 654412
+B6-GPT QP-S04-W Patch or block release calls 925 tokens 657775
+B6-GPT QP-X02 Patch or block release calls 930 tokens 661685
+B6-GPT QP-X01-W Patch or block release calls 931 tokens 663087
+B6-GPT QP-X02-W Patch or block release calls 933 tokens 665572

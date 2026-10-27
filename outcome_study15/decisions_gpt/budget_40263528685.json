@@ -1,0 +1,10 @@
+{
+ "calls": 1238,
+ "tokens": 882241,
+ "stopped": null,
+ "caps": [
+  2200,
+  4000000
+ ],
+ "model": "gpt-5.6-luna"
+}

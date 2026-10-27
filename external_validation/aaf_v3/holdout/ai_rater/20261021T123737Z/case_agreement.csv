@@ -1,0 +1,41 @@
+case,source,evidence_match,rater1_label,rater2_label,rater2_votes,label_agree,rater1_entry,rater2_entry,entry_agree
+GL-058,gitlab,True,Rollback,Rollback,"{""Rollback"": 3}",True,4,6,False
+GL-065,gitlab,True,Mitigate,Mitigate,"{""Mitigate"": 3}",True,12,12,True
+GL-066,gitlab,True,Mitigate,exclude,"{""exclude"": 3}",False,2,,False
+GL-068,gitlab,True,Rollback,Mitigate,"{""Mitigate"": 3}",False,4,4,True
+GL-070,gitlab,True,Patch,Rollback,"{""Rollback"": 3}",False,4,4,True
+GL-072,gitlab,True,Patch,Patch,"{""Patch"": 3}",True,3,3,True
+GL-077,gitlab,True,Mitigate,Mitigate,"{""Rollback"": 1, ""Mitigate"": 2}",True,3,3,True
+GL-078,gitlab,True,Patch,Patch,"{""Patch"": 3}",True,8,8,True
+GL-081,gitlab,True,Rollback,Rollback,"{""Rollback"": 3}",True,3,3,True
+GL-083,gitlab,True,Mitigate,Mitigate,"{""Mitigate"": 3}",True,5,5,True
+GL-085,gitlab,True,Mitigate,Mitigate,"{""Mitigate"": 3}",True,2,2,True
+GL-086,gitlab,True,Mitigate,Mitigate,"{""Mitigate"": 3}",True,6,6,True
+GL-090,gitlab,True,Scale,Scale,"{""Scale"": 3}",True,3,3,True
+GL-093,gitlab,True,Rollback,Rollback,"{""Rollback"": 3}",True,5,5,True
+GL-098,gitlab,True,Rollback,exclude,"{""exclude"": 2, ""Rollback"": 1}",False,6,,False
+GL-107,gitlab,True,Scale,Scale,"{""Scale"": 3}",True,3,3,True
+GL-108,gitlab,True,Rollback,Rollback,"{""Rollback"": 3}",True,6,6,True
+GL-109,gitlab,True,Mitigate,Mitigate,"{""Mitigate"": 3}",True,2,2,True
+GL-113,gitlab,True,Mitigate,Rollback,"{""Rollback"": 3}",False,3,3,True
+GL-115,gitlab,True,Rollback,Rollback,"{""Rollback"": 3}",True,3,3,True
+GL-117,gitlab,True,Rollback,Rollback,"{""exclude"": 1, ""Rollback"": 2}",True,4,4,True
+GL-120,gitlab,True,Rollback,Rollback,"{""Rollback"": 3}",True,6,6,True
+GL-121,gitlab,True,Rollback,Rollback,"{""Rollback"": 3}",True,7,4,False
+GL-124,gitlab,True,Mitigate,Patch,"{""Patch"": 2, ""exclude"": 1}",False,5,6,False
+GL-128,gitlab,True,Mitigate,Mitigate,"{""Mitigate"": 3}",True,4,4,True
+GL-134,gitlab,True,Mitigate,Mitigate,"{""Mitigate"": 3}",True,3,3,True
+GL-138,gitlab,True,Mitigate,Mitigate,"{""Mitigate"": 2, ""exclude"": 1}",True,2,2,True
+GL-141,gitlab,True,Mitigate,Mitigate,"{""Mitigate"": 3}",True,3,3,True
+GL-142,gitlab,True,Rollback,Rollback,"{""Rollback"": 3}",True,5,5,True
+GL-150,gitlab,True,Patch,Patch,"{""Patch"": 3}",True,2,3,False
+GL-154,gitlab,True,Rollback,Rollback,"{""Rollback"": 3}",True,3,3,True
+GL-158,gitlab,True,Rollback,Rollback,"{""Rollback"": 3}",True,2,2,True
+GL-160,gitlab,True,Mitigate,Mitigate,"{""Mitigate"": 3}",True,8,10,False
+GL-165,gitlab,True,Rollback,Rollback,"{""Rollback"": 3}",True,2,3,False
+GL-166,gitlab,True,Scale,Mitigate,"{""Mitigate"": 3}",False,7,10,False
+GL-170,gitlab,True,Rollback,Rollback,"{""Rollback"": 3}",True,3,5,False
+GL-172,gitlab,True,Mitigate,Mitigate,"{""Mitigate"": 3}",True,4,4,True
+GL-175,gitlab,True,Mitigate,exclude,"{""exclude"": 3}",False,3,,False
+GL-176,gitlab,True,Patch,Mitigate,"{""Mitigate"": 3}",False,9,10,False
+GL-179,gitlab,True,Mitigate,Mitigate,"{""Mitigate"": 3}",True,9,9,True

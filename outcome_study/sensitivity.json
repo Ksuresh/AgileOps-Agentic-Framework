@@ -1,0 +1,4490 @@
+{
+ "outcome_study": [
+  {
+   "rel_factor": 1.5,
+   "err_pct": 0.5,
+   "cost_factor": 2.0,
+   "n": 30,
+   "correct": {
+    "B1": 20,
+    "B2": 20,
+    "Dominant": 16,
+    "AlwaysRollback": 22,
+    "AlwaysNone": 5,
+    "D-DevOps": 12,
+    "D-SRE": 7,
+    "D-FinOps": 6,
+    "D-Sec": 20,
+    "B5": 21,
+    "AAF": 20,
+    "B6": 23
+   },
+   "AAF_vs_D-DevOps": [
+    11,
+    3,
+    0.0574
+   ],
+   "AAF_vs_D-SRE": [
+    13,
+    0,
+    0.0002
+   ],
+   "AAF_vs_D-FinOps": [
+    14,
+    0,
+    0.0001
+   ],
+   "AAF_vs_D-Sec": [
+    3,
+    3,
+    1.0
+   ]
+  },
+  {
+   "rel_factor": 1.5,
+   "err_pct": 0.5,
+   "cost_factor": 3.0,
+   "n": 30,
+   "correct": {
+    "B1": 21,
+    "B2": 21,
+    "Dominant": 18,
+    "AlwaysRollback": 21,
+    "AlwaysNone": 4,
+    "D-DevOps": 11,
+    "D-SRE": 6,
+    "D-FinOps": 8,
+    "D-Sec": 19,
+    "B5": 20,
+    "AAF": 21,
+    "B6": 22
+   },
+   "AAF_vs_D-DevOps": [
+    13,
+    3,
+    0.0213
+   ],
+   "AAF_vs_D-SRE": [
+    15,
+    0,
+    0.0001
+   ],
+   "AAF_vs_D-FinOps": [
+    13,
+    0,
+    0.0002
+   ],
+   "AAF_vs_D-Sec": [
+    4,
+    2,
+    0.6875
+   ]
+  },
+  {
+   "rel_factor": 1.5,
+   "err_pct": 0.5,
+   "cost_factor": 4.0,
+   "n": 30,
+   "correct": {
+    "B1": 22,
+    "B2": 22,
+    "Dominant": 20,
+    "AlwaysRollback": 21,
+    "AlwaysNone": 4,
+    "D-DevOps": 11,
+    "D-SRE": 6,
+    "D-FinOps": 10,
+    "D-Sec": 19,
+    "B5": 20,
+    "AAF": 22,
+    "B6": 22
+   },
+   "AAF_vs_D-DevOps": [
+    14,
+    3,
+    0.0127
+   ],
+   "AAF_vs_D-SRE": [
+    16,
+    0,
+    0.0
+   ],
+   "AAF_vs_D-FinOps": [
+    12,
+    0,
+    0.0005
+   ],
+   "AAF_vs_D-Sec": [
+    4,
+    1,
+    0.375
+   ]
+  },
+  {
+   "rel_factor": 1.5,
+   "err_pct": 1.0,
+   "cost_factor": 2.0,
+   "n": 30,
+   "correct": {
+    "B1": 20,
+    "B2": 20,
+    "Dominant": 16,
+    "AlwaysRollback": 22,
+    "AlwaysNone": 5,
+    "D-DevOps": 12,
+    "D-SRE": 7,
+    "D-FinOps": 6,
+    "D-Sec": 20,
+    "B5": 21,
+    "AAF": 20,
+    "B6": 23
+   },
+   "AAF_vs_D-DevOps": [
+    11,
+    3,
+    0.0574
+   ],
+   "AAF_vs_D-SRE": [
+    13,
+    0,
+    0.0002
+   ],
+   "AAF_vs_D-FinOps": [
+    14,
+    0,
+    0.0001
+   ],
+   "AAF_vs_D-Sec": [
+    3,
+    3,
+    1.0
+   ]
+  },
+  {
+   "rel_factor": 1.5,
+   "err_pct": 1.0,
+   "cost_factor": 3.0,
+   "n": 30,
+   "correct": {
+    "B1": 21,
+    "B2": 21,
+    "Dominant": 18,
+    "AlwaysRollback": 21,
+    "AlwaysNone": 4,
+    "D-DevOps": 11,
+    "D-SRE": 6,
+    "D-FinOps": 8,
+    "D-Sec": 19,
+    "B5": 20,
+    "AAF": 21,
+    "B6": 22
+   },
+   "AAF_vs_D-DevOps": [
+    13,
+    3,
+    0.0213
+   ],
+   "AAF_vs_D-SRE": [
+    15,
+    0,
+    0.0001
+   ],
+   "AAF_vs_D-FinOps": [
+    13,
+    0,
+    0.0002
+   ],
+   "AAF_vs_D-Sec": [
+    4,
+    2,
+    0.6875
+   ]
+  },
+  {
+   "rel_factor": 1.5,
+   "err_pct": 1.0,
+   "cost_factor": 4.0,
+   "n": 30,
+   "correct": {
+    "B1": 22,
+    "B2": 22,
+    "Dominant": 20,
+    "AlwaysRollback": 21,
+    "AlwaysNone": 4,
+    "D-DevOps": 11,
+    "D-SRE": 6,
+    "D-FinOps": 10,
+    "D-Sec": 19,
+    "B5": 20,
+    "AAF": 22,
+    "B6": 22
+   },
+   "AAF_vs_D-DevOps": [
+    14,
+    3,
+    0.0127
+   ],
+   "AAF_vs_D-SRE": [
+    16,
+    0,
+    0.0
+   ],
+   "AAF_vs_D-FinOps": [
+    12,
+    0,
+    0.0005
+   ],
+   "AAF_vs_D-Sec": [
+    4,
+    1,
+    0.375
+   ]
+  },
+  {
+   "rel_factor": 1.5,
+   "err_pct": 2.0,
+   "cost_factor": 2.0,
+   "n": 30,
+   "correct": {
+    "B1": 20,
+    "B2": 20,
+    "Dominant": 16,
+    "AlwaysRollback": 22,
+    "AlwaysNone": 5,
+    "D-DevOps": 12,
+    "D-SRE": 7,
+    "D-FinOps": 6,
+    "D-Sec": 20,
+    "B5": 21,
+    "AAF": 20,
+    "B6": 23
+   },
+   "AAF_vs_D-DevOps": [
+    11,
+    3,
+    0.0574
+   ],
+   "AAF_vs_D-SRE": [
+    13,
+    0,
+    0.0002
+   ],
+   "AAF_vs_D-FinOps": [
+    14,
+    0,
+    0.0001
+   ],
+   "AAF_vs_D-Sec": [
+    3,
+    3,
+    1.0
+   ]
+  },
+  {
+   "rel_factor": 1.5,
+   "err_pct": 2.0,
+   "cost_factor": 3.0,
+   "n": 30,
+   "correct": {
+    "B1": 21,
+    "B2": 21,
+    "Dominant": 18,
+    "AlwaysRollback": 21,
+    "AlwaysNone": 4,
+    "D-DevOps": 11,
+    "D-SRE": 6,
+    "D-FinOps": 8,
+    "D-Sec": 19,
+    "B5": 20,
+    "AAF": 21,
+    "B6": 22
+   },
+   "AAF_vs_D-DevOps": [
+    13,
+    3,
+    0.0213
+   ],
+   "AAF_vs_D-SRE": [
+    15,
+    0,
+    0.0001
+   ],
+   "AAF_vs_D-FinOps": [
+    13,
+    0,
+    0.0002
+   ],
+   "AAF_vs_D-Sec": [
+    4,
+    2,
+    0.6875
+   ]
+  },
+  {
+   "rel_factor": 1.5,
+   "err_pct": 2.0,
+   "cost_factor": 4.0,
+   "n": 30,
+   "correct": {
+    "B1": 22,
+    "B2": 22,
+    "Dominant": 20,
+    "AlwaysRollback": 21,
+    "AlwaysNone": 4,
+    "D-DevOps": 11,
+    "D-SRE": 6,
+    "D-FinOps": 10,
+    "D-Sec": 19,
+    "B5": 20,
+    "AAF": 22,
+    "B6": 22
+   },
+   "AAF_vs_D-DevOps": [
+    14,
+    3,
+    0.0127
+   ],
+   "AAF_vs_D-SRE": [
+    16,
+    0,
+    0.0
+   ],
+   "AAF_vs_D-FinOps": [
+    12,
+    0,
+    0.0005
+   ],
+   "AAF_vs_D-Sec": [
+    4,
+    1,
+    0.375
+   ]
+  },
+  {
+   "rel_factor": 2.0,
+   "err_pct": 0.5,
+   "cost_factor": 2.0,
+   "n": 30,
+   "correct": {
+    "B1": 20,
+    "B2": 20,
+    "Dominant": 16,
+    "AlwaysRollback": 22,
+    "AlwaysNone": 5,
+    "D-DevOps": 12,
+    "D-SRE": 7,
+    "D-FinOps": 6,
+    "D-Sec": 20,
+    "B5": 21,
+    "AAF": 20,
+    "B6": 23
+   },
+   "AAF_vs_D-DevOps": [
+    11,
+    3,
+    0.0574
+   ],
+   "AAF_vs_D-SRE": [
+    13,
+    0,
+    0.0002
+   ],
+   "AAF_vs_D-FinOps": [
+    14,
+    0,
+    0.0001
+   ],
+   "AAF_vs_D-Sec": [
+    3,
+    3,
+    1.0
+   ]
+  },
+  {
+   "rel_factor": 2.0,
+   "err_pct": 0.5,
+   "cost_factor": 3.0,
+   "n": 30,
+   "correct": {
+    "B1": 21,
+    "B2": 21,
+    "Dominant": 18,
+    "AlwaysRollback": 21,
+    "AlwaysNone": 4,
+    "D-DevOps": 11,
+    "D-SRE": 6,
+    "D-FinOps": 8,
+    "D-Sec": 19,
+    "B5": 20,
+    "AAF": 21,
+    "B6": 22
+   },
+   "AAF_vs_D-DevOps": [
+    13,
+    3,
+    0.0213
+   ],
+   "AAF_vs_D-SRE": [
+    15,
+    0,
+    0.0001
+   ],
+   "AAF_vs_D-FinOps": [
+    13,
+    0,
+    0.0002
+   ],
+   "AAF_vs_D-Sec": [
+    4,
+    2,
+    0.6875
+   ]
+  },
+  {
+   "rel_factor": 2.0,
+   "err_pct": 0.5,
+   "cost_factor": 4.0,
+   "n": 30,
+   "correct": {
+    "B1": 22,
+    "B2": 22,
+    "Dominant": 20,
+    "AlwaysRollback": 21,
+    "AlwaysNone": 4,
+    "D-DevOps": 11,
+    "D-SRE": 6,
+    "D-FinOps": 10,
+    "D-Sec": 19,
+    "B5": 20,
+    "AAF": 22,
+    "B6": 22
+   },
+   "AAF_vs_D-DevOps": [
+    14,
+    3,
+    0.0127
+   ],
+   "AAF_vs_D-SRE": [
+    16,
+    0,
+    0.0
+   ],
+   "AAF_vs_D-FinOps": [
+    12,
+    0,
+    0.0005
+   ],
+   "AAF_vs_D-Sec": [
+    4,
+    1,
+    0.375
+   ]
+  },
+  {
+   "rel_factor": 2.0,
+   "err_pct": 1.0,
+   "cost_factor": 2.0,
+   "n": 30,
+   "correct": {
+    "B1": 20,
+    "B2": 20,
+    "Dominant": 16,
+    "AlwaysRollback": 22,
+    "AlwaysNone": 5,
+    "D-DevOps": 12,
+    "D-SRE": 7,
+    "D-FinOps": 6,
+    "D-Sec": 20,
+    "B5": 21,
+    "AAF": 20,
+    "B6": 23
+   },
+   "AAF_vs_D-DevOps": [
+    11,
+    3,
+    0.0574
+   ],
+   "AAF_vs_D-SRE": [
+    13,
+    0,
+    0.0002
+   ],
+   "AAF_vs_D-FinOps": [
+    14,
+    0,
+    0.0001
+   ],
+   "AAF_vs_D-Sec": [
+    3,
+    3,
+    1.0
+   ]
+  },
+  {
+   "rel_factor": 2.0,
+   "err_pct": 1.0,
+   "cost_factor": 3.0,
+   "n": 30,
+   "correct": {
+    "B1": 21,
+    "B2": 21,
+    "Dominant": 18,
+    "AlwaysRollback": 21,
+    "AlwaysNone": 4,
+    "D-DevOps": 11,
+    "D-SRE": 6,
+    "D-FinOps": 8,
+    "D-Sec": 19,
+    "B5": 20,
+    "AAF": 21,
+    "B6": 22
+   },
+   "AAF_vs_D-DevOps": [
+    13,
+    3,
+    0.0213
+   ],
+   "AAF_vs_D-SRE": [
+    15,
+    0,
+    0.0001
+   ],
+   "AAF_vs_D-FinOps": [
+    13,
+    0,
+    0.0002
+   ],
+   "AAF_vs_D-Sec": [
+    4,
+    2,
+    0.6875
+   ]
+  },
+  {
+   "rel_factor": 2.0,
+   "err_pct": 1.0,
+   "cost_factor": 4.0,
+   "n": 30,
+   "correct": {
+    "B1": 22,
+    "B2": 22,
+    "Dominant": 20,
+    "AlwaysRollback": 21,
+    "AlwaysNone": 4,
+    "D-DevOps": 11,
+    "D-SRE": 6,
+    "D-FinOps": 10,
+    "D-Sec": 19,
+    "B5": 20,
+    "AAF": 22,
+    "B6": 22
+   },
+   "AAF_vs_D-DevOps": [
+    14,
+    3,
+    0.0127
+   ],
+   "AAF_vs_D-SRE": [
+    16,
+    0,
+    0.0
+   ],
+   "AAF_vs_D-FinOps": [
+    12,
+    0,
+    0.0005
+   ],
+   "AAF_vs_D-Sec": [
+    4,
+    1,
+    0.375
+   ]
+  },
+  {
+   "rel_factor": 2.0,
+   "err_pct": 2.0,
+   "cost_factor": 2.0,
+   "n": 30,
+   "correct": {
+    "B1": 20,
+    "B2": 20,
+    "Dominant": 16,
+    "AlwaysRollback": 22,
+    "AlwaysNone": 5,
+    "D-DevOps": 12,
+    "D-SRE": 7,
+    "D-FinOps": 6,
+    "D-Sec": 20,
+    "B5": 21,
+    "AAF": 20,
+    "B6": 23
+   },
+   "AAF_vs_D-DevOps": [
+    11,
+    3,
+    0.0574
+   ],
+   "AAF_vs_D-SRE": [
+    13,
+    0,
+    0.0002
+   ],
+   "AAF_vs_D-FinOps": [
+    14,
+    0,
+    0.0001
+   ],
+   "AAF_vs_D-Sec": [
+    3,
+    3,
+    1.0
+   ]
+  },
+  {
+   "rel_factor": 2.0,
+   "err_pct": 2.0,
+   "cost_factor": 3.0,
+   "n": 30,
+   "correct": {
+    "B1": 21,
+    "B2": 21,
+    "Dominant": 18,
+    "AlwaysRollback": 21,
+    "AlwaysNone": 4,
+    "D-DevOps": 11,
+    "D-SRE": 6,
+    "D-FinOps": 8,
+    "D-Sec": 19,
+    "B5": 20,
+    "AAF": 21,
+    "B6": 22
+   },
+   "AAF_vs_D-DevOps": [
+    13,
+    3,
+    0.0213
+   ],
+   "AAF_vs_D-SRE": [
+    15,
+    0,
+    0.0001
+   ],
+   "AAF_vs_D-FinOps": [
+    13,
+    0,
+    0.0002
+   ],
+   "AAF_vs_D-Sec": [
+    4,
+    2,
+    0.6875
+   ]
+  },
+  {
+   "rel_factor": 2.0,
+   "err_pct": 2.0,
+   "cost_factor": 4.0,
+   "n": 30,
+   "correct": {
+    "B1": 22,
+    "B2": 22,
+    "Dominant": 20,
+    "AlwaysRollback": 21,
+    "AlwaysNone": 4,
+    "D-DevOps": 11,
+    "D-SRE": 6,
+    "D-FinOps": 10,
+    "D-Sec": 19,
+    "B5": 20,
+    "AAF": 22,
+    "B6": 22
+   },
+   "AAF_vs_D-DevOps": [
+    14,
+    3,
+    0.0127
+   ],
+   "AAF_vs_D-SRE": [
+    16,
+    0,
+    0.0
+   ],
+   "AAF_vs_D-FinOps": [
+    12,
+    0,
+    0.0005
+   ],
+   "AAF_vs_D-Sec": [
+    4,
+    1,
+    0.375
+   ]
+  },
+  {
+   "rel_factor": 3.0,
+   "err_pct": 0.5,
+   "cost_factor": 2.0,
+   "n": 30,
+   "correct": {
+    "B1": 20,
+    "B2": 20,
+    "Dominant": 16,
+    "AlwaysRollback": 19,
+    "AlwaysNone": 4,
+    "D-DevOps": 11,
+    "D-SRE": 8,
+    "D-FinOps": 5,
+    "D-Sec": 19,
+    "B5": 20,
+    "AAF": 20,
+    "B6": 23
+   },
+   "AAF_vs_D-DevOps": [
+    12,
+    3,
+    0.0352
+   ],
+   "AAF_vs_D-SRE": [
+    12,
+    0,
+    0.0005
+   ],
+   "AAF_vs_D-FinOps": [
+    15,
+    0,
+    0.0001
+   ],
+   "AAF_vs_D-Sec": [
+    4,
+    3,
+    1.0
+   ]
+  },
+  {
+   "rel_factor": 3.0,
+   "err_pct": 0.5,
+   "cost_factor": 3.0,
+   "n": 30,
+   "correct": {
+    "B1": 21,
+    "B2": 21,
+    "Dominant": 18,
+    "AlwaysRollback": 18,
+    "AlwaysNone": 3,
+    "D-DevOps": 10,
+    "D-SRE": 7,
+    "D-FinOps": 7,
+    "D-Sec": 18,
+    "B5": 19,
+    "AAF": 21,
+    "B6": 22
+   },
+   "AAF_vs_D-DevOps": [
+    14,
+    3,
+    0.0127
+   ],
+   "AAF_vs_D-SRE": [
+    14,
+    0,
+    0.0001
+   ],
+   "AAF_vs_D-FinOps": [
+    14,
+    0,
+    0.0001
+   ],
+   "AAF_vs_D-Sec": [
+    5,
+    2,
+    0.4531
+   ]
+  },
+  {
+   "rel_factor": 3.0,
+   "err_pct": 0.5,
+   "cost_factor": 4.0,
+   "n": 30,
+   "correct": {
+    "B1": 22,
+    "B2": 22,
+    "Dominant": 20,
+    "AlwaysRollback": 18,
+    "AlwaysNone": 3,
+    "D-DevOps": 10,
+    "D-SRE": 7,
+    "D-FinOps": 9,
+    "D-Sec": 18,
+    "B5": 19,
+    "AAF": 22,
+    "B6": 22
+   },
+   "AAF_vs_D-DevOps": [
+    15,
+    3,
+    0.0075
+   ],
+   "AAF_vs_D-SRE": [
+    15,
+    0,
+    0.0001
+   ],
+   "AAF_vs_D-FinOps": [
+    13,
+    0,
+    0.0002
+   ],
+   "AAF_vs_D-Sec": [
+    5,
+    1,
+    0.2188
+   ]
+  },
+  {
+   "rel_factor": 3.0,
+   "err_pct": 1.0,
+   "cost_factor": 2.0,
+   "n": 30,
+   "correct": {
+    "B1": 20,
+    "B2": 20,
+    "Dominant": 16,
+    "AlwaysRollback": 19,
+    "AlwaysNone": 4,
+    "D-DevOps": 11,
+    "D-SRE": 8,
+    "D-FinOps": 5,
+    "D-Sec": 19,
+    "B5": 20,
+    "AAF": 20,
+    "B6": 23
+   },
+   "AAF_vs_D-DevOps": [
+    12,
+    3,
+    0.0352
+   ],
+   "AAF_vs_D-SRE": [
+    12,
+    0,
+    0.0005
+   ],
+   "AAF_vs_D-FinOps": [
+    15,
+    0,
+    0.0001
+   ],
+   "AAF_vs_D-Sec": [
+    4,
+    3,
+    1.0
+   ]
+  },
+  {
+   "rel_factor": 3.0,
+   "err_pct": 1.0,
+   "cost_factor": 3.0,
+   "n": 30,
+   "correct": {
+    "B1": 21,
+    "B2": 21,
+    "Dominant": 18,
+    "AlwaysRollback": 18,
+    "AlwaysNone": 3,
+    "D-DevOps": 10,
+    "D-SRE": 7,
+    "D-FinOps": 7,
+    "D-Sec": 18,
+    "B5": 19,
+    "AAF": 21,
+    "B6": 22
+   },
+   "AAF_vs_D-DevOps": [
+    14,
+    3,
+    0.0127
+   ],
+   "AAF_vs_D-SRE": [
+    14,
+    0,
+    0.0001
+   ],
+   "AAF_vs_D-FinOps": [
+    14,
+    0,
+    0.0001
+   ],
+   "AAF_vs_D-Sec": [
+    5,
+    2,
+    0.4531
+   ]
+  },
+  {
+   "rel_factor": 3.0,
+   "err_pct": 1.0,
+   "cost_factor": 4.0,
+   "n": 30,
+   "correct": {
+    "B1": 22,
+    "B2": 22,
+    "Dominant": 20,
+    "AlwaysRollback": 18,
+    "AlwaysNone": 3,
+    "D-DevOps": 10,
+    "D-SRE": 7,
+    "D-FinOps": 9,
+    "D-Sec": 18,
+    "B5": 19,
+    "AAF": 22,
+    "B6": 22
+   },
+   "AAF_vs_D-DevOps": [
+    15,
+    3,
+    0.0075
+   ],
+   "AAF_vs_D-SRE": [
+    15,
+    0,
+    0.0001
+   ],
+   "AAF_vs_D-FinOps": [
+    13,
+    0,
+    0.0002
+   ],
+   "AAF_vs_D-Sec": [
+    5,
+    1,
+    0.2188
+   ]
+  },
+  {
+   "rel_factor": 3.0,
+   "err_pct": 2.0,
+   "cost_factor": 2.0,
+   "n": 30,
+   "correct": {
+    "B1": 20,
+    "B2": 20,
+    "Dominant": 16,
+    "AlwaysRollback": 19,
+    "AlwaysNone": 4,
+    "D-DevOps": 11,
+    "D-SRE": 8,
+    "D-FinOps": 5,
+    "D-Sec": 19,
+    "B5": 20,
+    "AAF": 20,
+    "B6": 23
+   },
+   "AAF_vs_D-DevOps": [
+    12,
+    3,
+    0.0352
+   ],
+   "AAF_vs_D-SRE": [
+    12,
+    0,
+    0.0005
+   ],
+   "AAF_vs_D-FinOps": [
+    15,
+    0,
+    0.0001
+   ],
+   "AAF_vs_D-Sec": [
+    4,
+    3,
+    1.0
+   ]
+  },
+  {
+   "rel_factor": 3.0,
+   "err_pct": 2.0,
+   "cost_factor": 3.0,
+   "n": 30,
+   "correct": {
+    "B1": 21,
+    "B2": 21,
+    "Dominant": 18,
+    "AlwaysRollback": 18,
+    "AlwaysNone": 3,
+    "D-DevOps": 10,
+    "D-SRE": 7,
+    "D-FinOps": 7,
+    "D-Sec": 18,
+    "B5": 19,
+    "AAF": 21,
+    "B6": 22
+   },
+   "AAF_vs_D-DevOps": [
+    14,
+    3,
+    0.0127
+   ],
+   "AAF_vs_D-SRE": [
+    14,
+    0,
+    0.0001
+   ],
+   "AAF_vs_D-FinOps": [
+    14,
+    0,
+    0.0001
+   ],
+   "AAF_vs_D-Sec": [
+    5,
+    2,
+    0.4531
+   ]
+  },
+  {
+   "rel_factor": 3.0,
+   "err_pct": 2.0,
+   "cost_factor": 4.0,
+   "n": 30,
+   "correct": {
+    "B1": 22,
+    "B2": 22,
+    "Dominant": 20,
+    "AlwaysRollback": 18,
+    "AlwaysNone": 3,
+    "D-DevOps": 10,
+    "D-SRE": 7,
+    "D-FinOps": 9,
+    "D-Sec": 18,
+    "B5": 19,
+    "AAF": 22,
+    "B6": 22
+   },
+   "AAF_vs_D-DevOps": [
+    15,
+    3,
+    0.0075
+   ],
+   "AAF_vs_D-SRE": [
+    15,
+    0,
+    0.0001
+   ],
+   "AAF_vs_D-FinOps": [
+    13,
+    0,
+    0.0002
+   ],
+   "AAF_vs_D-Sec": [
+    5,
+    1,
+    0.2188
+   ]
+  }
+ ],
+ "outcome_study12": [
+  {
+   "rel_factor": 1.5,
+   "err_pct": 0.5,
+   "cost_factor": 2.0,
+   "n": 24,
+   "correct": {
+    "B1": 15,
+    "B2": 15,
+    "B1-12": 21,
+    "Dominant": 13,
+    "AlwaysRollback": 16,
+    "AlwaysNone": 4,
+    "D-DevOps": 10,
+    "D-SRE": 8,
+    "D-FinOps": 4,
+    "D-Sec": 16,
+    "AAF": 15,
+    "B6": 18,
+    "B5": 20,
+    "AAF-12": 21
+   },
+   "AAF_vs_D-DevOps": [
+    8,
+    3,
+    0.2266
+   ],
+   "AAF_vs_D-SRE": [
+    7,
+    0,
+    0.0156
+   ],
+   "AAF_vs_D-FinOps": [
+    11,
+    0,
+    0.001
+   ],
+   "AAF_vs_D-Sec": [
+    2,
+    3,
+    1.0
+   ],
+   "AAF-12_vs_D-DevOps": [
+    11,
+    0,
+    0.001
+   ],
+   "AAF-12_vs_D-SRE": [
+    14,
+    1,
+    0.001
+   ],
+   "AAF-12_vs_D-FinOps": [
+    17,
+    0,
+    0.0
+   ],
+   "AAF-12_vs_D-Sec": [
+    7,
+    2,
+    0.1797
+   ]
+  },
+  {
+   "rel_factor": 1.5,
+   "err_pct": 0.5,
+   "cost_factor": 3.0,
+   "n": 24,
+   "correct": {
+    "B1": 18,
+    "B2": 18,
+    "B1-12": 21,
+    "Dominant": 17,
+    "AlwaysRollback": 16,
+    "AlwaysNone": 4,
+    "D-DevOps": 10,
+    "D-SRE": 8,
+    "D-FinOps": 9,
+    "D-Sec": 16,
+    "AAF": 18,
+    "B6": 18,
+    "B5": 20,
+    "AAF-12": 21
+   },
+   "AAF_vs_D-DevOps": [
+    11,
+    3,
+    0.0574
+   ],
+   "AAF_vs_D-SRE": [
+    10,
+    0,
+    0.002
+   ],
+   "AAF_vs_D-FinOps": [
+    9,
+    0,
+    0.0039
+   ],
+   "AAF_vs_D-Sec": [
+    2,
+    0,
+    0.5
+   ],
+   "AAF-12_vs_D-DevOps": [
+    11,
+    0,
+    0.001
+   ],
+   "AAF-12_vs_D-SRE": [
+    14,
+    1,
+    0.001
+   ],
+   "AAF-12_vs_D-FinOps": [
+    12,
+    0,
+    0.0005
+   ],
+   "AAF-12_vs_D-Sec": [
+    7,
+    2,
+    0.1797
+   ]
+  },
+  {
+   "rel_factor": 1.5,
+   "err_pct": 0.5,
+   "cost_factor": 4.0,
+   "n": 24,
+   "correct": {
+    "B1": 19,
+    "B2": 19,
+    "B1-12": 20,
+    "Dominant": 18,
+    "AlwaysRollback": 14,
+    "AlwaysNone": 2,
+    "D-DevOps": 8,
+    "D-SRE": 8,
+    "D-FinOps": 8,
+    "D-Sec": 14,
+    "AAF": 19,
+    "B6": 19,
+    "B5": 19,
+    "AAF-12": 20
+   },
+   "AAF_vs_D-DevOps": [
+    14,
+    3,
+    0.0127
+   ],
+   "AAF_vs_D-SRE": [
+    11,
+    0,
+    0.001
+   ],
+   "AAF_vs_D-FinOps": [
+    11,
+    0,
+    0.001
+   ],
+   "AAF_vs_D-Sec": [
+    5,
+    0,
+    0.0625
+   ],
+   "AAF-12_vs_D-DevOps": [
+    12,
+    0,
+    0.0005
+   ],
+   "AAF-12_vs_D-SRE": [
+    14,
+    2,
+    0.0042
+   ],
+   "AAF-12_vs_D-FinOps": [
+    12,
+    0,
+    0.0005
+   ],
+   "AAF-12_vs_D-Sec": [
+    8,
+    2,
+    0.1094
+   ]
+  },
+  {
+   "rel_factor": 1.5,
+   "err_pct": 1.0,
+   "cost_factor": 2.0,
+   "n": 24,
+   "correct": {
+    "B1": 15,
+    "B2": 15,
+    "B1-12": 21,
+    "Dominant": 13,
+    "AlwaysRollback": 16,
+    "AlwaysNone": 4,
+    "D-DevOps": 10,
+    "D-SRE": 8,
+    "D-FinOps": 4,
+    "D-Sec": 16,
+    "AAF": 15,
+    "B6": 18,
+    "B5": 20,
+    "AAF-12": 21
+   },
+   "AAF_vs_D-DevOps": [
+    8,
+    3,
+    0.2266
+   ],
+   "AAF_vs_D-SRE": [
+    7,
+    0,
+    0.0156
+   ],
+   "AAF_vs_D-FinOps": [
+    11,
+    0,
+    0.001
+   ],
+   "AAF_vs_D-Sec": [
+    2,
+    3,
+    1.0
+   ],
+   "AAF-12_vs_D-DevOps": [
+    11,
+    0,
+    0.001
+   ],
+   "AAF-12_vs_D-SRE": [
+    14,
+    1,
+    0.001
+   ],
+   "AAF-12_vs_D-FinOps": [
+    17,
+    0,
+    0.0
+   ],
+   "AAF-12_vs_D-Sec": [
+    7,
+    2,
+    0.1797
+   ]
+  },
+  {
+   "rel_factor": 1.5,
+   "err_pct": 1.0,
+   "cost_factor": 3.0,
+   "n": 24,
+   "correct": {
+    "B1": 18,
+    "B2": 18,
+    "B1-12": 21,
+    "Dominant": 17,
+    "AlwaysRollback": 16,
+    "AlwaysNone": 4,
+    "D-DevOps": 10,
+    "D-SRE": 8,
+    "D-FinOps": 9,
+    "D-Sec": 16,
+    "AAF": 18,
+    "B6": 18,
+    "B5": 20,
+    "AAF-12": 21
+   },
+   "AAF_vs_D-DevOps": [
+    11,
+    3,
+    0.0574
+   ],
+   "AAF_vs_D-SRE": [
+    10,
+    0,
+    0.002
+   ],
+   "AAF_vs_D-FinOps": [
+    9,
+    0,
+    0.0039
+   ],
+   "AAF_vs_D-Sec": [
+    2,
+    0,
+    0.5
+   ],
+   "AAF-12_vs_D-DevOps": [
+    11,
+    0,
+    0.001
+   ],
+   "AAF-12_vs_D-SRE": [
+    14,
+    1,
+    0.001
+   ],
+   "AAF-12_vs_D-FinOps": [
+    12,
+    0,
+    0.0005
+   ],
+   "AAF-12_vs_D-Sec": [
+    7,
+    2,
+    0.1797
+   ]
+  },
+  {
+   "rel_factor": 1.5,
+   "err_pct": 1.0,
+   "cost_factor": 4.0,
+   "n": 24,
+   "correct": {
+    "B1": 19,
+    "B2": 19,
+    "B1-12": 20,
+    "Dominant": 18,
+    "AlwaysRollback": 14,
+    "AlwaysNone": 2,
+    "D-DevOps": 8,
+    "D-SRE": 8,
+    "D-FinOps": 8,
+    "D-Sec": 14,
+    "AAF": 19,
+    "B6": 19,
+    "B5": 19,
+    "AAF-12": 20
+   },
+   "AAF_vs_D-DevOps": [
+    14,
+    3,
+    0.0127
+   ],
+   "AAF_vs_D-SRE": [
+    11,
+    0,
+    0.001
+   ],
+   "AAF_vs_D-FinOps": [
+    11,
+    0,
+    0.001
+   ],
+   "AAF_vs_D-Sec": [
+    5,
+    0,
+    0.0625
+   ],
+   "AAF-12_vs_D-DevOps": [
+    12,
+    0,
+    0.0005
+   ],
+   "AAF-12_vs_D-SRE": [
+    14,
+    2,
+    0.0042
+   ],
+   "AAF-12_vs_D-FinOps": [
+    12,
+    0,
+    0.0005
+   ],
+   "AAF-12_vs_D-Sec": [
+    8,
+    2,
+    0.1094
+   ]
+  },
+  {
+   "rel_factor": 1.5,
+   "err_pct": 2.0,
+   "cost_factor": 2.0,
+   "n": 24,
+   "correct": {
+    "B1": 15,
+    "B2": 15,
+    "B1-12": 21,
+    "Dominant": 13,
+    "AlwaysRollback": 16,
+    "AlwaysNone": 4,
+    "D-DevOps": 10,
+    "D-SRE": 8,
+    "D-FinOps": 4,
+    "D-Sec": 16,
+    "AAF": 15,
+    "B6": 18,
+    "B5": 20,
+    "AAF-12": 21
+   },
+   "AAF_vs_D-DevOps": [
+    8,
+    3,
+    0.2266
+   ],
+   "AAF_vs_D-SRE": [
+    7,
+    0,
+    0.0156
+   ],
+   "AAF_vs_D-FinOps": [
+    11,
+    0,
+    0.001
+   ],
+   "AAF_vs_D-Sec": [
+    2,
+    3,
+    1.0
+   ],
+   "AAF-12_vs_D-DevOps": [
+    11,
+    0,
+    0.001
+   ],
+   "AAF-12_vs_D-SRE": [
+    14,
+    1,
+    0.001
+   ],
+   "AAF-12_vs_D-FinOps": [
+    17,
+    0,
+    0.0
+   ],
+   "AAF-12_vs_D-Sec": [
+    7,
+    2,
+    0.1797
+   ]
+  },
+  {
+   "rel_factor": 1.5,
+   "err_pct": 2.0,
+   "cost_factor": 3.0,
+   "n": 24,
+   "correct": {
+    "B1": 18,
+    "B2": 18,
+    "B1-12": 21,
+    "Dominant": 17,
+    "AlwaysRollback": 16,
+    "AlwaysNone": 4,
+    "D-DevOps": 10,
+    "D-SRE": 8,
+    "D-FinOps": 9,
+    "D-Sec": 16,
+    "AAF": 18,
+    "B6": 18,
+    "B5": 20,
+    "AAF-12": 21
+   },
+   "AAF_vs_D-DevOps": [
+    11,
+    3,
+    0.0574
+   ],
+   "AAF_vs_D-SRE": [
+    10,
+    0,
+    0.002
+   ],
+   "AAF_vs_D-FinOps": [
+    9,
+    0,
+    0.0039
+   ],
+   "AAF_vs_D-Sec": [
+    2,
+    0,
+    0.5
+   ],
+   "AAF-12_vs_D-DevOps": [
+    11,
+    0,
+    0.001
+   ],
+   "AAF-12_vs_D-SRE": [
+    14,
+    1,
+    0.001
+   ],
+   "AAF-12_vs_D-FinOps": [
+    12,
+    0,
+    0.0005
+   ],
+   "AAF-12_vs_D-Sec": [
+    7,
+    2,
+    0.1797
+   ]
+  },
+  {
+   "rel_factor": 1.5,
+   "err_pct": 2.0,
+   "cost_factor": 4.0,
+   "n": 24,
+   "correct": {
+    "B1": 19,
+    "B2": 19,
+    "B1-12": 20,
+    "Dominant": 18,
+    "AlwaysRollback": 14,
+    "AlwaysNone": 2,
+    "D-DevOps": 8,
+    "D-SRE": 8,
+    "D-FinOps": 8,
+    "D-Sec": 14,
+    "AAF": 19,
+    "B6": 19,
+    "B5": 19,
+    "AAF-12": 20
+   },
+   "AAF_vs_D-DevOps": [
+    14,
+    3,
+    0.0127
+   ],
+   "AAF_vs_D-SRE": [
+    11,
+    0,
+    0.001
+   ],
+   "AAF_vs_D-FinOps": [
+    11,
+    0,
+    0.001
+   ],
+   "AAF_vs_D-Sec": [
+    5,
+    0,
+    0.0625
+   ],
+   "AAF-12_vs_D-DevOps": [
+    12,
+    0,
+    0.0005
+   ],
+   "AAF-12_vs_D-SRE": [
+    14,
+    2,
+    0.0042
+   ],
+   "AAF-12_vs_D-FinOps": [
+    12,
+    0,
+    0.0005
+   ],
+   "AAF-12_vs_D-Sec": [
+    8,
+    2,
+    0.1094
+   ]
+  },
+  {
+   "rel_factor": 2.0,
+   "err_pct": 0.5,
+   "cost_factor": 2.0,
+   "n": 24,
+   "correct": {
+    "B1": 15,
+    "B2": 15,
+    "B1-12": 20,
+    "Dominant": 13,
+    "AlwaysRollback": 15,
+    "AlwaysNone": 3,
+    "D-DevOps": 9,
+    "D-SRE": 8,
+    "D-FinOps": 3,
+    "D-Sec": 15,
+    "AAF": 15,
+    "B6": 18,
+    "B5": 20,
+    "AAF-12": 20
+   },
+   "AAF_vs_D-DevOps": [
+    9,
+    3,
+    0.146
+   ],
+   "AAF_vs_D-SRE": [
+    7,
+    0,
+    0.0156
+   ],
+   "AAF_vs_D-FinOps": [
+    12,
+    0,
+    0.0005
+   ],
+   "AAF_vs_D-Sec": [
+    3,
+    3,
+    1.0
+   ],
+   "AAF-12_vs_D-DevOps": [
+    11,
+    0,
+    0.001
+   ],
+   "AAF-12_vs_D-SRE": [
+    14,
+    2,
+    0.0042
+   ],
+   "AAF-12_vs_D-FinOps": [
+    17,
+    0,
+    0.0
+   ],
+   "AAF-12_vs_D-Sec": [
+    7,
+    2,
+    0.1797
+   ]
+  },
+  {
+   "rel_factor": 2.0,
+   "err_pct": 0.5,
+   "cost_factor": 3.0,
+   "n": 24,
+   "correct": {
+    "B1": 18,
+    "B2": 18,
+    "B1-12": 20,
+    "Dominant": 17,
+    "AlwaysRollback": 15,
+    "AlwaysNone": 3,
+    "D-DevOps": 9,
+    "D-SRE": 8,
+    "D-FinOps": 8,
+    "D-Sec": 15,
+    "AAF": 18,
+    "B6": 18,
+    "B5": 20,
+    "AAF-12": 20
+   },
+   "AAF_vs_D-DevOps": [
+    12,
+    3,
+    0.0352
+   ],
+   "AAF_vs_D-SRE": [
+    10,
+    0,
+    0.002
+   ],
+   "AAF_vs_D-FinOps": [
+    10,
+    0,
+    0.002
+   ],
+   "AAF_vs_D-Sec": [
+    3,
+    0,
+    0.25
+   ],
+   "AAF-12_vs_D-DevOps": [
+    11,
+    0,
+    0.001
+   ],
+   "AAF-12_vs_D-SRE": [
+    14,
+    2,
+    0.0042
+   ],
+   "AAF-12_vs_D-FinOps": [
+    12,
+    0,
+    0.0005
+   ],
+   "AAF-12_vs_D-Sec": [
+    7,
+    2,
+    0.1797
+   ]
+  },
+  {
+   "rel_factor": 2.0,
+   "err_pct": 0.5,
+   "cost_factor": 4.0,
+   "n": 24,
+   "correct": {
+    "B1": 19,
+    "B2": 19,
+    "B1-12": 19,
+    "Dominant": 18,
+    "AlwaysRollback": 13,
+    "AlwaysNone": 1,
+    "D-DevOps": 7,
+    "D-SRE": 8,
+    "D-FinOps": 7,
+    "D-Sec": 13,
+    "AAF": 19,
+    "B6": 19,
+    "B5": 19,
+    "AAF-12": 19
+   },
+   "AAF_vs_D-DevOps": [
+    15,
+    3,
+    0.0075
+   ],
+   "AAF_vs_D-SRE": [
+    11,
+    0,
+    0.001
+   ],
+   "AAF_vs_D-FinOps": [
+    12,
+    0,
+    0.0005
+   ],
+   "AAF_vs_D-Sec": [
+    6,
+    0,
+    0.0312
+   ],
+   "AAF-12_vs_D-DevOps": [
+    12,
+    0,
+    0.0005
+   ],
+   "AAF-12_vs_D-SRE": [
+    14,
+    3,
+    0.0127
+   ],
+   "AAF-12_vs_D-FinOps": [
+    12,
+    0,
+    0.0005
+   ],
+   "AAF-12_vs_D-Sec": [
+    8,
+    2,
+    0.1094
+   ]
+  },
+  {
+   "rel_factor": 2.0,
+   "err_pct": 1.0,
+   "cost_factor": 2.0,
+   "n": 24,
+   "correct": {
+    "B1": 15,
+    "B2": 15,
+    "B1-12": 20,
+    "Dominant": 13,
+    "AlwaysRollback": 15,
+    "AlwaysNone": 3,
+    "D-DevOps": 9,
+    "D-SRE": 8,
+    "D-FinOps": 3,
+    "D-Sec": 15,
+    "AAF": 15,
+    "B6": 18,
+    "B5": 20,
+    "AAF-12": 20
+   },
+   "AAF_vs_D-DevOps": [
+    9,
+    3,
+    0.146
+   ],
+   "AAF_vs_D-SRE": [
+    7,
+    0,
+    0.0156
+   ],
+   "AAF_vs_D-FinOps": [
+    12,
+    0,
+    0.0005
+   ],
+   "AAF_vs_D-Sec": [
+    3,
+    3,
+    1.0
+   ],
+   "AAF-12_vs_D-DevOps": [
+    11,
+    0,
+    0.001
+   ],
+   "AAF-12_vs_D-SRE": [
+    14,
+    2,
+    0.0042
+   ],
+   "AAF-12_vs_D-FinOps": [
+    17,
+    0,
+    0.0
+   ],
+   "AAF-12_vs_D-Sec": [
+    7,
+    2,
+    0.1797
+   ]
+  },
+  {
+   "rel_factor": 2.0,
+   "err_pct": 1.0,
+   "cost_factor": 3.0,
+   "n": 24,
+   "correct": {
+    "B1": 18,
+    "B2": 18,
+    "B1-12": 20,
+    "Dominant": 17,
+    "AlwaysRollback": 15,
+    "AlwaysNone": 3,
+    "D-DevOps": 9,
+    "D-SRE": 8,
+    "D-FinOps": 8,
+    "D-Sec": 15,
+    "AAF": 18,
+    "B6": 18,
+    "B5": 20,
+    "AAF-12": 20
+   },
+   "AAF_vs_D-DevOps": [
+    12,
+    3,
+    0.0352
+   ],
+   "AAF_vs_D-SRE": [
+    10,
+    0,
+    0.002
+   ],
+   "AAF_vs_D-FinOps": [
+    10,
+    0,
+    0.002
+   ],
+   "AAF_vs_D-Sec": [
+    3,
+    0,
+    0.25
+   ],
+   "AAF-12_vs_D-DevOps": [
+    11,
+    0,
+    0.001
+   ],
+   "AAF-12_vs_D-SRE": [
+    14,
+    2,
+    0.0042
+   ],
+   "AAF-12_vs_D-FinOps": [
+    12,
+    0,
+    0.0005
+   ],
+   "AAF-12_vs_D-Sec": [
+    7,
+    2,
+    0.1797
+   ]
+  },
+  {
+   "rel_factor": 2.0,
+   "err_pct": 1.0,
+   "cost_factor": 4.0,
+   "n": 24,
+   "correct": {
+    "B1": 19,
+    "B2": 19,
+    "B1-12": 19,
+    "Dominant": 18,
+    "AlwaysRollback": 13,
+    "AlwaysNone": 1,
+    "D-DevOps": 7,
+    "D-SRE": 8,
+    "D-FinOps": 7,
+    "D-Sec": 13,
+    "AAF": 19,
+    "B6": 19,
+    "B5": 19,
+    "AAF-12": 19
+   },
+   "AAF_vs_D-DevOps": [
+    15,
+    3,
+    0.0075
+   ],
+   "AAF_vs_D-SRE": [
+    11,
+    0,
+    0.001
+   ],
+   "AAF_vs_D-FinOps": [
+    12,
+    0,
+    0.0005
+   ],
+   "AAF_vs_D-Sec": [
+    6,
+    0,
+    0.0312
+   ],
+   "AAF-12_vs_D-DevOps": [
+    12,
+    0,
+    0.0005
+   ],
+   "AAF-12_vs_D-SRE": [
+    14,
+    3,
+    0.0127
+   ],
+   "AAF-12_vs_D-FinOps": [
+    12,
+    0,
+    0.0005
+   ],
+   "AAF-12_vs_D-Sec": [
+    8,
+    2,
+    0.1094
+   ]
+  },
+  {
+   "rel_factor": 2.0,
+   "err_pct": 2.0,
+   "cost_factor": 2.0,
+   "n": 24,
+   "correct": {
+    "B1": 15,
+    "B2": 15,
+    "B1-12": 20,
+    "Dominant": 13,
+    "AlwaysRollback": 15,
+    "AlwaysNone": 3,
+    "D-DevOps": 9,
+    "D-SRE": 8,
+    "D-FinOps": 3,
+    "D-Sec": 15,
+    "AAF": 15,
+    "B6": 18,
+    "B5": 20,
+    "AAF-12": 20
+   },
+   "AAF_vs_D-DevOps": [
+    9,
+    3,
+    0.146
+   ],
+   "AAF_vs_D-SRE": [
+    7,
+    0,
+    0.0156
+   ],
+   "AAF_vs_D-FinOps": [
+    12,
+    0,
+    0.0005
+   ],
+   "AAF_vs_D-Sec": [
+    3,
+    3,
+    1.0
+   ],
+   "AAF-12_vs_D-DevOps": [
+    11,
+    0,
+    0.001
+   ],
+   "AAF-12_vs_D-SRE": [
+    14,
+    2,
+    0.0042
+   ],
+   "AAF-12_vs_D-FinOps": [
+    17,
+    0,
+    0.0
+   ],
+   "AAF-12_vs_D-Sec": [
+    7,
+    2,
+    0.1797
+   ]
+  },
+  {
+   "rel_factor": 2.0,
+   "err_pct": 2.0,
+   "cost_factor": 3.0,
+   "n": 24,
+   "correct": {
+    "B1": 18,
+    "B2": 18,
+    "B1-12": 20,
+    "Dominant": 17,
+    "AlwaysRollback": 15,
+    "AlwaysNone": 3,
+    "D-DevOps": 9,
+    "D-SRE": 8,
+    "D-FinOps": 8,
+    "D-Sec": 15,
+    "AAF": 18,
+    "B6": 18,
+    "B5": 20,
+    "AAF-12": 20
+   },
+   "AAF_vs_D-DevOps": [
+    12,
+    3,
+    0.0352
+   ],
+   "AAF_vs_D-SRE": [
+    10,
+    0,
+    0.002
+   ],
+   "AAF_vs_D-FinOps": [
+    10,
+    0,
+    0.002
+   ],
+   "AAF_vs_D-Sec": [
+    3,
+    0,
+    0.25
+   ],
+   "AAF-12_vs_D-DevOps": [
+    11,
+    0,
+    0.001
+   ],
+   "AAF-12_vs_D-SRE": [
+    14,
+    2,
+    0.0042
+   ],
+   "AAF-12_vs_D-FinOps": [
+    12,
+    0,
+    0.0005
+   ],
+   "AAF-12_vs_D-Sec": [
+    7,
+    2,
+    0.1797
+   ]
+  },
+  {
+   "rel_factor": 2.0,
+   "err_pct": 2.0,
+   "cost_factor": 4.0,
+   "n": 24,
+   "correct": {
+    "B1": 19,
+    "B2": 19,
+    "B1-12": 19,
+    "Dominant": 18,
+    "AlwaysRollback": 13,
+    "AlwaysNone": 1,
+    "D-DevOps": 7,
+    "D-SRE": 8,
+    "D-FinOps": 7,
+    "D-Sec": 13,
+    "AAF": 19,
+    "B6": 19,
+    "B5": 19,
+    "AAF-12": 19
+   },
+   "AAF_vs_D-DevOps": [
+    15,
+    3,
+    0.0075
+   ],
+   "AAF_vs_D-SRE": [
+    11,
+    0,
+    0.001
+   ],
+   "AAF_vs_D-FinOps": [
+    12,
+    0,
+    0.0005
+   ],
+   "AAF_vs_D-Sec": [
+    6,
+    0,
+    0.0312
+   ],
+   "AAF-12_vs_D-DevOps": [
+    12,
+    0,
+    0.0005
+   ],
+   "AAF-12_vs_D-SRE": [
+    14,
+    3,
+    0.0127
+   ],
+   "AAF-12_vs_D-FinOps": [
+    12,
+    0,
+    0.0005
+   ],
+   "AAF-12_vs_D-Sec": [
+    8,
+    2,
+    0.1094
+   ]
+  },
+  {
+   "rel_factor": 3.0,
+   "err_pct": 0.5,
+   "cost_factor": 2.0,
+   "n": 24,
+   "correct": {
+    "B1": 14,
+    "B2": 14,
+    "B1-12": 21,
+    "Dominant": 12,
+    "AlwaysRollback": 16,
+    "AlwaysNone": 4,
+    "D-DevOps": 10,
+    "D-SRE": 7,
+    "D-FinOps": 4,
+    "D-Sec": 16,
+    "AAF": 14,
+    "B6": 17,
+    "B5": 20,
+    "AAF-12": 21
+   },
+   "AAF_vs_D-DevOps": [
+    8,
+    4,
+    0.3877
+   ],
+   "AAF_vs_D-SRE": [
+    7,
+    0,
+    0.0156
+   ],
+   "AAF_vs_D-FinOps": [
+    11,
+    1,
+    0.0063
+   ],
+   "AAF_vs_D-Sec": [
+    2,
+    4,
+    0.6875
+   ],
+   "AAF-12_vs_D-DevOps": [
+    11,
+    0,
+    0.001
+   ],
+   "AAF-12_vs_D-SRE": [
+    15,
+    1,
+    0.0005
+   ],
+   "AAF-12_vs_D-FinOps": [
+    17,
+    0,
+    0.0
+   ],
+   "AAF-12_vs_D-Sec": [
+    7,
+    2,
+    0.1797
+   ]
+  },
+  {
+   "rel_factor": 3.0,
+   "err_pct": 0.5,
+   "cost_factor": 3.0,
+   "n": 24,
+   "correct": {
+    "B1": 17,
+    "B2": 17,
+    "B1-12": 21,
+    "Dominant": 16,
+    "AlwaysRollback": 16,
+    "AlwaysNone": 4,
+    "D-DevOps": 10,
+    "D-SRE": 7,
+    "D-FinOps": 9,
+    "D-Sec": 16,
+    "AAF": 17,
+    "B6": 17,
+    "B5": 20,
+    "AAF-12": 21
+   },
+   "AAF_vs_D-DevOps": [
+    11,
+    4,
+    0.1185
+   ],
+   "AAF_vs_D-SRE": [
+    10,
+    0,
+    0.002
+   ],
+   "AAF_vs_D-FinOps": [
+    9,
+    1,
+    0.0215
+   ],
+   "AAF_vs_D-Sec": [
+    2,
+    1,
+    1.0
+   ],
+   "AAF-12_vs_D-DevOps": [
+    11,
+    0,
+    0.001
+   ],
+   "AAF-12_vs_D-SRE": [
+    15,
+    1,
+    0.0005
+   ],
+   "AAF-12_vs_D-FinOps": [
+    12,
+    0,
+    0.0005
+   ],
+   "AAF-12_vs_D-Sec": [
+    7,
+    2,
+    0.1797
+   ]
+  },
+  {
+   "rel_factor": 3.0,
+   "err_pct": 0.5,
+   "cost_factor": 4.0,
+   "n": 24,
+   "correct": {
+    "B1": 19,
+    "B2": 19,
+    "B1-12": 21,
+    "Dominant": 18,
+    "AlwaysRollback": 15,
+    "AlwaysNone": 3,
+    "D-DevOps": 9,
+    "D-SRE": 8,
+    "D-FinOps": 9,
+    "D-Sec": 15,
+    "AAF": 19,
+    "B6": 19,
+    "B5": 20,
+    "AAF-12": 21
+   },
+   "AAF_vs_D-DevOps": [
+    13,
+    3,
+    0.0213
+   ],
+   "AAF_vs_D-SRE": [
+    11,
+    0,
+    0.001
+   ],
+   "AAF_vs_D-FinOps": [
+    10,
+    0,
+    0.002
+   ],
+   "AAF_vs_D-Sec": [
+    4,
+    0,
+    0.125
+   ],
+   "AAF-12_vs_D-DevOps": [
+    12,
+    0,
+    0.0005
+   ],
+   "AAF-12_vs_D-SRE": [
+    14,
+    1,
+    0.001
+   ],
+   "AAF-12_vs_D-FinOps": [
+    12,
+    0,
+    0.0005
+   ],
+   "AAF-12_vs_D-Sec": [
+    8,
+    2,
+    0.1094
+   ]
+  },
+  {
+   "rel_factor": 3.0,
+   "err_pct": 1.0,
+   "cost_factor": 2.0,
+   "n": 24,
+   "correct": {
+    "B1": 14,
+    "B2": 14,
+    "B1-12": 21,
+    "Dominant": 12,
+    "AlwaysRollback": 16,
+    "AlwaysNone": 4,
+    "D-DevOps": 10,
+    "D-SRE": 7,
+    "D-FinOps": 4,
+    "D-Sec": 16,
+    "AAF": 14,
+    "B6": 17,
+    "B5": 20,
+    "AAF-12": 21
+   },
+   "AAF_vs_D-DevOps": [
+    8,
+    4,
+    0.3877
+   ],
+   "AAF_vs_D-SRE": [
+    7,
+    0,
+    0.0156
+   ],
+   "AAF_vs_D-FinOps": [
+    11,
+    1,
+    0.0063
+   ],
+   "AAF_vs_D-Sec": [
+    2,
+    4,
+    0.6875
+   ],
+   "AAF-12_vs_D-DevOps": [
+    11,
+    0,
+    0.001
+   ],
+   "AAF-12_vs_D-SRE": [
+    15,
+    1,
+    0.0005
+   ],
+   "AAF-12_vs_D-FinOps": [
+    17,
+    0,
+    0.0
+   ],
+   "AAF-12_vs_D-Sec": [
+    7,
+    2,
+    0.1797
+   ]
+  },
+  {
+   "rel_factor": 3.0,
+   "err_pct": 1.0,
+   "cost_factor": 3.0,
+   "n": 24,
+   "correct": {
+    "B1": 17,
+    "B2": 17,
+    "B1-12": 21,
+    "Dominant": 16,
+    "AlwaysRollback": 16,
+    "AlwaysNone": 4,
+    "D-DevOps": 10,
+    "D-SRE": 7,
+    "D-FinOps": 9,
+    "D-Sec": 16,
+    "AAF": 17,
+    "B6": 17,
+    "B5": 20,
+    "AAF-12": 21
+   },
+   "AAF_vs_D-DevOps": [
+    11,
+    4,
+    0.1185
+   ],
+   "AAF_vs_D-SRE": [
+    10,
+    0,
+    0.002
+   ],
+   "AAF_vs_D-FinOps": [
+    9,
+    1,
+    0.0215
+   ],
+   "AAF_vs_D-Sec": [
+    2,
+    1,
+    1.0
+   ],
+   "AAF-12_vs_D-DevOps": [
+    11,
+    0,
+    0.001
+   ],
+   "AAF-12_vs_D-SRE": [
+    15,
+    1,
+    0.0005
+   ],
+   "AAF-12_vs_D-FinOps": [
+    12,
+    0,
+    0.0005
+   ],
+   "AAF-12_vs_D-Sec": [
+    7,
+    2,
+    0.1797
+   ]
+  },
+  {
+   "rel_factor": 3.0,
+   "err_pct": 1.0,
+   "cost_factor": 4.0,
+   "n": 24,
+   "correct": {
+    "B1": 19,
+    "B2": 19,
+    "B1-12": 21,
+    "Dominant": 18,
+    "AlwaysRollback": 15,
+    "AlwaysNone": 3,
+    "D-DevOps": 9,
+    "D-SRE": 8,
+    "D-FinOps": 9,
+    "D-Sec": 15,
+    "AAF": 19,
+    "B6": 19,
+    "B5": 20,
+    "AAF-12": 21
+   },
+   "AAF_vs_D-DevOps": [
+    13,
+    3,
+    0.0213
+   ],
+   "AAF_vs_D-SRE": [
+    11,
+    0,
+    0.001
+   ],
+   "AAF_vs_D-FinOps": [
+    10,
+    0,
+    0.002
+   ],
+   "AAF_vs_D-Sec": [
+    4,
+    0,
+    0.125
+   ],
+   "AAF-12_vs_D-DevOps": [
+    12,
+    0,
+    0.0005
+   ],
+   "AAF-12_vs_D-SRE": [
+    14,
+    1,
+    0.001
+   ],
+   "AAF-12_vs_D-FinOps": [
+    12,
+    0,
+    0.0005
+   ],
+   "AAF-12_vs_D-Sec": [
+    8,
+    2,
+    0.1094
+   ]
+  },
+  {
+   "rel_factor": 3.0,
+   "err_pct": 2.0,
+   "cost_factor": 2.0,
+   "n": 24,
+   "correct": {
+    "B1": 14,
+    "B2": 14,
+    "B1-12": 21,
+    "Dominant": 12,
+    "AlwaysRollback": 16,
+    "AlwaysNone": 4,
+    "D-DevOps": 10,
+    "D-SRE": 7,
+    "D-FinOps": 4,
+    "D-Sec": 16,
+    "AAF": 14,
+    "B6": 17,
+    "B5": 20,
+    "AAF-12": 21
+   },
+   "AAF_vs_D-DevOps": [
+    8,
+    4,
+    0.3877
+   ],
+   "AAF_vs_D-SRE": [
+    7,
+    0,
+    0.0156
+   ],
+   "AAF_vs_D-FinOps": [
+    11,
+    1,
+    0.0063
+   ],
+   "AAF_vs_D-Sec": [
+    2,
+    4,
+    0.6875
+   ],
+   "AAF-12_vs_D-DevOps": [
+    11,
+    0,
+    0.001
+   ],
+   "AAF-12_vs_D-SRE": [
+    15,
+    1,
+    0.0005
+   ],
+   "AAF-12_vs_D-FinOps": [
+    17,
+    0,
+    0.0
+   ],
+   "AAF-12_vs_D-Sec": [
+    7,
+    2,
+    0.1797
+   ]
+  },
+  {
+   "rel_factor": 3.0,
+   "err_pct": 2.0,
+   "cost_factor": 3.0,
+   "n": 24,
+   "correct": {
+    "B1": 17,
+    "B2": 17,
+    "B1-12": 21,
+    "Dominant": 16,
+    "AlwaysRollback": 16,
+    "AlwaysNone": 4,
+    "D-DevOps": 10,
+    "D-SRE": 7,
+    "D-FinOps": 9,
+    "D-Sec": 16,
+    "AAF": 17,
+    "B6": 17,
+    "B5": 20,
+    "AAF-12": 21
+   },
+   "AAF_vs_D-DevOps": [
+    11,
+    4,
+    0.1185
+   ],
+   "AAF_vs_D-SRE": [
+    10,
+    0,
+    0.002
+   ],
+   "AAF_vs_D-FinOps": [
+    9,
+    1,
+    0.0215
+   ],
+   "AAF_vs_D-Sec": [
+    2,
+    1,
+    1.0
+   ],
+   "AAF-12_vs_D-DevOps": [
+    11,
+    0,
+    0.001
+   ],
+   "AAF-12_vs_D-SRE": [
+    15,
+    1,
+    0.0005
+   ],
+   "AAF-12_vs_D-FinOps": [
+    12,
+    0,
+    0.0005
+   ],
+   "AAF-12_vs_D-Sec": [
+    7,
+    2,
+    0.1797
+   ]
+  },
+  {
+   "rel_factor": 3.0,
+   "err_pct": 2.0,
+   "cost_factor": 4.0,
+   "n": 24,
+   "correct": {
+    "B1": 19,
+    "B2": 19,
+    "B1-12": 21,
+    "Dominant": 18,
+    "AlwaysRollback": 15,
+    "AlwaysNone": 3,
+    "D-DevOps": 9,
+    "D-SRE": 8,
+    "D-FinOps": 9,
+    "D-Sec": 15,
+    "AAF": 19,
+    "B6": 19,
+    "B5": 20,
+    "AAF-12": 21
+   },
+   "AAF_vs_D-DevOps": [
+    13,
+    3,
+    0.0213
+   ],
+   "AAF_vs_D-SRE": [
+    11,
+    0,
+    0.001
+   ],
+   "AAF_vs_D-FinOps": [
+    10,
+    0,
+    0.002
+   ],
+   "AAF_vs_D-Sec": [
+    4,
+    0,
+    0.125
+   ],
+   "AAF-12_vs_D-DevOps": [
+    12,
+    0,
+    0.0005
+   ],
+   "AAF-12_vs_D-SRE": [
+    14,
+    1,
+    0.001
+   ],
+   "AAF-12_vs_D-FinOps": [
+    12,
+    0,
+    0.0005
+   ],
+   "AAF-12_vs_D-Sec": [
+    8,
+    2,
+    0.1094
+   ]
+  }
+ ],
+ "outcome_study14": [
+  {
+   "rel_factor": 1.5,
+   "err_pct": 0.5,
+   "cost_factor": 2.0,
+   "n": 34,
+   "correct": {
+    "B1": 25,
+    "B2": 25,
+    "B1-12": 32,
+    "B1-14": 34,
+    "Dominant": 21,
+    "AlwaysRollback": 26,
+    "AlwaysNone": 6,
+    "BlockAnyCVE": 26,
+    "D-DevOps": 14,
+    "D-SRE": 9,
+    "D-FinOps": 11,
+    "D-Sec": 26,
+    "AAF-14": 34,
+    "AAF": 25,
+    "B6": 29,
+    "B5": 27
+   },
+   "AAF_vs_D-DevOps": [
+    13,
+    2,
+    0.0074
+   ],
+   "AAF_vs_D-SRE": [
+    16,
+    0,
+    0.0
+   ],
+   "AAF_vs_D-FinOps": [
+    14,
+    0,
+    0.0001
+   ],
+   "AAF_vs_D-Sec": [
+    3,
+    4,
+    1.0
+   ],
+   "AAF-14_vs_D-DevOps": [
+    20,
+    0,
+    0.0
+   ],
+   "AAF-14_vs_D-SRE": [
+    25,
+    0,
+    0.0
+   ],
+   "AAF-14_vs_D-FinOps": [
+    23,
+    0,
+    0.0
+   ],
+   "AAF-14_vs_D-Sec": [
+    8,
+    0,
+    0.0078
+   ]
+  },
+  {
+   "rel_factor": 1.5,
+   "err_pct": 0.5,
+   "cost_factor": 3.0,
+   "n": 34,
+   "correct": {
+    "B1": 25,
+    "B2": 25,
+    "B1-12": 32,
+    "B1-14": 34,
+    "Dominant": 21,
+    "AlwaysRollback": 26,
+    "AlwaysNone": 6,
+    "BlockAnyCVE": 26,
+    "D-DevOps": 14,
+    "D-SRE": 9,
+    "D-FinOps": 11,
+    "D-Sec": 26,
+    "AAF-14": 34,
+    "AAF": 25,
+    "B6": 29,
+    "B5": 27
+   },
+   "AAF_vs_D-DevOps": [
+    13,
+    2,
+    0.0074
+   ],
+   "AAF_vs_D-SRE": [
+    16,
+    0,
+    0.0
+   ],
+   "AAF_vs_D-FinOps": [
+    14,
+    0,
+    0.0001
+   ],
+   "AAF_vs_D-Sec": [
+    3,
+    4,
+    1.0
+   ],
+   "AAF-14_vs_D-DevOps": [
+    20,
+    0,
+    0.0
+   ],
+   "AAF-14_vs_D-SRE": [
+    25,
+    0,
+    0.0
+   ],
+   "AAF-14_vs_D-FinOps": [
+    23,
+    0,
+    0.0
+   ],
+   "AAF-14_vs_D-Sec": [
+    8,
+    0,
+    0.0078
+   ]
+  },
+  {
+   "rel_factor": 1.5,
+   "err_pct": 0.5,
+   "cost_factor": 4.0,
+   "n": 34,
+   "correct": {
+    "B1": 27,
+    "B2": 27,
+    "B1-12": 31,
+    "B1-14": 34,
+    "Dominant": 25,
+    "AlwaysRollback": 24,
+    "AlwaysNone": 4,
+    "BlockAnyCVE": 24,
+    "D-DevOps": 12,
+    "D-SRE": 8,
+    "D-FinOps": 14,
+    "D-Sec": 24,
+    "AAF-14": 34,
+    "AAF": 27,
+    "B6": 28,
+    "B5": 25
+   },
+   "AAF_vs_D-DevOps": [
+    17,
+    2,
+    0.0007
+   ],
+   "AAF_vs_D-SRE": [
+    19,
+    0,
+    0.0
+   ],
+   "AAF_vs_D-FinOps": [
+    13,
+    0,
+    0.0002
+   ],
+   "AAF_vs_D-Sec": [
+    5,
+    2,
+    0.4531
+   ],
+   "AAF-14_vs_D-DevOps": [
+    22,
+    0,
+    0.0
+   ],
+   "AAF-14_vs_D-SRE": [
+    26,
+    0,
+    0.0
+   ],
+   "AAF-14_vs_D-FinOps": [
+    20,
+    0,
+    0.0
+   ],
+   "AAF-14_vs_D-Sec": [
+    10,
+    0,
+    0.002
+   ]
+  },
+  {
+   "rel_factor": 1.5,
+   "err_pct": 1.0,
+   "cost_factor": 2.0,
+   "n": 34,
+   "correct": {
+    "B1": 25,
+    "B2": 25,
+    "B1-12": 32,
+    "B1-14": 34,
+    "Dominant": 21,
+    "AlwaysRollback": 26,
+    "AlwaysNone": 6,
+    "BlockAnyCVE": 26,
+    "D-DevOps": 14,
+    "D-SRE": 9,
+    "D-FinOps": 11,
+    "D-Sec": 26,
+    "AAF-14": 34,
+    "AAF": 25,
+    "B6": 29,
+    "B5": 27
+   },
+   "AAF_vs_D-DevOps": [
+    13,
+    2,
+    0.0074
+   ],
+   "AAF_vs_D-SRE": [
+    16,
+    0,
+    0.0
+   ],
+   "AAF_vs_D-FinOps": [
+    14,
+    0,
+    0.0001
+   ],
+   "AAF_vs_D-Sec": [
+    3,
+    4,
+    1.0
+   ],
+   "AAF-14_vs_D-DevOps": [
+    20,
+    0,
+    0.0
+   ],
+   "AAF-14_vs_D-SRE": [
+    25,
+    0,
+    0.0
+   ],
+   "AAF-14_vs_D-FinOps": [
+    23,
+    0,
+    0.0
+   ],
+   "AAF-14_vs_D-Sec": [
+    8,
+    0,
+    0.0078
+   ]
+  },
+  {
+   "rel_factor": 1.5,
+   "err_pct": 1.0,
+   "cost_factor": 3.0,
+   "n": 34,
+   "correct": {
+    "B1": 25,
+    "B2": 25,
+    "B1-12": 32,
+    "B1-14": 34,
+    "Dominant": 21,
+    "AlwaysRollback": 26,
+    "AlwaysNone": 6,
+    "BlockAnyCVE": 26,
+    "D-DevOps": 14,
+    "D-SRE": 9,
+    "D-FinOps": 11,
+    "D-Sec": 26,
+    "AAF-14": 34,
+    "AAF": 25,
+    "B6": 29,
+    "B5": 27
+   },
+   "AAF_vs_D-DevOps": [
+    13,
+    2,
+    0.0074
+   ],
+   "AAF_vs_D-SRE": [
+    16,
+    0,
+    0.0
+   ],
+   "AAF_vs_D-FinOps": [
+    14,
+    0,
+    0.0001
+   ],
+   "AAF_vs_D-Sec": [
+    3,
+    4,
+    1.0
+   ],
+   "AAF-14_vs_D-DevOps": [
+    20,
+    0,
+    0.0
+   ],
+   "AAF-14_vs_D-SRE": [
+    25,
+    0,
+    0.0
+   ],
+   "AAF-14_vs_D-FinOps": [
+    23,
+    0,
+    0.0
+   ],
+   "AAF-14_vs_D-Sec": [
+    8,
+    0,
+    0.0078
+   ]
+  },
+  {
+   "rel_factor": 1.5,
+   "err_pct": 1.0,
+   "cost_factor": 4.0,
+   "n": 34,
+   "correct": {
+    "B1": 27,
+    "B2": 27,
+    "B1-12": 31,
+    "B1-14": 34,
+    "Dominant": 25,
+    "AlwaysRollback": 24,
+    "AlwaysNone": 4,
+    "BlockAnyCVE": 24,
+    "D-DevOps": 12,
+    "D-SRE": 8,
+    "D-FinOps": 14,
+    "D-Sec": 24,
+    "AAF-14": 34,
+    "AAF": 27,
+    "B6": 28,
+    "B5": 25
+   },
+   "AAF_vs_D-DevOps": [
+    17,
+    2,
+    0.0007
+   ],
+   "AAF_vs_D-SRE": [
+    19,
+    0,
+    0.0
+   ],
+   "AAF_vs_D-FinOps": [
+    13,
+    0,
+    0.0002
+   ],
+   "AAF_vs_D-Sec": [
+    5,
+    2,
+    0.4531
+   ],
+   "AAF-14_vs_D-DevOps": [
+    22,
+    0,
+    0.0
+   ],
+   "AAF-14_vs_D-SRE": [
+    26,
+    0,
+    0.0
+   ],
+   "AAF-14_vs_D-FinOps": [
+    20,
+    0,
+    0.0
+   ],
+   "AAF-14_vs_D-Sec": [
+    10,
+    0,
+    0.002
+   ]
+  },
+  {
+   "rel_factor": 1.5,
+   "err_pct": 2.0,
+   "cost_factor": 2.0,
+   "n": 34,
+   "correct": {
+    "B1": 25,
+    "B2": 25,
+    "B1-12": 32,
+    "B1-14": 34,
+    "Dominant": 21,
+    "AlwaysRollback": 26,
+    "AlwaysNone": 6,
+    "BlockAnyCVE": 26,
+    "D-DevOps": 14,
+    "D-SRE": 9,
+    "D-FinOps": 11,
+    "D-Sec": 26,
+    "AAF-14": 34,
+    "AAF": 25,
+    "B6": 29,
+    "B5": 27
+   },
+   "AAF_vs_D-DevOps": [
+    13,
+    2,
+    0.0074
+   ],
+   "AAF_vs_D-SRE": [
+    16,
+    0,
+    0.0
+   ],
+   "AAF_vs_D-FinOps": [
+    14,
+    0,
+    0.0001
+   ],
+   "AAF_vs_D-Sec": [
+    3,
+    4,
+    1.0
+   ],
+   "AAF-14_vs_D-DevOps": [
+    20,
+    0,
+    0.0
+   ],
+   "AAF-14_vs_D-SRE": [
+    25,
+    0,
+    0.0
+   ],
+   "AAF-14_vs_D-FinOps": [
+    23,
+    0,
+    0.0
+   ],
+   "AAF-14_vs_D-Sec": [
+    8,
+    0,
+    0.0078
+   ]
+  },
+  {
+   "rel_factor": 1.5,
+   "err_pct": 2.0,
+   "cost_factor": 3.0,
+   "n": 34,
+   "correct": {
+    "B1": 25,
+    "B2": 25,
+    "B1-12": 32,
+    "B1-14": 34,
+    "Dominant": 21,
+    "AlwaysRollback": 26,
+    "AlwaysNone": 6,
+    "BlockAnyCVE": 26,
+    "D-DevOps": 14,
+    "D-SRE": 9,
+    "D-FinOps": 11,
+    "D-Sec": 26,
+    "AAF-14": 34,
+    "AAF": 25,
+    "B6": 29,
+    "B5": 27
+   },
+   "AAF_vs_D-DevOps": [
+    13,
+    2,
+    0.0074
+   ],
+   "AAF_vs_D-SRE": [
+    16,
+    0,
+    0.0
+   ],
+   "AAF_vs_D-FinOps": [
+    14,
+    0,
+    0.0001
+   ],
+   "AAF_vs_D-Sec": [
+    3,
+    4,
+    1.0
+   ],
+   "AAF-14_vs_D-DevOps": [
+    20,
+    0,
+    0.0
+   ],
+   "AAF-14_vs_D-SRE": [
+    25,
+    0,
+    0.0
+   ],
+   "AAF-14_vs_D-FinOps": [
+    23,
+    0,
+    0.0
+   ],
+   "AAF-14_vs_D-Sec": [
+    8,
+    0,
+    0.0078
+   ]
+  },
+  {
+   "rel_factor": 1.5,
+   "err_pct": 2.0,
+   "cost_factor": 4.0,
+   "n": 34,
+   "correct": {
+    "B1": 27,
+    "B2": 27,
+    "B1-12": 31,
+    "B1-14": 34,
+    "Dominant": 25,
+    "AlwaysRollback": 24,
+    "AlwaysNone": 4,
+    "BlockAnyCVE": 24,
+    "D-DevOps": 12,
+    "D-SRE": 8,
+    "D-FinOps": 14,
+    "D-Sec": 24,
+    "AAF-14": 34,
+    "AAF": 27,
+    "B6": 28,
+    "B5": 25
+   },
+   "AAF_vs_D-DevOps": [
+    17,
+    2,
+    0.0007
+   ],
+   "AAF_vs_D-SRE": [
+    19,
+    0,
+    0.0
+   ],
+   "AAF_vs_D-FinOps": [
+    13,
+    0,
+    0.0002
+   ],
+   "AAF_vs_D-Sec": [
+    5,
+    2,
+    0.4531
+   ],
+   "AAF-14_vs_D-DevOps": [
+    22,
+    0,
+    0.0
+   ],
+   "AAF-14_vs_D-SRE": [
+    26,
+    0,
+    0.0
+   ],
+   "AAF-14_vs_D-FinOps": [
+    20,
+    0,
+    0.0
+   ],
+   "AAF-14_vs_D-Sec": [
+    10,
+    0,
+    0.002
+   ]
+  },
+  {
+   "rel_factor": 2.0,
+   "err_pct": 0.5,
+   "cost_factor": 2.0,
+   "n": 34,
+   "correct": {
+    "B1": 25,
+    "B2": 25,
+    "B1-12": 32,
+    "B1-14": 34,
+    "Dominant": 21,
+    "AlwaysRollback": 26,
+    "AlwaysNone": 6,
+    "BlockAnyCVE": 26,
+    "D-DevOps": 14,
+    "D-SRE": 9,
+    "D-FinOps": 11,
+    "D-Sec": 26,
+    "AAF-14": 34,
+    "AAF": 25,
+    "B6": 29,
+    "B5": 27
+   },
+   "AAF_vs_D-DevOps": [
+    13,
+    2,
+    0.0074
+   ],
+   "AAF_vs_D-SRE": [
+    16,
+    0,
+    0.0
+   ],
+   "AAF_vs_D-FinOps": [
+    14,
+    0,
+    0.0001
+   ],
+   "AAF_vs_D-Sec": [
+    3,
+    4,
+    1.0
+   ],
+   "AAF-14_vs_D-DevOps": [
+    20,
+    0,
+    0.0
+   ],
+   "AAF-14_vs_D-SRE": [
+    25,
+    0,
+    0.0
+   ],
+   "AAF-14_vs_D-FinOps": [
+    23,
+    0,
+    0.0
+   ],
+   "AAF-14_vs_D-Sec": [
+    8,
+    0,
+    0.0078
+   ]
+  },
+  {
+   "rel_factor": 2.0,
+   "err_pct": 0.5,
+   "cost_factor": 3.0,
+   "n": 34,
+   "correct": {
+    "B1": 25,
+    "B2": 25,
+    "B1-12": 32,
+    "B1-14": 34,
+    "Dominant": 21,
+    "AlwaysRollback": 26,
+    "AlwaysNone": 6,
+    "BlockAnyCVE": 26,
+    "D-DevOps": 14,
+    "D-SRE": 9,
+    "D-FinOps": 11,
+    "D-Sec": 26,
+    "AAF-14": 34,
+    "AAF": 25,
+    "B6": 29,
+    "B5": 27
+   },
+   "AAF_vs_D-DevOps": [
+    13,
+    2,
+    0.0074
+   ],
+   "AAF_vs_D-SRE": [
+    16,
+    0,
+    0.0
+   ],
+   "AAF_vs_D-FinOps": [
+    14,
+    0,
+    0.0001
+   ],
+   "AAF_vs_D-Sec": [
+    3,
+    4,
+    1.0
+   ],
+   "AAF-14_vs_D-DevOps": [
+    20,
+    0,
+    0.0
+   ],
+   "AAF-14_vs_D-SRE": [
+    25,
+    0,
+    0.0
+   ],
+   "AAF-14_vs_D-FinOps": [
+    23,
+    0,
+    0.0
+   ],
+   "AAF-14_vs_D-Sec": [
+    8,
+    0,
+    0.0078
+   ]
+  },
+  {
+   "rel_factor": 2.0,
+   "err_pct": 0.5,
+   "cost_factor": 4.0,
+   "n": 34,
+   "correct": {
+    "B1": 27,
+    "B2": 27,
+    "B1-12": 31,
+    "B1-14": 34,
+    "Dominant": 25,
+    "AlwaysRollback": 24,
+    "AlwaysNone": 4,
+    "BlockAnyCVE": 24,
+    "D-DevOps": 12,
+    "D-SRE": 8,
+    "D-FinOps": 14,
+    "D-Sec": 24,
+    "AAF-14": 34,
+    "AAF": 27,
+    "B6": 28,
+    "B5": 25
+   },
+   "AAF_vs_D-DevOps": [
+    17,
+    2,
+    0.0007
+   ],
+   "AAF_vs_D-SRE": [
+    19,
+    0,
+    0.0
+   ],
+   "AAF_vs_D-FinOps": [
+    13,
+    0,
+    0.0002
+   ],
+   "AAF_vs_D-Sec": [
+    5,
+    2,
+    0.4531
+   ],
+   "AAF-14_vs_D-DevOps": [
+    22,
+    0,
+    0.0
+   ],
+   "AAF-14_vs_D-SRE": [
+    26,
+    0,
+    0.0
+   ],
+   "AAF-14_vs_D-FinOps": [
+    20,
+    0,
+    0.0
+   ],
+   "AAF-14_vs_D-Sec": [
+    10,
+    0,
+    0.002
+   ]
+  },
+  {
+   "rel_factor": 2.0,
+   "err_pct": 1.0,
+   "cost_factor": 2.0,
+   "n": 34,
+   "correct": {
+    "B1": 25,
+    "B2": 25,
+    "B1-12": 32,
+    "B1-14": 34,
+    "Dominant": 21,
+    "AlwaysRollback": 26,
+    "AlwaysNone": 6,
+    "BlockAnyCVE": 26,
+    "D-DevOps": 14,
+    "D-SRE": 9,
+    "D-FinOps": 11,
+    "D-Sec": 26,
+    "AAF-14": 34,
+    "AAF": 25,
+    "B6": 29,
+    "B5": 27
+   },
+   "AAF_vs_D-DevOps": [
+    13,
+    2,
+    0.0074
+   ],
+   "AAF_vs_D-SRE": [
+    16,
+    0,
+    0.0
+   ],
+   "AAF_vs_D-FinOps": [
+    14,
+    0,
+    0.0001
+   ],
+   "AAF_vs_D-Sec": [
+    3,
+    4,
+    1.0
+   ],
+   "AAF-14_vs_D-DevOps": [
+    20,
+    0,
+    0.0
+   ],
+   "AAF-14_vs_D-SRE": [
+    25,
+    0,
+    0.0
+   ],
+   "AAF-14_vs_D-FinOps": [
+    23,
+    0,
+    0.0
+   ],
+   "AAF-14_vs_D-Sec": [
+    8,
+    0,
+    0.0078
+   ]
+  },
+  {
+   "rel_factor": 2.0,
+   "err_pct": 1.0,
+   "cost_factor": 3.0,
+   "n": 34,
+   "correct": {
+    "B1": 25,
+    "B2": 25,
+    "B1-12": 32,
+    "B1-14": 34,
+    "Dominant": 21,
+    "AlwaysRollback": 26,
+    "AlwaysNone": 6,
+    "BlockAnyCVE": 26,
+    "D-DevOps": 14,
+    "D-SRE": 9,
+    "D-FinOps": 11,
+    "D-Sec": 26,
+    "AAF-14": 34,
+    "AAF": 25,
+    "B6": 29,
+    "B5": 27
+   },
+   "AAF_vs_D-DevOps": [
+    13,
+    2,
+    0.0074
+   ],
+   "AAF_vs_D-SRE": [
+    16,
+    0,
+    0.0
+   ],
+   "AAF_vs_D-FinOps": [
+    14,
+    0,
+    0.0001
+   ],
+   "AAF_vs_D-Sec": [
+    3,
+    4,
+    1.0
+   ],
+   "AAF-14_vs_D-DevOps": [
+    20,
+    0,
+    0.0
+   ],
+   "AAF-14_vs_D-SRE": [
+    25,
+    0,
+    0.0
+   ],
+   "AAF-14_vs_D-FinOps": [
+    23,
+    0,
+    0.0
+   ],
+   "AAF-14_vs_D-Sec": [
+    8,
+    0,
+    0.0078
+   ]
+  },
+  {
+   "rel_factor": 2.0,
+   "err_pct": 1.0,
+   "cost_factor": 4.0,
+   "n": 34,
+   "correct": {
+    "B1": 27,
+    "B2": 27,
+    "B1-12": 31,
+    "B1-14": 34,
+    "Dominant": 25,
+    "AlwaysRollback": 24,
+    "AlwaysNone": 4,
+    "BlockAnyCVE": 24,
+    "D-DevOps": 12,
+    "D-SRE": 8,
+    "D-FinOps": 14,
+    "D-Sec": 24,
+    "AAF-14": 34,
+    "AAF": 27,
+    "B6": 28,
+    "B5": 25
+   },
+   "AAF_vs_D-DevOps": [
+    17,
+    2,
+    0.0007
+   ],
+   "AAF_vs_D-SRE": [
+    19,
+    0,
+    0.0
+   ],
+   "AAF_vs_D-FinOps": [
+    13,
+    0,
+    0.0002
+   ],
+   "AAF_vs_D-Sec": [
+    5,
+    2,
+    0.4531
+   ],
+   "AAF-14_vs_D-DevOps": [
+    22,
+    0,
+    0.0
+   ],
+   "AAF-14_vs_D-SRE": [
+    26,
+    0,
+    0.0
+   ],
+   "AAF-14_vs_D-FinOps": [
+    20,
+    0,
+    0.0
+   ],
+   "AAF-14_vs_D-Sec": [
+    10,
+    0,
+    0.002
+   ]
+  },
+  {
+   "rel_factor": 2.0,
+   "err_pct": 2.0,
+   "cost_factor": 2.0,
+   "n": 34,
+   "correct": {
+    "B1": 25,
+    "B2": 25,
+    "B1-12": 32,
+    "B1-14": 34,
+    "Dominant": 21,
+    "AlwaysRollback": 26,
+    "AlwaysNone": 6,
+    "BlockAnyCVE": 26,
+    "D-DevOps": 14,
+    "D-SRE": 9,
+    "D-FinOps": 11,
+    "D-Sec": 26,
+    "AAF-14": 34,
+    "AAF": 25,
+    "B6": 29,
+    "B5": 27
+   },
+   "AAF_vs_D-DevOps": [
+    13,
+    2,
+    0.0074
+   ],
+   "AAF_vs_D-SRE": [
+    16,
+    0,
+    0.0
+   ],
+   "AAF_vs_D-FinOps": [
+    14,
+    0,
+    0.0001
+   ],
+   "AAF_vs_D-Sec": [
+    3,
+    4,
+    1.0
+   ],
+   "AAF-14_vs_D-DevOps": [
+    20,
+    0,
+    0.0
+   ],
+   "AAF-14_vs_D-SRE": [
+    25,
+    0,
+    0.0
+   ],
+   "AAF-14_vs_D-FinOps": [
+    23,
+    0,
+    0.0
+   ],
+   "AAF-14_vs_D-Sec": [
+    8,
+    0,
+    0.0078
+   ]
+  },
+  {
+   "rel_factor": 2.0,
+   "err_pct": 2.0,
+   "cost_factor": 3.0,
+   "n": 34,
+   "correct": {
+    "B1": 25,
+    "B2": 25,
+    "B1-12": 32,
+    "B1-14": 34,
+    "Dominant": 21,
+    "AlwaysRollback": 26,
+    "AlwaysNone": 6,
+    "BlockAnyCVE": 26,
+    "D-DevOps": 14,
+    "D-SRE": 9,
+    "D-FinOps": 11,
+    "D-Sec": 26,
+    "AAF-14": 34,
+    "AAF": 25,
+    "B6": 29,
+    "B5": 27
+   },
+   "AAF_vs_D-DevOps": [
+    13,
+    2,
+    0.0074
+   ],
+   "AAF_vs_D-SRE": [
+    16,
+    0,
+    0.0
+   ],
+   "AAF_vs_D-FinOps": [
+    14,
+    0,
+    0.0001
+   ],
+   "AAF_vs_D-Sec": [
+    3,
+    4,
+    1.0
+   ],
+   "AAF-14_vs_D-DevOps": [
+    20,
+    0,
+    0.0
+   ],
+   "AAF-14_vs_D-SRE": [
+    25,
+    0,
+    0.0
+   ],
+   "AAF-14_vs_D-FinOps": [
+    23,
+    0,
+    0.0
+   ],
+   "AAF-14_vs_D-Sec": [
+    8,
+    0,
+    0.0078
+   ]
+  },
+  {
+   "rel_factor": 2.0,
+   "err_pct": 2.0,
+   "cost_factor": 4.0,
+   "n": 34,
+   "correct": {
+    "B1": 27,
+    "B2": 27,
+    "B1-12": 31,
+    "B1-14": 34,
+    "Dominant": 25,
+    "AlwaysRollback": 24,
+    "AlwaysNone": 4,
+    "BlockAnyCVE": 24,
+    "D-DevOps": 12,
+    "D-SRE": 8,
+    "D-FinOps": 14,
+    "D-Sec": 24,
+    "AAF-14": 34,
+    "AAF": 27,
+    "B6": 28,
+    "B5": 25
+   },
+   "AAF_vs_D-DevOps": [
+    17,
+    2,
+    0.0007
+   ],
+   "AAF_vs_D-SRE": [
+    19,
+    0,
+    0.0
+   ],
+   "AAF_vs_D-FinOps": [
+    13,
+    0,
+    0.0002
+   ],
+   "AAF_vs_D-Sec": [
+    5,
+    2,
+    0.4531
+   ],
+   "AAF-14_vs_D-DevOps": [
+    22,
+    0,
+    0.0
+   ],
+   "AAF-14_vs_D-SRE": [
+    26,
+    0,
+    0.0
+   ],
+   "AAF-14_vs_D-FinOps": [
+    20,
+    0,
+    0.0
+   ],
+   "AAF-14_vs_D-Sec": [
+    10,
+    0,
+    0.002
+   ]
+  },
+  {
+   "rel_factor": 3.0,
+   "err_pct": 0.5,
+   "cost_factor": 2.0,
+   "n": 34,
+   "correct": {
+    "B1": 25,
+    "B2": 25,
+    "B1-12": 32,
+    "B1-14": 33,
+    "Dominant": 20,
+    "AlwaysRollback": 26,
+    "AlwaysNone": 6,
+    "BlockAnyCVE": 26,
+    "D-DevOps": 14,
+    "D-SRE": 8,
+    "D-FinOps": 11,
+    "D-Sec": 27,
+    "AAF-14": 33,
+    "AAF": 25,
+    "B6": 29,
+    "B5": 27
+   },
+   "AAF_vs_D-DevOps": [
+    14,
+    3,
+    0.0127
+   ],
+   "AAF_vs_D-SRE": [
+    17,
+    0,
+    0.0
+   ],
+   "AAF_vs_D-FinOps": [
+    15,
+    1,
+    0.0005
+   ],
+   "AAF_vs_D-Sec": [
+    3,
+    5,
+    0.7266
+   ],
+   "AAF-14_vs_D-DevOps": [
+    20,
+    1,
+    0.0
+   ],
+   "AAF-14_vs_D-SRE": [
+    25,
+    0,
+    0.0
+   ],
+   "AAF-14_vs_D-FinOps": [
+    23,
+    1,
+    0.0
+   ],
+   "AAF-14_vs_D-Sec": [
+    7,
+    1,
+    0.0703
+   ]
+  },
+  {
+   "rel_factor": 3.0,
+   "err_pct": 0.5,
+   "cost_factor": 3.0,
+   "n": 34,
+   "correct": {
+    "B1": 25,
+    "B2": 25,
+    "B1-12": 32,
+    "B1-14": 33,
+    "Dominant": 20,
+    "AlwaysRollback": 26,
+    "AlwaysNone": 6,
+    "BlockAnyCVE": 26,
+    "D-DevOps": 14,
+    "D-SRE": 8,
+    "D-FinOps": 11,
+    "D-Sec": 27,
+    "AAF-14": 33,
+    "AAF": 25,
+    "B6": 29,
+    "B5": 27
+   },
+   "AAF_vs_D-DevOps": [
+    14,
+    3,
+    0.0127
+   ],
+   "AAF_vs_D-SRE": [
+    17,
+    0,
+    0.0
+   ],
+   "AAF_vs_D-FinOps": [
+    15,
+    1,
+    0.0005
+   ],
+   "AAF_vs_D-Sec": [
+    3,
+    5,
+    0.7266
+   ],
+   "AAF-14_vs_D-DevOps": [
+    20,
+    1,
+    0.0
+   ],
+   "AAF-14_vs_D-SRE": [
+    25,
+    0,
+    0.0
+   ],
+   "AAF-14_vs_D-FinOps": [
+    23,
+    1,
+    0.0
+   ],
+   "AAF-14_vs_D-Sec": [
+    7,
+    1,
+    0.0703
+   ]
+  },
+  {
+   "rel_factor": 3.0,
+   "err_pct": 0.5,
+   "cost_factor": 4.0,
+   "n": 34,
+   "correct": {
+    "B1": 28,
+    "B2": 28,
+    "B1-12": 32,
+    "B1-14": 34,
+    "Dominant": 25,
+    "AlwaysRollback": 25,
+    "AlwaysNone": 5,
+    "BlockAnyCVE": 25,
+    "D-DevOps": 13,
+    "D-SRE": 8,
+    "D-FinOps": 15,
+    "D-Sec": 26,
+    "AAF-14": 34,
+    "AAF": 28,
+    "B6": 29,
+    "B5": 26
+   },
+   "AAF_vs_D-DevOps": [
+    17,
+    2,
+    0.0007
+   ],
+   "AAF_vs_D-SRE": [
+    20,
+    0,
+    0.0
+   ],
+   "AAF_vs_D-FinOps": [
+    13,
+    0,
+    0.0002
+   ],
+   "AAF_vs_D-Sec": [
+    4,
+    2,
+    0.6875
+   ],
+   "AAF-14_vs_D-DevOps": [
+    21,
+    0,
+    0.0
+   ],
+   "AAF-14_vs_D-SRE": [
+    26,
+    0,
+    0.0
+   ],
+   "AAF-14_vs_D-FinOps": [
+    19,
+    0,
+    0.0
+   ],
+   "AAF-14_vs_D-Sec": [
+    8,
+    0,
+    0.0078
+   ]
+  },
+  {
+   "rel_factor": 3.0,
+   "err_pct": 1.0,
+   "cost_factor": 2.0,
+   "n": 34,
+   "correct": {
+    "B1": 25,
+    "B2": 25,
+    "B1-12": 32,
+    "B1-14": 33,
+    "Dominant": 20,
+    "AlwaysRollback": 26,
+    "AlwaysNone": 6,
+    "BlockAnyCVE": 26,
+    "D-DevOps": 14,
+    "D-SRE": 8,
+    "D-FinOps": 11,
+    "D-Sec": 27,
+    "AAF-14": 33,
+    "AAF": 25,
+    "B6": 29,
+    "B5": 27
+   },
+   "AAF_vs_D-DevOps": [
+    14,
+    3,
+    0.0127
+   ],
+   "AAF_vs_D-SRE": [
+    17,
+    0,
+    0.0
+   ],
+   "AAF_vs_D-FinOps": [
+    15,
+    1,
+    0.0005
+   ],
+   "AAF_vs_D-Sec": [
+    3,
+    5,
+    0.7266
+   ],
+   "AAF-14_vs_D-DevOps": [
+    20,
+    1,
+    0.0
+   ],
+   "AAF-14_vs_D-SRE": [
+    25,
+    0,
+    0.0
+   ],
+   "AAF-14_vs_D-FinOps": [
+    23,
+    1,
+    0.0
+   ],
+   "AAF-14_vs_D-Sec": [
+    7,
+    1,
+    0.0703
+   ]
+  },
+  {
+   "rel_factor": 3.0,
+   "err_pct": 1.0,
+   "cost_factor": 3.0,
+   "n": 34,
+   "correct": {
+    "B1": 25,
+    "B2": 25,
+    "B1-12": 32,
+    "B1-14": 33,
+    "Dominant": 20,
+    "AlwaysRollback": 26,
+    "AlwaysNone": 6,
+    "BlockAnyCVE": 26,
+    "D-DevOps": 14,
+    "D-SRE": 8,
+    "D-FinOps": 11,
+    "D-Sec": 27,
+    "AAF-14": 33,
+    "AAF": 25,
+    "B6": 29,
+    "B5": 27
+   },
+   "AAF_vs_D-DevOps": [
+    14,
+    3,
+    0.0127
+   ],
+   "AAF_vs_D-SRE": [
+    17,
+    0,
+    0.0
+   ],
+   "AAF_vs_D-FinOps": [
+    15,
+    1,
+    0.0005
+   ],
+   "AAF_vs_D-Sec": [
+    3,
+    5,
+    0.7266
+   ],
+   "AAF-14_vs_D-DevOps": [
+    20,
+    1,
+    0.0
+   ],
+   "AAF-14_vs_D-SRE": [
+    25,
+    0,
+    0.0
+   ],
+   "AAF-14_vs_D-FinOps": [
+    23,
+    1,
+    0.0
+   ],
+   "AAF-14_vs_D-Sec": [
+    7,
+    1,
+    0.0703
+   ]
+  },
+  {
+   "rel_factor": 3.0,
+   "err_pct": 1.0,
+   "cost_factor": 4.0,
+   "n": 34,
+   "correct": {
+    "B1": 28,
+    "B2": 28,
+    "B1-12": 32,
+    "B1-14": 34,
+    "Dominant": 25,
+    "AlwaysRollback": 25,
+    "AlwaysNone": 5,
+    "BlockAnyCVE": 25,
+    "D-DevOps": 13,
+    "D-SRE": 8,
+    "D-FinOps": 15,
+    "D-Sec": 26,
+    "AAF-14": 34,
+    "AAF": 28,
+    "B6": 29,
+    "B5": 26
+   },
+   "AAF_vs_D-DevOps": [
+    17,
+    2,
+    0.0007
+   ],
+   "AAF_vs_D-SRE": [
+    20,
+    0,
+    0.0
+   ],
+   "AAF_vs_D-FinOps": [
+    13,
+    0,
+    0.0002
+   ],
+   "AAF_vs_D-Sec": [
+    4,
+    2,
+    0.6875
+   ],
+   "AAF-14_vs_D-DevOps": [
+    21,
+    0,
+    0.0
+   ],
+   "AAF-14_vs_D-SRE": [
+    26,
+    0,
+    0.0
+   ],
+   "AAF-14_vs_D-FinOps": [
+    19,
+    0,
+    0.0
+   ],
+   "AAF-14_vs_D-Sec": [
+    8,
+    0,
+    0.0078
+   ]
+  },
+  {
+   "rel_factor": 3.0,
+   "err_pct": 2.0,
+   "cost_factor": 2.0,
+   "n": 34,
+   "correct": {
+    "B1": 25,
+    "B2": 25,
+    "B1-12": 32,
+    "B1-14": 33,
+    "Dominant": 20,
+    "AlwaysRollback": 26,
+    "AlwaysNone": 6,
+    "BlockAnyCVE": 26,
+    "D-DevOps": 14,
+    "D-SRE": 8,
+    "D-FinOps": 11,
+    "D-Sec": 27,
+    "AAF-14": 33,
+    "AAF": 25,
+    "B6": 29,
+    "B5": 27
+   },
+   "AAF_vs_D-DevOps": [
+    14,
+    3,
+    0.0127
+   ],
+   "AAF_vs_D-SRE": [
+    17,
+    0,
+    0.0
+   ],
+   "AAF_vs_D-FinOps": [
+    15,
+    1,
+    0.0005
+   ],
+   "AAF_vs_D-Sec": [
+    3,
+    5,
+    0.7266
+   ],
+   "AAF-14_vs_D-DevOps": [
+    20,
+    1,
+    0.0
+   ],
+   "AAF-14_vs_D-SRE": [
+    25,
+    0,
+    0.0
+   ],
+   "AAF-14_vs_D-FinOps": [
+    23,
+    1,
+    0.0
+   ],
+   "AAF-14_vs_D-Sec": [
+    7,
+    1,
+    0.0703
+   ]
+  },
+  {
+   "rel_factor": 3.0,
+   "err_pct": 2.0,
+   "cost_factor": 3.0,
+   "n": 34,
+   "correct": {
+    "B1": 25,
+    "B2": 25,
+    "B1-12": 32,
+    "B1-14": 33,
+    "Dominant": 20,
+    "AlwaysRollback": 26,
+    "AlwaysNone": 6,
+    "BlockAnyCVE": 26,
+    "D-DevOps": 14,
+    "D-SRE": 8,
+    "D-FinOps": 11,
+    "D-Sec": 27,
+    "AAF-14": 33,
+    "AAF": 25,
+    "B6": 29,
+    "B5": 27
+   },
+   "AAF_vs_D-DevOps": [
+    14,
+    3,
+    0.0127
+   ],
+   "AAF_vs_D-SRE": [
+    17,
+    0,
+    0.0
+   ],
+   "AAF_vs_D-FinOps": [
+    15,
+    1,
+    0.0005
+   ],
+   "AAF_vs_D-Sec": [
+    3,
+    5,
+    0.7266
+   ],
+   "AAF-14_vs_D-DevOps": [
+    20,
+    1,
+    0.0
+   ],
+   "AAF-14_vs_D-SRE": [
+    25,
+    0,
+    0.0
+   ],
+   "AAF-14_vs_D-FinOps": [
+    23,
+    1,
+    0.0
+   ],
+   "AAF-14_vs_D-Sec": [
+    7,
+    1,
+    0.0703
+   ]
+  },
+  {
+   "rel_factor": 3.0,
+   "err_pct": 2.0,
+   "cost_factor": 4.0,
+   "n": 34,
+   "correct": {
+    "B1": 28,
+    "B2": 28,
+    "B1-12": 32,
+    "B1-14": 34,
+    "Dominant": 25,
+    "AlwaysRollback": 25,
+    "AlwaysNone": 5,
+    "BlockAnyCVE": 25,
+    "D-DevOps": 13,
+    "D-SRE": 8,
+    "D-FinOps": 15,
+    "D-Sec": 26,
+    "AAF-14": 34,
+    "AAF": 28,
+    "B6": 29,
+    "B5": 26
+   },
+   "AAF_vs_D-DevOps": [
+    17,
+    2,
+    0.0007
+   ],
+   "AAF_vs_D-SRE": [
+    20,
+    0,
+    0.0
+   ],
+   "AAF_vs_D-FinOps": [
+    13,
+    0,
+    0.0002
+   ],
+   "AAF_vs_D-Sec": [
+    4,
+    2,
+    0.6875
+   ],
+   "AAF-14_vs_D-DevOps": [
+    21,
+    0,
+    0.0
+   ],
+   "AAF-14_vs_D-SRE": [
+    26,
+    0,
+    0.0
+   ],
+   "AAF-14_vs_D-FinOps": [
+    19,
+    0,
+    0.0
+   ],
+   "AAF-14_vs_D-Sec": [
+    8,
+    0,
+    0.0078
+   ]
+  }
+ ]
+}

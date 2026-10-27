@@ -1,0 +1,67 @@
+{
+  "cases_evidence_hash_match": 40,
+  "agreement_with_responders": {
+    "M0": {
+      "k": 19,
+      "n": 40,
+      "pct": 47.5,
+      "wilson95": [
+        32.9,
+        62.5
+      ]
+    },
+    "R": {
+      "k": 0,
+      "n": 40,
+      "pct": 0.0,
+      "wilson95": [
+        0.0,
+        8.8
+      ]
+    },
+    "L": {
+      "k": 1,
+      "n": 40,
+      "pct": 2.5,
+      "wilson95": [
+        0.4,
+        12.9
+      ]
+    },
+    "A": {
+      "k": 17,
+      "n": 40,
+      "pct": 42.5,
+      "wilson95": [
+        28.5,
+        57.8
+      ]
+    },
+    "L+": {
+      "k": 7,
+      "n": 40,
+      "pct": 17.5,
+      "wilson95": [
+        8.7,
+        32.0
+      ]
+    }
+  },
+  "primary": {
+    "L_vs_M0": {
+      "first_only": 1,
+      "second_only": 19,
+      "exact_p": 4.005e-05
+    },
+    "L_vs_A": {
+      "first_only": 0,
+      "second_only": 16,
+      "exact_p": 3.052e-05
+    },
+    "holm_adjusted": {
+      "L_vs_A": 6.104e-05,
+      "L_vs_M0": 6.104e-05
+    }
+  }
+}
+Wrote /home/runner/work/AgileOps-Agentic-Framework/AgileOps-Agentic-Framework/external_validation/postmortems/results/20261021T111420Z

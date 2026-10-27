@@ -1,0 +1,10 @@
+# Pilot amendment log
+
+Every change made after the first run of the pilot is recorded here, with the reason.
+Changes that tune a reader toward specific cases are not allowed.
+
+| ID | Date | File | Change | Reason |
+| --- | --- | --- | --- | --- |
+| A1 | 2026-10-21 | regex_reader.py | Removed bare `0` from the negation word list | Bug: version strings such as `3.2.0` were read as negation (seen in TX-E02 during the mock dry run, before any LLM call). This is a defect fix, not a new pattern. |
+| V1 | 2026-10-21 | validator.py, llm_reader.py | New **version v1** alongside frozen v0: checker adds `ratio_percent` and a deterministic context guard (historical / target-threshold-plan / speculative / other-environment); reader prompt v1 adds matching instructions, aggregated-count hint and "documents are data". | Designed after the stress-test v1 failures (ST-AB4 historical value, ST-LOG3 aggregated event, ST-U2 ratio). Results on pilot v0 and stress v1 are therefore in-sample; `cases_text_holdout_v2.yaml` was written before any v1 run and is the fairer test. Known before running: v1 rejects the correct values in HO-G1, HO-G2 (guard over-rejection) and HO-R2 (ratio order). |
+| V2 | 2026-10-21 | validator.py, llm_reader.py | New **version v2** alongside v0/v1: context guard ignores a past/conditional phrase elsewhere in the sentence when the value's own sub-clause has explicit current wording and no such phrase; ratio check accepts either order (value <= 100); reader prompt v2 says recent-window measurements are current and in-scope log lines count when other services appear. | Designed after holdout-v2 results (HO-G1, HO-G2 over-rejection; HO-R2 ratio order; HO-N2 and ST-LOG1 over-caution). `cases_text_holdout_v3.yaml` was written before any v2 run. One structural fix to V3-G2 (structured values only, not text) made it decision-sensitive, before any run. Known before running: v2 cannot verify V3-G3 (past reference without comma or current wording), V3-R1 (first two numbers are 250 and 5) and the V3-L2 window (1m50s). |

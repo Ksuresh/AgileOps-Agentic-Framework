@@ -1,0 +1,554 @@
+{
+  "stable_image": "us-central1-docker.pkg.dev/online-boutique-ci/microservices-demo/frontend:v0.10.6",
+  "stable_critical_cves": 0,
+  "healthy_measurements": [
+    {
+      "http": {
+        "started_utc": "2026-10-23T08:51:30.468546+00:00",
+        "finished_utc": "2026-10-23T08:52:15.632456+00:00",
+        "requests": 2499,
+        "successes": 2499,
+        "failures": 0,
+        "error_rate_pct": 0.0,
+        "availability_pct": 100.0,
+        "latency_p50_ms": 304.8561930000062,
+        "latency_p95_ms": 699.1803049999987,
+        "latency_p99_ms": 1011.0461250000071,
+        "source": "direct HTTP measurements through kubectl port-forward to Online Boutique frontend"
+      },
+      "replicas": 1,
+      "cpu_request_m": 100.0,
+      "cpu_limit_m": 200.0,
+      "footprint_cpu_m": 100.0,
+      "cpu_used_per_pod_m": 113.66666666666667,
+      "utilisation_of_request": 1.1366666666666667,
+      "saturation_pct": 56.83333333333334,
+      "restarts": 0,
+      "image": "us-central1-docker.pkg.dev/online-boutique-ci/microservices-demo/frontend:v0.10.6",
+      "critical_cves_total": 0,
+      "critical_cves_new": 0,
+      "secret_in_config": false,
+      "feature_delivered": false,
+      "release": "stable"
+    },
+    {
+      "http": {
+        "started_utc": "2026-10-23T08:52:36.618325+00:00",
+        "finished_utc": "2026-10-23T08:53:21.824591+00:00",
+        "requests": 2942,
+        "successes": 2942,
+        "failures": 0,
+        "error_rate_pct": 0.0,
+        "availability_pct": 100.0,
+        "latency_p50_ms": 299.49480900000935,
+        "latency_p95_ms": 402.67919699999766,
+        "latency_p99_ms": 487.862027999995,
+        "source": "direct HTTP measurements through kubectl port-forward to Online Boutique frontend"
+      },
+      "replicas": 1,
+      "cpu_request_m": 100.0,
+      "cpu_limit_m": 200.0,
+      "footprint_cpu_m": 100.0,
+      "cpu_used_per_pod_m": 120.0,
+      "utilisation_of_request": 1.2,
+      "saturation_pct": 60.0,
+      "restarts": 0,
+      "image": "us-central1-docker.pkg.dev/online-boutique-ci/microservices-demo/frontend:v0.10.6",
+      "critical_cves_total": 0,
+      "critical_cves_new": 0,
+      "secret_in_config": false,
+      "feature_delivered": false,
+      "release": "stable"
+    },
+    {
+      "http": {
+        "started_utc": "2026-10-23T08:53:41.060015+00:00",
+        "finished_utc": "2026-10-23T08:54:26.199589+00:00",
+        "requests": 2956,
+        "successes": 2956,
+        "failures": 0,
+        "error_rate_pct": 0.0,
+        "availability_pct": 100.0,
+        "latency_p50_ms": 297.5212270000043,
+        "latency_p95_ms": 408.1119759999865,
+        "latency_p99_ms": 803.947681000011,
+        "source": "direct HTTP measurements through kubectl port-forward to Online Boutique frontend"
+      },
+      "replicas": 1,
+      "cpu_request_m": 100.0,
+      "cpu_limit_m": 200.0,
+      "footprint_cpu_m": 100.0,
+      "cpu_used_per_pod_m": 118.0,
+      "utilisation_of_request": 1.18,
+      "saturation_pct": 59.0,
+      "restarts": 0,
+      "image": "us-central1-docker.pkg.dev/online-boutique-ci/microservices-demo/frontend:v0.10.6",
+      "critical_cves_total": 0,
+      "critical_cves_new": 0,
+      "secret_in_config": false,
+      "feature_delivered": false,
+      "release": "stable"
+    }
+  ],
+  "healthy_p95_ms": [
+    699.1803049999987,
+    402.67919699999766,
+    408.1119759999865
+  ],
+  "healthy_error_pct": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "healthy_p95_median_ms": 408.1119759999865,
+  "image_scans": [
+    {
+      "image": "us-central1-docker.pkg.dev/google-samples/microservices-demo/frontend:v0.8.0",
+      "error": "scan: Command '['trivy', 'image', '--quiet', '--severity', 'CRITICAL', '--format', 'json', 'us-central1-docker.pkg.dev/google-samples/microservices-demo/frontend:v0.8.0']' returned non-zero exit status 1."
+    },
+    {
+      "image": "gcr.io/google-samples/microservices-demo/frontend:v0.8.0",
+      "critical_cves": 6,
+      "critical_cves_new": 6,
+      "rollout_ok": true,
+      "serves_http_200": true
+    },
+    {
+      "image": "us-central1-docker.pkg.dev/google-samples/microservices-demo/frontend:v0.7.0",
+      "error": "scan: Command '['trivy', 'image', '--quiet', '--severity', 'CRITICAL', '--format', 'json', 'us-central1-docker.pkg.dev/google-samples/microservices-demo/frontend:v0.7.0']' returned non-zero exit status 1."
+    },
+    {
+      "image": "gcr.io/google-samples/microservices-demo/frontend:v0.7.0",
+      "critical_cves": 6,
+      "critical_cves_new": 6,
+      "rollout_ok": true,
+      "serves_http_200": true
+    },
+    {
+      "image": "us-central1-docker.pkg.dev/google-samples/microservices-demo/frontend:v0.6.0",
+      "error": "scan: Command '['trivy', 'image', '--quiet', '--severity', 'CRITICAL', '--format', 'json', 'us-central1-docker.pkg.dev/google-samples/microservices-demo/frontend:v0.6.0']' returned non-zero exit status 1."
+    },
+    {
+      "image": "gcr.io/google-samples/microservices-demo/frontend:v0.6.0",
+      "critical_cves": 6,
+      "critical_cves_new": 6
+    },
+    {
+      "image": "us-central1-docker.pkg.dev/google-samples/microservices-demo/frontend:v0.5.0",
+      "error": "scan: Command '['trivy', 'image', '--quiet', '--severity', 'CRITICAL', '--format', 'json', 'us-central1-docker.pkg.dev/google-samples/microservices-demo/frontend:v0.5.0']' returned non-zero exit status 1."
+    },
+    {
+      "image": "gcr.io/google-samples/microservices-demo/frontend:v0.5.0",
+      "critical_cves": 6,
+      "critical_cves_new": 6
+    },
+    {
+      "image": "us-central1-docker.pkg.dev/google-samples/microservices-demo/frontend:v0.4.0",
+      "error": "scan: Command '['trivy', 'image', '--quiet', '--severity', 'CRITICAL', '--format', 'json', 'us-central1-docker.pkg.dev/google-samples/microservices-demo/frontend:v0.4.0']' returned non-zero exit status 1."
+    },
+    {
+      "image": "gcr.io/google-samples/microservices-demo/frontend:v0.4.0",
+      "critical_cves": 5,
+      "critical_cves_new": 5
+    },
+    {
+      "image": "us-central1-docker.pkg.dev/google-samples/microservices-demo/frontend:v0.3.0",
+      "error": "scan: Command '['trivy', 'image', '--quiet', '--severity', 'CRITICAL', '--format', 'json', 'us-central1-docker.pkg.dev/google-samples/microservices-demo/frontend:v0.3.0']' returned non-zero exit status 1."
+    },
+    {
+      "image": "gcr.io/google-samples/microservices-demo/frontend:v0.3.0",
+      "critical_cves": 8,
+      "critical_cves_new": 8
+    },
+    {
+      "image": "us-central1-docker.pkg.dev/google-samples/microservices-demo/frontend:v0.2.0",
+      "error": "scan: Command '['trivy', 'image', '--quiet', '--severity', 'CRITICAL', '--format', 'json', 'us-central1-docker.pkg.dev/google-samples/microservices-demo/frontend:v0.2.0']' returned non-zero exit status 1."
+    },
+    {
+      "image": "gcr.io/google-samples/microservices-demo/frontend:v0.2.0",
+      "critical_cves": 1,
+      "critical_cves_new": 1
+    },
+    {
+      "image": "us-central1-docker.pkg.dev/google-samples/microservices-demo/frontend:v0.1.0",
+      "error": "scan: Command '['trivy', 'image', '--quiet', '--severity', 'CRITICAL', '--format', 'json', 'us-central1-docker.pkg.dev/google-samples/microservices-demo/frontend:v0.1.0']' returned non-zero exit status 1."
+    },
+    {
+      "image": "gcr.io/google-samples/microservices-demo/frontend:v0.1.0",
+      "critical_cves": 1,
+      "critical_cves_new": 1
+    }
+  ],
+  "vuln_images": {
+    "A": "gcr.io/google-samples/microservices-demo/frontend:v0.8.0",
+    "B": "gcr.io/google-samples/microservices-demo/frontend:v0.7.0",
+    "C": "gcr.io/google-samples/microservices-demo/frontend:v0.6.0",
+    "D": "gcr.io/google-samples/microservices-demo/frontend:v0.5.0",
+    "E": "gcr.io/google-samples/microservices-demo/frontend:v0.4.0",
+    "F": "gcr.io/google-samples/microservices-demo/frontend:v0.3.0",
+    "P1": "gcr.io/google-samples/microservices-demo/productcatalogservice:v0.8.0",
+    "P2": "gcr.io/google-samples/microservices-demo/productcatalogservice:v0.7.0",
+    "G": "gcr.io/google-samples/microservices-demo/frontend:v0.9.0",
+    "H": "gcr.io/google-samples/microservices-demo/frontend:v0.2.0",
+    "NF": null,
+    "P3": "gcr.io/google-samples/microservices-demo/productcatalogservice:v0.9.0",
+    "P4": "gcr.io/google-samples/microservices-demo/productcatalogservice:v0.6.0",
+    "NP": null,
+    "C1": "gcr.io/google-samples/microservices-demo/currencyservice:v0.9.0",
+    "C2": "gcr.io/google-samples/microservices-demo/currencyservice:v0.8.0",
+    "NC": null
+  },
+  "note": "Study 15: Study 9 thresholds; images G, H, NF (frontend), P3, P4, NP (productcatalogservice), C1, C2, NC (currencyservice) and per-service perf levels selected by calibrate15.py.",
+  "perf_cpu": {
+    "frontend": "50m",
+    "productcatalogservice": "lat:800ms",
+    "currencyservice": "50m"
+  },
+  "study15_calibration": {
+    "frontend": {
+      "stable": {
+        "image": "us-central1-docker.pkg.dev/online-boutique-ci/microservices-demo/frontend:v0.10.6",
+        "critical_cves": 0,
+        "noncritical_cves": 32
+      },
+      "vuln_scans": [
+        {
+          "image": "gcr.io/google-samples/microservices-demo/frontend:v0.9.0",
+          "critical_cves": 5,
+          "noncritical_cves": 153,
+          "rollout_ok": true,
+          "serves_http_200": true
+        },
+        {
+          "image": "gcr.io/google-samples/microservices-demo/frontend:v0.2.0",
+          "critical_cves": 1,
+          "noncritical_cves": 23,
+          "rollout_ok": true,
+          "serves_http_200": true
+        }
+      ],
+      "lowrisk_scans": [
+        {
+          "image": "gcr.io/google-samples/microservices-demo/frontend:v0.10.5",
+          "error": "Command '['trivy', 'image', '--quiet', '--severity', 'CRITICAL', '--format', 'json', 'gcr.io/google-samples/microservices-demo/frontend:v0.10.5']' returned non-zero exit status 1."
+        },
+        {
+          "image": "us-central1-docker.pkg.dev/google-samples/microservices-demo/frontend:v0.10.5",
+          "critical_cves": 2,
+          "noncritical_cves": 72
+        },
+        {
+          "image": "gcr.io/google-samples/microservices-demo/frontend:v0.10.4",
+          "error": "Command '['trivy', 'image', '--quiet', '--severity', 'CRITICAL', '--format', 'json', 'gcr.io/google-samples/microservices-demo/frontend:v0.10.4']' returned non-zero exit status 1."
+        },
+        {
+          "image": "us-central1-docker.pkg.dev/google-samples/microservices-demo/frontend:v0.10.4",
+          "critical_cves": 2,
+          "noncritical_cves": 99
+        },
+        {
+          "image": "gcr.io/google-samples/microservices-demo/frontend:v0.10.3",
+          "error": "Command '['trivy', 'image', '--quiet', '--severity', 'CRITICAL', '--format', 'json', 'gcr.io/google-samples/microservices-demo/frontend:v0.10.3']' returned non-zero exit status 1."
+        },
+        {
+          "image": "us-central1-docker.pkg.dev/google-samples/microservices-demo/frontend:v0.10.3",
+          "critical_cves": 2,
+          "noncritical_cves": 102
+        },
+        {
+          "image": "gcr.io/google-samples/microservices-demo/frontend:v0.10.2",
+          "error": "Command '['trivy', 'image', '--quiet', '--severity', 'CRITICAL', '--format', 'json', 'gcr.io/google-samples/microservices-demo/frontend:v0.10.2']' returned non-zero exit status 1."
+        },
+        {
+          "image": "us-central1-docker.pkg.dev/google-samples/microservices-demo/frontend:v0.10.2",
+          "critical_cves": 2,
+          "noncritical_cves": 105
+        },
+        {
+          "image": "gcr.io/google-samples/microservices-demo/frontend:v0.10.1",
+          "critical_cves": 2,
+          "noncritical_cves": 108
+        },
+        {
+          "image": "gcr.io/google-samples/microservices-demo/frontend:v0.10.0",
+          "critical_cves": 4,
+          "noncritical_cves": 137
+        },
+        {
+          "image": "gcr.io/google-samples/microservices-demo/frontend:v0.9.0",
+          "critical_cves": 5,
+          "noncritical_cves": 153
+        }
+      ],
+      "perf_scans": [
+        {
+          "cpu": "50m",
+          "p95_ms": 1614.253840999993,
+          "error_rate_pct": 0.141643059490085,
+          "violates": true
+        }
+      ],
+      "images": {
+        "G": "gcr.io/google-samples/microservices-demo/frontend:v0.9.0",
+        "H": "gcr.io/google-samples/microservices-demo/frontend:v0.2.0",
+        "NF": null
+      },
+      "healthy": {
+        "p95_ms": 609.9197310000193,
+        "error_rate_pct": 0.0
+      },
+      "perf_cpu": "50m",
+      "crash_check": {
+        "rollout_ok": false,
+        "storefront_error_rate_pct": 100.0,
+        "restarts": 5
+      }
+    },
+    "productcatalogservice": {
+      "stable": {
+        "image": "us-central1-docker.pkg.dev/online-boutique-ci/microservices-demo/productcatalogservice:v0.10.6",
+        "critical_cves": 0,
+        "noncritical_cves": 32
+      },
+      "vuln_scans": [
+        {
+          "image": "gcr.io/google-samples/microservices-demo/productcatalogservice:v0.9.0",
+          "critical_cves": 3,
+          "noncritical_cves": 131,
+          "rollout_ok": true,
+          "serves_http_200": true
+        },
+        {
+          "image": "gcr.io/google-samples/microservices-demo/productcatalogservice:v0.6.0",
+          "critical_cves": 5,
+          "noncritical_cves": 163,
+          "rollout_ok": true,
+          "serves_http_200": true
+        }
+      ],
+      "lowrisk_scans": [
+        {
+          "image": "gcr.io/google-samples/microservices-demo/productcatalogservice:v0.10.5",
+          "error": "Command '['trivy', 'image', '--quiet', '--severity', 'CRITICAL', '--format', 'json', 'gcr.io/google-samples/microservices-demo/productcatalogservice:v0.10.5']' returned non-zero exit status 1."
+        },
+        {
+          "image": "us-central1-docker.pkg.dev/google-samples/microservices-demo/productcatalogservice:v0.10.5",
+          "critical_cves": 4,
+          "noncritical_cves": 72
+        },
+        {
+          "image": "gcr.io/google-samples/microservices-demo/productcatalogservice:v0.10.4",
+          "error": "Command '['trivy', 'image', '--quiet', '--severity', 'CRITICAL', '--format', 'json', 'gcr.io/google-samples/microservices-demo/productcatalogservice:v0.10.4']' returned non-zero exit status 1."
+        },
+        {
+          "image": "us-central1-docker.pkg.dev/google-samples/microservices-demo/productcatalogservice:v0.10.4",
+          "critical_cves": 4,
+          "noncritical_cves": 99
+        },
+        {
+          "image": "gcr.io/google-samples/microservices-demo/productcatalogservice:v0.10.3",
+          "error": "Command '['trivy', 'image', '--quiet', '--severity', 'CRITICAL', '--format', 'json', 'gcr.io/google-samples/microservices-demo/productcatalogservice:v0.10.3']' returned non-zero exit status 1."
+        },
+        {
+          "image": "us-central1-docker.pkg.dev/google-samples/microservices-demo/productcatalogservice:v0.10.3",
+          "critical_cves": 4,
+          "noncritical_cves": 100
+        },
+        {
+          "image": "gcr.io/google-samples/microservices-demo/productcatalogservice:v0.10.2",
+          "error": "Command '['trivy', 'image', '--quiet', '--severity', 'CRITICAL', '--format', 'json', 'gcr.io/google-samples/microservices-demo/productcatalogservice:v0.10.2']' returned non-zero exit status 1."
+        },
+        {
+          "image": "us-central1-docker.pkg.dev/google-samples/microservices-demo/productcatalogservice:v0.10.2",
+          "critical_cves": 4,
+          "noncritical_cves": 105
+        },
+        {
+          "image": "gcr.io/google-samples/microservices-demo/productcatalogservice:v0.10.1",
+          "critical_cves": 4,
+          "noncritical_cves": 108
+        },
+        {
+          "image": "gcr.io/google-samples/microservices-demo/productcatalogservice:v0.10.0",
+          "critical_cves": 5,
+          "noncritical_cves": 121
+        },
+        {
+          "image": "gcr.io/google-samples/microservices-demo/productcatalogservice:v0.9.0",
+          "critical_cves": 3,
+          "noncritical_cves": 131
+        }
+      ],
+      "perf_scans": [
+        {
+          "cpu": "50m",
+          "p95_ms": 404.2011609999463,
+          "error_rate_pct": 0.0,
+          "violates": false
+        },
+        {
+          "cpu": "30m",
+          "p95_ms": 411.46964399990793,
+          "error_rate_pct": 0.0,
+          "violates": false
+        },
+        {
+          "cpu": "20m",
+          "p95_ms": 473.2947239999703,
+          "error_rate_pct": 0.0,
+          "violates": false
+        },
+        {
+          "cpu": "10m",
+          "p95_ms": 555.5153230000087,
+          "error_rate_pct": 0.0,
+          "violates": false
+        },
+        {
+          "cpu": "5m",
+          "p95_ms": 493.51349299990943,
+          "error_rate_pct": 0.0,
+          "violates": false
+        },
+        {
+          "latency": "100ms",
+          "p95_ms": 484.665115000098,
+          "error_rate_pct": 0.0,
+          "violates": false
+        },
+        {
+          "latency": "200ms",
+          "p95_ms": 577.4733660000493,
+          "error_rate_pct": 0.0,
+          "violates": false
+        },
+        {
+          "latency": "400ms",
+          "p95_ms": 609.7891949998484,
+          "error_rate_pct": 0.0,
+          "violates": false
+        },
+        {
+          "latency": "800ms",
+          "p95_ms": 996.6289389999474,
+          "error_rate_pct": 0.0,
+          "violates": true
+        }
+      ],
+      "images": {
+        "P3": "gcr.io/google-samples/microservices-demo/productcatalogservice:v0.9.0",
+        "P4": "gcr.io/google-samples/microservices-demo/productcatalogservice:v0.6.0",
+        "NP": null
+      },
+      "healthy": {
+        "p95_ms": 595.0595269999894,
+        "error_rate_pct": 0.0
+      },
+      "perf_cpu": "lat:800ms",
+      "crash_check": {
+        "rollout_ok": false,
+        "storefront_error_rate_pct": 100.0,
+        "restarts": 5
+      }
+    },
+    "currencyservice": {
+      "stable": {
+        "image": "us-central1-docker.pkg.dev/online-boutique-ci/microservices-demo/currencyservice:v0.10.6",
+        "critical_cves": 2,
+        "noncritical_cves": 74
+      },
+      "vuln_scans": [
+        {
+          "image": "gcr.io/google-samples/microservices-demo/currencyservice:v0.9.0",
+          "critical_cves": 3,
+          "noncritical_cves": 80,
+          "rollout_ok": true,
+          "serves_http_200": true
+        },
+        {
+          "image": "gcr.io/google-samples/microservices-demo/currencyservice:v0.8.0",
+          "critical_cves": 4,
+          "noncritical_cves": 86,
+          "rollout_ok": true,
+          "serves_http_200": true
+        }
+      ],
+      "lowrisk_scans": [
+        {
+          "image": "gcr.io/google-samples/microservices-demo/currencyservice:v0.10.5",
+          "error": "Command '['trivy', 'image', '--quiet', '--severity', 'CRITICAL', '--format', 'json', 'gcr.io/google-samples/microservices-demo/currencyservice:v0.10.5']' returned non-zero exit status 1."
+        },
+        {
+          "image": "us-central1-docker.pkg.dev/google-samples/microservices-demo/currencyservice:v0.10.5",
+          "critical_cves": 4,
+          "noncritical_cves": 109
+        },
+        {
+          "image": "gcr.io/google-samples/microservices-demo/currencyservice:v0.10.4",
+          "error": "Command '['trivy', 'image', '--quiet', '--severity', 'CRITICAL', '--format', 'json', 'gcr.io/google-samples/microservices-demo/currencyservice:v0.10.4']' returned non-zero exit status 1."
+        },
+        {
+          "image": "us-central1-docker.pkg.dev/google-samples/microservices-demo/currencyservice:v0.10.4",
+          "critical_cves": 3,
+          "noncritical_cves": 69
+        },
+        {
+          "image": "gcr.io/google-samples/microservices-demo/currencyservice:v0.10.3",
+          "error": "Command '['trivy', 'image', '--quiet', '--severity', 'CRITICAL', '--format', 'json', 'gcr.io/google-samples/microservices-demo/currencyservice:v0.10.3']' returned non-zero exit status 1."
+        },
+        {
+          "image": "us-central1-docker.pkg.dev/google-samples/microservices-demo/currencyservice:v0.10.3",
+          "critical_cves": 4,
+          "noncritical_cves": 70
+        },
+        {
+          "image": "gcr.io/google-samples/microservices-demo/currencyservice:v0.10.2",
+          "error": "Command '['trivy', 'image', '--quiet', '--severity', 'CRITICAL', '--format', 'json', 'gcr.io/google-samples/microservices-demo/currencyservice:v0.10.2']' returned non-zero exit status 1."
+        },
+        {
+          "image": "us-central1-docker.pkg.dev/google-samples/microservices-demo/currencyservice:v0.10.2",
+          "critical_cves": 4,
+          "noncritical_cves": 69
+        },
+        {
+          "image": "gcr.io/google-samples/microservices-demo/currencyservice:v0.10.1",
+          "critical_cves": 5,
+          "noncritical_cves": 82
+        },
+        {
+          "image": "gcr.io/google-samples/microservices-demo/currencyservice:v0.10.0",
+          "critical_cves": 4,
+          "noncritical_cves": 87
+        },
+        {
+          "image": "gcr.io/google-samples/microservices-demo/currencyservice:v0.9.0",
+          "critical_cves": 3,
+          "noncritical_cves": 80
+        }
+      ],
+      "perf_scans": [
+        {
+          "cpu": "50m",
+          "p95_ms": 2004.4443779997891,
+          "error_rate_pct": 27.392739273927393,
+          "violates": true
+        }
+      ],
+      "images": {
+        "C1": "gcr.io/google-samples/microservices-demo/currencyservice:v0.9.0",
+        "C2": "gcr.io/google-samples/microservices-demo/currencyservice:v0.8.0",
+        "NC": null
+      },
+      "healthy": {
+        "p95_ms": 481.5136170000187,
+        "error_rate_pct": 0.0
+      },
+      "perf_cpu": "50m",
+      "crash_check": {
+        "rollout_ok": false,
+        "storefront_error_rate_pct": 100.0,
+        "restarts": 5
+      }
+    }
+  }
+}

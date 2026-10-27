@@ -1,0 +1,540 @@
+{"decider": "B1", "case": "OC-01", "variant": "full", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "B2", "case": "OC-01", "variant": "full", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "Dominant", "case": "OC-01", "variant": "full", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "AlwaysRollback", "case": "OC-01", "variant": "full", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "OC-01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-DevOps", "case": "OC-01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE", "case": "OC-01", "variant": "full", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "D-FinOps", "case": "OC-01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec", "case": "OC-01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B1", "case": "OC-02", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B2", "case": "OC-02", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "Dominant", "case": "OC-02", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "AlwaysRollback", "case": "OC-02", "variant": "full", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "OC-02", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-DevOps", "case": "OC-02", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE", "case": "OC-02", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-FinOps", "case": "OC-02", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec", "case": "OC-02", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B1", "case": "OS-01", "variant": "full", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "B2", "case": "OS-01", "variant": "full", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "Dominant", "case": "OS-01", "variant": "full", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "AlwaysRollback", "case": "OS-01", "variant": "full", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "OS-01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-DevOps", "case": "OS-01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE", "case": "OS-01", "variant": "full", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "D-FinOps", "case": "OS-01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec", "case": "OS-01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B1", "case": "OS-01-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B2", "case": "OS-01-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "Dominant", "case": "OS-01-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "AlwaysRollback", "case": "OS-01-W", "variant": "withheld", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "OS-01-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-DevOps", "case": "OS-01-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE", "case": "OS-01-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-FinOps", "case": "OS-01-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec", "case": "OS-01-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B1", "case": "OS-02", "variant": "full", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "B2", "case": "OS-02", "variant": "full", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "Dominant", "case": "OS-02", "variant": "full", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "AlwaysRollback", "case": "OS-02", "variant": "full", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "OS-02", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-DevOps", "case": "OS-02", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE", "case": "OS-02", "variant": "full", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "D-FinOps", "case": "OS-02", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec", "case": "OS-02", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B1", "case": "OS-02-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "B2", "case": "OS-02-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "Dominant", "case": "OS-02-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "AlwaysRollback", "case": "OS-02-W", "variant": "withheld", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "OS-02-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-DevOps", "case": "OS-02-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE", "case": "OS-02-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "D-FinOps", "case": "OS-02-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec", "case": "OS-02-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B1", "case": "OS-03", "variant": "full", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "B2", "case": "OS-03", "variant": "full", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "Dominant", "case": "OS-03", "variant": "full", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "AlwaysRollback", "case": "OS-03", "variant": "full", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "OS-03", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-DevOps", "case": "OS-03", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE", "case": "OS-03", "variant": "full", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "D-FinOps", "case": "OS-03", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec", "case": "OS-03", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B1", "case": "OS-03-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "B2", "case": "OS-03-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "Dominant", "case": "OS-03-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "AlwaysRollback", "case": "OS-03-W", "variant": "withheld", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "OS-03-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-DevOps", "case": "OS-03-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE", "case": "OS-03-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "D-FinOps", "case": "OS-03-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec", "case": "OS-03-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B1", "case": "OS-04", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B2", "case": "OS-04", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "Dominant", "case": "OS-04", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "AlwaysRollback", "case": "OS-04", "variant": "full", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "OS-04", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-DevOps", "case": "OS-04", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE", "case": "OS-04", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-FinOps", "case": "OS-04", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec", "case": "OS-04", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B1", "case": "OS-04-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B2", "case": "OS-04-W", "variant": "withheld", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "Dominant", "case": "OS-04-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "AlwaysRollback", "case": "OS-04-W", "variant": "withheld", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "OS-04-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-DevOps", "case": "OS-04-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE", "case": "OS-04-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-FinOps", "case": "OS-04-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec", "case": "OS-04-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B1", "case": "OS-05", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B2", "case": "OS-05", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "Dominant", "case": "OS-05", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "AlwaysRollback", "case": "OS-05", "variant": "full", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "OS-05", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-DevOps", "case": "OS-05", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE", "case": "OS-05", "variant": "full", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "D-FinOps", "case": "OS-05", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec", "case": "OS-05", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B1", "case": "OS-05-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "B2", "case": "OS-05-W", "variant": "withheld", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "Dominant", "case": "OS-05-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "AlwaysRollback", "case": "OS-05-W", "variant": "withheld", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "OS-05-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-DevOps", "case": "OS-05-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE", "case": "OS-05-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "D-FinOps", "case": "OS-05-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec", "case": "OS-05-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B1", "case": "OS-06", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B2", "case": "OS-06", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "Dominant", "case": "OS-06", "variant": "full", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysRollback", "case": "OS-06", "variant": "full", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "OS-06", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-DevOps", "case": "OS-06", "variant": "full", "run": 0, "action": "Block release and fix pipeline", "error": null}
+{"decider": "D-SRE", "case": "OS-06", "variant": "full", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "D-FinOps", "case": "OS-06", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec", "case": "OS-06", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B1", "case": "OS-06-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "B2", "case": "OS-06-W", "variant": "withheld", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "Dominant", "case": "OS-06-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "AlwaysRollback", "case": "OS-06-W", "variant": "withheld", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "OS-06-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-DevOps", "case": "OS-06-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE", "case": "OS-06-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "D-FinOps", "case": "OS-06-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec", "case": "OS-06-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B1", "case": "OS-07", "variant": "full", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "B2", "case": "OS-07", "variant": "full", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "Dominant", "case": "OS-07", "variant": "full", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "AlwaysRollback", "case": "OS-07", "variant": "full", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "OS-07", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-DevOps", "case": "OS-07", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE", "case": "OS-07", "variant": "full", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "D-FinOps", "case": "OS-07", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec", "case": "OS-07", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B1", "case": "OS-07-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "B2", "case": "OS-07-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "Dominant", "case": "OS-07-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "AlwaysRollback", "case": "OS-07-W", "variant": "withheld", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "OS-07-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-DevOps", "case": "OS-07-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE", "case": "OS-07-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "D-FinOps", "case": "OS-07-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec", "case": "OS-07-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B1", "case": "OS-08", "variant": "full", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "B2", "case": "OS-08", "variant": "full", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "Dominant", "case": "OS-08", "variant": "full", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "AlwaysRollback", "case": "OS-08", "variant": "full", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "OS-08", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-DevOps", "case": "OS-08", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE", "case": "OS-08", "variant": "full", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "D-FinOps", "case": "OS-08", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec", "case": "OS-08", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B1", "case": "OS-08-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "B2", "case": "OS-08-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "Dominant", "case": "OS-08-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "AlwaysRollback", "case": "OS-08-W", "variant": "withheld", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "OS-08-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-DevOps", "case": "OS-08-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE", "case": "OS-08-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "D-FinOps", "case": "OS-08-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec", "case": "OS-08-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B1", "case": "OS-09", "variant": "full", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "B2", "case": "OS-09", "variant": "full", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "Dominant", "case": "OS-09", "variant": "full", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "AlwaysRollback", "case": "OS-09", "variant": "full", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "OS-09", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-DevOps", "case": "OS-09", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE", "case": "OS-09", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-FinOps", "case": "OS-09", "variant": "full", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "D-Sec", "case": "OS-09", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B1", "case": "OS-10", "variant": "full", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "B2", "case": "OS-10", "variant": "full", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "Dominant", "case": "OS-10", "variant": "full", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "AlwaysRollback", "case": "OS-10", "variant": "full", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "OS-10", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-DevOps", "case": "OS-10", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE", "case": "OS-10", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-FinOps", "case": "OS-10", "variant": "full", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "D-Sec", "case": "OS-10", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B1", "case": "OS-11", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B2", "case": "OS-11", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "Dominant", "case": "OS-11", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "AlwaysRollback", "case": "OS-11", "variant": "full", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "OS-11", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-DevOps", "case": "OS-11", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE", "case": "OS-11", "variant": "full", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "D-FinOps", "case": "OS-11", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec", "case": "OS-11", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B1", "case": "OS-11-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "B2", "case": "OS-11-W", "variant": "withheld", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "Dominant", "case": "OS-11-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "AlwaysRollback", "case": "OS-11-W", "variant": "withheld", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "OS-11-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-DevOps", "case": "OS-11-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE", "case": "OS-11-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "D-FinOps", "case": "OS-11-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec", "case": "OS-11-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B1", "case": "OS-12", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B2", "case": "OS-12", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "Dominant", "case": "OS-12", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "AlwaysRollback", "case": "OS-12", "variant": "full", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "OS-12", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-DevOps", "case": "OS-12", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE", "case": "OS-12", "variant": "full", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "D-FinOps", "case": "OS-12", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec", "case": "OS-12", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B1", "case": "OS-12-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "B2", "case": "OS-12-W", "variant": "withheld", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "Dominant", "case": "OS-12-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "AlwaysRollback", "case": "OS-12-W", "variant": "withheld", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "OS-12-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-DevOps", "case": "OS-12-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE", "case": "OS-12-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "D-FinOps", "case": "OS-12-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec", "case": "OS-12-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B1", "case": "OX-01", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B2", "case": "OX-01", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "Dominant", "case": "OX-01", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "AlwaysRollback", "case": "OX-01", "variant": "full", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "OX-01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-DevOps", "case": "OX-01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE", "case": "OX-01", "variant": "full", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "D-FinOps", "case": "OX-01", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec", "case": "OX-01", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B1", "case": "OX-01-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "B2", "case": "OX-01-W", "variant": "withheld", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "Dominant", "case": "OX-01-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "AlwaysRollback", "case": "OX-01-W", "variant": "withheld", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "OX-01-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-DevOps", "case": "OX-01-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE", "case": "OX-01-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "D-FinOps", "case": "OX-01-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec", "case": "OX-01-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B1", "case": "OX-02", "variant": "full", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "B2", "case": "OX-02", "variant": "full", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "Dominant", "case": "OX-02", "variant": "full", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "AlwaysRollback", "case": "OX-02", "variant": "full", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "OX-02", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-DevOps", "case": "OX-02", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE", "case": "OX-02", "variant": "full", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "D-FinOps", "case": "OX-02", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec", "case": "OX-02", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B1", "case": "OX-02-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "B2", "case": "OX-02-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "Dominant", "case": "OX-02-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "AlwaysRollback", "case": "OX-02-W", "variant": "withheld", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "OX-02-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-DevOps", "case": "OX-02-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE", "case": "OX-02-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "D-FinOps", "case": "OX-02-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec", "case": "OX-02-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B1", "case": "OX-03", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B2", "case": "OX-03", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "Dominant", "case": "OX-03", "variant": "full", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "AlwaysRollback", "case": "OX-03", "variant": "full", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "OX-03", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-DevOps", "case": "OX-03", "variant": "full", "run": 0, "action": "Block release and fix pipeline", "error": null}
+{"decider": "D-SRE", "case": "OX-03", "variant": "full", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "D-FinOps", "case": "OX-03", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec", "case": "OX-03", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B1", "case": "OX-03-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "B2", "case": "OX-03-W", "variant": "withheld", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "Dominant", "case": "OX-03-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "AlwaysRollback", "case": "OX-03-W", "variant": "withheld", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "OX-03-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-DevOps", "case": "OX-03-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE", "case": "OX-03-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "D-FinOps", "case": "OX-03-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec", "case": "OX-03-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B1", "case": "OX-04", "variant": "full", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "B2", "case": "OX-04", "variant": "full", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "Dominant", "case": "OX-04", "variant": "full", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "AlwaysRollback", "case": "OX-04", "variant": "full", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "OX-04", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-DevOps", "case": "OX-04", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE", "case": "OX-04", "variant": "full", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "D-FinOps", "case": "OX-04", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec", "case": "OX-04", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B1", "case": "OX-04-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "B2", "case": "OX-04-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "Dominant", "case": "OX-04-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "AlwaysRollback", "case": "OX-04-W", "variant": "withheld", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "OX-04-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-DevOps", "case": "OX-04-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE", "case": "OX-04-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "D-FinOps", "case": "OX-04-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec", "case": "OX-04-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B1", "case": "OX-05", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B2", "case": "OX-05", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "Dominant", "case": "OX-05", "variant": "full", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "AlwaysRollback", "case": "OX-05", "variant": "full", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "OX-05", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-DevOps", "case": "OX-05", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE", "case": "OX-05", "variant": "full", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "D-FinOps", "case": "OX-05", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec", "case": "OX-05", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B1", "case": "OX-05-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "B2", "case": "OX-05-W", "variant": "withheld", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "Dominant", "case": "OX-05-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "AlwaysRollback", "case": "OX-05-W", "variant": "withheld", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "OX-05-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-DevOps", "case": "OX-05-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE", "case": "OX-05-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "D-FinOps", "case": "OX-05-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec", "case": "OX-05-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B1", "case": "OX-06", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B2", "case": "OX-06", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "Dominant", "case": "OX-06", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "AlwaysRollback", "case": "OX-06", "variant": "full", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "OX-06", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-DevOps", "case": "OX-06", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE", "case": "OX-06", "variant": "full", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "D-FinOps", "case": "OX-06", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec", "case": "OX-06", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B1", "case": "OX-06-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "B2", "case": "OX-06-W", "variant": "withheld", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "Dominant", "case": "OX-06-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "AlwaysRollback", "case": "OX-06-W", "variant": "withheld", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "OX-06-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-DevOps", "case": "OX-06-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE", "case": "OX-06-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "D-FinOps", "case": "OX-06-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec", "case": "OX-06-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B1", "case": "OX-07", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B2", "case": "OX-07", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "Dominant", "case": "OX-07", "variant": "full", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "AlwaysRollback", "case": "OX-07", "variant": "full", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "OX-07", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-DevOps", "case": "OX-07", "variant": "full", "run": 0, "action": "Block release and fix pipeline", "error": null}
+{"decider": "D-SRE", "case": "OX-07", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-FinOps", "case": "OX-07", "variant": "full", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "D-Sec", "case": "OX-07", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B1", "case": "OX-07-W", "variant": "withheld", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "B2", "case": "OX-07-W", "variant": "withheld", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "Dominant", "case": "OX-07-W", "variant": "withheld", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "AlwaysRollback", "case": "OX-07-W", "variant": "withheld", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "OX-07-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-DevOps", "case": "OX-07-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE", "case": "OX-07-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-FinOps", "case": "OX-07-W", "variant": "withheld", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "D-Sec", "case": "OX-07-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B1", "case": "OX-08", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B2", "case": "OX-08", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "Dominant", "case": "OX-08", "variant": "full", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "AlwaysRollback", "case": "OX-08", "variant": "full", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "OX-08", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-DevOps", "case": "OX-08", "variant": "full", "run": 0, "action": "Block release and fix pipeline", "error": null}
+{"decider": "D-SRE", "case": "OX-08", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-FinOps", "case": "OX-08", "variant": "full", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "D-Sec", "case": "OX-08", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B1", "case": "OX-08-W", "variant": "withheld", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "B2", "case": "OX-08-W", "variant": "withheld", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "Dominant", "case": "OX-08-W", "variant": "withheld", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "AlwaysRollback", "case": "OX-08-W", "variant": "withheld", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "OX-08-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-DevOps", "case": "OX-08-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE", "case": "OX-08-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-FinOps", "case": "OX-08-W", "variant": "withheld", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "D-Sec", "case": "OX-08-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B1", "case": "OX-09", "variant": "full", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "B2", "case": "OX-09", "variant": "full", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "Dominant", "case": "OX-09", "variant": "full", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "AlwaysRollback", "case": "OX-09", "variant": "full", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "OX-09", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-DevOps", "case": "OX-09", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE", "case": "OX-09", "variant": "full", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "D-FinOps", "case": "OX-09", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec", "case": "OX-09", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B1", "case": "OX-09-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "B2", "case": "OX-09-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "Dominant", "case": "OX-09-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "AlwaysRollback", "case": "OX-09-W", "variant": "withheld", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "OX-09-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-DevOps", "case": "OX-09-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE", "case": "OX-09-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "D-FinOps", "case": "OX-09-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec", "case": "OX-09-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B1", "case": "OX-10", "variant": "full", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "B2", "case": "OX-10", "variant": "full", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "Dominant", "case": "OX-10", "variant": "full", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "AlwaysRollback", "case": "OX-10", "variant": "full", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "OX-10", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-DevOps", "case": "OX-10", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE", "case": "OX-10", "variant": "full", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "D-FinOps", "case": "OX-10", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec", "case": "OX-10", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B1", "case": "OX-10-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "B2", "case": "OX-10-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "Dominant", "case": "OX-10-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "AlwaysRollback", "case": "OX-10-W", "variant": "withheld", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "OX-10-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-DevOps", "case": "OX-10-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE", "case": "OX-10-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "D-FinOps", "case": "OX-10-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec", "case": "OX-10-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B1", "case": "OX-11", "variant": "full", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "B2", "case": "OX-11", "variant": "full", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "Dominant", "case": "OX-11", "variant": "full", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "AlwaysRollback", "case": "OX-11", "variant": "full", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "OX-11", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-DevOps", "case": "OX-11", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE", "case": "OX-11", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-FinOps", "case": "OX-11", "variant": "full", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "D-Sec", "case": "OX-11", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B1", "case": "OX-11-W", "variant": "withheld", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "B2", "case": "OX-11-W", "variant": "withheld", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "Dominant", "case": "OX-11-W", "variant": "withheld", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "AlwaysRollback", "case": "OX-11-W", "variant": "withheld", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "OX-11-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-DevOps", "case": "OX-11-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE", "case": "OX-11-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-FinOps", "case": "OX-11-W", "variant": "withheld", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "D-Sec", "case": "OX-11-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B1", "case": "OX-12", "variant": "full", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "B2", "case": "OX-12", "variant": "full", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "Dominant", "case": "OX-12", "variant": "full", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "AlwaysRollback", "case": "OX-12", "variant": "full", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "OX-12", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-DevOps", "case": "OX-12", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE", "case": "OX-12", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-FinOps", "case": "OX-12", "variant": "full", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "D-Sec", "case": "OX-12", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B1", "case": "OX-12-W", "variant": "withheld", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "B2", "case": "OX-12-W", "variant": "withheld", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "Dominant", "case": "OX-12-W", "variant": "withheld", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "AlwaysRollback", "case": "OX-12-W", "variant": "withheld", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "OX-12-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-DevOps", "case": "OX-12-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE", "case": "OX-12-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-FinOps", "case": "OX-12-W", "variant": "withheld", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "D-Sec", "case": "OX-12-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B1", "case": "OX-13", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B2", "case": "OX-13", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "Dominant", "case": "OX-13", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "AlwaysRollback", "case": "OX-13", "variant": "full", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "OX-13", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-DevOps", "case": "OX-13", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE", "case": "OX-13", "variant": "full", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "D-FinOps", "case": "OX-13", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec", "case": "OX-13", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B1", "case": "OX-13-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "B2", "case": "OX-13-W", "variant": "withheld", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "Dominant", "case": "OX-13-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "AlwaysRollback", "case": "OX-13-W", "variant": "withheld", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "OX-13-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-DevOps", "case": "OX-13-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE", "case": "OX-13-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "D-FinOps", "case": "OX-13-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec", "case": "OX-13-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B1", "case": "OX-14", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B2", "case": "OX-14", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "Dominant", "case": "OX-14", "variant": "full", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "AlwaysRollback", "case": "OX-14", "variant": "full", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "OX-14", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-DevOps", "case": "OX-14", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE", "case": "OX-14", "variant": "full", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "D-FinOps", "case": "OX-14", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec", "case": "OX-14", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B1", "case": "OX-14-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "B2", "case": "OX-14-W", "variant": "withheld", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "Dominant", "case": "OX-14-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "AlwaysRollback", "case": "OX-14-W", "variant": "withheld", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "OX-14-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-DevOps", "case": "OX-14-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE", "case": "OX-14-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "D-FinOps", "case": "OX-14-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec", "case": "OX-14-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B1", "case": "OX-15", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B2", "case": "OX-15", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "Dominant", "case": "OX-15", "variant": "full", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "AlwaysRollback", "case": "OX-15", "variant": "full", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "OX-15", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-DevOps", "case": "OX-15", "variant": "full", "run": 0, "action": "Block release and fix pipeline", "error": null}
+{"decider": "D-SRE", "case": "OX-15", "variant": "full", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "D-FinOps", "case": "OX-15", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec", "case": "OX-15", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B1", "case": "OX-15-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "B2", "case": "OX-15-W", "variant": "withheld", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "Dominant", "case": "OX-15-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "AlwaysRollback", "case": "OX-15-W", "variant": "withheld", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "OX-15-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-DevOps", "case": "OX-15-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE", "case": "OX-15-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "D-FinOps", "case": "OX-15-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec", "case": "OX-15-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B1", "case": "OX-16", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B2", "case": "OX-16", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "Dominant", "case": "OX-16", "variant": "full", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "AlwaysRollback", "case": "OX-16", "variant": "full", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "OX-16", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-DevOps", "case": "OX-16", "variant": "full", "run": 0, "action": "Block release and fix pipeline", "error": null}
+{"decider": "D-SRE", "case": "OX-16", "variant": "full", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "D-FinOps", "case": "OX-16", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec", "case": "OX-16", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B1", "case": "OX-16-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "B2", "case": "OX-16-W", "variant": "withheld", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "Dominant", "case": "OX-16-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "AlwaysRollback", "case": "OX-16-W", "variant": "withheld", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "OX-16-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-DevOps", "case": "OX-16-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE", "case": "OX-16-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "D-FinOps", "case": "OX-16-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec", "case": "OX-16-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B1", "case": "OX-17", "variant": "full", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "B2", "case": "OX-17", "variant": "full", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "Dominant", "case": "OX-17", "variant": "full", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "AlwaysRollback", "case": "OX-17", "variant": "full", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "OX-17", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-DevOps", "case": "OX-17", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE", "case": "OX-17", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-FinOps", "case": "OX-17", "variant": "full", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "D-Sec", "case": "OX-17", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B1", "case": "OX-17-W", "variant": "withheld", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "B2", "case": "OX-17-W", "variant": "withheld", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "Dominant", "case": "OX-17-W", "variant": "withheld", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "AlwaysRollback", "case": "OX-17-W", "variant": "withheld", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "OX-17-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-DevOps", "case": "OX-17-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-SRE", "case": "OX-17-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-FinOps", "case": "OX-17-W", "variant": "withheld", "run": 0, "action": "Scale adjustment", "error": null}
+{"decider": "D-Sec", "case": "OX-17-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "B1", "case": "OX-18", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B2", "case": "OX-18", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "Dominant", "case": "OX-18", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "AlwaysRollback", "case": "OX-18", "variant": "full", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "OX-18", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-DevOps", "case": "OX-18", "variant": "full", "run": 0, "action": "Block release and fix pipeline", "error": null}
+{"decider": "D-SRE", "case": "OX-18", "variant": "full", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "D-FinOps", "case": "OX-18", "variant": "full", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec", "case": "OX-18", "variant": "full", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B1", "case": "OX-18-W", "variant": "withheld", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "B2", "case": "OX-18-W", "variant": "withheld", "run": 0, "action": "Patch or block release", "error": null}
+{"decider": "Dominant", "case": "OX-18-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "AlwaysRollback", "case": "OX-18-W", "variant": "withheld", "run": 0, "action": "Rollback to stable deployment", "error": null}
+{"decider": "AlwaysNone", "case": "OX-18-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-DevOps", "case": "OX-18-W", "variant": "withheld", "run": 0, "action": "Block release and fix pipeline", "error": null}
+{"decider": "D-SRE", "case": "OX-18-W", "variant": "withheld", "run": 0, "action": "Mitigate and monitor", "error": null}
+{"decider": "D-FinOps", "case": "OX-18-W", "variant": "withheld", "run": 0, "action": "No action (observe)", "error": null}
+{"decider": "D-Sec", "case": "OX-18-W", "variant": "withheld", "run": 0, "action": "Patch or block release", "error": null}

@@ -1,0 +1,251 @@
+{
+  "grid": {
+    "p95_floor": [
+      350,
+      450,
+      550
+    ],
+    "factor": [
+      1.5,
+      2,
+      3
+    ],
+    "err_floor": [
+      5,
+      8,
+      12
+    ],
+    "err_rise": [
+      3,
+      5,
+      8
+    ],
+    "restarts": [
+      2,
+      3,
+      5
+    ]
+  },
+  "frozen": {
+    "p95_floor": 450,
+    "factor": 2,
+    "err_floor": 8,
+    "err_rise": 5,
+    "restarts": 3
+  },
+  "studies": {
+    "outcome_study14": {
+      "n_faults": 34,
+      "settings": 243,
+      "frozen_setting_correct": 34,
+      "correct_min": 34,
+      "correct_median": 34,
+      "correct_max": 34,
+      "share_settings_at_least_frozen_minus_2": 1.0,
+      "comparators_correct": {
+        "D-DevOps": 14,
+        "D-SRE": 9,
+        "D-FinOps": 11,
+        "D-Sec": 26,
+        "B5": 26,
+        "B6": 29,
+        "AlwaysRollback": 26
+      },
+      "share_settings_ge_comparator": {
+        "D-DevOps": 1.0,
+        "D-SRE": 1.0,
+        "D-FinOps": 1.0,
+        "D-Sec": 1.0,
+        "B5": 1.0,
+        "B6": 1.0,
+        "AlwaysRollback": 1.0
+      },
+      "share_settings_gt_comparator": {
+        "D-DevOps": 1.0,
+        "D-SRE": 1.0,
+        "D-FinOps": 1.0,
+        "D-Sec": 1.0,
+        "B5": 1.0,
+        "B6": 1.0,
+        "AlwaysRollback": 1.0
+      },
+      "by_parameter": {
+        "p95_floor": {
+          "350": 34,
+          "450": 34,
+          "550": 34
+        },
+        "factor": {
+          "1.5": 34,
+          "2": 34,
+          "3": 34
+        },
+        "err_floor": {
+          "5": 34,
+          "8": 34,
+          "12": 34
+        },
+        "err_rise": {
+          "3": 34,
+          "5": 34,
+          "8": 34
+        },
+        "restarts": {
+          "2": 34,
+          "3": 34,
+          "5": 34
+        }
+      }
+    },
+    "outcome_study15": {
+      "n_faults": 42,
+      "settings": 243,
+      "frozen_setting_correct": 42,
+      "correct_min": 42,
+      "correct_median": 42,
+      "correct_max": 42,
+      "share_settings_at_least_frozen_minus_2": 1.0,
+      "comparators_correct": {
+        "D-DevOps": 15,
+        "D-SRE": 6,
+        "D-FinOps": 10,
+        "D-Sec": 21,
+        "D-DevOps-14": 18,
+        "D-SRE-14": 6,
+        "D-FinOps-14": 10,
+        "D-Sec-14": 21,
+        "B5": 27,
+        "B6": 32,
+        "AlwaysRollback": 30
+      },
+      "share_settings_ge_comparator": {
+        "D-DevOps": 1.0,
+        "D-SRE": 1.0,
+        "D-FinOps": 1.0,
+        "D-Sec": 1.0,
+        "D-DevOps-14": 1.0,
+        "D-SRE-14": 1.0,
+        "D-FinOps-14": 1.0,
+        "D-Sec-14": 1.0,
+        "B5": 1.0,
+        "B6": 1.0,
+        "AlwaysRollback": 1.0
+      },
+      "share_settings_gt_comparator": {
+        "D-DevOps": 1.0,
+        "D-SRE": 1.0,
+        "D-FinOps": 1.0,
+        "D-Sec": 1.0,
+        "D-DevOps-14": 1.0,
+        "D-SRE-14": 1.0,
+        "D-FinOps-14": 1.0,
+        "D-Sec-14": 1.0,
+        "B5": 1.0,
+        "B6": 1.0,
+        "AlwaysRollback": 1.0
+      },
+      "by_parameter": {
+        "p95_floor": {
+          "350": 42,
+          "450": 42,
+          "550": 42
+        },
+        "factor": {
+          "1.5": 42,
+          "2": 42,
+          "3": 42
+        },
+        "err_floor": {
+          "5": 42,
+          "8": 42,
+          "12": 42
+        },
+        "err_rise": {
+          "3": 42,
+          "5": 42,
+          "8": 42
+        },
+        "restarts": {
+          "2": 42,
+          "3": 42,
+          "5": 42
+        }
+      }
+    },
+    "outcome_study16": {
+      "n_faults": 28,
+      "settings": 243,
+      "frozen_setting_correct": 28,
+      "correct_min": 26,
+      "correct_median": 28,
+      "correct_max": 28,
+      "share_settings_at_least_frozen_minus_2": 1.0,
+      "comparators_correct": {
+        "D-DevOps": 15,
+        "D-SRE": 5,
+        "D-FinOps": 5,
+        "D-Sec": 15,
+        "D-DevOps-14": 16,
+        "D-SRE-14": 5,
+        "D-FinOps-14": 5,
+        "D-Sec-14": 15,
+        "B5": 21,
+        "B6": 19,
+        "AlwaysRollback": 21
+      },
+      "share_settings_ge_comparator": {
+        "D-DevOps": 1.0,
+        "D-SRE": 1.0,
+        "D-FinOps": 1.0,
+        "D-Sec": 1.0,
+        "D-DevOps-14": 1.0,
+        "D-SRE-14": 1.0,
+        "D-FinOps-14": 1.0,
+        "D-Sec-14": 1.0,
+        "B5": 1.0,
+        "B6": 1.0,
+        "AlwaysRollback": 1.0
+      },
+      "share_settings_gt_comparator": {
+        "D-DevOps": 1.0,
+        "D-SRE": 1.0,
+        "D-FinOps": 1.0,
+        "D-Sec": 1.0,
+        "D-DevOps-14": 1.0,
+        "D-SRE-14": 1.0,
+        "D-FinOps-14": 1.0,
+        "D-Sec-14": 1.0,
+        "B5": 1.0,
+        "B6": 1.0,
+        "AlwaysRollback": 1.0
+      },
+      "by_parameter": {
+        "p95_floor": {
+          "350": 27.333333333333332,
+          "450": 27.333333333333332,
+          "550": 27.333333333333332
+        },
+        "factor": {
+          "1.5": 28,
+          "2": 28,
+          "3": 26
+        },
+        "err_floor": {
+          "5": 27.333333333333332,
+          "8": 27.333333333333332,
+          "12": 27.333333333333332
+        },
+        "err_rise": {
+          "3": 27.333333333333332,
+          "5": 27.333333333333332,
+          "8": 27.333333333333332
+        },
+        "restarts": {
+          "2": 27.333333333333332,
+          "3": 27.333333333333332,
+          "5": 27.333333333333332
+        }
+      }
+    }
+  }
+}

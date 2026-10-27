@@ -1,0 +1,100 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+{
+  "aaf": {
+    "admissible_all_windows": {
+      "k": 343,
+      "n": 516,
+      "pct": 66.5,
+      "wilson95": [
+        62.3,
+        70.4
+      ]
+    },
+    "detection_on_fault_windows": {
+      "k": 90,
+      "n": 258,
+      "pct": 34.9,
+      "wilson95": [
+        29.3,
+        40.9
+      ]
+    },
+    "admissible_on_fault_windows": {
+      "k": 90,
+      "n": 258,
+      "pct": 34.9,
+      "wilson95": [
+        29.3,
+        40.9
+      ]
+    },
+    "false_alarm_on_control_windows": {
+      "k": 5,
+      "n": 258,
+      "pct": 1.9,
+      "wilson95": [
+        0.8,
+        4.5
+      ]
+    },
+    "actions_fault": {
+      "No action (observe)": 168,
+      "Mitigate and monitor": 90
+    },
+    "actions_control": {
+      "No action (observe)": 253,
+      "Mitigate and monitor": 5
+    }
+  },
+  "baseline": {
+    "admissible_all_windows": {
+      "k": 466,
+      "n": 516,
+      "pct": 90.3,
+      "wilson95": [
+        87.5,
+        92.6
+      ]
+    },
+    "detection_on_fault_windows": {
+      "k": 256,
+      "n": 258,
+      "pct": 99.2,
+      "wilson95": [
+        97.2,
+        99.8
+      ]
+    },
+    "admissible_on_fault_windows": {
+      "k": 256,
+      "n": 258,
+      "pct": 99.2,
+      "wilson95": [
+        97.2,
+        99.8
+      ]
+    },
+    "false_alarm_on_control_windows": {
+      "k": 48,
+      "n": 258,
+      "pct": 18.6,
+      "wilson95": [
+        14.3,
+        23.8
+      ]
+    },
+    "actions_fault": {
+      "Mitigate and monitor": 256,
+      "No action (observe)": 2
+    },
+    "actions_control": {
+      "No action (observe)": 210,
+      "Mitigate and monitor": 48
+    }
+  },
+  "paired_aaf_vs_baseline": {
+    "aaf_only": 43,
+    "baseline_only": 166,
+    "exact_p": 0.0
+  }
+}

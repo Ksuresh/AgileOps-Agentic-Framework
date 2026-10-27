@@ -1,0 +1,45 @@
+{
+  "L": [
+    "us-central1-docker.pkg.dev/online-boutique-ci/microservices-demo/frontend:v0.10.6",
+    null
+  ],
+  "stable": {
+    "image": "us-central1-docker.pkg.dev/online-boutique-ci/microservices-demo/frontend:v0.10.6",
+    "critical_cves": 0,
+    "noncritical_cves": 32
+  },
+  "scans": [
+    {
+      "image": "us-central1-docker.pkg.dev/online-boutique-ci/microservices-demo/frontend:v0.10.5",
+      "error": "Command '['trivy', 'image', '--quiet', '--severity', 'CRITICAL', '--format', 'json', 'us-central1-docker.pkg.dev/online-boutique-ci/microservices-demo/frontend:v0.10.5']' returned non-zero exit status"
+    },
+    {
+      "image": "us-central1-docker.pkg.dev/online-boutique-ci/microservices-demo/frontend:v0.10.4",
+      "error": "Command '['trivy', 'image', '--quiet', '--severity', 'CRITICAL', '--format', 'json', 'us-central1-docker.pkg.dev/online-boutique-ci/microservices-demo/frontend:v0.10.4']' returned non-zero exit status"
+    },
+    {
+      "image": "us-central1-docker.pkg.dev/online-boutique-ci/microservices-demo/frontend:v0.10.3",
+      "error": "Command '['trivy', 'image', '--quiet', '--severity', 'CRITICAL', '--format', 'json', 'us-central1-docker.pkg.dev/online-boutique-ci/microservices-demo/frontend:v0.10.3']' returned non-zero exit status"
+    },
+    {
+      "image": "us-central1-docker.pkg.dev/online-boutique-ci/microservices-demo/frontend:v0.10.2",
+      "error": "Command '['trivy', 'image', '--quiet', '--severity', 'CRITICAL', '--format', 'json', 'us-central1-docker.pkg.dev/online-boutique-ci/microservices-demo/frontend:v0.10.2']' returned non-zero exit status"
+    },
+    {
+      "image": "us-central1-docker.pkg.dev/online-boutique-ci/microservices-demo/frontend:v0.10.1",
+      "error": "Command '['trivy', 'image', '--quiet', '--severity', 'CRITICAL', '--format', 'json', 'us-central1-docker.pkg.dev/online-boutique-ci/microservices-demo/frontend:v0.10.1']' returned non-zero exit status"
+    },
+    {
+      "image": "us-central1-docker.pkg.dev/online-boutique-ci/microservices-demo/frontend:v0.10.0",
+      "error": "Command '['trivy', 'image', '--quiet', '--severity', 'CRITICAL', '--format', 'json', 'us-central1-docker.pkg.dev/online-boutique-ci/microservices-demo/frontend:v0.10.0']' returned non-zero exit status"
+    },
+    {
+      "image": "us-central1-docker.pkg.dev/online-boutique-ci/microservices-demo/frontend:v0.9.0",
+      "error": "Command '['trivy', 'image', '--quiet', '--severity', 'CRITICAL', '--format', 'json', 'us-central1-docker.pkg.dev/online-boutique-ci/microservices-demo/frontend:v0.9.0']' returned non-zero exit status "
+    },
+    {
+      "image": "us-central1-docker.pkg.dev/online-boutique-ci/microservices-demo/frontend:v0.8.1",
+      "error": "Command '['trivy', 'image', '--quiet', '--severity', 'CRITICAL', '--format', 'json', 'us-central1-docker.pkg.dev/online-boutique-ci/microservices-demo/frontend:v0.8.1']' returned non-zero exit status "
+    }
+  ]
+}

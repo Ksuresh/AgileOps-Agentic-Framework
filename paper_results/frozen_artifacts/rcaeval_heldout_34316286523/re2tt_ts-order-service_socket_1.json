@@ -1,0 +1,148 @@
+{
+  "case": "re2tt_ts-order-service_socket_1",
+  "evaluation_role": "held-out; not used for adapter development",
+  "aaf_input": {
+    "deploy": {
+      "_evidence": {}
+    },
+    "sre": {
+      "_evidence": {
+        "p95_latency_ms": {
+          "status": "proxy",
+          "source": "RCAEval ts-order-service_latency-90, post-injection 5-minute median p90 latency",
+          "note": "conservative p95 lower-bound proxy: observed p90 converted from seconds to milliseconds; gated by >=1.5x pre-injection median"
+        },
+        "saturation_pct": {
+          "status": "measured",
+          "source": "RCAEval ts-order-service_cpu, post-injection 5-minute median",
+          "note": "system-wide label-blind scan; metric selected by largest post/pre ratio"
+        }
+      },
+      "_auxiliary": {
+        "memory": {
+          "column": "ts-order-service_mem",
+          "pre_median": 287313920.0,
+          "post_median": 295821312.0,
+          "ratio": 1.0296100933780028
+        },
+        "diskio": {
+          "column": "ts-order-service_diskio",
+          "pre_median": 48454.7363440097,
+          "post_median": 61369.04204513531,
+          "ratio": 1.2665230826856446
+        },
+        "socket": {
+          "column": "ts-order-service_socket",
+          "pre_median": 12.0,
+          "post_median": 26.0,
+          "ratio": 2.1666666666666665
+        },
+        "logs": {
+          "available": true,
+          "pre_log_lines": 53884,
+          "post_log_lines": 56564,
+          "pre_error_like_lines": 19,
+          "post_error_like_lines": 14,
+          "pre_error_like_density_pct": 0.03526093088857546,
+          "post_error_like_density_pct": 0.024750724842656106,
+          "error_like_count_ratio": 0.7368421052631579,
+          "decision_active": false,
+          "reason_not_decision_active": "error-like log density is not equivalent to AAF HTTP error_rate_pct"
+        }
+      },
+      "p95_latency_ms": 421.4285714285718,
+      "saturation_pct": 39.86743196783402
+    },
+    "finops": {
+      "_evidence": {}
+    },
+    "sec": {
+      "_evidence": {}
+    }
+  },
+  "adapter_diagnostics": {
+    "adapter_policy": "final-pilot candidate",
+    "window_seconds": {
+      "pre": 300,
+      "post": 300
+    },
+    "ratio_gate": 1.5,
+    "selection_rule": "system-wide metric scan; RCAEval fault/root-cause labels are not inputs",
+    "decision_active_fields": [
+      "p95_latency_ms (from p90 lower-bound proxy)",
+      "saturation_pct (CPU percent)"
+    ],
+    "latency90_largest_ratio": {
+      "column": "ts-order-service_latency-90",
+      "pre_median": 0.03070312500000001,
+      "post_median": 0.42142857142857176,
+      "ratio": 13.725917848055259
+    },
+    "latency90_largest_post": {
+      "column": "ts-preserve-service_latency-90",
+      "pre_median": 0.95,
+      "post_median": 2.35,
+      "ratio": 2.473684210526316
+    },
+    "cpu_largest_ratio": {
+      "column": "ts-order-service_cpu",
+      "pre_median": 2.4456892430279233,
+      "post_median": 39.86743196783402,
+      "ratio": 16.301102881932593
+    },
+    "cpu_largest_post": {
+      "column": "ts-order-service_cpu",
+      "pre_median": 2.4456892430279233,
+      "post_median": 39.86743196783402,
+      "ratio": 16.301102881932593
+    },
+    "auxiliary_evidence": {
+      "memory_largest_ratio": {
+        "column": "ts-order-service_mem",
+        "pre_median": 287313920.0,
+        "post_median": 295821312.0,
+        "ratio": 1.0296100933780028
+      },
+      "diskio_largest_ratio": {
+        "column": "ts-order-service_diskio",
+        "pre_median": 48454.7363440097,
+        "post_median": 61369.04204513531,
+        "ratio": 1.2665230826856446
+      },
+      "socket_largest_ratio": {
+        "column": "ts-order-service_socket",
+        "pre_median": 12.0,
+        "post_median": 26.0,
+        "ratio": 2.1666666666666665
+      },
+      "logs": {
+        "available": true,
+        "pre_log_lines": 53884,
+        "post_log_lines": 56564,
+        "pre_error_like_lines": 19,
+        "post_error_like_lines": 14,
+        "pre_error_like_density_pct": 0.03526093088857546,
+        "post_error_like_density_pct": 0.024750724842656106,
+        "error_like_count_ratio": 0.7368421052631579,
+        "decision_active": false,
+        "reason_not_decision_active": "error-like log density is not equivalent to AAF HTTP error_rate_pct"
+      }
+    },
+    "auxiliary_policy": "retained and reported but not coerced into unrelated AAF fields"
+  },
+  "base_action": "No action (observe)",
+  "eligible_actions": [
+    "No action (observe)"
+  ],
+  "selected_action": "No action (observe)",
+  "arbitration_reason": "no_cross_domain_interaction",
+  "severities": {
+    "deployment": 0.0,
+    "reliability": 0.0,
+    "cost": 0.0,
+    "security": 0.0
+  },
+  "interactions": [],
+  "audit_fault_label": "socket",
+  "audit_root_cause_service": "ts-order-service"
+}

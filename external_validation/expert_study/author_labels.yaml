@@ -1,0 +1,105 @@
+# Author-proposed admissible actions, sealed with the cases; NOT the primary key for new cases.
+NV-A01:
+- Mitigate and monitor
+NV-A02:
+- Review scaling policy
+- Scale adjustment
+NV-A03:
+- Mitigate and monitor
+- Rollback to stable deployment
+NV-A04:
+- Scale adjustment
+NV-A05:
+- Patch or block release
+NV-A06:
+- Rollback to stable deployment
+- Mitigate and monitor
+NV-C01:
+- No action (observe)
+NV-C02:
+- Mitigate and monitor
+NV-C03:
+- Patch or block release
+NV-C04:
+- Block release and fix pipeline
+NV-C05:
+- Rollback to stable deployment
+NV-C06:
+- Scale adjustment
+- Review scaling policy
+NV-I01:
+- Mitigate and monitor
+NV-I02:
+- Rollback to stable deployment
+NV-I03:
+- Patch or block release
+NV-I04:
+- Scale adjustment
+- Review scaling policy
+NV-I05:
+- Scale adjustment
+NV-I06:
+- Rollback to stable deployment
+NV-M01:
+- Scale adjustment
+NV-M02:
+- Mitigate and monitor
+NV-M03:
+- No action (observe)
+- Review scaling policy
+NV-M04:
+- Mitigate and monitor
+NV-M05:
+- Patch or block release
+NV-M06:
+- Block release and fix pipeline
+- Rollback to stable deployment
+NV-U01:
+- Rollback to stable deployment
+NV-U02:
+- Scale adjustment
+NV-U03:
+- Patch or block release
+NV-U04:
+- Scale adjustment
+NV-U05:
+- Rollback to stable deployment
+NV-U06:
+- Patch or block release
+NV-U07:
+- Rollback to stable deployment
+NV-U08:
+- Patch or block release
+NV-U09:
+- Scale adjustment
+NV-U10:
+- No action (observe)
+NV-U11:
+- No action (observe)
+NV-U12:
+- No action (observe)
+NV-U13:
+- Rollback to stable deployment
+NV-U14:
+- Rollback to stable deployment
+- Scale adjustment
+NV-U15:
+- Rollback to stable deployment
+NV-U16:
+- Rollback to stable deployment
+NV-U17:
+- Scale adjustment
+NV-U18:
+- Rollback to stable deployment
+NV-U19:
+- Block release and fix pipeline
+NV-U20:
+- No action (observe)
+NV-U21:
+- Mitigate and monitor
+NV-U22:
+- Patch or block release
+NV-U23:
+- Rollback to stable deployment
+NV-U24:
+- Patch or block release

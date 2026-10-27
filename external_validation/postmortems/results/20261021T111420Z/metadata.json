@@ -1,0 +1,19 @@
+{
+  "created_utc": "2026-10-21T11:14:20.873046+00:00",
+  "python": "3.11.17",
+  "model": "gpt-5.6-luna",
+  "reader_reasoning_effort": "none",
+  "A_reasoning_effort": "medium",
+  "prompt_sha256": {
+    "L_reader_v2": "d26867aa23cb0ef46ba33cff10befb86647c269861f747f4c8d99973807df3d6",
+    "Lplus_reader": "d714464056c22e7509a4e399dbb5df3dfdd74b906b0699758a10aafada957522",
+    "A_system": "a0cf1a32500995c42ee2610a43258d81cff1a4c39343404dd3272add07c48735",
+    "A_policy": "f157bbbbb1e5fea1c30f2ce43ea2bf12a009087c04a63f01487a841af6e8b1c0"
+  },
+  "labels_sha256": {
+    "labels_rater1.csv": "e29812be57dab5f93db1fbb4b8cbc33d325ac8bccc541e2c17bc551abff1dc40",
+    "labels_rater1_gitlab.csv": "908102b5c57128565807e514e2613762724b5034845b04e7a248a9defafb3c2d"
+  },
+  "github_run_id": "39589896845",
+  "git_sha": "05a8739a78ab2c45beb80feb413593e82110d868"
+}

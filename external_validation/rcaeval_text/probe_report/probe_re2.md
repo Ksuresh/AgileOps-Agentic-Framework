@@ -1,0 +1,1358 @@
+# RCAEval RE2 probe
+
+Index rows: 735; RE2 rows: 270
+
+Index columns: case, dataset, suite, system, system_name, root_cause_service, fault, fault_description, repetition, inject_time, n_metrics, n_timesteps, time_start, time_end, duration_minutes, normal_timesteps, faulty_timesteps, has_logs, n_logs, has_traces, n_traces, has_root_cause_file
+
+## re2ob_checkoutservice_cpu_1 (RE2-OB, cpu)
+
+```json
+{
+ "case": "re2ob_checkoutservice_cpu_1",
+ "dataset": "RE2-OB",
+ "fault": "cpu",
+ "inject_time": 1705354566,
+ "metric_columns_n": 72,
+ "metric_families": {
+  "cpu": 11,
+  "mem": 11,
+  "socket": 11,
+  "workload": 11,
+  "latency-50": 10,
+  "latency-90": 10,
+  "diskio": 4,
+  "error": 4
+ },
+ "metric_examples": [
+  "adservice_cpu",
+  "cartservice_cpu",
+  "checkoutservice_cpu",
+  "currencyservice_cpu",
+  "emailservice_cpu",
+  "frontend_cpu",
+  "paymentservice_cpu",
+  "productcatalogservice_cpu",
+  "recommendationservice_cpu",
+  "redis_cpu",
+  "shippingservice_cpu",
+  "adservice_mem",
+  "cartservice_mem",
+  "checkoutservice_mem",
+  "currencyservice_mem"
+ ],
+ "log_columns": [
+  "timestamp",
+  "container_name",
+  "message"
+ ],
+ "log_rows": 171322,
+ "log_lines_pre_post": [
+  36084,
+  36349
+ ],
+ "log_services_post_top": {
+  "frontend": 13067,
+  "currencyservice": 11498,
+  "cartservice": 3764,
+  "recommendationservice": 2707,
+  "adservice": 2196,
+  "shippingservice": 2182,
+  "checkoutservice": 465,
+  "paymentservice": 310
+ },
+ "post_error_like_lines": 0,
+ "example_post_lines": [
+  "request started",
+  "serving product page",
+  "Getting supported currencies...",
+  "GetCartAsync called with userId=65e09ad2-28f5-454e-bddf-c99cb697f6bb"
+ ],
+ "trace_columns": [
+  "time",
+  "traceID",
+  "spanID",
+  "serviceName",
+  "methodName",
+  "operationName",
+  "parentSpanID",
+  "startTimeMillis",
+  "startTime",
+  "duration",
+  "statusCode"
+ ],
+ "trace_rows": 391997
+}
+```
+
+## re2ob_checkoutservice_delay_1 (RE2-OB, delay)
+
+```json
+{
+ "case": "re2ob_checkoutservice_delay_1",
+ "dataset": "RE2-OB",
+ "fault": "delay",
+ "inject_time": 1705666511,
+ "metric_columns_n": 75,
+ "metric_families": {
+  "cpu": 11,
+  "mem": 11,
+  "socket": 11,
+  "workload": 11,
+  "latency-50": 10,
+  "latency-90": 10,
+  "diskio": 9,
+  "error": 2
+ },
+ "metric_examples": [
+  "adservice_cpu",
+  "cartservice_cpu",
+  "checkoutservice_cpu",
+  "currencyservice_cpu",
+  "emailservice_cpu",
+  "frontend_cpu",
+  "paymentservice_cpu",
+  "productcatalogservice_cpu",
+  "recommendationservice_cpu",
+  "redis_cpu",
+  "shippingservice_cpu",
+  "adservice_mem",
+  "cartservice_mem",
+  "checkoutservice_mem",
+  "currencyservice_mem"
+ ],
+ "log_columns": [
+  "timestamp",
+  "container_name",
+  "message"
+ ],
+ "log_rows": 177868,
+ "log_lines_pre_post": [
+  37770,
+  37302
+ ],
+ "log_services_post_top": {
+  "frontend": 13306,
+  "currencyservice": 11660,
+  "cartservice": 3912,
+  "recommendationservice": 2852,
+  "shippingservice": 2430,
+  "adservice": 2176,
+  "checkoutservice": 481,
+  "paymentservice": 320
+ },
+ "post_error_like_lines": 0,
+ "example_post_lines": [
+  "request started",
+  "setting currency",
+  "request complete",
+  "request started"
+ ],
+ "trace_columns": [
+  "time",
+  "traceID",
+  "spanID",
+  "serviceName",
+  "methodName",
+  "operationName",
+  "parentSpanID",
+  "startTimeMillis",
+  "startTime",
+  "duration",
+  "statusCode"
+ ],
+ "trace_rows": 405229
+}
+```
+
+## re2ob_checkoutservice_disk_1 (RE2-OB, disk)
+
+```json
+{
+ "case": "re2ob_checkoutservice_disk_1",
+ "dataset": "RE2-OB",
+ "fault": "disk",
+ "inject_time": 1705373910,
+ "metric_columns_n": 74,
+ "metric_families": {
+  "cpu": 11,
+  "mem": 11,
+  "socket": 11,
+  "workload": 11,
+  "latency-50": 10,
+  "latency-90": 10,
+  "diskio": 6,
+  "error": 4
+ },
+ "metric_examples": [
+  "adservice_cpu",
+  "cartservice_cpu",
+  "checkoutservice_cpu",
+  "currencyservice_cpu",
+  "emailservice_cpu",
+  "frontend_cpu",
+  "paymentservice_cpu",
+  "productcatalogservice_cpu",
+  "recommendationservice_cpu",
+  "redis_cpu",
+  "shippingservice_cpu",
+  "adservice_mem",
+  "cartservice_mem",
+  "checkoutservice_mem",
+  "currencyservice_mem"
+ ],
+ "log_columns": [
+  "timestamp",
+  "container_name",
+  "message"
+ ],
+ "log_rows": 171176,
+ "log_lines_pre_post": [
+  35430,
+  35769
+ ],
+ "log_services_post_top": {
+  "frontend": 12791,
+  "currencyservice": 11452,
+  "cartservice": 3691,
+  "recommendationservice": 2653,
+  "shippingservice": 2186,
+  "adservice": 2127,
+  "checkoutservice": 432,
+  "paymentservice": 288
+ },
+ "post_error_like_lines": 0,
+ "example_post_lines": [
+  "request started",
+  "serving product page",
+  "Getting supported currencies...",
+  "GetCartAsync called with userId=e0af662b-b550-4be6-8bc2-5b0e52c29b00"
+ ],
+ "trace_columns": [
+  "time",
+  "traceID",
+  "spanID",
+  "serviceName",
+  "methodName",
+  "operationName",
+  "parentSpanID",
+  "startTimeMillis",
+  "startTime",
+  "duration",
+  "statusCode"
+ ],
+ "trace_rows": 391053
+}
+```
+
+## re2ob_checkoutservice_loss_1 (RE2-OB, loss)
+
+```json
+{
+ "case": "re2ob_checkoutservice_loss_1",
+ "dataset": "RE2-OB",
+ "fault": "loss",
+ "inject_time": 1705376266,
+ "metric_columns_n": 74,
+ "metric_families": {
+  "cpu": 11,
+  "mem": 11,
+  "socket": 11,
+  "workload": 11,
+  "latency-50": 10,
+  "latency-90": 10,
+  "diskio": 6,
+  "error": 4
+ },
+ "metric_examples": [
+  "adservice_cpu",
+  "cartservice_cpu",
+  "checkoutservice_cpu",
+  "currencyservice_cpu",
+  "emailservice_cpu",
+  "frontend_cpu",
+  "paymentservice_cpu",
+  "productcatalogservice_cpu",
+  "recommendationservice_cpu",
+  "redis_cpu",
+  "shippingservice_cpu",
+  "adservice_mem",
+  "cartservice_mem",
+  "checkoutservice_mem",
+  "currencyservice_mem"
+ ],
+ "log_columns": [
+  "timestamp",
+  "container_name",
+  "message"
+ ],
+ "log_rows": 168467,
+ "log_lines_pre_post": [
+  36333,
+  34504
+ ],
+ "log_services_post_top": {
+  "frontend": 12425,
+  "currencyservice": 11413,
+  "cartservice": 3508,
+  "recommendationservice": 2563,
+  "adservice": 2109,
+  "shippingservice": 1924,
+  "checkoutservice": 279,
+  "paymentservice": 186
+ },
+ "post_error_like_lines": 19,
+ "example_post_lines": [
+  "request error",
+  "request error",
+  "request error",
+  "request error",
+  "request error",
+  "request error"
+ ],
+ "trace_columns": [
+  "time",
+  "traceID",
+  "spanID",
+  "serviceName",
+  "methodName",
+  "operationName",
+  "parentSpanID",
+  "startTimeMillis",
+  "startTime",
+  "duration",
+  "statusCode"
+ ],
+ "trace_rows": 385793
+}
+```
+
+## re2ob_checkoutservice_mem_1 (RE2-OB, mem)
+
+```json
+{
+ "case": "re2ob_checkoutservice_mem_1",
+ "dataset": "RE2-OB",
+ "fault": "mem",
+ "inject_time": 1705462070,
+ "metric_columns_n": 70,
+ "metric_families": {
+  "cpu": 11,
+  "mem": 11,
+  "socket": 11,
+  "workload": 11,
+  "latency-50": 10,
+  "latency-90": 10,
+  "diskio": 4,
+  "error": 2
+ },
+ "metric_examples": [
+  "adservice_cpu",
+  "cartservice_cpu",
+  "checkoutservice_cpu",
+  "currencyservice_cpu",
+  "emailservice_cpu",
+  "frontend_cpu",
+  "paymentservice_cpu",
+  "productcatalogservice_cpu",
+  "recommendationservice_cpu",
+  "redis_cpu",
+  "shippingservice_cpu",
+  "adservice_mem",
+  "cartservice_mem",
+  "checkoutservice_mem",
+  "currencyservice_mem"
+ ],
+ "log_columns": [
+  "timestamp",
+  "container_name",
+  "message"
+ ],
+ "log_rows": 178020,
+ "log_lines_pre_post": [
+  37723,
+  37241
+ ],
+ "log_services_post_top": {
+  "frontend": 13289,
+  "currencyservice": 11731,
+  "cartservice": 3897,
+  "recommendationservice": 2825,
+  "shippingservice": 2382,
+  "adservice": 2188,
+  "checkoutservice": 462,
+  "paymentservice": 308
+ },
+ "post_error_like_lines": 0,
+ "example_post_lines": [
+  "Getting supported currencies...",
+  "request started",
+  "serving product page",
+  "conversion request successful"
+ ],
+ "trace_columns": [
+  "time",
+  "traceID",
+  "spanID",
+  "serviceName",
+  "methodName",
+  "operationName",
+  "parentSpanID",
+  "startTimeMillis",
+  "startTime",
+  "duration",
+  "statusCode"
+ ],
+ "trace_rows": 405917
+}
+```
+
+## re2ob_checkoutservice_socket_1 (RE2-OB, socket)
+
+```json
+{
+ "case": "re2ob_checkoutservice_socket_1",
+ "dataset": "RE2-OB",
+ "fault": "socket",
+ "inject_time": 1705656313,
+ "metric_columns_n": 77,
+ "metric_families": {
+  "mem": 12,
+  "socket": 12,
+  "cpu": 11,
+  "workload": 11,
+  "latency-50": 10,
+  "latency-90": 10,
+  "diskio": 9,
+  "error": 2
+ },
+ "metric_examples": [
+  "adservice_cpu",
+  "cartservice_cpu",
+  "checkoutservice_cpu",
+  "currencyservice_cpu",
+  "emailservice_cpu",
+  "frontend_cpu",
+  "paymentservice_cpu",
+  "productcatalogservice_cpu",
+  "recommendationservice_cpu",
+  "redis_cpu",
+  "shippingservice_cpu",
+  "adservice_mem",
+  "cartservice_mem",
+  "checkoutservice_mem",
+  "currencyservice_mem"
+ ],
+ "log_columns": [
+  "timestamp",
+  "container_name",
+  "message"
+ ],
+ "log_rows": 177376,
+ "log_lines_pre_post": [
+  37360,
+  37158
+ ],
+ "log_services_post_top": {
+  "frontend": 13310,
+  "currencyservice": 12158,
+  "cartservice": 3798,
+  "recommendationservice": 2737,
+  "adservice": 2222,
+  "shippingservice": 2178,
+  "checkoutservice": 375,
+  "paymentservice": 250
+ },
+ "post_error_like_lines": 0,
+ "example_post_lines": [
+  "request started",
+  "serving product page",
+  "Getting supported currencies...",
+  "GetCartAsync called with userId=fdebbb24-0949-4cad-8a1f-69d6a2de04e8"
+ ],
+ "trace_columns": [
+  "time",
+  "traceID",
+  "spanID",
+  "serviceName",
+  "methodName",
+  "operationName",
+  "parentSpanID",
+  "startTimeMillis",
+  "startTime",
+  "duration",
+  "statusCode"
+ ],
+ "trace_rows": 404289
+}
+```
+
+## re2ss_carts_cpu_1 (RE2-SS, cpu)
+
+```json
+{
+ "case": "re2ss_carts_cpu_1",
+ "dataset": "RE2-SS",
+ "fault": "cpu",
+ "inject_time": 1705596179,
+ "metric_columns_n": 75,
+ "metric_families": {
+  "cpu": 15,
+  "mem": 15,
+  "socket": 15,
+  "diskio": 7,
+  "workload": 7,
+  "latency-50": 7,
+  "latency-90": 7,
+  "error": 2
+ },
+ "metric_examples": [
+  "carts_cpu",
+  "carts-db_cpu",
+  "catalogue_cpu",
+  "catalogue-db_cpu",
+  "front-end_cpu",
+  "orders_cpu",
+  "orders-db_cpu",
+  "payment_cpu",
+  "queue-master_cpu",
+  "rabbitmq_cpu",
+  "rabbitmq-exporter_cpu",
+  "session-db_cpu",
+  "shipping_cpu",
+  "user_cpu",
+  "user-db_cpu"
+ ],
+ "log_columns": [
+  "timestamp",
+  "container_name",
+  "message"
+ ],
+ "log_rows": 86592,
+ "log_lines_pre_post": [
+  17634,
+  18173
+ ],
+ "log_services_post_top": {
+  "front-end": 9830,
+  "user": 2989,
+  "queue-master": 2817,
+  "catalogue": 819,
+  "orders": 626,
+  "payment": 513,
+  "shipping": 313,
+  "carts": 251
+ },
+ "post_error_like_lines": 1273,
+ "example_post_lines": [
+  "2024-01-18 16:42:58.665  INFO 8 --- [ool-6-thread-25] o.apache.http.impl.execchain.RetryExec   : I/O exception (org.newsclub.net.unix.AFUNIXSocketException) caught when processing request to {}->unix://localhost:80: No s",
+  "2024-01-18 16:42:58.665  INFO 8 --- [ool-6-thread-25] o.apache.http.impl.execchain.RetryExec   : I/O exception (org.newsclub.net.unix.AFUNIXSocketException) caught when processing request to {}->unix://localhost:80: No s",
+  "2024-01-18 16:42:58.665  INFO 8 --- [ool-6-thread-25] o.apache.http.impl.execchain.RetryExec   : I/O exception (org.newsclub.net.unix.AFUNIXSocketException) caught when processing request to {}->unix://localhost:80: No s",
+  "2024-01-18 16:42:58.665 ERROR 8 --- [ool-6-thread-25] w.weave.socks.queuemaster.DockerSpawner  : Exception trying to launch/remove worker container. javax.ws.rs.ProcessingException: org.newsclub.net.unix.AFUNIXSocketExce",
+  "2024-01-18 16:43:00.490  INFO 8 --- [ool-6-thread-26] o.apache.http.impl.execchain.RetryExec   : I/O exception (org.newsclub.net.unix.AFUNIXSocketException) caught when processing request to {}->unix://localhost:80: No s",
+  "2024-01-18 16:43:00.491  INFO 8 --- [ool-6-thread-26] o.apache.http.impl.execchain.RetryExec   : I/O exception (org.newsclub.net.unix.AFUNIXSocketException) caught when processing request to {}->unix://localhost:80: No s"
+ ]
+}
+```
+
+## re2ss_carts_delay_1 (RE2-SS, delay)
+
+```json
+{
+ "case": "re2ss_carts_delay_1",
+ "dataset": "RE2-SS",
+ "fault": "delay",
+ "inject_time": 1705662624,
+ "metric_columns_n": 79,
+ "metric_families": {
+  "cpu": 15,
+  "mem": 15,
+  "socket": 15,
+  "diskio": 8,
+  "workload": 7,
+  "latency-50": 7,
+  "latency-90": 7,
+  "error": 5
+ },
+ "metric_examples": [
+  "carts_cpu",
+  "carts-db_cpu",
+  "catalogue_cpu",
+  "catalogue-db_cpu",
+  "front-end_cpu",
+  "orders_cpu",
+  "orders-db_cpu",
+  "payment_cpu",
+  "queue-master_cpu",
+  "rabbitmq_cpu",
+  "rabbitmq-exporter_cpu",
+  "session-db_cpu",
+  "shipping_cpu",
+  "user_cpu",
+  "user-db_cpu"
+ ],
+ "log_columns": [
+  "timestamp",
+  "container_name",
+  "message"
+ ],
+ "log_rows": 83040,
+ "log_lines_pre_post": [
+  18119,
+  16312
+ ],
+ "log_services_post_top": {
+  "front-end": 8807,
+  "user": 2683,
+  "queue-master": 2475,
+  "catalogue": 748,
+  "orders": 550,
+  "payment": 475,
+  "carts": 282,
+  "shipping": 275
+ },
+ "post_error_like_lines": 1123,
+ "example_post_lines": [
+  "2024-01-19 11:10:24.274  INFO 7 --- [ool-6-thread-17] o.apache.http.impl.execchain.RetryExec   : I/O exception (org.newsclub.net.unix.AFUNIXSocketException) caught when processing request to {}->unix://localhost:80: No s",
+  "2024-01-19 11:10:24.275  INFO 7 --- [ool-6-thread-17] o.apache.http.impl.execchain.RetryExec   : I/O exception (org.newsclub.net.unix.AFUNIXSocketException) caught when processing request to {}->unix://localhost:80: No s",
+  "2024-01-19 11:10:24.275  INFO 7 --- [ool-6-thread-17] o.apache.http.impl.execchain.RetryExec   : I/O exception (org.newsclub.net.unix.AFUNIXSocketException) caught when processing request to {}->unix://localhost:80: No s",
+  "2024-01-19 11:10:24.275 ERROR 7 --- [ool-6-thread-17] w.weave.socks.queuemaster.DockerSpawner  : Exception trying to launch/remove worker container. javax.ws.rs.ProcessingException: org.newsclub.net.unix.AFUNIXSocketExce",
+  "2024-01-19 11:10:26.896  INFO 7 --- [ool-6-thread-18] o.apache.http.impl.execchain.RetryExec   : I/O exception (org.newsclub.net.unix.AFUNIXSocketException) caught when processing request to {}->unix://localhost:80: No s",
+  "2024-01-19 11:10:26.896  INFO 7 --- [ool-6-thread-18] o.apache.http.impl.execchain.RetryExec   : I/O exception (org.newsclub.net.unix.AFUNIXSocketException) caught when processing request to {}->unix://localhost:80: No s"
+ ]
+}
+```
+
+## re2ss_carts_disk_1 (RE2-SS, disk)
+
+```json
+{
+ "case": "re2ss_carts_disk_1",
+ "dataset": "RE2-SS",
+ "fault": "disk",
+ "inject_time": 1705817948,
+ "metric_columns_n": 76,
+ "metric_families": {
+  "cpu": 15,
+  "mem": 15,
+  "socket": 15,
+  "diskio": 8,
+  "workload": 7,
+  "latency-50": 7,
+  "latency-90": 7,
+  "error": 2
+ },
+ "metric_examples": [
+  "carts_cpu",
+  "carts-db_cpu",
+  "catalogue_cpu",
+  "catalogue-db_cpu",
+  "front-end_cpu",
+  "orders_cpu",
+  "orders-db_cpu",
+  "payment_cpu",
+  "queue-master_cpu",
+  "rabbitmq_cpu",
+  "rabbitmq-exporter_cpu",
+  "session-db_cpu",
+  "shipping_cpu",
+  "user_cpu",
+  "user-db_cpu"
+ ],
+ "log_columns": [
+  "timestamp",
+  "container_name",
+  "message"
+ ],
+ "log_rows": 88166,
+ "log_lines_pre_post": [
+  18482,
+  18185
+ ],
+ "log_services_post_top": {
+  "front-end": 9844,
+  "user": 2959,
+  "queue-master": 2754,
+  "catalogue": 819,
+  "orders": 612,
+  "payment": 506,
+  "carts": 375,
+  "shipping": 306
+ },
+ "post_error_like_lines": 1261,
+ "example_post_lines": [
+  "2024-01-21 06:19:07.989  INFO 7 --- [ool-6-thread-41] o.apache.http.impl.execchain.RetryExec   : I/O exception (org.newsclub.net.unix.AFUNIXSocketException) caught when processing request to {}->unix://localhost:80: No s",
+  "2024-01-21 06:19:07.989  INFO 7 --- [ool-6-thread-41] o.apache.http.impl.execchain.RetryExec   : I/O exception (org.newsclub.net.unix.AFUNIXSocketException) caught when processing request to {}->unix://localhost:80: No s",
+  "2024-01-21 06:19:07.989  INFO 7 --- [ool-6-thread-41] o.apache.http.impl.execchain.RetryExec   : I/O exception (org.newsclub.net.unix.AFUNIXSocketException) caught when processing request to {}->unix://localhost:80: No s",
+  "2024-01-21 06:19:07.990 ERROR 7 --- [ool-6-thread-41] w.weave.socks.queuemaster.DockerSpawner  : Exception trying to launch/remove worker container. javax.ws.rs.ProcessingException: org.newsclub.net.unix.AFUNIXSocketExce",
+  "Merging carts for customer id: 65acb75cb05b1b00014436c9 and session id: DfxnOOM8TRRggtzl-8gBSAFiu-ZagBdC",
+  "2024-01-21 06:19:09.161  INFO 7 --- [ool-6-thread-42] o.apache.http.impl.execchain.RetryExec   : I/O exception (org.newsclub.net.unix.AFUNIXSocketException) caught when processing request to {}->unix://localhost:80: No s"
+ ]
+}
+```
+
+## re2ss_carts_loss_1 (RE2-SS, loss)
+
+```json
+{
+ "case": "re2ss_carts_loss_1",
+ "dataset": "RE2-SS",
+ "fault": "loss",
+ "inject_time": 1705664209,
+ "metric_columns_n": 79,
+ "metric_families": {
+  "cpu": 15,
+  "mem": 15,
+  "socket": 15,
+  "diskio": 8,
+  "workload": 7,
+  "latency-50": 7,
+  "latency-90": 7,
+  "error": 5
+ },
+ "metric_examples": [
+  "carts_cpu",
+  "carts-db_cpu",
+  "catalogue_cpu",
+  "catalogue-db_cpu",
+  "front-end_cpu",
+  "orders_cpu",
+  "orders-db_cpu",
+  "payment_cpu",
+  "queue-master_cpu",
+  "rabbitmq_cpu",
+  "rabbitmq-exporter_cpu",
+  "session-db_cpu",
+  "shipping_cpu",
+  "user_cpu",
+  "user-db_cpu"
+ ],
+ "log_columns": [
+  "timestamp",
+  "container_name",
+  "message"
+ ],
+ "log_rows": 84486,
+ "log_lines_pre_post": [
+  18188,
+  17038
+ ],
+ "log_services_post_top": {
+  "front-end": 9282,
+  "user": 2819,
+  "queue-master": 2628,
+  "catalogue": 781,
+  "orders": 584,
+  "payment": 492,
+  "shipping": 292,
+  "carts": 150
+ },
+ "post_error_like_lines": 1180,
+ "example_post_lines": [
+  "2024-01-19 11:36:49.593  INFO 7 --- [ool-6-thread-12] o.apache.http.impl.execchain.RetryExec   : I/O exception (org.newsclub.net.unix.AFUNIXSocketException) caught when processing request to {}->unix://localhost:80: No s",
+  "2024-01-19 11:36:49.594  INFO 7 --- [ool-6-thread-12] o.apache.http.impl.execchain.RetryExec   : I/O exception (org.newsclub.net.unix.AFUNIXSocketException) caught when processing request to {}->unix://localhost:80: No s",
+  "2024-01-19 11:36:49.594  INFO 7 --- [ool-6-thread-12] o.apache.http.impl.execchain.RetryExec   : I/O exception (org.newsclub.net.unix.AFUNIXSocketException) caught when processing request to {}->unix://localhost:80: No s",
+  "2024-01-19 11:36:49.594 ERROR 7 --- [ool-6-thread-12] w.weave.socks.queuemaster.DockerSpawner  : Exception trying to launch/remove worker container. javax.ws.rs.ProcessingException: org.newsclub.net.unix.AFUNIXSocketExce",
+  "2024-01-19 11:36:49.805  INFO 7 --- [ool-6-thread-13] o.apache.http.impl.execchain.RetryExec   : I/O exception (org.newsclub.net.unix.AFUNIXSocketException) caught when processing request to {}->unix://localhost:80: No s",
+  "2024-01-19 11:36:49.805  INFO 7 --- [ool-6-thread-13] o.apache.http.impl.execchain.RetryExec   : I/O exception (org.newsclub.net.unix.AFUNIXSocketException) caught when processing request to {}->unix://localhost:80: No s"
+ ]
+}
+```
+
+## re2ss_carts_mem_1 (RE2-SS, mem)
+
+```json
+{
+ "case": "re2ss_carts_mem_1",
+ "dataset": "RE2-SS",
+ "fault": "mem",
+ "inject_time": 1705845578,
+ "metric_columns_n": 76,
+ "metric_families": {
+  "cpu": 15,
+  "mem": 15,
+  "socket": 15,
+  "diskio": 8,
+  "workload": 7,
+  "latency-50": 7,
+  "latency-90": 7,
+  "error": 2
+ },
+ "metric_examples": [
+  "carts_cpu",
+  "carts-db_cpu",
+  "catalogue_cpu",
+  "catalogue-db_cpu",
+  "front-end_cpu",
+  "orders_cpu",
+  "orders-db_cpu",
+  "payment_cpu",
+  "queue-master_cpu",
+  "rabbitmq_cpu",
+  "rabbitmq-exporter_cpu",
+  "session-db_cpu",
+  "shipping_cpu",
+  "user_cpu",
+  "user-db_cpu"
+ ],
+ "log_columns": [
+  "timestamp",
+  "container_name",
+  "message"
+ ],
+ "log_rows": 87712,
+ "log_lines_pre_post": [
+  18425,
+  18000
+ ],
+ "log_services_post_top": {
+  "front-end": 9884,
+  "user": 2965,
+  "queue-master": 2745,
+  "catalogue": 819,
+  "orders": 610,
+  "payment": 505,
+  "shipping": 305,
+  "carts": 153
+ },
+ "post_error_like_lines": 1232,
+ "example_post_lines": [
+  "2024-01-21 13:59:38.011  INFO 7 --- [ool-6-thread-21] o.apache.http.impl.execchain.RetryExec   : I/O exception (org.newsclub.net.unix.AFUNIXSocketException) caught when processing request to {}->unix://localhost:80: No s",
+  "2024-01-21 13:59:38.012  INFO 7 --- [ool-6-thread-21] o.apache.http.impl.execchain.RetryExec   : I/O exception (org.newsclub.net.unix.AFUNIXSocketException) caught when processing request to {}->unix://localhost:80: No s",
+  "2024-01-21 13:59:38.012  INFO 7 --- [ool-6-thread-21] o.apache.http.impl.execchain.RetryExec   : I/O exception (org.newsclub.net.unix.AFUNIXSocketException) caught when processing request to {}->unix://localhost:80: No s",
+  "2024-01-21 13:59:38.012 ERROR 7 --- [ool-6-thread-21] w.weave.socks.queuemaster.DockerSpawner  : Exception trying to launch/remove worker container. javax.ws.rs.ProcessingException: org.newsclub.net.unix.AFUNIXSocketExce",
+  "2024-01-21 13:59:39.347  INFO 7 --- [ool-6-thread-22] o.apache.http.impl.execchain.RetryExec   : I/O exception (org.newsclub.net.unix.AFUNIXSocketException) caught when processing request to {}->unix://localhost:80: No s",
+  "2024-01-21 13:59:39.347  INFO 7 --- [ool-6-thread-22] o.apache.http.impl.execchain.RetryExec   : I/O exception (org.newsclub.net.unix.AFUNIXSocketException) caught when processing request to {}->unix://localhost:80: No s"
+ ]
+}
+```
+
+## re2ss_carts_socket_1 (RE2-SS, socket)
+
+```json
+{
+ "case": "re2ss_carts_socket_1",
+ "dataset": "RE2-SS",
+ "fault": "socket",
+ "inject_time": 1705632937,
+ "metric_columns_n": 79,
+ "metric_families": {
+  "cpu": 15,
+  "mem": 15,
+  "socket": 15,
+  "diskio": 7,
+  "workload": 7,
+  "latency-50": 7,
+  "latency-90": 7,
+  "error": 6
+ },
+ "metric_examples": [
+  "carts_cpu",
+  "carts-db_cpu",
+  "catalogue_cpu",
+  "catalogue-db_cpu",
+  "front-end_cpu",
+  "orders_cpu",
+  "orders-db_cpu",
+  "payment_cpu",
+  "queue-master_cpu",
+  "rabbitmq_cpu",
+  "rabbitmq-exporter_cpu",
+  "session-db_cpu",
+  "shipping_cpu",
+  "user_cpu",
+  "user-db_cpu"
+ ],
+ "log_columns": [
+  "timestamp",
+  "container_name",
+  "message"
+ ],
+ "log_rows": 88689,
+ "log_lines_pre_post": [
+  18253,
+  18672
+ ],
+ "log_services_post_top": {
+  "front-end": 9625,
+  "user": 2905,
+  "queue-master": 2700,
+  "carts-db": 986,
+  "catalogue": 801,
+  "orders": 600,
+  "payment": 500,
+  "shipping": 300
+ },
+ "post_error_like_lines": 1220,
+ "example_post_lines": [
+  "2024-01-19 02:55:36.767  INFO 8 --- [ool-6-thread-20] o.apache.http.impl.execchain.RetryExec   : I/O exception (org.newsclub.net.unix.AFUNIXSocketException) caught when processing request to {}->unix://localhost:80: No s",
+  "2024-01-19 02:55:36.767  INFO 8 --- [ool-6-thread-20] o.apache.http.impl.execchain.RetryExec   : I/O exception (org.newsclub.net.unix.AFUNIXSocketException) caught when processing request to {}->unix://localhost:80: No s",
+  "2024-01-19 02:55:36.767  INFO 8 --- [ool-6-thread-20] o.apache.http.impl.execchain.RetryExec   : I/O exception (org.newsclub.net.unix.AFUNIXSocketException) caught when processing request to {}->unix://localhost:80: No s",
+  "2024-01-19 02:55:36.767 ERROR 8 --- [ool-6-thread-20] w.weave.socks.queuemaster.DockerSpawner  : Exception trying to launch/remove worker container. javax.ws.rs.ProcessingException: org.newsclub.net.unix.AFUNIXSocketExce",
+  "2024-01-19 02:55:37.993  INFO 8 --- [ool-6-thread-18] o.apache.http.impl.execchain.RetryExec   : I/O exception (org.newsclub.net.unix.AFUNIXSocketException) caught when processing request to {}->unix://localhost:80: No s",
+  "2024-01-19 02:55:37.993  INFO 8 --- [ool-6-thread-18] o.apache.http.impl.execchain.RetryExec   : I/O exception (org.newsclub.net.unix.AFUNIXSocketException) caught when processing request to {}->unix://localhost:80: No s"
+ ]
+}
+```
+
+## re2tt_ts-auth-service_cpu_1 (RE2-TT, cpu)
+
+```json
+{
+ "case": "re2tt_ts-auth-service_cpu_1",
+ "dataset": "RE2-TT",
+ "fault": "cpu",
+ "inject_time": 1705918105,
+ "metric_columns_n": 369,
+ "metric_families": {
+  "cpu": 68,
+  "mem": 68,
+  "socket": 68,
+  "diskio": 67,
+  "workload": 28,
+  "latency-50": 28,
+  "latency-90": 28,
+  "error": 14
+ },
+ "metric_examples": [
+  "ts-admin-basic-info-service_cpu",
+  "ts-admin-order-service_cpu",
+  "ts-admin-route-service_cpu",
+  "ts-admin-travel-service_cpu",
+  "ts-admin-user-service_cpu",
+  "ts-assurance-mongo_cpu",
+  "ts-assurance-service_cpu",
+  "ts-auth-mongo_cpu",
+  "ts-auth-service_cpu",
+  "ts-avatar-service_cpu",
+  "ts-basic-service_cpu",
+  "ts-cancel-service_cpu",
+  "ts-config-mongo_cpu",
+  "ts-config-service_cpu",
+  "ts-consign-mongo_cpu"
+ ],
+ "trace_columns": [
+  "time",
+  "traceID",
+  "spanID",
+  "serviceName",
+  "methodName",
+  "operationName",
+  "parentSpanID",
+  "startTimeMillis",
+  "startTime",
+  "duration",
+  "statusCode"
+ ],
+ "trace_rows": 1143435
+}
+```
+
+## re2tt_ts-auth-service_delay_1 (RE2-TT, delay)
+
+```json
+{
+ "case": "re2tt_ts-auth-service_delay_1",
+ "dataset": "RE2-TT",
+ "fault": "delay",
+ "inject_time": 1705921865,
+ "metric_columns_n": 371,
+ "metric_families": {
+  "cpu": 68,
+  "mem": 68,
+  "socket": 68,
+  "diskio": 67,
+  "workload": 28,
+  "latency-50": 28,
+  "latency-90": 28,
+  "error": 16
+ },
+ "metric_examples": [
+  "ts-admin-basic-info-service_cpu",
+  "ts-admin-order-service_cpu",
+  "ts-admin-route-service_cpu",
+  "ts-admin-travel-service_cpu",
+  "ts-admin-user-service_cpu",
+  "ts-assurance-mongo_cpu",
+  "ts-assurance-service_cpu",
+  "ts-auth-mongo_cpu",
+  "ts-auth-service_cpu",
+  "ts-avatar-service_cpu",
+  "ts-basic-service_cpu",
+  "ts-cancel-service_cpu",
+  "ts-config-mongo_cpu",
+  "ts-config-service_cpu",
+  "ts-consign-mongo_cpu"
+ ],
+ "log_columns": [
+  "timestamp",
+  "container_name",
+  "message"
+ ],
+ "log_rows": 266174,
+ "log_lines_pre_post": [
+  55118,
+  54164
+ ],
+ "log_services_post_top": {
+  "ts-basic-service": 11858,
+  "ts-travel2-service": 10662,
+  "ts-travel-service": 8453,
+  "ts-seat-service": 8294,
+  "ts-route-service": 4861,
+  "ts-order-service": 1686,
+  "ts-order-other-service": 1654,
+  "ts-auth-service": 1572
+ },
+ "post_error_like_lines": 16,
+ "example_post_lines": [
+  "2024-01-22 11:12:21.884  INFO 1 --- [io-18673-exec-3] i.service.InsidePaymentServiceImpl       : [Inside Payment Service][Pay] Error. Order status Not allowed to Pay.",
+  "2024-01-22 11:12:55.952  INFO 1 --- [io-18673-exec-1] i.service.InsidePaymentServiceImpl       : [Inside Payment Service][Pay] Error. Order status Not allowed to Pay.",
+  "2024-01-22 11:13:13.074  WARN 1 --- [io-18673-exec-2] org.mongodb.driver.connection            : Got socket exception on connection [connectionId{localValue:2, serverValue:2}] to ts-inside-payment-mongo:27017. All connec",
+  "2024-01-22 11:13:13.076  INFO 1 --- [io-18673-exec-2] org.mongodb.driver.connection            : Closed connection [connectionId{localValue:2, serverValue:2}] to ts-inside-payment-mongo:27017 because there was a socket e",
+  "2024-01-22 11:13:13.077  INFO 1 --- [io-18673-exec-3] org.mongodb.driver.connection            : Closed connection [connectionId{localValue:3, serverValue:3}] to ts-inside-payment-mongo:27017 because there was a socket e",
+  "2024-01-22 11:13:13.150 ERROR 1 --- [io-18673-exec-2] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; neste"
+ ],
+ "trace_columns": [
+  "time",
+  "traceID",
+  "spanID",
+  "serviceName",
+  "methodName",
+  "operationName",
+  "parentSpanID",
+  "startTimeMillis",
+  "startTime",
+  "duration",
+  "statusCode"
+ ],
+ "trace_rows": 1153677
+}
+```
+
+## re2tt_ts-auth-service_disk_1 (RE2-TT, disk)
+
+```json
+{
+ "case": "re2tt_ts-auth-service_disk_1",
+ "dataset": "RE2-TT",
+ "fault": "disk",
+ "inject_time": 1705980016,
+ "metric_columns_n": 362,
+ "metric_families": {
+  "cpu": 68,
+  "mem": 68,
+  "socket": 68,
+  "diskio": 67,
+  "workload": 28,
+  "latency-50": 28,
+  "latency-90": 28,
+  "error": 7
+ },
+ "metric_examples": [
+  "ts-admin-basic-info-service_cpu",
+  "ts-admin-order-service_cpu",
+  "ts-admin-route-service_cpu",
+  "ts-admin-travel-service_cpu",
+  "ts-admin-user-service_cpu",
+  "ts-assurance-mongo_cpu",
+  "ts-assurance-service_cpu",
+  "ts-auth-mongo_cpu",
+  "ts-auth-service_cpu",
+  "ts-avatar-service_cpu",
+  "ts-basic-service_cpu",
+  "ts-cancel-service_cpu",
+  "ts-config-mongo_cpu",
+  "ts-config-service_cpu",
+  "ts-consign-mongo_cpu"
+ ],
+ "log_columns": [
+  "timestamp",
+  "container_name",
+  "message"
+ ],
+ "log_rows": 271266,
+ "log_lines_pre_post": [
+  56823,
+  52634
+ ],
+ "log_services_post_top": {
+  "ts-basic-service": 11250,
+  "ts-travel2-service": 10448,
+  "ts-seat-service": 8416,
+  "ts-travel-service": 7631,
+  "ts-route-service": 4627,
+  "ts-order-other-service": 2044,
+  "ts-order-service": 1748,
+  "ts-auth-service": 1520
+ },
+ "post_error_like_lines": 19,
+ "example_post_lines": [
+  "2024-01-23 03:20:34.175  INFO 1 --- [io-18673-exec-4] i.service.InsidePaymentServiceImpl       : [Inside Payment Service][Pay] Error. Order status Not allowed to Pay.",
+  "2024-01-23 03:20:34.835  INFO 1 --- [io-18673-exec-5] i.service.InsidePaymentServiceImpl       : [Inside Payment Service][Pay] Error. Order status Not allowed to Pay.",
+  "2024-01-23 03:20:58.588  INFO 1 --- [io-18673-exec-1] i.service.InsidePaymentServiceImpl       : [Inside Payment Service][Pay] Error. Order status Not allowed to Pay.",
+  "2024-01-23 03:21:10.731  INFO 1 --- [io-18673-exec-5] i.service.InsidePaymentServiceImpl       : [Inside Payment Service][Pay] Error. Order status Not allowed to Pay.",
+  "2024-01-23 03:21:11.268  INFO 1 --- [io-18673-exec-8] i.service.InsidePaymentServiceImpl       : [Inside Payment Service][Pay] Error. Order status Not allowed to Pay.",
+  "2024-01-23 03:21:38.871  INFO 1 --- [io-18673-exec-1] i.service.InsidePaymentServiceImpl       : [Inside Payment Service][Pay] Error. Order status Not allowed to Pay."
+ ],
+ "trace_columns": [
+  "time",
+  "traceID",
+  "spanID",
+  "serviceName",
+  "methodName",
+  "operationName",
+  "parentSpanID",
+  "startTimeMillis",
+  "startTime",
+  "duration",
+  "statusCode"
+ ],
+ "trace_rows": 691762
+}
+```
+
+## re2tt_ts-auth-service_loss_1 (RE2-TT, loss)
+
+```json
+{
+ "case": "re2tt_ts-auth-service_loss_1",
+ "dataset": "RE2-TT",
+ "fault": "loss",
+ "inject_time": 1705983003,
+ "metric_columns_n": 367,
+ "metric_families": {
+  "cpu": 68,
+  "mem": 68,
+  "socket": 68,
+  "diskio": 67,
+  "workload": 28,
+  "latency-50": 28,
+  "latency-90": 28,
+  "error": 12
+ },
+ "metric_examples": [
+  "ts-admin-basic-info-service_cpu",
+  "ts-admin-order-service_cpu",
+  "ts-admin-route-service_cpu",
+  "ts-admin-travel-service_cpu",
+  "ts-admin-user-service_cpu",
+  "ts-assurance-mongo_cpu",
+  "ts-assurance-service_cpu",
+  "ts-auth-mongo_cpu",
+  "ts-auth-service_cpu",
+  "ts-avatar-service_cpu",
+  "ts-basic-service_cpu",
+  "ts-cancel-service_cpu",
+  "ts-config-mongo_cpu",
+  "ts-config-service_cpu",
+  "ts-consign-mongo_cpu"
+ ],
+ "log_columns": [
+  "timestamp",
+  "container_name",
+  "message"
+ ],
+ "log_rows": 276063,
+ "log_lines_pre_post": [
+  58732,
+  56790
+ ],
+ "log_services_post_top": {
+  "ts-basic-service": 12140,
+  "ts-travel2-service": 11439,
+  "ts-seat-service": 9045,
+  "ts-travel-service": 8037,
+  "ts-route-service": 5015,
+  "ts-order-other-service": 2282,
+  "ts-order-service": 1804,
+  "ts-auth-service": 1654
+ },
+ "post_error_like_lines": 17,
+ "example_post_lines": [
+  "2024-01-23 04:10:31.983  INFO 1 --- [io-18673-exec-4] i.service.InsidePaymentServiceImpl       : [Inside Payment Service][Pay] Error. Order status Not allowed to Pay.",
+  "2024-01-23 04:10:42.840  INFO 1 --- [io-18673-exec-8] i.service.InsidePaymentServiceImpl       : [Inside Payment Service][Pay] Error. Order status Not allowed to Pay.",
+  "2024-01-23 04:10:46.639  INFO 1 --- [o-18673-exec-10] i.service.InsidePaymentServiceImpl       : [Inside Payment Service][Pay] Error. Order status Not allowed to Pay.",
+  "2024-01-23 04:10:46.771  INFO 1 --- [io-18673-exec-9] i.service.InsidePaymentServiceImpl       : [Inside Payment Service][Pay] Error. Order status Not allowed to Pay.",
+  "2024-01-23 04:10:47.932  INFO 1 --- [io-18673-exec-1] i.service.InsidePaymentServiceImpl       : [Inside Payment Service][Pay] Error. Order status Not allowed to Pay.",
+  "2024-01-23 04:10:48.060  INFO 1 --- [io-18673-exec-2] i.service.InsidePaymentServiceImpl       : [Inside Payment Service][Pay] Error. Order status Not allowed to Pay."
+ ],
+ "trace_columns": [
+  "time",
+  "traceID",
+  "spanID",
+  "serviceName",
+  "methodName",
+  "operationName",
+  "parentSpanID",
+  "startTimeMillis",
+  "startTime",
+  "duration",
+  "statusCode"
+ ],
+ "trace_rows": 961039
+}
+```
+
+## re2tt_ts-auth-service_mem_1 (RE2-TT, mem)
+
+```json
+{
+ "case": "re2tt_ts-auth-service_mem_1",
+ "dataset": "RE2-TT",
+ "fault": "mem",
+ "inject_time": 1706026700,
+ "metric_columns_n": 367,
+ "metric_families": {
+  "cpu": 68,
+  "mem": 68,
+  "socket": 68,
+  "diskio": 67,
+  "workload": 28,
+  "latency-50": 28,
+  "latency-90": 28,
+  "error": 12
+ },
+ "metric_examples": [
+  "ts-admin-basic-info-service_cpu",
+  "ts-admin-order-service_cpu",
+  "ts-admin-route-service_cpu",
+  "ts-admin-travel-service_cpu",
+  "ts-admin-user-service_cpu",
+  "ts-assurance-mongo_cpu",
+  "ts-assurance-service_cpu",
+  "ts-auth-mongo_cpu",
+  "ts-auth-service_cpu",
+  "ts-avatar-service_cpu",
+  "ts-basic-service_cpu",
+  "ts-cancel-service_cpu",
+  "ts-config-mongo_cpu",
+  "ts-config-service_cpu",
+  "ts-consign-mongo_cpu"
+ ],
+ "log_columns": [
+  "timestamp",
+  "container_name",
+  "message"
+ ],
+ "log_rows": 270107,
+ "log_lines_pre_post": [
+  59755,
+  54166
+ ],
+ "log_services_post_top": {
+  "ts-basic-service": 11693,
+  "ts-travel2-service": 11147,
+  "ts-seat-service": 8710,
+  "ts-travel-service": 7326,
+  "ts-route-service": 4748,
+  "ts-order-other-service": 2269,
+  "ts-order-service": 1632,
+  "ts-auth-service": 1542
+ },
+ "post_error_like_lines": 12,
+ "example_post_lines": [
+  "2024-01-23 16:18:22.858  INFO 1 --- [io-18673-exec-4] i.service.InsidePaymentServiceImpl       : [Inside Payment Service][Pay] Error. Order status Not allowed to Pay.",
+  "2024-01-23 16:18:35.779  INFO 1 --- [io-18673-exec-6] i.service.InsidePaymentServiceImpl       : [Inside Payment Service][Pay] Error. Order status Not allowed to Pay.",
+  "2024-01-23 16:19:11.122  INFO 1 --- [io-18673-exec-4] i.service.InsidePaymentServiceImpl       : [Inside Payment Service][Pay] Error. Order status Not allowed to Pay.",
+  "2024-01-23 16:19:46.444  INFO 1 --- [io-18673-exec-9] i.service.InsidePaymentServiceImpl       : [Inside Payment Service][Pay] Error. Order status Not allowed to Pay.",
+  "2024-01-23 16:19:52.083  INFO 1 --- [io-18673-exec-1] i.service.InsidePaymentServiceImpl       : [Inside Payment Service][Pay] Error. Order status Not allowed to Pay.",
+  "2024-01-23 16:20:17.330  INFO 1 --- [io-18673-exec-8] i.service.InsidePaymentServiceImpl       : [Inside Payment Service][Pay] Error. Order status Not allowed to Pay."
+ ],
+ "trace_columns": [
+  "time",
+  "traceID",
+  "spanID",
+  "serviceName",
+  "methodName",
+  "operationName",
+  "parentSpanID",
+  "startTimeMillis",
+  "startTime",
+  "duration",
+  "statusCode"
+ ],
+ "trace_rows": 1088958
+}
+```
+
+## re2tt_ts-auth-service_socket_1 (RE2-TT, socket)
+
+```json
+{
+ "case": "re2tt_ts-auth-service_socket_1",
+ "dataset": "RE2-TT",
+ "fault": "socket",
+ "inject_time": 1705981508,
+ "metric_columns_n": 362,
+ "metric_families": {
+  "cpu": 68,
+  "mem": 68,
+  "socket": 68,
+  "diskio": 67,
+  "workload": 28,
+  "latency-50": 28,
+  "latency-90": 28,
+  "error": 7
+ },
+ "metric_examples": [
+  "ts-admin-basic-info-service_cpu",
+  "ts-admin-order-service_cpu",
+  "ts-admin-route-service_cpu",
+  "ts-admin-travel-service_cpu",
+  "ts-admin-user-service_cpu",
+  "ts-assurance-mongo_cpu",
+  "ts-assurance-service_cpu",
+  "ts-auth-mongo_cpu",
+  "ts-auth-service_cpu",
+  "ts-avatar-service_cpu",
+  "ts-basic-service_cpu",
+  "ts-cancel-service_cpu",
+  "ts-config-mongo_cpu",
+  "ts-config-service_cpu",
+  "ts-consign-mongo_cpu"
+ ],
+ "log_columns": [
+  "timestamp",
+  "container_name",
+  "message"
+ ],
+ "log_rows": 270617,
+ "log_lines_pre_post": [
+  58521,
+  51607
+ ],
+ "log_services_post_top": {
+  "ts-basic-service": 11066,
+  "ts-travel2-service": 10234,
+  "ts-seat-service": 8250,
+  "ts-travel-service": 7474,
+  "ts-route-service": 4529,
+  "ts-order-other-service": 2058,
+  "ts-order-service": 1668,
+  "ts-auth-service": 1472
+ },
+ "post_error_like_lines": 19,
+ "example_post_lines": [
+  "2024-01-23 03:45:11.093  INFO 1 --- [io-18673-exec-5] i.service.InsidePaymentServiceImpl       : [Inside Payment Service][Pay] Error. Order status Not allowed to Pay.",
+  "2024-01-23 03:45:19.694  INFO 1 --- [io-18673-exec-4] i.service.InsidePaymentServiceImpl       : [Inside Payment Service][Pay] Error. Order status Not allowed to Pay.",
+  "2024-01-23 03:45:35.712  INFO 1 --- [o-18673-exec-10] i.service.InsidePaymentServiceImpl       : [Inside Payment Service][Pay] Error. Order status Not allowed to Pay.",
+  "2024-01-23 03:45:36.907  INFO 1 --- [io-18673-exec-9] i.service.InsidePaymentServiceImpl       : [Inside Payment Service][Pay] Error. Order status Not allowed to Pay.",
+  "2024-01-23 03:45:39.085  INFO 1 --- [io-18673-exec-1] i.service.InsidePaymentServiceImpl       : [Inside Payment Service][Pay] Error. Order status Not allowed to Pay.",
+  "2024-01-23 03:45:42.425  INFO 1 --- [io-18673-exec-3] i.service.InsidePaymentServiceImpl       : [Inside Payment Service][Pay] Error. Order status Not allowed to Pay."
+ ],
+ "trace_columns": [
+  "time",
+  "traceID",
+  "spanID",
+  "serviceName",
+  "methodName",
+  "operationName",
+  "parentSpanID",
+  "startTimeMillis",
+  "startTime",
+  "duration",
+  "statusCode"
+ ],
+ "trace_rows": 829373
+}
+```

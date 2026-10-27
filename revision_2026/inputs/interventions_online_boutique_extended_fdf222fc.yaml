@@ -1,0 +1,72 @@
+benchmark:
+  name: Google Online Boutique
+  source_repository: GoogleCloudPlatform/microservices-demo
+  source_ref: b9a978db9e01f4ad3dca9494a22cb9edc17548fe
+  evaluation_unit: one independent scenario template
+  policy_status: frozen before execution
+  note: These are new templates. AAF policy, thresholds, utility weights, interaction logic, and admissible-action semantics remain unchanged.
+
+cases:
+  - id: OB-09
+    title: cpu_constrained_reliability_variant_b
+    intervention: cpu_load
+    target_service: frontend
+    oracle_domains: [SRE]
+    admissible_actions: ["Mitigate and monitor"]
+    parameters: {cpu_limit: 35m, concurrency: 180, duration_seconds: 100}
+
+  - id: OB-10
+    title: resource_efficiency_control_variant_b
+    intervention: scale_service
+    target_service: frontend
+    oracle_domains: [FinOps]
+    admissible_actions: ["Scale adjustment", "Review scaling policy"]
+    parameters: {replicas: 7}
+
+  - id: OB-11
+    title: temporal_restart_burst_variant_b
+    intervention: restart_burst
+    target_service: frontend
+    oracle_domains: [DevOps]
+    admissible_actions: ["Rollback to stable deployment"]
+    parameters: {restart_count: 5, restart_interval_seconds: 12}
+
+  - id: OB-12
+    title: restart_burst_under_workload_variant_b
+    intervention: restart_burst_load
+    target_service: frontend
+    oracle_domains: [DevOps, SRE]
+    admissible_actions: ["Rollback to stable deployment"]
+    parameters: {restart_count: 5, restart_interval_seconds: 12, concurrency: 130, duration_seconds: 100}
+
+  - id: OB-13
+    title: release_security_override_variant_b
+    intervention: config_security
+    target_service: frontend
+    oracle_domains: [DevOps, DevSecOps]
+    admissible_actions: ["Patch or block release"]
+    parameters: {security_marker: exposed_test_secret}
+
+  - id: OB-14
+    title: reliability_resource_tradeoff_variant_b
+    intervention: scale_cpu_load
+    target_service: frontend
+    oracle_domains: [SRE, FinOps]
+    admissible_actions: ["Scale adjustment"]
+    parameters: {replicas: 7, cpu_limit: 60m, concurrency: 180, duration_seconds: 100}
+
+  - id: OB-15
+    title: cpu_constrained_reliability_variant_c
+    intervention: cpu_load
+    target_service: frontend
+    oracle_domains: [SRE]
+    admissible_actions: ["Mitigate and monitor"]
+    parameters: {cpu_limit: 50m, concurrency: 160, duration_seconds: 90}
+
+  - id: OB-16
+    title: resource_efficiency_control_variant_c
+    intervention: scale_service
+    target_service: frontend
+    oracle_domains: [FinOps]
+    admissible_actions: ["Scale adjustment", "Review scaling policy"]
+    parameters: {replicas: 3}

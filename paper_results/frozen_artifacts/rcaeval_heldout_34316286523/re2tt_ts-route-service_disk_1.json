@@ -1,0 +1,148 @@
+{
+  "case": "re2tt_ts-route-service_disk_1",
+  "evaluation_role": "held-out; not used for adapter development",
+  "aaf_input": {
+    "deploy": {
+      "_evidence": {}
+    },
+    "sre": {
+      "_evidence": {
+        "p95_latency_ms": {
+          "status": "proxy",
+          "source": "RCAEval ts-route-service_latency-90, post-injection 5-minute median p90 latency",
+          "note": "conservative p95 lower-bound proxy: observed p90 converted from seconds to milliseconds; gated by >=1.5x pre-injection median"
+        },
+        "saturation_pct": {
+          "status": "measured",
+          "source": "RCAEval ts-route-service_cpu, post-injection 5-minute median",
+          "note": "system-wide label-blind scan; metric selected by largest post/pre ratio"
+        }
+      },
+      "_auxiliary": {
+        "memory": {
+          "column": "ts-route-service_mem",
+          "pre_median": 272527360.0,
+          "post_median": 524177408.0,
+          "ratio": 1.9233937025625611
+        },
+        "diskio": {
+          "column": "ts-route-service_diskio",
+          "pre_median": 46010.471573069044,
+          "post_median": 14151225554.742746,
+          "ratio": 307565.3230867074
+        },
+        "socket": {
+          "column": "ts-config-mongo_socket",
+          "pre_median": 5.0,
+          "post_median": 6.0,
+          "ratio": 1.2
+        },
+        "logs": {
+          "available": true,
+          "pre_log_lines": 57781,
+          "post_log_lines": 52773,
+          "pre_error_like_lines": 15,
+          "post_error_like_lines": 15,
+          "pre_error_like_density_pct": 0.025960090687250133,
+          "post_error_like_density_pct": 0.02842362571769655,
+          "error_like_count_ratio": 1.0,
+          "decision_active": false,
+          "reason_not_decision_active": "error-like log density is not equivalent to AAF HTTP error_rate_pct"
+        }
+      },
+      "p95_latency_ms": 84.92840095465392,
+      "saturation_pct": 35.786261192973924
+    },
+    "finops": {
+      "_evidence": {}
+    },
+    "sec": {
+      "_evidence": {}
+    }
+  },
+  "adapter_diagnostics": {
+    "adapter_policy": "final-pilot candidate",
+    "window_seconds": {
+      "pre": 300,
+      "post": 300
+    },
+    "ratio_gate": 1.5,
+    "selection_rule": "system-wide metric scan; RCAEval fault/root-cause labels are not inputs",
+    "decision_active_fields": [
+      "p95_latency_ms (from p90 lower-bound proxy)",
+      "saturation_pct (CPU percent)"
+    ],
+    "latency90_largest_ratio": {
+      "column": "ts-route-service_latency-90",
+      "pre_median": 0.009939565627950899,
+      "post_median": 0.08492840095465393,
+      "ratio": 8.544478112386328
+    },
+    "latency90_largest_post": {
+      "column": "ts-admin-travel-service_latency-90",
+      "pre_median": 0.31249958331944405,
+      "post_median": 1.5999999999999999,
+      "ratio": 5.120006826903331
+    },
+    "cpu_largest_ratio": {
+      "column": "ts-route-service_cpu",
+      "pre_median": 10.08146869300913,
+      "post_median": 35.786261192973924,
+      "ratio": 3.549707119339612
+    },
+    "cpu_largest_post": {
+      "column": "ts-route-service_cpu",
+      "pre_median": 10.08146869300913,
+      "post_median": 35.786261192973924,
+      "ratio": 3.549707119339612
+    },
+    "auxiliary_evidence": {
+      "memory_largest_ratio": {
+        "column": "ts-route-service_mem",
+        "pre_median": 272527360.0,
+        "post_median": 524177408.0,
+        "ratio": 1.9233937025625611
+      },
+      "diskio_largest_ratio": {
+        "column": "ts-route-service_diskio",
+        "pre_median": 46010.471573069044,
+        "post_median": 14151225554.742746,
+        "ratio": 307565.3230867074
+      },
+      "socket_largest_ratio": {
+        "column": "ts-config-mongo_socket",
+        "pre_median": 5.0,
+        "post_median": 6.0,
+        "ratio": 1.2
+      },
+      "logs": {
+        "available": true,
+        "pre_log_lines": 57781,
+        "post_log_lines": 52773,
+        "pre_error_like_lines": 15,
+        "post_error_like_lines": 15,
+        "pre_error_like_density_pct": 0.025960090687250133,
+        "post_error_like_density_pct": 0.02842362571769655,
+        "error_like_count_ratio": 1.0,
+        "decision_active": false,
+        "reason_not_decision_active": "error-like log density is not equivalent to AAF HTTP error_rate_pct"
+      }
+    },
+    "auxiliary_policy": "retained and reported but not coerced into unrelated AAF fields"
+  },
+  "base_action": "No action (observe)",
+  "eligible_actions": [
+    "No action (observe)"
+  ],
+  "selected_action": "No action (observe)",
+  "arbitration_reason": "no_cross_domain_interaction",
+  "severities": {
+    "deployment": 0.0,
+    "reliability": 0.0,
+    "cost": 0.0,
+    "security": 0.0
+  },
+  "interactions": [],
+  "audit_fault_label": "disk",
+  "audit_root_cause_service": "ts-route-service"
+}

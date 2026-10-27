@@ -1,0 +1,77 @@
+# Author admissible actions, sealed with the cases before any run (primary key).
+FX-A01:
+- Mitigate and monitor
+FX-A02:
+- Review scaling policy
+- Scale adjustment
+FX-A03:
+- Rollback to stable deployment
+- Mitigate and monitor
+FX-C01:
+- No action (observe)
+FX-C02:
+- Mitigate and monitor
+FX-C03:
+- Patch or block release
+FX-I01:
+- Mitigate and monitor
+FX-I02:
+- Scale adjustment
+- Review scaling policy
+FX-I03:
+- Patch or block release
+FX-K01:
+- Mitigate and monitor
+FX-K02:
+- Block release and fix pipeline
+FX-K03:
+- No action (observe)
+FX-K04:
+- Patch or block release
+FX-M01:
+- Scale adjustment
+FX-M02:
+- No action (observe)
+- Review scaling policy
+FX-M03:
+- Mitigate and monitor
+FX-U01:
+- Rollback to stable deployment
+FX-U02:
+- Rollback to stable deployment
+FX-U03:
+- Rollback to stable deployment
+FX-U04:
+- Patch or block release
+FX-U05:
+- Patch or block release
+FX-U06:
+- Patch or block release
+FX-U07:
+- Scale adjustment
+FX-U08:
+- Scale adjustment
+FX-U09:
+- Scale adjustment
+FX-U10:
+- Scale adjustment
+FX-U11:
+- Scale adjustment
+FX-U12:
+- Scale adjustment
+FX-U13:
+- Rollback to stable deployment
+FX-U14:
+- Rollback to stable deployment
+FX-U15:
+- Rollback to stable deployment
+FX-U16:
+- No action (observe)
+FX-U17:
+- No action (observe)
+FX-U18:
+- No action (observe)
+FX-U19:
+- Patch or block release
+FX-U20:
+- Rollback to stable deployment

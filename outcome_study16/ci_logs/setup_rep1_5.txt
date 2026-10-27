@@ -1,0 +1,92 @@
+Creating cluster "aaf-ss" ...
+ • Ensuring node image (kindest/node:v1.31.0) 🖼  ...
+ ✓ Ensuring node image (kindest/node:v1.31.0) 🖼
+ • Preparing nodes 📦   ...
+ ✓ Preparing nodes 📦 
+ • Writing configuration 📜  ...
+ ✓ Writing configuration 📜
+ • Starting control-plane 🕹️  ...
+ ✓ Starting control-plane 🕹️
+ • Installing CNI 🔌  ...
+ ✓ Installing CNI 🔌
+ • Installing StorageClass 💾  ...
+ ✓ Installing StorageClass 💾
+ • Waiting ≤ 2m0s for control-plane = Ready ⏳  ...
+ ✓ Waiting ≤ 2m0s for control-plane = Ready ⏳
+ • Ready after 19s 💚
+Set kubectl context to "kind-aaf-ss"
+You can now use your cluster with:
+
+kubectl cluster-info --context kind-aaf-ss
+
+Thanks for using kind! 😊
+Warning: spec.template.spec.nodeSelector[beta.kubernetes.io/os]: deprecated since v1.14; use "kubernetes.io/os" instead
+deployment.apps/carts created
+service/carts created
+deployment.apps/carts-db created
+service/carts-db created
+deployment.apps/catalogue created
+service/catalogue created
+deployment.apps/catalogue-db created
+service/catalogue-db created
+deployment.apps/front-end created
+service/front-end created
+deployment.apps/orders created
+service/orders created
+deployment.apps/orders-db created
+service/orders-db created
+deployment.apps/payment created
+service/payment created
+deployment.apps/queue-master created
+service/queue-master created
+deployment.apps/rabbitmq created
+service/rabbitmq created
+deployment.apps/session-db created
+service/session-db created
+deployment.apps/shipping created
+service/shipping created
+deployment.apps/user created
+service/user created
+deployment.apps/user-db created
+service/user-db created
+serviceaccount/metrics-server created
+clusterrole.rbac.authorization.k8s.io/system:aggregated-metrics-reader created
+clusterrole.rbac.authorization.k8s.io/system:metrics-server created
+rolebinding.rbac.authorization.k8s.io/metrics-server-auth-reader created
+clusterrolebinding.rbac.authorization.k8s.io/metrics-server:system:auth-delegator created
+clusterrolebinding.rbac.authorization.k8s.io/system:metrics-server created
+service/metrics-server created
+deployment.apps/metrics-server created
+apiservice.apiregistration.k8s.io/v1beta1.metrics.k8s.io created
+deployment.apps/metrics-server patched
+deployment.apps/carts condition met
+deployment.apps/carts-db condition met
+deployment.apps/catalogue condition met
+deployment.apps/catalogue-db condition met
+deployment.apps/front-end condition met
+deployment.apps/orders condition met
+deployment.apps/orders-db condition met
+deployment.apps/payment condition met
+deployment.apps/queue-master condition met
+deployment.apps/rabbitmq condition met
+deployment.apps/session-db condition met
+deployment.apps/shipping condition met
+deployment.apps/user condition met
+deployment.apps/user-db condition met
+deployment.apps/metrics-server condition met
+[{"id":"03fef6ac-1896-4ce8-bd69-b798f85c6e0b","name":"Holy","description":"Socks fit for a Messiah. You too can experience walking in water with these special edition beauties. Each hole is lovingly proggled to leave smooth edges. The only sock approved by a higher power.","imageUrl":["/catalogue/im
+NAME                            READY   STATUS    RESTARTS   AGE     IP            NODE                   NOMINATED NODE   READINESS GATES
+carts-778f4b564f-sst6j          1/1     Running   0          3m29s   10.244.0.5    aaf-ss-control-plane   <none>           <none>
+carts-db-676c6b5865-vsmf6       1/1     Running   0          3m29s   10.244.0.6    aaf-ss-control-plane   <none>           <none>
+catalogue-db-c948fd796-znv89    1/1     Running   0          3m29s   10.244.0.8    aaf-ss-control-plane   <none>           <none>
+catalogue-f7687cb4-2m7cv        1/1     Running   0          3m29s   10.244.0.7    aaf-ss-control-plane   <none>           <none>
+front-end-8674c7449f-bgpqc      1/1     Running   0          3m29s   10.244.0.9    aaf-ss-control-plane   <none>           <none>
+orders-595bcdb56f-p48xd         1/1     Running   0          3m29s   10.244.0.10   aaf-ss-control-plane   <none>           <none>
+orders-db-658fc79675-8cpx7      1/1     Running   0          3m29s   10.244.0.11   aaf-ss-control-plane   <none>           <none>
+payment-84bbbfd97f-fxxg6        1/1     Running   0          3m29s   10.244.0.12   aaf-ss-control-plane   <none>           <none>
+queue-master-76c64bb55f-f2m7f   1/1     Running   0          3m29s   10.244.0.14   aaf-ss-control-plane   <none>           <none>
+rabbitmq-556cb847-nf4xp         2/2     Running   0          3m29s   10.244.0.13   aaf-ss-control-plane   <none>           <none>
+session-db-74fdf96645-s5czz     1/1     Running   0          3m29s   10.244.0.15   aaf-ss-control-plane   <none>           <none>
+shipping-69d4b778b9-4jmr4       1/1     Running   0          3m28s   10.244.0.16   aaf-ss-control-plane   <none>           <none>
+user-574f64957c-qcfc2           1/1     Running   0          3m28s   10.244.0.17   aaf-ss-control-plane   <none>           <none>
+user-db-7f98f68489-8sz5w        1/1     Running   0          3m28s   10.244.0.18   aaf-ss-control-plane   <none>           <none>

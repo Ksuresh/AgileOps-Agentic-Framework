@@ -7,6 +7,8 @@ The framework distinguishes four states for each evidence field:
 - proxy: derived from a different observable and explicitly labelled as such
 - missing: expected/relevant but unavailable
 - not_applicable: field is not meaningful for the case/source
+- stale: observed earlier and not refreshed; used by the rules exactly like `measured` (added for the expert
+  extension study, amendment A1; no decision rule reads it differently)
 
 Legacy synthetic scenarios that do not provide metadata remain supported. Their
 explicit values are treated as `measured` because they are controlled injected
@@ -16,7 +18,7 @@ experimental values, not runtime measurements.
 from dataclasses import dataclass
 from typing import Any, Dict, Optional
 
-VALID_STATUSES = {"measured", "proxy", "missing", "not_applicable"}
+VALID_STATUSES = {"measured", "proxy", "missing", "not_applicable", "stale"}
 
 
 @dataclass(frozen=True)
@@ -28,7 +30,7 @@ class EvidenceValue:
 
     @property
     def usable(self) -> bool:
-        return self.status in {"measured", "proxy"} and self.value is not None
+        return self.status in {"measured", "proxy", "stale"} and self.value is not None
 
     @property
     def is_proxy(self) -> bool:

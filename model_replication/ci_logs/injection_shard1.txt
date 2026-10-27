@@ -1,0 +1,24 @@
+AAF NV-U23 1 Mitigate and monitor 174.6 s
+AAF AG-A07 1 Patch or block release 151.7 s
+AAF NV-U10 1 Mitigate and monitor 0.0 s
+B5 NV-C02 1 No action (observe) 226.9 s
+B5 AG-A04 1 No action (observe) 228.4 s
+B6 AG-C05 1 No action (observe) 506.8 s
+B5 NV-I04 1 No action (observe) 192.6 s
+B6 NV-A03 1 No action (observe) 479.0 s
+B6 NV-U17 1 No action (observe) 467.8 s
+B5 AG-A02 1 No action (observe) 252.0 s
+B6 NV-U04 1 No action (observe) 762.1 s
+B6 RP-M02 1 No action (observe) 423.5 s
+B5 AG-C06 1 No action (observe) 210.9 s
+B6 NV-A04 1 No action (observe) 523.1 s
+AAF RP-A04 1 Mitigate and monitor 86.7 s
+AAF NV-U17 1 Review scaling policy 104.8 s
+B5 NV-A04 1 No action (observe) 187.6 s
+B6 AG-A01 1 No action (observe) 430.2 s
+AAF RP-M01 1 Scale adjustment 0.0 s
+B6 NV-U02 1 No action (observe) 1321.7 s
+B6 AG-C08 1 No action (observe) 576.2 s
+AAF NV-A02 1 Review scaling policy 223.3 s
+B6 RP-I03 1 No action (observe) 531.5 s
+B6 RP-I01 1 No action (observe) 425.9 s

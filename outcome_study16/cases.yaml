@@ -1,0 +1,45 @@
+# Study 16 fresh test cases on a second application, Weaveworks Sock Shop (frozen before calibration and before any
+# Study 16 run). Two services: front-end (SF-*, Node.js) and catalogue (SC-*, Go, reached through GET /catalogue on the
+# front-end). Same 19-case design per service as Study 15 (groups C, L, R, P, S, K, D, X). Symbolic values filled by
+# calibrate16.py under the fixed rules in PROTOCOL.md: perf_cpu PERF; image keys SF1/SF2, SC1/SC2 (vulnerable) and
+# NSF, NSC (low-risk). No case names a correct action.
+loads: {low: 4, normal: 20}
+cases:
+  - {id: SF-C01, service: front-end, previous: [], current: [], replicas: 1, load: normal}
+  - {id: SF-L01, service: front-end, previous: [], current: [feature], replicas: 1, load: normal}
+  - {id: SF-L02, service: front-end, previous: [], current: [feature], replicas: 1, load: low}
+  - {id: SF-L03, service: front-end, previous: [], current: [feature, lowrisk], replicas: 1, load: normal, lowrisk: NSF}
+  - {id: SF-L04, service: front-end, previous: [], current: [feature, lowrisk], replicas: 2, load: normal, lowrisk: NSF}
+  - {id: SF-R01, service: front-end, previous: [], current: [feature, perf], replicas: 1, load: normal, perf_cpu: PERF}
+  - {id: SF-R02, service: front-end, previous: [], current: [feature, crash], replicas: 2, load: normal}
+  - {id: SF-R03, service: front-end, previous: [], current: [feature, perf, vuln], replicas: 1, load: normal, perf_cpu: PERF, vuln: SF1}
+  - {id: SF-P01, service: front-end, previous: [perf], current: [feature, perf], replicas: 1, load: normal, perf_cpu: PERF}
+  - {id: SF-P02, service: front-end, previous: [perf], current: [feature, perf, secret], replicas: 2, load: normal, perf_cpu: PERF}
+  - {id: SF-P03, service: front-end, previous: [vuln], current: [feature, vuln], replicas: 1, load: normal, vuln: SF2}
+  - {id: SF-S01, service: front-end, previous: [vuln], current: [vuln], replicas: 5, load: low, vuln: SF2}
+  - {id: SF-S02, service: front-end, previous: [], current: [feature, secret], replicas: 6, load: low}
+  - {id: SF-S03, service: front-end, previous: [], current: [feature, vuln], replicas: 6, load: low, vuln: SF1}
+  - {id: SF-K01, service: front-end, previous: [], current: [feature, vuln], replicas: 1, load: normal, vuln: SF2}
+  - {id: SF-K02, service: front-end, previous: [], current: [feature, secret], replicas: 1, load: normal}
+  - {id: SF-D01, service: front-end, previous: [], current: [feature], replicas: 5, load: low}
+  - {id: SF-X01, service: front-end, previous: [], current: [feature, perf, secret], replicas: 1, load: normal, perf_cpu: PERF}
+  - {id: SF-X02, service: front-end, previous: [], current: [feature, crash, vuln], replicas: 1, load: normal, vuln: SF1}
+  - {id: SC-C01, service: catalogue, previous: [], current: [], replicas: 1, load: normal}
+  - {id: SC-L01, service: catalogue, previous: [], current: [feature], replicas: 1, load: normal}
+  - {id: SC-L02, service: catalogue, previous: [], current: [feature], replicas: 1, load: low}
+  - {id: SC-L03, service: catalogue, previous: [], current: [feature, lowrisk], replicas: 1, load: normal, lowrisk: NSC}
+  - {id: SC-L04, service: catalogue, previous: [], current: [feature, lowrisk], replicas: 2, load: normal, lowrisk: NSC}
+  - {id: SC-R01, service: catalogue, previous: [], current: [feature, perf], replicas: 1, load: normal, perf_cpu: PERF}
+  - {id: SC-R02, service: catalogue, previous: [], current: [feature, crash], replicas: 2, load: normal}
+  - {id: SC-R03, service: catalogue, previous: [], current: [feature, perf, vuln], replicas: 1, load: normal, perf_cpu: PERF, vuln: SC1}
+  - {id: SC-P01, service: catalogue, previous: [perf], current: [feature, perf], replicas: 1, load: normal, perf_cpu: PERF}
+  - {id: SC-P02, service: catalogue, previous: [perf], current: [feature, perf, secret], replicas: 2, load: normal, perf_cpu: PERF}
+  - {id: SC-P03, service: catalogue, previous: [vuln], current: [feature, vuln], replicas: 1, load: normal, vuln: SC2}
+  - {id: SC-S01, service: catalogue, previous: [vuln], current: [vuln], replicas: 5, load: low, vuln: SC2}
+  - {id: SC-S02, service: catalogue, previous: [], current: [feature, secret], replicas: 6, load: low}
+  - {id: SC-S03, service: catalogue, previous: [], current: [feature, vuln], replicas: 6, load: low, vuln: SC1}
+  - {id: SC-K01, service: catalogue, previous: [], current: [feature, vuln], replicas: 1, load: normal, vuln: SC2}
+  - {id: SC-K02, service: catalogue, previous: [], current: [feature, secret], replicas: 1, load: normal}
+  - {id: SC-D01, service: catalogue, previous: [], current: [feature], replicas: 5, load: low}
+  - {id: SC-X01, service: catalogue, previous: [], current: [feature, perf, secret], replicas: 1, load: normal, perf_cpu: PERF}
+  - {id: SC-X02, service: catalogue, previous: [], current: [feature, crash, vuln], replicas: 1, load: normal, vuln: SC1}

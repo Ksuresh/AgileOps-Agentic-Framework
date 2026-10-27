@@ -1,0 +1,1214 @@
+{
+ "population_size": 783,
+ "seed": 20261021,
+ "fetched": 150,
+ "positions": [
+  151,
+  300
+ ],
+ "batch1_order_reproduced": true,
+ "query_errors": [],
+ "n_query_errors": 0,
+ "sample": [
+  {
+   "id": "GL-151",
+   "iid": 6400,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/issues/6400",
+   "created_at": "2022-02-21T17:11:17.432Z",
+   "severity": "severity::2",
+   "n_notes": 11
+  },
+  {
+   "id": "GL-152",
+   "iid": 4922,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/work_items/4922",
+   "created_at": "2021-06-18T08:36:01.777Z",
+   "severity": "severity::2",
+   "n_notes": 7
+  },
+  {
+   "id": "GL-153",
+   "iid": 5799,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/issues/5799",
+   "created_at": "2021-10-25T23:57:04.532Z",
+   "severity": "severity::2",
+   "n_notes": 10
+  },
+  {
+   "id": "GL-154",
+   "iid": 8143,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/issues/8143",
+   "created_at": "2022-12-08T04:00:35.056Z",
+   "severity": "severity::2",
+   "n_notes": 7
+  },
+  {
+   "id": "GL-155",
+   "iid": 6773,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/issues/6773",
+   "created_at": "2022-04-06T11:16:50.535Z",
+   "severity": "severity::2",
+   "n_notes": 19
+  },
+  {
+   "id": "GL-156",
+   "iid": 3026,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/work_items/3026",
+   "created_at": "2020-11-13T14:46:28.907Z",
+   "severity": "severity::2",
+   "n_notes": 10
+  },
+  {
+   "id": "GL-157",
+   "iid": 15955,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/issues/15955",
+   "created_at": "2023-06-28T13:26:43.028Z",
+   "severity": "severity::2",
+   "n_notes": 33
+  },
+  {
+   "id": "GL-158",
+   "iid": 7217,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/issues/7217",
+   "created_at": "2022-06-07T21:11:44.630Z",
+   "severity": "severity::2",
+   "n_notes": 10
+  },
+  {
+   "id": "GL-159",
+   "iid": 7437,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/issues/7437",
+   "created_at": "2022-07-14T13:09:05.896Z",
+   "severity": "severity::2",
+   "n_notes": 7
+  },
+  {
+   "id": "GL-160",
+   "iid": 3962,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/work_items/3962",
+   "created_at": "2021-03-15T10:27:39.529Z",
+   "severity": "severity::1",
+   "n_notes": 76
+  },
+  {
+   "id": "GL-161",
+   "iid": 4789,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/work_items/4789",
+   "created_at": "2021-06-03T07:30:39.798Z",
+   "severity": "severity::2",
+   "n_notes": 12
+  },
+  {
+   "id": "GL-162",
+   "iid": 5382,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/issues/5382",
+   "created_at": "2021-08-18T09:47:26.674Z",
+   "severity": "severity::2",
+   "n_notes": 4
+  },
+  {
+   "id": "GL-163",
+   "iid": 5750,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/issues/5750",
+   "created_at": "2021-10-19T12:52:36.796Z",
+   "severity": "severity::2",
+   "n_notes": 9
+  },
+  {
+   "id": "GL-164",
+   "iid": 3578,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/work_items/3578",
+   "created_at": "2021-02-11T10:48:06.954Z",
+   "severity": "severity::1",
+   "n_notes": 35
+  },
+  {
+   "id": "GL-165",
+   "iid": 4661,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/work_items/4661",
+   "created_at": "2021-05-20T15:17:00.902Z",
+   "severity": "severity::2",
+   "n_notes": 9
+  },
+  {
+   "id": "GL-166",
+   "iid": 4099,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/work_items/4099",
+   "created_at": "2021-03-29T16:09:45.211Z",
+   "severity": "severity::2",
+   "n_notes": 30
+  },
+  {
+   "id": "GL-167",
+   "iid": 6977,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/issues/6977",
+   "created_at": "2022-05-04T21:33:41.928Z",
+   "severity": "severity::2",
+   "n_notes": 12
+  },
+  {
+   "id": "GL-168",
+   "iid": 19531,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/work_items/19531",
+   "created_at": "2025-03-24T15:33:03.772Z",
+   "severity": "severity::2",
+   "n_notes": 13
+  },
+  {
+   "id": "GL-169",
+   "iid": 6622,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/issues/6622",
+   "created_at": "2022-03-17T05:32:26.127Z",
+   "severity": "severity::2",
+   "n_notes": 3
+  },
+  {
+   "id": "GL-170",
+   "iid": 7284,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/issues/7284",
+   "created_at": "2022-06-20T17:27:29.442Z",
+   "severity": "severity::2",
+   "n_notes": 39
+  },
+  {
+   "id": "GL-171",
+   "iid": 4698,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/work_items/4698",
+   "created_at": "2021-05-22T12:15:40.705Z",
+   "severity": "severity::2",
+   "n_notes": 6
+  },
+  {
+   "id": "GL-172",
+   "iid": 6793,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/issues/6793",
+   "created_at": "2022-04-08T07:21:28.570Z",
+   "severity": "severity::2",
+   "n_notes": 17
+  },
+  {
+   "id": "GL-173",
+   "iid": 3678,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/work_items/3678",
+   "created_at": "2021-02-22T13:11:04.573Z",
+   "severity": "severity::2",
+   "n_notes": 15
+  },
+  {
+   "id": "GL-174",
+   "iid": 1763,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/issues/1763",
+   "created_at": "2020-03-12T11:44:28.553Z",
+   "severity": "severity::2",
+   "n_notes": 13
+  },
+  {
+   "id": "GL-175",
+   "iid": 2632,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/work_items/2632",
+   "created_at": "2020-09-02T16:01:38.285Z",
+   "severity": "severity::2",
+   "n_notes": 21
+  },
+  {
+   "id": "GL-176",
+   "iid": 5566,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/issues/5566",
+   "created_at": "2021-09-21T15:20:21.112Z",
+   "severity": "severity::2",
+   "n_notes": 30
+  },
+  {
+   "id": "GL-177",
+   "iid": 2072,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/issues/2072",
+   "created_at": "2020-05-05T11:54:36.458Z",
+   "severity": "severity::2",
+   "n_notes": 10
+  },
+  {
+   "id": "GL-178",
+   "iid": 19535,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/work_items/19535",
+   "created_at": "2025-03-25T02:25:55.096Z",
+   "severity": "severity::2",
+   "n_notes": 16
+  },
+  {
+   "id": "GL-179",
+   "iid": 2940,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/work_items/2940",
+   "created_at": "2020-10-30T09:33:43.733Z",
+   "severity": "severity::2",
+   "n_notes": 61
+  },
+  {
+   "id": "GL-180",
+   "iid": 8201,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/issues/8201",
+   "created_at": "2023-01-05T07:47:38.024Z",
+   "severity": "severity::1",
+   "n_notes": 49
+  },
+  {
+   "id": "GL-181",
+   "iid": 5343,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/issues/5343",
+   "created_at": "2021-08-12T20:13:53.578Z",
+   "severity": "severity::2",
+   "n_notes": 10
+  },
+  {
+   "id": "GL-182",
+   "iid": 7127,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/issues/7127",
+   "created_at": "2022-05-24T17:54:03.672Z",
+   "severity": "severity::2",
+   "n_notes": 16
+  },
+  {
+   "id": "GL-183",
+   "iid": 5651,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/issues/5651",
+   "created_at": "2021-10-05T13:10:17.986Z",
+   "severity": "severity::2",
+   "n_notes": 13
+  },
+  {
+   "id": "GL-184",
+   "iid": 2862,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/work_items/2862",
+   "created_at": "2020-10-20T11:31:21.794Z",
+   "severity": "severity::2",
+   "n_notes": 18
+  },
+  {
+   "id": "GL-185",
+   "iid": 3823,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/work_items/3823",
+   "created_at": "2021-03-01T00:24:44.141Z",
+   "severity": "severity::2",
+   "n_notes": 43
+  },
+  {
+   "id": "GL-186",
+   "iid": 4481,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/work_items/4481",
+   "created_at": "2021-05-05T08:15:30.552Z",
+   "severity": "severity::2",
+   "n_notes": 85
+  },
+  {
+   "id": "GL-187",
+   "iid": 6950,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/issues/6950",
+   "created_at": "2022-04-30T00:15:47.982Z",
+   "severity": "severity::2",
+   "n_notes": 10
+  },
+  {
+   "id": "GL-188",
+   "iid": 3834,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/work_items/3834",
+   "created_at": "2021-03-01T16:16:13.615Z",
+   "severity": "severity::2",
+   "n_notes": 37
+  },
+  {
+   "id": "GL-189",
+   "iid": 5953,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/issues/5953",
+   "created_at": "2021-11-22T13:52:21.782Z",
+   "severity": "severity::2",
+   "n_notes": 3
+  },
+  {
+   "id": "GL-190",
+   "iid": 6991,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/issues/6991",
+   "created_at": "2022-05-05T15:00:39.700Z",
+   "severity": "severity::2",
+   "n_notes": 49
+  },
+  {
+   "id": "GL-191",
+   "iid": 4790,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/work_items/4790",
+   "created_at": "2021-06-03T09:32:12.574Z",
+   "severity": "severity::2",
+   "n_notes": 25
+  },
+  {
+   "id": "GL-192",
+   "iid": 6315,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/issues/6315",
+   "created_at": "2022-02-08T20:23:15.559Z",
+   "severity": "severity::2",
+   "n_notes": 16
+  },
+  {
+   "id": "GL-193",
+   "iid": 16115,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/issues/16115",
+   "created_at": "2023-08-03T01:13:52.089Z",
+   "severity": "severity::2",
+   "n_notes": 17
+  },
+  {
+   "id": "GL-194",
+   "iid": 3891,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/work_items/3891",
+   "created_at": "2021-03-10T21:10:57.994Z",
+   "severity": "severity::1",
+   "n_notes": 22
+  },
+  {
+   "id": "GL-195",
+   "iid": 2223,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/issues/2223",
+   "created_at": "2020-06-04T03:17:59.900Z",
+   "severity": "severity::2",
+   "n_notes": 8
+  },
+  {
+   "id": "GL-196",
+   "iid": 18792,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/issues/18792",
+   "created_at": "2024-10-31T08:24:33.380Z",
+   "severity": "severity::2",
+   "n_notes": 59
+  },
+  {
+   "id": "GL-197",
+   "iid": 4121,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/work_items/4121",
+   "created_at": "2021-03-31T09:20:10.295Z",
+   "severity": "severity::2",
+   "n_notes": 25
+  },
+  {
+   "id": "GL-198",
+   "iid": 20199,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/work_items/20199",
+   "created_at": "2025-07-16T11:34:43.371Z",
+   "severity": "severity::2",
+   "n_notes": 9
+  },
+  {
+   "id": "GL-199",
+   "iid": 1624,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/issues/1624",
+   "created_at": "2020-02-04T20:59:46.389Z",
+   "severity": "severity::1",
+   "n_notes": 22
+  },
+  {
+   "id": "GL-200",
+   "iid": 16022,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/issues/16022",
+   "created_at": "2023-07-11T12:27:26.648Z",
+   "severity": "severity::2",
+   "n_notes": 30
+  },
+  {
+   "id": "GL-201",
+   "iid": 6052,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/issues/6052",
+   "created_at": "2021-12-12T15:08:15.790Z",
+   "severity": "severity::2",
+   "n_notes": 10
+  },
+  {
+   "id": "GL-202",
+   "iid": 5355,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/issues/5355",
+   "created_at": "2021-08-13T17:35:40.222Z",
+   "severity": "severity::2",
+   "n_notes": 14
+  },
+  {
+   "id": "GL-203",
+   "iid": 6775,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/issues/6775",
+   "created_at": "2022-04-06T12:43:36.837Z",
+   "severity": "severity::2",
+   "n_notes": 7
+  },
+  {
+   "id": "GL-204",
+   "iid": 18538,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/issues/18538",
+   "created_at": "2024-09-10T13:57:22.230Z",
+   "severity": "severity::1",
+   "n_notes": 66
+  },
+  {
+   "id": "GL-205",
+   "iid": 5954,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/issues/5954",
+   "created_at": "2021-11-22T18:49:00.167Z",
+   "severity": "severity::2",
+   "n_notes": 20
+  },
+  {
+   "id": "GL-206",
+   "iid": 3268,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/work_items/3268",
+   "created_at": "2021-01-01T01:45:50.092Z",
+   "severity": "severity::2",
+   "n_notes": 24
+  },
+  {
+   "id": "GL-207",
+   "iid": 18239,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/issues/18239",
+   "created_at": "2024-07-05T18:11:24.487Z",
+   "severity": "severity::2",
+   "n_notes": 29
+  },
+  {
+   "id": "GL-208",
+   "iid": 6933,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/issues/6933",
+   "created_at": "2022-04-28T05:53:00.269Z",
+   "severity": "severity::1",
+   "n_notes": 11
+  },
+  {
+   "id": "GL-209",
+   "iid": 4126,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/work_items/4126",
+   "created_at": "2021-04-01T11:44:27.731Z",
+   "severity": "severity::2",
+   "n_notes": 8
+  },
+  {
+   "id": "GL-210",
+   "iid": 17754,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/issues/17754",
+   "created_at": "2024-03-25T13:09:33.038Z",
+   "severity": "severity::2",
+   "n_notes": 50
+  },
+  {
+   "id": "GL-211",
+   "iid": 8619,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/issues/8619",
+   "created_at": "2023-03-29T15:05:41.408Z",
+   "severity": "severity::1",
+   "n_notes": 180
+  },
+  {
+   "id": "GL-212",
+   "iid": 6325,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/issues/6325",
+   "created_at": "2022-02-10T08:48:13.001Z",
+   "severity": "severity::2",
+   "n_notes": 21
+  },
+  {
+   "id": "GL-213",
+   "iid": 4034,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/work_items/4034",
+   "created_at": "2021-03-22T14:41:49.435Z",
+   "severity": "severity::2",
+   "n_notes": 17
+  },
+  {
+   "id": "GL-214",
+   "iid": 5804,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/issues/5804",
+   "created_at": "2021-10-26T12:36:03.679Z",
+   "severity": "severity::2",
+   "n_notes": 18
+  },
+  {
+   "id": "GL-215",
+   "iid": 3202,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/work_items/3202",
+   "created_at": "2020-12-16T05:35:48.827Z",
+   "severity": "severity::2",
+   "n_notes": 17
+  },
+  {
+   "id": "GL-216",
+   "iid": 4080,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/work_items/4080",
+   "created_at": "2021-03-26T16:06:46.999Z",
+   "severity": "severity::2",
+   "n_notes": 18
+  },
+  {
+   "id": "GL-217",
+   "iid": 1596,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/issues/1596",
+   "created_at": "2020-01-27T19:09:09.133Z",
+   "severity": "severity::1",
+   "n_notes": 8
+  },
+  {
+   "id": "GL-218",
+   "iid": 4888,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/work_items/4888",
+   "created_at": "2021-06-14T13:21:36.157Z",
+   "severity": "severity::2",
+   "n_notes": 17
+  },
+  {
+   "id": "GL-219",
+   "iid": 18490,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/issues/18490",
+   "created_at": "2024-09-03T05:20:00.029Z",
+   "severity": "severity::1",
+   "n_notes": 16
+  },
+  {
+   "id": "GL-220",
+   "iid": 18676,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/issues/18676",
+   "created_at": "2024-10-08T10:12:37.976Z",
+   "severity": "severity::2",
+   "n_notes": 81
+  },
+  {
+   "id": "GL-221",
+   "iid": 6567,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/issues/6567",
+   "created_at": "2022-03-11T16:40:41.557Z",
+   "severity": "severity::2",
+   "n_notes": 30
+  },
+  {
+   "id": "GL-222",
+   "iid": 6941,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/issues/6941",
+   "created_at": "2022-04-28T20:33:02.707Z",
+   "severity": "severity::2",
+   "n_notes": 12
+  },
+  {
+   "id": "GL-223",
+   "iid": 19730,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/work_items/19730",
+   "created_at": "2025-04-28T16:55:25.717Z",
+   "severity": "severity::2",
+   "n_notes": 11
+  },
+  {
+   "id": "GL-224",
+   "iid": 6834,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/issues/6834",
+   "created_at": "2022-04-14T08:28:53.223Z",
+   "severity": "severity::2",
+   "n_notes": 12
+  },
+  {
+   "id": "GL-225",
+   "iid": 2226,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/issues/2226",
+   "created_at": "2020-06-04T03:18:12.105Z",
+   "severity": "severity::2",
+   "n_notes": 1
+  },
+  {
+   "id": "GL-226",
+   "iid": 7012,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/issues/7012",
+   "created_at": "2022-05-09T15:42:55.341Z",
+   "severity": "severity::2",
+   "n_notes": 28
+  },
+  {
+   "id": "GL-227",
+   "iid": 3875,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/work_items/3875",
+   "created_at": "2021-03-09T05:28:28.331Z",
+   "severity": "severity::1",
+   "n_notes": 128
+  },
+  {
+   "id": "GL-228",
+   "iid": 2885,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/work_items/2885",
+   "created_at": "2020-10-24T09:21:16.372Z",
+   "severity": "severity::1",
+   "n_notes": 76
+  },
+  {
+   "id": "GL-229",
+   "iid": 6762,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/issues/6762",
+   "created_at": "2022-04-05T13:51:48.471Z",
+   "severity": "severity::2",
+   "n_notes": 7
+  },
+  {
+   "id": "GL-230",
+   "iid": 6162,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/issues/6162",
+   "created_at": "2022-01-13T12:53:13.468Z",
+   "severity": "severity::2",
+   "n_notes": 9
+  },
+  {
+   "id": "GL-231",
+   "iid": 8222,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/issues/8222",
+   "created_at": "2023-01-09T18:02:34.811Z",
+   "severity": "severity::2",
+   "n_notes": 16
+  },
+  {
+   "id": "GL-232",
+   "iid": 3338,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/work_items/3338",
+   "created_at": "2021-01-16T23:56:55.812Z",
+   "severity": "severity::2",
+   "n_notes": 52
+  },
+  {
+   "id": "GL-233",
+   "iid": 5867,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/issues/5867",
+   "created_at": "2021-11-04T07:08:44.216Z",
+   "severity": "severity::2",
+   "n_notes": 15
+  },
+  {
+   "id": "GL-234",
+   "iid": 15966,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/issues/15966",
+   "created_at": "2023-06-30T03:42:07.666Z",
+   "severity": "severity::2",
+   "n_notes": 20
+  },
+  {
+   "id": "GL-235",
+   "iid": 3653,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/work_items/3653",
+   "created_at": "2021-02-18T11:15:23.045Z",
+   "severity": "severity::2",
+   "n_notes": 17
+  },
+  {
+   "id": "GL-236",
+   "iid": 4291,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/work_items/4291",
+   "created_at": "2021-04-20T15:43:19.353Z",
+   "severity": "severity::2",
+   "n_notes": 6
+  },
+  {
+   "id": "GL-237",
+   "iid": 4837,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/work_items/4837",
+   "created_at": "2021-06-08T09:53:17.735Z",
+   "severity": "severity::1",
+   "n_notes": 16
+  },
+  {
+   "id": "GL-238",
+   "iid": 7286,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/issues/7286",
+   "created_at": "2022-06-20T20:42:25.432Z",
+   "severity": "severity::2",
+   "n_notes": 14
+  },
+  {
+   "id": "GL-239",
+   "iid": 8329,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/issues/8329",
+   "created_at": "2023-01-31T09:51:56.834Z",
+   "severity": "severity::2",
+   "n_notes": 32
+  },
+  {
+   "id": "GL-240",
+   "iid": 5048,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/issues/5048",
+   "created_at": "2021-06-30T13:50:28.461Z",
+   "severity": "severity::2",
+   "n_notes": 10
+  },
+  {
+   "id": "GL-241",
+   "iid": 5213,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/issues/5213",
+   "created_at": "2021-07-22T12:53:08.422Z",
+   "severity": "severity::1",
+   "n_notes": 28
+  },
+  {
+   "id": "GL-242",
+   "iid": 3144,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/work_items/3144",
+   "created_at": "2020-12-04T13:40:25.175Z",
+   "severity": "severity::2",
+   "n_notes": 27
+  },
+  {
+   "id": "GL-243",
+   "iid": 5199,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/issues/5199",
+   "created_at": "2021-07-21T12:03:26.092Z",
+   "severity": "severity::2",
+   "n_notes": 10
+  },
+  {
+   "id": "GL-244",
+   "iid": 20779,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/work_items/20779",
+   "created_at": "2025-10-28T15:25:32.434Z",
+   "severity": "severity::2",
+   "n_notes": 10
+  },
+  {
+   "id": "GL-245",
+   "iid": 3476,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/work_items/3476",
+   "created_at": "2021-02-02T00:59:06.528Z",
+   "severity": "severity::2",
+   "n_notes": 10
+  },
+  {
+   "id": "GL-246",
+   "iid": 3010,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/work_items/3010",
+   "created_at": "2020-11-11T09:44:04.219Z",
+   "severity": "severity::2",
+   "n_notes": 44
+  },
+  {
+   "id": "GL-247",
+   "iid": 18003,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/work_items/18003",
+   "created_at": "2024-05-14T03:16:19.086Z",
+   "severity": "severity::2",
+   "n_notes": 46
+  },
+  {
+   "id": "GL-248",
+   "iid": 1978,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/issues/1978",
+   "created_at": "2020-04-22T09:07:01.527Z",
+   "severity": "severity::2",
+   "n_notes": 9
+  },
+  {
+   "id": "GL-249",
+   "iid": 6469,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/issues/6469",
+   "created_at": "2022-03-02T17:03:45.251Z",
+   "severity": "severity::2",
+   "n_notes": 10
+  },
+  {
+   "id": "GL-250",
+   "iid": 8405,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/issues/8405",
+   "created_at": "2023-02-15T20:43:37.385Z",
+   "severity": "severity::2",
+   "n_notes": 13
+  },
+  {
+   "id": "GL-251",
+   "iid": 2098,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/issues/2098",
+   "created_at": "2020-05-08T17:59:21.363Z",
+   "severity": "severity::2",
+   "n_notes": 3
+  },
+  {
+   "id": "GL-252",
+   "iid": 5324,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/issues/5324",
+   "created_at": "2021-08-10T09:44:10.582Z",
+   "severity": "severity::2",
+   "n_notes": 25
+  },
+  {
+   "id": "GL-253",
+   "iid": 8159,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/issues/8159",
+   "created_at": "2022-12-14T10:24:54.006Z",
+   "severity": "severity::2",
+   "n_notes": 9
+  },
+  {
+   "id": "GL-254",
+   "iid": 6596,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/issues/6596",
+   "created_at": "2022-03-15T13:41:20.514Z",
+   "severity": "severity::2",
+   "n_notes": 26
+  },
+  {
+   "id": "GL-255",
+   "iid": 6401,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/issues/6401",
+   "created_at": "2022-02-21T20:28:08.260Z",
+   "severity": "severity::2",
+   "n_notes": 24
+  },
+  {
+   "id": "GL-256",
+   "iid": 5194,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/issues/5194",
+   "created_at": "2021-07-20T23:58:20.038Z",
+   "severity": "severity::1",
+   "n_notes": 27
+  },
+  {
+   "id": "GL-257",
+   "iid": 7495,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/issues/7495",
+   "created_at": "2022-07-22T13:07:46.142Z",
+   "severity": "severity::2",
+   "n_notes": 20
+  },
+  {
+   "id": "GL-258",
+   "iid": 5027,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/issues/5027",
+   "created_at": "2021-06-28T16:48:45.783Z",
+   "severity": "severity::2",
+   "n_notes": 4
+  },
+  {
+   "id": "GL-259",
+   "iid": 19758,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/work_items/19758",
+   "created_at": "2025-05-02T19:50:19.340Z",
+   "severity": "severity::2",
+   "n_notes": 13
+  },
+  {
+   "id": "GL-260",
+   "iid": 4841,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/work_items/4841",
+   "created_at": "2021-06-08T14:08:38.872Z",
+   "severity": "severity::2",
+   "n_notes": 5
+  },
+  {
+   "id": "GL-261",
+   "iid": 18533,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/issues/18533",
+   "created_at": "2024-09-10T08:56:55.814Z",
+   "severity": "severity::2",
+   "n_notes": 28
+  },
+  {
+   "id": "GL-262",
+   "iid": 7065,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/issues/7065",
+   "created_at": "2022-05-15T23:50:34.686Z",
+   "severity": "severity::2",
+   "n_notes": 14
+  },
+  {
+   "id": "GL-263",
+   "iid": 6388,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/issues/6388",
+   "created_at": "2022-02-19T20:37:29.662Z",
+   "severity": "severity::2",
+   "n_notes": 6
+  },
+  {
+   "id": "GL-264",
+   "iid": 5591,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/issues/5591",
+   "created_at": "2021-09-27T05:24:42.262Z",
+   "severity": "severity::2",
+   "n_notes": 6
+  },
+  {
+   "id": "GL-265",
+   "iid": 4066,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/work_items/4066",
+   "created_at": "2021-03-25T16:08:13.979Z",
+   "severity": "severity::2",
+   "n_notes": 6
+  },
+  {
+   "id": "GL-266",
+   "iid": 7456,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/issues/7456",
+   "created_at": "2022-07-15T20:12:54.230Z",
+   "severity": "severity::1",
+   "n_notes": 14
+  },
+  {
+   "id": "GL-267",
+   "iid": 4810,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/work_items/4810",
+   "created_at": "2021-06-04T10:20:31.034Z",
+   "severity": "severity::2",
+   "n_notes": 8
+  },
+  {
+   "id": "GL-268",
+   "iid": 8541,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/issues/8541",
+   "created_at": "2023-03-14T14:11:18.930Z",
+   "severity": "severity::2",
+   "n_notes": 60
+  },
+  {
+   "id": "GL-269",
+   "iid": 17283,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/issues/17283",
+   "created_at": "2023-12-15T06:20:47.650Z",
+   "severity": "severity::2",
+   "n_notes": 51
+  },
+  {
+   "id": "GL-270",
+   "iid": 20621,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/work_items/20621",
+   "created_at": "2025-09-29T03:44:46.235Z",
+   "severity": "severity::2",
+   "n_notes": 10
+  },
+  {
+   "id": "GL-271",
+   "iid": 3150,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/work_items/3150",
+   "created_at": "2020-12-07T04:15:00.254Z",
+   "severity": "severity::1",
+   "n_notes": 21
+  },
+  {
+   "id": "GL-272",
+   "iid": 3981,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/work_items/3981",
+   "created_at": "2021-03-16T14:51:59.081Z",
+   "severity": "severity::2",
+   "n_notes": 7
+  },
+  {
+   "id": "GL-273",
+   "iid": 5846,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/issues/5846",
+   "created_at": "2021-11-02T12:40:43.646Z",
+   "severity": "severity::2",
+   "n_notes": 6
+  },
+  {
+   "id": "GL-274",
+   "iid": 2824,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/work_items/2824",
+   "created_at": "2020-10-14T12:17:30.270Z",
+   "severity": "severity::1",
+   "n_notes": 21
+  },
+  {
+   "id": "GL-275",
+   "iid": 4409,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/work_items/4409",
+   "created_at": "2021-04-29T03:47:01.998Z",
+   "severity": "severity::2",
+   "n_notes": 18
+  },
+  {
+   "id": "GL-276",
+   "iid": 18715,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/issues/18715",
+   "created_at": "2024-10-15T21:15:52.308Z",
+   "severity": "severity::2",
+   "n_notes": 28
+  },
+  {
+   "id": "GL-277",
+   "iid": 19464,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/work_items/19464",
+   "created_at": "2025-03-11T12:25:36.441Z",
+   "severity": "severity::2",
+   "n_notes": 36
+  },
+  {
+   "id": "GL-278",
+   "iid": 4156,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/work_items/4156",
+   "created_at": "2021-04-07T12:35:38.641Z",
+   "severity": "severity::2",
+   "n_notes": 74
+  },
+  {
+   "id": "GL-279",
+   "iid": 20686,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/work_items/20686",
+   "created_at": "2025-10-07T15:11:56.282Z",
+   "severity": "severity::2",
+   "n_notes": 12
+  },
+  {
+   "id": "GL-280",
+   "iid": 5569,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/issues/5569",
+   "created_at": "2021-09-22T14:54:35.626Z",
+   "severity": "severity::2",
+   "n_notes": 15
+  },
+  {
+   "id": "GL-281",
+   "iid": 3220,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/work_items/3220",
+   "created_at": "2020-12-21T00:05:30.221Z",
+   "severity": "severity::2",
+   "n_notes": 25
+  },
+  {
+   "id": "GL-282",
+   "iid": 5340,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/issues/5340",
+   "created_at": "2021-08-12T10:53:07.376Z",
+   "severity": "severity::1",
+   "n_notes": 27
+  },
+  {
+   "id": "GL-283",
+   "iid": 21003,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/work_items/21003",
+   "created_at": "2025-12-16T04:10:40.110Z",
+   "severity": "severity::2",
+   "n_notes": 8
+  },
+  {
+   "id": "GL-284",
+   "iid": 3712,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/work_items/3712",
+   "created_at": "2021-02-24T15:36:26.690Z",
+   "severity": "severity::2",
+   "n_notes": 36
+  },
+  {
+   "id": "GL-285",
+   "iid": 7287,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/issues/7287",
+   "created_at": "2022-06-21T02:29:11.867Z",
+   "severity": "severity::2",
+   "n_notes": 29
+  },
+  {
+   "id": "GL-286",
+   "iid": 4706,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/work_items/4706",
+   "created_at": "2021-05-24T08:15:10.705Z",
+   "severity": "severity::2",
+   "n_notes": 14
+  },
+  {
+   "id": "GL-287",
+   "iid": 8471,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/issues/8471",
+   "created_at": "2023-02-27T17:02:35.435Z",
+   "severity": "severity::2",
+   "n_notes": 38
+  },
+  {
+   "id": "GL-288",
+   "iid": 3919,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/work_items/3919",
+   "created_at": "2021-03-12T10:17:18.366Z",
+   "severity": "severity::2",
+   "n_notes": 17
+  },
+  {
+   "id": "GL-289",
+   "iid": 3688,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/work_items/3688",
+   "created_at": "2021-02-23T07:43:27.682Z",
+   "severity": "severity::2",
+   "n_notes": 46
+  },
+  {
+   "id": "GL-290",
+   "iid": 5333,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/issues/5333",
+   "created_at": "2021-08-11T17:10:29.873Z",
+   "severity": "severity::1",
+   "n_notes": 12
+  },
+  {
+   "id": "GL-291",
+   "iid": 16226,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/issues/16226",
+   "created_at": "2023-08-23T14:16:59.334Z",
+   "severity": "severity::1",
+   "n_notes": 29
+  },
+  {
+   "id": "GL-292",
+   "iid": 14406,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/issues/14406",
+   "created_at": "2023-05-17T12:12:09.394Z",
+   "severity": "severity::2",
+   "n_notes": 24
+  },
+  {
+   "id": "GL-293",
+   "iid": 3982,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/work_items/3982",
+   "created_at": "2021-03-16T15:00:08.970Z",
+   "severity": "severity::2",
+   "n_notes": 17
+  },
+  {
+   "id": "GL-294",
+   "iid": 8659,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/issues/8659",
+   "created_at": "2023-04-04T15:26:49.558Z",
+   "severity": "severity::2",
+   "n_notes": 24
+  },
+  {
+   "id": "GL-295",
+   "iid": 6413,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/issues/6413",
+   "created_at": "2022-02-23T13:10:33.710Z",
+   "severity": "severity::2",
+   "n_notes": 11
+  },
+  {
+   "id": "GL-296",
+   "iid": 5395,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/issues/5395",
+   "created_at": "2021-08-20T04:15:31.346Z",
+   "severity": "severity::2",
+   "n_notes": 14
+  },
+  {
+   "id": "GL-297",
+   "iid": 19244,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/issues/19244",
+   "created_at": "2025-02-06T08:16:46.642Z",
+   "severity": "severity::2",
+   "n_notes": 14
+  },
+  {
+   "id": "GL-298",
+   "iid": 2379,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/issues/2379",
+   "created_at": "2020-07-07T14:30:56.530Z",
+   "severity": "severity::1",
+   "n_notes": 46
+  },
+  {
+   "id": "GL-299",
+   "iid": 7316,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/issues/7316",
+   "created_at": "2022-06-23T10:37:33.703Z",
+   "severity": "severity::2",
+   "n_notes": 22
+  },
+  {
+   "id": "GL-300",
+   "iid": 20138,
+   "url": "https://gitlab.com/gitlab-com/gl-infra/production/-/work_items/20138",
+   "created_at": "2025-07-08T19:44:33.914Z",
+   "severity": "severity::2",
+   "n_notes": 7
+  }
+ ]
+}

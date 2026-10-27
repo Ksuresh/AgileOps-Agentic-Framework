@@ -1,0 +1,158 @@
+{
+  "primary": {
+    "CLEAR": {
+      "n": 8,
+      "B1_ok": 7,
+      "B2a_ok": 7,
+      "B2b_ok": 7,
+      "B2a_tool_calls": 0,
+      "B2b_tool_calls": 0,
+      "B2a_recovered": 0,
+      "B2b_recovered": 0
+    },
+    "ALL": {
+      "n": 32,
+      "B1_ok": 26,
+      "B2a_ok": 27,
+      "B2b_ok": 27,
+      "B2a_tool_calls": 8,
+      "B2b_tool_calls": 8,
+      "B2a_recovered": 8,
+      "B2b_recovered": 8
+    },
+    "AMBIGUOUS": {
+      "n": 8,
+      "B1_ok": 5,
+      "B2a_ok": 5,
+      "B2b_ok": 5,
+      "B2a_tool_calls": 0,
+      "B2b_tool_calls": 0,
+      "B2a_recovered": 0,
+      "B2b_recovered": 0
+    },
+    "INCOMPLETE": {
+      "n": 8,
+      "B1_ok": 7,
+      "B2a_ok": 8,
+      "B2b_ok": 8,
+      "B2a_tool_calls": 8,
+      "B2b_tool_calls": 8,
+      "B2a_recovered": 8,
+      "B2b_recovered": 8
+    },
+    "MISLEADING": {
+      "n": 8,
+      "B1_ok": 7,
+      "B2a_ok": 7,
+      "B2b_ok": 7,
+      "B2a_tool_calls": 0,
+      "B2b_tool_calls": 0,
+      "B2a_recovered": 0,
+      "B2b_recovered": 0
+    }
+  },
+  "combined": {
+    "CLEAR": {
+      "n": 12,
+      "B1_ok": 11,
+      "B2a_ok": 11,
+      "B2b_ok": 11,
+      "B2a_tool_calls": 0,
+      "B2b_tool_calls": 0,
+      "B2a_recovered": 0,
+      "B2b_recovered": 0
+    },
+    "ALL": {
+      "n": 48,
+      "B1_ok": 39,
+      "B2a_ok": 41,
+      "B2b_ok": 41,
+      "B2a_tool_calls": 12,
+      "B2b_tool_calls": 12,
+      "B2a_recovered": 12,
+      "B2b_recovered": 12
+    },
+    "AMBIGUOUS": {
+      "n": 12,
+      "B1_ok": 8,
+      "B2a_ok": 8,
+      "B2b_ok": 8,
+      "B2a_tool_calls": 0,
+      "B2b_tool_calls": 0,
+      "B2a_recovered": 0,
+      "B2b_recovered": 0
+    },
+    "INCOMPLETE": {
+      "n": 12,
+      "B1_ok": 10,
+      "B2a_ok": 12,
+      "B2b_ok": 12,
+      "B2a_tool_calls": 12,
+      "B2b_tool_calls": 12,
+      "B2a_recovered": 12,
+      "B2b_recovered": 12
+    },
+    "MISLEADING": {
+      "n": 12,
+      "B1_ok": 10,
+      "B2a_ok": 10,
+      "B2b_ok": 10,
+      "B2a_tool_calls": 0,
+      "B2b_tool_calls": 0,
+      "B2a_recovered": 0,
+      "B2b_recovered": 0
+    }
+  },
+  "replication": {
+    "CLEAR": {
+      "n": 4,
+      "B1_ok": 4,
+      "B2a_ok": 4,
+      "B2b_ok": 4,
+      "B2a_tool_calls": 0,
+      "B2b_tool_calls": 0,
+      "B2a_recovered": 0,
+      "B2b_recovered": 0
+    },
+    "ALL": {
+      "n": 16,
+      "B1_ok": 13,
+      "B2a_ok": 14,
+      "B2b_ok": 14,
+      "B2a_tool_calls": 4,
+      "B2b_tool_calls": 4,
+      "B2a_recovered": 4,
+      "B2b_recovered": 4
+    },
+    "AMBIGUOUS": {
+      "n": 4,
+      "B1_ok": 3,
+      "B2a_ok": 3,
+      "B2b_ok": 3,
+      "B2a_tool_calls": 0,
+      "B2b_tool_calls": 0,
+      "B2a_recovered": 0,
+      "B2b_recovered": 0
+    },
+    "INCOMPLETE": {
+      "n": 4,
+      "B1_ok": 3,
+      "B2a_ok": 4,
+      "B2b_ok": 4,
+      "B2a_tool_calls": 4,
+      "B2b_tool_calls": 4,
+      "B2a_recovered": 4,
+      "B2b_recovered": 4
+    },
+    "MISLEADING": {
+      "n": 4,
+      "B1_ok": 3,
+      "B2a_ok": 3,
+      "B2b_ok": 3,
+      "B2a_tool_calls": 0,
+      "B2b_tool_calls": 0,
+      "B2a_recovered": 0,
+      "B2b_recovered": 0
+    }
+  }
+}

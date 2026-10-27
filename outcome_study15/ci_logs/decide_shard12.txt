@@ -1,0 +1,5 @@
+B6 UP-R02-W 2 Rollback to stable deployment
+AAF-14 UP-D01 2 Scale adjustment
+AAF-14 UC-L01 3 No action (observe)
+AAF-14 UP-P03 3 Patch or block release
+B6 UP-K02 2 Patch or block release

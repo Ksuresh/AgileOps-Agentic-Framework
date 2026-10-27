@@ -1,0 +1,6 @@
+AAF-12 PR-05 2 Rollback to stable deployment
+AAF-12 PS-05-W 1 Patch or block release
+AAF-12 PP-03 3 Rollback to stable deployment
+AAF-12 PR-02 3 Rollback to stable deployment
+AAF-12 PR-05 3 Rollback to stable deployment
+AAF-12 PD-04 3 Rollback to stable deployment

@@ -1,0 +1,36 @@
+frontend perf {'cpu': '50m', 'p95_ms': 1356.6653039999892, 'error_rate_pct': 0.0, 'violates': True}
+frontend {"G": "gcr.io/google-samples/microservices-demo/frontend:v0.9.0", "H": "gcr.io/google-samples/microservices-demo/frontend:v0.2.0", "NF": null} 50m {'rollout_ok': False, 'storefront_error_rate_pct': 100.0, 'restarts': 5}
+productcatalogservice perf {'cpu': '50m', 'p95_ms': 307.82331199998225, 'error_rate_pct': 0.0, 'violates': False}
+productcatalogservice perf {'cpu': '30m', 'p95_ms': 299.80370199996287, 'error_rate_pct': 0.0, 'violates': False}
+productcatalogservice perf {'cpu': '20m', 'p95_ms': 382.93535600007544, 'error_rate_pct': 0.0, 'violates': False}
+productcatalogservice perf {'cpu': '10m', 'p95_ms': 386.5554520000387, 'error_rate_pct': 0.0, 'violates': False}
+productcatalogservice perf {'cpu': '5m', 'p95_ms': 497.9941209999197, 'error_rate_pct': 0.0, 'violates': False}
+productcatalogservice {"P3": "gcr.io/google-samples/microservices-demo/productcatalogservice:v0.9.0", "P4": "gcr.io/google-samples/microservices-demo/productcatalogservice:v0.6.0", "NP": null} 5m {'rollout_ok': False, 'storefront_error_rate_pct': 100.0, 'restarts': 5}
+currencyservice perf {'cpu': '50m', 'p95_ms': 2003.4859819998019, 'error_rate_pct': 11.653116531165312, 'violates': True}
+currencyservice {"C1": "gcr.io/google-samples/microservices-demo/currencyservice:v0.9.0", "C2": "gcr.io/google-samples/microservices-demo/currencyservice:v0.8.0", "NC": null} 50m {'rollout_ok': False, 'storefront_error_rate_pct': 100.0, 'restarts': 5}
+{
+  "images": {
+    "A": "gcr.io/google-samples/microservices-demo/frontend:v0.8.0",
+    "B": "gcr.io/google-samples/microservices-demo/frontend:v0.7.0",
+    "C": "gcr.io/google-samples/microservices-demo/frontend:v0.6.0",
+    "D": "gcr.io/google-samples/microservices-demo/frontend:v0.5.0",
+    "E": "gcr.io/google-samples/microservices-demo/frontend:v0.4.0",
+    "F": "gcr.io/google-samples/microservices-demo/frontend:v0.3.0",
+    "P1": "gcr.io/google-samples/microservices-demo/productcatalogservice:v0.8.0",
+    "P2": "gcr.io/google-samples/microservices-demo/productcatalogservice:v0.7.0",
+    "G": "gcr.io/google-samples/microservices-demo/frontend:v0.9.0",
+    "H": "gcr.io/google-samples/microservices-demo/frontend:v0.2.0",
+    "NF": null,
+    "P3": "gcr.io/google-samples/microservices-demo/productcatalogservice:v0.9.0",
+    "P4": "gcr.io/google-samples/microservices-demo/productcatalogservice:v0.6.0",
+    "NP": null,
+    "C1": "gcr.io/google-samples/microservices-demo/currencyservice:v0.9.0",
+    "C2": "gcr.io/google-samples/microservices-demo/currencyservice:v0.8.0",
+    "NC": null
+  },
+  "perf_cpu": {
+    "frontend": "50m",
+    "productcatalogservice": "5m",
+    "currencyservice": "50m"
+  }
+}

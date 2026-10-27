@@ -1,0 +1,368 @@
+{
+  "application": "Weaveworks Sock Shop",
+  "healthy_measurements": [
+    {
+      "http": {
+        "started_utc": "2026-10-26T02:08:49.689912+00:00",
+        "finished_utc": "2026-10-26T02:09:34.771329+00:00",
+        "requests": 10240,
+        "successes": 10240,
+        "failures": 0,
+        "error_rate_pct": 0.0,
+        "availability_pct": 100.0,
+        "latency_p50_ms": 94.79934899997033,
+        "latency_p95_ms": 175.21804599999768,
+        "latency_p99_ms": 186.35766300002388,
+        "source": "direct HTTP measurements through kubectl port-forward to Online Boutique frontend"
+      },
+      "replicas": 1,
+      "cpu_request_m": 100.0,
+      "cpu_limit_m": 300.0,
+      "footprint_cpu_m": 100.0,
+      "cpu_used_per_pod_m": 201.66666666666666,
+      "utilisation_of_request": 2.0166666666666666,
+      "saturation_pct": 67.22222222222221,
+      "restarts": 0,
+      "image": "weaveworksdemos/front-end:0.3.12",
+      "critical_cves_total": 16,
+      "critical_cves_new": 0,
+      "secret_in_config": false,
+      "noncritical_cves": 120,
+      "feature_delivered": false,
+      "release": null
+    },
+    {
+      "http": {
+        "started_utc": "2026-10-26T02:09:39.909705+00:00",
+        "finished_utc": "2026-10-26T02:10:24.967574+00:00",
+        "requests": 9648,
+        "successes": 9648,
+        "failures": 0,
+        "error_rate_pct": 0.0,
+        "availability_pct": 100.0,
+        "latency_p50_ms": 97.72177400003557,
+        "latency_p95_ms": 171.76702199998317,
+        "latency_p99_ms": 181.3209860000029,
+        "source": "direct HTTP measurements through kubectl port-forward to Online Boutique frontend"
+      },
+      "replicas": 1,
+      "cpu_request_m": 100.0,
+      "cpu_limit_m": 300.0,
+      "footprint_cpu_m": 100.0,
+      "cpu_used_per_pod_m": 273.0,
+      "utilisation_of_request": 2.73,
+      "saturation_pct": 91.0,
+      "restarts": 0,
+      "image": "weaveworksdemos/front-end:0.3.12",
+      "critical_cves_total": 16,
+      "critical_cves_new": 0,
+      "secret_in_config": false,
+      "noncritical_cves": 120,
+      "feature_delivered": false,
+      "release": null
+    },
+    {
+      "http": {
+        "started_utc": "2026-10-26T02:10:25.123549+00:00",
+        "finished_utc": "2026-10-26T02:11:10.156082+00:00",
+        "requests": 9665,
+        "successes": 9665,
+        "failures": 0,
+        "error_rate_pct": 0.0,
+        "availability_pct": 100.0,
+        "latency_p50_ms": 97.77661399999715,
+        "latency_p95_ms": 172.4580839999703,
+        "latency_p99_ms": 180.3910250000058,
+        "source": "direct HTTP measurements through kubectl port-forward to Online Boutique frontend"
+      },
+      "replicas": 1,
+      "cpu_request_m": 100.0,
+      "cpu_limit_m": 300.0,
+      "footprint_cpu_m": 100.0,
+      "cpu_used_per_pod_m": 300.0,
+      "utilisation_of_request": 3.0,
+      "saturation_pct": 100.0,
+      "restarts": 0,
+      "image": "weaveworksdemos/front-end:0.3.12",
+      "critical_cves_total": 16,
+      "critical_cves_new": 0,
+      "secret_in_config": false,
+      "noncritical_cves": 120,
+      "feature_delivered": false,
+      "release": null
+    }
+  ],
+  "healthy_p95_ms": [
+    175.21804599999768,
+    171.76702199998317,
+    172.4580839999703
+  ],
+  "healthy_error_pct": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "healthy_p95_median_ms": 172.4580839999703,
+  "p95_threshold_ms": 344.9161679999406,
+  "stable_images": {
+    "front-end": {
+      "image": "weaveworksdemos/front-end:0.3.12",
+      "critical_cves": 16,
+      "noncritical_cves": 120
+    },
+    "catalogue": {
+      "image": "weaveworksdemos/catalogue:0.3.5",
+      "critical_cves": 2,
+      "noncritical_cves": 13
+    }
+  },
+  "vuln_images": {
+    "A": "docker.io/weaveworksdemos/front-end:0.3.5",
+    "B": "docker.io/weaveworksdemos/front-end:0.3.4",
+    "SF1": "docker.io/weaveworksdemos/front-end:0.3.5",
+    "SF2": "docker.io/weaveworksdemos/front-end:0.3.4",
+    "NSF": null,
+    "SC1": null,
+    "SC2": null,
+    "NSC": null
+  },
+  "perf_cpu": {
+    "front-end": "50m",
+    "catalogue": "50m"
+  },
+  "study16_calibration": {
+    "front-end": {
+      "stable": {
+        "image": "weaveworksdemos/front-end:0.3.12",
+        "critical_cves": 16,
+        "noncritical_cves": 120
+      },
+      "vuln_scans": [
+        {
+          "image": "docker.io/weaveworksdemos/front-end:0.3.11",
+          "critical_cves": 16,
+          "noncritical_cves": 120
+        },
+        {
+          "image": "docker.io/weaveworksdemos/front-end:0.3.10",
+          "critical_cves": 16,
+          "noncritical_cves": 120
+        },
+        {
+          "image": "docker.io/weaveworksdemos/front-end:0.3.9",
+          "critical_cves": 16,
+          "noncritical_cves": 120
+        },
+        {
+          "image": "docker.io/weaveworksdemos/front-end:0.3.8",
+          "critical_cves": 16,
+          "noncritical_cves": 120
+        },
+        {
+          "image": "docker.io/weaveworksdemos/front-end:0.3.7",
+          "critical_cves": 16,
+          "noncritical_cves": 120
+        },
+        {
+          "image": "docker.io/weaveworksdemos/front-end:0.3.6",
+          "critical_cves": 16,
+          "noncritical_cves": 120
+        },
+        {
+          "image": "docker.io/weaveworksdemos/front-end:0.3.5",
+          "critical_cves": 20,
+          "noncritical_cves": 156,
+          "rollout_ok": true,
+          "serves_http_200": true
+        },
+        {
+          "image": "docker.io/weaveworksdemos/front-end:0.3.4",
+          "critical_cves": 20,
+          "noncritical_cves": 156,
+          "rollout_ok": true,
+          "serves_http_200": true
+        }
+      ],
+      "lowrisk_scans": [
+        {
+          "image": "docker.io/weaveworksdemos/front-end:0.3.11",
+          "critical_cves": 16,
+          "noncritical_cves": 120
+        },
+        {
+          "image": "docker.io/weaveworksdemos/front-end:0.3.10",
+          "critical_cves": 16,
+          "noncritical_cves": 120
+        },
+        {
+          "image": "docker.io/weaveworksdemos/front-end:0.3.9",
+          "critical_cves": 16,
+          "noncritical_cves": 120
+        },
+        {
+          "image": "docker.io/weaveworksdemos/front-end:0.3.8",
+          "critical_cves": 16,
+          "noncritical_cves": 120
+        },
+        {
+          "image": "docker.io/weaveworksdemos/front-end:0.3.7",
+          "critical_cves": 16,
+          "noncritical_cves": 120
+        },
+        {
+          "image": "docker.io/weaveworksdemos/front-end:0.3.6",
+          "critical_cves": 16,
+          "noncritical_cves": 120
+        },
+        {
+          "image": "docker.io/weaveworksdemos/front-end:0.3.5",
+          "critical_cves": 20,
+          "noncritical_cves": 156
+        },
+        {
+          "image": "docker.io/weaveworksdemos/front-end:0.3.4",
+          "critical_cves": 20,
+          "noncritical_cves": 156
+        },
+        {
+          "image": "docker.io/weaveworksdemos/front-end:0.3.3",
+          "critical_cves": 20,
+          "noncritical_cves": 154
+        },
+        {
+          "image": "docker.io/weaveworksdemos/front-end:0.3.1",
+          "critical_cves": 20,
+          "noncritical_cves": 153
+        },
+        {
+          "image": "docker.io/weaveworksdemos/front-end:0.3.0",
+          "critical_cves": 20,
+          "noncritical_cves": 153
+        }
+      ],
+      "perf_scans": [
+        {
+          "cpu": "50m",
+          "p95_ms": 1602.8305460000638,
+          "error_rate_pct": 0.6829268292682927,
+          "violates": true
+        }
+      ],
+      "images": {
+        "SF1": "docker.io/weaveworksdemos/front-end:0.3.5",
+        "SF2": "docker.io/weaveworksdemos/front-end:0.3.4",
+        "NSF": null
+      },
+      "healthy": {
+        "p95_ms": 172.20207699995171,
+        "error_rate_pct": 0.0
+      },
+      "perf_cpu": "50m",
+      "crash_check": {
+        "rollout_ok": false,
+        "storefront_error_rate_pct": 100.0,
+        "restarts": 5
+      }
+    },
+    "catalogue": {
+      "stable": {
+        "image": "weaveworksdemos/catalogue:0.3.5",
+        "critical_cves": 2,
+        "noncritical_cves": 13
+      },
+      "vuln_scans": [
+        {
+          "image": "docker.io/weaveworksdemos/catalogue:0.3.4",
+          "critical_cves": 2,
+          "noncritical_cves": 13
+        },
+        {
+          "image": "docker.io/weaveworksdemos/catalogue:0.3.3",
+          "critical_cves": 2,
+          "noncritical_cves": 13
+        },
+        {
+          "image": "docker.io/weaveworksdemos/catalogue:0.3.2",
+          "critical_cves": 2,
+          "noncritical_cves": 13
+        },
+        {
+          "image": "docker.io/weaveworksdemos/catalogue:0.3.1",
+          "critical_cves": 2,
+          "noncritical_cves": 18
+        },
+        {
+          "image": "docker.io/weaveworksdemos/catalogue:0.3.0",
+          "critical_cves": 3,
+          "noncritical_cves": 19,
+          "rollout_ok": false,
+          "serves_http_200": true
+        },
+        {
+          "image": "docker.io/weaveworksdemos/catalogue:0.2.0",
+          "critical_cves": 3,
+          "noncritical_cves": 19,
+          "rollout_ok": false,
+          "serves_http_200": true
+        }
+      ],
+      "lowrisk_scans": [
+        {
+          "image": "docker.io/weaveworksdemos/catalogue:0.3.4",
+          "critical_cves": 2,
+          "noncritical_cves": 13
+        },
+        {
+          "image": "docker.io/weaveworksdemos/catalogue:0.3.3",
+          "critical_cves": 2,
+          "noncritical_cves": 13
+        },
+        {
+          "image": "docker.io/weaveworksdemos/catalogue:0.3.2",
+          "critical_cves": 2,
+          "noncritical_cves": 13
+        },
+        {
+          "image": "docker.io/weaveworksdemos/catalogue:0.3.1",
+          "critical_cves": 2,
+          "noncritical_cves": 18,
+          "rollout_ok": false,
+          "serves_http_200": true
+        },
+        {
+          "image": "docker.io/weaveworksdemos/catalogue:0.3.0",
+          "critical_cves": 3,
+          "noncritical_cves": 19
+        },
+        {
+          "image": "docker.io/weaveworksdemos/catalogue:0.2.0",
+          "critical_cves": 3,
+          "noncritical_cves": 19
+        }
+      ],
+      "perf_scans": [
+        {
+          "cpu": "50m",
+          "p95_ms": 562.0431319998715,
+          "error_rate_pct": 0.0,
+          "violates": true
+        }
+      ],
+      "images": {
+        "SC1": null,
+        "SC2": null,
+        "NSC": null
+      },
+      "healthy": {
+        "p95_ms": 209.7341429998778,
+        "error_rate_pct": 0.0
+      },
+      "perf_cpu": "50m",
+      "crash_check": {
+        "rollout_ok": false,
+        "storefront_error_rate_pct": 100.0,
+        "restarts": 5
+      }
+    }
+  }
+}

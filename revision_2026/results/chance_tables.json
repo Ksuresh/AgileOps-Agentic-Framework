@@ -1,0 +1,37 @@
+[
+ {
+  "table_set": "Table 4: Sock Shop HRT-01..HRT-31",
+  "n": 31,
+  "uniform_chance_pct": 14.5,
+  "best_constant_action": "Scale adjustment",
+  "best_constant_pct": 29.0
+ },
+ {
+  "table_set": "Table 5: Online Boutique OB-01..OB-16",
+  "n": 16,
+  "uniform_chance_pct": 14.8,
+  "best_constant_action": "Scale adjustment",
+  "best_constant_pct": 31.2
+ },
+ {
+  "table_set": "Table 6: prospective HRT-32..HRT-39",
+  "n": 8,
+  "uniform_chance_pct": 14.1,
+  "best_constant_action": "Scale adjustment",
+  "best_constant_pct": 50.0
+ },
+ {
+  "table_set": "Table 7: selective AEI primary (32)",
+  "n": 32,
+  "uniform_chance_pct": 12.9,
+  "best_constant_action": "Scale adjustment",
+  "best_constant_pct": 34.4
+ },
+ {
+  "table_set": "Table 7: selective AEI replication (16)",
+  "n": 16,
+  "uniform_chance_pct": 12.5,
+  "best_constant_action": "Scale adjustment",
+  "best_constant_pct": 37.5
+ }
+]

@@ -1,0 +1,85 @@
+{
+  "danluu": {
+    "documents": 240,
+    "reachable_and_substantial": 198,
+    "with_action_evidence_and_timeline": 100,
+    "action_type_presence": {
+      "rollback": 50,
+      "scale": 25,
+      "block_or_patch": 32,
+      "mitigate": 152
+    },
+    "evidence_type_presence": {
+      "latency": 59,
+      "error_rate": 143,
+      "saturation": 74,
+      "restarts": 82,
+      "deploy_config": 133,
+      "security": 36,
+      "cost": 50
+    },
+    "median_chars": 10242,
+    "status_counts": {
+      "ok": 217,
+      "http_403": 5,
+      "http_404": 4,
+      "not_html": 2,
+      "ReadTimeout": 2,
+      "ConnectTimeout": 10
+    }
+  },
+  "gitlab": {
+    "documents": 400,
+    "reachable_and_substantial": 306,
+    "with_action_evidence_and_timeline": 4,
+    "action_type_presence": {
+      "rollback": 43,
+      "scale": 4,
+      "block_or_patch": 16,
+      "mitigate": 76
+    },
+    "evidence_type_presence": {
+      "latency": 15,
+      "error_rate": 129,
+      "saturation": 72,
+      "restarts": 29,
+      "deploy_config": 120,
+      "security": 7,
+      "cost": 7
+    },
+    "median_chars": 912,
+    "status_counts": {
+      "api": 400
+    }
+  },
+  "gitlab_meta": {
+    "page_1_status": 200,
+    "x_total": "7384",
+    "page_2_status": 200,
+    "page_3_status": 200,
+    "page_4_status": 200
+  },
+  "danluu_by_domain_reachable": {
+    "web.archive.org": 46,
+    "aws.amazon.com": 18,
+    "blog.cloudflare.com": 17,
+    "github.blog": 16,
+    "status.cloud.google.com": 14,
+    "discuss.circleci.com": 5,
+    "status.heroku.com": 5,
+    "incident.io": 5,
+    "www.honeycomb.io": 4,
+    "www.traviscistatus.com": 3,
+    "en.wikipedia.org": 3,
+    "community.eveonline.com": 3,
+    "allegro.tech": 2,
+    "www.datadoghq.com": 2,
+    "gocardless.com": 2
+  },
+  "gitlab_severity": {
+    "severity::3": 194,
+    "severity::4": 184,
+    "severity::2": 17,
+    "severity::1": 5
+  }
+}

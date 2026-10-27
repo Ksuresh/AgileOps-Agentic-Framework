@@ -1,0 +1,63 @@
+{
+  "n": 96,
+  "AAF": {
+    "same_all_three": 93,
+    "same_gpt_llama": 93,
+    "llama_runs": {
+      "3": 96
+    },
+    "llama_identical_all_runs": 93
+  },
+  "B3": {
+    "same_all_three": 90,
+    "same_gpt_llama": 90,
+    "llama_runs": {
+      "3": 96
+    },
+    "llama_identical_all_runs": 92
+  },
+  "B5": {
+    "same_all_three": 11,
+    "same_gpt_llama": 18,
+    "llama_runs": {
+      "3": 96
+    },
+    "llama_identical_all_runs": 31
+  },
+  "B6": {
+    "same_all_three": 19,
+    "same_gpt_llama": 25,
+    "llama_runs": {
+      "2": 96
+    },
+    "llama_identical_all_runs": 48
+  },
+  "tests_same_all_three": {
+    "AAF_vs_B5": {
+      "a_only": 82,
+      "b_only": 0,
+      "p_exact": 4.1359030627651384e-25,
+      "p_holm": 8.271806125530277e-25
+    },
+    "AAF_vs_B6": {
+      "a_only": 74,
+      "b_only": 0,
+      "p_exact": 1.0587911840678754e-22,
+      "p_holm": 1.0587911840678754e-22
+    }
+  },
+  "tests_gpt_vs_llama": {
+    "AAF_vs_B5": {
+      "a_only": 75,
+      "b_only": 0,
+      "p_exact": 5.293955920339377e-23,
+      "p_holm": 1.0587911840678754e-22
+    },
+    "AAF_vs_B6": {
+      "a_only": 68,
+      "b_only": 0,
+      "p_exact": 6.776263578034403e-21,
+      "p_holm": 6.776263578034403e-21
+    }
+  }
+}

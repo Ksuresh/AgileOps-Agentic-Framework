@@ -1,0 +1,37 @@
+name: Postmortem study - AI second rater (amendment A8)
+
+on:
+  push:
+    branches: [text-evidence-pilot]
+    paths: ["external_validation/postmortems/rater2_ai.py", ".github/workflows/postmortem-rater2-ai.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  rate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      OPENAI_MODEL: gpt-5.6-luna
+      RATER_REASONING_EFFORT: high
+      RATER_SPLIT: holdout
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install pyyaml numpy pandas scipy openai requests beautifulsoup4
+      - name: Rate
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: python -m external_validation.postmortems.rater2_ai
+      - name: Commit
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f external_validation/postmortems/rater2/ai_rater external_validation/aaf_v3/holdout/ai_rater
+          git commit -m "AI second rater results: run ${GITHUB_RUN_ID} [skip ci]" || echo "nothing to commit"
+          for i in 1 2 3 4 5; do git pull --rebase origin ${GITHUB_REF_NAME} && git push origin HEAD:${GITHUB_REF_NAME} && break; sleep $((i*7)); done

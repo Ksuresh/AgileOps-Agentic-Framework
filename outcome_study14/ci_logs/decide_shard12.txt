@@ -1,0 +1,5 @@
+B6 QP-S02 2 Patch or block release
+B6 QP-P03 2 Patch or block release
+B5 QF-K02 3 Patch or block release
+B5 QP-R04 3 Rollback to stable deployment
+B5 QP-P04-W 2 Mitigate and monitor

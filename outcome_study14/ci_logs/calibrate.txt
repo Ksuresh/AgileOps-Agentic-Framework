@@ -1,0 +1,84 @@
+{
+  "images": {
+    "A": "gcr.io/google-samples/microservices-demo/frontend:v0.8.0",
+    "B": "gcr.io/google-samples/microservices-demo/frontend:v0.7.0",
+    "C": "gcr.io/google-samples/microservices-demo/frontend:v0.6.0",
+    "D": "gcr.io/google-samples/microservices-demo/frontend:v0.5.0",
+    "E": "gcr.io/google-samples/microservices-demo/frontend:v0.4.0",
+    "F": "gcr.io/google-samples/microservices-demo/frontend:v0.3.0",
+    "P1": "gcr.io/google-samples/microservices-demo/productcatalogservice:v0.8.0",
+    "P2": "gcr.io/google-samples/microservices-demo/productcatalogservice:v0.7.0"
+  },
+  "scans": {
+    "frontend": [
+      {
+        "image": "us-central1-docker.pkg.dev/online-boutique-ci/microservices-demo/frontend:v0.10.6",
+        "critical_cves": 0,
+        "noncritical_cves": 32
+      },
+      {
+        "image": "gcr.io/google-samples/microservices-demo/frontend:v0.4.0",
+        "critical_cves": 5,
+        "rollout_ok": true,
+        "serves_http_200": true
+      },
+      {
+        "image": "gcr.io/google-samples/microservices-demo/frontend:v0.3.0",
+        "critical_cves": 8,
+        "rollout_ok": true,
+        "serves_http_200": true
+      },
+      {
+        "image": "gcr.io/google-samples/microservices-demo/frontend:v0.2.0",
+        "critical_cves": 1
+      },
+      {
+        "image": "gcr.io/google-samples/microservices-demo/frontend:v0.1.0",
+        "critical_cves": 1
+      }
+    ],
+    "productcatalogservice": [
+      {
+        "image": "us-central1-docker.pkg.dev/online-boutique-ci/microservices-demo/productcatalogservice:v0.10.6",
+        "critical_cves": 0,
+        "noncritical_cves": 32
+      },
+      {
+        "image": "gcr.io/google-samples/microservices-demo/productcatalogservice:v0.8.0",
+        "critical_cves": 4,
+        "rollout_ok": true,
+        "serves_http_200": true
+      },
+      {
+        "image": "gcr.io/google-samples/microservices-demo/productcatalogservice:v0.7.0",
+        "critical_cves": 5,
+        "rollout_ok": true,
+        "serves_http_200": true
+      },
+      {
+        "image": "gcr.io/google-samples/microservices-demo/productcatalogservice:v0.6.0",
+        "critical_cves": 5
+      },
+      {
+        "image": "gcr.io/google-samples/microservices-demo/productcatalogservice:v0.5.0",
+        "critical_cves": 5
+      },
+      {
+        "image": "gcr.io/google-samples/microservices-demo/productcatalogservice:v0.4.0",
+        "critical_cves": 5
+      },
+      {
+        "image": "gcr.io/google-samples/microservices-demo/productcatalogservice:v0.3.0",
+        "critical_cves": 8
+      },
+      {
+        "image": "gcr.io/google-samples/microservices-demo/productcatalogservice:v0.2.0",
+        "critical_cves": 1
+      },
+      {
+        "image": "gcr.io/google-samples/microservices-demo/productcatalogservice:v0.1.0",
+        "critical_cves": 1
+      }
+    ]
+  }
+}

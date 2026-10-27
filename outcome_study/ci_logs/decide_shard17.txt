@@ -1,0 +1,22 @@
+AAF OS-02-W 2 Mitigate and monitor
+B5 OS-11 3 Patch or block release
+AAF OS-06 1 Patch or block release
+AAF OX-08-W 3 Patch or block release
+B6 OS-11 1 Escalate for evidence/human review
+B5 OS-02-W 1 Mitigate and monitor
+B6 OS-06-W 3 Block release and fix pipeline
+B5 OX-02-W 3 Rollback to stable deployment
+AAF OS-06-W 3 Patch or block release
+B5 OS-06-W 3 Block release and fix pipeline
+AAF OS-05 3 Patch or block release
+AAF OX-10-W 3 Mitigate and monitor
+B6 OX-12 1 Patch or block release
+B5 OX-09 3 Rollback to stable deployment
+B5 OS-04 1 Patch or block release
+B5 OX-15-W 3 Block release and fix pipeline
+AAF OC-01 1 Mitigate and monitor
+B5 OX-16-W 3 Rollback to stable deployment
+AAF OS-04 3 Patch or block release
+B5 OX-13 2 Patch or block release
+B5 OX-14 1 Patch or block release
+AAF OX-02-W 1 Mitigate and monitor

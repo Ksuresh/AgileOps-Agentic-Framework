@@ -1,0 +1,4 @@
+AAF-12 PS-03-W 2 Patch or block release
+AAF-12 PD-05 2 Scale adjustment
+AAF-12 PR-02 2 Rollback to stable deployment
+AAF-12 PP-05 1 Rollback to stable deployment

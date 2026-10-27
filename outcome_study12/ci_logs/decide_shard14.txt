@@ -1,0 +1,7 @@
+AAF-12 PR-07 2 Rollback to stable deployment
+AAF-12 PP-06 1 Rollback to stable deployment
+AAF-12 PS-04 3 Patch or block release
+AAF-12 PD-01 1 Scale adjustment
+AAF-12 PR-06 3 Rollback to stable deployment
+AAF-12 PR-04 3 Rollback to stable deployment
+AAF-12 PD-05 3 Scale adjustment

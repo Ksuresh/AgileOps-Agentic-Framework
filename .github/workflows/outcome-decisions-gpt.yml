@@ -1,0 +1,43 @@
+name: Outcome studies - frontier-model deciders (GPT-5.6 Luna)
+
+on:
+  push:
+    branches: [text-evidence-pilot]
+    paths: ["outcome_study/GPT_RUN"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 355
+    env:
+      PYTHONPATH: ${{ github.workspace }}
+      OPENAI_MODEL: gpt-5.6-luna
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install -r requirements.txt
+      - id: cfg
+        run: |
+          get() { grep -E "^$1=" outcome_study/GPT_RUN | cut -d= -f2-; }
+          echo "STUDY=$(get STUDY)" >> $GITHUB_ENV; echo "MAX_CALLS=$(get MAX_CALLS)" >> $GITHUB_ENV
+          echo "MAX_TOKENS=$(get MAX_TOKENS)" >> $GITHUB_ENV; echo "ARMS=$(get ARMS)" >> $GITHUB_ENV; echo "WORKERS=$(get WORKERS)" >> $GITHUB_ENV
+      - name: Run
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: |
+          mkdir -p $STUDY/decisions_gpt
+          python outcome_study/decide_gpt.py 2>&1 | tail -c 60000 > $STUDY/decisions_gpt/run_log_${GITHUB_RUN_ID}.txt; exit ${PIPESTATUS[0]}
+      - name: Commit
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f $STUDY/decisions_gpt
+          git commit -m "GPT deciders on $STUDY: run ${GITHUB_RUN_ID} [skip ci]" || echo "nothing"
+          for i in 1 2 3 4 5 6 7 8; do git pull --rebase origin ${GITHUB_REF_NAME} && git push origin HEAD:${GITHUB_REF_NAME} && break; sleep $((i*9)); done

@@ -1,0 +1,41 @@
+\begin{table*}[!t]
+\caption{Confirmatory Studies 14--16: Outcome-Correct Actions on Fresh Fault Cases Under $O_1$ and $O_2$}
+\label{tab:confirm}
+\centering\footnotesize\setlength\tabcolsep{4pt}
+\begin{tabular}{L{5.5cm}>{\centering\arraybackslash}p{1.25cm}>{\centering\arraybackslash}p{1.25cm}>{\centering\arraybackslash}p{1.25cm}>{\centering\arraybackslash}p{1.25cm}>{\centering\arraybackslash}p{1.25cm}>{\centering\arraybackslash}p{1.5cm}>{\centering\arraybackslash}p{1.45cm}>{\centering\arraybackslash}p{1.5cm}}
+\toprule
+ & \multicolumn{4}{c}{\textbf{Outcome-correct, $O_1$}} & \textbf{$O_2$} & \multicolumn{3}{c}{\textbf{AAF vs.\ this decider ($O_1$, pooled)}} \\
+\cmidrule(lr){2-5}\cmidrule(lr){6-6}\cmidrule(lr){7-9}
+\textbf{Decider} & \textbf{S14}\newline OB\newline $n{=}34$ & \textbf{S15}\newline OB\newline $n{=}42$ & \textbf{S16}\newline Sock Shop\newline $n{=}28$ & \textbf{Pooled}\newline all\newline $n{=}104$ & \textbf{Pooled}\newline all\newline $n{=}104$ & \textbf{Cases}\newline AAF / other only & \textbf{$p_{\text{Holm}}$}\newline (cases) & \textbf{Families}\newline AAF / other better \\
+\midrule
+\multicolumn{9}{l}{\textit{AAF}} \\
+\quad AAF, GPT-5.6 Luna investigator & 34 & 42 & 28 & 104 & 78 & -- & -- & -- \\
+\quad AAF, Qwen3-8B investigator & 34 & 42 & 28 & 104 & 78 & -- & -- & -- \\
+\quad AAF rules alone (no investigation) & 34 & 42 & 28 & 104 & 78 & -- & -- & -- \\
+\midrule
+\multicolumn{9}{l}{\textit{LLM decides from the same evidence}} \\
+\quad GPT-5.6 Luna, AAF's rules in prompt (B6) & 28 & 30 & 22 & 80 & 63 & 24 / 0 & $1.2\times10^{-7}$ & 16 / 0 \\
+\quad GPT-5.6 Luna (B5) & 29 & 29 & 20 & 78 & 43 & 26 / 0 & $6.0\times10^{-8}$ & 15 / 0 \\
+\quad Qwen3-8B, AAF's rules in prompt (B6) & 29 & 32 & 19 & 80 & 62 & 24 / 0 & $1.2\times10^{-7}$ & 17 / 0 \\
+\quad Qwen3-8B (B5) & 26 & 27 & 21 & 74 & 38 & 30 / 0 & $5.6\times10^{-9}$ & 17 / 0 \\
+\midrule
+\multicolumn{9}{l}{\textit{Fixed policies}} \\
+\quad Always roll back & 26 & 30 & 21 & 77 & 25 & 27 / 0 & $3.0\times10^{-8}$ & 13 / 0 \\
+\quad Act on most severe domain & 21 & 25 & 17 & 63 & 49 & -- & -- & 25 / 0 \\
+\quad Block on any vulnerability & 26 & 21 & 15 & 62 & 46 & -- & -- & -- \\
+\midrule
+\multicolumn{9}{l}{\textit{Single-domain experts, AAF's rules on one domain}} \\
+\quad Security expert & 26 & 21 & 15 & 62 & 46 & 42 / 0 & $9.1\times10^{-13}$ & 22 / 0 \\
+\quad DevOps expert & 14 & 18 & 16 & 48 & 23 & 56 / 0 & $8.3\times10^{-17}$ & 28 / 0 \\
+\quad FinOps expert & 11 & 10 & 5 & 26 & 24 & 78 / 0 & $4.0\times10^{-23}$ & 39 / 0 \\
+\quad SRE expert & 9 & 6 & 5 & 20 & 15 & 84 / 0 & $7.2\times10^{-25}$ & 38 / 0 \\
+\midrule
+\multicolumn{9}{l}{\textit{Single-domain experts, LLM}} \\
+\quad Security expert & 23 & 24 & 18 & 65 & 32 & 39 / 0 & $3.6\times10^{-12}$ & 24 / 0 \\
+\quad DevOps expert & 14 & 12 & 14 & 40 & 14 & 64 / 0 & $4.3\times10^{-19}$ & 31 / 0 \\
+\quad SRE expert & 15 & 12 & 9 & 36 & 23 & 68 / 0 & $3.4\times10^{-20}$ & 32 / 0 \\
+\quad FinOps expert & 9 & 3 & 3 & 15 & 9 & 89 / 0 & $2.6\times10^{-26}$ & 41 / 0 \\
+\bottomrule
+\end{tabular}
+\par\vspace{2pt}\raggedright\scriptsize Cells give the number of fault cases with an outcome-correct action. OB: Online Boutique (two services in S14, three in S15). $O_1$: the action leaves the fewest reliability, security and cost violations. $O_2$: among those, the actions that keep the feature delivered and then use the least resources; it is an efficiency preference, not a safety measure: every AAF decision that missed $O_2$ was $O_1$-correct, and most of them removed a security or reliability violation where the $O_2$ action would have left it in place (Section~\ref{sec:res-crossdomain}). Tests: exact McNemar on cases, Holm-adjusted within the pre-specified families (single-domain experts; Qwen3-8B deciders and always-rollback; GPT-5.6 Luna deciders); families: cases of the same design on different services of one study (45 families), sign test in the text. Rule experts: v1.4 in Studies 15--16, v1.0 in Study 14 as pre-specified. Qwen3-8B: majority of three runs; GPT-5.6 Luna: one run. Comparisons use AAF with the pre-specified Qwen3-8B investigator; its action with the GPT-5.6 Luna investigator and with the rules alone was identical on every case.
+\end{table*}

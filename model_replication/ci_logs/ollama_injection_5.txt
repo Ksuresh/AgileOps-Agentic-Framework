@@ -1,0 +1,50 @@
+slot print_timing: id  0 | task 20249 | n_gen =    114, tg =   4.60 t/s, tg_3s =   4.54 t/s
+slot print_timing: id  0 | task 20249 | n_gen =    128, tg =   4.60 t/s, tg_3s =   4.56 t/s
+slot print_timing: id  0 | task 20249 | n_gen =    142, tg =   4.58 t/s, tg_3s =   4.42 t/s
+slot print_timing: id  0 | task 20249 | n_gen =    156, tg =   4.57 t/s, tg_3s =   4.46 t/s
+slot print_timing: id  0 | task 20249 | n_gen =    170, tg =   4.55 t/s, tg_3s =   4.40 t/s
+slot print_timing: id  0 | task 20249 | n_gen =    184, tg =   4.55 t/s, tg_3s =   4.56 t/s
+slot print_timing: id  0 | task 20249 | n_gen =    198, tg =   4.55 t/s, tg_3s =   4.44 t/s
+slot print_timing: id  0 | task 20249 | n_gen =    212, tg =   4.54 t/s, tg_3s =   4.51 t/s
+slot print_timing: id  0 | task 20249 | n_gen =    226, tg =   4.54 t/s, tg_3s =   4.49 t/s
+slot print_timing: id  0 | task 20249 | n_gen =    240, tg =   4.53 t/s, tg_3s =   4.43 t/s
+slot print_timing: id  0 | task 20249 | n_gen =    254, tg =   4.53 t/s, tg_3s =   4.55 t/s
+slot print_timing: id  0 | task 20249 | n_gen =    268, tg =   4.53 t/s, tg_3s =   4.50 t/s
+slot print_timing: id  0 | task 20249 | n_gen =    282, tg =   4.53 t/s, tg_3s =   4.52 t/s
+slot print_timing: id  0 | task 20249 | n_gen =    296, tg =   4.53 t/s, tg_3s =   4.42 t/s
+slot print_timing: id  0 | task 20249 | n_gen =    310, tg =   4.52 t/s, tg_3s =   4.33 t/s
+slot print_timing: id  0 | task 20249 | n_gen =    323, tg =   4.51 t/s, tg_3s =   4.29 t/s
+slot print_timing: id  0 | task 20249 | n_gen =    337, tg =   4.50 t/s, tg_3s =   4.38 t/s
+slot print_timing: id  0 | task 20249 | n_gen =    350, tg =   4.50 t/s, tg_3s =   4.32 t/s
+slot print_timing: id  0 | task 20249 | n_gen =    364, tg =   4.49 t/s, tg_3s =   4.34 t/s
+slot print_timing: id  0 | task 20249 | n_gen =    378, tg =   4.48 t/s, tg_3s =   4.37 t/s
+slot print_timing: id  0 | task 20249 | n_gen =    391, tg =   4.48 t/s, tg_3s =   4.30 t/s
+slot print_timing: id  0 | task 20249 | n_gen =    404, tg =   4.47 t/s, tg_3s =   4.29 t/s
+slot print_timing: id  0 | task 20249 | n_gen =    417, tg =   4.47 t/s, tg_3s =   4.31 t/s
+slot print_timing: id  0 | task 20249 | n_gen =    431, tg =   4.46 t/s, tg_3s =   4.35 t/s
+slot print_timing: id  0 | task 20249 | n_gen =    444, tg =   4.45 t/s, tg_3s =   4.19 t/s
+slot print_timing: id  0 | task 20249 | n_gen =    456, tg =   4.44 t/s, tg_3s =   3.99 t/s
+slot print_timing: id  0 | task 20249 | n_gen =    470, tg =   4.44 t/s, tg_3s =   4.40 t/s
+slot print_timing: id  0 | task 20249 | n_gen =    484, tg =   4.44 t/s, tg_3s =   4.35 t/s
+slot print_timing: id  0 | task 20249 | n_gen =    498, tg =   4.43 t/s, tg_3s =   4.36 t/s
+slot print_timing: id  0 | task 20249 | n_gen =    512, tg =   4.43 t/s, tg_3s =   4.42 t/s
+slot print_timing: id  0 | task 20249 | n_gen =    526, tg =   4.43 t/s, tg_3s =   4.34 t/s
+slot print_timing: id  0 | task 20249 | n_gen =    539, tg =   4.43 t/s, tg_3s =   4.28 t/s
+slot print_timing: id  0 | task 20249 | n_gen =    552, tg =   4.42 t/s, tg_3s =   4.13 t/s
+slot print_timing: id  0 | task 20249 | n_gen =    565, tg =   4.41 t/s, tg_3s =   4.17 t/s
+slot print_timing: id  0 | task 20249 | n_gen =    578, tg =   4.41 t/s, tg_3s =   4.18 t/s
+slot print_timing: id  0 | task 20249 | n_gen =    591, tg =   4.40 t/s, tg_3s =   4.16 t/s
+slot print_timing: id  0 | task 20249 | n_gen =    604, tg =   4.40 t/s, tg_3s =   4.14 t/s
+slot print_timing: id  0 | task 20249 | n_gen =    617, tg =   4.39 t/s, tg_3s =   4.18 t/s
+slot print_timing: id  0 | task 20249 | n_gen =    630, tg =   4.39 t/s, tg_3s =   4.17 t/s
+slot print_timing: id  0 | task 20249 | n_gen =    643, tg =   4.38 t/s, tg_3s =   4.12 t/s
+slot print_timing: id  0 | task 20249 | n_gen =    656, tg =   4.38 t/s, tg_3s =   4.14 t/s
+slot print_timing: id  0 | task 20249 | n_gen =    669, tg =   4.37 t/s, tg_3s =   4.14 t/s
+slot print_timing: id  0 | task 20249 | prompt eval time =   39390.30 ms /   507 tokens (   77.69 ms per token,    12.87 tokens per second)
+slot print_timing: id  0 | task 20249 |        eval time =  153297.23 ms /   671 tokens (  228.80 ms per token,     4.37 tokens per second)
+slot print_timing: id  0 | task 20249 |       total time =  192687.52 ms /  1178 tokens
+slot print_timing: id  0 | task 20249 |    graphs reused =      20553
+slot print_timing: id  0 | task 20249 |   graph reallocs =          0    /     0        (same size) / (changed size)
+slot      release: id  0 | task 20249 | stop processing: n_tokens = 1671, truncated = 0
+srv  update_slots: all slots are idle
+[GIN] 2026/10/25 - 14:44:47 | 200 |    3m10s |       127.0.0.1 | POST     "/api/chat"

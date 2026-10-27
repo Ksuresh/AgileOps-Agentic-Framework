@@ -1,0 +1,292 @@
+# DEVELOPMENT PILOT ONLY — not confirmatory, never pooled with confirmatory data.
+# Authored 2026-10-21 after regex_reader.py was written; regex_reader.py is not edited after authoring.
+#
+# Each case: structured evidence (fields only present in text are null + status missing),
+# chronologically ordered text documents, the incident scope, and evaluator-only ground truth.
+# truth.<field>.quote is an exact substring of one document; method is how the value follows from it:
+#   literal            value is stated in the quote (digits, number words, or "no/none" for 0)
+#   count_lines        value = number of lines in the quoted log block
+#   time_span_seconds  value = seconds between the first and last HH:MM:SS timestamps in the quote
+# Evaluator-only keys (never shown to a reader): truth, tier, focus, notes.
+version: 0
+cases:
+
+# ---------------- EASY: explicit values, standard wording ----------------
+- id: TX-E01
+  tier: easy
+  focus: restart burst stated in incident note
+  scope: {service: checkout-api}
+  structured:
+    deploy: {restart_burst_count: null, restart_window_seconds: null, _evidence: {restart_burst_count: {status: missing}, restart_window_seconds: {status: missing}}}
+    sre: {p95_latency_ms: 920, error_rate_pct: 13, availability_pct: 98.1}
+  documents:
+    - {id: DOC-1, kind: incident_note, text: "Post-deploy of checkout-api v2.4.1: 5 pod restarts within 50 seconds, readiness probe failing."}
+  truth:
+    deploy.restart_burst_count: {value: 5, quote: "5 pod restarts", method: literal}
+    deploy.restart_window_seconds: {value: 50, quote: "within 50 seconds", method: literal}
+
+- id: TX-E02
+  tier: easy
+  focus: policy gate result in scan report
+  scope: {service: billing-api}
+  structured:
+    deploy: {config_drift: true}
+    sec: {critical_cves: 1, policy_violation: null, _evidence: {policy_violation: {status: missing}}}
+  documents:
+    - {id: DOC-1, kind: scan_report, text: "Release gate for billing-api 3.2.0: policy check failed (rule no-latest-tag)."}
+  truth:
+    sec.policy_violation: {value: true, quote: "policy check failed", method: literal}
+
+- id: TX-E03
+  tier: easy
+  focus: autoscaler replica count
+  scope: {service: cart-service}
+  structured:
+    sre: {p95_latency_ms: 850, error_rate_pct: 10, saturation_pct: 91}
+    finops: {cost_spike_pct: 28, hpa_scale_to: null, _evidence: {hpa_scale_to: {status: missing}}}
+  documents:
+    - {id: DOC-1, kind: ops_log, text: "14:02 HPA scaled cart-service to 13 replicas after CPU alert."}
+  truth:
+    finops.hpa_scale_to: {value: 13, quote: "scaled cart-service to 13 replicas", method: literal}
+
+- id: TX-E04
+  tier: easy
+  focus: error rate in status update
+  scope: {service: orders-api}
+  structured:
+    sre: {p95_latency_ms: 520, error_rate_pct: null, saturation_pct: 87, availability_pct: 98.8, _evidence: {error_rate_pct: {status: missing}}}
+  documents:
+    - {id: DOC-1, kind: status_update, text: "orders-api: error rate is currently 11.5% on /api/orders, on-call investigating."}
+  truth:
+    sre.error_rate_pct: {value: 11.5, quote: "error rate is currently 11.5%", method: literal}
+
+- id: TX-E05
+  tier: easy
+  focus: cost report
+  scope: {service: search-api}
+  structured:
+    finops: {cost_spike_pct: null, hpa_scale_to: 14, cpu_request_increase_pct: 55, _evidence: {cost_spike_pct: {status: missing}}}
+    sre: {p95_latency_ms: 260, error_rate_pct: 2}
+  documents:
+    - {id: DOC-1, kind: cost_report, text: "Daily cost report for search-api: spend up 36% versus the 7-day baseline."}
+  truth:
+    finops.cost_spike_pct: {value: 36, quote: "spend up 36%", method: literal}
+
+- id: TX-E06
+  tier: easy
+  focus: CVE count in scanner output
+  scope: {service: auth-api}
+  structured:
+    sec: {critical_cves: null, policy_violation: true, _evidence: {critical_cves: {status: missing}}}
+    deploy: {pipeline_failed: false}
+  documents:
+    - {id: DOC-1, kind: scan_report, text: "Trivy scan of auth-api:1.9.0 found 2 critical CVEs in the base image (openssl)."}
+  truth:
+    sec.critical_cves: {value: 2, quote: "2 critical CVEs", method: literal}
+
+# ---------------- MEDIUM: paraphrase, unit conversion, number words, split across documents ----------------
+- id: TX-M01
+  tier: medium
+  focus: latency in seconds, not ms
+  scope: {service: checkout-api}
+  structured:
+    sre: {p95_latency_ms: null, error_rate_pct: 12.5, availability_pct: 98.6, _evidence: {p95_latency_ms: {status: missing}}}
+  documents:
+    - {id: DOC-1, kind: chat, text: "p95 has climbed to 0.9 s since the canary went to 50%, holding there."}
+  truth:
+    sre.p95_latency_ms: {value: 900, quote: "p95 has climbed to 0.9 s", method: literal}
+
+- id: TX-M02
+  tier: medium
+  focus: restart count and window split across two documents, number words
+  scope: {service: orders-svc}
+  structured:
+    deploy: {restart_burst_count: null, restart_window_seconds: null, _evidence: {restart_burst_count: {status: missing}, restart_window_seconds: {status: missing}}}
+    sre: {p95_latency_ms: 880, error_rate_pct: 12}
+  documents:
+    - {id: DOC-1, kind: alert_summary, text: "orders-svc restarted four times right after the 11:05 rollout."}
+    - {id: DOC-2, kind: incident_note, text: "Confirmed: all of those restarts happened within one minute of the rollout."}
+  truth:
+    deploy.restart_burst_count: {value: 4, quote: "restarted four times", method: literal}
+    deploy.restart_window_seconds: {value: 60, quote: "within one minute", method: literal}
+
+- id: TX-M03
+  tier: medium
+  focus: saturation described as CPU sitting at a level
+  scope: {service: catalog-api}
+  structured:
+    deploy: {config_drift: true}
+    sre: {p95_latency_ms: 500, error_rate_pct: 8.5, saturation_pct: null, _evidence: {saturation_pct: {status: missing}}}
+    finops: {cost_spike_pct: 25, hpa_scale_to: 11}
+  documents:
+    - {id: DOC-1, kind: chat, text: "Node pool behind catalog-api is running hot, CPU sitting at 92% across the pool."}
+  truth:
+    sre.saturation_pct: {value: 92, quote: "CPU sitting at 92%", method: literal}
+
+- id: TX-M04
+  tier: medium
+  focus: configuration drift described in GitOps terms
+  scope: {service: payments-api}
+  structured:
+    deploy: {config_drift: null, pipeline_failed: false, _evidence: {config_drift: {status: missing}}}
+    sec: {critical_cves: 1, policy_violation: false}
+  documents:
+    - {id: DOC-1, kind: pr_comment, text: "Argo CD shows payments-api OutOfSync: the live configmap differs from the approved values in git."}
+  truth:
+    deploy.config_drift: {value: true, quote: "the live configmap differs from the approved values in git", method: literal}
+
+- id: TX-M05
+  tier: medium
+  focus: cost increase as a compound number word
+  scope: {service: reco-engine}
+  structured:
+    finops: {cost_spike_pct: null, hpa_scale_to: 15, _evidence: {cost_spike_pct: {status: missing}}}
+    sre: {p95_latency_ms: 240, error_rate_pct: 1.0}
+  documents:
+    - {id: DOC-1, kind: email, text: "FinOps note: reco-engine namespace spend jumped thirty-eight percent week over week."}
+  truth:
+    finops.cost_spike_pct: {value: 38, quote: "thirty-eight percent", method: literal}
+
+- id: TX-M06
+  tier: medium
+  focus: availability phrased as uptime over the incident window
+  scope: {service: profile-api}
+  structured:
+    sre: {p95_latency_ms: 300, error_rate_pct: 3, availability_pct: null, _evidence: {availability_pct: {status: missing}}}
+  documents:
+    - {id: DOC-1, kind: slo_report, text: "profile-api SLO report. Uptime across the incident window was 97.9 % against a 99.5 % target."}
+  truth:
+    sre.availability_pct: {value: 97.9, quote: "Uptime across the incident window was 97.9 %", method: literal}
+
+# ---------------- HARD: superseded values, out-of-scope decoys, negation, counting from logs, implied facts ----------------
+- id: TX-H01
+  tier: hard
+  focus: superseded value inside one sentence (peak vs current)
+  scope: {service: inventory-api}
+  structured:
+    sre: {p95_latency_ms: 470, error_rate_pct: null, availability_pct: 99.1, _evidence: {error_rate_pct: {status: missing}}}
+  documents:
+    - {id: DOC-1, kind: status_update, text: "inventory-api error rate peaked at 14% at 09:40 but has recovered to 1.2% as of 10:30."}
+  truth:
+    sre.error_rate_pct: {value: 1.2, quote: "has recovered to 1.2% as of 10:30", method: literal}
+
+- id: TX-H02
+  tier: hard
+  focus: out-of-scope service mentioned last with a larger value
+  scope: {service: checkout-api}
+  structured:
+    sre: {p95_latency_ms: null, error_rate_pct: 2.1, availability_pct: 99.7, _evidence: {p95_latency_ms: {status: missing}}}
+  documents:
+    - {id: DOC-1, kind: chat, text: "checkout-api p95 is 380 ms and stable; payments-api (separate incident, not in scope) is at p95 1,400 ms."}
+  truth:
+    sre.p95_latency_ms: {value: 380, quote: "checkout-api p95 is 380 ms", method: literal}
+
+- id: TX-H03
+  tier: hard
+  focus: negation with an older, fixed count
+  scope: {service: gateway}
+  structured:
+    sec: {critical_cves: null, policy_violation: false, _evidence: {critical_cves: {status: missing}}}
+    deploy: {pipeline_failed: false}
+  documents:
+    - {id: DOC-1, kind: scan_report, text: "gateway 4.1.2 rescan: no critical CVEs remain; the 2 critical CVEs reported yesterday were fixed in the rebase."}
+  truth:
+    sec.critical_cves: {value: 0, quote: "no critical CVEs remain", method: literal}
+
+- id: TX-H04
+  tier: hard
+  focus: restart burst must be counted from raw kubelet log lines
+  scope: {service: checkout}
+  structured:
+    deploy: {restart_burst_count: null, restart_window_seconds: null, _evidence: {restart_burst_count: {status: missing}, restart_window_seconds: {status: missing}}}
+    sre: {p95_latency_ms: 910, error_rate_pct: 13, availability_pct: 98.2}
+  documents:
+    - id: DOC-1
+      kind: kubelet_log
+      text: |-
+        14:01:58 deployment checkout rolled out revision 42
+        14:02:10 kubelet: Back-off restarting failed container checkout in pod checkout-7d9f
+        14:02:24 kubelet: Back-off restarting failed container checkout in pod checkout-7d9f
+        14:02:39 kubelet: Back-off restarting failed container checkout in pod checkout-7d9f
+        14:02:51 kubelet: Back-off restarting failed container checkout in pod checkout-7d9f
+        14:03:04 kubelet: Back-off restarting failed container checkout in pod checkout-7d9f
+  truth:
+    deploy.restart_burst_count:
+      value: 5
+      method: count_lines
+      quote: |-
+        14:02:10 kubelet: Back-off restarting failed container checkout in pod checkout-7d9f
+        14:02:24 kubelet: Back-off restarting failed container checkout in pod checkout-7d9f
+        14:02:39 kubelet: Back-off restarting failed container checkout in pod checkout-7d9f
+        14:02:51 kubelet: Back-off restarting failed container checkout in pod checkout-7d9f
+        14:03:04 kubelet: Back-off restarting failed container checkout in pod checkout-7d9f
+    deploy.restart_window_seconds:
+      value: 54
+      method: time_span_seconds
+      quote: |-
+        14:02:10 kubelet: Back-off restarting failed container checkout in pod checkout-7d9f
+        14:02:24 kubelet: Back-off restarting failed container checkout in pod checkout-7d9f
+        14:02:39 kubelet: Back-off restarting failed container checkout in pod checkout-7d9f
+        14:02:51 kubelet: Back-off restarting failed container checkout in pod checkout-7d9f
+        14:03:04 kubelet: Back-off restarting failed container checkout in pod checkout-7d9f
+
+- id: TX-H05
+  tier: hard
+  focus: policy gate passed in scope, failed for an unrelated service
+  scope: {service: checkout-api}
+  structured:
+    deploy: {config_drift: true}
+    sec: {critical_cves: 0, policy_violation: null, _evidence: {policy_violation: {status: missing}}}
+  documents:
+    - {id: DOC-1, kind: ci_log, text: "Policy gate for checkout-api: PASSED. Separately, the inventory-api policy gate failed on its own release (unrelated)."}
+  truth:
+    sec.policy_violation: {value: false, quote: "Policy gate for checkout-api: PASSED", method: literal}
+
+- id: TX-H06
+  tier: hard
+  focus: later document supersedes earlier replica count
+  scope: {service: media-transcoder}
+  structured:
+    sre: {p95_latency_ms: 860, error_rate_pct: 9, saturation_pct: 93}
+    finops: {cost_spike_pct: 30, hpa_scale_to: null, cpu_request_increase_pct: 52, _evidence: {hpa_scale_to: {status: missing}}}
+  documents:
+    - {id: DOC-1, kind: ops_log, text: "09:10 media-transcoder scaled out to 16 replicas during the batch spike."}
+    - {id: DOC-2, kind: ops_log, text: "09:55 batch finished; autoscaler brought media-transcoder back down and it now runs 6 replicas."}
+  truth:
+    finops.hpa_scale_to: {value: 6, quote: "it now runs 6 replicas", method: literal}
+
+- id: TX-H07
+  tier: hard
+  focus: several fields in one narrative incident note
+  scope: {service: booking-api}
+  structured:
+    deploy: {restart_burst_count: null, restart_window_seconds: null, _evidence: {restart_burst_count: {status: missing}, restart_window_seconds: {status: missing}}}
+    sre: {p95_latency_ms: 640, error_rate_pct: null, availability_pct: 98.9, _evidence: {error_rate_pct: {status: missing}}}
+  documents:
+    - {id: DOC-1, kind: incident_note, text: "Timeline for booking-api. 16:20 v7 deployed. Within 40 seconds the pods had cycled three times. By 16:30 roughly one request in ten was failing with 503s."}
+  truth:
+    deploy.restart_burst_count: {value: 3, quote: "the pods had cycled three times", method: literal}
+    deploy.restart_window_seconds: {value: 40, quote: "Within 40 seconds", method: literal}
+    sre.error_rate_pct: {value: 10, quote: "one request in ten was failing", method: literal}
+
+# ---------------- CONTROL: nothing (or nothing new) to extract ----------------
+- id: TX-X01
+  tier: control
+  focus: healthy status text
+  scope: {service: notify-api}
+  structured:
+    sre: {p95_latency_ms: 190, error_rate_pct: null, saturation_pct: 40, _evidence: {error_rate_pct: {status: missing}}}
+  documents:
+    - {id: DOC-1, kind: status_update, text: "Routine check on notify-api: all dashboards green, error rate 0.4%, nothing to report."}
+  truth:
+    sre.error_rate_pct: {value: 0.4, quote: "error rate 0.4%", method: literal}
+
+- id: TX-X02
+  tier: control
+  focus: irrelevant text; a reader should extract nothing
+  scope: {service: notify-api}
+  structured:
+    sre: {p95_latency_ms: 210, error_rate_pct: null, saturation_pct: 45, _evidence: {error_rate_pct: {status: missing}}}
+  documents:
+    - {id: DOC-1, kind: standup_notes, text: "Sprint 14 standup: velocity 34 points, 2 bugs closed, 5 PRs waiting for review, retro on Friday."}
+  truth: {}

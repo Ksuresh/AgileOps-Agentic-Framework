@@ -1,0 +1,8 @@
+{
+  "timestamp_utc": "2026-09-10T02:28:30.867534+00:00",
+  "model": "gpt-5.6-luna",
+  "reasoning_effort": "none",
+  "dataset": "agentic_experiments/cases_v1.yaml",
+  "dataset_sha256": "98fd94278193d2c48fffb11ff0b76e96d8233585bf52e52570516f35911913b5",
+  "n_cases": 32
+}

@@ -1,0 +1,24 @@
+B5 RP-I01 1 No action (observe) 186.9 s
+B5 AG-C08 1 No action (observe) 189.0 s
+B6 AG-A03 1 Rollback to stable deployment 626.8 s
+AAF AG-M06 1 Mitigate and monitor 0.0 s
+AAF NV-M05 1 Patch or block release 0.0 s
+AAF NV-U06 1 No action (observe) 0.0 s
+B6 AG-I06 1 No action (observe) 425.9 s
+AAF NV-C03 1 Patch or block release 0.0 s
+AAF RP-M03 1 Mitigate and monitor 0.0 s
+B6 AG-I05 1 No action (observe) 627.4 s
+B5 AG-M05 1 No action (observe) 177.0 s
+B5 AG-A05 1 No action (observe) 172.0 s
+B6 NV-A01 1 No action (observe) 443.4 s
+B6 RP-A04 1 No action (observe) 442.7 s
+B6 AG-C01 1 Rollback to stable deployment 453.2 s
+B5 NV-U07 1 No action (observe) 152.1 s
+B5 AG-I04 1 No action (observe) 136.9 s
+B6 NV-M04 1 No action (observe) 490.0 s
+AAF NV-U01 1 Mitigate and monitor 107.2 s
+B6 AG-A02 1 No action (observe) 440.3 s
+B5 NV-I01 1 No action (observe) 148.8 s
+B6 NV-C02 1 No action (observe) 448.3 s
+B6 AG-C02 1 No action (observe) 664.5 s
+AAF RP-A03 1 Patch or block release 53.9 s

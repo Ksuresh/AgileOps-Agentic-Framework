@@ -1,0 +1,2656 @@
+{
+  "plan": "external_validation/aaf_v3/PLAN.md",
+  "suites": [
+    "RE1",
+    "RE3"
+  ],
+  "windows": 930,
+  "all": {
+    "v1": {
+      "admissible_all": {
+        "k": 640,
+        "n": 930,
+        "pct": 68.8,
+        "wilson95": [
+          65.8,
+          71.7
+        ]
+      },
+      "detection_fault": {
+        "k": 188,
+        "n": 465,
+        "pct": 40.4,
+        "wilson95": [
+          36.1,
+          45.0
+        ]
+      },
+      "admissible_fault": {
+        "k": 188,
+        "n": 465,
+        "pct": 40.4,
+        "wilson95": [
+          36.1,
+          45.0
+        ]
+      },
+      "false_alarm_control": {
+        "k": 13,
+        "n": 465,
+        "pct": 2.8,
+        "wilson95": [
+          1.6,
+          4.7
+        ]
+      },
+      "actions_fault": {
+        "Mitigate and monitor": 188,
+        "No action (observe)": 277
+      }
+    },
+    "v3": {
+      "admissible_all": {
+        "k": 885,
+        "n": 930,
+        "pct": 95.2,
+        "wilson95": [
+          93.6,
+          96.4
+        ]
+      },
+      "detection_fault": {
+        "k": 443,
+        "n": 465,
+        "pct": 95.3,
+        "wilson95": [
+          92.9,
+          96.9
+        ]
+      },
+      "admissible_fault": {
+        "k": 443,
+        "n": 465,
+        "pct": 95.3,
+        "wilson95": [
+          92.9,
+          96.9
+        ]
+      },
+      "false_alarm_control": {
+        "k": 23,
+        "n": 465,
+        "pct": 4.9,
+        "wilson95": [
+          3.3,
+          7.3
+        ]
+      },
+      "actions_fault": {
+        "Mitigate and monitor": 443,
+        "No action (observe)": 22
+      }
+    },
+    "baseline": {
+      "admissible_all": {
+        "k": 790,
+        "n": 930,
+        "pct": 84.9,
+        "wilson95": [
+          82.5,
+          87.1
+        ]
+      },
+      "detection_fault": {
+        "k": 458,
+        "n": 465,
+        "pct": 98.5,
+        "wilson95": [
+          96.9,
+          99.3
+        ]
+      },
+      "admissible_fault": {
+        "k": 458,
+        "n": 465,
+        "pct": 98.5,
+        "wilson95": [
+          96.9,
+          99.3
+        ]
+      },
+      "false_alarm_control": {
+        "k": 133,
+        "n": 465,
+        "pct": 28.6,
+        "wilson95": [
+          24.7,
+          32.9
+        ]
+      },
+      "actions_fault": {
+        "Mitigate and monitor": 458,
+        "No action (observe)": 7
+      }
+    },
+    "paired": {
+      "v3_vs_v1": {
+        "first_only": 255,
+        "second_only": 10,
+        "exact_p": 1.391e-62
+      },
+      "v3_vs_baseline": {
+        "first_only": 110,
+        "second_only": 15,
+        "exact_p": 4.919e-19
+      }
+    }
+  },
+  "by_suite": {
+    "RE1": {
+      "v1": {
+        "admissible_all": {
+          "k": 549,
+          "n": 750,
+          "pct": 73.2,
+          "wilson95": [
+            69.9,
+            76.2
+          ]
+        },
+        "detection_fault": {
+          "k": 186,
+          "n": 375,
+          "pct": 49.6,
+          "wilson95": [
+            44.6,
+            54.6
+          ]
+        },
+        "admissible_fault": {
+          "k": 186,
+          "n": 375,
+          "pct": 49.6,
+          "wilson95": [
+            44.6,
+            54.6
+          ]
+        },
+        "false_alarm_control": {
+          "k": 12,
+          "n": 375,
+          "pct": 3.2,
+          "wilson95": [
+            1.8,
+            5.5
+          ]
+        },
+        "actions_fault": {
+          "Mitigate and monitor": 186,
+          "No action (observe)": 189
+        }
+      },
+      "v3": {
+        "admissible_all": {
+          "k": 711,
+          "n": 750,
+          "pct": 94.8,
+          "wilson95": [
+            93.0,
+            96.2
+          ]
+        },
+        "detection_fault": {
+          "k": 353,
+          "n": 375,
+          "pct": 94.1,
+          "wilson95": [
+            91.3,
+            96.1
+          ]
+        },
+        "admissible_fault": {
+          "k": 353,
+          "n": 375,
+          "pct": 94.1,
+          "wilson95": [
+            91.3,
+            96.1
+          ]
+        },
+        "false_alarm_control": {
+          "k": 17,
+          "n": 375,
+          "pct": 4.5,
+          "wilson95": [
+            2.8,
+            7.1
+          ]
+        },
+        "actions_fault": {
+          "Mitigate and monitor": 353,
+          "No action (observe)": 22
+        }
+      },
+      "baseline": {
+        "admissible_all": {
+          "k": 638,
+          "n": 750,
+          "pct": 85.1,
+          "wilson95": [
+            82.3,
+            87.4
+          ]
+        },
+        "detection_fault": {
+          "k": 368,
+          "n": 375,
+          "pct": 98.1,
+          "wilson95": [
+            96.2,
+            99.1
+          ]
+        },
+        "admissible_fault": {
+          "k": 368,
+          "n": 375,
+          "pct": 98.1,
+          "wilson95": [
+            96.2,
+            99.1
+          ]
+        },
+        "false_alarm_control": {
+          "k": 105,
+          "n": 375,
+          "pct": 28.0,
+          "wilson95": [
+            23.7,
+            32.7
+          ]
+        },
+        "actions_fault": {
+          "Mitigate and monitor": 368,
+          "No action (observe)": 7
+        }
+      },
+      "paired": {
+        "v3_vs_v1": {
+          "first_only": 167,
+          "second_only": 5,
+          "exact_p": 4.073e-43
+        },
+        "v3_vs_baseline": {
+          "first_only": 88,
+          "second_only": 15,
+          "exact_p": 9.655e-14
+        }
+      }
+    },
+    "RE3": {
+      "v1": {
+        "admissible_all": {
+          "k": 91,
+          "n": 180,
+          "pct": 50.6,
+          "wilson95": [
+            43.3,
+            57.8
+          ]
+        },
+        "detection_fault": {
+          "k": 2,
+          "n": 90,
+          "pct": 2.2,
+          "wilson95": [
+            0.6,
+            7.7
+          ]
+        },
+        "admissible_fault": {
+          "k": 2,
+          "n": 90,
+          "pct": 2.2,
+          "wilson95": [
+            0.6,
+            7.7
+          ]
+        },
+        "false_alarm_control": {
+          "k": 1,
+          "n": 90,
+          "pct": 1.1,
+          "wilson95": [
+            0.2,
+            6.0
+          ]
+        },
+        "actions_fault": {
+          "No action (observe)": 88,
+          "Mitigate and monitor": 2
+        }
+      },
+      "v3": {
+        "admissible_all": {
+          "k": 174,
+          "n": 180,
+          "pct": 96.7,
+          "wilson95": [
+            92.9,
+            98.5
+          ]
+        },
+        "detection_fault": {
+          "k": 90,
+          "n": 90,
+          "pct": 100.0,
+          "wilson95": [
+            95.9,
+            100.0
+          ]
+        },
+        "admissible_fault": {
+          "k": 90,
+          "n": 90,
+          "pct": 100.0,
+          "wilson95": [
+            95.9,
+            100.0
+          ]
+        },
+        "false_alarm_control": {
+          "k": 6,
+          "n": 90,
+          "pct": 6.7,
+          "wilson95": [
+            3.1,
+            13.8
+          ]
+        },
+        "actions_fault": {
+          "Mitigate and monitor": 90
+        }
+      },
+      "baseline": {
+        "admissible_all": {
+          "k": 152,
+          "n": 180,
+          "pct": 84.4,
+          "wilson95": [
+            78.4,
+            89.0
+          ]
+        },
+        "detection_fault": {
+          "k": 90,
+          "n": 90,
+          "pct": 100.0,
+          "wilson95": [
+            95.9,
+            100.0
+          ]
+        },
+        "admissible_fault": {
+          "k": 90,
+          "n": 90,
+          "pct": 100.0,
+          "wilson95": [
+            95.9,
+            100.0
+          ]
+        },
+        "false_alarm_control": {
+          "k": 28,
+          "n": 90,
+          "pct": 31.1,
+          "wilson95": [
+            22.5,
+            41.3
+          ]
+        },
+        "actions_fault": {
+          "Mitigate and monitor": 90
+        }
+      },
+      "paired": {
+        "v3_vs_v1": {
+          "first_only": 88,
+          "second_only": 5,
+          "exact_p": 1.111e-20
+        },
+        "v3_vs_baseline": {
+          "first_only": 22,
+          "second_only": 0,
+          "exact_p": 4.768e-07
+        }
+      }
+    }
+  },
+  "by_dataset": {
+    "RE1-OB": {
+      "v1": {
+        "admissible_all": {
+          "k": 187,
+          "n": 250,
+          "pct": 74.8,
+          "wilson95": [
+            69.1,
+            79.8
+          ]
+        },
+        "detection_fault": {
+          "k": 63,
+          "n": 125,
+          "pct": 50.4,
+          "wilson95": [
+            41.8,
+            59.0
+          ]
+        },
+        "admissible_fault": {
+          "k": 63,
+          "n": 125,
+          "pct": 50.4,
+          "wilson95": [
+            41.8,
+            59.0
+          ]
+        },
+        "false_alarm_control": {
+          "k": 1,
+          "n": 125,
+          "pct": 0.8,
+          "wilson95": [
+            0.1,
+            4.4
+          ]
+        },
+        "actions_fault": {
+          "Mitigate and monitor": 63,
+          "No action (observe)": 62
+        }
+      },
+      "v3": {
+        "admissible_all": {
+          "k": 236,
+          "n": 250,
+          "pct": 94.4,
+          "wilson95": [
+            90.8,
+            96.6
+          ]
+        },
+        "detection_fault": {
+          "k": 114,
+          "n": 125,
+          "pct": 91.2,
+          "wilson95": [
+            84.9,
+            95.0
+          ]
+        },
+        "admissible_fault": {
+          "k": 114,
+          "n": 125,
+          "pct": 91.2,
+          "wilson95": [
+            84.9,
+            95.0
+          ]
+        },
+        "false_alarm_control": {
+          "k": 3,
+          "n": 125,
+          "pct": 2.4,
+          "wilson95": [
+            0.8,
+            6.8
+          ]
+        },
+        "actions_fault": {
+          "Mitigate and monitor": 114,
+          "No action (observe)": 11
+        }
+      },
+      "baseline": {
+        "admissible_all": {
+          "k": 240,
+          "n": 250,
+          "pct": 96.0,
+          "wilson95": [
+            92.8,
+            97.8
+          ]
+        },
+        "detection_fault": {
+          "k": 120,
+          "n": 125,
+          "pct": 96.0,
+          "wilson95": [
+            91.0,
+            98.3
+          ]
+        },
+        "admissible_fault": {
+          "k": 120,
+          "n": 125,
+          "pct": 96.0,
+          "wilson95": [
+            91.0,
+            98.3
+          ]
+        },
+        "false_alarm_control": {
+          "k": 5,
+          "n": 125,
+          "pct": 4.0,
+          "wilson95": [
+            1.7,
+            9.0
+          ]
+        },
+        "actions_fault": {
+          "Mitigate and monitor": 120,
+          "No action (observe)": 5
+        }
+      },
+      "paired": {
+        "v3_vs_v1": {
+          "first_only": 51,
+          "second_only": 2,
+          "exact_p": 3.18e-13
+        },
+        "v3_vs_baseline": {
+          "first_only": 2,
+          "second_only": 6,
+          "exact_p": 0.2891
+        }
+      }
+    },
+    "RE1-SS": {
+      "v1": {
+        "admissible_all": {
+          "k": 170,
+          "n": 250,
+          "pct": 68.0,
+          "wilson95": [
+            62.0,
+            73.5
+          ]
+        },
+        "detection_fault": {
+          "k": 45,
+          "n": 125,
+          "pct": 36.0,
+          "wilson95": [
+            28.1,
+            44.7
+          ]
+        },
+        "admissible_fault": {
+          "k": 45,
+          "n": 125,
+          "pct": 36.0,
+          "wilson95": [
+            28.1,
+            44.7
+          ]
+        },
+        "false_alarm_control": {
+          "k": 0,
+          "n": 125,
+          "pct": 0.0,
+          "wilson95": [
+            0.0,
+            3.0
+          ]
+        },
+        "actions_fault": {
+          "No action (observe)": 80,
+          "Mitigate and monitor": 45
+        }
+      },
+      "v3": {
+        "admissible_all": {
+          "k": 243,
+          "n": 250,
+          "pct": 97.2,
+          "wilson95": [
+            94.3,
+            98.6
+          ]
+        },
+        "detection_fault": {
+          "k": 121,
+          "n": 125,
+          "pct": 96.8,
+          "wilson95": [
+            92.1,
+            98.7
+          ]
+        },
+        "admissible_fault": {
+          "k": 121,
+          "n": 125,
+          "pct": 96.8,
+          "wilson95": [
+            92.1,
+            98.7
+          ]
+        },
+        "false_alarm_control": {
+          "k": 3,
+          "n": 125,
+          "pct": 2.4,
+          "wilson95": [
+            0.8,
+            6.8
+          ]
+        },
+        "actions_fault": {
+          "Mitigate and monitor": 121,
+          "No action (observe)": 4
+        }
+      },
+      "baseline": {
+        "admissible_all": {
+          "k": 217,
+          "n": 250,
+          "pct": 86.8,
+          "wilson95": [
+            82.0,
+            90.4
+          ]
+        },
+        "detection_fault": {
+          "k": 124,
+          "n": 125,
+          "pct": 99.2,
+          "wilson95": [
+            95.6,
+            99.9
+          ]
+        },
+        "admissible_fault": {
+          "k": 124,
+          "n": 125,
+          "pct": 99.2,
+          "wilson95": [
+            95.6,
+            99.9
+          ]
+        },
+        "false_alarm_control": {
+          "k": 32,
+          "n": 125,
+          "pct": 25.6,
+          "wilson95": [
+            18.8,
+            33.9
+          ]
+        },
+        "actions_fault": {
+          "Mitigate and monitor": 124,
+          "No action (observe)": 1
+        }
+      },
+      "paired": {
+        "v3_vs_v1": {
+          "first_only": 76,
+          "second_only": 3,
+          "exact_p": 2.721e-19
+        },
+        "v3_vs_baseline": {
+          "first_only": 29,
+          "second_only": 3,
+          "exact_p": 2.556e-06
+        }
+      }
+    },
+    "RE1-TT": {
+      "v1": {
+        "admissible_all": {
+          "k": 192,
+          "n": 250,
+          "pct": 76.8,
+          "wilson95": [
+            71.2,
+            81.6
+          ]
+        },
+        "detection_fault": {
+          "k": 78,
+          "n": 125,
+          "pct": 62.4,
+          "wilson95": [
+            53.7,
+            70.4
+          ]
+        },
+        "admissible_fault": {
+          "k": 78,
+          "n": 125,
+          "pct": 62.4,
+          "wilson95": [
+            53.7,
+            70.4
+          ]
+        },
+        "false_alarm_control": {
+          "k": 11,
+          "n": 125,
+          "pct": 8.8,
+          "wilson95": [
+            5.0,
+            15.1
+          ]
+        },
+        "actions_fault": {
+          "Mitigate and monitor": 78,
+          "No action (observe)": 47
+        }
+      },
+      "v3": {
+        "admissible_all": {
+          "k": 232,
+          "n": 250,
+          "pct": 92.8,
+          "wilson95": [
+            88.9,
+            95.4
+          ]
+        },
+        "detection_fault": {
+          "k": 118,
+          "n": 125,
+          "pct": 94.4,
+          "wilson95": [
+            88.9,
+            97.3
+          ]
+        },
+        "admissible_fault": {
+          "k": 118,
+          "n": 125,
+          "pct": 94.4,
+          "wilson95": [
+            88.9,
+            97.3
+          ]
+        },
+        "false_alarm_control": {
+          "k": 11,
+          "n": 125,
+          "pct": 8.8,
+          "wilson95": [
+            5.0,
+            15.1
+          ]
+        },
+        "actions_fault": {
+          "Mitigate and monitor": 118,
+          "No action (observe)": 7
+        }
+      },
+      "baseline": {
+        "admissible_all": {
+          "k": 181,
+          "n": 250,
+          "pct": 72.4,
+          "wilson95": [
+            66.6,
+            77.6
+          ]
+        },
+        "detection_fault": {
+          "k": 124,
+          "n": 125,
+          "pct": 99.2,
+          "wilson95": [
+            95.6,
+            99.9
+          ]
+        },
+        "admissible_fault": {
+          "k": 124,
+          "n": 125,
+          "pct": 99.2,
+          "wilson95": [
+            95.6,
+            99.9
+          ]
+        },
+        "false_alarm_control": {
+          "k": 68,
+          "n": 125,
+          "pct": 54.4,
+          "wilson95": [
+            45.7,
+            62.9
+          ]
+        },
+        "actions_fault": {
+          "Mitigate and monitor": 124,
+          "No action (observe)": 1
+        }
+      },
+      "paired": {
+        "v3_vs_v1": {
+          "first_only": 40,
+          "second_only": 0,
+          "exact_p": 1.819e-12
+        },
+        "v3_vs_baseline": {
+          "first_only": 57,
+          "second_only": 6,
+          "exact_p": 1.64e-11
+        }
+      }
+    },
+    "RE3-OB": {
+      "v1": {
+        "admissible_all": {
+          "k": 30,
+          "n": 60,
+          "pct": 50.0,
+          "wilson95": [
+            37.7,
+            62.3
+          ]
+        },
+        "detection_fault": {
+          "k": 0,
+          "n": 30,
+          "pct": 0.0,
+          "wilson95": [
+            -0.0,
+            11.4
+          ]
+        },
+        "admissible_fault": {
+          "k": 0,
+          "n": 30,
+          "pct": 0.0,
+          "wilson95": [
+            -0.0,
+            11.4
+          ]
+        },
+        "false_alarm_control": {
+          "k": 0,
+          "n": 30,
+          "pct": 0.0,
+          "wilson95": [
+            -0.0,
+            11.4
+          ]
+        },
+        "actions_fault": {
+          "No action (observe)": 30
+        }
+      },
+      "v3": {
+        "admissible_all": {
+          "k": 60,
+          "n": 60,
+          "pct": 100.0,
+          "wilson95": [
+            94.0,
+            100.0
+          ]
+        },
+        "detection_fault": {
+          "k": 30,
+          "n": 30,
+          "pct": 100.0,
+          "wilson95": [
+            88.6,
+            100.0
+          ]
+        },
+        "admissible_fault": {
+          "k": 30,
+          "n": 30,
+          "pct": 100.0,
+          "wilson95": [
+            88.6,
+            100.0
+          ]
+        },
+        "false_alarm_control": {
+          "k": 0,
+          "n": 30,
+          "pct": 0.0,
+          "wilson95": [
+            -0.0,
+            11.4
+          ]
+        },
+        "actions_fault": {
+          "Mitigate and monitor": 30
+        }
+      },
+      "baseline": {
+        "admissible_all": {
+          "k": 59,
+          "n": 60,
+          "pct": 98.3,
+          "wilson95": [
+            91.1,
+            99.7
+          ]
+        },
+        "detection_fault": {
+          "k": 30,
+          "n": 30,
+          "pct": 100.0,
+          "wilson95": [
+            88.6,
+            100.0
+          ]
+        },
+        "admissible_fault": {
+          "k": 30,
+          "n": 30,
+          "pct": 100.0,
+          "wilson95": [
+            88.6,
+            100.0
+          ]
+        },
+        "false_alarm_control": {
+          "k": 1,
+          "n": 30,
+          "pct": 3.3,
+          "wilson95": [
+            0.6,
+            16.7
+          ]
+        },
+        "actions_fault": {
+          "Mitigate and monitor": 30
+        }
+      },
+      "paired": {
+        "v3_vs_v1": {
+          "first_only": 30,
+          "second_only": 0,
+          "exact_p": 1.863e-09
+        },
+        "v3_vs_baseline": {
+          "first_only": 1,
+          "second_only": 0,
+          "exact_p": 1.0
+        }
+      }
+    },
+    "RE3-SS": {
+      "v1": {
+        "admissible_all": {
+          "k": 30,
+          "n": 60,
+          "pct": 50.0,
+          "wilson95": [
+            37.7,
+            62.3
+          ]
+        },
+        "detection_fault": {
+          "k": 0,
+          "n": 30,
+          "pct": 0.0,
+          "wilson95": [
+            -0.0,
+            11.4
+          ]
+        },
+        "admissible_fault": {
+          "k": 0,
+          "n": 30,
+          "pct": 0.0,
+          "wilson95": [
+            -0.0,
+            11.4
+          ]
+        },
+        "false_alarm_control": {
+          "k": 0,
+          "n": 30,
+          "pct": 0.0,
+          "wilson95": [
+            -0.0,
+            11.4
+          ]
+        },
+        "actions_fault": {
+          "No action (observe)": 30
+        }
+      },
+      "v3": {
+        "admissible_all": {
+          "k": 60,
+          "n": 60,
+          "pct": 100.0,
+          "wilson95": [
+            94.0,
+            100.0
+          ]
+        },
+        "detection_fault": {
+          "k": 30,
+          "n": 30,
+          "pct": 100.0,
+          "wilson95": [
+            88.6,
+            100.0
+          ]
+        },
+        "admissible_fault": {
+          "k": 30,
+          "n": 30,
+          "pct": 100.0,
+          "wilson95": [
+            88.6,
+            100.0
+          ]
+        },
+        "false_alarm_control": {
+          "k": 0,
+          "n": 30,
+          "pct": 0.0,
+          "wilson95": [
+            -0.0,
+            11.4
+          ]
+        },
+        "actions_fault": {
+          "Mitigate and monitor": 30
+        }
+      },
+      "baseline": {
+        "admissible_all": {
+          "k": 60,
+          "n": 60,
+          "pct": 100.0,
+          "wilson95": [
+            94.0,
+            100.0
+          ]
+        },
+        "detection_fault": {
+          "k": 30,
+          "n": 30,
+          "pct": 100.0,
+          "wilson95": [
+            88.6,
+            100.0
+          ]
+        },
+        "admissible_fault": {
+          "k": 30,
+          "n": 30,
+          "pct": 100.0,
+          "wilson95": [
+            88.6,
+            100.0
+          ]
+        },
+        "false_alarm_control": {
+          "k": 0,
+          "n": 30,
+          "pct": 0.0,
+          "wilson95": [
+            -0.0,
+            11.4
+          ]
+        },
+        "actions_fault": {
+          "Mitigate and monitor": 30
+        }
+      },
+      "paired": {
+        "v3_vs_v1": {
+          "first_only": 30,
+          "second_only": 0,
+          "exact_p": 1.863e-09
+        },
+        "v3_vs_baseline": {
+          "first_only": 0,
+          "second_only": 0,
+          "exact_p": 1.0
+        }
+      }
+    },
+    "RE3-TT": {
+      "v1": {
+        "admissible_all": {
+          "k": 31,
+          "n": 60,
+          "pct": 51.7,
+          "wilson95": [
+            39.3,
+            63.8
+          ]
+        },
+        "detection_fault": {
+          "k": 2,
+          "n": 30,
+          "pct": 6.7,
+          "wilson95": [
+            1.8,
+            21.3
+          ]
+        },
+        "admissible_fault": {
+          "k": 2,
+          "n": 30,
+          "pct": 6.7,
+          "wilson95": [
+            1.8,
+            21.3
+          ]
+        },
+        "false_alarm_control": {
+          "k": 1,
+          "n": 30,
+          "pct": 3.3,
+          "wilson95": [
+            0.6,
+            16.7
+          ]
+        },
+        "actions_fault": {
+          "No action (observe)": 28,
+          "Mitigate and monitor": 2
+        }
+      },
+      "v3": {
+        "admissible_all": {
+          "k": 54,
+          "n": 60,
+          "pct": 90.0,
+          "wilson95": [
+            79.9,
+            95.3
+          ]
+        },
+        "detection_fault": {
+          "k": 30,
+          "n": 30,
+          "pct": 100.0,
+          "wilson95": [
+            88.6,
+            100.0
+          ]
+        },
+        "admissible_fault": {
+          "k": 30,
+          "n": 30,
+          "pct": 100.0,
+          "wilson95": [
+            88.6,
+            100.0
+          ]
+        },
+        "false_alarm_control": {
+          "k": 6,
+          "n": 30,
+          "pct": 20.0,
+          "wilson95": [
+            9.5,
+            37.3
+          ]
+        },
+        "actions_fault": {
+          "Mitigate and monitor": 30
+        }
+      },
+      "baseline": {
+        "admissible_all": {
+          "k": 33,
+          "n": 60,
+          "pct": 55.0,
+          "wilson95": [
+            42.5,
+            66.9
+          ]
+        },
+        "detection_fault": {
+          "k": 30,
+          "n": 30,
+          "pct": 100.0,
+          "wilson95": [
+            88.6,
+            100.0
+          ]
+        },
+        "admissible_fault": {
+          "k": 30,
+          "n": 30,
+          "pct": 100.0,
+          "wilson95": [
+            88.6,
+            100.0
+          ]
+        },
+        "false_alarm_control": {
+          "k": 27,
+          "n": 30,
+          "pct": 90.0,
+          "wilson95": [
+            74.4,
+            96.5
+          ]
+        },
+        "actions_fault": {
+          "Mitigate and monitor": 30
+        }
+      },
+      "paired": {
+        "v3_vs_v1": {
+          "first_only": 28,
+          "second_only": 5,
+          "exact_p": 6.619e-05
+        },
+        "v3_vs_baseline": {
+          "first_only": 21,
+          "second_only": 0,
+          "exact_p": 9.537e-07
+        }
+      }
+    }
+  },
+  "by_fault": {
+    "cpu": {
+      "v1": {
+        "admissible_all": {
+          "k": 103,
+          "n": 150,
+          "pct": 68.7,
+          "wilson95": [
+            60.9,
+            75.5
+          ]
+        },
+        "detection_fault": {
+          "k": 29,
+          "n": 75,
+          "pct": 38.7,
+          "wilson95": [
+            28.5,
+            50.0
+          ]
+        },
+        "admissible_fault": {
+          "k": 29,
+          "n": 75,
+          "pct": 38.7,
+          "wilson95": [
+            28.5,
+            50.0
+          ]
+        },
+        "false_alarm_control": {
+          "k": 1,
+          "n": 75,
+          "pct": 1.3,
+          "wilson95": [
+            0.2,
+            7.2
+          ]
+        },
+        "actions_fault": {
+          "Mitigate and monitor": 29,
+          "No action (observe)": 46
+        }
+      },
+      "v3": {
+        "admissible_all": {
+          "k": 148,
+          "n": 150,
+          "pct": 98.7,
+          "wilson95": [
+            95.3,
+            99.6
+          ]
+        },
+        "detection_fault": {
+          "k": 74,
+          "n": 75,
+          "pct": 98.7,
+          "wilson95": [
+            92.8,
+            99.8
+          ]
+        },
+        "admissible_fault": {
+          "k": 74,
+          "n": 75,
+          "pct": 98.7,
+          "wilson95": [
+            92.8,
+            99.8
+          ]
+        },
+        "false_alarm_control": {
+          "k": 1,
+          "n": 75,
+          "pct": 1.3,
+          "wilson95": [
+            0.2,
+            7.2
+          ]
+        },
+        "actions_fault": {
+          "Mitigate and monitor": 74,
+          "No action (observe)": 1
+        }
+      },
+      "baseline": {
+        "admissible_all": {
+          "k": 127,
+          "n": 150,
+          "pct": 84.7,
+          "wilson95": [
+            78.0,
+            89.6
+          ]
+        },
+        "detection_fault": {
+          "k": 74,
+          "n": 75,
+          "pct": 98.7,
+          "wilson95": [
+            92.8,
+            99.8
+          ]
+        },
+        "admissible_fault": {
+          "k": 74,
+          "n": 75,
+          "pct": 98.7,
+          "wilson95": [
+            92.8,
+            99.8
+          ]
+        },
+        "false_alarm_control": {
+          "k": 22,
+          "n": 75,
+          "pct": 29.3,
+          "wilson95": [
+            20.2,
+            40.4
+          ]
+        },
+        "actions_fault": {
+          "Mitigate and monitor": 74,
+          "No action (observe)": 1
+        }
+      },
+      "paired": {
+        "v3_vs_v1": {
+          "first_only": 45,
+          "second_only": 0,
+          "exact_p": 5.684e-14
+        },
+        "v3_vs_baseline": {
+          "first_only": 21,
+          "second_only": 0,
+          "exact_p": 9.537e-07
+        }
+      }
+    },
+    "delay": {
+      "v1": {
+        "admissible_all": {
+          "k": 124,
+          "n": 150,
+          "pct": 82.7,
+          "wilson95": [
+            75.8,
+            87.9
+          ]
+        },
+        "detection_fault": {
+          "k": 49,
+          "n": 75,
+          "pct": 65.3,
+          "wilson95": [
+            54.1,
+            75.1
+          ]
+        },
+        "admissible_fault": {
+          "k": 49,
+          "n": 75,
+          "pct": 65.3,
+          "wilson95": [
+            54.1,
+            75.1
+          ]
+        },
+        "false_alarm_control": {
+          "k": 0,
+          "n": 75,
+          "pct": 0.0,
+          "wilson95": [
+            0.0,
+            4.9
+          ]
+        },
+        "actions_fault": {
+          "No action (observe)": 26,
+          "Mitigate and monitor": 49
+        }
+      },
+      "v3": {
+        "admissible_all": {
+          "k": 149,
+          "n": 150,
+          "pct": 99.3,
+          "wilson95": [
+            96.3,
+            99.9
+          ]
+        },
+        "detection_fault": {
+          "k": 74,
+          "n": 75,
+          "pct": 98.7,
+          "wilson95": [
+            92.8,
+            99.8
+          ]
+        },
+        "admissible_fault": {
+          "k": 74,
+          "n": 75,
+          "pct": 98.7,
+          "wilson95": [
+            92.8,
+            99.8
+          ]
+        },
+        "false_alarm_control": {
+          "k": 0,
+          "n": 75,
+          "pct": 0.0,
+          "wilson95": [
+            0.0,
+            4.9
+          ]
+        },
+        "actions_fault": {
+          "Mitigate and monitor": 74,
+          "No action (observe)": 1
+        }
+      },
+      "baseline": {
+        "admissible_all": {
+          "k": 132,
+          "n": 150,
+          "pct": 88.0,
+          "wilson95": [
+            81.8,
+            92.3
+          ]
+        },
+        "detection_fault": {
+          "k": 75,
+          "n": 75,
+          "pct": 100.0,
+          "wilson95": [
+            95.1,
+            100.0
+          ]
+        },
+        "admissible_fault": {
+          "k": 75,
+          "n": 75,
+          "pct": 100.0,
+          "wilson95": [
+            95.1,
+            100.0
+          ]
+        },
+        "false_alarm_control": {
+          "k": 18,
+          "n": 75,
+          "pct": 24.0,
+          "wilson95": [
+            15.8,
+            34.8
+          ]
+        },
+        "actions_fault": {
+          "Mitigate and monitor": 75
+        }
+      },
+      "paired": {
+        "v3_vs_v1": {
+          "first_only": 25,
+          "second_only": 0,
+          "exact_p": 5.96e-08
+        },
+        "v3_vs_baseline": {
+          "first_only": 18,
+          "second_only": 1,
+          "exact_p": 7.629e-05
+        }
+      }
+    },
+    "disk": {
+      "v1": {
+        "admissible_all": {
+          "k": 75,
+          "n": 150,
+          "pct": 50.0,
+          "wilson95": [
+            42.1,
+            57.9
+          ]
+        },
+        "detection_fault": {
+          "k": 8,
+          "n": 75,
+          "pct": 10.7,
+          "wilson95": [
+            5.5,
+            19.7
+          ]
+        },
+        "admissible_fault": {
+          "k": 8,
+          "n": 75,
+          "pct": 10.7,
+          "wilson95": [
+            5.5,
+            19.7
+          ]
+        },
+        "false_alarm_control": {
+          "k": 8,
+          "n": 75,
+          "pct": 10.7,
+          "wilson95": [
+            5.5,
+            19.7
+          ]
+        },
+        "actions_fault": {
+          "No action (observe)": 67,
+          "Mitigate and monitor": 8
+        }
+      },
+      "v3": {
+        "admissible_all": {
+          "k": 135,
+          "n": 150,
+          "pct": 90.0,
+          "wilson95": [
+            84.2,
+            93.8
+          ]
+        },
+        "detection_fault": {
+          "k": 70,
+          "n": 75,
+          "pct": 93.3,
+          "wilson95": [
+            85.3,
+            97.1
+          ]
+        },
+        "admissible_fault": {
+          "k": 70,
+          "n": 75,
+          "pct": 93.3,
+          "wilson95": [
+            85.3,
+            97.1
+          ]
+        },
+        "false_alarm_control": {
+          "k": 10,
+          "n": 75,
+          "pct": 13.3,
+          "wilson95": [
+            7.4,
+            22.8
+          ]
+        },
+        "actions_fault": {
+          "Mitigate and monitor": 70,
+          "No action (observe)": 5
+        }
+      },
+      "baseline": {
+        "admissible_all": {
+          "k": 127,
+          "n": 150,
+          "pct": 84.7,
+          "wilson95": [
+            78.0,
+            89.6
+          ]
+        },
+        "detection_fault": {
+          "k": 75,
+          "n": 75,
+          "pct": 100.0,
+          "wilson95": [
+            95.1,
+            100.0
+          ]
+        },
+        "admissible_fault": {
+          "k": 75,
+          "n": 75,
+          "pct": 100.0,
+          "wilson95": [
+            95.1,
+            100.0
+          ]
+        },
+        "false_alarm_control": {
+          "k": 23,
+          "n": 75,
+          "pct": 30.7,
+          "wilson95": [
+            21.4,
+            41.8
+          ]
+        },
+        "actions_fault": {
+          "Mitigate and monitor": 75
+        }
+      },
+      "paired": {
+        "v3_vs_v1": {
+          "first_only": 62,
+          "second_only": 2,
+          "exact_p": 2.256e-16
+        },
+        "v3_vs_baseline": {
+          "first_only": 13,
+          "second_only": 5,
+          "exact_p": 0.09625
+        }
+      }
+    },
+    "f1": {
+      "v1": {
+        "admissible_all": {
+          "k": 26,
+          "n": 52,
+          "pct": 50.0,
+          "wilson95": [
+            36.9,
+            63.1
+          ]
+        },
+        "detection_fault": {
+          "k": 0,
+          "n": 26,
+          "pct": 0.0,
+          "wilson95": [
+            0.0,
+            12.9
+          ]
+        },
+        "admissible_fault": {
+          "k": 0,
+          "n": 26,
+          "pct": 0.0,
+          "wilson95": [
+            0.0,
+            12.9
+          ]
+        },
+        "false_alarm_control": {
+          "k": 0,
+          "n": 26,
+          "pct": 0.0,
+          "wilson95": [
+            0.0,
+            12.9
+          ]
+        },
+        "actions_fault": {
+          "No action (observe)": 26
+        }
+      },
+      "v3": {
+        "admissible_all": {
+          "k": 51,
+          "n": 52,
+          "pct": 98.1,
+          "wilson95": [
+            89.9,
+            99.7
+          ]
+        },
+        "detection_fault": {
+          "k": 26,
+          "n": 26,
+          "pct": 100.0,
+          "wilson95": [
+            87.1,
+            100.0
+          ]
+        },
+        "admissible_fault": {
+          "k": 26,
+          "n": 26,
+          "pct": 100.0,
+          "wilson95": [
+            87.1,
+            100.0
+          ]
+        },
+        "false_alarm_control": {
+          "k": 1,
+          "n": 26,
+          "pct": 3.8,
+          "wilson95": [
+            0.7,
+            18.9
+          ]
+        },
+        "actions_fault": {
+          "Mitigate and monitor": 26
+        }
+      },
+      "baseline": {
+        "admissible_all": {
+          "k": 45,
+          "n": 52,
+          "pct": 86.5,
+          "wilson95": [
+            74.7,
+            93.3
+          ]
+        },
+        "detection_fault": {
+          "k": 26,
+          "n": 26,
+          "pct": 100.0,
+          "wilson95": [
+            87.1,
+            100.0
+          ]
+        },
+        "admissible_fault": {
+          "k": 26,
+          "n": 26,
+          "pct": 100.0,
+          "wilson95": [
+            87.1,
+            100.0
+          ]
+        },
+        "false_alarm_control": {
+          "k": 7,
+          "n": 26,
+          "pct": 26.9,
+          "wilson95": [
+            13.7,
+            46.1
+          ]
+        },
+        "actions_fault": {
+          "Mitigate and monitor": 26
+        }
+      },
+      "paired": {
+        "v3_vs_v1": {
+          "first_only": 26,
+          "second_only": 1,
+          "exact_p": 4.172e-07
+        },
+        "v3_vs_baseline": {
+          "first_only": 6,
+          "second_only": 0,
+          "exact_p": 0.03125
+        }
+      }
+    },
+    "f2": {
+      "v1": {
+        "admissible_all": {
+          "k": 14,
+          "n": 26,
+          "pct": 53.8,
+          "wilson95": [
+            35.5,
+            71.2
+          ]
+        },
+        "detection_fault": {
+          "k": 1,
+          "n": 13,
+          "pct": 7.7,
+          "wilson95": [
+            1.4,
+            33.3
+          ]
+        },
+        "admissible_fault": {
+          "k": 1,
+          "n": 13,
+          "pct": 7.7,
+          "wilson95": [
+            1.4,
+            33.3
+          ]
+        },
+        "false_alarm_control": {
+          "k": 0,
+          "n": 13,
+          "pct": 0.0,
+          "wilson95": [
+            0.0,
+            22.8
+          ]
+        },
+        "actions_fault": {
+          "No action (observe)": 12,
+          "Mitigate and monitor": 1
+        }
+      },
+      "v3": {
+        "admissible_all": {
+          "k": 25,
+          "n": 26,
+          "pct": 96.2,
+          "wilson95": [
+            81.1,
+            99.3
+          ]
+        },
+        "detection_fault": {
+          "k": 13,
+          "n": 13,
+          "pct": 100.0,
+          "wilson95": [
+            77.2,
+            100.0
+          ]
+        },
+        "admissible_fault": {
+          "k": 13,
+          "n": 13,
+          "pct": 100.0,
+          "wilson95": [
+            77.2,
+            100.0
+          ]
+        },
+        "false_alarm_control": {
+          "k": 1,
+          "n": 13,
+          "pct": 7.7,
+          "wilson95": [
+            1.4,
+            33.3
+          ]
+        },
+        "actions_fault": {
+          "Mitigate and monitor": 13
+        }
+      },
+      "baseline": {
+        "admissible_all": {
+          "k": 21,
+          "n": 26,
+          "pct": 80.8,
+          "wilson95": [
+            62.1,
+            91.5
+          ]
+        },
+        "detection_fault": {
+          "k": 13,
+          "n": 13,
+          "pct": 100.0,
+          "wilson95": [
+            77.2,
+            100.0
+          ]
+        },
+        "admissible_fault": {
+          "k": 13,
+          "n": 13,
+          "pct": 100.0,
+          "wilson95": [
+            77.2,
+            100.0
+          ]
+        },
+        "false_alarm_control": {
+          "k": 5,
+          "n": 13,
+          "pct": 38.5,
+          "wilson95": [
+            17.7,
+            64.5
+          ]
+        },
+        "actions_fault": {
+          "Mitigate and monitor": 13
+        }
+      },
+      "paired": {
+        "v3_vs_v1": {
+          "first_only": 12,
+          "second_only": 1,
+          "exact_p": 0.003418
+        },
+        "v3_vs_baseline": {
+          "first_only": 4,
+          "second_only": 0,
+          "exact_p": 0.125
+        }
+      }
+    },
+    "f3": {
+      "v1": {
+        "admissible_all": {
+          "k": 26,
+          "n": 52,
+          "pct": 50.0,
+          "wilson95": [
+            36.9,
+            63.1
+          ]
+        },
+        "detection_fault": {
+          "k": 1,
+          "n": 26,
+          "pct": 3.8,
+          "wilson95": [
+            0.7,
+            18.9
+          ]
+        },
+        "admissible_fault": {
+          "k": 1,
+          "n": 26,
+          "pct": 3.8,
+          "wilson95": [
+            0.7,
+            18.9
+          ]
+        },
+        "false_alarm_control": {
+          "k": 1,
+          "n": 26,
+          "pct": 3.8,
+          "wilson95": [
+            0.7,
+            18.9
+          ]
+        },
+        "actions_fault": {
+          "No action (observe)": 25,
+          "Mitigate and monitor": 1
+        }
+      },
+      "v3": {
+        "admissible_all": {
+          "k": 49,
+          "n": 52,
+          "pct": 94.2,
+          "wilson95": [
+            84.4,
+            98.0
+          ]
+        },
+        "detection_fault": {
+          "k": 26,
+          "n": 26,
+          "pct": 100.0,
+          "wilson95": [
+            87.1,
+            100.0
+          ]
+        },
+        "admissible_fault": {
+          "k": 26,
+          "n": 26,
+          "pct": 100.0,
+          "wilson95": [
+            87.1,
+            100.0
+          ]
+        },
+        "false_alarm_control": {
+          "k": 3,
+          "n": 26,
+          "pct": 11.5,
+          "wilson95": [
+            4.0,
+            29.0
+          ]
+        },
+        "actions_fault": {
+          "Mitigate and monitor": 26
+        }
+      },
+      "baseline": {
+        "admissible_all": {
+          "k": 42,
+          "n": 52,
+          "pct": 80.8,
+          "wilson95": [
+            68.1,
+            89.2
+          ]
+        },
+        "detection_fault": {
+          "k": 26,
+          "n": 26,
+          "pct": 100.0,
+          "wilson95": [
+            87.1,
+            100.0
+          ]
+        },
+        "admissible_fault": {
+          "k": 26,
+          "n": 26,
+          "pct": 100.0,
+          "wilson95": [
+            87.1,
+            100.0
+          ]
+        },
+        "false_alarm_control": {
+          "k": 10,
+          "n": 26,
+          "pct": 38.5,
+          "wilson95": [
+            22.4,
+            57.5
+          ]
+        },
+        "actions_fault": {
+          "Mitigate and monitor": 26
+        }
+      },
+      "paired": {
+        "v3_vs_v1": {
+          "first_only": 25,
+          "second_only": 2,
+          "exact_p": 5.648e-06
+        },
+        "v3_vs_baseline": {
+          "first_only": 7,
+          "second_only": 0,
+          "exact_p": 0.01562
+        }
+      }
+    },
+    "f4": {
+      "v1": {
+        "admissible_all": {
+          "k": 19,
+          "n": 38,
+          "pct": 50.0,
+          "wilson95": [
+            34.8,
+            65.2
+          ]
+        },
+        "detection_fault": {
+          "k": 0,
+          "n": 19,
+          "pct": 0.0,
+          "wilson95": [
+            0.0,
+            16.8
+          ]
+        },
+        "admissible_fault": {
+          "k": 0,
+          "n": 19,
+          "pct": 0.0,
+          "wilson95": [
+            0.0,
+            16.8
+          ]
+        },
+        "false_alarm_control": {
+          "k": 0,
+          "n": 19,
+          "pct": 0.0,
+          "wilson95": [
+            0.0,
+            16.8
+          ]
+        },
+        "actions_fault": {
+          "No action (observe)": 19
+        }
+      },
+      "v3": {
+        "admissible_all": {
+          "k": 37,
+          "n": 38,
+          "pct": 97.4,
+          "wilson95": [
+            86.5,
+            99.5
+          ]
+        },
+        "detection_fault": {
+          "k": 19,
+          "n": 19,
+          "pct": 100.0,
+          "wilson95": [
+            83.2,
+            100.0
+          ]
+        },
+        "admissible_fault": {
+          "k": 19,
+          "n": 19,
+          "pct": 100.0,
+          "wilson95": [
+            83.2,
+            100.0
+          ]
+        },
+        "false_alarm_control": {
+          "k": 1,
+          "n": 19,
+          "pct": 5.3,
+          "wilson95": [
+            0.9,
+            24.6
+          ]
+        },
+        "actions_fault": {
+          "Mitigate and monitor": 19
+        }
+      },
+      "baseline": {
+        "admissible_all": {
+          "k": 32,
+          "n": 38,
+          "pct": 84.2,
+          "wilson95": [
+            69.6,
+            92.6
+          ]
+        },
+        "detection_fault": {
+          "k": 19,
+          "n": 19,
+          "pct": 100.0,
+          "wilson95": [
+            83.2,
+            100.0
+          ]
+        },
+        "admissible_fault": {
+          "k": 19,
+          "n": 19,
+          "pct": 100.0,
+          "wilson95": [
+            83.2,
+            100.0
+          ]
+        },
+        "false_alarm_control": {
+          "k": 6,
+          "n": 19,
+          "pct": 31.6,
+          "wilson95": [
+            15.4,
+            54.0
+          ]
+        },
+        "actions_fault": {
+          "Mitigate and monitor": 19
+        }
+      },
+      "paired": {
+        "v3_vs_v1": {
+          "first_only": 19,
+          "second_only": 1,
+          "exact_p": 4.005e-05
+        },
+        "v3_vs_baseline": {
+          "first_only": 5,
+          "second_only": 0,
+          "exact_p": 0.0625
+        }
+      }
+    },
+    "f5": {
+      "v1": {
+        "admissible_all": {
+          "k": 6,
+          "n": 12,
+          "pct": 50.0,
+          "wilson95": [
+            25.4,
+            74.6
+          ]
+        },
+        "detection_fault": {
+          "k": 0,
+          "n": 6,
+          "pct": 0.0,
+          "wilson95": [
+            0.0,
+            39.0
+          ]
+        },
+        "admissible_fault": {
+          "k": 0,
+          "n": 6,
+          "pct": 0.0,
+          "wilson95": [
+            0.0,
+            39.0
+          ]
+        },
+        "false_alarm_control": {
+          "k": 0,
+          "n": 6,
+          "pct": 0.0,
+          "wilson95": [
+            0.0,
+            39.0
+          ]
+        },
+        "actions_fault": {
+          "No action (observe)": 6
+        }
+      },
+      "v3": {
+        "admissible_all": {
+          "k": 12,
+          "n": 12,
+          "pct": 100.0,
+          "wilson95": [
+            75.7,
+            100.0
+          ]
+        },
+        "detection_fault": {
+          "k": 6,
+          "n": 6,
+          "pct": 100.0,
+          "wilson95": [
+            61.0,
+            100.0
+          ]
+        },
+        "admissible_fault": {
+          "k": 6,
+          "n": 6,
+          "pct": 100.0,
+          "wilson95": [
+            61.0,
+            100.0
+          ]
+        },
+        "false_alarm_control": {
+          "k": 0,
+          "n": 6,
+          "pct": 0.0,
+          "wilson95": [
+            0.0,
+            39.0
+          ]
+        },
+        "actions_fault": {
+          "Mitigate and monitor": 6
+        }
+      },
+      "baseline": {
+        "admissible_all": {
+          "k": 12,
+          "n": 12,
+          "pct": 100.0,
+          "wilson95": [
+            75.7,
+            100.0
+          ]
+        },
+        "detection_fault": {
+          "k": 6,
+          "n": 6,
+          "pct": 100.0,
+          "wilson95": [
+            61.0,
+            100.0
+          ]
+        },
+        "admissible_fault": {
+          "k": 6,
+          "n": 6,
+          "pct": 100.0,
+          "wilson95": [
+            61.0,
+            100.0
+          ]
+        },
+        "false_alarm_control": {
+          "k": 0,
+          "n": 6,
+          "pct": 0.0,
+          "wilson95": [
+            0.0,
+            39.0
+          ]
+        },
+        "actions_fault": {
+          "Mitigate and monitor": 6
+        }
+      },
+      "paired": {
+        "v3_vs_v1": {
+          "first_only": 6,
+          "second_only": 0,
+          "exact_p": 0.03125
+        },
+        "v3_vs_baseline": {
+          "first_only": 0,
+          "second_only": 0,
+          "exact_p": 1.0
+        }
+      }
+    },
+    "loss": {
+      "v1": {
+        "admissible_all": {
+          "k": 107,
+          "n": 150,
+          "pct": 71.3,
+          "wilson95": [
+            63.6,
+            78.0
+          ]
+        },
+        "detection_fault": {
+          "k": 33,
+          "n": 75,
+          "pct": 44.0,
+          "wilson95": [
+            33.3,
+            55.3
+          ]
+        },
+        "admissible_fault": {
+          "k": 33,
+          "n": 75,
+          "pct": 44.0,
+          "wilson95": [
+            33.3,
+            55.3
+          ]
+        },
+        "false_alarm_control": {
+          "k": 1,
+          "n": 75,
+          "pct": 1.3,
+          "wilson95": [
+            0.2,
+            7.2
+          ]
+        },
+        "actions_fault": {
+          "No action (observe)": 42,
+          "Mitigate and monitor": 33
+        }
+      },
+      "v3": {
+        "admissible_all": {
+          "k": 134,
+          "n": 150,
+          "pct": 89.3,
+          "wilson95": [
+            83.4,
+            93.3
+          ]
+        },
+        "detection_fault": {
+          "k": 60,
+          "n": 75,
+          "pct": 80.0,
+          "wilson95": [
+            69.6,
+            87.5
+          ]
+        },
+        "admissible_fault": {
+          "k": 60,
+          "n": 75,
+          "pct": 80.0,
+          "wilson95": [
+            69.6,
+            87.5
+          ]
+        },
+        "false_alarm_control": {
+          "k": 1,
+          "n": 75,
+          "pct": 1.3,
+          "wilson95": [
+            0.2,
+            7.2
+          ]
+        },
+        "actions_fault": {
+          "Mitigate and monitor": 60,
+          "No action (observe)": 15
+        }
+      },
+      "baseline": {
+        "admissible_all": {
+          "k": 129,
+          "n": 150,
+          "pct": 86.0,
+          "wilson95": [
+            79.5,
+            90.7
+          ]
+        },
+        "detection_fault": {
+          "k": 69,
+          "n": 75,
+          "pct": 92.0,
+          "wilson95": [
+            83.6,
+            96.3
+          ]
+        },
+        "admissible_fault": {
+          "k": 69,
+          "n": 75,
+          "pct": 92.0,
+          "wilson95": [
+            83.6,
+            96.3
+          ]
+        },
+        "false_alarm_control": {
+          "k": 15,
+          "n": 75,
+          "pct": 20.0,
+          "wilson95": [
+            12.5,
+            30.4
+          ]
+        },
+        "actions_fault": {
+          "Mitigate and monitor": 69,
+          "No action (observe)": 6
+        }
+      },
+      "paired": {
+        "v3_vs_v1": {
+          "first_only": 27,
+          "second_only": 0,
+          "exact_p": 1.49e-08
+        },
+        "v3_vs_baseline": {
+          "first_only": 14,
+          "second_only": 9,
+          "exact_p": 0.4049
+        }
+      }
+    },
+    "mem": {
+      "v1": {
+        "admissible_all": {
+          "k": 140,
+          "n": 150,
+          "pct": 93.3,
+          "wilson95": [
+            88.2,
+            96.3
+          ]
+        },
+        "detection_fault": {
+          "k": 67,
+          "n": 75,
+          "pct": 89.3,
+          "wilson95": [
+            80.3,
+            94.5
+          ]
+        },
+        "admissible_fault": {
+          "k": 67,
+          "n": 75,
+          "pct": 89.3,
+          "wilson95": [
+            80.3,
+            94.5
+          ]
+        },
+        "false_alarm_control": {
+          "k": 2,
+          "n": 75,
+          "pct": 2.7,
+          "wilson95": [
+            0.7,
+            9.2
+          ]
+        },
+        "actions_fault": {
+          "Mitigate and monitor": 67,
+          "No action (observe)": 8
+        }
+      },
+      "v3": {
+        "admissible_all": {
+          "k": 145,
+          "n": 150,
+          "pct": 96.7,
+          "wilson95": [
+            92.4,
+            98.6
+          ]
+        },
+        "detection_fault": {
+          "k": 75,
+          "n": 75,
+          "pct": 100.0,
+          "wilson95": [
+            95.1,
+            100.0
+          ]
+        },
+        "admissible_fault": {
+          "k": 75,
+          "n": 75,
+          "pct": 100.0,
+          "wilson95": [
+            95.1,
+            100.0
+          ]
+        },
+        "false_alarm_control": {
+          "k": 5,
+          "n": 75,
+          "pct": 6.7,
+          "wilson95": [
+            2.9,
+            14.7
+          ]
+        },
+        "actions_fault": {
+          "Mitigate and monitor": 75
+        }
+      },
+      "baseline": {
+        "admissible_all": {
+          "k": 123,
+          "n": 150,
+          "pct": 82.0,
+          "wilson95": [
+            75.1,
+            87.3
+          ]
+        },
+        "detection_fault": {
+          "k": 75,
+          "n": 75,
+          "pct": 100.0,
+          "wilson95": [
+            95.1,
+            100.0
+          ]
+        },
+        "admissible_fault": {
+          "k": 75,
+          "n": 75,
+          "pct": 100.0,
+          "wilson95": [
+            95.1,
+            100.0
+          ]
+        },
+        "false_alarm_control": {
+          "k": 27,
+          "n": 75,
+          "pct": 36.0,
+          "wilson95": [
+            26.1,
+            47.3
+          ]
+        },
+        "actions_fault": {
+          "Mitigate and monitor": 75
+        }
+      },
+      "paired": {
+        "v3_vs_v1": {
+          "first_only": 8,
+          "second_only": 3,
+          "exact_p": 0.2266
+        },
+        "v3_vs_baseline": {
+          "first_only": 22,
+          "second_only": 0,
+          "exact_p": 4.768e-07
+        }
+      }
+    }
+  },
+  "unmapped_fault_windows": 0,
+  "errors": [],
+  "n_errors": 0,
+  "v3_sha256": "217d95d95b9933537ad472dc8f8aa18c27b428684d9850cb47b80ccf0c1e1b34",
+  "github_run_id": "39600613441",
+  "primary_holm": {
+    "RE1_v3_vs_v1": 8.146e-43,
+    "RE3_v3_vs_v1": 1.111e-20
+  }
+}

@@ -1,0 +1,880 @@
+{
+ "RE1": {
+  "n_cases": 375,
+  "by_dataset_fault": {
+   "RE1-OB|cpu": 25,
+   "RE1-OB|delay": 25,
+   "RE1-OB|disk": 25,
+   "RE1-OB|loss": 25,
+   "RE1-OB|mem": 25,
+   "RE1-SS|cpu": 25,
+   "RE1-SS|delay": 25,
+   "RE1-SS|disk": 25,
+   "RE1-SS|loss": 25,
+   "RE1-SS|mem": 25,
+   "RE1-TT|cpu": 25,
+   "RE1-TT|delay": 25,
+   "RE1-TT|disk": 25,
+   "RE1-TT|loss": 25,
+   "RE1-TT|mem": 25
+  },
+  "fault_descriptions": [
+   "CPU stress",
+   "disk I/O stress",
+   "memory stress",
+   "network delay",
+   "network packet loss"
+  ],
+  "has_logs": {
+   "False": 375
+  },
+  "has_traces": {
+   "False": 375
+  },
+  "samples": [
+   {
+    "dataset": "RE1-OB",
+    "case": "re1ob_adservice_cpu_1",
+    "files": [
+     "inject_time.txt",
+     "metrics.parquet"
+    ],
+    "n_columns": 50,
+    "has_time": true,
+    "column_suffixes_top": {
+     "_cpu": 12,
+     "_mem": 12,
+     "_load": 12,
+     "_latency": 10,
+     "_error": 3
+    },
+    "first_columns": [
+     "time",
+     "adservice_cpu",
+     "cartservice_cpu",
+     "checkoutservice_cpu",
+     "currencyservice_cpu",
+     "emailservice_cpu",
+     "frontend_cpu",
+     "main_cpu",
+     "paymentservice_cpu",
+     "productcatalogservice_cpu",
+     "recommendationservice_cpu",
+     "redis_cpu",
+     "shippingservice_cpu",
+     "adservice_mem",
+     "cartservice_mem"
+    ],
+    "adapter_ok": true,
+    "adapter_fields_present": {
+     "deploy": [
+      "_evidence"
+     ],
+     "sre": [
+      "_auxiliary",
+      "_evidence",
+      "saturation_pct"
+     ],
+     "finops": [
+      "_evidence"
+     ],
+     "sec": [
+      "_evidence"
+     ]
+    },
+    "diag_keys": [
+     "adapter_policy",
+     "auxiliary_evidence",
+     "auxiliary_policy",
+     "cpu_largest_post",
+     "cpu_largest_ratio",
+     "decision_active_fields",
+     "latency90_largest_post",
+     "latency90_largest_ratio",
+     "ratio_gate",
+     "selection_rule",
+     "window_seconds"
+    ]
+   },
+   {
+    "dataset": "RE1-OB",
+    "case": "re1ob_adservice_cpu_2",
+    "files": [
+     "inject_time.txt",
+     "metrics.parquet"
+    ],
+    "n_columns": 50,
+    "has_time": true,
+    "column_suffixes_top": {
+     "_cpu": 12,
+     "_mem": 12,
+     "_load": 12,
+     "_latency": 10,
+     "_error": 3
+    },
+    "first_columns": [
+     "time",
+     "adservice_cpu",
+     "cartservice_cpu",
+     "checkoutservice_cpu",
+     "currencyservice_cpu",
+     "emailservice_cpu",
+     "frontend_cpu",
+     "main_cpu",
+     "paymentservice_cpu",
+     "productcatalogservice_cpu",
+     "recommendationservice_cpu",
+     "redis_cpu",
+     "shippingservice_cpu",
+     "adservice_mem",
+     "cartservice_mem"
+    ],
+    "adapter_ok": true,
+    "adapter_fields_present": {
+     "deploy": [
+      "_evidence"
+     ],
+     "sre": [
+      "_auxiliary",
+      "_evidence",
+      "saturation_pct"
+     ],
+     "finops": [
+      "_evidence"
+     ],
+     "sec": [
+      "_evidence"
+     ]
+    },
+    "diag_keys": [
+     "adapter_policy",
+     "auxiliary_evidence",
+     "auxiliary_policy",
+     "cpu_largest_post",
+     "cpu_largest_ratio",
+     "decision_active_fields",
+     "latency90_largest_post",
+     "latency90_largest_ratio",
+     "ratio_gate",
+     "selection_rule",
+     "window_seconds"
+    ]
+   },
+   {
+    "dataset": "RE1-SS",
+    "case": "re1ss_carts_cpu_1",
+    "files": [
+     "inject_time.txt",
+     "metrics.parquet"
+    ],
+    "n_columns": 60,
+    "has_time": true,
+    "column_suffixes_top": {
+     "_cpu": 15,
+     "_mem": 15,
+     "_workload": 8,
+     "_latency-50": 8,
+     "_latency-90": 8,
+     "_error": 5
+    },
+    "first_columns": [
+     "time",
+     "carts_cpu",
+     "carts-db_cpu",
+     "catalogue_cpu",
+     "catalogue-db_cpu",
+     "front-end_cpu",
+     "orders_cpu",
+     "orders-db_cpu",
+     "payment_cpu",
+     "queue-master_cpu",
+     "rabbitmq_cpu",
+     "rabbitmq-exporter_cpu",
+     "session-db_cpu",
+     "shipping_cpu",
+     "user_cpu"
+    ],
+    "adapter_ok": true,
+    "adapter_fields_present": {
+     "deploy": [
+      "_evidence"
+     ],
+     "sre": [
+      "_auxiliary",
+      "_evidence",
+      "p95_latency_ms",
+      "saturation_pct"
+     ],
+     "finops": [
+      "_evidence"
+     ],
+     "sec": [
+      "_evidence"
+     ]
+    },
+    "diag_keys": [
+     "adapter_policy",
+     "auxiliary_evidence",
+     "auxiliary_policy",
+     "cpu_largest_post",
+     "cpu_largest_ratio",
+     "decision_active_fields",
+     "latency90_largest_post",
+     "latency90_largest_ratio",
+     "ratio_gate",
+     "selection_rule",
+     "window_seconds"
+    ]
+   },
+   {
+    "dataset": "RE1-SS",
+    "case": "re1ss_carts_cpu_2",
+    "files": [
+     "inject_time.txt",
+     "metrics.parquet"
+    ],
+    "n_columns": 60,
+    "has_time": true,
+    "column_suffixes_top": {
+     "_cpu": 15,
+     "_mem": 15,
+     "_workload": 8,
+     "_latency-50": 8,
+     "_latency-90": 8,
+     "_error": 5
+    },
+    "first_columns": [
+     "time",
+     "carts_cpu",
+     "carts-db_cpu",
+     "catalogue_cpu",
+     "catalogue-db_cpu",
+     "front-end_cpu",
+     "orders_cpu",
+     "orders-db_cpu",
+     "payment_cpu",
+     "queue-master_cpu",
+     "rabbitmq_cpu",
+     "rabbitmq-exporter_cpu",
+     "session-db_cpu",
+     "shipping_cpu",
+     "user_cpu"
+    ],
+    "adapter_ok": true,
+    "adapter_fields_present": {
+     "deploy": [
+      "_evidence"
+     ],
+     "sre": [
+      "_auxiliary",
+      "_evidence",
+      "p95_latency_ms",
+      "saturation_pct"
+     ],
+     "finops": [
+      "_evidence"
+     ],
+     "sec": [
+      "_evidence"
+     ]
+    },
+    "diag_keys": [
+     "adapter_policy",
+     "auxiliary_evidence",
+     "auxiliary_policy",
+     "cpu_largest_post",
+     "cpu_largest_ratio",
+     "decision_active_fields",
+     "latency90_largest_post",
+     "latency90_largest_ratio",
+     "ratio_gate",
+     "selection_rule",
+     "window_seconds"
+    ]
+   },
+   {
+    "dataset": "RE1-TT",
+    "case": "re1tt_ts-auth-service_cpu_1",
+    "files": [
+     "inject_time.txt",
+     "metrics.parquet"
+    ],
+    "n_columns": 221,
+    "has_time": true,
+    "column_suffixes_top": {
+     "_cpu": 64,
+     "_mem": 64,
+     "_workload": 29,
+     "_latency-50": 29,
+     "_latency-90": 29,
+     "_error": 5
+    },
+    "first_columns": [
+     "time",
+     "ts-admin-basic-info-service_cpu",
+     "ts-admin-order-service_cpu",
+     "ts-admin-route-service_cpu",
+     "ts-admin-travel-service_cpu",
+     "ts-admin-user-service_cpu",
+     "ts-assurance-mongo_cpu",
+     "ts-assurance-service_cpu",
+     "ts-auth-mongo_cpu",
+     "ts-auth-service_cpu",
+     "ts-avatar-service_cpu",
+     "ts-basic-service_cpu",
+     "ts-cancel-service_cpu",
+     "ts-config-mongo_cpu",
+     "ts-config-service_cpu"
+    ],
+    "adapter_ok": true,
+    "adapter_fields_present": {
+     "deploy": [
+      "_evidence"
+     ],
+     "sre": [
+      "_auxiliary",
+      "_evidence",
+      "p95_latency_ms",
+      "saturation_pct"
+     ],
+     "finops": [
+      "_evidence"
+     ],
+     "sec": [
+      "_evidence"
+     ]
+    },
+    "diag_keys": [
+     "adapter_policy",
+     "auxiliary_evidence",
+     "auxiliary_policy",
+     "cpu_largest_post",
+     "cpu_largest_ratio",
+     "decision_active_fields",
+     "latency90_largest_post",
+     "latency90_largest_ratio",
+     "ratio_gate",
+     "selection_rule",
+     "window_seconds"
+    ]
+   },
+   {
+    "dataset": "RE1-TT",
+    "case": "re1tt_ts-auth-service_cpu_2",
+    "files": [
+     "inject_time.txt",
+     "metrics.parquet"
+    ],
+    "n_columns": 219,
+    "has_time": true,
+    "column_suffixes_top": {
+     "_cpu": 64,
+     "_mem": 64,
+     "_workload": 29,
+     "_latency-50": 29,
+     "_latency-90": 29,
+     "_error": 3
+    },
+    "first_columns": [
+     "time",
+     "ts-admin-basic-info-service_cpu",
+     "ts-admin-order-service_cpu",
+     "ts-admin-route-service_cpu",
+     "ts-admin-travel-service_cpu",
+     "ts-admin-user-service_cpu",
+     "ts-assurance-mongo_cpu",
+     "ts-assurance-service_cpu",
+     "ts-auth-mongo_cpu",
+     "ts-auth-service_cpu",
+     "ts-avatar-service_cpu",
+     "ts-basic-service_cpu",
+     "ts-cancel-service_cpu",
+     "ts-config-mongo_cpu",
+     "ts-config-service_cpu"
+    ],
+    "adapter_ok": true,
+    "adapter_fields_present": {
+     "deploy": [
+      "_evidence"
+     ],
+     "sre": [
+      "_auxiliary",
+      "_evidence",
+      "p95_latency_ms",
+      "saturation_pct"
+     ],
+     "finops": [
+      "_evidence"
+     ],
+     "sec": [
+      "_evidence"
+     ]
+    },
+    "diag_keys": [
+     "adapter_policy",
+     "auxiliary_evidence",
+     "auxiliary_policy",
+     "cpu_largest_post",
+     "cpu_largest_ratio",
+     "decision_active_fields",
+     "latency90_largest_post",
+     "latency90_largest_ratio",
+     "ratio_gate",
+     "selection_rule",
+     "window_seconds"
+    ]
+   }
+  ]
+ },
+ "RE3": {
+  "n_cases": 90,
+  "by_dataset_fault": {
+   "RE3-OB|f1": 9,
+   "RE3-OB|f2": 3,
+   "RE3-OB|f3": 6,
+   "RE3-OB|f4": 6,
+   "RE3-OB|f5": 6,
+   "RE3-SS|f1": 10,
+   "RE3-SS|f2": 3,
+   "RE3-SS|f3": 10,
+   "RE3-SS|f4": 7,
+   "RE3-TT|f1": 7,
+   "RE3-TT|f2": 7,
+   "RE3-TT|f3": 10,
+   "RE3-TT|f4": 6
+  },
+  "fault_descriptions": [
+   "code-level fault F1",
+   "code-level fault F2",
+   "code-level fault F3",
+   "code-level fault F4",
+   "code-level fault F5"
+  ],
+  "has_logs": {
+   "True": 90
+  },
+  "has_traces": {
+   "True": 60,
+   "False": 30
+  },
+  "samples": [
+   {
+    "dataset": "RE3-OB",
+    "case": "re3ob_adservice_f3_1",
+    "files": [
+     "inject_time.txt",
+     "logs.parquet",
+     "metrics.parquet",
+     "traces.parquet"
+    ],
+    "n_columns": 70,
+    "has_time": true,
+    "column_suffixes_top": {
+     "_cpu": 11,
+     "_mem": 11,
+     "_socket": 11,
+     "_workload": 11,
+     "_latency-50": 10,
+     "_latency-90": 10,
+     "_error": 3,
+     "_diskio": 2
+    },
+    "first_columns": [
+     "time",
+     "adservice_cpu",
+     "cartservice_cpu",
+     "checkoutservice_cpu",
+     "currencyservice_cpu",
+     "emailservice_cpu",
+     "frontend_cpu",
+     "paymentservice_cpu",
+     "productcatalogservice_cpu",
+     "recommendationservice_cpu",
+     "redis_cpu",
+     "shippingservice_cpu",
+     "adservice_mem",
+     "cartservice_mem",
+     "checkoutservice_mem"
+    ],
+    "adapter_ok": true,
+    "adapter_fields_present": {
+     "deploy": [
+      "_evidence"
+     ],
+     "sre": [
+      "_auxiliary",
+      "_evidence",
+      "saturation_pct"
+     ],
+     "finops": [
+      "_evidence"
+     ],
+     "sec": [
+      "_evidence"
+     ]
+    },
+    "diag_keys": [
+     "adapter_policy",
+     "auxiliary_evidence",
+     "auxiliary_policy",
+     "cpu_largest_post",
+     "cpu_largest_ratio",
+     "decision_active_fields",
+     "latency90_largest_post",
+     "latency90_largest_ratio",
+     "ratio_gate",
+     "selection_rule",
+     "window_seconds"
+    ]
+   },
+   {
+    "dataset": "RE3-OB",
+    "case": "re3ob_adservice_f3_2",
+    "files": [
+     "inject_time.txt",
+     "logs.parquet",
+     "metrics.parquet",
+     "traces.parquet"
+    ],
+    "n_columns": 101,
+    "has_time": true,
+    "column_suffixes_top": {
+     "_mem": 27,
+     "_socket": 27,
+     "_cpu": 11,
+     "_workload": 11,
+     "_latency-50": 10,
+     "_latency-90": 10,
+     "_error": 3,
+     "_diskio": 1
+    },
+    "first_columns": [
+     "time",
+     "adservice_cpu",
+     "cartservice_cpu",
+     "checkoutservice_cpu",
+     "currencyservice_cpu",
+     "emailservice_cpu",
+     "frontend_cpu",
+     "paymentservice_cpu",
+     "productcatalogservice_cpu",
+     "recommendationservice_cpu",
+     "redis_cpu",
+     "shippingservice_cpu",
+     "adservice_mem",
+     "carts_mem",
+     "carts-db_mem"
+    ],
+    "adapter_ok": true,
+    "adapter_fields_present": {
+     "deploy": [
+      "_evidence"
+     ],
+     "sre": [
+      "_auxiliary",
+      "_evidence"
+     ],
+     "finops": [
+      "_evidence"
+     ],
+     "sec": [
+      "_evidence"
+     ]
+    },
+    "diag_keys": [
+     "adapter_policy",
+     "auxiliary_evidence",
+     "auxiliary_policy",
+     "cpu_largest_post",
+     "cpu_largest_ratio",
+     "decision_active_fields",
+     "latency90_largest_post",
+     "latency90_largest_ratio",
+     "ratio_gate",
+     "selection_rule",
+     "window_seconds"
+    ]
+   },
+   {
+    "dataset": "RE3-SS",
+    "case": "re3ss_carts_f1_1",
+    "files": [
+     "inject_time.txt",
+     "logs.parquet",
+     "metrics.parquet",
+     "root_cause.txt"
+    ],
+    "n_columns": 81,
+    "has_time": true,
+    "column_suffixes_top": {
+     "_cpu": 15,
+     "_mem": 15,
+     "_socket": 15,
+     "_workload": 8,
+     "_latency-50": 8,
+     "_latency-90": 8,
+     "_diskio": 6,
+     "_error": 5
+    },
+    "first_columns": [
+     "time",
+     "carts_cpu",
+     "carts-db_cpu",
+     "catalogue_cpu",
+     "catalogue-db_cpu",
+     "front-end_cpu",
+     "orders_cpu",
+     "orders-db_cpu",
+     "payment_cpu",
+     "queue-master_cpu",
+     "rabbitmq_cpu",
+     "rabbitmq-exporter_cpu",
+     "session-db_cpu",
+     "shipping_cpu",
+     "user_cpu"
+    ],
+    "adapter_ok": true,
+    "adapter_fields_present": {
+     "deploy": [
+      "_evidence"
+     ],
+     "sre": [
+      "_auxiliary",
+      "_evidence",
+      "p95_latency_ms",
+      "saturation_pct"
+     ],
+     "finops": [
+      "_evidence"
+     ],
+     "sec": [
+      "_evidence"
+     ]
+    },
+    "diag_keys": [
+     "adapter_policy",
+     "auxiliary_evidence",
+     "auxiliary_policy",
+     "cpu_largest_post",
+     "cpu_largest_ratio",
+     "decision_active_fields",
+     "latency90_largest_post",
+     "latency90_largest_ratio",
+     "ratio_gate",
+     "selection_rule",
+     "window_seconds"
+    ]
+   },
+   {
+    "dataset": "RE3-SS",
+    "case": "re3ss_carts_f1_2",
+    "files": [
+     "inject_time.txt",
+     "logs.parquet",
+     "metrics.parquet",
+     "root_cause.txt"
+    ],
+    "n_columns": 82,
+    "has_time": true,
+    "column_suffixes_top": {
+     "_cpu": 15,
+     "_mem": 15,
+     "_socket": 15,
+     "_workload": 8,
+     "_latency-50": 8,
+     "_latency-90": 8,
+     "_diskio": 6,
+     "_error": 6
+    },
+    "first_columns": [
+     "time",
+     "carts_cpu",
+     "carts-db_cpu",
+     "catalogue_cpu",
+     "catalogue-db_cpu",
+     "front-end_cpu",
+     "orders_cpu",
+     "orders-db_cpu",
+     "payment_cpu",
+     "queue-master_cpu",
+     "rabbitmq_cpu",
+     "rabbitmq-exporter_cpu",
+     "session-db_cpu",
+     "shipping_cpu",
+     "user_cpu"
+    ],
+    "adapter_ok": true,
+    "adapter_fields_present": {
+     "deploy": [
+      "_evidence"
+     ],
+     "sre": [
+      "_auxiliary",
+      "_evidence",
+      "p95_latency_ms",
+      "saturation_pct"
+     ],
+     "finops": [
+      "_evidence"
+     ],
+     "sec": [
+      "_evidence"
+     ]
+    },
+    "diag_keys": [
+     "adapter_policy",
+     "auxiliary_evidence",
+     "auxiliary_policy",
+     "cpu_largest_post",
+     "cpu_largest_ratio",
+     "decision_active_fields",
+     "latency90_largest_post",
+     "latency90_largest_ratio",
+     "ratio_gate",
+     "selection_rule",
+     "window_seconds"
+    ]
+   },
+   {
+    "dataset": "RE3-TT",
+    "case": "re3tt_ts-auth-service_f1_1",
+    "files": [
+     "inject_time.txt",
+     "logs.parquet",
+     "metrics.parquet",
+     "traces.parquet"
+    ],
+    "n_columns": 316,
+    "has_time": true,
+    "column_suffixes_top": {
+     "_cpu": 68,
+     "_mem": 68,
+     "_socket": 68,
+     "_workload": 27,
+     "_latency-50": 27,
+     "_latency-90": 27,
+     "_diskio": 26,
+     "_error": 4
+    },
+    "first_columns": [
+     "time",
+     "ts-admin-basic-info-service_cpu",
+     "ts-admin-order-service_cpu",
+     "ts-admin-route-service_cpu",
+     "ts-admin-travel-service_cpu",
+     "ts-admin-user-service_cpu",
+     "ts-assurance-mongo_cpu",
+     "ts-assurance-service_cpu",
+     "ts-auth-mongo_cpu",
+     "ts-auth-service_cpu",
+     "ts-avatar-service_cpu",
+     "ts-basic-service_cpu",
+     "ts-cancel-service_cpu",
+     "ts-config-mongo_cpu",
+     "ts-config-service_cpu"
+    ],
+    "adapter_ok": true,
+    "adapter_fields_present": {
+     "deploy": [
+      "_evidence"
+     ],
+     "sre": [
+      "_auxiliary",
+      "_evidence",
+      "p95_latency_ms",
+      "saturation_pct"
+     ],
+     "finops": [
+      "_evidence"
+     ],
+     "sec": [
+      "_evidence"
+     ]
+    },
+    "diag_keys": [
+     "adapter_policy",
+     "auxiliary_evidence",
+     "auxiliary_policy",
+     "cpu_largest_post",
+     "cpu_largest_ratio",
+     "decision_active_fields",
+     "latency90_largest_post",
+     "latency90_largest_ratio",
+     "ratio_gate",
+     "selection_rule",
+     "window_seconds"
+    ]
+   },
+   {
+    "dataset": "RE3-TT",
+    "case": "re3tt_ts-auth-service_f1_2",
+    "files": [
+     "inject_time.txt",
+     "logs.parquet",
+     "metrics.parquet",
+     "traces.parquet"
+    ],
+    "n_columns": 316,
+    "has_time": true,
+    "column_suffixes_top": {
+     "_cpu": 68,
+     "_mem": 68,
+     "_socket": 68,
+     "_workload": 27,
+     "_latency-50": 27,
+     "_latency-90": 27,
+     "_diskio": 26,
+     "_error": 4
+    },
+    "first_columns": [
+     "time",
+     "ts-admin-basic-info-service_cpu",
+     "ts-admin-order-service_cpu",
+     "ts-admin-route-service_cpu",
+     "ts-admin-travel-service_cpu",
+     "ts-admin-user-service_cpu",
+     "ts-assurance-mongo_cpu",
+     "ts-assurance-service_cpu",
+     "ts-auth-mongo_cpu",
+     "ts-auth-service_cpu",
+     "ts-avatar-service_cpu",
+     "ts-basic-service_cpu",
+     "ts-cancel-service_cpu",
+     "ts-config-mongo_cpu",
+     "ts-config-service_cpu"
+    ],
+    "adapter_ok": true,
+    "adapter_fields_present": {
+     "deploy": [
+      "_evidence"
+     ],
+     "sre": [
+      "_auxiliary",
+      "_evidence",
+      "p95_latency_ms",
+      "saturation_pct"
+     ],
+     "finops": [
+      "_evidence"
+     ],
+     "sec": [
+      "_evidence"
+     ]
+    },
+    "diag_keys": [
+     "adapter_policy",
+     "auxiliary_evidence",
+     "auxiliary_policy",
+     "cpu_largest_post",
+     "cpu_largest_ratio",
+     "decision_active_fields",
+     "latency90_largest_post",
+     "latency90_largest_ratio",
+     "ratio_gate",
+     "selection_rule",
+     "window_seconds"
+    ]
+   }
+  ]
+ }
+}

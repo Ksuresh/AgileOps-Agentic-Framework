@@ -1,0 +1,217 @@
+{
+  "qwen_dir": "model_replication/results/llama3.1_8b/main",
+  "errors": {},
+  "n_cases": 96,
+  "qwen_runs_per_arm": {
+    "B5": {
+      "3": 96
+    },
+    "B3": {
+      "3": 96
+    },
+    "B6": {
+      "2": 96
+    },
+    "AAF": {
+      "3": 96
+    }
+  },
+  "H10_1_cross_model_same_action": {
+    "AAF": {
+      "k": 93,
+      "n": 96,
+      "wilson": [
+        91.2,
+        98.9
+      ]
+    },
+    "B3": {
+      "k": 90,
+      "n": 96,
+      "wilson": [
+        87.0,
+        97.1
+      ]
+    },
+    "B5": {
+      "k": 18,
+      "n": 96,
+      "wilson": [
+        12.2,
+        27.7
+      ]
+    },
+    "B6": {
+      "k": 25,
+      "n": 96,
+      "wilson": [
+        18.3,
+        35.6
+      ]
+    }
+  },
+  "H10_1_tests": {
+    "AAF_vs_B5": {
+      "a_only": 75,
+      "b_only": 0,
+      "p_exact": 5.293955920339377e-23,
+      "p_holm": 1.0587911840678754e-22
+    },
+    "AAF_vs_B6": {
+      "a_only": 68,
+      "b_only": 0,
+      "p_exact": 6.776263578034403e-21,
+      "p_holm": 6.776263578034403e-21
+    }
+  },
+  "H10_2_identical_in_all_runs": {
+    "AAF": 93,
+    "B3": 92,
+    "B5": 31,
+    "B6": 48
+  },
+  "H10_3_accuracy": {
+    "authors_s6": {
+      "n": 48,
+      "B1": 39,
+      "AAF": 39,
+      "AAF_gpt": 41,
+      "B3": 40,
+      "B3_gpt": 41,
+      "B5": 6,
+      "B5_gpt": 16,
+      "B6": 12,
+      "B6_gpt": 39,
+      "tests_qwen": {
+        "AAF_vs_B1": {
+          "a_only": 0,
+          "b_only": 0,
+          "p_exact": 1.0
+        },
+        "AAF_vs_B5": {
+          "a_only": 34,
+          "b_only": 1,
+          "p_exact": 2.0954757928848267e-09
+        },
+        "AAF_vs_B6": {
+          "a_only": 29,
+          "b_only": 2,
+          "p_exact": 4.628673195838928e-07
+        },
+        "AAF_vs_B3": {
+          "a_only": 0,
+          "b_only": 1,
+          "p_exact": 1.0
+        }
+      }
+    },
+    "authors_s7": {
+      "n": 48,
+      "B1": 28,
+      "AAF": 29,
+      "AAF_gpt": 30,
+      "B3": 30,
+      "B3_gpt": 34,
+      "B5": 7,
+      "B5_gpt": 18,
+      "B6": 10,
+      "B6_gpt": 39,
+      "tests_qwen": {
+        "AAF_vs_B1": {
+          "a_only": 1,
+          "b_only": 0,
+          "p_exact": 1.0
+        },
+        "AAF_vs_B5": {
+          "a_only": 25,
+          "b_only": 3,
+          "p_exact": 2.744048833847046e-05
+        },
+        "AAF_vs_B6": {
+          "a_only": 21,
+          "b_only": 2,
+          "p_exact": 6.604194641113281e-05
+        },
+        "AAF_vs_B3": {
+          "a_only": 0,
+          "b_only": 1,
+          "p_exact": 1.0
+        }
+      }
+    },
+    "practitioner_s6": {
+      "n": 48,
+      "B1": 33,
+      "AAF": 33,
+      "AAF_gpt": 31,
+      "B3": 32,
+      "B3_gpt": 31,
+      "B5": 9,
+      "B5_gpt": 20,
+      "B6": 15,
+      "B6_gpt": 37,
+      "tests_qwen": {
+        "AAF_vs_B1": {
+          "a_only": 0,
+          "b_only": 0,
+          "p_exact": 1.0
+        },
+        "AAF_vs_B5": {
+          "a_only": 25,
+          "b_only": 1,
+          "p_exact": 8.046627044677734e-07
+        },
+        "AAF_vs_B6": {
+          "a_only": 21,
+          "b_only": 3,
+          "p_exact": 0.0002771615982055664
+        },
+        "AAF_vs_B3": {
+          "a_only": 1,
+          "b_only": 0,
+          "p_exact": 1.0
+        }
+      }
+    },
+    "practitioner_s7": {
+      "n": 48,
+      "B1": 23,
+      "AAF": 24,
+      "AAF_gpt": 23,
+      "B3": 25,
+      "B3_gpt": 27,
+      "B5": 8,
+      "B5_gpt": 15,
+      "B6": 7,
+      "B6_gpt": 35,
+      "tests_qwen": {
+        "AAF_vs_B1": {
+          "a_only": 1,
+          "b_only": 0,
+          "p_exact": 1.0
+        },
+        "AAF_vs_B5": {
+          "a_only": 20,
+          "b_only": 4,
+          "p_exact": 0.001543879508972168
+        },
+        "AAF_vs_B6": {
+          "a_only": 18,
+          "b_only": 1,
+          "p_exact": 7.62939453125e-05
+        },
+        "AAF_vs_B3": {
+          "a_only": 0,
+          "b_only": 1,
+          "p_exact": 1.0
+        }
+      }
+    }
+  },
+  "H10_4_malformed_case_runs": {
+    "B6": 74,
+    "B5": 108,
+    "AAF": 95
+  },
+  "H10_4_aaf_malformed_changed_final_action_without_tool_result": 0
+}

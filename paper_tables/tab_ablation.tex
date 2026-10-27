@@ -1,0 +1,19 @@
+\begin{table}[!t]
+\caption{Ablation of Rule Set v1.4 (Rules Alone, Fault Cases, $O_1$)}
+\label{tab:ablation}
+\centering\footnotesize
+\begin{tabular}{L{3.35cm}L{0.7cm}L{0.7cm}L{0.7cm}L{1.1cm}}
+\toprule
+\textbf{Variant} & \textbf{S14} & \textbf{S15} & \textbf{S16} & \textbf{Pooled (104)} \\
+\midrule
+Full v1.4 & 34 & 42 & 28 & 104 \\
+Without release-regression rule R1 & 29 & 30 & 20 & 79 \\
+Without security-over-cost rule R2 & 30 & 40 & 26 & 96 \\
+Without R1 and R2 (v1.0) & 25 & 28 & 18 & 71 \\
+R1 without pre-release baseline (v1.2) & 32 & 37 & 26 & 95 \\
+Without interaction arbitration & 34 & 41 & 28 & 103 \\
+Without interaction, R1 and R2 & 22 & 26 & 17 & 65 \\
+Best single-domain expert & 26 & 21 & 16 & 63 \\
+\bottomrule
+\end{tabular}
+\end{table}

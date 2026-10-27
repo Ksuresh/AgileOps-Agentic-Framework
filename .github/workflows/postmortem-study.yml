@@ -1,0 +1,44 @@
+name: Postmortem study - arms run (pre-registered)
+
+# PROTOCOL.md (external_validation/postmortems), amendments A1-A6. Re-fetches the public
+# timelines at run time, checks them against the frozen evidence hashes, runs all arms and
+# commits summary + case results. Raw run logs (contain verbatim quotes) are committed encrypted only.
+on:
+  push:
+    branches: [text-evidence-pilot]
+    paths: ["external_validation/postmortems/run_study.py", ".github/workflows/postmortem-study.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  study:
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    env:
+      OPENAI_MODEL: gpt-5.6-luna
+      OPENAI_REASONING_EFFORT: none
+      A_REASONING_EFFORT: medium
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install pyyaml numpy pandas scipy openai requests beautifulsoup4
+      - name: Run study
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: |
+          mkdir -p external_validation/postmortems/results
+          python -m external_validation.postmortems.run_study --repeats 5 --workers 8 2>&1 | tee external_validation/postmortems/results/run_log_${GITHUB_RUN_ID}.txt
+          exit ${PIPESTATUS[0]}
+      - name: Commit results
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f external_validation/postmortems/results
+          git commit -m "Postmortem study results: run ${GITHUB_RUN_ID} [skip ci]" || echo "nothing to commit"
+          git pull --rebase origin ${GITHUB_REF_NAME} || true
+          git push origin HEAD:${GITHUB_REF_NAME}

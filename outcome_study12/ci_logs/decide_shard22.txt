@@ -1,0 +1,7 @@
+AAF-12 PR-03 3 Rollback to stable deployment
+AAF-12 PR-03-W 2 Rollback to stable deployment
+AAF-12 PP-03-W 3 Rollback to stable deployment
+AAF-12 PP-04 2 Rollback to stable deployment
+AAF-12 PP-07 2 Rollback to stable deployment
+AAF-12 PR-05-W 3 Rollback to stable deployment
+AAF-12 PR-04-W 2 Rollback to stable deployment

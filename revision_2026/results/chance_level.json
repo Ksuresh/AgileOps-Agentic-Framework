@@ -1,0 +1,105 @@
+[
+ {
+  "study": "selective AEI primary (32)",
+  "n": 32,
+  "admissible_set_sizes": {
+   "1": 31,
+   "2": 1
+  },
+  "mean_admissible": 1.03,
+  "vocabulary": 8,
+  "chance_uniform_pct": 12.9,
+  "best_constant_action": "Scale adjustment",
+  "best_constant_pct": 34.4
+ },
+ {
+  "study": "selective AEI replication (16)",
+  "n": 16,
+  "admissible_set_sizes": {
+   "1": 16
+  },
+  "mean_admissible": 1.0,
+  "vocabulary": 8,
+  "chance_uniform_pct": 12.5,
+  "best_constant_action": "Scale adjustment",
+  "best_constant_pct": 37.5
+ },
+ {
+  "study": "runtime interventions (27)",
+  "n": 27,
+  "admissible_set_sizes": {
+   "1": 14,
+   "2": 13
+  },
+  "mean_admissible": 1.48,
+  "vocabulary": 8,
+  "chance_uniform_pct": 18.5,
+  "best_constant_action": "Mitigate and monitor",
+  "best_constant_pct": 37.0
+ },
+ {
+  "study": "runtime interventions_batch3 (6)",
+  "n": 6,
+  "admissible_set_sizes": {
+   "1": 5,
+   "2": 1
+  },
+  "mean_admissible": 1.17,
+  "vocabulary": 8,
+  "chance_uniform_pct": 14.6,
+  "best_constant_action": "Patch or block release",
+  "best_constant_pct": 50.0
+ },
+ {
+  "study": "runtime interventions_expanded_heldout (8)",
+  "n": 8,
+  "admissible_set_sizes": {
+   "1": 7,
+   "2": 1
+  },
+  "mean_admissible": 1.12,
+  "vocabulary": 8,
+  "chance_uniform_pct": 14.1,
+  "best_constant_action": "Patch or block release",
+  "best_constant_pct": 37.5
+ },
+ {
+  "study": "runtime interventions_extended_validation (11)",
+  "n": 11,
+  "admissible_set_sizes": {
+   "1": 9,
+   "2": 2
+  },
+  "mean_admissible": 1.18,
+  "vocabulary": 8,
+  "chance_uniform_pct": 14.8,
+  "best_constant_action": "Scale adjustment",
+  "best_constant_pct": 45.5
+ },
+ {
+  "study": "runtime interventions_online_boutique (8)",
+  "n": 8,
+  "admissible_set_sizes": {
+   "1": 7,
+   "2": 1
+  },
+  "mean_admissible": 1.12,
+  "vocabulary": 8,
+  "chance_uniform_pct": 14.1,
+  "best_constant_action": "Scale adjustment",
+  "best_constant_pct": 25.0
+ },
+ {
+  "study": "runtime interventions_v2_prospective (8)",
+  "n": 8,
+  "admissible_set_sizes": {
+   "1": 7,
+   "2": 1
+  },
+  "mean_admissible": 1.12,
+  "vocabulary": 8,
+  "chance_uniform_pct": 14.1,
+  "best_constant_action": "Scale adjustment",
+  "best_constant_pct": 50.0
+ }
+]

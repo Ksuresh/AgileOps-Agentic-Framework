@@ -1,0 +1,289 @@
+{
+  "oracle": {
+    "CR-01": {
+      "O1": [
+        "patch",
+        "rollback"
+      ],
+      "O2": [
+        "patch"
+      ]
+    },
+    "CR-02": {
+      "O1": [
+        "patch",
+        "rollback"
+      ],
+      "O2": [
+        "patch"
+      ]
+    },
+    "CR-03": {
+      "O1": [
+        "patch",
+        "rollback"
+      ],
+      "O2": [
+        "patch"
+      ]
+    },
+    "LR-01": {
+      "O1": [
+        "mitigate",
+        "none",
+        "patch",
+        "rollback",
+        "scale"
+      ],
+      "O2": [
+        "none",
+        "patch"
+      ]
+    },
+    "LR-03": {
+      "O1": [
+        "none",
+        "patch",
+        "rollback",
+        "scale"
+      ],
+      "O2": [
+        "none",
+        "patch"
+      ]
+    }
+  },
+  "E13_1_lowrisk_continue_O2": {
+    "AAF": "1/2",
+    "AAF-12": "1/2",
+    "AlwaysNone": "2/2",
+    "AlwaysRollback": "0/2",
+    "B1": "1/2",
+    "B1-12": "1/2",
+    "B2": "1/2",
+    "B5": "1/2",
+    "B6": "1/2",
+    "BlockAnyCVE": "2/2",
+    "D-DevOps": "2/2",
+    "D-FinOps": "1/2",
+    "D-SRE": "1/2",
+    "D-Sec": "2/2",
+    "Dominant": "1/2"
+  },
+  "E13_2_critical_removed_O1": {
+    "AAF": "1/3",
+    "AAF-12": "3/3",
+    "AlwaysNone": "0/3",
+    "AlwaysRollback": "3/3",
+    "B1": "1/3",
+    "B1-12": "3/3",
+    "B2": "1/3",
+    "B5": "2/3",
+    "B6": "3/3",
+    "BlockAnyCVE": "3/3",
+    "D-DevOps": "0/3",
+    "D-FinOps": "0/3",
+    "D-SRE": "0/3",
+    "D-Sec": "3/3",
+    "Dominant": "1/3"
+  },
+  "E13_2_critical_O2": {
+    "AAF": "1/3",
+    "AAF-12": "1/3",
+    "AlwaysNone": "0/3",
+    "AlwaysRollback": "0/3",
+    "B1": "1/3",
+    "B1-12": "1/3",
+    "B2": "1/3",
+    "B5": "2/3",
+    "B6": "3/3",
+    "BlockAnyCVE": "3/3",
+    "D-DevOps": "0/3",
+    "D-FinOps": "0/3",
+    "D-SRE": "0/3",
+    "D-Sec": "3/3",
+    "Dominant": "1/3"
+  },
+  "actions": {
+    "AAF": {
+      "CR-01": "Scale adjustment",
+      "CR-01-W": "Scale adjustment",
+      "CR-02": "Scale adjustment",
+      "CR-02-W": "Scale adjustment",
+      "CR-03": "Patch or block release",
+      "CR-03-W": "Mitigate and monitor",
+      "LR-01": "No action (observe)",
+      "LR-01-W": "No action (observe)",
+      "LR-03": "Scale adjustment",
+      "LR-03-W": "Scale adjustment"
+    },
+    "AAF-12": {
+      "CR-01": "Rollback to stable deployment",
+      "CR-01-W": "Rollback to stable deployment",
+      "CR-02": "Patch or block release",
+      "CR-02-W": "Scale adjustment",
+      "CR-03": "Rollback to stable deployment",
+      "CR-03-W": "Rollback to stable deployment",
+      "LR-01": "No action (observe)",
+      "LR-01-W": "No action (observe)",
+      "LR-03": "Rollback to stable deployment",
+      "LR-03-W": "Rollback to stable deployment"
+    },
+    "AlwaysNone": {
+      "CR-01": "No action (observe)",
+      "CR-01-W": "No action (observe)",
+      "CR-02": "No action (observe)",
+      "CR-02-W": "No action (observe)",
+      "CR-03": "No action (observe)",
+      "CR-03-W": "No action (observe)",
+      "LR-01": "No action (observe)",
+      "LR-01-W": "No action (observe)",
+      "LR-03": "No action (observe)",
+      "LR-03-W": "No action (observe)"
+    },
+    "AlwaysRollback": {
+      "CR-01": "Rollback to stable deployment",
+      "CR-01-W": "Rollback to stable deployment",
+      "CR-02": "Rollback to stable deployment",
+      "CR-02-W": "Rollback to stable deployment",
+      "CR-03": "Rollback to stable deployment",
+      "CR-03-W": "Rollback to stable deployment",
+      "LR-01": "Rollback to stable deployment",
+      "LR-01-W": "Rollback to stable deployment",
+      "LR-03": "Rollback to stable deployment",
+      "LR-03-W": "Rollback to stable deployment"
+    },
+    "B1": {
+      "CR-01": "Scale adjustment",
+      "CR-01-W": "Scale adjustment",
+      "CR-02": "Scale adjustment",
+      "CR-02-W": "Scale adjustment",
+      "CR-03": "Patch or block release",
+      "CR-03-W": "Mitigate and monitor",
+      "LR-01": "No action (observe)",
+      "LR-01-W": "No action (observe)",
+      "LR-03": "Scale adjustment",
+      "LR-03-W": "Scale adjustment"
+    },
+    "B1-12": {
+      "CR-01": "Rollback to stable deployment",
+      "CR-01-W": "Rollback to stable deployment",
+      "CR-02": "Patch or block release",
+      "CR-02-W": "Scale adjustment",
+      "CR-03": "Rollback to stable deployment",
+      "CR-03-W": "Rollback to stable deployment",
+      "LR-01": "No action (observe)",
+      "LR-01-W": "No action (observe)",
+      "LR-03": "Rollback to stable deployment",
+      "LR-03-W": "Rollback to stable deployment"
+    },
+    "B2": {
+      "CR-01": "Scale adjustment",
+      "CR-01-W": "Scale adjustment",
+      "CR-02": "Scale adjustment",
+      "CR-02-W": "Scale adjustment",
+      "CR-03": "Patch or block release",
+      "CR-03-W": "Patch or block release",
+      "LR-01": "No action (observe)",
+      "LR-01-W": "No action (observe)",
+      "LR-03": "Scale adjustment",
+      "LR-03-W": "Scale adjustment"
+    },
+    "B5": {
+      "CR-01": "Patch or block release",
+      "CR-01-W": "Patch or block release",
+      "CR-02": "Patch or block release",
+      "CR-02-W": "Patch or block release",
+      "CR-03": "No action (observe)",
+      "CR-03-W": "Mitigate and monitor",
+      "LR-01": "No action (observe)",
+      "LR-01-W": "Mitigate and monitor",
+      "LR-03": "Mitigate and monitor",
+      "LR-03-W": "Mitigate and monitor"
+    },
+    "B6": {
+      "CR-01": "Patch or block release",
+      "CR-01-W": "Escalate for evidence/human review",
+      "CR-02": "Patch or block release",
+      "CR-02-W": "Escalate for evidence/human review",
+      "CR-03": "Patch or block release",
+      "CR-03-W": "Patch or block release",
+      "LR-01": "No action (observe)",
+      "LR-01-W": "No action (observe)",
+      "LR-03": "Scale adjustment",
+      "LR-03-W": "Scale adjustment"
+    },
+    "BlockAnyCVE": {
+      "CR-01": "Patch or block release",
+      "CR-01-W": "Patch or block release",
+      "CR-02": "Patch or block release",
+      "CR-02-W": "Patch or block release",
+      "CR-03": "Patch or block release",
+      "CR-03-W": "Patch or block release",
+      "LR-01": "Patch or block release",
+      "LR-01-W": "Patch or block release",
+      "LR-03": "Patch or block release",
+      "LR-03-W": "Patch or block release"
+    },
+    "D-DevOps": {
+      "CR-01": "No action (observe)",
+      "CR-01-W": "No action (observe)",
+      "CR-02": "No action (observe)",
+      "CR-02-W": "No action (observe)",
+      "CR-03": "No action (observe)",
+      "CR-03-W": "No action (observe)",
+      "LR-01": "No action (observe)",
+      "LR-01-W": "No action (observe)",
+      "LR-03": "No action (observe)",
+      "LR-03-W": "No action (observe)"
+    },
+    "D-FinOps": {
+      "CR-01": "Scale adjustment",
+      "CR-01-W": "Scale adjustment",
+      "CR-02": "Scale adjustment",
+      "CR-02-W": "Scale adjustment",
+      "CR-03": "No action (observe)",
+      "CR-03-W": "No action (observe)",
+      "LR-01": "No action (observe)",
+      "LR-01-W": "No action (observe)",
+      "LR-03": "Scale adjustment",
+      "LR-03-W": "Scale adjustment"
+    },
+    "D-SRE": {
+      "CR-01": "Mitigate and monitor",
+      "CR-01-W": "Mitigate and monitor",
+      "CR-02": "No action (observe)",
+      "CR-02-W": "No action (observe)",
+      "CR-03": "Mitigate and monitor",
+      "CR-03-W": "Mitigate and monitor",
+      "LR-01": "No action (observe)",
+      "LR-01-W": "No action (observe)",
+      "LR-03": "Mitigate and monitor",
+      "LR-03-W": "Mitigate and monitor"
+    },
+    "D-Sec": {
+      "CR-01": "Patch or block release",
+      "CR-01-W": "No action (observe)",
+      "CR-02": "Patch or block release",
+      "CR-02-W": "No action (observe)",
+      "CR-03": "Patch or block release",
+      "CR-03-W": "No action (observe)",
+      "LR-01": "No action (observe)",
+      "LR-01-W": "No action (observe)",
+      "LR-03": "No action (observe)",
+      "LR-03-W": "No action (observe)"
+    },
+    "Dominant": {
+      "CR-01": "Scale adjustment",
+      "CR-01-W": "Scale adjustment",
+      "CR-02": "Scale adjustment",
+      "CR-02-W": "Scale adjustment",
+      "CR-03": "Patch or block release",
+      "CR-03-W": "Mitigate and monitor",
+      "LR-01": "No action (observe)",
+      "LR-01-W": "No action (observe)",
+      "LR-03": "Scale adjustment",
+      "LR-03-W": "Scale adjustment"
+    }
+  }
+}

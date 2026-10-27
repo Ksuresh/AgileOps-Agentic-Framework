@@ -1,0 +1,3783 @@
+{
+  "timeline": {
+    "rules_v14_frozen": "3b25e5b 2026-10-25T01:52:39+00:00 Study 14: frozen protocol, v14 rules (baseline-relative rollback, security over cost), 40 fresh cases on two services, two-service testbed and pre-release baseline; start calibration",
+    "outcome_study14_protocol": "3b25e5b 2026-10-25T01:52:39+00:00 Study 14: frozen protocol, v14 rules (baseline-relative rollback, security over cost), 40 fresh cases on two services, two-service testbed and pre-release baseline; start calibration",
+    "outcome_study15_protocol": "093039d 2026-10-26T00:00:10+00:00 Study 15: protocol, fresh cases (57, three services) and calibration rules, frozen before any run",
+    "outcome_study16_protocol": "ba9f4bb 2026-10-26T01:22:57+00:00 Study 16 (Sock Shop): protocol, 38 fresh cases, calibration rules and analysis script, frozen before any run; testbed options for a second application (defaults unchanged)",
+    "outcome_study14_first_measurement": "a9e2d46 2026-10-25T02:26:41+00:00 Study 14 outcomes shard 0: run 40153012585 [skip ci]",
+    "outcome_study15_first_measurement": "25d045b 2026-10-26T01:59:04+00:00 Study 15 outcomes shard 15: run 40253189329 [skip ci]",
+    "outcome_study16_first_measurement": "af3dfbf 2026-10-26T04:45:36+00:00 Study 16 outcomes shard 10: run 40262229088 [skip ci]",
+    "rules_v14_last_change": "3b25e5b 2026-10-25T01:52:39+00:00 Study 14: frozen protocol, v14 rules (baseline-relative rollback, security over cost), 40 fresh cases on two services, two-service testbed and pre-release baseline; start calibration"
+  },
+  "per_study": {
+    "outcome_study14": {
+      "n_faults": 34,
+      "n_families": 17,
+      "n_discriminating": 29,
+      "n_unique_answer": 11,
+      "O1": {
+        "AAF": "34/34",
+        "AAF-14-GPT": "34/34",
+        "AlwaysNone": "6/34",
+        "AlwaysRollback": "26/34",
+        "B1": "25/34",
+        "B1-12": "32/34",
+        "B1-14": "34/34",
+        "B3-14-GPT": "34/34",
+        "B3-GPT": "25/34",
+        "B5": "26/34",
+        "B5-GPT": "29/34",
+        "B6": "29/34",
+        "B6-GPT": "28/34",
+        "BlockAnyCVE": "26/34",
+        "D-DevOps": "14/34",
+        "D-FinOps": "11/34",
+        "D-SRE": "9/34",
+        "D-Sec": "26/34",
+        "Dominant": "21/34",
+        "L-DevOps": "14/34",
+        "L-FinOps": "9/34",
+        "L-SRE": "15/34",
+        "L-Sec": "23/34",
+        "S:D-DevOps": "14/34",
+        "S:D-FinOps": "11/34",
+        "S:D-SRE": "9/34",
+        "S:D-Sec": "26/34",
+        "S:L-DevOps": "14/34",
+        "S:L-FinOps": "9/34",
+        "S:L-SRE": "15/34",
+        "S:L-Sec": "23/34"
+      },
+      "O2": {
+        "AAF": "24/34",
+        "AAF-14-GPT": "24/34",
+        "AlwaysNone": "4/34",
+        "AlwaysRollback": "5/34",
+        "B1": "20/34",
+        "B1-12": "21/34",
+        "B1-14": "24/34",
+        "B3-14-GPT": "24/34",
+        "B3-GPT": "20/34",
+        "B5": "13/34",
+        "B5-GPT": "16/34",
+        "B6": "21/34",
+        "B6-GPT": "23/34",
+        "BlockAnyCVE": "20/34",
+        "D-DevOps": "6/34",
+        "D-FinOps": "10/34",
+        "D-SRE": "4/34",
+        "D-Sec": "20/34",
+        "Dominant": "15/34",
+        "L-DevOps": "5/34",
+        "L-FinOps": "4/34",
+        "L-SRE": "7/34",
+        "L-Sec": "10/34",
+        "S:D-DevOps": "6/34",
+        "S:D-FinOps": "10/34",
+        "S:D-SRE": "4/34",
+        "S:D-Sec": "20/34",
+        "S:L-DevOps": "5/34",
+        "S:L-FinOps": "4/34",
+        "S:L-SRE": "7/34",
+        "S:L-Sec": "10/34"
+      },
+      "O1_discriminating": {
+        "AAF": "29/29",
+        "AAF-14-GPT": "29/29",
+        "AlwaysNone": "1/29",
+        "AlwaysRollback": "21/29",
+        "B1": "20/29",
+        "B1-12": "27/29",
+        "B1-14": "29/29",
+        "B3-14-GPT": "29/29",
+        "B3-GPT": "20/29",
+        "B5": "21/29",
+        "B5-GPT": "24/29",
+        "B6": "24/29",
+        "B6-GPT": "23/29",
+        "BlockAnyCVE": "21/29",
+        "D-DevOps": "9/29",
+        "D-FinOps": "6/29",
+        "D-SRE": "4/29",
+        "D-Sec": "21/29",
+        "Dominant": "16/29",
+        "L-DevOps": "9/29",
+        "L-FinOps": "4/29",
+        "L-SRE": "10/29",
+        "L-Sec": "18/29",
+        "S:D-DevOps": "9/29",
+        "S:D-FinOps": "6/29",
+        "S:D-SRE": "4/29",
+        "S:D-Sec": "21/29",
+        "S:L-DevOps": "9/29",
+        "S:L-FinOps": "4/29",
+        "S:L-SRE": "10/29",
+        "S:L-Sec": "18/29"
+      },
+      "O1_unique_answer": {
+        "AAF": "11/11",
+        "AAF-14-GPT": "11/11",
+        "AlwaysNone": "0/11",
+        "AlwaysRollback": "5/11",
+        "B1": "5/11",
+        "B1-12": "9/11",
+        "B1-14": "11/11",
+        "B3-14-GPT": "11/11",
+        "B3-GPT": "5/11",
+        "B5": "6/11",
+        "B5-GPT": "7/11",
+        "B6": "6/11",
+        "B6-GPT": "5/11",
+        "BlockAnyCVE": "4/11",
+        "D-DevOps": "2/11",
+        "D-FinOps": "1/11",
+        "D-SRE": "1/11",
+        "D-Sec": "4/11",
+        "Dominant": "4/11",
+        "L-DevOps": "2/11",
+        "L-FinOps": "1/11",
+        "L-SRE": "5/11",
+        "L-Sec": "3/11",
+        "S:D-DevOps": "2/11",
+        "S:D-FinOps": "1/11",
+        "S:D-SRE": "1/11",
+        "S:D-Sec": "4/11",
+        "S:L-DevOps": "2/11",
+        "S:L-FinOps": "1/11",
+        "S:L-SRE": "5/11",
+        "S:L-Sec": "3/11"
+      },
+      "H1_case_level": {
+        "S:D-DevOps": {
+          "a_only": 20,
+          "b_only": 0,
+          "p_exact": 1.9073486328125e-06,
+          "n": 34,
+          "p_holm": 9.5367431640625e-06
+        },
+        "S:D-SRE": {
+          "a_only": 25,
+          "b_only": 0,
+          "p_exact": 5.960464477539063e-08,
+          "n": 34,
+          "p_holm": 4.76837158203125e-07
+        },
+        "S:D-FinOps": {
+          "a_only": 23,
+          "b_only": 0,
+          "p_exact": 2.384185791015625e-07,
+          "n": 34,
+          "p_holm": 1.430511474609375e-06
+        },
+        "S:D-Sec": {
+          "a_only": 8,
+          "b_only": 0,
+          "p_exact": 0.0078125,
+          "n": 34,
+          "p_holm": 0.0078125
+        },
+        "S:L-DevOps": {
+          "a_only": 20,
+          "b_only": 0,
+          "p_exact": 1.9073486328125e-06,
+          "n": 34,
+          "p_holm": 9.5367431640625e-06
+        },
+        "S:L-SRE": {
+          "a_only": 19,
+          "b_only": 0,
+          "p_exact": 3.814697265625e-06,
+          "n": 34,
+          "p_holm": 1.1444091796875e-05
+        },
+        "S:L-FinOps": {
+          "a_only": 25,
+          "b_only": 0,
+          "p_exact": 5.960464477539063e-08,
+          "n": 34,
+          "p_holm": 4.76837158203125e-07
+        },
+        "S:L-Sec": {
+          "a_only": 11,
+          "b_only": 0,
+          "p_exact": 0.0009765625,
+          "n": 34,
+          "p_holm": 0.001953125
+        }
+      },
+      "H2_case_level": {
+        "B5": {
+          "a_only": 8,
+          "b_only": 0,
+          "p_exact": 0.0078125,
+          "n": 34,
+          "p_holm": 0.0234375
+        },
+        "B6": {
+          "a_only": 5,
+          "b_only": 0,
+          "p_exact": 0.0625,
+          "n": 34,
+          "p_holm": 0.0625
+        },
+        "AlwaysRollback": {
+          "a_only": 8,
+          "b_only": 0,
+          "p_exact": 0.0078125,
+          "n": 34,
+          "p_holm": 0.0234375
+        },
+        "B5-GPT": {
+          "a_only": 5,
+          "b_only": 0,
+          "p_exact": 0.0625,
+          "n": 34,
+          "p_holm": 0.0625
+        },
+        "B6-GPT": {
+          "a_only": 6,
+          "b_only": 0,
+          "p_exact": 0.03125,
+          "n": 34,
+          "p_holm": 0.0625
+        }
+      },
+      "H1_discriminating": {
+        "S:D-DevOps": {
+          "a_only": 20,
+          "b_only": 0,
+          "p_exact": 1.9073486328125e-06,
+          "n": 29,
+          "p_holm": 9.5367431640625e-06
+        },
+        "S:D-SRE": {
+          "a_only": 25,
+          "b_only": 0,
+          "p_exact": 5.960464477539063e-08,
+          "n": 29,
+          "p_holm": 4.76837158203125e-07
+        },
+        "S:D-FinOps": {
+          "a_only": 23,
+          "b_only": 0,
+          "p_exact": 2.384185791015625e-07,
+          "n": 29,
+          "p_holm": 1.430511474609375e-06
+        },
+        "S:D-Sec": {
+          "a_only": 8,
+          "b_only": 0,
+          "p_exact": 0.0078125,
+          "n": 29,
+          "p_holm": 0.0078125
+        },
+        "S:L-DevOps": {
+          "a_only": 20,
+          "b_only": 0,
+          "p_exact": 1.9073486328125e-06,
+          "n": 29,
+          "p_holm": 9.5367431640625e-06
+        },
+        "S:L-SRE": {
+          "a_only": 19,
+          "b_only": 0,
+          "p_exact": 3.814697265625e-06,
+          "n": 29,
+          "p_holm": 1.1444091796875e-05
+        },
+        "S:L-FinOps": {
+          "a_only": 25,
+          "b_only": 0,
+          "p_exact": 5.960464477539063e-08,
+          "n": 29,
+          "p_holm": 4.76837158203125e-07
+        },
+        "S:L-Sec": {
+          "a_only": 11,
+          "b_only": 0,
+          "p_exact": 0.0009765625,
+          "n": 29,
+          "p_holm": 0.001953125
+        }
+      },
+      "H2_unique_answer": {
+        "B5": {
+          "a_only": 5,
+          "b_only": 0,
+          "p_exact": 0.0625,
+          "n": 11
+        },
+        "B6": {
+          "a_only": 5,
+          "b_only": 0,
+          "p_exact": 0.0625,
+          "n": 11
+        },
+        "B5-GPT": {
+          "a_only": 4,
+          "b_only": 0,
+          "p_exact": 0.125,
+          "n": 11
+        },
+        "B6-GPT": {
+          "a_only": 6,
+          "b_only": 0,
+          "p_exact": 0.03125,
+          "n": 11
+        },
+        "AlwaysRollback": {
+          "a_only": 6,
+          "b_only": 0,
+          "p_exact": 0.03125,
+          "n": 11
+        }
+      },
+      "family_level": {
+        "S:D-DevOps": {
+          "families": 17,
+          "families_a_better": 12,
+          "families_b_better": 0,
+          "sign_test_p": 0.00048828125,
+          "acc_diff": 0.588,
+          "cluster_bootstrap_95": [
+            0.382,
+            0.794
+          ]
+        },
+        "S:D-SRE": {
+          "families": 17,
+          "families_a_better": 14,
+          "families_b_better": 0,
+          "sign_test_p": 0.0001220703125,
+          "acc_diff": 0.735,
+          "cluster_bootstrap_95": [
+            0.529,
+            0.912
+          ]
+        },
+        "S:D-FinOps": {
+          "families": 17,
+          "families_a_better": 15,
+          "families_b_better": 0,
+          "sign_test_p": 6.103515625e-05,
+          "acc_diff": 0.676,
+          "cluster_bootstrap_95": [
+            0.529,
+            0.824
+          ]
+        },
+        "S:D-Sec": {
+          "families": 17,
+          "families_a_better": 8,
+          "families_b_better": 0,
+          "sign_test_p": 0.0078125,
+          "acc_diff": 0.235,
+          "cluster_bootstrap_95": [
+            0.118,
+            0.353
+          ]
+        },
+        "S:L-DevOps": {
+          "families": 17,
+          "families_a_better": 12,
+          "families_b_better": 0,
+          "sign_test_p": 0.00048828125,
+          "acc_diff": 0.588,
+          "cluster_bootstrap_95": [
+            0.382,
+            0.794
+          ]
+        },
+        "S:L-SRE": {
+          "families": 17,
+          "families_a_better": 11,
+          "families_b_better": 0,
+          "sign_test_p": 0.0009765625,
+          "acc_diff": 0.559,
+          "cluster_bootstrap_95": [
+            0.353,
+            0.765
+          ]
+        },
+        "S:L-FinOps": {
+          "families": 17,
+          "families_a_better": 14,
+          "families_b_better": 0,
+          "sign_test_p": 0.0001220703125,
+          "acc_diff": 0.735,
+          "cluster_bootstrap_95": [
+            0.529,
+            0.912
+          ]
+        },
+        "S:L-Sec": {
+          "families": 17,
+          "families_a_better": 9,
+          "families_b_better": 0,
+          "sign_test_p": 0.00390625,
+          "acc_diff": 0.324,
+          "cluster_bootstrap_95": [
+            0.176,
+            0.5
+          ]
+        },
+        "B5": {
+          "families": 17,
+          "families_a_better": 5,
+          "families_b_better": 0,
+          "sign_test_p": 0.0625,
+          "acc_diff": 0.235,
+          "cluster_bootstrap_95": [
+            0.059,
+            0.441
+          ]
+        },
+        "B6": {
+          "families": 17,
+          "families_a_better": 5,
+          "families_b_better": 0,
+          "sign_test_p": 0.0625,
+          "acc_diff": 0.147,
+          "cluster_bootstrap_95": [
+            0.059,
+            0.265
+          ]
+        },
+        "B5-GPT": {
+          "families": 17,
+          "families_a_better": 3,
+          "families_b_better": 0,
+          "sign_test_p": 0.25,
+          "acc_diff": 0.147,
+          "cluster_bootstrap_95": [
+            0.0,
+            0.324
+          ]
+        },
+        "B6-GPT": {
+          "families": 17,
+          "families_a_better": 6,
+          "families_b_better": 0,
+          "sign_test_p": 0.03125,
+          "acc_diff": 0.176,
+          "cluster_bootstrap_95": [
+            0.059,
+            0.294
+          ]
+        },
+        "AlwaysRollback": {
+          "families": 17,
+          "families_a_better": 5,
+          "families_b_better": 0,
+          "sign_test_p": 0.0625,
+          "acc_diff": 0.235,
+          "cluster_bootstrap_95": [
+            0.059,
+            0.412
+          ]
+        },
+        "Dominant": {
+          "families": 17,
+          "families_a_better": 10,
+          "families_b_better": 0,
+          "sign_test_p": 0.001953125,
+          "acc_diff": 0.382,
+          "cluster_bootstrap_95": [
+            0.206,
+            0.559
+          ]
+        }
+      },
+      "O2_case_level": {
+        "B6-GPT": {
+          "a_only": 6,
+          "b_only": 5,
+          "p_exact": 1.0,
+          "n": 34,
+          "p_holm": 1.0
+        },
+        "B5-GPT": {
+          "a_only": 9,
+          "b_only": 1,
+          "p_exact": 0.021484375,
+          "n": 34,
+          "p_holm": 0.0859375
+        },
+        "AlwaysRollback": {
+          "a_only": 19,
+          "b_only": 0,
+          "p_exact": 3.814697265625e-06,
+          "n": 34,
+          "p_holm": 1.9073486328125e-05
+        },
+        "Dominant": {
+          "a_only": 14,
+          "b_only": 5,
+          "p_exact": 0.063568115234375,
+          "n": 34,
+          "p_holm": 0.190704345703125
+        },
+        "S:D-Sec": {
+          "a_only": 8,
+          "b_only": 4,
+          "p_exact": 0.3876953125,
+          "n": 34,
+          "p_holm": 0.775390625
+        }
+      },
+      "H3_low_risk": {
+        "n": 4,
+        "O2": {
+          "AAF": {
+            "k": 3,
+            "n": 4,
+            "wilson95_pct": [
+              30.1,
+              95.4
+            ]
+          },
+          "AAF-14-GPT": {
+            "k": 3,
+            "n": 4,
+            "wilson95_pct": [
+              30.1,
+              95.4
+            ]
+          },
+          "AlwaysNone": {
+            "k": 3,
+            "n": 4,
+            "wilson95_pct": [
+              30.1,
+              95.4
+            ]
+          },
+          "AlwaysRollback": {
+            "k": 0,
+            "n": 4,
+            "wilson95_pct": [
+              0.0,
+              49.0
+            ]
+          },
+          "B1": {
+            "k": 3,
+            "n": 4,
+            "wilson95_pct": [
+              30.1,
+              95.4
+            ]
+          },
+          "B1-12": {
+            "k": 2,
+            "n": 4,
+            "wilson95_pct": [
+              15.0,
+              85.0
+            ]
+          },
+          "B1-14": {
+            "k": 3,
+            "n": 4,
+            "wilson95_pct": [
+              30.1,
+              95.4
+            ]
+          },
+          "B3-14-GPT": {
+            "k": 3,
+            "n": 4,
+            "wilson95_pct": [
+              30.1,
+              95.4
+            ]
+          },
+          "B3-GPT": {
+            "k": 3,
+            "n": 4,
+            "wilson95_pct": [
+              30.1,
+              95.4
+            ]
+          },
+          "B5": {
+            "k": 0,
+            "n": 4,
+            "wilson95_pct": [
+              0.0,
+              49.0
+            ]
+          },
+          "B5-GPT": {
+            "k": 2,
+            "n": 4,
+            "wilson95_pct": [
+              15.0,
+              85.0
+            ]
+          },
+          "B6": {
+            "k": 3,
+            "n": 4,
+            "wilson95_pct": [
+              30.1,
+              95.4
+            ]
+          },
+          "B6-GPT": {
+            "k": 3,
+            "n": 4,
+            "wilson95_pct": [
+              30.1,
+              95.4
+            ]
+          },
+          "BlockAnyCVE": {
+            "k": 3,
+            "n": 4,
+            "wilson95_pct": [
+              30.1,
+              95.4
+            ]
+          },
+          "D-DevOps": {
+            "k": 3,
+            "n": 4,
+            "wilson95_pct": [
+              30.1,
+              95.4
+            ]
+          },
+          "D-FinOps": {
+            "k": 3,
+            "n": 4,
+            "wilson95_pct": [
+              30.1,
+              95.4
+            ]
+          },
+          "D-SRE": {
+            "k": 2,
+            "n": 4,
+            "wilson95_pct": [
+              15.0,
+              85.0
+            ]
+          },
+          "D-Sec": {
+            "k": 3,
+            "n": 4,
+            "wilson95_pct": [
+              30.1,
+              95.4
+            ]
+          },
+          "Dominant": {
+            "k": 3,
+            "n": 4,
+            "wilson95_pct": [
+              30.1,
+              95.4
+            ]
+          },
+          "L-DevOps": {
+            "k": 3,
+            "n": 4,
+            "wilson95_pct": [
+              30.1,
+              95.4
+            ]
+          },
+          "L-FinOps": {
+            "k": 2,
+            "n": 4,
+            "wilson95_pct": [
+              15.0,
+              85.0
+            ]
+          },
+          "L-SRE": {
+            "k": 0,
+            "n": 4,
+            "wilson95_pct": [
+              0.0,
+              49.0
+            ]
+          },
+          "L-Sec": {
+            "k": 0,
+            "n": 4,
+            "wilson95_pct": [
+              0.0,
+              49.0
+            ]
+          },
+          "S:D-DevOps": {
+            "k": 3,
+            "n": 4,
+            "wilson95_pct": [
+              30.1,
+              95.4
+            ]
+          },
+          "S:D-FinOps": {
+            "k": 3,
+            "n": 4,
+            "wilson95_pct": [
+              30.1,
+              95.4
+            ]
+          },
+          "S:D-SRE": {
+            "k": 2,
+            "n": 4,
+            "wilson95_pct": [
+              15.0,
+              85.0
+            ]
+          },
+          "S:D-Sec": {
+            "k": 3,
+            "n": 4,
+            "wilson95_pct": [
+              30.1,
+              95.4
+            ]
+          },
+          "S:L-DevOps": {
+            "k": 3,
+            "n": 4,
+            "wilson95_pct": [
+              30.1,
+              95.4
+            ]
+          },
+          "S:L-FinOps": {
+            "k": 2,
+            "n": 4,
+            "wilson95_pct": [
+              15.0,
+              85.0
+            ]
+          },
+          "S:L-SRE": {
+            "k": 0,
+            "n": 4,
+            "wilson95_pct": [
+              0.0,
+              49.0
+            ]
+          },
+          "S:L-Sec": {
+            "k": 0,
+            "n": 4,
+            "wilson95_pct": [
+              0.0,
+              49.0
+            ]
+          }
+        },
+        "release_continued": {
+          "AAF": "4/4",
+          "AAF-14-GPT": "4/4",
+          "B5": "4/4",
+          "B6": "4/4",
+          "B5-GPT": "4/4",
+          "B6-GPT": "4/4",
+          "AlwaysRollback": "0/4",
+          "BlockAnyCVE": "4/4",
+          "AlwaysNone": "4/4"
+        }
+      },
+      "withheld": {
+        "n": 32,
+        "O1": {
+          "AAF": "27/32",
+          "AAF-14-GPT": "29/32",
+          "B1": "11/32",
+          "B1-14": "18/32",
+          "B2": "23/32",
+          "B2-14": "32/32",
+          "B5": "22/32",
+          "B5-GPT": "27/32",
+          "B6": "25/32",
+          "B6-GPT": "25/32"
+        },
+        "AAF_vs": {
+          "B1-14": {
+            "a_only": 9,
+            "b_only": 0,
+            "p_exact": 0.00390625,
+            "n": 32
+          },
+          "B2-14": {
+            "a_only": 0,
+            "b_only": 5,
+            "p_exact": 0.0625,
+            "n": 32
+          }
+        },
+        "AAF_GPT_vs": {
+          "B1-14": {
+            "a_only": 11,
+            "b_only": 0,
+            "p_exact": 0.0009765625,
+            "n": 32
+          },
+          "B2-14": {
+            "a_only": 0,
+            "b_only": 3,
+            "p_exact": 0.25,
+            "n": 32
+          }
+        }
+      }
+    },
+    "outcome_study15": {
+      "n_faults": 42,
+      "n_families": 14,
+      "n_discriminating": 42,
+      "n_unique_answer": 21,
+      "O1": {
+        "AAF": "42/42",
+        "AAF-14-GPT": "42/42",
+        "AlwaysNone": "0/42",
+        "AlwaysRollback": "30/42",
+        "B1": "28/42",
+        "B1-12": "37/42",
+        "B1-14": "42/42",
+        "B2-14": "42/42",
+        "B3-14": "42/42",
+        "B3-14-GPT": "42/42",
+        "B3-GPT": "28/42",
+        "B5": "27/42",
+        "B5-GPT": "29/42",
+        "B6": "32/42",
+        "B6-GPT": "30/42",
+        "BlockAnyCVE": "21/42",
+        "D-DevOps": "15/42",
+        "D-DevOps-14": "18/42",
+        "D-FinOps": "10/42",
+        "D-FinOps-14": "10/42",
+        "D-SRE": "6/42",
+        "D-SRE-14": "6/42",
+        "D-Sec": "21/42",
+        "D-Sec-14": "21/42",
+        "Dominant": "25/42",
+        "L-DevOps": "12/42",
+        "L-FinOps": "3/42",
+        "L-SRE": "12/42",
+        "L-Sec": "24/42",
+        "S:D-DevOps": "18/42",
+        "S:D-FinOps": "10/42",
+        "S:D-SRE": "6/42",
+        "S:D-Sec": "21/42",
+        "S:L-DevOps": "12/42",
+        "S:L-FinOps": "3/42",
+        "S:L-SRE": "12/42",
+        "S:L-Sec": "24/42"
+      },
+      "O2": {
+        "AAF": "32/42",
+        "AAF-14-GPT": "32/42",
+        "AlwaysNone": "0/42",
+        "AlwaysRollback": "12/42",
+        "B1": "25/42",
+        "B1-12": "23/42",
+        "B1-14": "32/42",
+        "B2-14": "32/42",
+        "B3-14": "32/42",
+        "B3-14-GPT": "32/42",
+        "B3-GPT": "25/42",
+        "B5": "14/42",
+        "B5-GPT": "16/42",
+        "B6": "26/42",
+        "B6-GPT": "22/42",
+        "BlockAnyCVE": "14/42",
+        "D-DevOps": "6/42",
+        "D-DevOps-14": "9/42",
+        "D-FinOps": "10/42",
+        "D-FinOps-14": "10/42",
+        "D-SRE": "6/42",
+        "D-SRE-14": "6/42",
+        "D-Sec": "14/42",
+        "D-Sec-14": "14/42",
+        "Dominant": "22/42",
+        "L-DevOps": "3/42",
+        "L-FinOps": "3/42",
+        "L-SRE": "9/42",
+        "L-Sec": "12/42",
+        "S:D-DevOps": "9/42",
+        "S:D-FinOps": "10/42",
+        "S:D-SRE": "6/42",
+        "S:D-Sec": "14/42",
+        "S:L-DevOps": "3/42",
+        "S:L-FinOps": "3/42",
+        "S:L-SRE": "9/42",
+        "S:L-Sec": "12/42"
+      },
+      "O1_discriminating": {
+        "AAF": "42/42",
+        "AAF-14-GPT": "42/42",
+        "AlwaysNone": "0/42",
+        "AlwaysRollback": "30/42",
+        "B1": "28/42",
+        "B1-12": "37/42",
+        "B1-14": "42/42",
+        "B2-14": "42/42",
+        "B3-14": "42/42",
+        "B3-14-GPT": "42/42",
+        "B3-GPT": "28/42",
+        "B5": "27/42",
+        "B5-GPT": "29/42",
+        "B6": "32/42",
+        "B6-GPT": "30/42",
+        "BlockAnyCVE": "21/42",
+        "D-DevOps": "15/42",
+        "D-DevOps-14": "18/42",
+        "D-FinOps": "10/42",
+        "D-FinOps-14": "10/42",
+        "D-SRE": "6/42",
+        "D-SRE-14": "6/42",
+        "D-Sec": "21/42",
+        "D-Sec-14": "21/42",
+        "Dominant": "25/42",
+        "L-DevOps": "12/42",
+        "L-FinOps": "3/42",
+        "L-SRE": "12/42",
+        "L-Sec": "24/42",
+        "S:D-DevOps": "18/42",
+        "S:D-FinOps": "10/42",
+        "S:D-SRE": "6/42",
+        "S:D-Sec": "21/42",
+        "S:L-DevOps": "12/42",
+        "S:L-FinOps": "3/42",
+        "S:L-SRE": "12/42",
+        "S:L-Sec": "24/42"
+      },
+      "O1_unique_answer": {
+        "AAF": "21/21",
+        "AAF-14-GPT": "21/21",
+        "AlwaysNone": "0/21",
+        "AlwaysRollback": "12/21",
+        "B1": "9/21",
+        "B1-12": "16/21",
+        "B1-14": "21/21",
+        "B2-14": "21/21",
+        "B3-14": "21/21",
+        "B3-14-GPT": "21/21",
+        "B3-GPT": "9/21",
+        "B5": "11/21",
+        "B5-GPT": "12/21",
+        "B6": "14/21",
+        "B6-GPT": "10/21",
+        "BlockAnyCVE": "3/21",
+        "D-DevOps": "6/21",
+        "D-DevOps-14": "9/21",
+        "D-FinOps": "3/21",
+        "D-FinOps-14": "3/21",
+        "D-SRE": "3/21",
+        "D-SRE-14": "3/21",
+        "D-Sec": "3/21",
+        "D-Sec-14": "3/21",
+        "Dominant": "9/21",
+        "L-DevOps": "3/21",
+        "L-FinOps": "2/21",
+        "L-SRE": "8/21",
+        "L-Sec": "6/21",
+        "S:D-DevOps": "9/21",
+        "S:D-FinOps": "3/21",
+        "S:D-SRE": "3/21",
+        "S:D-Sec": "3/21",
+        "S:L-DevOps": "3/21",
+        "S:L-FinOps": "2/21",
+        "S:L-SRE": "8/21",
+        "S:L-Sec": "6/21"
+      },
+      "H1_case_level": {
+        "S:D-DevOps": {
+          "a_only": 24,
+          "b_only": 0,
+          "p_exact": 1.1920928955078125e-07,
+          "n": 42,
+          "p_holm": 3.5762786865234375e-07
+        },
+        "S:D-SRE": {
+          "a_only": 36,
+          "b_only": 0,
+          "p_exact": 2.9103830456733704e-11,
+          "n": 42,
+          "p_holm": 2.0372681319713593e-10
+        },
+        "S:D-FinOps": {
+          "a_only": 32,
+          "b_only": 0,
+          "p_exact": 4.656612873077393e-10,
+          "n": 42,
+          "p_holm": 2.7939677238464355e-09
+        },
+        "S:D-Sec": {
+          "a_only": 21,
+          "b_only": 0,
+          "p_exact": 9.5367431640625e-07,
+          "n": 42,
+          "p_holm": 1.9073486328125e-06
+        },
+        "S:L-DevOps": {
+          "a_only": 30,
+          "b_only": 0,
+          "p_exact": 1.862645149230957e-09,
+          "n": 42,
+          "p_holm": 9.313225746154785e-09
+        },
+        "S:L-SRE": {
+          "a_only": 30,
+          "b_only": 0,
+          "p_exact": 1.862645149230957e-09,
+          "n": 42,
+          "p_holm": 9.313225746154785e-09
+        },
+        "S:L-FinOps": {
+          "a_only": 39,
+          "b_only": 0,
+          "p_exact": 3.637978807091713e-12,
+          "n": 42,
+          "p_holm": 2.9103830456733704e-11
+        },
+        "S:L-Sec": {
+          "a_only": 18,
+          "b_only": 0,
+          "p_exact": 7.62939453125e-06,
+          "n": 42,
+          "p_holm": 7.62939453125e-06
+        }
+      },
+      "H2_case_level": {
+        "B5": {
+          "a_only": 15,
+          "b_only": 0,
+          "p_exact": 6.103515625e-05,
+          "n": 42,
+          "p_holm": 0.00018310546875
+        },
+        "B6": {
+          "a_only": 10,
+          "b_only": 0,
+          "p_exact": 0.001953125,
+          "n": 42,
+          "p_holm": 0.001953125
+        },
+        "AlwaysRollback": {
+          "a_only": 12,
+          "b_only": 0,
+          "p_exact": 0.00048828125,
+          "n": 42,
+          "p_holm": 0.0009765625
+        },
+        "B5-GPT": {
+          "a_only": 13,
+          "b_only": 0,
+          "p_exact": 0.000244140625,
+          "n": 42,
+          "p_holm": 0.00048828125
+        },
+        "B6-GPT": {
+          "a_only": 12,
+          "b_only": 0,
+          "p_exact": 0.00048828125,
+          "n": 42,
+          "p_holm": 0.00048828125
+        }
+      },
+      "H1_discriminating": {
+        "S:D-DevOps": {
+          "a_only": 24,
+          "b_only": 0,
+          "p_exact": 1.1920928955078125e-07,
+          "n": 42,
+          "p_holm": 3.5762786865234375e-07
+        },
+        "S:D-SRE": {
+          "a_only": 36,
+          "b_only": 0,
+          "p_exact": 2.9103830456733704e-11,
+          "n": 42,
+          "p_holm": 2.0372681319713593e-10
+        },
+        "S:D-FinOps": {
+          "a_only": 32,
+          "b_only": 0,
+          "p_exact": 4.656612873077393e-10,
+          "n": 42,
+          "p_holm": 2.7939677238464355e-09
+        },
+        "S:D-Sec": {
+          "a_only": 21,
+          "b_only": 0,
+          "p_exact": 9.5367431640625e-07,
+          "n": 42,
+          "p_holm": 1.9073486328125e-06
+        },
+        "S:L-DevOps": {
+          "a_only": 30,
+          "b_only": 0,
+          "p_exact": 1.862645149230957e-09,
+          "n": 42,
+          "p_holm": 9.313225746154785e-09
+        },
+        "S:L-SRE": {
+          "a_only": 30,
+          "b_only": 0,
+          "p_exact": 1.862645149230957e-09,
+          "n": 42,
+          "p_holm": 9.313225746154785e-09
+        },
+        "S:L-FinOps": {
+          "a_only": 39,
+          "b_only": 0,
+          "p_exact": 3.637978807091713e-12,
+          "n": 42,
+          "p_holm": 2.9103830456733704e-11
+        },
+        "S:L-Sec": {
+          "a_only": 18,
+          "b_only": 0,
+          "p_exact": 7.62939453125e-06,
+          "n": 42,
+          "p_holm": 7.62939453125e-06
+        }
+      },
+      "H2_unique_answer": {
+        "B5": {
+          "a_only": 10,
+          "b_only": 0,
+          "p_exact": 0.001953125,
+          "n": 21
+        },
+        "B6": {
+          "a_only": 7,
+          "b_only": 0,
+          "p_exact": 0.015625,
+          "n": 21
+        },
+        "B5-GPT": {
+          "a_only": 9,
+          "b_only": 0,
+          "p_exact": 0.00390625,
+          "n": 21
+        },
+        "B6-GPT": {
+          "a_only": 11,
+          "b_only": 0,
+          "p_exact": 0.0009765625,
+          "n": 21
+        },
+        "AlwaysRollback": {
+          "a_only": 9,
+          "b_only": 0,
+          "p_exact": 0.00390625,
+          "n": 21
+        }
+      },
+      "family_level": {
+        "S:D-DevOps": {
+          "families": 14,
+          "families_a_better": 8,
+          "families_b_better": 0,
+          "sign_test_p": 0.0078125,
+          "acc_diff": 0.571,
+          "cluster_bootstrap_95": [
+            0.286,
+            0.857
+          ]
+        },
+        "S:D-SRE": {
+          "families": 14,
+          "families_a_better": 12,
+          "families_b_better": 0,
+          "sign_test_p": 0.00048828125,
+          "acc_diff": 0.857,
+          "cluster_bootstrap_95": [
+            0.643,
+            1.0
+          ]
+        },
+        "S:D-FinOps": {
+          "families": 14,
+          "families_a_better": 11,
+          "families_b_better": 0,
+          "sign_test_p": 0.0009765625,
+          "acc_diff": 0.762,
+          "cluster_bootstrap_95": [
+            0.548,
+            0.952
+          ]
+        },
+        "S:D-Sec": {
+          "families": 14,
+          "families_a_better": 7,
+          "families_b_better": 0,
+          "sign_test_p": 0.015625,
+          "acc_diff": 0.5,
+          "cluster_bootstrap_95": [
+            0.214,
+            0.786
+          ]
+        },
+        "S:L-DevOps": {
+          "families": 14,
+          "families_a_better": 10,
+          "families_b_better": 0,
+          "sign_test_p": 0.001953125,
+          "acc_diff": 0.714,
+          "cluster_bootstrap_95": [
+            0.5,
+            0.929
+          ]
+        },
+        "S:L-SRE": {
+          "families": 14,
+          "families_a_better": 11,
+          "families_b_better": 0,
+          "sign_test_p": 0.0009765625,
+          "acc_diff": 0.714,
+          "cluster_bootstrap_95": [
+            0.5,
+            0.905
+          ]
+        },
+        "S:L-FinOps": {
+          "families": 14,
+          "families_a_better": 14,
+          "families_b_better": 0,
+          "sign_test_p": 0.0001220703125,
+          "acc_diff": 0.929,
+          "cluster_bootstrap_95": [
+            0.81,
+            1.0
+          ]
+        },
+        "S:L-Sec": {
+          "families": 14,
+          "families_a_better": 7,
+          "families_b_better": 0,
+          "sign_test_p": 0.015625,
+          "acc_diff": 0.429,
+          "cluster_bootstrap_95": [
+            0.19,
+            0.667
+          ]
+        },
+        "B5": {
+          "families": 14,
+          "families_a_better": 7,
+          "families_b_better": 0,
+          "sign_test_p": 0.015625,
+          "acc_diff": 0.357,
+          "cluster_bootstrap_95": [
+            0.167,
+            0.548
+          ]
+        },
+        "B6": {
+          "families": 14,
+          "families_a_better": 5,
+          "families_b_better": 0,
+          "sign_test_p": 0.0625,
+          "acc_diff": 0.238,
+          "cluster_bootstrap_95": [
+            0.071,
+            0.429
+          ]
+        },
+        "B5-GPT": {
+          "families": 14,
+          "families_a_better": 7,
+          "families_b_better": 0,
+          "sign_test_p": 0.015625,
+          "acc_diff": 0.31,
+          "cluster_bootstrap_95": [
+            0.119,
+            0.524
+          ]
+        },
+        "B6-GPT": {
+          "families": 14,
+          "families_a_better": 6,
+          "families_b_better": 0,
+          "sign_test_p": 0.03125,
+          "acc_diff": 0.286,
+          "cluster_bootstrap_95": [
+            0.095,
+            0.5
+          ]
+        },
+        "AlwaysRollback": {
+          "families": 14,
+          "families_a_better": 4,
+          "families_b_better": 0,
+          "sign_test_p": 0.125,
+          "acc_diff": 0.286,
+          "cluster_bootstrap_95": [
+            0.071,
+            0.5
+          ]
+        },
+        "Dominant": {
+          "families": 14,
+          "families_a_better": 6,
+          "families_b_better": 0,
+          "sign_test_p": 0.03125,
+          "acc_diff": 0.405,
+          "cluster_bootstrap_95": [
+            0.143,
+            0.643
+          ]
+        }
+      },
+      "O2_case_level": {
+        "B6-GPT": {
+          "a_only": 13,
+          "b_only": 3,
+          "p_exact": 0.021270751953125,
+          "n": 42,
+          "p_holm": 0.04254150390625
+        },
+        "B5-GPT": {
+          "a_only": 17,
+          "b_only": 1,
+          "p_exact": 0.00014495849609375,
+          "n": 42,
+          "p_holm": 0.00043487548828125
+        },
+        "AlwaysRollback": {
+          "a_only": 20,
+          "b_only": 0,
+          "p_exact": 1.9073486328125e-06,
+          "n": 42,
+          "p_holm": 9.5367431640625e-06
+        },
+        "Dominant": {
+          "a_only": 20,
+          "b_only": 10,
+          "p_exact": 0.09873714670538902,
+          "n": 42,
+          "p_holm": 0.09873714670538902
+        },
+        "S:D-Sec": {
+          "a_only": 18,
+          "b_only": 0,
+          "p_exact": 7.62939453125e-06,
+          "n": 42,
+          "p_holm": 3.0517578125e-05
+        }
+      },
+      "H3_low_risk": {
+        "n": 12,
+        "O2": {
+          "AAF": {
+            "k": 9,
+            "n": 12,
+            "wilson95_pct": [
+              46.8,
+              91.1
+            ]
+          },
+          "AAF-14-GPT": {
+            "k": 9,
+            "n": 12,
+            "wilson95_pct": [
+              46.8,
+              91.1
+            ]
+          },
+          "AlwaysNone": {
+            "k": 11,
+            "n": 12,
+            "wilson95_pct": [
+              64.6,
+              98.5
+            ]
+          },
+          "AlwaysRollback": {
+            "k": 0,
+            "n": 12,
+            "wilson95_pct": [
+              0.0,
+              24.3
+            ]
+          },
+          "B1": {
+            "k": 9,
+            "n": 12,
+            "wilson95_pct": [
+              46.8,
+              91.1
+            ]
+          },
+          "B1-12": {
+            "k": 9,
+            "n": 12,
+            "wilson95_pct": [
+              46.8,
+              91.1
+            ]
+          },
+          "B1-14": {
+            "k": 9,
+            "n": 12,
+            "wilson95_pct": [
+              46.8,
+              91.1
+            ]
+          },
+          "B2-14": {
+            "k": 9,
+            "n": 12,
+            "wilson95_pct": [
+              46.8,
+              91.1
+            ]
+          },
+          "B3-14": {
+            "k": 9,
+            "n": 12,
+            "wilson95_pct": [
+              46.8,
+              91.1
+            ]
+          },
+          "B3-14-GPT": {
+            "k": 9,
+            "n": 12,
+            "wilson95_pct": [
+              46.8,
+              91.1
+            ]
+          },
+          "B3-GPT": {
+            "k": 9,
+            "n": 12,
+            "wilson95_pct": [
+              46.8,
+              91.1
+            ]
+          },
+          "B5": {
+            "k": 1,
+            "n": 12,
+            "wilson95_pct": [
+              1.5,
+              35.4
+            ]
+          },
+          "B5-GPT": {
+            "k": 9,
+            "n": 12,
+            "wilson95_pct": [
+              46.8,
+              91.1
+            ]
+          },
+          "B6": {
+            "k": 11,
+            "n": 12,
+            "wilson95_pct": [
+              64.6,
+              98.5
+            ]
+          },
+          "B6-GPT": {
+            "k": 9,
+            "n": 12,
+            "wilson95_pct": [
+              46.8,
+              91.1
+            ]
+          },
+          "BlockAnyCVE": {
+            "k": 11,
+            "n": 12,
+            "wilson95_pct": [
+              64.6,
+              98.5
+            ]
+          },
+          "D-DevOps": {
+            "k": 11,
+            "n": 12,
+            "wilson95_pct": [
+              64.6,
+              98.5
+            ]
+          },
+          "D-DevOps-14": {
+            "k": 11,
+            "n": 12,
+            "wilson95_pct": [
+              64.6,
+              98.5
+            ]
+          },
+          "D-FinOps": {
+            "k": 10,
+            "n": 12,
+            "wilson95_pct": [
+              55.2,
+              95.3
+            ]
+          },
+          "D-FinOps-14": {
+            "k": 10,
+            "n": 12,
+            "wilson95_pct": [
+              55.2,
+              95.3
+            ]
+          },
+          "D-SRE": {
+            "k": 8,
+            "n": 12,
+            "wilson95_pct": [
+              39.1,
+              86.2
+            ]
+          },
+          "D-SRE-14": {
+            "k": 8,
+            "n": 12,
+            "wilson95_pct": [
+              39.1,
+              86.2
+            ]
+          },
+          "D-Sec": {
+            "k": 11,
+            "n": 12,
+            "wilson95_pct": [
+              64.6,
+              98.5
+            ]
+          },
+          "D-Sec-14": {
+            "k": 11,
+            "n": 12,
+            "wilson95_pct": [
+              64.6,
+              98.5
+            ]
+          },
+          "Dominant": {
+            "k": 9,
+            "n": 12,
+            "wilson95_pct": [
+              46.8,
+              91.1
+            ]
+          },
+          "L-DevOps": {
+            "k": 10,
+            "n": 12,
+            "wilson95_pct": [
+              55.2,
+              95.3
+            ]
+          },
+          "L-FinOps": {
+            "k": 9,
+            "n": 12,
+            "wilson95_pct": [
+              46.8,
+              91.1
+            ]
+          },
+          "L-SRE": {
+            "k": 1,
+            "n": 12,
+            "wilson95_pct": [
+              1.5,
+              35.4
+            ]
+          },
+          "L-Sec": {
+            "k": 1,
+            "n": 12,
+            "wilson95_pct": [
+              1.5,
+              35.4
+            ]
+          },
+          "S:D-DevOps": {
+            "k": 11,
+            "n": 12,
+            "wilson95_pct": [
+              64.6,
+              98.5
+            ]
+          },
+          "S:D-FinOps": {
+            "k": 10,
+            "n": 12,
+            "wilson95_pct": [
+              55.2,
+              95.3
+            ]
+          },
+          "S:D-SRE": {
+            "k": 8,
+            "n": 12,
+            "wilson95_pct": [
+              39.1,
+              86.2
+            ]
+          },
+          "S:D-Sec": {
+            "k": 11,
+            "n": 12,
+            "wilson95_pct": [
+              64.6,
+              98.5
+            ]
+          },
+          "S:L-DevOps": {
+            "k": 10,
+            "n": 12,
+            "wilson95_pct": [
+              55.2,
+              95.3
+            ]
+          },
+          "S:L-FinOps": {
+            "k": 9,
+            "n": 12,
+            "wilson95_pct": [
+              46.8,
+              91.1
+            ]
+          },
+          "S:L-SRE": {
+            "k": 1,
+            "n": 12,
+            "wilson95_pct": [
+              1.5,
+              35.4
+            ]
+          },
+          "S:L-Sec": {
+            "k": 1,
+            "n": 12,
+            "wilson95_pct": [
+              1.5,
+              35.4
+            ]
+          }
+        },
+        "release_continued": {
+          "AAF": "12/12",
+          "AAF-14-GPT": "12/12",
+          "B5": "12/12",
+          "B6": "12/12",
+          "B5-GPT": "12/12",
+          "B6-GPT": "12/12",
+          "AlwaysRollback": "0/12",
+          "BlockAnyCVE": "12/12",
+          "AlwaysNone": "12/12"
+        }
+      },
+      "withheld": {
+        "n": 39,
+        "O1": {
+          "AAF": "35/39",
+          "AAF-14-GPT": "38/39",
+          "B1": "11/39",
+          "B1-14": "23/39",
+          "B2": "25/39",
+          "B2-14": "39/39",
+          "B3-14": "34/39",
+          "B5": "28/39",
+          "B5-GPT": "32/39",
+          "B6": "25/39",
+          "B6-GPT": "27/39"
+        },
+        "AAF_vs": {
+          "B1-14": {
+            "a_only": 12,
+            "b_only": 0,
+            "p_exact": 0.00048828125,
+            "n": 39
+          },
+          "B2-14": {
+            "a_only": 0,
+            "b_only": 4,
+            "p_exact": 0.125,
+            "n": 39
+          }
+        },
+        "AAF_GPT_vs": {
+          "B1-14": {
+            "a_only": 15,
+            "b_only": 0,
+            "p_exact": 6.103515625e-05,
+            "n": 39
+          },
+          "B2-14": {
+            "a_only": 0,
+            "b_only": 1,
+            "p_exact": 1.0,
+            "n": 39
+          }
+        }
+      }
+    },
+    "outcome_study16": {
+      "n_faults": 28,
+      "n_families": 14,
+      "n_discriminating": 27,
+      "n_unique_answer": 14,
+      "O1": {
+        "AAF": "28/28",
+        "AAF-14-GPT": "28/28",
+        "AlwaysNone": "1/28",
+        "AlwaysRollback": "21/28",
+        "B1": "18/28",
+        "B1-12": "26/28",
+        "B1-14": "28/28",
+        "B2-14": "28/28",
+        "B3-14": "28/28",
+        "B3-14-GPT": "28/28",
+        "B3-GPT": "18/28",
+        "B5": "21/28",
+        "B5-GPT": "20/28",
+        "B6": "19/28",
+        "B6-GPT": "22/28",
+        "BlockAnyCVE": "15/28",
+        "D-DevOps": "15/28",
+        "D-DevOps-14": "16/28",
+        "D-FinOps": "5/28",
+        "D-FinOps-14": "5/28",
+        "D-SRE": "5/28",
+        "D-SRE-14": "5/28",
+        "D-Sec": "15/28",
+        "D-Sec-14": "15/28",
+        "Dominant": "17/28",
+        "L-DevOps": "14/28",
+        "L-FinOps": "3/28",
+        "L-SRE": "9/28",
+        "L-Sec": "18/28",
+        "S:D-DevOps": "16/28",
+        "S:D-FinOps": "5/28",
+        "S:D-SRE": "5/28",
+        "S:D-Sec": "15/28",
+        "S:L-DevOps": "14/28",
+        "S:L-FinOps": "3/28",
+        "S:L-SRE": "9/28",
+        "S:L-Sec": "18/28"
+      },
+      "O2": {
+        "AAF": "22/28",
+        "AAF-14-GPT": "22/28",
+        "AlwaysNone": "1/28",
+        "AlwaysRollback": "8/28",
+        "B1": "14/28",
+        "B1-12": "17/28",
+        "B1-14": "22/28",
+        "B2-14": "22/28",
+        "B3-14": "22/28",
+        "B3-14-GPT": "22/28",
+        "B3-GPT": "14/28",
+        "B5": "11/28",
+        "B5-GPT": "11/28",
+        "B6": "15/28",
+        "B6-GPT": "18/28",
+        "BlockAnyCVE": "12/28",
+        "D-DevOps": "7/28",
+        "D-DevOps-14": "8/28",
+        "D-FinOps": "4/28",
+        "D-FinOps-14": "4/28",
+        "D-SRE": "5/28",
+        "D-SRE-14": "5/28",
+        "D-Sec": "12/28",
+        "D-Sec-14": "12/28",
+        "Dominant": "12/28",
+        "L-DevOps": "6/28",
+        "L-FinOps": "2/28",
+        "L-SRE": "7/28",
+        "L-Sec": "10/28",
+        "S:D-DevOps": "8/28",
+        "S:D-FinOps": "4/28",
+        "S:D-SRE": "5/28",
+        "S:D-Sec": "12/28",
+        "S:L-DevOps": "6/28",
+        "S:L-FinOps": "2/28",
+        "S:L-SRE": "7/28",
+        "S:L-Sec": "10/28"
+      },
+      "O1_discriminating": {
+        "AAF": "27/27",
+        "AAF-14-GPT": "27/27",
+        "AlwaysNone": "0/27",
+        "AlwaysRollback": "20/27",
+        "B1": "17/27",
+        "B1-12": "25/27",
+        "B1-14": "27/27",
+        "B2-14": "27/27",
+        "B3-14": "27/27",
+        "B3-14-GPT": "27/27",
+        "B3-GPT": "17/27",
+        "B5": "20/27",
+        "B5-GPT": "19/27",
+        "B6": "18/27",
+        "B6-GPT": "21/27",
+        "BlockAnyCVE": "14/27",
+        "D-DevOps": "14/27",
+        "D-DevOps-14": "15/27",
+        "D-FinOps": "4/27",
+        "D-FinOps-14": "4/27",
+        "D-SRE": "4/27",
+        "D-SRE-14": "4/27",
+        "D-Sec": "14/27",
+        "D-Sec-14": "14/27",
+        "Dominant": "16/27",
+        "L-DevOps": "13/27",
+        "L-FinOps": "2/27",
+        "L-SRE": "8/27",
+        "L-Sec": "17/27",
+        "S:D-DevOps": "15/27",
+        "S:D-FinOps": "4/27",
+        "S:D-SRE": "4/27",
+        "S:D-Sec": "14/27",
+        "S:L-DevOps": "13/27",
+        "S:L-FinOps": "2/27",
+        "S:L-SRE": "8/27",
+        "S:L-Sec": "17/27"
+      },
+      "O1_unique_answer": {
+        "AAF": "14/14",
+        "AAF-14-GPT": "14/14",
+        "AlwaysNone": "0/14",
+        "AlwaysRollback": "8/14",
+        "B1": "5/14",
+        "B1-12": "12/14",
+        "B1-14": "14/14",
+        "B2-14": "14/14",
+        "B3-14": "14/14",
+        "B3-14-GPT": "14/14",
+        "B3-GPT": "5/14",
+        "B5": "9/14",
+        "B5-GPT": "7/14",
+        "B6": "7/14",
+        "B6-GPT": "8/14",
+        "BlockAnyCVE": "3/14",
+        "D-DevOps": "6/14",
+        "D-DevOps-14": "7/14",
+        "D-FinOps": "1/14",
+        "D-FinOps-14": "1/14",
+        "D-SRE": "2/14",
+        "D-SRE-14": "2/14",
+        "D-Sec": "3/14",
+        "D-Sec-14": "3/14",
+        "Dominant": "6/14",
+        "L-DevOps": "5/14",
+        "L-FinOps": "0/14",
+        "L-SRE": "6/14",
+        "L-Sec": "7/14",
+        "S:D-DevOps": "7/14",
+        "S:D-FinOps": "1/14",
+        "S:D-SRE": "2/14",
+        "S:D-Sec": "3/14",
+        "S:L-DevOps": "5/14",
+        "S:L-FinOps": "0/14",
+        "S:L-SRE": "6/14",
+        "S:L-Sec": "7/14"
+      },
+      "H1_case_level": {
+        "S:D-DevOps": {
+          "a_only": 12,
+          "b_only": 0,
+          "p_exact": 0.00048828125,
+          "n": 28,
+          "p_holm": 0.0009765625
+        },
+        "S:D-SRE": {
+          "a_only": 23,
+          "b_only": 0,
+          "p_exact": 2.384185791015625e-07,
+          "n": 28,
+          "p_holm": 1.6689300537109375e-06
+        },
+        "S:D-FinOps": {
+          "a_only": 23,
+          "b_only": 0,
+          "p_exact": 2.384185791015625e-07,
+          "n": 28,
+          "p_holm": 1.6689300537109375e-06
+        },
+        "S:D-Sec": {
+          "a_only": 13,
+          "b_only": 0,
+          "p_exact": 0.000244140625,
+          "n": 28,
+          "p_holm": 0.000732421875
+        },
+        "S:L-DevOps": {
+          "a_only": 14,
+          "b_only": 0,
+          "p_exact": 0.0001220703125,
+          "n": 28,
+          "p_holm": 0.00048828125
+        },
+        "S:L-SRE": {
+          "a_only": 19,
+          "b_only": 0,
+          "p_exact": 3.814697265625e-06,
+          "n": 28,
+          "p_holm": 1.9073486328125e-05
+        },
+        "S:L-FinOps": {
+          "a_only": 25,
+          "b_only": 0,
+          "p_exact": 5.960464477539063e-08,
+          "n": 28,
+          "p_holm": 4.76837158203125e-07
+        },
+        "S:L-Sec": {
+          "a_only": 10,
+          "b_only": 0,
+          "p_exact": 0.001953125,
+          "n": 28,
+          "p_holm": 0.001953125
+        }
+      },
+      "H2_case_level": {
+        "B5": {
+          "a_only": 7,
+          "b_only": 0,
+          "p_exact": 0.015625,
+          "n": 28,
+          "p_holm": 0.03125
+        },
+        "B6": {
+          "a_only": 9,
+          "b_only": 0,
+          "p_exact": 0.00390625,
+          "n": 28,
+          "p_holm": 0.01171875
+        },
+        "AlwaysRollback": {
+          "a_only": 7,
+          "b_only": 0,
+          "p_exact": 0.015625,
+          "n": 28,
+          "p_holm": 0.03125
+        },
+        "B5-GPT": {
+          "a_only": 8,
+          "b_only": 0,
+          "p_exact": 0.0078125,
+          "n": 28,
+          "p_holm": 0.015625
+        },
+        "B6-GPT": {
+          "a_only": 6,
+          "b_only": 0,
+          "p_exact": 0.03125,
+          "n": 28,
+          "p_holm": 0.03125
+        }
+      },
+      "H1_discriminating": {
+        "S:D-DevOps": {
+          "a_only": 12,
+          "b_only": 0,
+          "p_exact": 0.00048828125,
+          "n": 27,
+          "p_holm": 0.0009765625
+        },
+        "S:D-SRE": {
+          "a_only": 23,
+          "b_only": 0,
+          "p_exact": 2.384185791015625e-07,
+          "n": 27,
+          "p_holm": 1.6689300537109375e-06
+        },
+        "S:D-FinOps": {
+          "a_only": 23,
+          "b_only": 0,
+          "p_exact": 2.384185791015625e-07,
+          "n": 27,
+          "p_holm": 1.6689300537109375e-06
+        },
+        "S:D-Sec": {
+          "a_only": 13,
+          "b_only": 0,
+          "p_exact": 0.000244140625,
+          "n": 27,
+          "p_holm": 0.000732421875
+        },
+        "S:L-DevOps": {
+          "a_only": 14,
+          "b_only": 0,
+          "p_exact": 0.0001220703125,
+          "n": 27,
+          "p_holm": 0.00048828125
+        },
+        "S:L-SRE": {
+          "a_only": 19,
+          "b_only": 0,
+          "p_exact": 3.814697265625e-06,
+          "n": 27,
+          "p_holm": 1.9073486328125e-05
+        },
+        "S:L-FinOps": {
+          "a_only": 25,
+          "b_only": 0,
+          "p_exact": 5.960464477539063e-08,
+          "n": 27,
+          "p_holm": 4.76837158203125e-07
+        },
+        "S:L-Sec": {
+          "a_only": 10,
+          "b_only": 0,
+          "p_exact": 0.001953125,
+          "n": 27,
+          "p_holm": 0.001953125
+        }
+      },
+      "H2_unique_answer": {
+        "B5": {
+          "a_only": 5,
+          "b_only": 0,
+          "p_exact": 0.0625,
+          "n": 14
+        },
+        "B6": {
+          "a_only": 7,
+          "b_only": 0,
+          "p_exact": 0.015625,
+          "n": 14
+        },
+        "B5-GPT": {
+          "a_only": 7,
+          "b_only": 0,
+          "p_exact": 0.015625,
+          "n": 14
+        },
+        "B6-GPT": {
+          "a_only": 6,
+          "b_only": 0,
+          "p_exact": 0.03125,
+          "n": 14
+        },
+        "AlwaysRollback": {
+          "a_only": 6,
+          "b_only": 0,
+          "p_exact": 0.03125,
+          "n": 14
+        }
+      },
+      "family_level": {
+        "S:D-DevOps": {
+          "families": 14,
+          "families_a_better": 8,
+          "families_b_better": 0,
+          "sign_test_p": 0.0078125,
+          "acc_diff": 0.429,
+          "cluster_bootstrap_95": [
+            0.214,
+            0.643
+          ]
+        },
+        "S:D-SRE": {
+          "families": 14,
+          "families_a_better": 12,
+          "families_b_better": 0,
+          "sign_test_p": 0.00048828125,
+          "acc_diff": 0.821,
+          "cluster_bootstrap_95": [
+            0.607,
+            1.0
+          ]
+        },
+        "S:D-FinOps": {
+          "families": 14,
+          "families_a_better": 13,
+          "families_b_better": 0,
+          "sign_test_p": 0.000244140625,
+          "acc_diff": 0.821,
+          "cluster_bootstrap_95": [
+            0.643,
+            0.964
+          ]
+        },
+        "S:D-Sec": {
+          "families": 14,
+          "families_a_better": 7,
+          "families_b_better": 0,
+          "sign_test_p": 0.015625,
+          "acc_diff": 0.464,
+          "cluster_bootstrap_95": [
+            0.214,
+            0.714
+          ]
+        },
+        "S:L-DevOps": {
+          "families": 14,
+          "families_a_better": 9,
+          "families_b_better": 0,
+          "sign_test_p": 0.00390625,
+          "acc_diff": 0.5,
+          "cluster_bootstrap_95": [
+            0.286,
+            0.714
+          ]
+        },
+        "S:L-SRE": {
+          "families": 14,
+          "families_a_better": 10,
+          "families_b_better": 0,
+          "sign_test_p": 0.001953125,
+          "acc_diff": 0.679,
+          "cluster_bootstrap_95": [
+            0.429,
+            0.893
+          ]
+        },
+        "S:L-FinOps": {
+          "families": 14,
+          "families_a_better": 13,
+          "families_b_better": 0,
+          "sign_test_p": 0.000244140625,
+          "acc_diff": 0.893,
+          "cluster_bootstrap_95": [
+            0.714,
+            1.0
+          ]
+        },
+        "S:L-Sec": {
+          "families": 14,
+          "families_a_better": 8,
+          "families_b_better": 0,
+          "sign_test_p": 0.0078125,
+          "acc_diff": 0.357,
+          "cluster_bootstrap_95": [
+            0.179,
+            0.536
+          ]
+        },
+        "B5": {
+          "families": 14,
+          "families_a_better": 5,
+          "families_b_better": 0,
+          "sign_test_p": 0.0625,
+          "acc_diff": 0.25,
+          "cluster_bootstrap_95": [
+            0.071,
+            0.464
+          ]
+        },
+        "B6": {
+          "families": 14,
+          "families_a_better": 7,
+          "families_b_better": 0,
+          "sign_test_p": 0.015625,
+          "acc_diff": 0.321,
+          "cluster_bootstrap_95": [
+            0.143,
+            0.5
+          ]
+        },
+        "B5-GPT": {
+          "families": 14,
+          "families_a_better": 5,
+          "families_b_better": 0,
+          "sign_test_p": 0.0625,
+          "acc_diff": 0.286,
+          "cluster_bootstrap_95": [
+            0.107,
+            0.536
+          ]
+        },
+        "B6-GPT": {
+          "families": 14,
+          "families_a_better": 4,
+          "families_b_better": 0,
+          "sign_test_p": 0.125,
+          "acc_diff": 0.214,
+          "cluster_bootstrap_95": [
+            0.036,
+            0.429
+          ]
+        },
+        "AlwaysRollback": {
+          "families": 14,
+          "families_a_better": 4,
+          "families_b_better": 0,
+          "sign_test_p": 0.125,
+          "acc_diff": 0.25,
+          "cluster_bootstrap_95": [
+            0.071,
+            0.464
+          ]
+        },
+        "Dominant": {
+          "families": 14,
+          "families_a_better": 9,
+          "families_b_better": 0,
+          "sign_test_p": 0.00390625,
+          "acc_diff": 0.393,
+          "cluster_bootstrap_95": [
+            0.214,
+            0.571
+          ]
+        }
+      },
+      "O2_case_level": {
+        "B6-GPT": {
+          "a_only": 6,
+          "b_only": 2,
+          "p_exact": 0.2890625,
+          "n": 28,
+          "p_holm": 0.2890625
+        },
+        "B5-GPT": {
+          "a_only": 13,
+          "b_only": 2,
+          "p_exact": 0.00738525390625,
+          "n": 28,
+          "p_holm": 0.025390625
+        },
+        "AlwaysRollback": {
+          "a_only": 14,
+          "b_only": 0,
+          "p_exact": 0.0001220703125,
+          "n": 28,
+          "p_holm": 0.0006103515625
+        },
+        "Dominant": {
+          "a_only": 15,
+          "b_only": 5,
+          "p_exact": 0.04138946533203125,
+          "n": 28,
+          "p_holm": 0.0827789306640625
+        },
+        "S:D-Sec": {
+          "a_only": 11,
+          "b_only": 1,
+          "p_exact": 0.00634765625,
+          "n": 28,
+          "p_holm": 0.025390625
+        }
+      },
+      "H3_low_risk": {
+        "n": 8,
+        "O2": {
+          "AAF": {
+            "k": 6,
+            "n": 8,
+            "wilson95_pct": [
+              40.9,
+              92.9
+            ]
+          },
+          "AAF-14-GPT": {
+            "k": 6,
+            "n": 8,
+            "wilson95_pct": [
+              40.9,
+              92.9
+            ]
+          },
+          "AlwaysNone": {
+            "k": 7,
+            "n": 8,
+            "wilson95_pct": [
+              52.9,
+              97.8
+            ]
+          },
+          "AlwaysRollback": {
+            "k": 0,
+            "n": 8,
+            "wilson95_pct": [
+              0.0,
+              32.4
+            ]
+          },
+          "B1": {
+            "k": 6,
+            "n": 8,
+            "wilson95_pct": [
+              40.9,
+              92.9
+            ]
+          },
+          "B1-12": {
+            "k": 6,
+            "n": 8,
+            "wilson95_pct": [
+              40.9,
+              92.9
+            ]
+          },
+          "B1-14": {
+            "k": 6,
+            "n": 8,
+            "wilson95_pct": [
+              40.9,
+              92.9
+            ]
+          },
+          "B2-14": {
+            "k": 6,
+            "n": 8,
+            "wilson95_pct": [
+              40.9,
+              92.9
+            ]
+          },
+          "B3-14": {
+            "k": 6,
+            "n": 8,
+            "wilson95_pct": [
+              40.9,
+              92.9
+            ]
+          },
+          "B3-14-GPT": {
+            "k": 6,
+            "n": 8,
+            "wilson95_pct": [
+              40.9,
+              92.9
+            ]
+          },
+          "B3-GPT": {
+            "k": 6,
+            "n": 8,
+            "wilson95_pct": [
+              40.9,
+              92.9
+            ]
+          },
+          "B5": {
+            "k": 1,
+            "n": 8,
+            "wilson95_pct": [
+              2.2,
+              47.1
+            ]
+          },
+          "B5-GPT": {
+            "k": 5,
+            "n": 8,
+            "wilson95_pct": [
+              30.6,
+              86.3
+            ]
+          },
+          "B6": {
+            "k": 6,
+            "n": 8,
+            "wilson95_pct": [
+              40.9,
+              92.9
+            ]
+          },
+          "B6-GPT": {
+            "k": 6,
+            "n": 8,
+            "wilson95_pct": [
+              40.9,
+              92.9
+            ]
+          },
+          "BlockAnyCVE": {
+            "k": 7,
+            "n": 8,
+            "wilson95_pct": [
+              52.9,
+              97.8
+            ]
+          },
+          "D-DevOps": {
+            "k": 7,
+            "n": 8,
+            "wilson95_pct": [
+              52.9,
+              97.8
+            ]
+          },
+          "D-DevOps-14": {
+            "k": 7,
+            "n": 8,
+            "wilson95_pct": [
+              52.9,
+              97.8
+            ]
+          },
+          "D-FinOps": {
+            "k": 7,
+            "n": 8,
+            "wilson95_pct": [
+              52.9,
+              97.8
+            ]
+          },
+          "D-FinOps-14": {
+            "k": 7,
+            "n": 8,
+            "wilson95_pct": [
+              52.9,
+              97.8
+            ]
+          },
+          "D-SRE": {
+            "k": 6,
+            "n": 8,
+            "wilson95_pct": [
+              40.9,
+              92.9
+            ]
+          },
+          "D-SRE-14": {
+            "k": 6,
+            "n": 8,
+            "wilson95_pct": [
+              40.9,
+              92.9
+            ]
+          },
+          "D-Sec": {
+            "k": 7,
+            "n": 8,
+            "wilson95_pct": [
+              52.9,
+              97.8
+            ]
+          },
+          "D-Sec-14": {
+            "k": 7,
+            "n": 8,
+            "wilson95_pct": [
+              52.9,
+              97.8
+            ]
+          },
+          "Dominant": {
+            "k": 6,
+            "n": 8,
+            "wilson95_pct": [
+              40.9,
+              92.9
+            ]
+          },
+          "L-DevOps": {
+            "k": 7,
+            "n": 8,
+            "wilson95_pct": [
+              52.9,
+              97.8
+            ]
+          },
+          "L-FinOps": {
+            "k": 6,
+            "n": 8,
+            "wilson95_pct": [
+              40.9,
+              92.9
+            ]
+          },
+          "L-SRE": {
+            "k": 1,
+            "n": 8,
+            "wilson95_pct": [
+              2.2,
+              47.1
+            ]
+          },
+          "L-Sec": {
+            "k": 0,
+            "n": 8,
+            "wilson95_pct": [
+              0.0,
+              32.4
+            ]
+          },
+          "S:D-DevOps": {
+            "k": 7,
+            "n": 8,
+            "wilson95_pct": [
+              52.9,
+              97.8
+            ]
+          },
+          "S:D-FinOps": {
+            "k": 7,
+            "n": 8,
+            "wilson95_pct": [
+              52.9,
+              97.8
+            ]
+          },
+          "S:D-SRE": {
+            "k": 6,
+            "n": 8,
+            "wilson95_pct": [
+              40.9,
+              92.9
+            ]
+          },
+          "S:D-Sec": {
+            "k": 7,
+            "n": 8,
+            "wilson95_pct": [
+              52.9,
+              97.8
+            ]
+          },
+          "S:L-DevOps": {
+            "k": 7,
+            "n": 8,
+            "wilson95_pct": [
+              52.9,
+              97.8
+            ]
+          },
+          "S:L-FinOps": {
+            "k": 6,
+            "n": 8,
+            "wilson95_pct": [
+              40.9,
+              92.9
+            ]
+          },
+          "S:L-SRE": {
+            "k": 1,
+            "n": 8,
+            "wilson95_pct": [
+              2.2,
+              47.1
+            ]
+          },
+          "S:L-Sec": {
+            "k": 0,
+            "n": 8,
+            "wilson95_pct": [
+              0.0,
+              32.4
+            ]
+          }
+        },
+        "release_continued": {
+          "AAF": "8/8",
+          "AAF-14-GPT": "8/8",
+          "B5": "8/8",
+          "B6": "8/8",
+          "B5-GPT": "8/8",
+          "B6-GPT": "8/8",
+          "AlwaysRollback": "0/8",
+          "BlockAnyCVE": "8/8",
+          "AlwaysNone": "8/8"
+        }
+      },
+      "withheld": {
+        "n": 26,
+        "O1": {
+          "AAF": "25/26",
+          "AAF-14-GPT": "26/26",
+          "B1": "4/26",
+          "B1-14": "12/26",
+          "B2": "16/26",
+          "B2-14": "26/26",
+          "B3-14": "22/26",
+          "B5": "19/26",
+          "B5-GPT": "20/26",
+          "B6": "19/26",
+          "B6-GPT": "16/26"
+        },
+        "AAF_vs": {
+          "B1-14": {
+            "a_only": 13,
+            "b_only": 0,
+            "p_exact": 0.000244140625,
+            "n": 26
+          },
+          "B2-14": {
+            "a_only": 0,
+            "b_only": 1,
+            "p_exact": 1.0,
+            "n": 26
+          }
+        },
+        "AAF_GPT_vs": {
+          "B1-14": {
+            "a_only": 14,
+            "b_only": 0,
+            "p_exact": 0.0001220703125,
+            "n": 26
+          },
+          "B2-14": {
+            "a_only": 0,
+            "b_only": 0,
+            "p_exact": 1.0,
+            "n": 26
+          }
+        }
+      }
+    }
+  },
+  "pooled": {
+    "n_faults": 104,
+    "n_families": 45,
+    "n_discriminating": 98,
+    "n_unique_answer": 46,
+    "O1": {
+      "AAF": "104/104",
+      "AAF-14-GPT": "104/104",
+      "AlwaysNone": "7/104",
+      "AlwaysRollback": "77/104",
+      "B1": "71/104",
+      "B1-12": "95/104",
+      "B1-14": "104/104",
+      "B2-14": "70/70",
+      "B3-14": "70/70",
+      "B3-14-GPT": "104/104",
+      "B3-GPT": "71/104",
+      "B5": "74/104",
+      "B5-GPT": "78/104",
+      "B6": "80/104",
+      "B6-GPT": "80/104",
+      "BlockAnyCVE": "62/104",
+      "D-DevOps": "44/104",
+      "D-DevOps-14": "34/70",
+      "D-FinOps": "26/104",
+      "D-FinOps-14": "15/70",
+      "D-SRE": "20/104",
+      "D-SRE-14": "11/70",
+      "D-Sec": "62/104",
+      "D-Sec-14": "36/70",
+      "Dominant": "63/104",
+      "L-DevOps": "40/104",
+      "L-FinOps": "15/104",
+      "L-SRE": "36/104",
+      "L-Sec": "65/104",
+      "S:D-DevOps": "48/104",
+      "S:D-FinOps": "26/104",
+      "S:D-SRE": "20/104",
+      "S:D-Sec": "62/104",
+      "S:L-DevOps": "40/104",
+      "S:L-FinOps": "15/104",
+      "S:L-SRE": "36/104",
+      "S:L-Sec": "65/104"
+    },
+    "O2": {
+      "AAF": "78/104",
+      "AAF-14-GPT": "78/104",
+      "AlwaysNone": "5/104",
+      "AlwaysRollback": "25/104",
+      "B1": "59/104",
+      "B1-12": "61/104",
+      "B1-14": "78/104",
+      "B2-14": "54/70",
+      "B3-14": "54/70",
+      "B3-14-GPT": "78/104",
+      "B3-GPT": "59/104",
+      "B5": "38/104",
+      "B5-GPT": "43/104",
+      "B6": "62/104",
+      "B6-GPT": "63/104",
+      "BlockAnyCVE": "46/104",
+      "D-DevOps": "19/104",
+      "D-DevOps-14": "17/70",
+      "D-FinOps": "24/104",
+      "D-FinOps-14": "14/70",
+      "D-SRE": "15/104",
+      "D-SRE-14": "11/70",
+      "D-Sec": "46/104",
+      "D-Sec-14": "26/70",
+      "Dominant": "49/104",
+      "L-DevOps": "14/104",
+      "L-FinOps": "9/104",
+      "L-SRE": "23/104",
+      "L-Sec": "32/104",
+      "S:D-DevOps": "23/104",
+      "S:D-FinOps": "24/104",
+      "S:D-SRE": "15/104",
+      "S:D-Sec": "46/104",
+      "S:L-DevOps": "14/104",
+      "S:L-FinOps": "9/104",
+      "S:L-SRE": "23/104",
+      "S:L-Sec": "32/104"
+    },
+    "O1_discriminating": {
+      "AAF": "98/98",
+      "AAF-14-GPT": "98/98",
+      "AlwaysNone": "1/98",
+      "AlwaysRollback": "71/98",
+      "B1": "65/98",
+      "B1-12": "89/98",
+      "B1-14": "98/98",
+      "B2-14": "69/69",
+      "B3-14": "69/69",
+      "B3-14-GPT": "98/98",
+      "B3-GPT": "65/98",
+      "B5": "68/98",
+      "B5-GPT": "72/98",
+      "B6": "74/98",
+      "B6-GPT": "74/98",
+      "BlockAnyCVE": "56/98",
+      "D-DevOps": "38/98",
+      "D-DevOps-14": "33/69",
+      "D-FinOps": "20/98",
+      "D-FinOps-14": "14/69",
+      "D-SRE": "14/98",
+      "D-SRE-14": "10/69",
+      "D-Sec": "56/98",
+      "D-Sec-14": "35/69",
+      "Dominant": "57/98",
+      "L-DevOps": "34/98",
+      "L-FinOps": "9/98",
+      "L-SRE": "30/98",
+      "L-Sec": "59/98",
+      "S:D-DevOps": "42/98",
+      "S:D-FinOps": "20/98",
+      "S:D-SRE": "14/98",
+      "S:D-Sec": "56/98",
+      "S:L-DevOps": "34/98",
+      "S:L-FinOps": "9/98",
+      "S:L-SRE": "30/98",
+      "S:L-Sec": "59/98"
+    },
+    "O1_unique_answer": {
+      "AAF": "46/46",
+      "AAF-14-GPT": "46/46",
+      "AlwaysNone": "0/46",
+      "AlwaysRollback": "25/46",
+      "B1": "19/46",
+      "B1-12": "37/46",
+      "B1-14": "46/46",
+      "B2-14": "35/35",
+      "B3-14": "35/35",
+      "B3-14-GPT": "46/46",
+      "B3-GPT": "19/46",
+      "B5": "26/46",
+      "B5-GPT": "26/46",
+      "B6": "27/46",
+      "B6-GPT": "23/46",
+      "BlockAnyCVE": "10/46",
+      "D-DevOps": "14/46",
+      "D-DevOps-14": "16/35",
+      "D-FinOps": "5/46",
+      "D-FinOps-14": "4/35",
+      "D-SRE": "6/46",
+      "D-SRE-14": "5/35",
+      "D-Sec": "10/46",
+      "D-Sec-14": "6/35",
+      "Dominant": "19/46",
+      "L-DevOps": "10/46",
+      "L-FinOps": "3/46",
+      "L-SRE": "19/46",
+      "L-Sec": "16/46",
+      "S:D-DevOps": "18/46",
+      "S:D-FinOps": "5/46",
+      "S:D-SRE": "6/46",
+      "S:D-Sec": "10/46",
+      "S:L-DevOps": "10/46",
+      "S:L-FinOps": "3/46",
+      "S:L-SRE": "19/46",
+      "S:L-Sec": "16/46"
+    },
+    "H1_case_level": {
+      "S:D-DevOps": {
+        "a_only": 56,
+        "b_only": 0,
+        "p_exact": 2.7755575615628914e-17,
+        "n": 104,
+        "p_holm": 8.326672684688674e-17
+      },
+      "S:D-SRE": {
+        "a_only": 84,
+        "b_only": 0,
+        "p_exact": 1.0339757656912846e-25,
+        "n": 104,
+        "p_holm": 7.237830359838992e-25
+      },
+      "S:D-FinOps": {
+        "a_only": 78,
+        "b_only": 0,
+        "p_exact": 6.617444900424222e-24,
+        "n": 104,
+        "p_holm": 3.970466940254533e-23
+      },
+      "S:D-Sec": {
+        "a_only": 42,
+        "b_only": 0,
+        "p_exact": 4.547473508864641e-13,
+        "n": 104,
+        "p_holm": 9.094947017729282e-13
+      },
+      "S:L-DevOps": {
+        "a_only": 64,
+        "b_only": 0,
+        "p_exact": 1.0842021724855044e-19,
+        "n": 104,
+        "p_holm": 4.336808689942018e-19
+      },
+      "S:L-SRE": {
+        "a_only": 68,
+        "b_only": 0,
+        "p_exact": 6.776263578034403e-21,
+        "n": 104,
+        "p_holm": 3.3881317890172014e-20
+      },
+      "S:L-FinOps": {
+        "a_only": 89,
+        "b_only": 0,
+        "p_exact": 3.2311742677852644e-27,
+        "n": 104,
+        "p_holm": 2.5849394142282115e-26
+      },
+      "S:L-Sec": {
+        "a_only": 39,
+        "b_only": 0,
+        "p_exact": 3.637978807091713e-12,
+        "n": 104,
+        "p_holm": 3.637978807091713e-12
+      }
+    },
+    "H2_case_level": {
+      "B5": {
+        "a_only": 30,
+        "b_only": 0,
+        "p_exact": 1.862645149230957e-09,
+        "n": 104,
+        "p_holm": 5.587935447692871e-09
+      },
+      "B6": {
+        "a_only": 24,
+        "b_only": 0,
+        "p_exact": 1.1920928955078125e-07,
+        "n": 104,
+        "p_holm": 1.1920928955078125e-07
+      },
+      "AlwaysRollback": {
+        "a_only": 27,
+        "b_only": 0,
+        "p_exact": 1.4901161193847656e-08,
+        "n": 104,
+        "p_holm": 2.9802322387695312e-08
+      },
+      "B5-GPT": {
+        "a_only": 26,
+        "b_only": 0,
+        "p_exact": 2.9802322387695312e-08,
+        "n": 104,
+        "p_holm": 5.960464477539063e-08
+      },
+      "B6-GPT": {
+        "a_only": 24,
+        "b_only": 0,
+        "p_exact": 1.1920928955078125e-07,
+        "n": 104,
+        "p_holm": 1.1920928955078125e-07
+      }
+    },
+    "H1_discriminating": {
+      "S:D-DevOps": {
+        "a_only": 56,
+        "b_only": 0,
+        "p_exact": 2.7755575615628914e-17,
+        "n": 98,
+        "p_holm": 8.326672684688674e-17
+      },
+      "S:D-SRE": {
+        "a_only": 84,
+        "b_only": 0,
+        "p_exact": 1.0339757656912846e-25,
+        "n": 98,
+        "p_holm": 7.237830359838992e-25
+      },
+      "S:D-FinOps": {
+        "a_only": 78,
+        "b_only": 0,
+        "p_exact": 6.617444900424222e-24,
+        "n": 98,
+        "p_holm": 3.970466940254533e-23
+      },
+      "S:D-Sec": {
+        "a_only": 42,
+        "b_only": 0,
+        "p_exact": 4.547473508864641e-13,
+        "n": 98,
+        "p_holm": 9.094947017729282e-13
+      },
+      "S:L-DevOps": {
+        "a_only": 64,
+        "b_only": 0,
+        "p_exact": 1.0842021724855044e-19,
+        "n": 98,
+        "p_holm": 4.336808689942018e-19
+      },
+      "S:L-SRE": {
+        "a_only": 68,
+        "b_only": 0,
+        "p_exact": 6.776263578034403e-21,
+        "n": 98,
+        "p_holm": 3.3881317890172014e-20
+      },
+      "S:L-FinOps": {
+        "a_only": 89,
+        "b_only": 0,
+        "p_exact": 3.2311742677852644e-27,
+        "n": 98,
+        "p_holm": 2.5849394142282115e-26
+      },
+      "S:L-Sec": {
+        "a_only": 39,
+        "b_only": 0,
+        "p_exact": 3.637978807091713e-12,
+        "n": 98,
+        "p_holm": 3.637978807091713e-12
+      }
+    },
+    "H2_unique_answer": {
+      "B5": {
+        "a_only": 20,
+        "b_only": 0,
+        "p_exact": 1.9073486328125e-06,
+        "n": 46
+      },
+      "B6": {
+        "a_only": 19,
+        "b_only": 0,
+        "p_exact": 3.814697265625e-06,
+        "n": 46
+      },
+      "B5-GPT": {
+        "a_only": 20,
+        "b_only": 0,
+        "p_exact": 1.9073486328125e-06,
+        "n": 46
+      },
+      "B6-GPT": {
+        "a_only": 23,
+        "b_only": 0,
+        "p_exact": 2.384185791015625e-07,
+        "n": 46
+      },
+      "AlwaysRollback": {
+        "a_only": 21,
+        "b_only": 0,
+        "p_exact": 9.5367431640625e-07,
+        "n": 46
+      }
+    },
+    "family_level": {
+      "S:D-DevOps": {
+        "families": 45,
+        "families_a_better": 28,
+        "families_b_better": 0,
+        "sign_test_p": 7.450580596923828e-09,
+        "acc_diff": 0.538,
+        "cluster_bootstrap_95": [
+          0.402,
+          0.673
+        ]
+      },
+      "S:D-SRE": {
+        "families": 45,
+        "families_a_better": 38,
+        "families_b_better": 0,
+        "sign_test_p": 7.275957614183426e-12,
+        "acc_diff": 0.808,
+        "cluster_bootstrap_95": [
+          0.692,
+          0.907
+        ]
+      },
+      "S:D-FinOps": {
+        "families": 45,
+        "families_a_better": 39,
+        "families_b_better": 0,
+        "sign_test_p": 3.637978807091713e-12,
+        "acc_diff": 0.75,
+        "cluster_bootstrap_95": [
+          0.633,
+          0.856
+        ]
+      },
+      "S:D-Sec": {
+        "families": 45,
+        "families_a_better": 22,
+        "families_b_better": 0,
+        "sign_test_p": 4.76837158203125e-07,
+        "acc_diff": 0.404,
+        "cluster_bootstrap_95": [
+          0.272,
+          0.539
+        ]
+      },
+      "S:L-DevOps": {
+        "families": 45,
+        "families_a_better": 31,
+        "families_b_better": 0,
+        "sign_test_p": 9.313225746154785e-10,
+        "acc_diff": 0.615,
+        "cluster_bootstrap_95": [
+          0.485,
+          0.741
+        ]
+      },
+      "S:L-SRE": {
+        "families": 45,
+        "families_a_better": 32,
+        "families_b_better": 0,
+        "sign_test_p": 4.656612873077393e-10,
+        "acc_diff": 0.654,
+        "cluster_bootstrap_95": [
+          0.515,
+          0.774
+        ]
+      },
+      "S:L-FinOps": {
+        "families": 45,
+        "families_a_better": 41,
+        "families_b_better": 0,
+        "sign_test_p": 9.094947017729282e-13,
+        "acc_diff": 0.856,
+        "cluster_bootstrap_95": [
+          0.762,
+          0.933
+        ]
+      },
+      "S:L-Sec": {
+        "families": 45,
+        "families_a_better": 24,
+        "families_b_better": 0,
+        "sign_test_p": 1.1920928955078125e-07,
+        "acc_diff": 0.375,
+        "cluster_bootstrap_95": [
+          0.255,
+          0.5
+        ]
+      },
+      "B5": {
+        "families": 45,
+        "families_a_better": 17,
+        "families_b_better": 0,
+        "sign_test_p": 1.52587890625e-05,
+        "acc_diff": 0.288,
+        "cluster_bootstrap_95": [
+          0.178,
+          0.406
+        ]
+      },
+      "B6": {
+        "families": 45,
+        "families_a_better": 17,
+        "families_b_better": 0,
+        "sign_test_p": 1.52587890625e-05,
+        "acc_diff": 0.231,
+        "cluster_bootstrap_95": [
+          0.139,
+          0.33
+        ]
+      },
+      "B5-GPT": {
+        "families": 45,
+        "families_a_better": 15,
+        "families_b_better": 0,
+        "sign_test_p": 6.103515625e-05,
+        "acc_diff": 0.25,
+        "cluster_bootstrap_95": [
+          0.146,
+          0.362
+        ]
+      },
+      "B6-GPT": {
+        "families": 45,
+        "families_a_better": 16,
+        "families_b_better": 0,
+        "sign_test_p": 3.0517578125e-05,
+        "acc_diff": 0.231,
+        "cluster_bootstrap_95": [
+          0.135,
+          0.337
+        ]
+      },
+      "AlwaysRollback": {
+        "families": 45,
+        "families_a_better": 13,
+        "families_b_better": 0,
+        "sign_test_p": 0.000244140625,
+        "acc_diff": 0.26,
+        "cluster_bootstrap_95": [
+          0.139,
+          0.39
+        ]
+      },
+      "Dominant": {
+        "families": 45,
+        "families_a_better": 25,
+        "families_b_better": 0,
+        "sign_test_p": 5.960464477539063e-08,
+        "acc_diff": 0.394,
+        "cluster_bootstrap_95": [
+          0.272,
+          0.514
+        ]
+      }
+    },
+    "O2_case_level": {
+      "B6-GPT": {
+        "a_only": 25,
+        "b_only": 10,
+        "p_exact": 0.01667384780012071,
+        "n": 104,
+        "p_holm": 0.01667384780012071
+      },
+      "B5-GPT": {
+        "a_only": 39,
+        "b_only": 4,
+        "p_exact": 3.1081526685738936e-08,
+        "n": 104,
+        "p_holm": 1.2432610674295574e-07
+      },
+      "AlwaysRollback": {
+        "a_only": 53,
+        "b_only": 0,
+        "p_exact": 2.220446049250313e-16,
+        "n": 104,
+        "p_holm": 1.1102230246251565e-15
+      },
+      "Dominant": {
+        "a_only": 49,
+        "b_only": 20,
+        "p_exact": 0.0006361729964503618,
+        "n": 104,
+        "p_holm": 0.0012723459929007237
+      },
+      "S:D-Sec": {
+        "a_only": 37,
+        "b_only": 5,
+        "p_exact": 4.4337048166198656e-07,
+        "n": 104,
+        "p_holm": 1.3301114449859597e-06
+      }
+    },
+    "H3_low_risk": {
+      "n": 24,
+      "O2": {
+        "AAF": {
+          "k": 18,
+          "n": 24,
+          "wilson95_pct": [
+            55.1,
+            88.0
+          ]
+        },
+        "AAF-14-GPT": {
+          "k": 18,
+          "n": 24,
+          "wilson95_pct": [
+            55.1,
+            88.0
+          ]
+        },
+        "AlwaysNone": {
+          "k": 21,
+          "n": 24,
+          "wilson95_pct": [
+            69.0,
+            95.7
+          ]
+        },
+        "AlwaysRollback": {
+          "k": 0,
+          "n": 24,
+          "wilson95_pct": [
+            0.0,
+            13.8
+          ]
+        },
+        "B1": {
+          "k": 18,
+          "n": 24,
+          "wilson95_pct": [
+            55.1,
+            88.0
+          ]
+        },
+        "B1-12": {
+          "k": 17,
+          "n": 24,
+          "wilson95_pct": [
+            50.8,
+            85.1
+          ]
+        },
+        "B1-14": {
+          "k": 18,
+          "n": 24,
+          "wilson95_pct": [
+            55.1,
+            88.0
+          ]
+        },
+        "B2-14": {
+          "k": 15,
+          "n": 20,
+          "wilson95_pct": [
+            53.1,
+            88.8
+          ]
+        },
+        "B3-14": {
+          "k": 15,
+          "n": 20,
+          "wilson95_pct": [
+            53.1,
+            88.8
+          ]
+        },
+        "B3-14-GPT": {
+          "k": 18,
+          "n": 24,
+          "wilson95_pct": [
+            55.1,
+            88.0
+          ]
+        },
+        "B3-GPT": {
+          "k": 18,
+          "n": 24,
+          "wilson95_pct": [
+            55.1,
+            88.0
+          ]
+        },
+        "B5": {
+          "k": 2,
+          "n": 24,
+          "wilson95_pct": [
+            2.3,
+            25.8
+          ]
+        },
+        "B5-GPT": {
+          "k": 16,
+          "n": 24,
+          "wilson95_pct": [
+            46.7,
+            82.0
+          ]
+        },
+        "B6": {
+          "k": 20,
+          "n": 24,
+          "wilson95_pct": [
+            64.1,
+            93.3
+          ]
+        },
+        "B6-GPT": {
+          "k": 18,
+          "n": 24,
+          "wilson95_pct": [
+            55.1,
+            88.0
+          ]
+        },
+        "BlockAnyCVE": {
+          "k": 21,
+          "n": 24,
+          "wilson95_pct": [
+            69.0,
+            95.7
+          ]
+        },
+        "D-DevOps": {
+          "k": 21,
+          "n": 24,
+          "wilson95_pct": [
+            69.0,
+            95.7
+          ]
+        },
+        "D-DevOps-14": {
+          "k": 18,
+          "n": 20,
+          "wilson95_pct": [
+            69.9,
+            97.2
+          ]
+        },
+        "D-FinOps": {
+          "k": 20,
+          "n": 24,
+          "wilson95_pct": [
+            64.1,
+            93.3
+          ]
+        },
+        "D-FinOps-14": {
+          "k": 17,
+          "n": 20,
+          "wilson95_pct": [
+            64.0,
+            94.8
+          ]
+        },
+        "D-SRE": {
+          "k": 16,
+          "n": 24,
+          "wilson95_pct": [
+            46.7,
+            82.0
+          ]
+        },
+        "D-SRE-14": {
+          "k": 14,
+          "n": 20,
+          "wilson95_pct": [
+            48.1,
+            85.5
+          ]
+        },
+        "D-Sec": {
+          "k": 21,
+          "n": 24,
+          "wilson95_pct": [
+            69.0,
+            95.7
+          ]
+        },
+        "D-Sec-14": {
+          "k": 18,
+          "n": 20,
+          "wilson95_pct": [
+            69.9,
+            97.2
+          ]
+        },
+        "Dominant": {
+          "k": 18,
+          "n": 24,
+          "wilson95_pct": [
+            55.1,
+            88.0
+          ]
+        },
+        "L-DevOps": {
+          "k": 20,
+          "n": 24,
+          "wilson95_pct": [
+            64.1,
+            93.3
+          ]
+        },
+        "L-FinOps": {
+          "k": 17,
+          "n": 24,
+          "wilson95_pct": [
+            50.8,
+            85.1
+          ]
+        },
+        "L-SRE": {
+          "k": 2,
+          "n": 24,
+          "wilson95_pct": [
+            2.3,
+            25.8
+          ]
+        },
+        "L-Sec": {
+          "k": 1,
+          "n": 24,
+          "wilson95_pct": [
+            0.7,
+            20.2
+          ]
+        },
+        "S:D-DevOps": {
+          "k": 21,
+          "n": 24,
+          "wilson95_pct": [
+            69.0,
+            95.7
+          ]
+        },
+        "S:D-FinOps": {
+          "k": 20,
+          "n": 24,
+          "wilson95_pct": [
+            64.1,
+            93.3
+          ]
+        },
+        "S:D-SRE": {
+          "k": 16,
+          "n": 24,
+          "wilson95_pct": [
+            46.7,
+            82.0
+          ]
+        },
+        "S:D-Sec": {
+          "k": 21,
+          "n": 24,
+          "wilson95_pct": [
+            69.0,
+            95.7
+          ]
+        },
+        "S:L-DevOps": {
+          "k": 20,
+          "n": 24,
+          "wilson95_pct": [
+            64.1,
+            93.3
+          ]
+        },
+        "S:L-FinOps": {
+          "k": 17,
+          "n": 24,
+          "wilson95_pct": [
+            50.8,
+            85.1
+          ]
+        },
+        "S:L-SRE": {
+          "k": 2,
+          "n": 24,
+          "wilson95_pct": [
+            2.3,
+            25.8
+          ]
+        },
+        "S:L-Sec": {
+          "k": 1,
+          "n": 24,
+          "wilson95_pct": [
+            0.7,
+            20.2
+          ]
+        }
+      },
+      "release_continued": {
+        "AAF": "24/24",
+        "AAF-14-GPT": "24/24",
+        "B5": "24/24",
+        "B6": "24/24",
+        "B5-GPT": "24/24",
+        "B6-GPT": "24/24",
+        "AlwaysRollback": "0/24",
+        "BlockAnyCVE": "24/24",
+        "AlwaysNone": "24/24"
+      }
+    },
+    "withheld": {
+      "n": 97,
+      "O1": {
+        "AAF": "87/97",
+        "AAF-14-GPT": "93/97",
+        "B1": "26/97",
+        "B1-14": "53/97",
+        "B2": "64/97",
+        "B2-14": "97/97",
+        "B3-14": "56/65",
+        "B5": "69/97",
+        "B5-GPT": "79/97",
+        "B6": "69/97",
+        "B6-GPT": "68/97"
+      },
+      "AAF_vs": {
+        "B1-14": {
+          "a_only": 34,
+          "b_only": 0,
+          "p_exact": 1.1641532182693481e-10,
+          "n": 97
+        },
+        "B2-14": {
+          "a_only": 0,
+          "b_only": 10,
+          "p_exact": 0.001953125,
+          "n": 97
+        }
+      },
+      "AAF_GPT_vs": {
+        "B1-14": {
+          "a_only": 40,
+          "b_only": 0,
+          "p_exact": 1.8189894035458565e-12,
+          "n": 97
+        },
+        "B2-14": {
+          "a_only": 0,
+          "b_only": 4,
+          "p_exact": 0.125,
+          "n": 97
+        }
+      }
+    }
+  },
+  "replicates": {
+    "outcome_study14": {
+      "cases_two_replicates": 40,
+      "O1_identical": 36,
+      "differing": [
+        "QF-D01",
+        "QF-P02",
+        "QF-S03",
+        "QF-S04"
+      ],
+      "faults_rules_correct_in_each_replicate_separately": "34/34"
+    },
+    "outcome_study15": {
+      "cases_two_replicates": 57,
+      "O1_identical": 53,
+      "differing": [
+        "UC-L03",
+        "UC-L04",
+        "UC-S03",
+        "UF-S03"
+      ],
+      "faults_rules_correct_in_each_replicate_separately": "42/42"
+    },
+    "outcome_study16": {
+      "cases_two_replicates": 38,
+      "O1_identical": 34,
+      "differing": [
+        "SC-L03",
+        "SF-C01",
+        "SF-L01",
+        "SF-L03"
+      ],
+      "faults_rules_correct_in_each_replicate_separately": "28/28"
+    }
+  },
+  "O2_misses": {
+    "AAF-14-GPT": {
+      "n": 26,
+      "kept_security_or_reliability": 15,
+      "rollback_lost_feature": 9,
+      "footprint_only": 2,
+      "cases": {
+        "kept_security_or_reliability": [
+          "14:QF-P04",
+          "14:QP-S01",
+          "14:QP-S02",
+          "14:QP-S03",
+          "14:QP-S04",
+          "15:UC-S01",
+          "15:UC-S02",
+          "15:UF-S01",
+          "15:UF-S02",
+          "15:UP-S01",
+          "15:UP-S02",
+          "15:UP-S03",
+          "16:SC-S01",
+          "16:SC-S02",
+          "16:SC-S03"
+        ],
+        "rollback_lost_feature": [
+          "14:QF-R01",
+          "14:QP-R02",
+          "14:QP-R04",
+          "14:QP-X02",
+          "15:UC-R01",
+          "15:UF-R01",
+          "15:UP-R01",
+          "16:SC-R01",
+          "16:SF-R01"
+        ],
+        "footprint_only": [
+          "14:QP-P04",
+          "16:SF-D01"
+        ]
+      }
+    },
+    "AAF": {
+      "n": 26,
+      "kept_security_or_reliability": 15,
+      "rollback_lost_feature": 9,
+      "footprint_only": 2,
+      "cases": {
+        "kept_security_or_reliability": [
+          "14:QF-P04",
+          "14:QP-S01",
+          "14:QP-S02",
+          "14:QP-S03",
+          "14:QP-S04",
+          "15:UC-S01",
+          "15:UC-S02",
+          "15:UF-S01",
+          "15:UF-S02",
+          "15:UP-S01",
+          "15:UP-S02",
+          "15:UP-S03",
+          "16:SC-S01",
+          "16:SC-S02",
+          "16:SC-S03"
+        ],
+        "rollback_lost_feature": [
+          "14:QF-R01",
+          "14:QP-R02",
+          "14:QP-R04",
+          "14:QP-X02",
+          "15:UC-R01",
+          "15:UF-R01",
+          "15:UP-R01",
+          "16:SC-R01",
+          "16:SF-R01"
+        ],
+        "footprint_only": [
+          "14:QP-P04",
+          "16:SF-D01"
+        ]
+      }
+    },
+    "B1-14": {
+      "n": 26,
+      "kept_security_or_reliability": 15,
+      "rollback_lost_feature": 9,
+      "footprint_only": 2,
+      "cases": {
+        "kept_security_or_reliability": [
+          "14:QF-P04",
+          "14:QP-S01",
+          "14:QP-S02",
+          "14:QP-S03",
+          "14:QP-S04",
+          "15:UC-S01",
+          "15:UC-S02",
+          "15:UF-S01",
+          "15:UF-S02",
+          "15:UP-S01",
+          "15:UP-S02",
+          "15:UP-S03",
+          "16:SC-S01",
+          "16:SC-S02",
+          "16:SC-S03"
+        ],
+        "rollback_lost_feature": [
+          "14:QF-R01",
+          "14:QP-R02",
+          "14:QP-R04",
+          "14:QP-X02",
+          "15:UC-R01",
+          "15:UF-R01",
+          "15:UP-R01",
+          "16:SC-R01",
+          "16:SF-R01"
+        ],
+        "footprint_only": [
+          "14:QP-P04",
+          "16:SF-D01"
+        ]
+      }
+    }
+  },
+  "low_risk_O2_misses": {
+    "misses": [
+      {
+        "case": "14:QF-L02",
+        "action": "scale",
+        "footprint_none": 200.0,
+        "footprint_action": 300.0,
+        "p95_ms": 704,
+        "saturation_pct": 41.08333333333334,
+        "cost_spike_pct": 100.0
+      },
+      {
+        "case": "15:UC-L03",
+        "action": "mitigate",
+        "footprint_none": 100.0,
+        "footprint_action": 200.0,
+        "p95_ms": 566,
+        "saturation_pct": 29.0,
+        "cost_spike_pct": 0.0
+      },
+      {
+        "case": "15:UC-L04",
+        "action": "scale",
+        "footprint_none": 200.0,
+        "footprint_action": 350.0,
+        "p95_ms": 792,
+        "saturation_pct": 30.16666666666667,
+        "cost_spike_pct": 100.0
+      },
+      {
+        "case": "15:UF-L04",
+        "action": "scale",
+        "footprint_none": 200.0,
+        "footprint_action": 300.0,
+        "p95_ms": 489,
+        "saturation_pct": 43.25,
+        "cost_spike_pct": 100.0
+      },
+      {
+        "case": "16:SF-L01",
+        "action": "mitigate",
+        "footprint_none": 100.0,
+        "footprint_action": 200.0,
+        "p95_ms": 296,
+        "saturation_pct": 99.5,
+        "cost_spike_pct": 0.0
+      },
+      {
+        "case": "16:SF-L04",
+        "action": "scale",
+        "footprint_none": 200.0,
+        "footprint_action": 550.0,
+        "p95_ms": 188,
+        "saturation_pct": 75.75,
+        "cost_spike_pct": 100.0
+      }
+    ],
+    "scale_chosen_O2_ok": [
+      "14:QP-L02",
+      "15:UP-L04",
+      "16:SC-L04"
+    ],
+    "n_mitigate": 2,
+    "n_scale_up": 4
+  },
+  "completion": {
+    "outcome_study14": {
+      "AAF_qwen_cases": 40,
+      "B5_qwen_cases": 40,
+      "B6_qwen_cases": 40,
+      "all_cases": 40
+    },
+    "outcome_study15": {
+      "AAF_qwen_cases": 57,
+      "B5_qwen_cases": 57,
+      "B6_qwen_cases": 57,
+      "all_cases": 57
+    },
+    "outcome_study16": {
+      "AAF_qwen_cases": 38,
+      "B5_qwen_cases": 38,
+      "B6_qwen_cases": 38,
+      "all_cases": 38
+    }
+  },
+  "model_independence_outcome": {
+    "population": "all full-evidence cases (fault, control and low-risk) on which both investigators ran",
+    "cases": 135,
+    "by_group": {
+      "fault": 104,
+      "control": 7,
+      "low_risk": 24
+    },
+    "all_by_group": {
+      "fault": 104,
+      "control": 7,
+      "low_risk": 24
+    },
+    "same_action_qwen_vs_gpt_investigator": 135,
+    "same_action_AAF_vs_rules_only": 135
+  }
+}

@@ -1,0 +1,4 @@
+fresh HY2-L errors 0 [('Mitigate and monitor', 36), ('Scale adjustment', 24), ('Patch or block release', 21)] calls 574 tokens 438965 stop None
+fresh HY errors 0 [('Mitigate and monitor', 30), ('Block release and fix pipeline', 24), ('Scale adjustment', 21)] calls 892 tokens 593087 stop None
+fresh B6 errors 0 [('Scale adjustment', 9), ('No action (observe)', 7), ('Mitigate and monitor', 6)] calls 1093 tokens 733817 stop None
+dev HY2-L errors 0 [('Scale adjustment', 28), ('Mitigate and monitor', 24), ('Patch or block release', 20)] calls 1488 tokens 1032659 stop None

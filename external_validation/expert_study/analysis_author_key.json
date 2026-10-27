@@ -1,0 +1,962 @@
+{
+ "key": "author (sealed before labelling and runs)",
+ "groups": {
+  "standard": {
+   "n": 24,
+   "DET": {
+    "correct": 22,
+    "wilson": [
+     74.2,
+     97.7
+    ],
+    "tool_calls_per_case": 0.0
+   },
+   "AF-M": {
+    "correct": 23,
+    "wilson": [
+     79.8,
+     99.3
+    ],
+    "tool_calls_per_case": 0.25
+   },
+   "AF-MS": {
+    "correct": 23,
+    "wilson": [
+     79.8,
+     99.3
+    ],
+    "tool_calls_per_case": 0.25
+   },
+   "FETCH-ALL": {
+    "correct": 23,
+    "wilson": [
+     79.8,
+     99.3
+    ],
+    "tool_calls_per_case": 0.5
+   },
+   "HY": {
+    "correct": 23,
+    "wilson": [
+     79.8,
+     99.3
+    ],
+    "tool_calls_per_case": 0.38
+   },
+   "B3": {
+    "correct": 23,
+    "wilson": [
+     79.8,
+     99.3
+    ],
+    "tool_calls_per_case": 0.0
+   },
+   "AO": {
+    "correct": 14,
+    "wilson": [
+     38.8,
+     75.5
+    ],
+    "tool_calls_per_case": 0.33
+   },
+   "B6": {
+    "correct": 22,
+    "wilson": [
+     74.2,
+     97.7
+    ],
+    "tool_calls_per_case": 0.38
+   }
+  },
+  "unmarked_decisive": {
+   "n": 20,
+   "DET": {
+    "correct": 2,
+    "wilson": [
+     2.8,
+     30.1
+    ],
+    "tool_calls_per_case": 0.0
+   },
+   "AF-M": {
+    "correct": 2,
+    "wilson": [
+     2.8,
+     30.1
+    ],
+    "tool_calls_per_case": 0.0
+   },
+   "AF-MS": {
+    "correct": 7,
+    "wilson": [
+     18.1,
+     56.7
+    ],
+    "tool_calls_per_case": 0.55
+   },
+   "FETCH-ALL": {
+    "correct": 15,
+    "wilson": [
+     53.1,
+     88.8
+    ],
+    "tool_calls_per_case": 3.05
+   },
+   "HY": {
+    "correct": 3,
+    "wilson": [
+     5.2,
+     36.0
+    ],
+    "tool_calls_per_case": 1.08
+   },
+   "B3": {
+    "correct": 7,
+    "wilson": [
+     18.1,
+     56.7
+    ],
+    "tool_calls_per_case": 0.0
+   },
+   "AO": {
+    "correct": 2,
+    "wilson": [
+     2.8,
+     30.1
+    ],
+    "tool_calls_per_case": 1.7
+   },
+   "B6": {
+    "correct": 13,
+    "wilson": [
+     43.3,
+     81.9
+    ],
+    "tool_calls_per_case": 1.75
+   }
+  },
+  "unmarked_controls": {
+   "n": 4,
+   "DET": {
+    "correct": 4,
+    "wilson": [
+     51.0,
+     100.0
+    ],
+    "tool_calls_per_case": 0.0
+   },
+   "AF-M": {
+    "correct": 4,
+    "wilson": [
+     51.0,
+     100.0
+    ],
+    "tool_calls_per_case": 0.0
+   },
+   "AF-MS": {
+    "correct": 4,
+    "wilson": [
+     51.0,
+     100.0
+    ],
+    "tool_calls_per_case": 0.5
+   },
+   "FETCH-ALL": {
+    "correct": 4,
+    "wilson": [
+     51.0,
+     100.0
+    ],
+    "tool_calls_per_case": 3.0
+   },
+   "HY": {
+    "correct": 4,
+    "wilson": [
+     51.0,
+     100.0
+    ],
+    "tool_calls_per_case": 0.83
+   },
+   "B3": {
+    "correct": 4,
+    "wilson": [
+     51.0,
+     100.0
+    ],
+    "tool_calls_per_case": 0.0
+   },
+   "AO": {
+    "correct": 2,
+    "wilson": [
+     15.0,
+     85.0
+    ],
+    "tool_calls_per_case": 1.75
+   },
+   "B6": {
+    "correct": 4,
+    "wilson": [
+     51.0,
+     100.0
+    ],
+    "tool_calls_per_case": 1.75
+   }
+  },
+  "unmarked_absent": {
+   "n": 7,
+   "DET": {
+    "correct": 1,
+    "wilson": [
+     2.6,
+     51.3
+    ],
+    "tool_calls_per_case": 0.0
+   },
+   "AF-M": {
+    "correct": 1,
+    "wilson": [
+     2.6,
+     51.3
+    ],
+    "tool_calls_per_case": 0.0
+   },
+   "AF-MS": {
+    "correct": 1,
+    "wilson": [
+     2.6,
+     51.3
+    ],
+    "tool_calls_per_case": 0.0
+   },
+   "FETCH-ALL": {
+    "correct": 6,
+    "wilson": [
+     48.7,
+     97.4
+    ],
+    "tool_calls_per_case": 3.0
+   },
+   "HY": {
+    "correct": 2,
+    "wilson": [
+     8.2,
+     64.1
+    ],
+    "tool_calls_per_case": 1.33
+   },
+   "B3": {
+    "correct": 3,
+    "wilson": [
+     15.8,
+     75.0
+    ],
+    "tool_calls_per_case": 0.0
+   },
+   "AO": {
+    "correct": 1,
+    "wilson": [
+     2.6,
+     51.3
+    ],
+    "tool_calls_per_case": 1.86
+   },
+   "B6": {
+    "correct": 4,
+    "wilson": [
+     25.0,
+     84.2
+    ],
+    "tool_calls_per_case": 1.86
+   }
+  },
+  "unmarked_stale": {
+   "n": 7,
+   "DET": {
+    "correct": 0,
+    "wilson": [
+     0.0,
+     35.4
+    ],
+    "tool_calls_per_case": 0.0
+   },
+   "AF-M": {
+    "correct": 0,
+    "wilson": [
+     0.0,
+     35.4
+    ],
+    "tool_calls_per_case": 0.0
+   },
+   "AF-MS": {
+    "correct": 5,
+    "wilson": [
+     35.9,
+     91.8
+    ],
+    "tool_calls_per_case": 1.57
+   },
+   "FETCH-ALL": {
+    "correct": 5,
+    "wilson": [
+     35.9,
+     91.8
+    ],
+    "tool_calls_per_case": 3.0
+   },
+   "HY": {
+    "correct": 0,
+    "wilson": [
+     0.0,
+     35.4
+    ],
+    "tool_calls_per_case": 0.48
+   },
+   "B3": {
+    "correct": 3,
+    "wilson": [
+     15.8,
+     75.0
+    ],
+    "tool_calls_per_case": 0.0
+   },
+   "AO": {
+    "correct": 1,
+    "wilson": [
+     2.6,
+     51.3
+    ],
+    "tool_calls_per_case": 1.43
+   },
+   "B6": {
+    "correct": 6,
+    "wilson": [
+     48.7,
+     97.4
+    ],
+    "tool_calls_per_case": 1.57
+   }
+  },
+  "unmarked_cross_domain": {
+   "n": 6,
+   "DET": {
+    "correct": 1,
+    "wilson": [
+     3.0,
+     56.4
+    ],
+    "tool_calls_per_case": 0.0
+   },
+   "AF-M": {
+    "correct": 1,
+    "wilson": [
+     3.0,
+     56.4
+    ],
+    "tool_calls_per_case": 0.0
+   },
+   "AF-MS": {
+    "correct": 1,
+    "wilson": [
+     3.0,
+     56.4
+    ],
+    "tool_calls_per_case": 0.0
+   },
+   "FETCH-ALL": {
+    "correct": 4,
+    "wilson": [
+     30.0,
+     90.3
+    ],
+    "tool_calls_per_case": 3.17
+   },
+   "HY": {
+    "correct": 1,
+    "wilson": [
+     3.0,
+     56.4
+    ],
+    "tool_calls_per_case": 1.5
+   },
+   "B3": {
+    "correct": 1,
+    "wilson": [
+     3.0,
+     56.4
+    ],
+    "tool_calls_per_case": 0.0
+   },
+   "AO": {
+    "correct": 0,
+    "wilson": [
+     0.0,
+     39.0
+    ],
+    "tool_calls_per_case": 1.83
+   },
+   "B6": {
+    "correct": 3,
+    "wilson": [
+     18.8,
+     81.2
+    ],
+    "tool_calls_per_case": 1.83
+   }
+  },
+  "standard_CLEAR": {
+   "n": 6,
+   "DET": {
+    "correct": 6,
+    "wilson": [
+     61.0,
+     100.0
+    ],
+    "tool_calls_per_case": null
+   },
+   "AF-M": {
+    "correct": 6,
+    "wilson": [
+     61.0,
+     100.0
+    ],
+    "tool_calls_per_case": null
+   },
+   "AF-MS": {
+    "correct": 6,
+    "wilson": [
+     61.0,
+     100.0
+    ],
+    "tool_calls_per_case": null
+   },
+   "FETCH-ALL": {
+    "correct": 6,
+    "wilson": [
+     61.0,
+     100.0
+    ],
+    "tool_calls_per_case": null
+   },
+   "HY": {
+    "correct": 6,
+    "wilson": [
+     61.0,
+     100.0
+    ],
+    "tool_calls_per_case": null
+   },
+   "B3": {
+    "correct": 6,
+    "wilson": [
+     61.0,
+     100.0
+    ],
+    "tool_calls_per_case": null
+   },
+   "AO": {
+    "correct": 5,
+    "wilson": [
+     43.6,
+     97.0
+    ],
+    "tool_calls_per_case": null
+   },
+   "B6": {
+    "correct": 6,
+    "wilson": [
+     61.0,
+     100.0
+    ],
+    "tool_calls_per_case": null
+   }
+  },
+  "standard_AMBIGUOUS": {
+   "n": 6,
+   "DET": {
+    "correct": 6,
+    "wilson": [
+     61.0,
+     100.0
+    ],
+    "tool_calls_per_case": null
+   },
+   "AF-M": {
+    "correct": 6,
+    "wilson": [
+     61.0,
+     100.0
+    ],
+    "tool_calls_per_case": null
+   },
+   "AF-MS": {
+    "correct": 6,
+    "wilson": [
+     61.0,
+     100.0
+    ],
+    "tool_calls_per_case": null
+   },
+   "FETCH-ALL": {
+    "correct": 6,
+    "wilson": [
+     61.0,
+     100.0
+    ],
+    "tool_calls_per_case": null
+   },
+   "HY": {
+    "correct": 6,
+    "wilson": [
+     61.0,
+     100.0
+    ],
+    "tool_calls_per_case": null
+   },
+   "B3": {
+    "correct": 6,
+    "wilson": [
+     61.0,
+     100.0
+    ],
+    "tool_calls_per_case": null
+   },
+   "AO": {
+    "correct": 4,
+    "wilson": [
+     30.0,
+     90.3
+    ],
+    "tool_calls_per_case": null
+   },
+   "B6": {
+    "correct": 6,
+    "wilson": [
+     61.0,
+     100.0
+    ],
+    "tool_calls_per_case": null
+   }
+  },
+  "standard_INCOMPLETE": {
+   "n": 6,
+   "DET": {
+    "correct": 5,
+    "wilson": [
+     43.6,
+     97.0
+    ],
+    "tool_calls_per_case": null
+   },
+   "AF-M": {
+    "correct": 6,
+    "wilson": [
+     61.0,
+     100.0
+    ],
+    "tool_calls_per_case": null
+   },
+   "AF-MS": {
+    "correct": 6,
+    "wilson": [
+     61.0,
+     100.0
+    ],
+    "tool_calls_per_case": null
+   },
+   "FETCH-ALL": {
+    "correct": 6,
+    "wilson": [
+     61.0,
+     100.0
+    ],
+    "tool_calls_per_case": null
+   },
+   "HY": {
+    "correct": 6,
+    "wilson": [
+     61.0,
+     100.0
+    ],
+    "tool_calls_per_case": null
+   },
+   "B3": {
+    "correct": 6,
+    "wilson": [
+     61.0,
+     100.0
+    ],
+    "tool_calls_per_case": null
+   },
+   "AO": {
+    "correct": 1,
+    "wilson": [
+     3.0,
+     56.4
+    ],
+    "tool_calls_per_case": null
+   },
+   "B6": {
+    "correct": 5,
+    "wilson": [
+     43.6,
+     97.0
+    ],
+    "tool_calls_per_case": null
+   }
+  },
+  "standard_MISLEADING": {
+   "n": 6,
+   "DET": {
+    "correct": 5,
+    "wilson": [
+     43.6,
+     97.0
+    ],
+    "tool_calls_per_case": null
+   },
+   "AF-M": {
+    "correct": 5,
+    "wilson": [
+     43.6,
+     97.0
+    ],
+    "tool_calls_per_case": null
+   },
+   "AF-MS": {
+    "correct": 5,
+    "wilson": [
+     43.6,
+     97.0
+    ],
+    "tool_calls_per_case": null
+   },
+   "FETCH-ALL": {
+    "correct": 5,
+    "wilson": [
+     43.6,
+     97.0
+    ],
+    "tool_calls_per_case": null
+   },
+   "HY": {
+    "correct": 5,
+    "wilson": [
+     43.6,
+     97.0
+    ],
+    "tool_calls_per_case": null
+   },
+   "B3": {
+    "correct": 5,
+    "wilson": [
+     43.6,
+     97.0
+    ],
+    "tool_calls_per_case": null
+   },
+   "AO": {
+    "correct": 4,
+    "wilson": [
+     30.0,
+     90.3
+    ],
+    "tool_calls_per_case": null
+   },
+   "B6": {
+    "correct": 5,
+    "wilson": [
+     43.6,
+     97.0
+    ],
+    "tool_calls_per_case": null
+   }
+  }
+ },
+ "H3": {
+  "HY_vs_AF-MS": {
+   "a_only": 1,
+   "b_only": 5,
+   "p_exact": 0.21875,
+   "p_holm": 0.4375
+  },
+  "HY_vs_AF-M": {
+   "a_only": 1,
+   "b_only": 0,
+   "p_exact": 1.0,
+   "p_holm": 1.0
+  },
+  "HY_vs_FETCH-ALL": {
+   "a_only": 0,
+   "b_only": 12,
+   "p_exact": 0.00048828125
+  },
+  "B6_vs_AF-MS": {
+   "a_only": 7,
+   "b_only": 1,
+   "p_exact": 0.0703125
+  },
+  "B6_vs_FETCH-ALL": {
+   "a_only": 4,
+   "b_only": 6,
+   "p_exact": 0.75390625
+  },
+  "B6_vs_HY": {
+   "a_only": 10,
+   "b_only": 0,
+   "p_exact": 0.001953125
+  }
+ },
+ "H4_new_standard": {
+  "HY_vs_DET": {
+   "a_only": 1,
+   "b_only": 0,
+   "p_exact": 1.0
+  },
+  "HY_vs_B6": {
+   "a_only": 2,
+   "b_only": 1,
+   "p_exact": 1.0
+  },
+  "HY_vs_AO": {
+   "a_only": 10,
+   "b_only": 1,
+   "p_exact": 0.01171875
+  }
+ },
+ "H4_pooled_72": {
+  "n": 72,
+  "DET": 61,
+  "HY": 64,
+  "B6": 61,
+  "AO": 30,
+  "HY_vs_DET": {
+   "a_only": 3,
+   "b_only": 0,
+   "p_exact": 0.25
+  },
+  "HY_vs_B6": {
+   "a_only": 6,
+   "b_only": 3,
+   "p_exact": 0.5078125
+  },
+  "HY_vs_AO": {
+   "a_only": 36,
+   "b_only": 2,
+   "p_exact": 5.398760549724102e-09
+  }
+ },
+ "HY_trigger_rate": {
+  "standard": "15/24",
+  "unmarked_decisive": "17/20",
+  "unmarked_controls": "2/4",
+  "unmarked_absent": "6/7",
+  "unmarked_stale": "5/7",
+  "unmarked_cross_domain": "6/6"
+ },
+ "HY_same_action_all_3_runs": 48,
+ "budget": {
+  "calls": 905,
+  "tokens": 529160,
+  "stopped": null,
+  "caps": [
+   1500,
+   1200000
+  ],
+  "model": "gpt-5.6-luna"
+ },
+ "practitioner_ai_assisted_sensitivity": {
+  "H1": {
+   "all": {
+    "n": 96,
+    "expert_best_in_author_set": 74,
+    "pct": 77.1,
+    "wilson": [
+     67.7,
+     84.4
+    ],
+    "mean_jaccard": 0.734,
+    "kappa_best_vs_author_first": 0.684
+   },
+   "original": {
+    "n": 48,
+    "expert_best_in_author_set": 31,
+    "pct": 64.6,
+    "wilson": [
+     50.4,
+     76.6
+    ],
+    "mean_jaccard": 0.635,
+    "kappa_best_vs_author_first": 0.535
+   },
+   "new": {
+    "n": 48,
+    "expert_best_in_author_set": 43,
+    "pct": 89.6,
+    "wilson": [
+     77.8,
+     95.5
+    ],
+    "mean_jaccard": 0.833,
+    "kappa_best_vs_author_first": 0.824
+   }
+  },
+  "H2_original48": {
+   "DET": {
+    "expert_key": 33,
+    "author_key": 39,
+    "n": 48,
+    "wilson_expert": [
+     54.7,
+     80.1
+    ]
+   },
+   "AF-M": {
+    "expert_key": 31,
+    "author_key": 41,
+    "n": 48,
+    "wilson_expert": [
+     50.4,
+     76.6
+    ]
+   },
+   "HY": {
+    "expert_key": 31,
+    "author_key": 41,
+    "n": 48,
+    "wilson_expert": [
+     50.4,
+     76.6
+    ]
+   },
+   "B3": {
+    "expert_key": 31,
+    "author_key": 41,
+    "n": 48,
+    "wilson_expert": [
+     50.4,
+     76.6
+    ]
+   },
+   "AO": {
+    "expert_key": 20,
+    "author_key": 16,
+    "n": 48,
+    "wilson_expert": [
+     28.8,
+     55.7
+    ]
+   },
+   "B6": {
+    "expert_key": 37,
+    "author_key": 39,
+    "n": 48,
+    "wilson_expert": [
+     63.5,
+     86.7
+    ]
+   },
+   "PV1": {
+    "expert_key": 22,
+    "author_key": 17,
+    "n": 48,
+    "wilson_expert": [
+     32.6,
+     59.7
+    ]
+   },
+   "PV2": {
+    "expert_key": 22,
+    "author_key": 17,
+    "n": 48,
+    "wilson_expert": [
+     32.6,
+     59.7
+    ]
+   },
+   "tests": {
+    "HY_vs_DET": {
+     "a_only": 0,
+     "b_only": 2,
+     "p_exact": 0.5
+    },
+    "HY_vs_B6": {
+     "a_only": 0,
+     "b_only": 6,
+     "p_exact": 0.03125
+    },
+    "HY_vs_AO": {
+     "a_only": 17,
+     "b_only": 6,
+     "p_exact": 0.03468966484069824
+    },
+    "HY_vs_AF-M": {
+     "a_only": 0,
+     "b_only": 0,
+     "p_exact": 1.0
+    }
+   }
+  },
+  "new_cases": {
+   "standard": {
+    "DET": 18,
+    "AF-M": 17,
+    "AF-MS": 17,
+    "FETCH-ALL": 17,
+    "HY": 17,
+    "B3": 17,
+    "AO": 11,
+    "B6": 19
+   },
+   "unmarked_decisive": {
+    "DET": 1,
+    "AF-M": 1,
+    "AF-MS": 6,
+    "FETCH-ALL": 15,
+    "HY": 2,
+    "B3": 6,
+    "AO": 2,
+    "B6": 12
+   },
+   "unmarked_controls": {
+    "DET": 4,
+    "AF-M": 4,
+    "AF-MS": 4,
+    "FETCH-ALL": 4,
+    "HY": 4,
+    "B3": 4,
+    "AO": 2,
+    "B6": 4
+   },
+   "unmarked_absent": {
+    "DET": 1,
+    "AF-M": 1,
+    "AF-MS": 1,
+    "FETCH-ALL": 6,
+    "HY": 2,
+    "B3": 3,
+    "AO": 1,
+    "B6": 4
+   },
+   "unmarked_stale": {
+    "DET": 0,
+    "AF-M": 0,
+    "AF-MS": 5,
+    "FETCH-ALL": 5,
+    "HY": 0,
+    "B3": 3,
+    "AO": 1,
+    "B6": 6
+   },
+   "unmarked_cross_domain": {
+    "DET": 0,
+    "AF-M": 0,
+    "AF-MS": 0,
+    "FETCH-ALL": 4,
+    "HY": 0,
+    "B3": 0,
+    "AO": 0,
+    "B6": 2
+   }
+  }
+ }
+}

@@ -1,0 +1,927 @@
+# FROZEN BEFORE EXPERT LABELLING AND BEFORE ANY RUN. See PROTOCOL.md.
+version: 1
+n_cases: 48
+cases:
+- id: NV-C01
+  stratum: CLEAR
+  substratum: standard
+  evidence:
+    deploy: &id002
+      pipeline_failed: false
+      artifact_mismatch: false
+      config_drift: false
+    sre: &id003
+      p95_latency_ms: 215
+      error_rate_pct: 0.7
+      saturation_pct: 41
+      availability_pct: 99.95
+    finops: &id004
+      cost_spike_pct: 2
+      hpa_scale_to: 4
+    sec: &id001
+      critical_cves: 0
+      policy_violation: false
+- id: NV-C02
+  stratum: CLEAR
+  substratum: standard
+  evidence:
+    sre:
+      p95_latency_ms: 1100
+      error_rate_pct: 14
+      saturation_pct: 91
+      availability_pct: 96.5
+    deploy:
+      pipeline_failed: false
+    finops:
+      cost_spike_pct: 3
+    sec: *id001
+- id: NV-C03
+  stratum: CLEAR
+  substratum: standard
+  evidence:
+    sec:
+      critical_cves: 3
+      policy_violation: true
+      iam_drift: false
+    deploy: *id002
+    sre: *id003
+    finops: *id004
+- id: NV-C04
+  stratum: CLEAR
+  substratum: standard
+  evidence:
+    deploy:
+      pipeline_failed: true
+      artifact_mismatch: true
+      config_drift: false
+    sre: *id003
+    finops: *id004
+    sec: *id001
+- id: NV-C05
+  stratum: CLEAR
+  substratum: standard
+  evidence:
+    deploy:
+      restart_burst_count: 6
+      restart_window_seconds: 40
+      deployment_preceded_restarts: true
+      pipeline_failed: false
+    sre:
+      p95_latency_ms: 900
+      error_rate_pct: 12
+      saturation_pct: 80
+      availability_pct: 98.0
+    finops: *id004
+    sec: *id001
+- id: NV-C06
+  stratum: CLEAR
+  substratum: standard
+  evidence:
+    finops:
+      cost_spike_pct: 42
+      hpa_scale_to: 16
+      cpu_request_increase_pct: 60
+    sre: *id003
+    deploy:
+      pipeline_failed: false
+    sec: *id001
+- id: NV-A01
+  stratum: AMBIGUOUS
+  substratum: standard
+  evidence:
+    sre:
+      p95_latency_ms: 460
+      error_rate_pct: 7.8
+      saturation_pct: 85
+      availability_pct: 99.05
+    deploy:
+      pipeline_failed: false
+    finops:
+      cost_spike_pct: 3
+    sec: *id001
+- id: NV-A02
+  stratum: AMBIGUOUS
+  substratum: standard
+  evidence:
+    finops:
+      cost_spike_pct: 21
+      hpa_scale_to: 11
+      cpu_request_increase_pct: 48
+    sre: *id003
+    deploy:
+      pipeline_failed: false
+    sec: *id001
+- id: NV-A03
+  stratum: AMBIGUOUS
+  substratum: standard
+  evidence:
+    deploy:
+      restart_burst_count: 3
+      restart_window_seconds: 70
+      pipeline_failed: false
+    sre:
+      p95_latency_ms: 480
+      error_rate_pct: 8.2
+      saturation_pct: 78
+      availability_pct: 99.2
+    finops: *id004
+    sec: *id001
+- id: NV-A04
+  stratum: AMBIGUOUS
+  substratum: standard
+  evidence:
+    sre:
+      p95_latency_ms: 820
+      error_rate_pct: 9
+      saturation_pct: 88
+      availability_pct: 98.9
+    finops:
+      cost_spike_pct: 24
+      hpa_scale_to: 12
+    deploy:
+      pipeline_failed: false
+    sec: *id001
+- id: NV-A05
+  stratum: AMBIGUOUS
+  substratum: standard
+  evidence:
+    sec:
+      critical_cves: 1
+      policy_violation: false
+      compliance_gap: true
+    deploy: *id002
+    sre: *id003
+    finops: *id004
+- id: NV-A06
+  stratum: AMBIGUOUS
+  substratum: standard
+  evidence:
+    deploy:
+      config_drift: true
+      pipeline_failed: false
+    sre:
+      p95_latency_ms: 455
+      error_rate_pct: 8.0
+      saturation_pct: 70
+      availability_pct: 99.3
+    finops: *id004
+    sec: *id001
+- id: NV-I01
+  stratum: INCOMPLETE
+  substratum: standard
+  evidence:
+    sre:
+      p95_latency_ms: 900
+      error_rate_pct: null
+      saturation_pct: 90
+      availability_pct: 98.6
+      _evidence:
+        error_rate_pct:
+          status: missing
+    deploy:
+      pipeline_failed: false
+  available_tools:
+  - get_error_rate_history
+  - get_latency_history
+  expected_tool: get_error_rate_history
+  tool_result:
+    id: TOOL-NV-I01
+    sre:
+      error_rate_pct: 13
+- id: NV-I02
+  stratum: INCOMPLETE
+  substratum: standard
+  evidence:
+    deploy:
+      restart_burst_count: 5
+      restart_window_seconds: null
+      _evidence:
+        restart_window_seconds:
+          status: missing
+    sre:
+      p95_latency_ms: 850
+      error_rate_pct: 11
+      availability_pct: 98.5
+  available_tools:
+  - get_restart_history
+  - get_deployment_history
+  expected_tool: get_restart_history
+  tool_result:
+    id: TOOL-NV-I02
+    deploy:
+      restart_window_seconds: 45
+- id: NV-I03
+  stratum: INCOMPLETE
+  substratum: standard
+  evidence:
+    sec:
+      critical_cves: null
+      policy_violation: true
+      _evidence:
+        critical_cves:
+          status: missing
+    deploy:
+      pipeline_failed: true
+  available_tools:
+  - get_vulnerability_details
+  - get_policy_gate_status
+  expected_tool: get_vulnerability_details
+  tool_result:
+    id: TOOL-NV-I03
+    sec:
+      critical_cves: 2
+- id: NV-I04
+  stratum: INCOMPLETE
+  substratum: standard
+  evidence:
+    finops:
+      cost_spike_pct: null
+      hpa_scale_to: 15
+      cpu_request_increase_pct: 58
+      _evidence:
+        cost_spike_pct:
+          status: missing
+    sre:
+      p95_latency_ms: 240
+      error_rate_pct: 1.2
+  available_tools:
+  - get_cost_proxy_history
+  - get_replica_history
+  expected_tool: get_cost_proxy_history
+  tool_result:
+    id: TOOL-NV-I04
+    finops:
+      cost_spike_pct: 40
+- id: NV-I05
+  stratum: INCOMPLETE
+  substratum: standard
+  evidence:
+    sre:
+      p95_latency_ms: 780
+      error_rate_pct: 9.5
+      saturation_pct: null
+      _evidence:
+        saturation_pct:
+          status: missing
+    finops:
+      cost_spike_pct: 26
+      hpa_scale_to: 12
+  available_tools:
+  - get_saturation_history
+  - get_cost_proxy_history
+  expected_tool: get_saturation_history
+  tool_result:
+    id: TOOL-NV-I05
+    sre:
+      saturation_pct: 93
+- id: NV-I06
+  stratum: INCOMPLETE
+  substratum: standard
+  evidence:
+    deploy:
+      restart_burst_count: 4
+      restart_window_seconds: 50
+      config_drift: null
+      _evidence:
+        config_drift:
+          status: missing
+    sre:
+      p95_latency_ms: 860
+      error_rate_pct: 12
+      availability_pct: 98.3
+  available_tools:
+  - get_deployment_history
+  - get_latency_history
+  expected_tool: get_deployment_history
+  tool_result:
+    id: TOOL-NV-I06
+    deploy:
+      config_drift: true
+      deployment_preceded_restarts: true
+- id: NV-M01
+  stratum: MISLEADING
+  substratum: standard
+  evidence:
+    finops:
+      cost_spike_pct: 40
+      hpa_scale_to: 15
+    sre:
+      p95_latency_ms: 950
+      error_rate_pct: 13
+      saturation_pct: 94
+      availability_pct: 97.9
+    deploy:
+      pipeline_failed: false
+    sec: *id001
+- id: NV-M02
+  stratum: MISLEADING
+  substratum: standard
+  evidence:
+    sec:
+      critical_cves: 1
+      policy_violation: false
+      iam_drift: false
+    sre:
+      p95_latency_ms: 990
+      error_rate_pct: 15
+      saturation_pct: 93
+      availability_pct: 96.8
+    deploy:
+      pipeline_failed: false
+    finops: *id004
+- id: NV-M03
+  stratum: MISLEADING
+  substratum: standard
+  evidence:
+    finops:
+      cost_spike_pct: 3
+      hpa_scale_to: 13
+      cpu_request_increase_pct: 4
+    sre: *id003
+    deploy:
+      pipeline_failed: false
+    sec: *id001
+- id: NV-M04
+  stratum: MISLEADING
+  substratum: standard
+  evidence:
+    deploy:
+      restart_burst_count: 2
+      restart_window_seconds: 100
+      deployment_preceded_restarts: false
+    sre:
+      p95_latency_ms: 870
+      error_rate_pct: 11
+      saturation_pct: 88
+      availability_pct: 98.4
+    finops: *id004
+    sec: *id001
+- id: NV-M05
+  stratum: MISLEADING
+  substratum: standard
+  evidence:
+    deploy:
+      pipeline_failed: true
+      config_drift: false
+    sec:
+      critical_cves: 1
+      policy_violation: true
+    sre:
+      p95_latency_ms: 940
+      error_rate_pct: 14
+      saturation_pct: 92
+    finops:
+      cost_spike_pct: 5
+- id: NV-M06
+  stratum: MISLEADING
+  substratum: standard
+  evidence:
+    deploy:
+      config_drift: true
+      pipeline_failed: false
+      artifact_mismatch: false
+    sre: *id003
+    finops: *id004
+    sec: *id001
+- id: NV-U01
+  stratum: UNMARKED
+  substratum: absent
+  evidence:
+    sre:
+      p95_latency_ms: 880
+      error_rate_pct: 11
+      saturation_pct: 75
+      availability_pct: 98.6
+    deploy:
+      pipeline_failed: false
+  available_tools:
+  - get_restart_history
+  - get_error_rate_history
+  - get_cost_proxy_history
+  expected_tool: get_restart_history
+  tool_result:
+    id: TOOL-NV-U01
+    deploy:
+      restart_burst_count: 6
+      restart_window_seconds: 35
+      deployment_preceded_restarts: true
+- id: NV-U02
+  stratum: UNMARKED
+  substratum: absent
+  evidence:
+    finops:
+      cost_spike_pct: 20
+      hpa_scale_to: 10
+    deploy:
+      pipeline_failed: false
+    sec: *id001
+  available_tools:
+  - get_latency_history
+  - get_saturation_history
+  - get_replica_history
+  expected_tool: get_latency_history
+  tool_result:
+    id: TOOL-NV-U02
+    sre:
+      p95_latency_ms: 880
+      error_rate_pct: 9
+      saturation_pct: 93
+- id: NV-U03
+  stratum: UNMARKED
+  substratum: absent
+  evidence:
+    deploy:
+      pipeline_failed: true
+      artifact_mismatch: false
+    sre: *id003
+    finops: *id004
+  available_tools:
+  - get_policy_gate_status
+  - get_vulnerability_details
+  - get_pipeline_history
+  expected_tool: get_vulnerability_details
+  tool_result:
+    id: TOOL-NV-U03
+    sec:
+      critical_cves: 2
+      policy_violation: true
+- id: NV-U04
+  stratum: UNMARKED
+  substratum: absent
+  evidence:
+    sre:
+      p95_latency_ms: 840
+      error_rate_pct: 10.5
+      saturation_pct: 90
+      availability_pct: 98.8
+    deploy:
+      pipeline_failed: false
+    sec: *id001
+  available_tools:
+  - get_replica_history
+  - get_cost_proxy_history
+  - get_error_rate_history
+  expected_tool: get_cost_proxy_history
+  tool_result:
+    id: TOOL-NV-U04
+    finops:
+      cost_spike_pct: 33
+      hpa_scale_to: 13
+- id: NV-U05
+  stratum: UNMARKED
+  substratum: absent
+  evidence:
+    deploy:
+      config_drift: true
+      artifact_mismatch: false
+      pipeline_failed: false
+    finops: *id004
+    sec: *id001
+  available_tools:
+  - get_latency_history
+  - get_error_rate_history
+  - get_replica_history
+  expected_tool: get_error_rate_history
+  tool_result:
+    id: TOOL-NV-U05
+    sre:
+      error_rate_pct: 12.5
+      p95_latency_ms: 860
+- id: NV-U06
+  stratum: UNMARKED
+  substratum: absent
+  evidence:
+    deploy: *id002
+    sre: *id003
+    finops: *id004
+  available_tools:
+  - get_vulnerability_details
+  - get_policy_gate_status
+  - get_cost_proxy_history
+  expected_tool: get_policy_gate_status
+  tool_result:
+    id: TOOL-NV-U06
+    sec:
+      policy_violation: true
+      critical_cves: 1
+- id: NV-U07
+  stratum: UNMARKED
+  substratum: stale
+  evidence:
+    deploy:
+      config_drift: true
+      pipeline_failed: false
+    sre:
+      p95_latency_ms: 210
+      error_rate_pct: 0.6
+      availability_pct: 99.9
+      _evidence:
+        p95_latency_ms:
+          status: stale
+          age_minutes: 180
+        error_rate_pct:
+          status: stale
+          age_minutes: 180
+        availability_pct:
+          status: stale
+          age_minutes: 180
+  available_tools:
+  - get_latency_history
+  - get_error_rate_history
+  - get_cost_proxy_history
+  expected_tool: get_error_rate_history
+  tool_result:
+    id: TOOL-NV-U07
+    sre:
+      error_rate_pct: 13
+      p95_latency_ms: 900
+      availability_pct: 98.1
+- id: NV-U08
+  stratum: UNMARKED
+  substratum: stale
+  evidence:
+    deploy:
+      pipeline_failed: true
+      artifact_mismatch: false
+    sec:
+      critical_cves: 0
+      policy_violation: false
+      _evidence:
+        critical_cves:
+          status: stale
+          age_minutes: 10080
+        policy_violation:
+          status: stale
+          age_minutes: 10080
+    sre: *id003
+  available_tools:
+  - get_vulnerability_details
+  - get_policy_gate_status
+  - get_pipeline_history
+  expected_tool: get_vulnerability_details
+  tool_result:
+    id: TOOL-NV-U08
+    sec:
+      critical_cves: 2
+      policy_violation: true
+- id: NV-U09
+  stratum: UNMARKED
+  substratum: stale
+  evidence:
+    finops:
+      cost_spike_pct: 5
+      hpa_scale_to: 9
+      _evidence:
+        cost_spike_pct:
+          status: stale
+          age_minutes: 2880
+    sre:
+      p95_latency_ms: 860
+      error_rate_pct: 11
+      saturation_pct: 91
+  available_tools:
+  - get_cost_proxy_history
+  - get_replica_history
+  - get_saturation_history
+  expected_tool: get_cost_proxy_history
+  tool_result:
+    id: TOOL-NV-U09
+    finops:
+      cost_spike_pct: 34
+      hpa_scale_to: 13
+- id: NV-U10
+  stratum: UNMARKED
+  substratum: stale
+  evidence:
+    sre:
+      p95_latency_ms: 950
+      error_rate_pct: 14
+      saturation_pct: 95
+      availability_pct: 97.0
+      _evidence:
+        p95_latency_ms:
+          status: stale
+          age_minutes: 360
+        error_rate_pct:
+          status: stale
+          age_minutes: 360
+        saturation_pct:
+          status: stale
+          age_minutes: 360
+        availability_pct:
+          status: stale
+          age_minutes: 360
+    deploy: *id002
+    finops: *id004
+  available_tools:
+  - get_latency_history
+  - get_error_rate_history
+  - get_restart_history
+  expected_tool: get_latency_history
+  tool_result:
+    id: TOOL-NV-U10
+    sre:
+      p95_latency_ms: 230
+      error_rate_pct: 0.8
+      saturation_pct: 45
+      availability_pct: 99.95
+- id: NV-U11
+  stratum: UNMARKED
+  substratum: stale
+  evidence:
+    sec:
+      critical_cves: 0
+      policy_violation: true
+      _evidence:
+        policy_violation:
+          status: stale
+          age_minutes: 14400
+    deploy: *id002
+    sre: *id003
+  available_tools:
+  - get_policy_gate_status
+  - get_vulnerability_details
+  - get_deployment_history
+  expected_tool: get_policy_gate_status
+  tool_result:
+    id: TOOL-NV-U11
+    sec:
+      policy_violation: false
+- id: NV-U12
+  stratum: UNMARKED
+  substratum: stale
+  evidence:
+    finops:
+      cost_spike_pct: 38
+      hpa_scale_to: 15
+      _evidence:
+        cost_spike_pct:
+          status: stale
+          age_minutes: 4320
+        hpa_scale_to:
+          status: stale
+          age_minutes: 4320
+    sre: *id003
+    deploy:
+      pipeline_failed: false
+  available_tools:
+  - get_cost_proxy_history
+  - get_replica_history
+  - get_latency_history
+  expected_tool: get_cost_proxy_history
+  tool_result:
+    id: TOOL-NV-U12
+    finops:
+      cost_spike_pct: 3
+      hpa_scale_to: 4
+- id: NV-U13
+  stratum: UNMARKED
+  substratum: cross_domain
+  evidence:
+    sre:
+      p95_latency_ms: 900
+      error_rate_pct: 12
+      saturation_pct: 70
+      availability_pct: 98.4
+    deploy:
+      pipeline_failed: false
+  available_tools:
+  - get_deployment_history
+  - get_latency_history
+  - get_saturation_history
+  expected_tool: get_deployment_history
+  tool_result:
+    id: TOOL-NV-U13
+    deploy:
+      config_drift: true
+      deployment_preceded_restarts: true
+      restart_burst_count: 4
+      restart_window_seconds: 50
+- id: NV-U14
+  stratum: UNMARKED
+  substratum: cross_domain
+  evidence:
+    finops:
+      cost_spike_pct: 36
+      hpa_scale_to: 14
+    sre: *id003
+    deploy:
+      pipeline_failed: false
+  available_tools:
+  - get_deployment_history
+  - get_cost_proxy_history
+  - get_replica_history
+  expected_tool: get_deployment_history
+  tool_result:
+    id: TOOL-NV-U14
+    deploy:
+      config_drift: true
+- id: NV-U15
+  stratum: UNMARKED
+  substratum: cross_domain
+  evidence:
+    sre:
+      p95_latency_ms: 880
+      error_rate_pct: 13
+      availability_pct: 98.2
+    sec: *id001
+  available_tools:
+  - get_vulnerability_details
+  - get_policy_gate_status
+  - get_error_rate_history
+  - get_deployment_history
+  expected_tool: get_deployment_history
+  tool_result:
+    id: TOOL-NV-U15
+    deploy:
+      artifact_mismatch: true
+      deployment_preceded_restarts: true
+- id: NV-U16
+  stratum: UNMARKED
+  substratum: cross_domain
+  evidence:
+    deploy:
+      restart_burst_count: 3
+      restart_window_seconds: 70
+    sre:
+      p95_latency_ms: 260
+      error_rate_pct: 2
+  available_tools:
+  - get_saturation_history
+  - get_replica_history
+  - get_restart_history
+  expected_tool: get_saturation_history
+  tool_result:
+    id: TOOL-NV-U16
+    sre:
+      saturation_pct: 96
+      availability_pct: 98.0
+- id: NV-U17
+  stratum: UNMARKED
+  substratum: cross_domain
+  evidence:
+    finops:
+      cost_spike_pct: 28
+      hpa_scale_to: 12
+    deploy:
+      pipeline_failed: false
+    sec: *id001
+  available_tools:
+  - get_latency_history
+  - get_saturation_history
+  - get_cost_proxy_history
+  expected_tool: get_saturation_history
+  tool_result:
+    id: TOOL-NV-U17
+    sre:
+      saturation_pct: 94
+      p95_latency_ms: 820
+- id: NV-U18
+  stratum: UNMARKED
+  substratum: cross_domain
+  evidence:
+    sre:
+      availability_pct: 97.5
+    deploy:
+      pipeline_failed: false
+  available_tools:
+  - get_restart_history
+  - get_error_rate_history
+  - get_cost_proxy_history
+  expected_tool: get_restart_history
+  tool_result:
+    id: TOOL-NV-U18
+    deploy:
+      restart_burst_count: 6
+      restart_window_seconds: 30
+      deployment_preceded_restarts: true
+- id: NV-U19
+  stratum: UNMARKED
+  substratum: absent_control
+  evidence:
+    deploy:
+      pipeline_failed: true
+      artifact_mismatch: false
+    sre: *id003
+    finops: *id004
+  available_tools:
+  - get_policy_gate_status
+  - get_vulnerability_details
+  - get_pipeline_history
+  expected_tool: get_policy_gate_status
+  tool_result:
+    id: TOOL-NV-U19
+    sec:
+      policy_violation: false
+      critical_cves: 0
+- id: NV-U20
+  stratum: UNMARKED
+  substratum: stale_control
+  evidence:
+    sre:
+      p95_latency_ms: 230
+      error_rate_pct: 0.7
+      availability_pct: 99.9
+      _evidence:
+        p95_latency_ms:
+          status: stale
+          age_minutes: 30
+        error_rate_pct:
+          status: stale
+          age_minutes: 30
+    deploy: *id002
+    finops: *id004
+  available_tools:
+  - get_latency_history
+  - get_error_rate_history
+  - get_cost_proxy_history
+  expected_tool: get_latency_history
+  tool_result:
+    id: TOOL-NV-U20
+    sre:
+      p95_latency_ms: 240
+      error_rate_pct: 0.9
+- id: NV-U21
+  stratum: UNMARKED
+  substratum: cross_domain_control
+  evidence:
+    sre:
+      p95_latency_ms: 920
+      error_rate_pct: 13
+      saturation_pct: 93
+      availability_pct: 97.8
+    finops: *id004
+  available_tools:
+  - get_deployment_history
+  - get_restart_history
+  - get_cost_proxy_history
+  expected_tool: get_deployment_history
+  tool_result:
+    id: TOOL-NV-U21
+    deploy:
+      config_drift: false
+      deployment_preceded_restarts: false
+      pipeline_failed: false
+- id: NV-U22
+  stratum: UNMARKED
+  substratum: absent
+  evidence:
+    finops:
+      cost_spike_pct: 31
+      hpa_scale_to: 13
+      cpu_request_increase_pct: 52
+    deploy:
+      pipeline_failed: true
+    sre: *id003
+  available_tools:
+  - get_vulnerability_details
+  - get_policy_gate_status
+  - get_replica_history
+  expected_tool: get_vulnerability_details
+  tool_result:
+    id: TOOL-NV-U22
+    sec:
+      critical_cves: 2
+      policy_violation: true
+- id: NV-U23
+  stratum: UNMARKED
+  substratum: stale
+  evidence:
+    deploy:
+      config_drift: false
+      _evidence:
+        config_drift:
+          status: stale
+          age_minutes: 2880
+    sre:
+      p95_latency_ms: 870
+      error_rate_pct: 11.5
+      saturation_pct: 80
+  available_tools:
+  - get_deployment_history
+  - get_latency_history
+  - get_saturation_history
+  expected_tool: get_deployment_history
+  tool_result:
+    id: TOOL-NV-U23
+    deploy:
+      config_drift: true
+      deployment_preceded_restarts: true
+- id: NV-U24
+  stratum: UNMARKED
+  substratum: cross_domain_control
+  evidence:
+    sec:
+      critical_cves: 2
+      policy_violation: true
+    sre: *id003
+    finops: *id004
+  available_tools:
+  - get_pipeline_history
+  - get_deployment_history
+  - get_policy_gate_status
+  expected_tool: get_pipeline_history
+  tool_result:
+    id: TOOL-NV-U24
+    deploy:
+      pipeline_failed: true

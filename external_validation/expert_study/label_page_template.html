@@ -1,0 +1,231 @@
+<title>Governance Case Labelling</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: one working column — header with progress, case sheet, decision panel, case map; stacks on phones. */
+:root{
+  --bg:#f3f5f7; --surface:#ffffff; --ink:#18232e; --muted:#5b6876; --line:#d6dde4;
+  --accent:#0f5f73; --accent-ink:#ffffff; --warn-bg:#fdf1d8; --warn:#8a5a00; --check-bg:#e3f2ec; --check:#1e6b4a; --done:#2f7d5b;
+  --sans:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#11181f; --surface:#18222b; --ink:#e3e9ee; --muted:#9aa8b5; --line:#2c3a46;
+  --accent:#57b5c9; --accent-ink:#0b1a20; --warn-bg:#3a2e14; --warn:#f0c46b; --check-bg:#16352a; --check:#7fd3ab; --done:#5fc093; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#11181f; --surface:#18222b; --ink:#e3e9ee; --muted:#9aa8b5; --line:#2c3a46;
+  --accent:#57b5c9; --accent-ink:#0b1a20; --warn-bg:#3a2e14; --warn:#f0c46b; --check-bg:#16352a; --check:#7fd3ab; --done:#5fc093; color-scheme:dark}
+body{background:var(--bg);color:var(--ink);font:15px/1.5 var(--sans)}
+.wrap{max-width:880px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:20px 48px;display:flex;flex-direction:column;gap:18px}
+h1{font-size:1.35rem;font-weight:600;margin:0;text-wrap:balance}
+h2{font-size:1rem;font-weight:600;margin:0}
+.top{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px}
+.pill{font:500 12px/1 var(--sans);letter-spacing:.04em;padding:6px 10px;border-radius:999px;border:1px solid var(--line);color:var(--muted);background:var(--surface)}
+.pill.ok{color:var(--check);border-color:var(--check)}
+.pill.warn{color:var(--warn);border-color:var(--warn)}
+details{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:12px 14px}
+summary{cursor:pointer;font-weight:600}
+details p,details li{color:var(--ink);max-width:68ch}
+.sheet{background:var(--surface);border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.sheet-head{display:flex;justify-content:space-between;align-items:baseline;gap:8px;padding:12px 14px;border-bottom:1px solid var(--line)}
+.code{font:500 13px var(--mono);color:var(--muted)}
+.dom{padding:10px 14px;border-bottom:1px solid var(--line)}
+.dom:last-child{border-bottom:0}
+.dom h3{font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:0 0 6px}
+.tbl{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th{font-weight:500;color:var(--muted);text-align:left;font-size:12px;padding:4px 8px 4px 0}
+td{padding:5px 8px 5px 0;vertical-align:top;border-top:1px solid var(--line)}
+td.v{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+.tag{display:inline-block;font:500 11.5px var(--sans);padding:1px 7px;border-radius:4px;background:var(--warn-bg);color:var(--warn);white-space:nowrap}
+.chk{display:inline-block;font:500 13px var(--mono);padding:1px 7px;border-radius:4px;background:var(--check-bg);color:var(--check);white-space:nowrap}
+.none{color:var(--muted);font-style:italic}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:14px;display:flex;flex-direction:column;gap:12px}
+.acts{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:6px}
+.act{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:8px;padding:7px 9px;border:1px solid var(--line);border-radius:6px}
+.act.sel{border-color:var(--accent)}
+.act label{cursor:pointer}
+.best{font-size:12px;color:var(--muted);display:flex;align-items:center;gap:4px;cursor:pointer}
+.row{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.seg button{font:inherit;border:0;background:transparent;color:var(--ink);padding:6px 12px;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink)}
+textarea{font:14px var(--sans);width:100%;min-height:56px;box-sizing:border-box;border:1px solid var(--line);border-radius:6px;padding:8px;background:var(--bg);color:var(--ink)}
+.btns{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+button.p{font:600 14px var(--sans);background:var(--accent);color:var(--accent-ink);border:0;border-radius:6px;padding:9px 16px;cursor:pointer}
+button.s{font:500 14px var(--sans);background:transparent;color:var(--ink);border:1px solid var(--line);border-radius:6px;padding:8px 14px;cursor:pointer}
+button:focus-visible,input:focus-visible,textarea:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.msg{font-size:13px;color:var(--muted)}
+.msg.err{color:var(--warn)}
+.map{display:grid;grid-template-columns:repeat(auto-fill,minmax(42px,1fr));gap:4px}
+.map button{font:500 11.5px var(--mono);border:1px solid var(--line);background:var(--surface);color:var(--muted);border-radius:4px;padding:5px 0;cursor:pointer}
+.map button.done{background:var(--done);border-color:var(--done);color:var(--accent-ink)}
+.map button.cur{outline:2px solid var(--accent);outline-offset:1px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<div class="wrap">
+  <div class="top">
+    <h1>Governance case labelling</h1>
+    <span class="pill" id="store">Connecting…</span>
+  </div>
+
+  <details id="help" open>
+    <summary>How to label (2 minutes to read)</summary>
+    <p>Each case is an operational situation in a software service. Imagine you advise the Project Manager who owns the release. For each case:</p>
+    <ol>
+      <li>Read the evidence. Values marked <span class="tag">missing</span> or <span class="tag">last updated … ago</span> were not current at decision time. A <span class="chk">green value</span> in the last column is what an up-to-date check shows; treat it as true.</li>
+      <li>Tick <b>every action you would accept</b> as reasonable to take now.</li>
+      <li>Pick the <b>single best</b> action, and say how sure you are.</li>
+      <li>If you cannot decide from this evidence, tick <b>Cannot decide</b> and add a short note.</li>
+    </ol>
+    <p>Use your own judgement. There are no hidden rules to guess, and the cases are in random order. Your answers save as you go, so you can stop and come back.</p>
+  </details>
+
+  <section class="sheet" aria-labelledby="ctitle">
+    <div class="sheet-head"><h2 id="ctitle">Case</h2><span class="code" id="cpos"></span></div>
+    <div id="evidence"></div>
+  </section>
+
+  <section class="panel" aria-label="Your decision">
+    <h2>Acceptable actions</h2>
+    <div class="acts" id="acts"></div>
+    <div class="row">
+      <span>How sure are you?</span>
+      <div class="seg" id="conf" role="group" aria-label="Confidence">
+        <button type="button" data-v="1" aria-pressed="false">Unsure</button>
+        <button type="button" data-v="2" aria-pressed="false">Fairly sure</button>
+        <button type="button" data-v="3" aria-pressed="false">Sure</button>
+      </div>
+      <label><input type="checkbox" id="cannot"> Cannot decide</label>
+    </div>
+    <label for="comment" class="msg">Note (optional)</label>
+    <textarea id="comment" placeholder="Anything that would change your answer, or why you could not decide"></textarea>
+    <div class="btns">
+      <button type="button" class="s" id="prev">Previous</button>
+      <button type="button" class="p" id="save">Save and next</button>
+      <span class="msg" id="msg" role="status"></span>
+    </div>
+  </section>
+
+  <section class="panel" aria-label="All cases">
+    <div class="top"><h2>All cases</h2><span class="msg" id="count"></span></div>
+    <div class="map" id="map"></div>
+  </section>
+
+  <details>
+    <summary>Back-up copy of your answers</summary>
+    <p class="msg">Your answers are saved automatically. If the page shows "Saving in this browser only", copy this text and send it to the authors when you finish.</p>
+    <div class="btns"><button type="button" class="s" id="copy">Copy answers</button><span class="msg" id="copymsg"></span></div>
+    <textarea id="export" readonly rows="6"></textarea>
+  </details>
+</div>
+
+<script>
+const DATA = /*__DATA__*/null;
+const KEY = "aaf-expert-labels-v1";
+let labels = {}; let idx = 0; let col = null; let rater = null;
+const $ = id => document.getElementById(id);
+try { labels = JSON.parse(localStorage.getItem(KEY) || "{}") || {}; } catch (e) { labels = {}; }
+function keepLocal(){ try { localStorage.setItem(KEY, JSON.stringify(labels)); } catch (e) {} }
+function el(tag, cls, text){ const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
+
+function renderEvidence(c){
+  const box = $("evidence"); box.replaceChildren();
+  for (const d of c.domains){
+    const s = el("div", "dom"); s.append(el("h3", null, d.domain));
+    if (!d.rows.length){ s.append(el("div", "none", "No evidence from this area.")); box.append(s); continue; }
+    const w = el("div", "tbl"); const t = el("table");
+    const hr = el("tr"); ["Signal", "At decision time", "Up-to-date check"].forEach(h => hr.append(el("th", null, h)));
+    t.append(hr);
+    for (const r of d.rows){
+      const tr = el("tr"); tr.append(el("td", null, r.label));
+      const now = el("td", "v");
+      if (r.now != null) now.append(document.createTextNode(r.now + " "));
+      if (r.note) now.append(el("span", "tag", r.note));
+      tr.append(now);
+      const ch = el("td", "v"); if (r.check != null) ch.append(el("span", "chk", r.check)); tr.append(ch);
+      t.append(tr);
+    }
+    w.append(t); s.append(w); box.append(s);
+  }
+}
+
+function current(){ return labels[DATA.cases[idx].code] || { acceptable: [], best: null, confidence: null, cannot: false, comment: "" }; }
+let draft = null;
+function renderPanel(){
+  const c = DATA.cases[idx]; draft = JSON.parse(JSON.stringify(current()));
+  $("ctitle").textContent = "Case " + (idx + 1) + " of " + DATA.cases.length;
+  $("cpos").textContent = c.code;
+  const acts = $("acts"); acts.replaceChildren();
+  DATA.actions.forEach((a, i) => {
+    const row = el("div", "act" + (draft.acceptable.includes(a) ? " sel" : ""));
+    const cb = el("input"); cb.type = "checkbox"; cb.id = "a" + i; cb.checked = draft.acceptable.includes(a);
+    const lb = el("label", null, a); lb.htmlFor = cb.id;
+    const bl = el("label", "best"); const rb = el("input"); rb.type = "radio"; rb.name = "best"; rb.id = "b" + i; rb.checked = draft.best === a;
+    bl.append(rb, document.createTextNode("best"));
+    cb.addEventListener("change", () => { if (cb.checked) draft.acceptable.push(a); else { draft.acceptable = draft.acceptable.filter(x => x !== a); if (draft.best === a) draft.best = null; } renderPanelKeep(); });
+    rb.addEventListener("change", () => { draft.best = a; if (!draft.acceptable.includes(a)) draft.acceptable.push(a); renderPanelKeep(); });
+    row.append(cb, lb, bl); acts.append(row);
+  });
+  document.querySelectorAll("#conf button").forEach(b => b.setAttribute("aria-pressed", String(Number(b.dataset.v) === draft.confidence)));
+  $("cannot").checked = !!draft.cannot; $("comment").value = draft.comment || "";
+  $("msg").textContent = labels[c.code] ? "Saved earlier. Change anything and save again." : ""; $("msg").className = "msg";
+  renderMap(); window.scrollTo({ top: 0 });
+}
+function renderPanelKeep(){
+  const keep = draft; renderPanel(); draft = keep;
+  DATA.actions.forEach((a, i) => { $("a" + i).checked = draft.acceptable.includes(a); $("a" + i).parentElement.className = "act" + (draft.acceptable.includes(a) ? " sel" : ""); $("b" + i).checked = draft.best === a; });
+  document.querySelectorAll("#conf button").forEach(b => b.setAttribute("aria-pressed", String(Number(b.dataset.v) === draft.confidence)));
+  $("cannot").checked = !!draft.cannot; $("comment").value = draft.comment || "";
+}
+function renderMap(){
+  const m = $("map"); m.replaceChildren();
+  DATA.cases.forEach((c, i) => { const b = el("button", (labels[c.code] ? "done" : "") + (i === idx ? " cur" : ""), String(i + 1)); b.type = "button"; b.title = c.code; b.addEventListener("click", () => { idx = i; renderEvidence(DATA.cases[idx]); renderPanel(); }); m.append(b); });
+  const n = Object.keys(labels).length; $("count").textContent = n + " of " + DATA.cases.length + " labelled";
+  $("export").value = JSON.stringify(labels);
+}
+
+document.querySelectorAll("#conf button").forEach(b => b.addEventListener("click", () => { draft.confidence = Number(b.dataset.v); document.querySelectorAll("#conf button").forEach(x => x.setAttribute("aria-pressed", String(x === b))); }));
+$("cannot").addEventListener("change", e => { draft.cannot = e.target.checked; });
+$("comment").addEventListener("input", e => { draft.comment = e.target.value; });
+$("prev").addEventListener("click", () => { if (idx > 0){ idx--; renderEvidence(DATA.cases[idx]); renderPanel(); } });
+$("save").addEventListener("click", async () => {
+  const msg = $("msg"); msg.className = "msg";
+  if (!draft.cannot){
+    if (!draft.acceptable.length){ msg.textContent = "Tick at least one acceptable action, or tick Cannot decide."; msg.className = "msg err"; return; }
+    if (!draft.best){ msg.textContent = "Pick the single best action."; msg.className = "msg err"; return; }
+    if (!draft.confidence){ msg.textContent = "Say how sure you are."; msg.className = "msg err"; return; }
+  }
+  const c = DATA.cases[idx];
+  const rec = { code: c.code, acceptable: draft.acceptable.slice(), best: draft.best, confidence: draft.confidence, cannot: !!draft.cannot, comment: (draft.comment || "").slice(0, 2000), saved_at: new Date().toISOString(), rater: rater };
+  labels[c.code] = rec; keepLocal();
+  if (col){ try { await col.doc(c.code).set(rec); } catch (e) { $("store").textContent = "Saving in this browser only"; $("store").className = "pill warn"; } }
+  const next = DATA.cases.findIndex((x, i) => i > idx && !labels[x.code]);
+  const any = DATA.cases.findIndex(x => !labels[x.code]);
+  if (next >= 0) idx = next; else if (any >= 0) idx = any;
+  renderEvidence(DATA.cases[idx]); renderPanel();
+  if (any < 0){ $("msg").textContent = "All cases labelled. Thank you."; }
+});
+$("copy").addEventListener("click", async () => { const t = $("export"); try { await navigator.clipboard.writeText(t.value); $("copymsg").textContent = "Copied."; } catch (e) { t.focus(); t.select(); $("copymsg").textContent = "Select-all is done; copy with your keyboard."; } });
+
+const first = DATA.cases.findIndex(x => !labels[x.code]); idx = first >= 0 ? first : 0;
+renderEvidence(DATA.cases[idx]); renderPanel();
+
+(async () => {
+  let db = null, user = null;
+  try { db = await window.claude?.use?.("db"); user = await window.claude?.use?.("user"); } catch (e) {}
+  if (!db){ $("store").textContent = "Saving in this browser only"; $("store").className = "pill warn"; return; }
+  try { rater = user ? await user.id() : null; } catch (e) {}
+  col = db.collection("labels");
+  try {
+    const snap = await col.get();
+    snap.docs.forEach(d => { const v = d.data(); if (v && v.code) labels[v.code] = Object.assign(labels[v.code] || {}, v); });
+    for (const [k, v] of Object.entries(labels)){ if (!snap.docs.some(d => d.id === k)) { try { await col.doc(k).set(v); } catch (e) {} } }
+    keepLocal();
+    $("store").textContent = "Answers save to the authors' store"; $("store").className = "pill ok";
+    const f = DATA.cases.findIndex(x => !labels[x.code]); if (f >= 0 && !labels[DATA.cases[idx].code]) idx = f;
+    renderEvidence(DATA.cases[idx]); renderPanel();
+  } catch (e) { col = null; $("store").textContent = "Saving in this browser only"; $("store").className = "pill warn"; }
+})();
+</script>

@@ -1,0 +1,220 @@
+{
+  "plan": "external_validation/aaf_v3/PLAN.md",
+  "split": "dev",
+  "mock": false,
+  "repeats": 5,
+  "cases": 40,
+  "excluded_hash_mismatch": [],
+  "label_distribution": {
+    "Scale adjustment": 2,
+    "Mitigate and monitor": 19,
+    "Rollback to stable deployment": 16,
+    "Patch or block release": 3
+  },
+  "majority_label": "Mitigate and monitor",
+  "agreement": {
+    "M0": {
+      "k": 19,
+      "n": 40,
+      "pct": 47.5,
+      "wilson95": [
+        32.9,
+        62.5
+      ]
+    },
+    "L": {
+      "k": 1,
+      "n": 40,
+      "pct": 2.5,
+      "wilson95": [
+        0.4,
+        12.9
+      ]
+    },
+    "V3": {
+      "k": 18,
+      "n": 40,
+      "pct": 45.0,
+      "wilson95": [
+        30.7,
+        60.2
+      ]
+    }
+  },
+  "paired": {
+    "V3_vs_M0": {
+      "first_only": 6,
+      "second_only": 7,
+      "exact_p": 1.0
+    },
+    "V3_vs_L": {
+      "first_only": 17,
+      "second_only": 0,
+      "exact_p": 1.526e-05
+    }
+  },
+  "primary_holm": {
+    "V3_vs_L": 3.052e-05,
+    "V3_vs_M0": 1.0
+  },
+  "by_label": {
+    "Mitigate and monitor": {
+      "M0": {
+        "k": 19,
+        "n": 19,
+        "pct": 100.0,
+        "wilson95": [
+          83.2,
+          100.0
+        ]
+      },
+      "L": {
+        "k": 0,
+        "n": 19,
+        "pct": 0.0,
+        "wilson95": [
+          0.0,
+          16.8
+        ]
+      },
+      "V3": {
+        "k": 12,
+        "n": 19,
+        "pct": 63.2,
+        "wilson95": [
+          41.0,
+          80.9
+        ]
+      }
+    },
+    "Patch or block release": {
+      "M0": {
+        "k": 0,
+        "n": 3,
+        "pct": 0.0,
+        "wilson95": [
+          0.0,
+          56.2
+        ]
+      },
+      "L": {
+        "k": 1,
+        "n": 3,
+        "pct": 33.3,
+        "wilson95": [
+          6.1,
+          79.2
+        ]
+      },
+      "V3": {
+        "k": 1,
+        "n": 3,
+        "pct": 33.3,
+        "wilson95": [
+          6.1,
+          79.2
+        ]
+      }
+    },
+    "Rollback to stable deployment": {
+      "M0": {
+        "k": 0,
+        "n": 16,
+        "pct": 0.0,
+        "wilson95": [
+          0.0,
+          19.4
+        ]
+      },
+      "L": {
+        "k": 0,
+        "n": 16,
+        "pct": 0.0,
+        "wilson95": [
+          0.0,
+          19.4
+        ]
+      },
+      "V3": {
+        "k": 5,
+        "n": 16,
+        "pct": 31.2,
+        "wilson95": [
+          14.2,
+          55.6
+        ]
+      }
+    },
+    "Scale adjustment": {
+      "M0": {
+        "k": 0,
+        "n": 2,
+        "pct": 0.0,
+        "wilson95": [
+          0.0,
+          65.8
+        ]
+      },
+      "L": {
+        "k": 0,
+        "n": 2,
+        "pct": 0.0,
+        "wilson95": [
+          0.0,
+          65.8
+        ]
+      },
+      "V3": {
+        "k": 0,
+        "n": 2,
+        "pct": 0.0,
+        "wilson95": [
+          0.0,
+          65.8
+        ]
+      }
+    }
+  },
+  "modal_actions": {
+    "L": {
+      "Escalate for evidence/human review": 35,
+      "Block release and fix pipeline": 4,
+      "No action (observe)": 1
+    },
+    "V3": {
+      "Mitigate and monitor": 18,
+      "Escalate for evidence/human review": 9,
+      "Rollback to stable deployment": 8,
+      "Block release and fix pipeline": 5
+    }
+  },
+  "non_decision_modal": {
+    "L": {
+      "k": 36,
+      "n": 40,
+      "pct": 90.0,
+      "wilson95": [
+        76.9,
+        96.0
+      ]
+    },
+    "V3": {
+      "k": 9,
+      "n": 40,
+      "pct": 22.5,
+      "wilson95": [
+        12.3,
+        37.5
+      ]
+    }
+  },
+  "wrong_committed_modal": {
+    "L": 3,
+    "V3": 13
+  },
+  "v3_facts_rejected": {
+    "historical_context": 10,
+    "quote_not_in_document": 1
+  },
+  "failed_calls": 0
+}

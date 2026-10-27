@@ -1,0 +1,465 @@
+{
+ "design": "R6-7 / R1-2: parameter robustness on BOUNDARY cases (deterministic, no LLM).\n\nMethod fixed before running:\n1. Reproduce the manuscript's one-at-a-time sweep on the 30 controlled scenarios (seed 42) and report, at the default\n   parameters, how close each scenario is to a decision boundary: the utility margin between the best and second-best\n   eligible action, and the distance of the consensus score from tau = 0.65.\n2. Mine boundary cases from the same generator and noise model with fresh seeds 1..300 (the 30 scenario designs with\n   jitter): keep a scenario if (a) its default utility margin is < 0.05 (weight-sensitive) or (b) its consensus score is\n   within 0.03 of tau (tau-sensitive). Select up to 6 of each kind, seeded (20261022), at most one per design.\n3. Re-run the same parameter grids on the boundary set and report action stability vs. default, and which parameter\n   values flip which cases. Oracle agreement is reported too.\n",
+ "default_parameters": {
+  "lambda": 0.5,
+  "tau": 0.65,
+  "delta_min": 0.05,
+  "utility_weights": [
+   0.4,
+   0.3,
+   0.3
+  ]
+ },
+ "original_30": {
+  "min_utility_margin": 0.0477,
+  "n_margin_below_0.05": 2,
+  "n_consensus_within_0.03_of_tau": 9,
+  "sweep": [
+   {
+    "family": "lambda",
+    "value": "0.30",
+    "n": 30,
+    "stability_vs_default": 1.0,
+    "oracle_agreement": 0.6
+   },
+   {
+    "family": "lambda",
+    "value": "0.40",
+    "n": 30,
+    "stability_vs_default": 1.0,
+    "oracle_agreement": 0.6
+   },
+   {
+    "family": "lambda",
+    "value": "0.50",
+    "n": 30,
+    "stability_vs_default": 1.0,
+    "oracle_agreement": 0.6
+   },
+   {
+    "family": "lambda",
+    "value": "0.60",
+    "n": 30,
+    "stability_vs_default": 1.0,
+    "oracle_agreement": 0.6
+   },
+   {
+    "family": "lambda",
+    "value": "0.70",
+    "n": 30,
+    "stability_vs_default": 1.0,
+    "oracle_agreement": 0.6
+   },
+   {
+    "family": "tau",
+    "value": "0.55",
+    "n": 30,
+    "stability_vs_default": 1.0,
+    "oracle_agreement": 0.6
+   },
+   {
+    "family": "tau",
+    "value": "0.60",
+    "n": 30,
+    "stability_vs_default": 1.0,
+    "oracle_agreement": 0.6
+   },
+   {
+    "family": "tau",
+    "value": "0.65",
+    "n": 30,
+    "stability_vs_default": 1.0,
+    "oracle_agreement": 0.6
+   },
+   {
+    "family": "tau",
+    "value": "0.70",
+    "n": 30,
+    "stability_vs_default": 1.0,
+    "oracle_agreement": 0.6
+   },
+   {
+    "family": "tau",
+    "value": "0.75",
+    "n": 30,
+    "stability_vs_default": 1.0,
+    "oracle_agreement": 0.6
+   },
+   {
+    "family": "delta_min",
+    "value": "0.03",
+    "n": 30,
+    "stability_vs_default": 1.0,
+    "oracle_agreement": 0.6
+   },
+   {
+    "family": "delta_min",
+    "value": "0.05",
+    "n": 30,
+    "stability_vs_default": 1.0,
+    "oracle_agreement": 0.6
+   },
+   {
+    "family": "delta_min",
+    "value": "0.10",
+    "n": 30,
+    "stability_vs_default": 1.0,
+    "oracle_agreement": 0.6
+   },
+   {
+    "family": "delta_min",
+    "value": "0.15",
+    "n": 30,
+    "stability_vs_default": 1.0,
+    "oracle_agreement": 0.6
+   },
+   {
+    "family": "utility_weights",
+    "value": "0.40/0.30/0.30",
+    "n": 30,
+    "stability_vs_default": 1.0,
+    "oracle_agreement": 0.6
+   },
+   {
+    "family": "utility_weights",
+    "value": "0.50/0.25/0.25",
+    "n": 30,
+    "stability_vs_default": 1.0,
+    "oracle_agreement": 0.6
+   },
+   {
+    "family": "utility_weights",
+    "value": "0.30/0.35/0.35",
+    "n": 30,
+    "stability_vs_default": 1.0,
+    "oracle_agreement": 0.6
+   },
+   {
+    "family": "utility_weights",
+    "value": "0.35/0.40/0.25",
+    "n": 30,
+    "stability_vs_default": 1.0,
+    "oracle_agreement": 0.6
+   },
+   {
+    "family": "utility_weights",
+    "value": "0.35/0.25/0.40",
+    "n": 30,
+    "stability_vs_default": 1.0,
+    "oracle_agreement": 0.6
+   },
+   {
+    "family": "utility_weights",
+    "value": "0.45/0.35/0.20",
+    "n": 30,
+    "stability_vs_default": 1.0,
+    "oracle_agreement": 0.6
+   },
+   {
+    "family": "utility_weights",
+    "value": "0.45/0.20/0.35",
+    "n": 30,
+    "stability_vs_default": 1.0,
+    "oracle_agreement": 0.6
+   }
+  ],
+  "flips": []
+ },
+ "boundary_mining": {
+  "seeds": "1..300",
+  "utility_near_tie_candidates": 703,
+  "consensus_near_tau_candidates": 3433,
+  "selected": 11
+ },
+ "boundary_set": {
+  "cases": [
+   {
+    "case": "TC-19@s233",
+    "kind": "utility-near-tie",
+    "utility_margin": 0.0371,
+    "consensus": 0.62,
+    "default_action": "Patch or block release",
+    "oracle_ok": false
+   },
+   {
+    "case": "TC-28@s232",
+    "kind": "utility-near-tie",
+    "utility_margin": 0.0215,
+    "consensus": 0.62,
+    "default_action": "Review scaling policy",
+    "oracle_ok": true
+   },
+   {
+    "case": "TC-08@s81",
+    "kind": "utility-near-tie",
+    "utility_margin": 0.0188,
+    "consensus": 0.42000000000000004,
+    "default_action": "Rollback to stable deployment",
+    "oracle_ok": false
+   },
+   {
+    "case": "TC-07@s84",
+    "kind": "utility-near-tie",
+    "utility_margin": 0.0173,
+    "consensus": 0.6,
+    "default_action": "Review scaling policy",
+    "oracle_ok": false
+   },
+   {
+    "case": "TC-10@s171",
+    "kind": "utility-near-tie",
+    "utility_margin": 0.0067,
+    "consensus": 0.5549999999999999,
+    "default_action": "Block release and fix pipeline",
+    "oracle_ok": false
+   },
+   {
+    "case": "TC-15@s161",
+    "kind": "consensus-near-tau",
+    "utility_margin": 0.0977,
+    "consensus": 0.62,
+    "default_action": "Mitigate and monitor",
+    "oracle_ok": false
+   },
+   {
+    "case": "TC-26@s227",
+    "kind": "consensus-near-tau",
+    "utility_margin": 9.0,
+    "consensus": 0.62,
+    "default_action": "Patch or block release",
+    "oracle_ok": true
+   },
+   {
+    "case": "TC-03@s231",
+    "kind": "consensus-near-tau",
+    "utility_margin": 0.113,
+    "consensus": 0.62,
+    "default_action": "Block release and fix pipeline",
+    "oracle_ok": true
+   },
+   {
+    "case": "TC-10@s95",
+    "kind": "consensus-near-tau",
+    "utility_margin": 0.0585,
+    "consensus": 0.62,
+    "default_action": "Patch or block release",
+    "oracle_ok": true
+   },
+   {
+    "case": "TC-19@s257",
+    "kind": "consensus-near-tau",
+    "utility_margin": 0.0371,
+    "consensus": 0.62,
+    "default_action": "Patch or block release",
+    "oracle_ok": false
+   },
+   {
+    "case": "TC-27@s245",
+    "kind": "consensus-near-tau",
+    "utility_margin": 0.089,
+    "consensus": 0.62,
+    "default_action": "Block release and fix pipeline",
+    "oracle_ok": true
+   }
+  ],
+  "sweep": [
+   {
+    "family": "lambda",
+    "value": "0.30",
+    "n": 11,
+    "stability_vs_default": 1.0,
+    "oracle_agreement": 0.455
+   },
+   {
+    "family": "lambda",
+    "value": "0.40",
+    "n": 11,
+    "stability_vs_default": 1.0,
+    "oracle_agreement": 0.455
+   },
+   {
+    "family": "lambda",
+    "value": "0.50",
+    "n": 11,
+    "stability_vs_default": 1.0,
+    "oracle_agreement": 0.455
+   },
+   {
+    "family": "lambda",
+    "value": "0.60",
+    "n": 11,
+    "stability_vs_default": 1.0,
+    "oracle_agreement": 0.455
+   },
+   {
+    "family": "lambda",
+    "value": "0.70",
+    "n": 11,
+    "stability_vs_default": 1.0,
+    "oracle_agreement": 0.455
+   },
+   {
+    "family": "tau",
+    "value": "0.55",
+    "n": 11,
+    "stability_vs_default": 1.0,
+    "oracle_agreement": 0.455
+   },
+   {
+    "family": "tau",
+    "value": "0.60",
+    "n": 11,
+    "stability_vs_default": 1.0,
+    "oracle_agreement": 0.455
+   },
+   {
+    "family": "tau",
+    "value": "0.65",
+    "n": 11,
+    "stability_vs_default": 1.0,
+    "oracle_agreement": 0.455
+   },
+   {
+    "family": "tau",
+    "value": "0.70",
+    "n": 11,
+    "stability_vs_default": 1.0,
+    "oracle_agreement": 0.455
+   },
+   {
+    "family": "tau",
+    "value": "0.75",
+    "n": 11,
+    "stability_vs_default": 1.0,
+    "oracle_agreement": 0.455
+   },
+   {
+    "family": "delta_min",
+    "value": "0.03",
+    "n": 11,
+    "stability_vs_default": 1.0,
+    "oracle_agreement": 0.455
+   },
+   {
+    "family": "delta_min",
+    "value": "0.05",
+    "n": 11,
+    "stability_vs_default": 1.0,
+    "oracle_agreement": 0.455
+   },
+   {
+    "family": "delta_min",
+    "value": "0.10",
+    "n": 11,
+    "stability_vs_default": 1.0,
+    "oracle_agreement": 0.455
+   },
+   {
+    "family": "delta_min",
+    "value": "0.15",
+    "n": 11,
+    "stability_vs_default": 1.0,
+    "oracle_agreement": 0.455
+   },
+   {
+    "family": "utility_weights",
+    "value": "0.40/0.30/0.30",
+    "n": 11,
+    "stability_vs_default": 1.0,
+    "oracle_agreement": 0.455
+   },
+   {
+    "family": "utility_weights",
+    "value": "0.50/0.25/0.25",
+    "n": 11,
+    "stability_vs_default": 0.727,
+    "oracle_agreement": 0.455
+   },
+   {
+    "family": "utility_weights",
+    "value": "0.30/0.35/0.35",
+    "n": 11,
+    "stability_vs_default": 0.909,
+    "oracle_agreement": 0.455
+   },
+   {
+    "family": "utility_weights",
+    "value": "0.35/0.40/0.25",
+    "n": 11,
+    "stability_vs_default": 1.0,
+    "oracle_agreement": 0.455
+   },
+   {
+    "family": "utility_weights",
+    "value": "0.35/0.25/0.40",
+    "n": 11,
+    "stability_vs_default": 1.0,
+    "oracle_agreement": 0.455
+   },
+   {
+    "family": "utility_weights",
+    "value": "0.45/0.35/0.20",
+    "n": 11,
+    "stability_vs_default": 1.0,
+    "oracle_agreement": 0.455
+   },
+   {
+    "family": "utility_weights",
+    "value": "0.45/0.20/0.35",
+    "n": 11,
+    "stability_vs_default": 0.818,
+    "oracle_agreement": 0.545
+   }
+  ],
+  "flips": [
+   {
+    "case": "TC-28@s232",
+    "family": "utility_weights",
+    "value": "0.50/0.25/0.25",
+    "default_action": "Review scaling policy",
+    "new_action": "Scale adjustment"
+   },
+   {
+    "case": "TC-07@s84",
+    "family": "utility_weights",
+    "value": "0.50/0.25/0.25",
+    "default_action": "Review scaling policy",
+    "new_action": "Scale adjustment"
+   },
+   {
+    "case": "TC-10@s171",
+    "family": "utility_weights",
+    "value": "0.50/0.25/0.25",
+    "default_action": "Block release and fix pipeline",
+    "new_action": "Rollback to stable deployment"
+   },
+   {
+    "case": "TC-08@s81",
+    "family": "utility_weights",
+    "value": "0.30/0.35/0.35",
+    "default_action": "Rollback to stable deployment",
+    "new_action": "Block release and fix pipeline"
+   },
+   {
+    "case": "TC-07@s84",
+    "family": "utility_weights",
+    "value": "0.45/0.20/0.35",
+    "default_action": "Review scaling policy",
+    "new_action": "Scale adjustment"
+   },
+   {
+    "case": "TC-10@s171",
+    "family": "utility_weights",
+    "value": "0.45/0.20/0.35",
+    "default_action": "Block release and fix pipeline",
+    "new_action": "Rollback to stable deployment"
+   }
+  ],
+  "cases_that_flip_under_any_tested_value": [
+   "TC-07@s84",
+   "TC-08@s81",
+   "TC-10@s171",
+   "TC-28@s232"
+  ]
+ }
+}

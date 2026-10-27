@@ -1,0 +1,4 @@
+B6 UP-S01-W 2 Patch or block release
+B6 UC-P03-W 2 Patch or block release
+B6 UP-R03 3 Escalate for evidence/human review
+AAF-14 UF-X02-W 1 Rollback to stable deployment

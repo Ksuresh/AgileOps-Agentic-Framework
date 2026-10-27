@@ -1,0 +1,41 @@
+name: Study 8 - investigator fix
+
+# Runs only when the RUN marker is pushed, after the cases, sealed key and code are committed (PROTOCOL.md).
+on:
+  push:
+    branches: [text-evidence-pilot]
+    paths: ["external_validation/investigator_fix/RUN"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    env:
+      PYTHONPATH: ${{ github.workspace }}
+      OPENAI_MODEL: gpt-5.6-luna
+      MAX_CALLS: "2200"
+      MAX_TOKENS: "1600000"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install -r requirements.txt
+      - name: Run
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: |
+          mkdir -p external_validation/investigator_fix/results
+          python external_validation/investigator_fix/run_fx.py 2>&1 | tail -c 40000 > external_validation/investigator_fix/results/run_log_${GITHUB_RUN_ID}.txt; exit ${PIPESTATUS[0]}
+      - name: Commit
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f external_validation/investigator_fix/results
+          git commit -m "Study 8 LLM arms: run ${GITHUB_RUN_ID} [skip ci]" || echo "nothing"
+          for i in 1 2 3 4 5; do git pull --rebase origin ${GITHUB_REF_NAME} && git push origin HEAD:${GITHUB_REF_NAME} && break; sleep $((i*7)); done

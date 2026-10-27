@@ -1,0 +1,22 @@
+healthy [175.21804599999768, 171.76702199998317, 172.4580839999703] [0.0, 0.0, 0.0] threshold 344.9161679999406
+front-end perf {'cpu': '50m', 'p95_ms': 1602.8305460000638, 'error_rate_pct': 0.6829268292682927, 'violates': True}
+front-end {"SF1": "docker.io/weaveworksdemos/front-end:0.3.5", "SF2": "docker.io/weaveworksdemos/front-end:0.3.4", "NSF": null} 50m {'rollout_ok': False, 'storefront_error_rate_pct': 100.0, 'restarts': 5}
+catalogue perf {'cpu': '50m', 'p95_ms': 562.0431319998715, 'error_rate_pct': 0.0, 'violates': True}
+catalogue {"SC1": null, "SC2": null, "NSC": null} 50m {'rollout_ok': False, 'storefront_error_rate_pct': 100.0, 'restarts': 5}
+{
+  "images": {
+    "A": "docker.io/weaveworksdemos/front-end:0.3.5",
+    "B": "docker.io/weaveworksdemos/front-end:0.3.4",
+    "SF1": "docker.io/weaveworksdemos/front-end:0.3.5",
+    "SF2": "docker.io/weaveworksdemos/front-end:0.3.4",
+    "NSF": null,
+    "SC1": null,
+    "SC2": null,
+    "NSC": null
+  },
+  "perf_cpu": {
+    "front-end": "50m",
+    "catalogue": "50m"
+  },
+  "threshold": 344.9161679999406
+}

@@ -1,0 +1,22 @@
+case,tier,ceiling_action,T0_action,T0_correct,T1_action,T1_correct,T1_fields,T2_runs_correct,T2_correct,T2_actions,T2_rejected_total,T2_errors,T2_tokens_mean,T2_latency_ms_mean
+TX-E01,easy,Rollback to stable deployment,Mitigate and monitor,False,Rollback to stable deployment,True,"{""correct"": 2, ""spurious"": 0, ""truth_fields"": 2}",5/5,True,"{""Rollback to stable deployment"": 5}",0,0,1116.0,1604.0
+TX-E02,easy,Patch or block release,Patch or block release,True,Patch or block release,True,"{""correct"": 1, ""spurious"": 0, ""truth_fields"": 1}",5/5,True,"{""Patch or block release"": 5}",0,0,1080.0,1353.5
+TX-E03,easy,Scale adjustment,Scale adjustment,True,Scale adjustment,True,"{""correct"": 1, ""spurious"": 0, ""truth_fields"": 1}",5/5,True,"{""Scale adjustment"": 5}",0,0,1074.0,1285.4
+TX-E04,easy,Mitigate and monitor,Mitigate and monitor,True,Mitigate and monitor,True,"{""correct"": 1, ""spurious"": 0, ""truth_fields"": 1}",5/5,True,"{""Mitigate and monitor"": 5}",0,0,1082.4,1314.7
+TX-E05,easy,Scale adjustment,Scale adjustment,True,Scale adjustment,True,"{""correct"": 1, ""spurious"": 0, ""truth_fields"": 1}",5/5,True,"{""Scale adjustment"": 5}",0,0,1080.0,1371.8
+TX-E06,easy,Patch or block release,Patch or block release,True,Patch or block release,True,"{""correct"": 1, ""spurious"": 0, ""truth_fields"": 1}",5/5,True,"{""Patch or block release"": 5}",0,0,1081.4,1374.6
+TX-M01,medium,Mitigate and monitor,Mitigate and monitor,True,Mitigate and monitor,True,"{""correct"": 1, ""spurious"": 0, ""truth_fields"": 1}",5/5,True,"{""Mitigate and monitor"": 5}",0,0,1091.0,1486.2
+TX-M02,medium,Rollback to stable deployment,Mitigate and monitor,False,Rollback to stable deployment,True,"{""correct"": 2, ""spurious"": 0, ""truth_fields"": 2}",5/5,True,"{""Rollback to stable deployment"": 5}",0,0,1148.4,1718.4
+TX-M03,medium,Scale adjustment,Scale adjustment,True,Scale adjustment,True,"{""missed"": 1, ""spurious"": 0, ""truth_fields"": 1}",5/5,True,"{""Scale adjustment"": 5}",0,0,1075.0,1518.7
+TX-M04,medium,Patch or block release,Patch or block release,True,Patch or block release,True,"{""missed"": 1, ""spurious"": 0, ""truth_fields"": 1}",5/5,True,"{""Patch or block release"": 5}",0,0,1082.4,1508.4
+TX-M05,medium,Scale adjustment,Review scaling policy,False,Review scaling policy,False,"{""spurious"": 0, ""truth_fields"": 1, ""wrong"": 1}",5/5,True,"{""Scale adjustment"": 5}",0,0,1075.2,1453.0
+TX-M06,medium,Mitigate and monitor,No action (observe),False,Mitigate and monitor,True,"{""correct"": 1, ""spurious"": 0, ""truth_fields"": 1}",5/5,True,"{""Mitigate and monitor"": 5}",0,0,1090.0,1506.0
+TX-H01,hard,Mitigate and monitor,Mitigate and monitor,True,Mitigate and monitor,True,"{""spurious"": 0, ""truth_fields"": 1, ""wrong"": 1}",5/5,True,"{""Mitigate and monitor"": 5}",0,0,1097.0,1560.5
+TX-H02,hard,No action (observe),No action (observe),True,No action (observe),True,"{""missed"": 1, ""spurious"": 0, ""truth_fields"": 1}",5/5,True,"{""No action (observe)"": 5}",0,0,1089.6,1422.2
+TX-H03,hard,No action (observe),No action (observe),True,Patch or block release,False,"{""spurious"": 0, ""truth_fields"": 1, ""wrong"": 1}",5/5,True,"{""No action (observe)"": 5}",0,0,1076.6,1245.6
+TX-H04,hard,Rollback to stable deployment,Mitigate and monitor,False,Mitigate and monitor,False,"{""missed"": 2, ""spurious"": 0, ""truth_fields"": 2}",5/5,True,"{""Rollback to stable deployment"": 5}",0,0,1433.0,3250.8
+TX-H05,hard,Block release and fix pipeline,Block release and fix pipeline,True,Patch or block release,False,"{""spurious"": 0, ""truth_fields"": 1, ""wrong"": 1}",5/5,True,"{""Block release and fix pipeline"": 5}",0,0,1061.6,1273.5
+TX-H06,hard,Scale adjustment,Scale adjustment,True,Scale adjustment,True,"{""correct"": 1, ""spurious"": 0, ""truth_fields"": 1}",5/5,True,"{""Scale adjustment"": 5}",0,0,1115.0,1537.5
+TX-H07,hard,Rollback to stable deployment,Mitigate and monitor,False,Mitigate and monitor,False,"{""correct"": 1, ""missed"": 2, ""spurious"": 0, ""truth_fields"": 3}",5/5,True,"{""Rollback to stable deployment"": 5}",5,0,1174.4,2195.3
+TX-X01,control,No action (observe),No action (observe),True,No action (observe),True,"{""correct"": 1, ""spurious"": 0, ""truth_fields"": 1}",5/5,True,"{""No action (observe)"": 5}",0,0,1078.0,1518.1
+TX-X02,control,No action (observe),No action (observe),True,No action (observe),True,"{""spurious"": 0, ""truth_fields"": 0}",5/5,True,"{""No action (observe)"": 5}",0,0,1050.0,998.4
