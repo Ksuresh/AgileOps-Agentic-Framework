@@ -214,14 +214,22 @@ def part_c(cs) -> str:
 
 
 def part_d() -> str:
+    one = {"RB": "R", "BL": "B", "PA": "P", "MI": "M", "SC": "S", "NO": "N", "RV": "V", "ES": "E", "--": "--", "?": "?"}
     L = [r"\section*{Appendix D. Confirmatory Studies 14--16: Per-Case Results}",
-         r"Release recipe (previous $\rightarrow$ current), the $O_1$ and $O_2$ sets, and each decider's majority action. RB rollback, PA patch, "
-         r"MI mitigate, SC scale, NO no action, ES escalate, BL block. G: GPT-5.6 Luna; Q: Qwen3-8B (as investigator for AAF, as decider for B5/B6). A bold action is outside $O_1$."]
-    keys = [("AAF-14", "AAF"), ("AAF-14-GPT", "AAF G"), ("B1-14", "Rules"), ("B5-GPT", "B5 G"), ("B6-GPT", "B6 G"), ("B5", "B5 Q"), ("B6", "B6 Q"), ("AlwaysRollback", "Roll back")]
+         r"Release recipe (previous $\rightarrow$ current), the $O_1$ and $O_2$ sets, and each decider's majority action. "
+         r"R rollback, P patch, M mitigate, S scale, N no action, E escalate, B block release, V review scaling policy. "
+         r"G: GPT-5.6 Luna; Q: Qwen3-8B (as investigator for AAF, as decider for B5/B6). A bold action is outside $O_1$; "
+         r"for the unmeasured actions, B is scored as R and E and V as N (Section~IV-B of the main text)."]
+    keys = [("AAF-14", "AAF Q"), ("AAF-14-GPT", "AAF G"), ("B1-14", "Rules"), ("B5-GPT", "B5 G"), ("B6-GPT", "B6 G"), ("B5", "B5 Q"), ("B6", "B6 Q"), ("AlwaysRollback", "Roll back")]
+    C = lambda w: r">{\centering\arraybackslash}p{" + w + "}"
+    hd = lambda h: r"\textbf{\shortstack{" + h.replace(" ", r"\\") + "}}"
     for st in S:
         A, table, dec, ok, maj, _ = load(st)
-        L += [rf"\subsection*{{D.{S.index(st) + 1} {SN[st]}}}", r"{\setlength\tabcolsep{3pt}\begin{longtable}{L{1.4cm}L{3.9cm}L{2.5cm}L{1.8cm}" + "L{0.66cm}" * len(keys) + "}", r"\toprule",
-              r"\textbf{Case} & \textbf{Release} & \textbf{$O_1$} & \textbf{$O_2$} & " + " & ".join(rf"\textbf{{{h}}}" for _, h in keys) + r" \\", r"\midrule", r"\endhead"]
+        L += [rf"\subsection*{{D.{S.index(st) + 1} {SN[st]}}}",
+              r"{\small\setlength\tabcolsep{4pt}\begin{longtable}{L{1.45cm}L{5.0cm}L{1.3cm}L{1.1cm}" + C("0.72cm") * len(keys) + "}", r"\toprule",
+              r"\textbf{Case} & \textbf{Release} & \textbf{$O_1$} & \textbf{$O_2$} & " + " & ".join(hd(h) for _, h in keys) + r" \\", r"\midrule", r"\endfirsthead",
+              r"\multicolumn{12}{l}{\textit{(continued)}}\\", r"\toprule",
+              r"\textbf{Case} & \textbf{Release} & \textbf{$O_1$} & \textbf{$O_2$} & " + " & ".join(hd(h) for _, h in keys) + r" \\", r"\midrule", r"\endhead"]
         cases = {}
         for p in sorted((ROOT / st / "measurements" / "rep1").glob("*.json")):
             d = json.loads(p.read_text()); cases[d["case"]["id"]] = d["case"]
@@ -231,9 +239,9 @@ def part_d() -> str:
             cells = []
             for k, _ in keys:
                 a = maj(dec[k].get(c) or [])
-                s = AB.get(a, "?") if a else "--"
+                s = one[AB.get(a, "?")] if a else "--"
                 cells.append(rf"\textbf{{{s}}}" if a and A.STATE_OF.get(a) not in table[c]["O1"] else s)
-            L.append(f"{c} & {esc(rec)} & {','.join(SA[x] for x in table[c]['O1'])} & {','.join(SA[x] for x in table[c]['O2'])} & " + " & ".join(cells) + r" \\")
+            L.append(f"{c} & {esc(rec)} & {''.join(one[SA[x]] for x in table[c]['O1'])} & {''.join(one[SA[x]] for x in table[c]['O2'])} & " + " & ".join(cells) + r" \\")
         L += [r"\bottomrule", r"\end{longtable}}"]
     return "\n".join(L) + "\n"
 

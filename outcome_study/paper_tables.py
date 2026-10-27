@@ -152,6 +152,11 @@ def main() -> None:
     oc = P["O2_case_level"]
     num["OtwoPBSixGPT"] = p_fmt(oc["B6-GPT"].get("p_holm", oc["B6-GPT"]["p_exact"]))
     num["OtwoDiscBSixGPT"] = f"{oc['B6-GPT']['a_only']} vs.\\ {oc['B6-GPT']['b_only']}"
+    om = cs["O2_misses"]["AAF-14-GPT"]
+    num["OtwoMissN"] = om["n"]
+    num["OtwoMissSafer"] = om.get("kept_security_or_reliability", 0)
+    num["OtwoMissRollback"] = om.get("rollback_lost_feature", 0)
+    num["OtwoMissFoot"] = om.get("footprint_only", 0)
     h3 = P["H3_low_risk"]
     num["LowContinuedAAFGPT"] = h3["release_continued"].get("AAF-14-GPT", "--")
     num["LowOtwoAAFGPT"] = f"{h3['O2'].get('AAF-14-GPT', {}).get('k', '--')}/{h3['O2'].get('AAF-14-GPT', {}).get('n', '--')}"

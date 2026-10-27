@@ -3557,6 +3557,128 @@
       "faults_rules_correct_in_each_replicate_separately": "28/28"
     }
   },
+  "O2_misses": {
+    "AAF-14-GPT": {
+      "n": 26,
+      "kept_security_or_reliability": 15,
+      "rollback_lost_feature": 9,
+      "footprint_only": 2,
+      "cases": {
+        "kept_security_or_reliability": [
+          "14:QF-P04",
+          "14:QP-S01",
+          "14:QP-S02",
+          "14:QP-S03",
+          "14:QP-S04",
+          "15:UC-S01",
+          "15:UC-S02",
+          "15:UF-S01",
+          "15:UF-S02",
+          "15:UP-S01",
+          "15:UP-S02",
+          "15:UP-S03",
+          "16:SC-S01",
+          "16:SC-S02",
+          "16:SC-S03"
+        ],
+        "rollback_lost_feature": [
+          "14:QF-R01",
+          "14:QP-R02",
+          "14:QP-R04",
+          "14:QP-X02",
+          "15:UC-R01",
+          "15:UF-R01",
+          "15:UP-R01",
+          "16:SC-R01",
+          "16:SF-R01"
+        ],
+        "footprint_only": [
+          "14:QP-P04",
+          "16:SF-D01"
+        ]
+      }
+    },
+    "AAF": {
+      "n": 26,
+      "kept_security_or_reliability": 15,
+      "rollback_lost_feature": 9,
+      "footprint_only": 2,
+      "cases": {
+        "kept_security_or_reliability": [
+          "14:QF-P04",
+          "14:QP-S01",
+          "14:QP-S02",
+          "14:QP-S03",
+          "14:QP-S04",
+          "15:UC-S01",
+          "15:UC-S02",
+          "15:UF-S01",
+          "15:UF-S02",
+          "15:UP-S01",
+          "15:UP-S02",
+          "15:UP-S03",
+          "16:SC-S01",
+          "16:SC-S02",
+          "16:SC-S03"
+        ],
+        "rollback_lost_feature": [
+          "14:QF-R01",
+          "14:QP-R02",
+          "14:QP-R04",
+          "14:QP-X02",
+          "15:UC-R01",
+          "15:UF-R01",
+          "15:UP-R01",
+          "16:SC-R01",
+          "16:SF-R01"
+        ],
+        "footprint_only": [
+          "14:QP-P04",
+          "16:SF-D01"
+        ]
+      }
+    },
+    "B1-14": {
+      "n": 26,
+      "kept_security_or_reliability": 15,
+      "rollback_lost_feature": 9,
+      "footprint_only": 2,
+      "cases": {
+        "kept_security_or_reliability": [
+          "14:QF-P04",
+          "14:QP-S01",
+          "14:QP-S02",
+          "14:QP-S03",
+          "14:QP-S04",
+          "15:UC-S01",
+          "15:UC-S02",
+          "15:UF-S01",
+          "15:UF-S02",
+          "15:UP-S01",
+          "15:UP-S02",
+          "15:UP-S03",
+          "16:SC-S01",
+          "16:SC-S02",
+          "16:SC-S03"
+        ],
+        "rollback_lost_feature": [
+          "14:QF-R01",
+          "14:QP-R02",
+          "14:QP-R04",
+          "14:QP-X02",
+          "15:UC-R01",
+          "15:UF-R01",
+          "15:UP-R01",
+          "16:SC-R01",
+          "16:SF-R01"
+        ],
+        "footprint_only": [
+          "14:QP-P04",
+          "16:SF-D01"
+        ]
+      }
+    }
+  },
   "completion": {
     "outcome_study14": {
       "AAF_qwen_cases": 40,

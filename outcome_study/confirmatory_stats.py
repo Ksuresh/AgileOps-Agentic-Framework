@@ -138,6 +138,32 @@ def timeline():
                                                     cwd=ROOT, capture_output=True, text=True).stdout.strip()}
 
 
+def o2_misses(full, deciders=("AAF-14-GPT", "AAF", "B1-14")):
+    """Descriptive (added after the studies): why O1-correct decisions fail O2. Every O1-correct action leaves the
+    minimum number of violations, so a miss is one of: (a) the action removed a security or reliability violation and
+    left a cost violation, while the O2 action is cheaper but leaves the security or reliability violation; (b) same
+    violations, but the action removed the feature (rollback) where an O2 action kept it; (c) the rest: resource footprint only."""
+    tables = {st: load(st)[1] for st in STUDIES}
+    out = {}
+    for who in deciders:
+        cat = defaultdict(list)
+        for r in full:
+            if who not in r["correct_O2"] or r["correct_O2"][who] or not r["correct"][who]:
+                continue
+            acts = tables[r["study"]][r["case"]]["actions"]
+            a, b = STATE_OF.get(r["action"][who]), tables[r["study"]][r["case"]]["O2"][0]
+            va, vb = acts[a]["violations"], acts[b]["violations"]
+            if (va["security"] < vb["security"]) or (va["reliability"] < vb["reliability"]):
+                k = "kept_security_or_reliability"
+            elif not acts[a]["delivered"] and acts[b]["delivered"]:
+                k = "rollback_lost_feature"
+            else:
+                k = "footprint_only"
+            cat[k].append(f"{r['study'][-2:]}:{r['case']}")
+        out[who] = {"n": sum(map(len, cat.values())), **{k: len(v) for k, v in cat.items()}, "cases": dict(cat)}
+    return out
+
+
 def main() -> None:
     data = gather()
     res = {"timeline": timeline(), "per_study": {}, "pooled": {}}
@@ -187,6 +213,7 @@ def main() -> None:
         rep[st] = {"cases_two_replicates": len(both), "O1_identical": len(same), "differing": sorted(set(both) - set(same)),
                    "faults_rules_correct_in_each_replicate_separately": f"{rules_ok_each}/{len(fb)}"}
     res["replicates"] = rep
+    res["O2_misses"] = o2_misses(full)
     allc = [r for r in data.values() if not r["case"].endswith("-W")]
     res["completion"] = {st: {"AAF_qwen_cases": sum(1 for r in allc if r["study"] == st and "AAF" in r["action"]),
                               "B5_qwen_cases": sum(1 for r in allc if r["study"] == st and "B5" in r["action"]),
