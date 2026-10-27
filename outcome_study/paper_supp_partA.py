@@ -215,7 +215,7 @@ def part_c(cs) -> str:
     L += [r"\subsection*{C.5 Low-risk releases where AAF was not $O_2$-optimal}",
           r"Descriptive analysis added after the studies (AAF, GPT-5.6 Luna investigator; identical with Qwen3-8B and with the rules alone). In each case doing nothing "
           r"left no violation and the feature stayed delivered; AAF's action also left none but used more resources. Material domain under the fixed v1.4 thresholds "
-          r"(p95 $\geq 450$~ms, CPU saturation $\geq 92\%$, CPU-request increase). Scale is implemented as pre-registered: replicas $=\lceil r\,u/0.6\rceil$, "
+          r"(p95 $\geq 450$~ms, CPU saturation $\geq 85\%$, CPU-request increase). Scale is implemented as pre-registered: replicas $=\lceil r\,u/0.6\rceil$, "
           r"bounded to 1--6, where $u$ is utilisation of the CPU request. The same scale recommendation was $O_2$-optimal in "
           + ", ".join(lm["scale_chosen_O2_ok"]) + ", where it removed replicas.",
           r"\begin{table}[H]", r"\caption{\label{tab:supp-lowrisk}Low-risk cases where AAF was not $O_2$-optimal}", r"\centering\footnotesize\setlength\tabcolsep{3pt}",
