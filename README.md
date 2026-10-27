@@ -12,9 +12,10 @@ AAF is a **hybrid deterministic + selectively Agentic AI decision-support framew
 
 ## Reviewer quick links
 
-- **Revision studies (outcome-measured Studies 9-14, model replication 10/10b, failure containment 11/11b): how to reproduce every number:** [`REPRODUCE_REVISION_STUDIES.md`](REPRODUCE_REVISION_STUDIES.md)
+- **Every claim of the revised paper -> study, data and command:** [`PAPER_EVIDENCE.md`](PAPER_EVIDENCE.md)
+- **Revision studies (outcome-measured Studies 9-16, GPT-5.6 Luna deciders, model replication 10/10b, failure containment 11/11b): how to reproduce every number:** [`REPRODUCE_REVISION_STUDIES.md`](REPRODUCE_REVISION_STUDIES.md)
 - **Models, digests, tool and benchmark versions:** [`MODELS_AND_VERSIONS.md`](MODELS_AND_VERSIONS.md)
-- **Protocols (committed before each study ran):** [`outcome_study/PROTOCOL.md`](outcome_study/PROTOCOL.md), [`outcome_study12/PROTOCOL.md`](outcome_study12/PROTOCOL.md), [`outcome_study13/PROTOCOL.md`](outcome_study13/PROTOCOL.md), [`outcome_study14/PROTOCOL.md`](outcome_study14/PROTOCOL.md), [`model_replication/PROTOCOL.md`](model_replication/PROTOCOL.md), [`model_replication/PROTOCOL_10b.md`](model_replication/PROTOCOL_10b.md), [`containment_study/README.md`](containment_study/README.md), [`containment_study/PROTOCOL_11b.md`](containment_study/PROTOCOL_11b.md)
+- **Protocols (committed before each study ran):** [`outcome_study/PROTOCOL.md`](outcome_study/PROTOCOL.md), [`outcome_study12/PROTOCOL.md`](outcome_study12/PROTOCOL.md), [`outcome_study13/PROTOCOL.md`](outcome_study13/PROTOCOL.md), [`outcome_study14/PROTOCOL.md`](outcome_study14/PROTOCOL.md), [`outcome_study15/PROTOCOL.md`](outcome_study15/PROTOCOL.md), [`outcome_study16/PROTOCOL.md`](outcome_study16/PROTOCOL.md), [`outcome_study/PROTOCOL_GPT.md`](outcome_study/PROTOCOL_GPT.md), [`model_replication/PROTOCOL.md`](model_replication/PROTOCOL.md), [`model_replication/PROTOCOL_10b.md`](model_replication/PROTOCOL_10b.md), [`containment_study/README.md`](containment_study/README.md), [`containment_study/PROTOCOL_11b.md`](containment_study/PROTOCOL_11b.md)
 - **Governance rule sets:** v1.0 (`agentic_experiments/hybrid.py`, `orchestrator/`), v1.2 [`agentic_experiments/rules_v12.py`](agentic_experiments/rules_v12.py), v1.4 [`agentic_experiments/rules_v14.py`](agentic_experiments/rules_v14.py)
 - **Reproduce the current paper:** [`REPRODUCE_CURRENT_PAPER.md`](REPRODUCE_CURRENT_PAPER.md)
 - **Reviewer-facing study/results index:** [`paper_results/README.md`](paper_results/README.md)
