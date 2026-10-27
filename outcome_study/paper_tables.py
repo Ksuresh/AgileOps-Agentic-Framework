@@ -16,21 +16,21 @@ ROWS = [  # key in confirmatory_stats, label, group
     ("AAF-14-GPT", "AAF, GPT-5.6 Luna investigator", 0),
     ("AAF", "AAF, Qwen3-8B investigator", 0),
     ("B1-14", "AAF rules alone (no investigation)", 0),
-    ("B6-GPT", "GPT-5.6 Luna decides, AAF's rules in prompt (B6)", 1),
-    ("B5-GPT", "GPT-5.6 Luna decides (B5)", 1),
-    ("B6", "Qwen3-8B decides, AAF's rules in prompt (B6)", 1),
-    ("B5", "Qwen3-8B decides (B5)", 1),
+    ("B6-GPT", "GPT-5.6 Luna, AAF's rules in prompt (B6)", 1),
+    ("B5-GPT", "GPT-5.6 Luna (B5)", 1),
+    ("B6", "Qwen3-8B, AAF's rules in prompt (B6)", 1),
+    ("B5", "Qwen3-8B (B5)", 1),
     ("AlwaysRollback", "Always roll back", 2),
     ("Dominant", "Act on most severe domain", 2),
     ("BlockAnyCVE", "Block on any vulnerability", 2),
-    ("S:D-Sec", "Security expert (rules)", 3),
-    ("S:D-DevOps", "DevOps expert (rules)", 3),
-    ("S:D-FinOps", "FinOps expert (rules)", 3),
-    ("S:D-SRE", "SRE expert (rules)", 3),
-    ("S:L-Sec", "Security expert (LLM)", 3),
-    ("S:L-DevOps", "DevOps expert (LLM)", 3),
-    ("S:L-SRE", "SRE expert (LLM)", 3),
-    ("S:L-FinOps", "FinOps expert (LLM)", 3),
+    ("S:D-Sec", "Security expert", 3),
+    ("S:D-DevOps", "DevOps expert", 3),
+    ("S:D-FinOps", "FinOps expert", 3),
+    ("S:D-SRE", "SRE expert", 3),
+    ("S:L-Sec", "Security expert", 4),
+    ("S:L-DevOps", "DevOps expert", 4),
+    ("S:L-SRE", "SRE expert", 4),
+    ("S:L-FinOps", "FinOps expert", 4),
 ]
 
 
@@ -60,32 +60,46 @@ def main() -> None:
     nf = {s: per[s]["n_faults"] for s in S}
     tests = {**P["H1_case_level"], **P["H2_case_level"]}
 
-    # Table: confirmatory results
-    L = [r"\begin{table*}[!t]", r"\caption{Confirmatory Outcome Studies: Outcome-Correct Actions on Fresh Fault Cases ($O_1$)}",
-         r"\label{tab:confirm}", r"\centering\footnotesize",
-         r"\begin{tabular}{L{4.3cm}L{1.05cm}L{1.05cm}L{1.05cm}L{1.1cm}L{1.1cm}L{1.5cm}L{1.5cm}L{1.4cm}}", r"\toprule",
-         r"\textbf{Decider} & \textbf{S14 (OB, 2 svc)} & \textbf{S15 (OB, 3 svc)} & \textbf{S16 (Sock Shop)} & \textbf{Pooled} & \textbf{Pooled, strict ($O_2$)} & "
-         r"\textbf{Cases: AAF only / other only} & \textbf{$p_{\text{Holm}}$ (cases)} & \textbf{Families: AAF / other better} \\", r"\midrule"]
-    last = 0
+    # Table: confirmatory results. Column headers carry n; a cell shows k, or k/n if its n differs.
+    GROUPS = {0: "AAF", 1: "LLM decides from the same evidence", 2: "Fixed policies", 3: "Single-domain experts, AAF's rules on one domain", 4: "Single-domain experts, LLM"}
+    def kc(v, full):
+        if not v:
+            return "--"
+        k, n = v.split("/")
+        return k if int(n) == full else f"{k}/{n}$^\\dagger$"
+    C = lambda w: r">{\centering\arraybackslash}p{" + w + "}"
+    sn = {"outcome_study14": "S14", "outcome_study15": "S15", "outcome_study16": "S16"}
+    sd = {"outcome_study14": "OB", "outcome_study15": "OB", "outcome_study16": "Sock Shop"}
+    L = [r"\begin{table*}[!t]", r"\caption{Confirmatory Studies 14--16: Outcome-Correct Actions on Fresh Fault Cases Under $O_1$ and $O_2$}",
+         r"\label{tab:confirm}", r"\centering\footnotesize\setlength\tabcolsep{4pt}",
+         r"\begin{tabular}{L{5.5cm}" + C("1.25cm") * 4 + C("1.25cm") + C("1.5cm") + C("1.45cm") + C("1.5cm") + "}", r"\toprule",
+         r" & \multicolumn{4}{c}{\textbf{Outcome-correct, $O_1$}} & \textbf{$O_2$} & \multicolumn{3}{c}{\textbf{AAF vs.\ this decider ($O_1$, pooled)}} \\",
+         r"\cmidrule(lr){2-5}\cmidrule(lr){6-6}\cmidrule(lr){7-9}",
+         r"\textbf{Decider} & " + " & ".join(rf"\textbf{{{sn[x]}}}\newline {sd[x]}\newline $n{{=}}{nf[x]}$" for x in S)
+         + rf" & \textbf{{Pooled}}\newline all\newline $n{{=}}{P['n_faults']}$ & \textbf{{Pooled}}\newline all\newline $n{{=}}{P['n_faults']}$"
+         + r" & \textbf{Cases}\newline AAF / other only & \textbf{$p_{\text{Holm}}$}\newline (cases) & \textbf{Families}\newline AAF / other better \\"]
+    last = None
     for key, lab, grp in ROWS:
         if key not in P["O1"]:
             continue
         if grp != last:
-            L.append(r"\midrule"); last = grp
-        cells = [kn(per[s]["O1"].get(key), nf[s]) for s in S] + [kn(P["O1"].get(key), P["n_faults"]), kn(P["O2"].get(key), P["n_faults"])]
+            L += [r"\midrule", rf"\multicolumn{{9}}{{l}}{{\textit{{{GROUPS[grp]}}}}} \\"]; last = grp
+        cells = [kc(per[s]["O1"].get(key), nf[s]) for s in S] + [kc(P["O1"].get(key), P["n_faults"]), kc(P["O2"].get(key), P["n_faults"])]
         t = tests.get(key)
         fam = P["family_level"].get(key)
         cells += [f"{t['a_only']} / {t['b_only']}" if t else "--", p_fmt(t.get("p_holm", t["p_exact"])) if t else "--",
                   f"{fam['families_a_better']} / {fam['families_b_better']}" if fam and key != "AAF" else "--"]
-        L.append(lab + " & " + " & ".join(cells) + r" \\")
+        L.append(r"\quad " + lab + " & " + " & ".join(cells) + r" \\")
     L += [r"\bottomrule", r"\end{tabular}",
-          r"\par\vspace{2pt}\raggedright\scriptsize OB: Online Boutique. Pooled tests: exact McNemar on cases, Holm-adjusted within "
-          r"the pre-specified families (single-domain experts; Qwen3-8B deciders and always-rollback; GPT-5.6 Luna deciders); family-level: cases of the same design on "
-          r"different services of one study (" + str(P["n_families"]) + r" families), sign test in the text. Single-domain rule experts use AAF's own "
-          r"rules on one domain (v1.4 in Studies 15--16; v1.0 in Study 14 as pre-specified). Qwen3-8B: majority of three runs; GPT-5.6 Luna: one run. "
-          r"Comparisons use AAF with the pre-specified Qwen3-8B investigator; AAF's action with the GPT-5.6 Luna "
-          r"investigator and with the rules alone was identical on every case. "
-          r"$O_2$: among the $O_1$-correct actions, those that keep the feature delivered and then use the least resources." + (r" $^\dagger$Fewer cases than the study has: runs incomplete." if any("dagger" in x for x in L) else ""), r"\end{table*}"]
+          r"\par\vspace{2pt}\raggedright\scriptsize Cells give the number of fault cases with an outcome-correct action. OB: Online Boutique (two services in S14, three in S15). "
+          r"$O_1$: the action leaves the fewest reliability, security and cost violations. $O_2$: among those, the actions that keep the feature delivered and then use the least resources; "
+          r"it is an efficiency preference, not a safety measure: every AAF decision that missed $O_2$ was $O_1$-correct, and most of them removed a security or reliability violation "
+          r"where the $O_2$ action would have left it in place (Section~\ref{sec:res-crossdomain}). "
+          r"Tests: exact McNemar on cases, Holm-adjusted within the pre-specified families (single-domain experts; Qwen3-8B deciders and always-rollback; GPT-5.6 Luna deciders); "
+          r"families: cases of the same design on different services of one study (" + str(P["n_families"]) + r" families), sign test in the text. "
+          r"Rule experts: v1.4 in Studies 15--16, v1.0 in Study 14 as pre-specified. Qwen3-8B: majority of three runs; GPT-5.6 Luna: one run. "
+          r"Comparisons use AAF with the pre-specified Qwen3-8B investigator; its action with the GPT-5.6 Luna investigator and with the rules alone was identical on every case."
+          + (r" $^\dagger$Fewer cases than the column's $n$." if any("dagger" in x for x in L) else ""), r"\end{table*}"]
     (OUT / "tab_confirm.tex").write_text("\n".join(L) + "\n")
 
     # Table: could the benchmark favour AAF by construction?
