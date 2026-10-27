@@ -167,7 +167,7 @@ def o2_misses(full, deciders=("AAF-14-GPT", "AAF", "B1-14")):
 def low_risk_misses(low, who="AAF-14-GPT"):
     """Descriptive (added after the studies): low-risk cases where the decider's action is O1-correct but not O2-optimal,
     with the action, the footprint of doing nothing and of the action, and the evidence that made a domain material
-    (fixed v1.4 materiality thresholds: p95 >= 450 ms, saturation >= 92%, cost/CPU-request increase)."""
+    (fixed v1.4 materiality thresholds: p95 >= 450 ms, saturation >= 85%, cost/CPU-request increase)."""
     out = {"misses": [], "scale_chosen_O2_ok": []}
     for r in sorted(low, key=lambda r: (r["study"], r["case"])):
         a = STATE_OF.get(r["action"].get(who))

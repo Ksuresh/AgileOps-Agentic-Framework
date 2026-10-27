@@ -659,7 +659,7 @@ Fault cases 104; families 45; discriminating 98; one correct action 46.
 
 \subsection*{C.5 Low-risk releases where AAF was not $O_2$-optimal}
 
-Descriptive analysis added after the studies (AAF, GPT-5.6 Luna investigator; identical with Qwen3-8B and with the rules alone). In each case doing nothing left no violation and the feature stayed delivered; AAF's action also left none but used more resources. Material domain under the fixed v1.4 thresholds (p95 $\geq 450$~ms, CPU saturation $\geq 92\%$, CPU-request increase). Scale is implemented as pre-registered: replicas $=\lceil r\,u/0.6\rceil$, bounded to 1--6, where $u$ is utilisation of the CPU request. The same scale recommendation was $O_2$-optimal in 14:QP-L02, 15:UP-L04, 16:SC-L04, where it removed replicas.
+Descriptive analysis added after the studies (AAF, GPT-5.6 Luna investigator; identical with Qwen3-8B and with the rules alone). In each case doing nothing left no violation and the feature stayed delivered; AAF's action also left none but used more resources. Material domain under the fixed v1.4 thresholds (p95 $\geq 450$~ms, CPU saturation $\geq 85\%$, CPU-request increase). Scale is implemented as pre-registered: replicas $=\lceil r\,u/0.6\rceil$, bounded to 1--6, where $u$ is utilisation of the CPU request. The same scale recommendation was $O_2$-optimal in 14:QP-L02, 15:UP-L04, 16:SC-L04, where it removed replicas.
 
 \begin{table}[H]
 
