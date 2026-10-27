@@ -164,6 +164,30 @@ def o2_misses(full, deciders=("AAF-14-GPT", "AAF", "B1-14")):
     return out
 
 
+def low_risk_misses(low, who="AAF-14-GPT"):
+    """Descriptive (added after the studies): low-risk cases where the decider's action is O1-correct but not O2-optimal,
+    with the action, the footprint of doing nothing and of the action, and the evidence that made a domain material
+    (fixed v1.4 materiality thresholds: p95 >= 450 ms, saturation >= 92%, cost/CPU-request increase)."""
+    out = {"misses": [], "scale_chosen_O2_ok": []}
+    for r in sorted(low, key=lambda r: (r["study"], r["case"])):
+        a = STATE_OF.get(r["action"].get(who))
+        if a is None:
+            continue
+        t = load(r["study"])[1][r["case"]]
+        if r["correct_O2"].get(who):
+            if a == "scale":
+                out["scale_chosen_O2_ok"].append(f"{r['study'][-2:]}:{r['case']}")
+            continue
+        ev = VARIANTS[r["study"]][r["case"]]["evidence"]
+        out["misses"].append({"case": f"{r['study'][-2:]}:{r['case']}", "action": a,
+                              "footprint_none": t["actions"]["none"]["footprint"], "footprint_action": t["actions"][a]["footprint"],
+                              "p95_ms": round(ev["sre"]["p95_latency_ms"]), "saturation_pct": ev["sre"].get("saturation_pct"),
+                              "cost_spike_pct": ev["finops"].get("cost_spike_pct")})
+    out["n_mitigate"] = sum(m["action"] == "mitigate" for m in out["misses"])
+    out["n_scale_up"] = sum(m["action"] == "scale" and m["footprint_action"] > m["footprint_none"] for m in out["misses"])
+    return out
+
+
 def main() -> None:
     data = gather()
     res = {"timeline": timeline(), "per_study": {}, "pooled": {}}
@@ -214,6 +238,7 @@ def main() -> None:
                    "faults_rules_correct_in_each_replicate_separately": f"{rules_ok_each}/{len(fb)}"}
     res["replicates"] = rep
     res["O2_misses"] = o2_misses(full)
+    res["low_risk_O2_misses"] = low_risk_misses(low)
     allc = [r for r in data.values() if not r["case"].endswith("-W")]
     res["completion"] = {st: {"AAF_qwen_cases": sum(1 for r in allc if r["study"] == st and "AAF" in r["action"]),
                               "B5_qwen_cases": sum(1 for r in allc if r["study"] == st and "B5" in r["action"]),

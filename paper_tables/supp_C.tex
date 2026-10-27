@@ -657,4 +657,42 @@ Fault cases 104; families 45; discriminating 98; one correct action 46.
 
 \textit{Low-risk releases} (24), release continued: AAF (Qwen investigator) 24/24; AAF (GPT investigator) 24/24; Qwen3-8B (B5) 24/24; Qwen3-8B + rules (B6) 24/24; GPT-5.6 Luna (B5) 24/24; GPT-5.6 Luna + rules (B6) 24/24; Always roll back 0/24; Block on any vulnerability 24/24; Always no action 24/24.
 
+\subsection*{C.5 Low-risk releases where AAF was not $O_2$-optimal}
+
+Descriptive analysis added after the studies (AAF, GPT-5.6 Luna investigator; identical with Qwen3-8B and with the rules alone). In each case doing nothing left no violation and the feature stayed delivered; AAF's action also left none but used more resources. Material domain under the fixed v1.4 thresholds (p95 $\geq 450$~ms, CPU saturation $\geq 92\%$, CPU-request increase). Scale is implemented as pre-registered: replicas $=\lceil r\,u/0.6\rceil$, bounded to 1--6, where $u$ is utilisation of the CPU request. The same scale recommendation was $O_2$-optimal in 14:QP-L02, 15:UP-L04, 16:SC-L04, where it removed replicas.
+
+\begin{table}[H]
+
+\caption{\label{tab:supp-lowrisk}Low-risk cases where AAF was not $O_2$-optimal}
+
+\centering\footnotesize\setlength\tabcolsep{3pt}
+
+\begin{tabular}{llcccl}
+
+\toprule
+
+\textbf{Case} & \textbf{AAF} & \textbf{p95 (ms)} & \textbf{Sat. (\%)} & \textbf{CPU} & \textbf{Footprint} \\
+
+ & & & & \textbf{req.} & \textbf{none $\rightarrow$ AAF} \\
+
+\midrule
+
+14:QF-L02 & scale & 704 & 41 & +100\% & 200 $\rightarrow$ 300 \\
+
+15:UC-L03 & mitigate & 566 & 29 & +0\% & 100 $\rightarrow$ 200 \\
+
+15:UC-L04 & scale & 792 & 30 & +100\% & 200 $\rightarrow$ 350 \\
+
+15:UF-L04 & scale & 489 & 43 & +100\% & 200 $\rightarrow$ 300 \\
+
+16:SF-L01 & mitigate & 296 & 100 & +0\% & 100 $\rightarrow$ 200 \\
+
+16:SF-L04 & scale & 188 & 76 & +100\% & 200 $\rightarrow$ 550 \\
+
+\bottomrule
+
+\end{tabular}
+
+\end{table}
+
 \twocolumn

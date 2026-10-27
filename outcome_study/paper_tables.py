@@ -171,6 +171,11 @@ def main() -> None:
     num["OtwoMissSafer"] = om.get("kept_security_or_reliability", 0)
     num["OtwoMissRollback"] = om.get("rollback_lost_feature", 0)
     num["OtwoMissFoot"] = om.get("footprint_only", 0)
+    lm = cs["low_risk_O2_misses"]
+    num["LowMissN"] = len(lm["misses"])
+    num["LowMissMitigate"] = lm["n_mitigate"]
+    num["LowMissScaleUp"] = lm["n_scale_up"]
+    num["LowScaleOK"] = len(lm["scale_chosen_O2_ok"])
     h3 = P["H3_low_risk"]
     num["LowContinuedAAFGPT"] = h3["release_continued"].get("AAF-14-GPT", "--")
     num["LowOtwoAAFGPT"] = f"{h3['O2'].get('AAF-14-GPT', {}).get('k', '--')}/{h3['O2'].get('AAF-14-GPT', {}).get('n', '--')}"

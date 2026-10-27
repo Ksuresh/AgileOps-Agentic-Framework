@@ -3679,6 +3679,71 @@
       }
     }
   },
+  "low_risk_O2_misses": {
+    "misses": [
+      {
+        "case": "14:QF-L02",
+        "action": "scale",
+        "footprint_none": 200.0,
+        "footprint_action": 300.0,
+        "p95_ms": 704,
+        "saturation_pct": 41.08333333333334,
+        "cost_spike_pct": 100.0
+      },
+      {
+        "case": "15:UC-L03",
+        "action": "mitigate",
+        "footprint_none": 100.0,
+        "footprint_action": 200.0,
+        "p95_ms": 566,
+        "saturation_pct": 29.0,
+        "cost_spike_pct": 0.0
+      },
+      {
+        "case": "15:UC-L04",
+        "action": "scale",
+        "footprint_none": 200.0,
+        "footprint_action": 350.0,
+        "p95_ms": 792,
+        "saturation_pct": 30.16666666666667,
+        "cost_spike_pct": 100.0
+      },
+      {
+        "case": "15:UF-L04",
+        "action": "scale",
+        "footprint_none": 200.0,
+        "footprint_action": 300.0,
+        "p95_ms": 489,
+        "saturation_pct": 43.25,
+        "cost_spike_pct": 100.0
+      },
+      {
+        "case": "16:SF-L01",
+        "action": "mitigate",
+        "footprint_none": 100.0,
+        "footprint_action": 200.0,
+        "p95_ms": 296,
+        "saturation_pct": 99.5,
+        "cost_spike_pct": 0.0
+      },
+      {
+        "case": "16:SF-L04",
+        "action": "scale",
+        "footprint_none": 200.0,
+        "footprint_action": 550.0,
+        "p95_ms": 188,
+        "saturation_pct": 75.75,
+        "cost_spike_pct": 100.0
+      }
+    ],
+    "scale_chosen_O2_ok": [
+      "14:QP-L02",
+      "15:UP-L04",
+      "16:SC-L04"
+    ],
+    "n_mitigate": 2,
+    "n_scale_up": 4
+  },
   "completion": {
     "outcome_study14": {
       "AAF_qwen_cases": 40,

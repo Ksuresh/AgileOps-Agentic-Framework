@@ -211,6 +211,21 @@ def part_c(cs) -> str:
         w, h3 = P["withheld"], P["H3_low_risk"]
         L.append(rf"\textit{{Withheld-evidence variants}} ({w['n']}): " + "; ".join(f"{esc(LABEL.get(k, k))} {v}" for k, v in w["O1"].items() if k in LABEL) + ".")
         L.append(rf"\textit{{Low-risk releases}} ({h3['n']}), release continued: " + "; ".join(f"{esc(LABEL.get(k, k))} {v}" for k, v in h3["release_continued"].items()) + ".")
+    lm = cs["low_risk_O2_misses"]
+    L += [r"\subsection*{C.5 Low-risk releases where AAF was not $O_2$-optimal}",
+          r"Descriptive analysis added after the studies (AAF, GPT-5.6 Luna investigator; identical with Qwen3-8B and with the rules alone). In each case doing nothing "
+          r"left no violation and the feature stayed delivered; AAF's action also left none but used more resources. Material domain under the fixed v1.4 thresholds "
+          r"(p95 $\geq 450$~ms, CPU saturation $\geq 92\%$, CPU-request increase). Scale is implemented as pre-registered: replicas $=\lceil r\,u/0.6\rceil$, "
+          r"bounded to 1--6, where $u$ is utilisation of the CPU request. The same scale recommendation was $O_2$-optimal in "
+          + ", ".join(lm["scale_chosen_O2_ok"]) + ", where it removed replicas.",
+          r"\begin{table}[H]", r"\caption{\label{tab:supp-lowrisk}Low-risk cases where AAF was not $O_2$-optimal}", r"\centering\footnotesize\setlength\tabcolsep{3pt}",
+          r"\begin{tabular}{llcccl}", r"\toprule",
+          r"\textbf{Case} & \textbf{AAF} & \textbf{p95 (ms)} & \textbf{Sat. (\%)} & \textbf{CPU} & \textbf{Footprint} \\",
+          r" & & & & \textbf{req.} & \textbf{none $\rightarrow$ AAF} \\", r"\midrule"]
+    for m in lm["misses"]:
+        L.append(f"{m['case']} & {m['action']} & {m['p95_ms']} & {m['saturation_pct']:.0f} & +{m['cost_spike_pct']:.0f}\\% & "
+                 f"{m['footprint_none']:.0f} $\\rightarrow$ {m['footprint_action']:.0f}" + r" \\")
+    L += [r"\bottomrule", r"\end{tabular}", r"\end{table}"]
     return "\n\n".join(L) + "\n"
 
 
