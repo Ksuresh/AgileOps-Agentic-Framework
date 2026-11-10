@@ -16,13 +16,18 @@ ROWS = [  # key in confirmatory_stats, label, group
     ("AAF-14-GPT", "AAF, GPT-5.6 Luna investigator", 0),
     ("AAF", "AAF, Qwen3-8B investigator", 0),
     ("B1-14", "AAF rules alone (no investigation)", 0),
-    ("B6-GPT", "GPT-5.6 Luna, AAF's rules in prompt (B6)", 1),
+    ("B6-14E-GPT", "GPT-5.6 Luna, v1.4 rules + evidence (B6-14E)", 1),
+    ("B6-14-GPT", "GPT-5.6 Luna, v1.4 rules in prompt (B6-14)", 1),
+    ("B6-GPT", "GPT-5.6 Luna, v1.0 rules in prompt (B6)", 1),
     ("B5-GPT", "GPT-5.6 Luna (B5)", 1),
-    ("B6", "Qwen3-8B, AAF's rules in prompt (B6)", 1),
+    ("B6-14E", "Qwen3-8B, v1.4 rules + evidence (B6-14E)", 1),
+    ("B6-14", "Qwen3-8B, v1.4 rules in prompt (B6-14)", 1),
+    ("B6", "Qwen3-8B, v1.0 rules in prompt (B6)", 1),
     ("B5", "Qwen3-8B (B5)", 1),
     ("AlwaysRollback", "Always roll back", 2),
     ("Dominant", "Act on most severe domain", 2),
-    ("BlockAnyCVE", "Block on any vulnerability", 2),
+    ("BlockAnyVuln", "Block on any vulnerability$^\\ddagger$", 2),
+    ("BlockAnyCVE", "Patch on any vulnerability", 2),
     ("S:D-Sec", "Security expert", 3),
     ("S:D-DevOps", "DevOps expert", 3),
     ("S:D-FinOps", "FinOps expert", 3),
@@ -58,7 +63,7 @@ def main() -> None:
     sc = json.loads((ROOT / "outcome_study/sensitivity_confirm.json").read_text())
     P, per = cs["pooled"], cs["per_study"]
     nf = {s: per[s]["n_faults"] for s in S}
-    tests = {**P["H1_case_level"], **P["H2_case_level"]}
+    tests = {**P["H1_case_level"], **P["H2_case_level"], **P.get("H2b_case_level", {})}
 
     # Table: confirmatory results. Column headers carry n; a cell shows k, or k/n if its n differs.
     GROUPS = {0: "AAF", 1: "LLM decides from the same evidence", 2: "Fixed policies", 3: "Single-domain experts, AAF's rules on one domain", 4: "Single-domain experts, LLM"}
@@ -98,12 +103,14 @@ def main() -> None:
           r"Tests: exact McNemar on cases, Holm-adjusted within the pre-specified families (single-domain experts; Qwen3-8B deciders and always-rollback; GPT-5.6 Luna deciders); "
           r"families: cases of the same design on different services of one study (" + str(P["n_families"]) + r" families), sign test in the text. "
           r"Rule experts: v1.4 in Studies 15--16, v1.0 in Study 14 as pre-specified. Qwen3-8B: majority of three runs; GPT-5.6 Luna: one run. "
-          r"Comparisons use AAF with the pre-specified Qwen3-8B investigator; its action with the GPT-5.6 Luna investigator and with the rules alone was identical on every case."
+          r"Comparisons use AAF with the pre-specified Qwen3-8B investigator; its action with the GPT-5.6 Luna investigator and with the rules alone was identical on every case. "
+          r"B6 gave the LLM coordinator AAF's v1.0 rules; B6-14 the full v1.4 rules (with R1 and R2), and B6-14E also the raw evidence AAF's rules read (tests: Holm within each model). "
+          r"$^\ddagger$Computed after the studies: blocks the release on any finding (scored as rollback); the pre-specified policy recommended ``Patch or block release'', which is scored as patch, and is listed as patch on any vulnerability."
           + (r" $^\dagger$Fewer cases than the column's $n$." if any("dagger" in x for x in L) else ""), r"\end{table*}"]
     (OUT / "tab_confirm.tex").write_text("\n".join(L) + "\n")
 
-    # Table: could the benchmark favour AAF by construction?
-    keys = [("AAF-14-GPT", "AAF, GPT investigator"), ("B1-14", "AAF rules alone"), ("AAF", "AAF, Qwen investigator"), ("B6-GPT", "GPT-5.6 Luna + rules (B6)"), ("B5-GPT", "GPT-5.6 Luna (B5)"), ("B6", "Qwen3-8B + rules (B6)"),
+    # Table: could the benchmark favor AAF by construction?
+    keys = [("AAF-14-GPT", "AAF, GPT investigator"), ("B1-14", "AAF rules alone"), ("AAF", "AAF, Qwen investigator"), ("B6-GPT", "GPT-5.6 Luna + v1.0 rules (B6)"), ("B5-GPT", "GPT-5.6 Luna (B5)"), ("B6", "Qwen3-8B + v1.0 rules (B6)"),
             ("B5", "Qwen3-8B (B5)"), ("AlwaysRollback", "Always roll back"), ("Dominant", "Act on most severe domain"), ("S:D-Sec", "Security expert (rules)")]
     L = [r"\begin{table}[!t]", r"\caption{Accuracy on Subsets Where the Choice of Action Matters More (Studies 14--16 Pooled, $O_1$)}",
          r"\label{tab:construct}", r"\centering\footnotesize", r"\begin{tabular}{L{2.45cm}L{1.2cm}L{1.55cm}L{1.55cm}}", r"\toprule",
@@ -140,7 +147,8 @@ def main() -> None:
         "UniqueRules": k_of(P["O1_unique_answer"].get("B1-14")), "UniqueAAFGPT": k_of(P["O1_unique_answer"].get("AAF-14-GPT")),
         "QwenDone": sum(v["AAF_qwen_cases"] for v in cs["completion"].values()), "AllCases": sum(v["all_cases"] for v in cs["completion"].values()),
         "BSixGPT": k_of(P["O1"].get("B6-GPT")), "BFiveGPT": k_of(P["O1"].get("B5-GPT")), "BSixQwen": k_of(P["O1"].get("B6")), "BFiveQwen": k_of(P["O1"].get("B5")),
-        "Rollback": k_of(P["O1"].get("AlwaysRollback")), "DominantPooled": k_of(P["O1"].get("Dominant")), "SecExpert": k_of(P["O1"].get("S:D-Sec")),
+        "Rollback": k_of(P["O1"].get("AlwaysRollback")), "DominantPooled": k_of(P["O1"].get("Dominant")), "SecExpert": k_of(P["O1"].get("S:D-Sec")), "SecExpertLLM": k_of(P["O1"].get("S:L-Sec")),
+        "BlockVuln": k_of(P["O1"].get("BlockAnyVuln")), "PatchVuln": k_of(P["O1"].get("BlockAnyCVE")),
         "RulesSFifteen": k_of(per["outcome_study15"]["O1"].get("B1-14")), "RulesSSixteen": k_of(per["outcome_study16"]["O1"].get("B1-14")),
 "UniqueBSixGPT": k_of(P["O1_unique_answer"].get("B6-GPT")),
         "UniqueBFiveGPT": k_of(P["O1_unique_answer"].get("B5-GPT")), "UniqueDominant": k_of(P["O1_unique_answer"].get("Dominant")),
@@ -166,6 +174,20 @@ def main() -> None:
     oc = P["O2_case_level"]
     num["OtwoPBSixGPT"] = p_fmt(oc["B6-GPT"].get("p_holm", oc["B6-GPT"]["p_exact"]))
     num["OtwoDiscBSixGPT"] = f"{oc['B6-GPT']['a_only']} vs.\\ {oc['B6-GPT']['b_only']}"
+    cf = cs["family_level_cross_study"]
+    for g, m in (("designs_15_16", "FamX"), ("designs_all", "FamAll")):
+        fam = {k: v for k, v in cf[g].items() if k != "n_families"}
+        num[m + "N"] = cf[g]["n_families"]
+        num[m + "MinWins"] = min(v["families_a_better"] for v in fam.values())
+        num[m + "MaxLosses"] = max(v["families_b_better"] for v in fam.values())
+        num[m + "MaxP"] = p_fmt(max(v["sign_test_p"] for v in fam.values()))
+        worst = max(fam, key=lambda k: fam[k]["sign_test_p"])
+        num[m + "Worst"] = {"AlwaysRollback": "always rolling back", "Dominant": "the most-severe-domain policy"}.get(worst, worst)
+        num[m + "Rollback"] = f"{fam['AlwaysRollback']['families_a_better']} / {fam['AlwaysRollback']['families_b_better']}"
+        num[m + "RollbackP"] = p_fmt(fam["AlwaysRollback"]["sign_test_p"])
+    lr = P["H3_low_risk"]["release_continued"]
+    num["LowContinuedBlock"] = lr.get("BlockAnyVuln", "--")
+    num["LowContinuedPatch"] = lr.get("BlockAnyCVE", "--")
     om = cs["O2_misses"]["AAF-14-GPT"]
     num["OtwoMissN"] = om["n"]
     num["OtwoMissSafer"] = om.get("kept_security_or_reliability", 0)

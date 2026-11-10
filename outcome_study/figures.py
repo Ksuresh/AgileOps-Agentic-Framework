@@ -29,13 +29,18 @@ SHOW = [
     ("AAF-14-GPT", "AAF, GPT-5.6 Luna investigator", "AAF"),
     ("AAF-14", "AAF, Qwen3-8B investigator", "AAF"),
     ("B1-14", "AAF rules alone (no investigation)", "AAF"),
-    ("B6-GPT", "GPT-5.6 Luna decides, with AAF's rules", "LLM decides"),
+    ("B6-14E-GPT", "GPT-5.6 Luna decides, v1.4 rules + evidence", "LLM decides"),
+    ("B6-14-GPT", "GPT-5.6 Luna decides, with v1.4 rules", "LLM decides"),
+    ("B6-GPT", "GPT-5.6 Luna decides, with v1.0 rules", "LLM decides"),
     ("B5-GPT", "GPT-5.6 Luna decides", "LLM decides"),
-    ("B6", "Qwen3-8B decides, with AAF's rules", "LLM decides"),
+    ("B6-14E", "Qwen3-8B decides, v1.4 rules + evidence", "LLM decides"),
+    ("B6-14", "Qwen3-8B decides, with v1.4 rules", "LLM decides"),
+    ("B6", "Qwen3-8B decides, with v1.0 rules", "LLM decides"),
     ("B5", "Qwen3-8B decides", "LLM decides"),
     ("AlwaysRollback", "Always roll back", "Fixed policy"),
     ("Dominant", "Act on most severe domain", "Fixed policy"),
-    ("BlockAnyCVE", "Block on any vulnerability", "Fixed policy"),
+    ("BlockAnyVuln", "Block on any vulnerability", "Fixed policy"),
+    ("BlockAnyCVE", "Patch on any vulnerability", "Fixed policy"),
     ("D-Sec", "Security expert (rules)", "Single domain"),
     ("D-DevOps", "DevOps expert (rules)", "Single domain"),
     ("D-FinOps", "FinOps expert (rules)", "Single domain"),
@@ -53,6 +58,17 @@ def collect():
     rows = {}
     for st in STUDIES:
         A, table, dec, ok, maj, _ = load(st)
+        # deciders added in the second round: B6 with the full v1.4 policy, and the block policy computed post hoc
+        import json
+        for f in sorted((ROOT / st / "decisions_b6v14").glob("*.jsonl")):
+            for line in f.read_text().splitlines():
+                r = json.loads(line)
+                if not r.get("error"):
+                    dec[r["decider"]][r["case"]].append(r["action"])
+        for v in json.loads((ROOT / st / "decisions" / "variants.json").read_text()):
+            sec = v["evidence"].get("sec") or {}
+            anysec = (sec.get("critical_cves") or 0) > 0 or (sec.get("noncritical_cves") or 0) > 0 or bool(sec.get("policy_violation"))
+            dec["BlockAnyVuln"][v["id"]] = ["Block release and fix pipeline" if anysec else "No action (observe)"]
         alias = {}
         for key, _, _ in SHOW:
             src = alias.get(key, key)
@@ -102,9 +118,9 @@ def fig_accuracy(rows, out: Path):
 
 
 def fig_groups(rows, out: Path):
-    keys = [k for k in ("AAF-14-GPT", "B6-GPT", "B5-GPT", "AlwaysRollback", "BlockAnyCVE", "D-Sec", "D-DevOps", "D-SRE", "D-FinOps") if k in rows]
+    keys = [k for k in ("AAF-14-GPT", "B6-14-GPT", "B6-GPT", "B5-GPT", "AlwaysRollback", "BlockAnyCVE", "D-Sec", "D-DevOps", "D-SRE", "D-FinOps") if k in rows]
     labels = {k: lab for k, lab, _ in SHOW}
-    short = {"AAF-14-GPT": "AAF", "B6-GPT": "GPT+rules", "B5-GPT": "GPT", "AlwaysRollback": "Rollback", "BlockAnyCVE": "Block CVE",
+    short = {"AAF-14-GPT": "AAF", "B6-14-GPT": "GPT+v1.4", "B6-GPT": "GPT+v1.0", "B5-GPT": "GPT", "AlwaysRollback": "Rollback", "BlockAnyCVE": "Patch CVE",
              "D-Sec": "Security", "D-DevOps": "DevOps", "D-SRE": "SRE", "D-FinOps": "FinOps"}
     groups = [g for g in "RPSKXD"]
     import numpy as np

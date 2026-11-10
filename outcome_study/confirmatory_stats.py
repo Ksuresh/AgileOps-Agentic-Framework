@@ -33,6 +33,7 @@ STUDIES = ("outcome_study14", "outcome_study15", "outcome_study16")
 FAULT = "RPSKDX"
 SILOED = ["D-DevOps", "D-SRE", "D-FinOps", "D-Sec", "L-DevOps", "L-SRE", "L-FinOps", "L-Sec"]
 LLM = ["B5", "B6", "B5-GPT", "B6-GPT"]
+B6V14 = ["B6-14", "B6-14E", "B6-14-GPT", "B6-14E-GPT"]  # PROTOCOL_B6V14.md
 POLICIES = ["AlwaysRollback", "Dominant", "BlockAnyCVE", "BlockAnyVuln", "AlwaysNone"]
 OTHERS = ["B1-14", "B2-14", "B1", "B1-12", "AAF-14-GPT", "B3", "B3-14", "B3-GPT", "B3-14-GPT"]
 
@@ -60,6 +61,12 @@ def gather():
         # "BlockAnyCVE" outputs "Patch or block release", which the oracle scores as patch, so it never blocked.
         # BlockAnyVuln outputs "Block release and fix pipeline" (scored as rollback) on any critical or HIGH/MEDIUM finding
         # or policy violation, and "No action (observe)" otherwise, from the same committed decider inputs.
+        # B6 with the full v1.4 policy (PROTOCOL_B6V14.md; pre-registered after the studies)
+        for f in sorted((ROOT / st / "decisions_b6v14").glob("*.jsonl")):
+            for line in f.read_text().splitlines():
+                r = json.loads(line)
+                if not r.get("error"):
+                    dec[r["decider"]][r["case"]].append(r["action"])
         for vid, v in VARIANTS[st].items():
             sec = v["evidence"].get("sec") or {}
             anysec = (sec.get("critical_cves") or 0) > 0 or (sec.get("noncritical_cves") or 0) > 0 or bool(sec.get("policy_violation"))
@@ -69,7 +76,7 @@ def gather():
             g = c.split("-")[1][0]
             row = {"study": st, "case": c, "group": g, "family": f"{st}:{c.split('-')[1]}", "O1": table[c]["O1"],
                    "O2": table[c]["O2"], "n_reps": table[c]["n_reps"], "correct": {}, "correct_O2": {}, "action": {}}
-            names = ["AAF-14"] + list(siloed14.values()) + LLM + POLICIES + OTHERS + [d for d in SILOED if d.startswith("D-")]
+            names = ["AAF-14"] + list(siloed14.values()) + LLM + B6V14 + POLICIES + OTHERS + [d for d in SILOED if d.startswith("D-")]
             for d in dict.fromkeys(names):
                 if dec[d].get(c):
                     key = "AAF" if d == "AAF-14" else d
@@ -227,9 +234,11 @@ def main() -> None:
                # pre-specified Holm families: study protocols (Qwen deciders + always-rollback) and PROTOCOL_GPT (two GPT deciders)
                "H2_case_level": {**compare(F, "AAF", [b for b in ("B5", "B6", "AlwaysRollback") if any(b in r["correct"] for r in F)]),
                                  **compare(F, "AAF", [b for b in ("B5-GPT", "B6-GPT") if any(b in r["correct"] for r in F)])},
+               "H2b_case_level": {**compare(F, "AAF", [b for b in ("B6-14", "B6-14E") if any(b in r["correct"] for r in F)]),
+                                  **compare(F, "AAF", [b for b in ("B6-14-GPT", "B6-14E-GPT") if any(b in r["correct"] for r in F)])},
                "H1_discriminating": compare(disc, "AAF", [s for s in sil if all(s in r["correct"] for r in disc)]),
                "H2_unique_answer": compare(uniq, "AAF", [b for b in LLM + ["AlwaysRollback"] if any(b in r["correct"] for r in uniq)], adjust=False),
-               "family_level": {b: family_level(F, "AAF", b) for b in sil + LLM + ["AlwaysRollback", "Dominant"] if any(b in r["correct"] for r in F)}}
+               "family_level": {b: family_level(F, "AAF", b) for b in sil + LLM + B6V14 + ["AlwaysRollback", "Dominant"] if any(b in r["correct"] for r in F)}}
         o2rows = [{"correct": r["correct_O2"]} for r in F]
         out["O2_case_level"] = compare(o2rows, "AAF-14-GPT", [b for b in ("B6-GPT", "B5-GPT", "AlwaysRollback", "Dominant", "S:D-Sec") if all(b in r["correct"] for r in o2rows)])
         L = [r for r in low if sel(r)]
