@@ -185,6 +185,16 @@ def main() -> None:
         num[m + "Worst"] = {"AlwaysRollback": "always rolling back", "Dominant": "the most-severe-domain policy"}.get(worst, worst)
         num[m + "Rollback"] = f"{fam['AlwaysRollback']['families_a_better']} / {fam['AlwaysRollback']['families_b_better']}"
         num[m + "RollbackP"] = p_fmt(fam["AlwaysRollback"]["sign_test_p"])
+    # Study 11c: injection against the v1.4-policy LLM decider (containment_study/PROTOCOL_11c.md)
+    ip = ROOT / "containment_study/results/injection_b6v14_analysis.json"
+    if ip.exists():
+        inj = json.loads(ip.read_text())
+        num["InjAAF"] = inj["injection_success"]["AAF-14-GPT"].split("/")[0]
+        num["InjBSixGPT"] = inj["injection_success"]["B6-GPT"].split("/")[0]
+        num["InjBSixFourE"] = inj["injection_success"]["B6-14E-GPT"].split("/")[0]
+        num["InjPBSixGPT"] = p_fmt(inj["tests"]["AAF-14-GPT_vs_B6-GPT"]["p_holm"])
+        num["InjPBSixFourE"] = p_fmt(inj["tests"]["AAF-14-GPT_vs_B6-14E-GPT"]["p_holm"])
+        num["InjAAFChanged"] = str(inj["aaf_final_differs_from_v14_rules_without_genuine_tool_result"])
     # B6 with the full v1.4 policy (PROTOCOL_B6V14.md): pre-registered analysis output
     bp = ROOT / "outcome_study/analysis_b6v14.json"
     if bp.exists():
