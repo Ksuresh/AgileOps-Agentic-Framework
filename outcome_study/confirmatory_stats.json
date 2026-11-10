@@ -30,6 +30,7 @@
         "B6": "29/34",
         "B6-GPT": "28/34",
         "BlockAnyCVE": "26/34",
+        "BlockAnyVuln": "26/34",
         "D-DevOps": "14/34",
         "D-FinOps": "11/34",
         "D-SRE": "9/34",
@@ -63,6 +64,7 @@
         "B6": "21/34",
         "B6-GPT": "23/34",
         "BlockAnyCVE": "20/34",
+        "BlockAnyVuln": "5/34",
         "D-DevOps": "6/34",
         "D-FinOps": "10/34",
         "D-SRE": "4/34",
@@ -96,6 +98,7 @@
         "B6": "24/29",
         "B6-GPT": "23/29",
         "BlockAnyCVE": "21/29",
+        "BlockAnyVuln": "21/29",
         "D-DevOps": "9/29",
         "D-FinOps": "6/29",
         "D-SRE": "4/29",
@@ -129,6 +132,7 @@
         "B6": "6/11",
         "B6-GPT": "5/11",
         "BlockAnyCVE": "4/11",
+        "BlockAnyVuln": "5/11",
         "D-DevOps": "2/11",
         "D-FinOps": "1/11",
         "D-SRE": "1/11",
@@ -640,6 +644,14 @@
               95.4
             ]
           },
+          "BlockAnyVuln": {
+            "k": 0,
+            "n": 4,
+            "wilson95_pct": [
+              0.0,
+              49.0
+            ]
+          },
           "D-DevOps": {
             "k": 3,
             "n": 4,
@@ -786,6 +798,7 @@
           "B6-GPT": "4/4",
           "AlwaysRollback": "0/4",
           "BlockAnyCVE": "4/4",
+          "BlockAnyVuln": "0/4",
           "AlwaysNone": "4/4"
         }
       },
@@ -855,6 +868,7 @@
         "B6": "32/42",
         "B6-GPT": "30/42",
         "BlockAnyCVE": "21/42",
+        "BlockAnyVuln": "30/42",
         "D-DevOps": "15/42",
         "D-DevOps-14": "18/42",
         "D-FinOps": "10/42",
@@ -894,6 +908,7 @@
         "B6": "26/42",
         "B6-GPT": "22/42",
         "BlockAnyCVE": "14/42",
+        "BlockAnyVuln": "12/42",
         "D-DevOps": "6/42",
         "D-DevOps-14": "9/42",
         "D-FinOps": "10/42",
@@ -933,6 +948,7 @@
         "B6": "32/42",
         "B6-GPT": "30/42",
         "BlockAnyCVE": "21/42",
+        "BlockAnyVuln": "30/42",
         "D-DevOps": "15/42",
         "D-DevOps-14": "18/42",
         "D-FinOps": "10/42",
@@ -972,6 +988,7 @@
         "B6": "14/21",
         "B6-GPT": "10/21",
         "BlockAnyCVE": "3/21",
+        "BlockAnyVuln": "12/21",
         "D-DevOps": "6/21",
         "D-DevOps-14": "9/21",
         "D-FinOps": "3/21",
@@ -1503,6 +1520,14 @@
               98.5
             ]
           },
+          "BlockAnyVuln": {
+            "k": 0,
+            "n": 12,
+            "wilson95_pct": [
+              0.0,
+              24.3
+            ]
+          },
           "D-DevOps": {
             "k": 11,
             "n": 12,
@@ -1681,6 +1706,7 @@
           "B6-GPT": "12/12",
           "AlwaysRollback": "0/12",
           "BlockAnyCVE": "12/12",
+          "BlockAnyVuln": "0/12",
           "AlwaysNone": "12/12"
         }
       },
@@ -1751,6 +1777,7 @@
         "B6": "19/28",
         "B6-GPT": "22/28",
         "BlockAnyCVE": "15/28",
+        "BlockAnyVuln": "21/28",
         "D-DevOps": "15/28",
         "D-DevOps-14": "16/28",
         "D-FinOps": "5/28",
@@ -1790,6 +1817,7 @@
         "B6": "15/28",
         "B6-GPT": "18/28",
         "BlockAnyCVE": "12/28",
+        "BlockAnyVuln": "8/28",
         "D-DevOps": "7/28",
         "D-DevOps-14": "8/28",
         "D-FinOps": "4/28",
@@ -1829,6 +1857,7 @@
         "B6": "18/27",
         "B6-GPT": "21/27",
         "BlockAnyCVE": "14/27",
+        "BlockAnyVuln": "20/27",
         "D-DevOps": "14/27",
         "D-DevOps-14": "15/27",
         "D-FinOps": "4/27",
@@ -1868,6 +1897,7 @@
         "B6": "7/14",
         "B6-GPT": "8/14",
         "BlockAnyCVE": "3/14",
+        "BlockAnyVuln": "8/14",
         "D-DevOps": "6/14",
         "D-DevOps-14": "7/14",
         "D-FinOps": "1/14",
@@ -2399,6 +2429,14 @@
               97.8
             ]
           },
+          "BlockAnyVuln": {
+            "k": 0,
+            "n": 8,
+            "wilson95_pct": [
+              0.0,
+              32.4
+            ]
+          },
           "D-DevOps": {
             "k": 7,
             "n": 8,
@@ -2577,6 +2615,7 @@
           "B6-GPT": "8/8",
           "AlwaysRollback": "0/8",
           "BlockAnyCVE": "8/8",
+          "BlockAnyVuln": "0/8",
           "AlwaysNone": "8/8"
         }
       },
@@ -2648,6 +2687,7 @@
       "B6": "80/104",
       "B6-GPT": "80/104",
       "BlockAnyCVE": "62/104",
+      "BlockAnyVuln": "77/104",
       "D-DevOps": "44/104",
       "D-DevOps-14": "34/70",
       "D-FinOps": "26/104",
@@ -2687,6 +2727,7 @@
       "B6": "62/104",
       "B6-GPT": "63/104",
       "BlockAnyCVE": "46/104",
+      "BlockAnyVuln": "25/104",
       "D-DevOps": "19/104",
       "D-DevOps-14": "17/70",
       "D-FinOps": "24/104",
@@ -2726,6 +2767,7 @@
       "B6": "74/98",
       "B6-GPT": "74/98",
       "BlockAnyCVE": "56/98",
+      "BlockAnyVuln": "71/98",
       "D-DevOps": "38/98",
       "D-DevOps-14": "33/69",
       "D-FinOps": "20/98",
@@ -2765,6 +2807,7 @@
       "B6": "27/46",
       "B6-GPT": "23/46",
       "BlockAnyCVE": "10/46",
+      "BlockAnyVuln": "25/46",
       "D-DevOps": "14/46",
       "D-DevOps-14": "16/35",
       "D-FinOps": "5/46",
@@ -3296,6 +3339,14 @@
             95.7
           ]
         },
+        "BlockAnyVuln": {
+          "k": 0,
+          "n": 24,
+          "wilson95_pct": [
+            0.0,
+            13.8
+          ]
+        },
         "D-DevOps": {
           "k": 21,
           "n": 24,
@@ -3474,6 +3525,7 @@
         "B6-GPT": "24/24",
         "AlwaysRollback": "0/24",
         "BlockAnyCVE": "24/24",
+        "BlockAnyVuln": "0/24",
         "AlwaysNone": "24/24"
       }
     },
@@ -3675,6 +3727,322 @@
         "footprint_only": [
           "14:QP-P04",
           "16:SF-D01"
+        ]
+      }
+    }
+  },
+  "family_level_cross_study": {
+    "designs_15_16": {
+      "n_families": 31,
+      "S:D-DevOps": {
+        "families": 31,
+        "families_a_better": 20,
+        "families_b_better": 0,
+        "sign_test_p": 1.9073486328125e-06,
+        "acc_diff": 0.538,
+        "cluster_bootstrap_95": [
+          0.366,
+          0.712
+        ]
+      },
+      "S:D-SRE": {
+        "families": 31,
+        "families_a_better": 26,
+        "families_b_better": 0,
+        "sign_test_p": 2.9802322387695312e-08,
+        "acc_diff": 0.808,
+        "cluster_bootstrap_95": [
+          0.645,
+          0.933
+        ]
+      },
+      "S:D-FinOps": {
+        "families": 31,
+        "families_a_better": 28,
+        "families_b_better": 0,
+        "sign_test_p": 7.450580596923828e-09,
+        "acc_diff": 0.75,
+        "cluster_bootstrap_95": [
+          0.602,
+          0.876
+        ]
+      },
+      "S:D-Sec": {
+        "families": 31,
+        "families_a_better": 15,
+        "families_b_better": 0,
+        "sign_test_p": 6.103515625e-05,
+        "acc_diff": 0.404,
+        "cluster_bootstrap_95": [
+          0.227,
+          0.582
+        ]
+      },
+      "S:L-DevOps": {
+        "families": 31,
+        "families_a_better": 22,
+        "families_b_better": 0,
+        "sign_test_p": 4.76837158203125e-07,
+        "acc_diff": 0.615,
+        "cluster_bootstrap_95": [
+          0.449,
+          0.768
+        ]
+      },
+      "S:L-SRE": {
+        "families": 31,
+        "families_a_better": 22,
+        "families_b_better": 0,
+        "sign_test_p": 4.76837158203125e-07,
+        "acc_diff": 0.654,
+        "cluster_bootstrap_95": [
+          0.486,
+          0.805
+        ]
+      },
+      "S:L-FinOps": {
+        "families": 31,
+        "families_a_better": 28,
+        "families_b_better": 0,
+        "sign_test_p": 7.450580596923828e-09,
+        "acc_diff": 0.856,
+        "cluster_bootstrap_95": [
+          0.748,
+          0.941
+        ]
+      },
+      "S:L-Sec": {
+        "families": 31,
+        "families_a_better": 18,
+        "families_b_better": 0,
+        "sign_test_p": 7.62939453125e-06,
+        "acc_diff": 0.375,
+        "cluster_bootstrap_95": [
+          0.231,
+          0.52
+        ]
+      },
+      "B5": {
+        "families": 31,
+        "families_a_better": 12,
+        "families_b_better": 0,
+        "sign_test_p": 0.00048828125,
+        "acc_diff": 0.288,
+        "cluster_bootstrap_95": [
+          0.153,
+          0.43
+        ]
+      },
+      "B6": {
+        "families": 31,
+        "families_a_better": 13,
+        "families_b_better": 0,
+        "sign_test_p": 0.000244140625,
+        "acc_diff": 0.231,
+        "cluster_bootstrap_95": [
+          0.115,
+          0.357
+        ]
+      },
+      "B5-GPT": {
+        "families": 31,
+        "families_a_better": 11,
+        "families_b_better": 0,
+        "sign_test_p": 0.0009765625,
+        "acc_diff": 0.25,
+        "cluster_bootstrap_95": [
+          0.12,
+          0.391
+        ]
+      },
+      "B6-GPT": {
+        "families": 31,
+        "families_a_better": 12,
+        "families_b_better": 0,
+        "sign_test_p": 0.00048828125,
+        "acc_diff": 0.231,
+        "cluster_bootstrap_95": [
+          0.115,
+          0.363
+        ]
+      },
+      "AlwaysRollback": {
+        "families": 31,
+        "families_a_better": 9,
+        "families_b_better": 0,
+        "sign_test_p": 0.00390625,
+        "acc_diff": 0.26,
+        "cluster_bootstrap_95": [
+          0.105,
+          0.439
+        ]
+      },
+      "Dominant": {
+        "families": 31,
+        "families_a_better": 19,
+        "families_b_better": 0,
+        "sign_test_p": 3.814697265625e-06,
+        "acc_diff": 0.394,
+        "cluster_bootstrap_95": [
+          0.247,
+          0.541
+        ]
+      }
+    },
+    "designs_all": {
+      "n_families": 17,
+      "S:D-DevOps": {
+        "families": 17,
+        "families_a_better": 12,
+        "families_b_better": 0,
+        "sign_test_p": 0.00048828125,
+        "acc_diff": 0.538,
+        "cluster_bootstrap_95": [
+          0.333,
+          0.731
+        ]
+      },
+      "S:D-SRE": {
+        "families": 17,
+        "families_a_better": 14,
+        "families_b_better": 0,
+        "sign_test_p": 0.0001220703125,
+        "acc_diff": 0.808,
+        "cluster_bootstrap_95": [
+          0.625,
+          0.96
+        ]
+      },
+      "S:D-FinOps": {
+        "families": 17,
+        "families_a_better": 15,
+        "families_b_better": 0,
+        "sign_test_p": 6.103515625e-05,
+        "acc_diff": 0.75,
+        "cluster_bootstrap_95": [
+          0.577,
+          0.899
+        ]
+      },
+      "S:D-Sec": {
+        "families": 17,
+        "families_a_better": 8,
+        "families_b_better": 0,
+        "sign_test_p": 0.0078125,
+        "acc_diff": 0.404,
+        "cluster_bootstrap_95": [
+          0.192,
+          0.615
+        ]
+      },
+      "S:L-DevOps": {
+        "families": 17,
+        "families_a_better": 12,
+        "families_b_better": 0,
+        "sign_test_p": 0.00048828125,
+        "acc_diff": 0.615,
+        "cluster_bootstrap_95": [
+          0.413,
+          0.78
+        ]
+      },
+      "S:L-SRE": {
+        "families": 17,
+        "families_a_better": 12,
+        "families_b_better": 0,
+        "sign_test_p": 0.00048828125,
+        "acc_diff": 0.654,
+        "cluster_bootstrap_95": [
+          0.433,
+          0.844
+        ]
+      },
+      "S:L-FinOps": {
+        "families": 17,
+        "families_a_better": 16,
+        "families_b_better": 0,
+        "sign_test_p": 3.0517578125e-05,
+        "acc_diff": 0.856,
+        "cluster_bootstrap_95": [
+          0.73,
+          0.96
+        ]
+      },
+      "S:L-Sec": {
+        "families": 17,
+        "families_a_better": 11,
+        "families_b_better": 0,
+        "sign_test_p": 0.0009765625,
+        "acc_diff": 0.375,
+        "cluster_bootstrap_95": [
+          0.211,
+          0.538
+        ]
+      },
+      "B5": {
+        "families": 17,
+        "families_a_better": 8,
+        "families_b_better": 0,
+        "sign_test_p": 0.0078125,
+        "acc_diff": 0.288,
+        "cluster_bootstrap_95": [
+          0.128,
+          0.465
+        ]
+      },
+      "B6": {
+        "families": 17,
+        "families_a_better": 10,
+        "families_b_better": 0,
+        "sign_test_p": 0.001953125,
+        "acc_diff": 0.231,
+        "cluster_bootstrap_95": [
+          0.105,
+          0.375
+        ]
+      },
+      "B5-GPT": {
+        "families": 17,
+        "families_a_better": 9,
+        "families_b_better": 0,
+        "sign_test_p": 0.00390625,
+        "acc_diff": 0.25,
+        "cluster_bootstrap_95": [
+          0.11,
+          0.404
+        ]
+      },
+      "B6-GPT": {
+        "families": 17,
+        "families_a_better": 7,
+        "families_b_better": 0,
+        "sign_test_p": 0.015625,
+        "acc_diff": 0.231,
+        "cluster_bootstrap_95": [
+          0.085,
+          0.394
+        ]
+      },
+      "AlwaysRollback": {
+        "families": 17,
+        "families_a_better": 5,
+        "families_b_better": 0,
+        "sign_test_p": 0.0625,
+        "acc_diff": 0.26,
+        "cluster_bootstrap_95": [
+          0.064,
+          0.471
+        ]
+      },
+      "Dominant": {
+        "families": 17,
+        "families_a_better": 12,
+        "families_b_better": 0,
+        "sign_test_p": 0.00048828125,
+        "acc_diff": 0.394,
+        "cluster_bootstrap_95": [
+          0.236,
+          0.567
         ]
       }
     }

@@ -33,7 +33,7 @@ STUDIES = ("outcome_study14", "outcome_study15", "outcome_study16")
 FAULT = "RPSKDX"
 SILOED = ["D-DevOps", "D-SRE", "D-FinOps", "D-Sec", "L-DevOps", "L-SRE", "L-FinOps", "L-Sec"]
 LLM = ["B5", "B6", "B5-GPT", "B6-GPT"]
-POLICIES = ["AlwaysRollback", "Dominant", "BlockAnyCVE", "AlwaysNone"]
+POLICIES = ["AlwaysRollback", "Dominant", "BlockAnyCVE", "BlockAnyVuln", "AlwaysNone"]
 OTHERS = ["B1-14", "B2-14", "B1", "B1-12", "AAF-14-GPT", "B3", "B3-14", "B3-GPT", "B3-14-GPT"]
 
 
@@ -56,6 +56,14 @@ def gather():
     data = {}  # (study, case) -> dict
     for st in STUDIES:
         A, table, dec, ok, maj, usage = load(st)
+        # Post hoc (second-round review R4): a block-on-any-finding policy that actually blocks. The pre-specified
+        # "BlockAnyCVE" outputs "Patch or block release", which the oracle scores as patch, so it never blocked.
+        # BlockAnyVuln outputs "Block release and fix pipeline" (scored as rollback) on any critical or HIGH/MEDIUM finding
+        # or policy violation, and "No action (observe)" otherwise, from the same committed decider inputs.
+        for vid, v in VARIANTS[st].items():
+            sec = v["evidence"].get("sec") or {}
+            anysec = (sec.get("critical_cves") or 0) > 0 or (sec.get("noncritical_cves") or 0) > 0 or bool(sec.get("policy_violation"))
+            dec["BlockAnyVuln"][vid] = ["Block release and fix pipeline" if anysec else "No action (observe)"]
         siloed14 = {d: d + "-14" if (d + "-14") in dec else d for d in SILOED}
         for c in sorted(table):
             g = c.split("-")[1][0]
@@ -164,6 +172,20 @@ def o2_misses(full, deciders=("AAF-14-GPT", "AAF", "B1-14")):
     return out
 
 
+def cross_study_families(full):
+    """Post hoc (second-round review R1-6): Studies 15 and 16 repeat the same 19 case designs on different services and
+    applications. 'designs_15_16' groups each design across Studies 15 and 16 (Study 14 designs separately); 'designs_all'
+    groups by design code across all three studies (most conservative)."""
+    comps = ["S:" + d for d in SILOED] + LLM + ["AlwaysRollback", "Dominant"]
+    out = {}
+    for name, key in (("designs_15_16", lambda r: ("14:" if r["study"].endswith("14") else "15-16:") + r["case"].split("-")[1]),
+                      ("designs_all", lambda r: r["case"].split("-")[1])):
+        rows = [dict(r, family=key(r)) for r in full]
+        out[name] = {"n_families": len({r["family"] for r in rows}),
+                     **{b: family_level(rows, "AAF", b) for b in comps if any(b in r["correct"] for r in rows)}}
+    return out
+
+
 def low_risk_misses(low, who="AAF-14-GPT"):
     """Descriptive (added after the studies): low-risk cases where the decider's action is O1-correct but not O2-optimal,
     with the action, the footprint of doing nothing and of the action, and the evidence that made a domain material
@@ -213,9 +235,9 @@ def main() -> None:
         L = [r for r in low if sel(r)]
         out["H3_low_risk"] = {"n": len(L), "O2": {d: dict(zip(("k", "n"), map(int, v.split("/"))), wilson95_pct=wilson(*map(int, v.split("/"))))
                                                   for d, v in counts(L, "correct_O2").items()},
-                              # release continued = the action keeps the feature delivered (every action except rollback in this testbed)
-                              "release_continued": {d: f"{sum(1 for r in L if r['action'].get(d) and r['action'][d] != 'Rollback to stable deployment')}/{sum(1 for r in L if r['action'].get(d))}"
-                                                    for d in ("AAF", "AAF-14-GPT", "B5", "B6", "B5-GPT", "B6-GPT", "AlwaysRollback", "BlockAnyCVE", "AlwaysNone")}}
+                              # release continued = the action keeps the feature delivered (every action except rollback and block in this testbed)
+                              "release_continued": {d: f"{sum(1 for r in L if r['action'].get(d) and r['action'][d] not in ('Rollback to stable deployment', 'Block release and fix pipeline'))}/{sum(1 for r in L if r['action'].get(d))}"
+                                                    for d in ("AAF", "AAF-14-GPT", "B5", "B6", "B5-GPT", "B6-GPT", "AlwaysRollback", "BlockAnyCVE", "BlockAnyVuln", "AlwaysNone")}}
         W = [r for r in wh if sel(r)]
         out["withheld"] = {"n": len(W), "O1": counts(W), "AAF_vs": compare(W, "AAF", [b for b in ("B1-14", "B2-14") if all(b in r["correct"] for r in W)], adjust=False),
                            "AAF_GPT_vs": compare(W, "AAF-14-GPT", [b for b in ("B1-14", "B2-14") if all(b in r["correct"] for r in W)], adjust=False)}
@@ -238,6 +260,7 @@ def main() -> None:
                    "faults_rules_correct_in_each_replicate_separately": f"{rules_ok_each}/{len(fb)}"}
     res["replicates"] = rep
     res["O2_misses"] = o2_misses(full)
+    res["family_level_cross_study"] = cross_study_families(full)
     res["low_risk_O2_misses"] = low_risk_misses(low)
     allc = [r for r in data.values() if not r["case"].endswith("-W")]
     res["completion"] = {st: {"AAF_qwen_cases": sum(1 for r in allc if r["study"] == st and "AAF" in r["action"]),
