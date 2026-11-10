@@ -1,0 +1,288 @@
+AAF-14-GPT AG-C01 No action (observe) calls 1
+AAF-14-GPT AG-C02 Mitigate and monitor calls 1
+AAF-14-GPT AG-C03 Scale adjustment calls 1
+AAF-14-GPT AG-C04 Patch or block release calls 1
+AAF-14-GPT AG-C05 Rollback to stable deployment calls 1
+AAF-14-GPT AG-C06 Scale adjustment calls 1
+AAF-14-GPT AG-C07 No action (observe) calls 1
+AAF-14-GPT AG-C08 Patch or block release calls 1
+AAF-14-GPT AG-A01 Mitigate and monitor calls 6
+AAF-14-GPT AG-A02 Scale adjustment calls 9
+AAF-14-GPT AG-A03 No action (observe) calls 14
+AAF-14-GPT AG-A04 Patch or block release calls 16
+AAF-14-GPT AG-A05 Mitigate and monitor calls 18
+AAF-14-GPT AG-A06 Review scaling policy calls 20
+AAF-14-GPT AG-A07 Patch or block release calls 23
+AAF-14-GPT AG-A08 Scale adjustment calls 26
+AAF-14-GPT AG-I01 Rollback to stable deployment calls 32
+AAF-14-GPT AG-I02 Patch or block release calls 37
+AAF-14-GPT AG-I03 Scale adjustment calls 42
+AAF-14-GPT AG-I04 Mitigate and monitor calls 48
+AAF-14-GPT AG-I05 Scale adjustment calls 53
+AAF-14-GPT AG-I06 Patch or block release calls 57
+AAF-14-GPT AG-I07 Rollback to stable deployment calls 63
+AAF-14-GPT AG-I08 Scale adjustment calls 68
+AAF-14-GPT AG-M01 Scale adjustment calls 68
+AAF-14-GPT AG-M02 Block release and fix pipeline calls 70
+AAF-14-GPT AG-M03 Mitigate and monitor calls 70
+AAF-14-GPT AG-M04 Patch or block release calls 75
+AAF-14-GPT AG-M05 Scale adjustment calls 80
+AAF-14-GPT AG-M06 Mitigate and monitor calls 80
+AAF-14-GPT AG-M07 Patch or block release calls 83
+AAF-14-GPT AG-M08 Scale adjustment calls 86
+AAF-14-GPT RP-C01 No action (observe) calls 86
+AAF-14-GPT RP-C02 Mitigate and monitor calls 86
+AAF-14-GPT RP-C03 Scale adjustment calls 86
+AAF-14-GPT RP-C04 Patch or block release calls 86
+AAF-14-GPT RP-A01 Mitigate and monitor calls 88
+AAF-14-GPT RP-A02 Scale adjustment calls 91
+AAF-14-GPT RP-A03 Patch or block release calls 93
+AAF-14-GPT RP-A04 Mitigate and monitor calls 95
+AAF-14-GPT RP-I01 Rollback to stable deployment calls 102
+AAF-14-GPT RP-I02 Patch or block release calls 106
+AAF-14-GPT RP-I03 Scale adjustment calls 110
+AAF-14-GPT RP-I04 Scale adjustment calls 114
+AAF-14-GPT RP-M01 Scale adjustment calls 114
+AAF-14-GPT RP-M02 Patch or block release calls 116
+AAF-14-GPT RP-M03 Mitigate and monitor calls 116
+AAF-14-GPT RP-M04 Patch or block release calls 120
+AAF-14-GPT NV-C01 No action (observe) calls 120
+AAF-14-GPT NV-C02 Mitigate and monitor calls 120
+AAF-14-GPT NV-C03 Patch or block release calls 120
+AAF-14-GPT NV-C04 Block release and fix pipeline calls 122
+AAF-14-GPT NV-C05 Rollback to stable deployment calls 122
+AAF-14-GPT NV-C06 Scale adjustment calls 122
+AAF-14-GPT NV-A01 Mitigate and monitor calls 124
+AAF-14-GPT NV-A02 Review scaling policy calls 129
+AAF-14-GPT NV-A03 Mitigate and monitor calls 131
+AAF-14-GPT NV-A04 Scale adjustment calls 134
+AAF-14-GPT NV-A05 Patch or block release calls 136
+AAF-14-GPT NV-A06 Mitigate and monitor calls 138
+AAF-14-GPT NV-I01 Mitigate and monitor calls 143
+AAF-14-GPT NV-I02 Rollback to stable deployment calls 150
+AAF-14-GPT NV-I03 Patch or block release calls 155
+AAF-14-GPT NV-I04 Scale adjustment calls 160
+AAF-14-GPT NV-I05 Scale adjustment calls 166
+AAF-14-GPT NV-I06 Rollback to stable deployment calls 172
+AAF-14-GPT NV-M01 Scale adjustment calls 172
+AAF-14-GPT NV-M02 Mitigate and monitor calls 172
+AAF-14-GPT NV-M03 Scale adjustment calls 177
+AAF-14-GPT NV-M04 Mitigate and monitor calls 177
+AAF-14-GPT NV-M05 Patch or block release calls 177
+AAF-14-GPT NV-M06 Block release and fix pipeline calls 182
+AAF-14-GPT NV-U01 Mitigate and monitor calls 186
+AAF-14-GPT NV-U02 Scale adjustment calls 189
+AAF-14-GPT NV-U03 Block release and fix pipeline calls 192
+AAF-14-GPT NV-U04 Scale adjustment calls 196
+AAF-14-GPT NV-U05 Mitigate and monitor calls 199
+AAF-14-GPT NV-U06 No action (observe) calls 199
+AAF-14-GPT NV-U07 Block release and fix pipeline calls 202
+AAF-14-GPT NV-U08 Block release and fix pipeline calls 205
+AAF-14-GPT NV-U09 Mitigate and monitor calls 209
+AAF-14-GPT NV-U10 Mitigate and monitor calls 209
+AAF-14-GPT NV-U11 Patch or block release calls 211
+AAF-14-GPT NV-U12 Scale adjustment calls 211
+AAF-14-GPT NV-U13 Mitigate and monitor calls 215
+AAF-14-GPT NV-U14 Scale adjustment calls 218
+AAF-14-GPT NV-U15 Mitigate and monitor calls 223
+AAF-14-GPT NV-U16 No action (observe) calls 227
+AAF-14-GPT NV-U17 Review scaling policy calls 230
+AAF-14-GPT NV-U18 Mitigate and monitor calls 233
+AAF-14-GPT NV-U19 Block release and fix pipeline calls 237
+AAF-14-GPT NV-U20 No action (observe) calls 237
+AAF-14-GPT NV-U21 Mitigate and monitor calls 242
+AAF-14-GPT NV-U22 Scale adjustment calls 246
+AAF-14-GPT NV-U23 Mitigate and monitor calls 250
+AAF-14-GPT NV-U24 Patch or block release calls 250
+B6-GPT AG-C03 Scale adjustment calls 274
+B6-GPT AG-C02 Mitigate and monitor calls 275
+B6-GPT AG-C06 Scale adjustment calls 277
+B6-GPT AG-C05 Mitigate and monitor calls 278
+B6-GPT AG-C04 Patch or block release calls 279
+B6-GPT AG-C01 No action (observe) calls 282
+B6-GPT AG-C08 Patch or block release calls 304
+B6-GPT AG-A02 Scale adjustment calls 306
+B6-GPT AG-A01 Mitigate and monitor calls 307
+B6-GPT AG-A03 No action (observe) calls 308
+B6-GPT AG-C07 No action (observe) calls 309
+B6-GPT AG-A04 Patch or block release calls 311
+B6-GPT AG-A05 Block release and fix pipeline calls 334
+B6-GPT AG-A07 Patch or block release calls 336
+B6-GPT AG-I02 Patch or block release calls 337
+B6-GPT AG-A06 Scale adjustment calls 340
+B6-GPT AG-A08 Scale adjustment calls 343
+B6-GPT AG-I01 Mitigate and monitor calls 349
+B6-GPT AG-I03 Scale adjustment calls 361
+B6-GPT AG-I04 Escalate for evidence/human review calls 362
+B6-GPT AG-I06 Patch or block release calls 364
+B6-GPT AG-I07 Mitigate and monitor calls 370
+B6-GPT AG-I05 Scale adjustment calls 375
+B6-GPT AG-I08 Scale adjustment calls 389
+B6-GPT AG-M02 Block release and fix pipeline calls 391
+B6-GPT AG-M01 Scale adjustment calls 392
+B6-GPT AG-M03 Mitigate and monitor calls 396
+B6-GPT AG-M04 Patch or block release calls 398
+B6-GPT AG-M05 Scale adjustment calls 408
+B6-GPT AG-M07 Patch or block release calls 418
+B6-GPT AG-M06 Patch or block release calls 419
+B6-GPT AG-M08 Scale adjustment calls 425
+B6-GPT RP-C02 Mitigate and monitor calls 426
+B6-GPT RP-C01 No action (observe) calls 427
+B6-GPT RP-C03 Scale adjustment calls 440
+B6-GPT RP-A01 Mitigate and monitor calls 444
+B6-GPT RP-C04 No action (observe) calls 448
+B6-GPT RP-A02 Scale adjustment calls 455
+B6-GPT RP-A03 Block release and fix pipeline calls 457
+B6-GPT RP-A04 Mitigate and monitor calls 458
+B6-GPT RP-I02 Patch or block release calls 470
+B6-GPT RP-I01 Block release and fix pipeline calls 478
+B6-GPT RP-M01 Mitigate and monitor calls 485
+B6-GPT RP-M02 Patch or block release calls 486
+B6-GPT RP-I03 Scale adjustment calls 487
+B6-GPT RP-I04 Mitigate and monitor calls 496
+B6-GPT RP-M03 Mitigate and monitor calls 501
+B6-GPT RP-M04 Scale adjustment calls 507
+B6-GPT NV-C02 Mitigate and monitor calls 514
+B6-GPT NV-C01 No action (observe) calls 516
+B6-GPT NV-C03 Patch or block release calls 517
+B6-GPT NV-C04 Block release and fix pipeline calls 525
+B6-GPT NV-C05 Rollback to stable deployment calls 531
+B6-GPT NV-C06 Scale adjustment calls 537
+B6-GPT NV-A01 Mitigate and monitor calls 544
+B6-GPT NV-A02 Review scaling policy calls 547
+B6-GPT NV-A03 No action (observe) calls 549
+B6-GPT NV-A04 Scale adjustment calls 553
+B6-GPT NV-A05 Patch or block release calls 563
+B6-GPT NV-A06 Rollback to stable deployment calls 569
+B6-GPT NV-I03 Patch or block release calls 573
+B6-GPT NV-I01 Mitigate and monitor calls 576
+B6-GPT NV-I04 Scale adjustment calls 589
+B6-GPT NV-I02 Mitigate and monitor calls 590
+B6-GPT NV-I05 Scale adjustment calls 599
+B6-GPT NV-M01 Scale adjustment calls 605
+B6-GPT NV-M02 Patch or block release calls 606
+B6-GPT NV-I06 Rollback to stable deployment calls 608
+B6-GPT NV-M04 Mitigate and monitor calls 620
+B6-GPT NV-M03 Review scaling policy calls 622
+B6-GPT NV-M05 Patch or block release calls 625
+B6-GPT NV-U01 Mitigate and monitor calls 632
+B6-GPT NV-M06 Block release and fix pipeline calls 641
+B6-GPT NV-U02 Scale adjustment calls 643
+B6-GPT NV-U03 No action (observe) calls 651
+B6-GPT NV-U04 Scale adjustment calls 656
+B6-GPT NV-U05 Mitigate and monitor calls 659
+B6-GPT NV-U06 Patch or block release calls 668
+B6-GPT NV-U08 Block release and fix pipeline calls 674
+B6-GPT NV-U07 Rollback to stable deployment calls 678
+B6-GPT NV-U09 Scale adjustment calls 686
+B6-GPT NV-U10 No action (observe) calls 691
+B6-GPT NV-U11 No action (observe) calls 692
+B6-GPT NV-U12 No action (observe) calls 704
+B6-GPT NV-U16 No action (observe) calls 715
+B6-GPT NV-U13 Rollback to stable deployment calls 716
+B6-GPT NV-U15 Mitigate and monitor calls 717
+B6-GPT NV-U14 Block release and fix pipeline calls 718
+B6-GPT NV-U17 Scale adjustment calls 720
+B6-GPT NV-U18 Mitigate and monitor calls 731
+B6-GPT NV-U20 No action (observe) calls 747
+B6-GPT NV-U21 No action (observe) calls 751
+B6-GPT NV-U22 Block release and fix pipeline calls 752
+B6-GPT NV-U19 Block release and fix pipeline calls 753
+B6-GPT NV-U23 Rollback to stable deployment calls 754
+B6-GPT NV-U24 No action (observe) calls 756
+B6-14E-GPT AG-C06 Scale adjustment calls 781
+B6-14E-GPT AG-C02 Mitigate and monitor calls 782
+B6-14E-GPT AG-C03 Scale adjustment calls 783
+B6-14E-GPT AG-C01 No action (observe) calls 784
+B6-14E-GPT AG-C04 Patch or block release calls 785
+B6-14E-GPT AG-C05 Mitigate and monitor calls 789
+B6-14E-GPT AG-C08 Patch or block release calls 810
+B6-14E-GPT AG-A01 Mitigate and monitor calls 811
+B6-14E-GPT AG-A02 Scale adjustment calls 812
+B6-14E-GPT AG-C07 No action (observe) calls 813
+B6-14E-GPT AG-A03 No action (observe) calls 817
+B6-14E-GPT AG-A04 Patch or block release calls 818
+B6-14E-GPT AG-A05 Rollback to stable deployment calls 838
+B6-14E-GPT AG-A06 Scale adjustment calls 840
+B6-14E-GPT AG-I02 Patch or block release calls 843
+B6-14E-GPT AG-A07 Patch or block release calls 846
+B6-14E-GPT AG-A08 Rollback to stable deployment calls 849
+B6-14E-GPT AG-I01 Mitigate and monitor calls 861
+B6-14E-GPT AG-I03 Scale adjustment calls 864
+B6-14E-GPT AG-I06 Patch or block release calls 873
+B6-14E-GPT AG-I04 Mitigate and monitor calls 874
+B6-14E-GPT AG-I05 Scale adjustment calls 878
+B6-14E-GPT AG-I07 Rollback to stable deployment calls 883
+B6-14E-GPT AG-M01 Scale adjustment calls 895
+B6-14E-GPT AG-M02 Block release and fix pipeline calls 902
+B6-14E-GPT AG-M03 Mitigate and monitor calls 903
+B6-14E-GPT AG-I08 Rollback to stable deployment calls 904
+B6-14E-GPT AG-M04 Patch or block release calls 906
+B6-14E-GPT AG-M05 Scale adjustment calls 914
+B6-14E-GPT AG-M06 Patch or block release calls 925
+B6-14E-GPT AG-M07 Patch or block release calls 932
+B6-14E-GPT RP-C01 No action (observe) calls 934
+B6-14E-GPT RP-C02 Mitigate and monitor calls 936
+B6-14E-GPT AG-M08 Rollback to stable deployment calls 938
+B6-14E-GPT RP-C03 Scale adjustment calls 944
+B6-14E-GPT RP-C04 Patch or block release calls 955
+B6-14E-GPT RP-A01 Mitigate and monitor calls 958
+B6-14E-GPT RP-A03 Patch or block release calls 965
+B6-14E-GPT RP-A02 Scale adjustment calls 966
+B6-14E-GPT RP-A04 Mitigate and monitor calls 971
+B6-14E-GPT RP-I02 Patch or block release calls 979
+B6-14E-GPT RP-I01 Mitigate and monitor calls 991
+B6-14E-GPT RP-M01 Scale adjustment calls 995
+B6-14E-GPT RP-I03 Scale adjustment calls 997
+B6-14E-GPT RP-M02 Patch or block release calls 1000
+B6-14E-GPT RP-I04 Scale adjustment calls 1001
+B6-14E-GPT RP-M03 Mitigate and monitor calls 1009
+B6-14E-GPT RP-M04 Patch or block release calls 1022
+B6-14E-GPT NV-C01 No action (observe) calls 1023
+B6-14E-GPT NV-C02 Mitigate and monitor calls 1025
+B6-14E-GPT NV-C03 Patch or block release calls 1029
+B6-14E-GPT NV-C04 Block release and fix pipeline calls 1032
+B6-14E-GPT NV-C05 Mitigate and monitor calls 1042
+B6-14E-GPT NV-C06 Scale adjustment calls 1049
+B6-14E-GPT NV-A01 Mitigate and monitor calls 1052
+B6-14E-GPT NV-A02 Review scaling policy calls 1057
+B6-14E-GPT NV-A03 Mitigate and monitor calls 1058
+B6-14E-GPT NV-A04 Scale adjustment calls 1061
+B6-14E-GPT NV-A05 Patch or block release calls 1071
+B6-14E-GPT NV-A06 Rollback to stable deployment calls 1080
+B6-14E-GPT NV-I03 Patch or block release calls 1082
+B6-14E-GPT NV-I01 Mitigate and monitor calls 1087
+B6-14E-GPT NV-I02 Mitigate and monitor calls 1102
+B6-14E-GPT NV-I04 Scale adjustment calls 1103
+B6-14E-GPT NV-I05 Scale adjustment calls 1108
+B6-14E-GPT NV-M01 Scale adjustment calls 1110
+B6-14E-GPT NV-I06 Rollback to stable deployment calls 1117
+B6-14E-GPT NV-M02 Patch or block release calls 1118
+B6-14E-GPT NV-M04 Mitigate and monitor calls 1130
+B6-14E-GPT NV-M05 Patch or block release calls 1134
+B6-14E-GPT NV-M03 Scale adjustment calls 1136
+B6-14E-GPT NV-M06 Block release and fix pipeline calls 1145
+B6-14E-GPT NV-U02 Scale adjustment calls 1149
+B6-14E-GPT NV-U01 Rollback to stable deployment calls 1156
+B6-14E-GPT NV-U03 Block release and fix pipeline calls 1162
+B6-14E-GPT NV-U04 Scale adjustment calls 1168
+B6-14E-GPT NV-U05 Rollback to stable deployment calls 1171
+B6-14E-GPT NV-U06 Patch or block release calls 1178
+B6-14E-GPT NV-U07 Rollback to stable deployment calls 1184
+B6-14E-GPT NV-U08 Block release and fix pipeline calls 1185
+B6-14E-GPT NV-U10 Escalate for evidence/human review calls 1199
+B6-14E-GPT NV-U09 Scale adjustment calls 1202
+B6-14E-GPT NV-U11 No action (observe) calls 1207
+B6-14E-GPT NV-U12 No action (observe) calls 1213
+B6-14E-GPT NV-U13 Rollback to stable deployment calls 1220
+B6-14E-GPT NV-U14 Block release and fix pipeline calls 1224
+B6-14E-GPT NV-U16 No action (observe) calls 1229
+B6-14E-GPT NV-U17 Scale adjustment calls 1235
+B6-14E-GPT NV-U15 Rollback to stable deployment calls 1238
+B6-14E-GPT NV-U18 Rollback to stable deployment calls 1245
+B6-14E-GPT NV-U20 No action (observe) calls 1254
+B6-14E-GPT NV-U19 Block release and fix pipeline calls 1256
+B6-14E-GPT NV-U21 Mitigate and monitor calls 1262
+B6-14E-GPT NV-U22 Block release and fix pipeline calls 1263
+B6-14E-GPT NV-U23 Rollback to stable deployment calls 1267
+B6-14E-GPT NV-U24 Patch or block release calls 1268
