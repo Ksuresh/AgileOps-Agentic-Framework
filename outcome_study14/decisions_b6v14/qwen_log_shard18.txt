@@ -1,0 +1,5 @@
+outcome_study14 qwen: 4 jobs to run
+B6-14 QF-P02-W 3 Patch or block release
+B6-14 QP-S01 3 Patch or block release
+B6-14 QF-K02-W 3 Patch or block release
+B6-14E QF-S03 1 Patch or block release
