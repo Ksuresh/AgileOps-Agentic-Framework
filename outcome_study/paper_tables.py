@@ -185,6 +185,35 @@ def main() -> None:
         num[m + "Worst"] = {"AlwaysRollback": "always rolling back", "Dominant": "the most-severe-domain policy"}.get(worst, worst)
         num[m + "Rollback"] = f"{fam['AlwaysRollback']['families_a_better']} / {fam['AlwaysRollback']['families_b_better']}"
         num[m + "RollbackP"] = p_fmt(fam["AlwaysRollback"]["sign_test_p"])
+    # B6 with the full v1.4 policy (PROTOCOL_B6V14.md): pre-registered analysis output
+    bp = ROOT / "outcome_study/analysis_b6v14.json"
+    if bp.exists():
+        b6 = json.loads(bp.read_text()); bpp = b6["pooled"]
+        for key, m in (("B6-14", "BSixFourQwen"), ("B6-14E", "BSixFourEQwen"), ("B6-14-GPT", "BSixFourGPT"), ("B6-14E-GPT", "BSixFourEGPT")):
+            num[m] = k_of(bpp["O1"].get(key)); num[m + "Otwo"] = k_of(bpp["O2"].get(key))
+            t = {**bpp["H2b_Q"], **bpp["H2b_G"]}[key]
+            num[m + "Disc"] = f"{t['a_only']} vs.\\ {t['b_only']}"
+            num[m + "P"] = p_fmt(t.get("p_holm", t["p_exact"]))
+            num[m + "Follow"] = bpp["follows_v14_rules"].get(key, "--")
+            num[m + "W"] = b6["withheld"]["O1"].get(key, "--")
+            fam = bpp["family_level"][key]
+            num[m + "Fam"] = f"{fam['families_a_better']} / {fam['families_b_better']}"
+        for k, m in (("B6-14", "AgreeBSixFour"), ("B6-14E", "AgreeBSixFourE"), ("B6", "AgreeBSix")):
+            num[m] = bpp["gpt_vs_qwen_same_action"][k]
+        num["PolicyEffectGPT"] = "{a_only} vs.\\ {b_only}".format(**bpp["policy_effect"]["B6-14-GPT vs B6-GPT"]["B6-GPT"])
+        num["PolicyEffectGPTP"] = p_fmt(bpp["policy_effect"]["B6-14-GPT vs B6-GPT"]["B6-GPT"]["p_exact"])
+        num["PolicyEffectQwen"] = "{a_only} vs.\\ {b_only}".format(**bpp["policy_effect"]["B6-14 vs B6"]["B6"])
+        num["PolicyEffectQwenP"] = p_fmt(bpp["policy_effect"]["B6-14 vs B6"]["B6"]["p_exact"])
+        num["FollowBSixGPT"] = bpp["follows_v14_rules"].get("B6-GPT", "--"); num["FollowBSixQwen"] = bpp["follows_v14_rules"].get("B6", "--")
+        calls = [json.loads(l) for st in S for l in (ROOT / st / "decisions_gpt" / "gpt_rows.jsonl").read_text().splitlines()]
+        aaf = [r.get("n_calls") or 0 for r in calls if r["decider"] == "AAF-14-GPT" and not r.get("error") and not r["case"].endswith("-W")]
+        b6e = [json.loads(l).get("n_calls") or 0 for st in S for l in (ROOT / st / "decisions_b6v14" / "gpt_rows.jsonl").read_text().splitlines()
+               if json.loads(l)["decider"] == "B6-14E-GPT" and not json.loads(l)["case"].endswith("-W") and not json.loads(l).get("error")]
+        num["AAFInvokedFull"] = f"{sum(1 for v in aaf if v > 0)} of {len(aaf)}"
+        num["AAFCallsFull"] = f"{sum(aaf) / len(aaf):.1f}"
+        num["CallsBSixFourEFull"] = f"{sum(b6e) / len(b6e):.1f}" if b6e else "--"
+        u = b6["usage"]
+        num["CallsBSixFourEGPT"] = f"{u['B6-14E-GPT']['calls_mean']:.1f}" if "B6-14E-GPT" in u else "--"
     lr = P["H3_low_risk"]["release_continued"]
     num["LowContinuedBlock"] = lr.get("BlockAnyVuln", "--")
     num["LowContinuedPatch"] = lr.get("BlockAnyCVE", "--")
