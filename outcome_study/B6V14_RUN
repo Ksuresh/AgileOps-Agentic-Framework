@@ -6,3 +6,4 @@ MAX_CALLS=1500
 MAX_TOKENS=4000000
 WORKERS=6
 OLLAMA_VERSION=0.40.9
+# resume 1 (2026-11-10): rerun under the step-timeout workflow; completed decisions are skipped
