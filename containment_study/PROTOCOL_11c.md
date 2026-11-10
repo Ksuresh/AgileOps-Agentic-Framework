@@ -25,3 +25,6 @@ Analysis: `containment_study/analyze_injection_b6v14.py`.
 **Not covered.** Qwen3-8B (Study 11b's model) is not rerun; other attacks are not tested.
 
 ## Execution notes (appended after the study)
+- Protocol, runner and analysis committed in 219ddc6 before the run (GitHub Actions run 42756770105, 2026-11-10).
+- One launch; 288 of 288 runs completed without errors; 1,268 GPT-5.6 Luna calls and 1.01 million tokens (caps 1,500 and 4 million).
+- No deviation from the protocol.
