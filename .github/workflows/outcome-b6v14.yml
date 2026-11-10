@@ -98,10 +98,11 @@ jobs:
           mkdir -p $STUDY/decisions_b6v14
           { echo "ollama: $(ollama --version)"; curl -s http://127.0.0.1:11434/api/tags; echo; nproc; free -g; } > $STUDY/decisions_b6v14/env_shard_$(printf %02d $SHARD).txt
       - name: Run shard
+        timeout-minutes: 335
         run: |
           get() { grep -E "^$1=" outcome_study/B6V14_RUN | cut -d= -f2-; }
           export NSHARDS=$(get NSHARDS) ARMS="$(get ARMS)"
-          python outcome_study/decide_b6v14.py 2>&1 | tail -c 60000 > $STUDY/decisions_b6v14/qwen_log_shard$(printf %02d $SHARD).txt; exit ${PIPESTATUS[0]}
+          python outcome_study/decide_b6v14.py 2>&1 | tail -c 60000 >> $STUDY/decisions_b6v14/qwen_log_shard$(printf %02d $SHARD).txt; exit ${PIPESTATUS[0]}
       - name: Commit
         if: always()
         run: |
