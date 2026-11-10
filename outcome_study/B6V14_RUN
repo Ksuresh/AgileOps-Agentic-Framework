@@ -1,4 +1,4 @@
-KIND=gpt
+KIND=qwen
 STUDIES=outcome_study14 outcome_study15 outcome_study16
 ARMS=B6-14 B6-14E
 NSHARDS=20
