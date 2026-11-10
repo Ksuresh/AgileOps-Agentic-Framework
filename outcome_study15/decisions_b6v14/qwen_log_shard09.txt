@@ -1,0 +1,12 @@
+outcome_study15 qwen: 11 jobs to run
+B6-14E UP-X02-W 2 Rollback to stable deployment
+B6-14E UC-R01-W 2 Rollback to stable deployment
+B6-14 UP-L02 3 No action (observe)
+B6-14E UP-K01 1 Patch or block release
+B6-14 UC-X01 1 Rollback to stable deployment
+B6-14 UP-K01 1 Patch or block release
+B6-14E UF-X02 3 Rollback to stable deployment
+B6-14 UP-D01 2 Scale adjustment
+B6-14 UP-L03 3 No action (observe)
+B6-14E UF-R01-W 2 Rollback to stable deployment
+B6-14E UF-S02-W 2 Block release and fix pipeline
