@@ -68,7 +68,9 @@ def part_a(cs) -> str:
             ("Study 16 protocol, cases, analysis script", "outcome_study16/PROTOCOL.md"), ("Study 16 first outcome measured", "outcome_study16/measurements"),
             ("GPT-5.6 Luna decider protocol and analysis", "outcome_study/PROTOCOL_GPT.md"), ("GPT-5.6 Luna first decision", "outcome_study14/decisions_gpt"),
             ("B6 with full v1.4 policy: protocol, runner, analysis", "outcome_study/PROTOCOL_B6V14.md"),
-            ("B6 with full v1.4 policy: first decision", ["outcome_study14/decisions_b6v14", "outcome_study15/decisions_b6v14", "outcome_study16/decisions_b6v14"])]
+            ("B6 with full v1.4 policy: first decision", ["outcome_study14/decisions_b6v14", "outcome_study15/decisions_b6v14", "outcome_study16/decisions_b6v14"]),
+            ("Study 11c (injection, v1.4-policy LLM decider): protocol, runner, analysis", "containment_study/PROTOCOL_11c.md"),
+            ("Study 11c first decision", "containment_study/results/injection_b6v14")]
     last = subprocess.run(["git", "log", "-1", "--format=%h|%cI", "--", "agentic_experiments/rules_v14.py"], cwd=ROOT, capture_output=True, text=True).stdout.strip()
     L = [r"\section*{Appendix A. Protocols, Freeze Timeline and Amendments}",
          r"Every confirmatory study (14--16) and the frontier-model decider runs have a protocol, with hypotheses and analysis script, "
@@ -94,7 +96,10 @@ def part_a(cs) -> str:
           r"settings. Studies~15 and~16: Qwen3-8B decider batches that reached the runner time limit were resumed with identical settings; completed "
           r"decisions were not rerun (details in each protocol). GPT-5.6 Luna deciders ran once per case under a call and token cap that was not reached "
           r"(Table~F1). In Study~16 no older catalogue image both carried extra critical CVEs and started, so, as pre-specified, its vulnerable-image cases "
-          r"carry an exposed secret instead; no low-risk image qualified for any service, so low-risk cases use the stable image, which carries HIGH/MEDIUM findings."]
+          r"carry an exposed secret instead; no low-risk image qualified for any service, so low-risk cases use the stable image, which carries HIGH/MEDIUM findings.",
+          r"B6-14 and B6-14E (second revision): GPT-5.6 Luna ran once per case variant without errors under a call and token cap that was not reached; "
+          r"Qwen3-8B batches that reached the runner time limit were resumed with identical settings, and completed decisions were not rerun "
+          r"(outcome\_study/PROTOCOL\_B6V14.md). Study~11c ran once, 288 of 288 runs without errors (1,268 calls; cap 1,500), with no deviation from its protocol."]
     import hashlib
     def sha(rev, path):
         out = subprocess.run(["git", "show", f"{rev}:{path}"], cwd=ROOT, capture_output=True).stdout
@@ -103,7 +108,8 @@ def part_a(cs) -> str:
             ("Study 15 cases", "outcome_study15/cases.yaml"), ("Study 16 cases", "outcome_study16/cases.yaml"),
             ("Study 15 analysis script", "outcome_study15/analyze15.py"), ("Study 16 analysis script", "outcome_study16/analyze16.py"),
             ("GPT decider runner", "outcome_study/decide_gpt.py"),
-            ("B6-14 runner (v1.4 policy text)", "outcome_study/decide_b6v14.py"), ("B6-14 analysis script", "outcome_study/analyze_b6v14.py")]
+            ("B6-14 runner (v1.4 policy text)", "outcome_study/decide_b6v14.py"), ("B6-14 analysis script", "outcome_study/analyze_b6v14.py"),
+            ("Study 11c runner", "containment_study/inject_b6v14.py"), ("Study 11c analysis script", "containment_study/analyze_injection_b6v14.py")]
     L += [r"\subsection*{A.3 Artifact integrity}",
           r"Table~A2 gives, for each frozen artifact, its first commit and the SHA-256 (first 12 hex digits) of its content at that commit and at the "
           r"commit used for this paper. Equal hashes mean the artifact is unchanged since it was frozen.",
@@ -324,7 +330,8 @@ def part_g2() -> str:
     m = json.loads((ROOT / "model_replication/analysis_three_models.json").read_text())
     c = json.loads((ROOT / "containment_study/results/containment_summary.json").read_text())
     i = json.loads((ROOT / "containment_study/results/injection_analysis.json").read_text())
-    L = [r"\subsection*{G.8 Model independence and containment (Studies 10, 10b, 11, 11b)}",
+    ip = ROOT / "containment_study/results/injection_b6v14_analysis.json"
+    L = [r"\subsection*{G.8 Model independence and containment (Studies 10, 10b, 11, 11b, 11c)}",
          r"\textit{Three models.} Same majority action under GPT-5.6 Luna, Qwen3-8B and Llama 3.1 8B: " +
          "; ".join(f"{k} {m[k]['same_all_three']}/{m['n']}" for k in ("AAF", "B3", "B6", "B5")) +
          r". The three AAF cases that differ are incomplete-evidence cases in which one model's investigation retrieved the withheld measurement and another's did not.",
@@ -333,6 +340,15 @@ def part_g2() -> str:
          r"; AAF differences without a genuine tool result: " + ", ".join(str(v["aaf_differs_from_b1_without_genuine_tool_result"]) for v in c.values()) + ".",
          r"\textit{Prompt injection (Study 11b, Qwen3-8B).} Injected action adopted: " + "; ".join(f"{k} {v}" for k, v in i["injection_success"].items()) +
          rf"; AAF final action differing from rules-only without genuine evidence: {i['aaf_final_differs_from_B1_without_genuine_tool_result']}."]
+    if ip.exists():
+        j = json.loads(ip.read_text())
+        L.append(r"\textit{Prompt injection against the v1.4-policy LLM decider (Study 11c, GPT-5.6 Luna, same 96 cases and note).} Injected action adopted: "
+                 + "; ".join(f"{k} {v}" for k, v in j["injection_success"].items())
+                 + "; AAF vs.\\ B6-14E-GPT {a_only} vs.\\ {b_only} discordant cases".format(**j["tests"]["AAF-14-GPT_vs_B6-14E-GPT"]) + rf" ($p_{{\text{{Holm}}}}={j['tests']['AAF-14-GPT_vs_B6-14E-GPT']['p_holm']:.2f}$)"
+                 + "; AAF vs.\\ B6-GPT {a_only} vs.\\ {b_only}".format(**j["tests"]["AAF-14-GPT_vs_B6-GPT"]) + rf" ($p_{{\text{{Holm}}}}={j['tests']['AAF-14-GPT_vs_B6-GPT']['p_holm']:.3f}$)"
+                 + rf"; AAF final action differing from the v1.4 rules without genuine evidence: {j['aaf_final_differs_from_v14_rules_without_genuine_tool_result']}"
+                 + "; correct on the Study 6 authors' key under injection: " + "; ".join(f"{k} {v}" for k, v in j["s6_authors_key_correct_under_injection"].items())
+                 + "; LLM calls per case: " + "; ".join(f"{k} {v}" for k, v in j["calls"].items()) + ".")
     return "\n\n".join(L) + "\n"
 
 
