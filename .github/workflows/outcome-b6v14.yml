@@ -22,13 +22,14 @@ jobs:
       - id: cfg
         run: |
           get() { grep -E "^$1=" outcome_study/B6V14_RUN | cut -d= -f2-; }
-          K=$(get KIND); S=$(get STUDIES); N=$(get NSHARDS)
+          K=$(get KIND); S=$(get STUDIES); N=$(get NSHARDS); X=$(get SKIP)
           echo "gpt=$([[ $K == *gpt* ]] && echo 1 || echo 0)" >> $GITHUB_OUTPUT
           echo "qwen=$([[ $K == *qwen* ]] && echo 1 || echo 0)" >> $GITHUB_OUTPUT
-          python3 - "$S" "$N" >> $GITHUB_OUTPUT <<'PY'
+          python3 - "$S" "$N" "$X" >> $GITHUB_OUTPUT <<'PY'
           import json, sys
           studies, n = sys.argv[1].split(), int(sys.argv[2] or 1)
-          print("qmatrix=" + json.dumps({"include": [{"study": s, "shard": k} for s in studies for k in range(n)]}))
+          skip = set(sys.argv[3].split())  # "study:shard" pairs still running in another workflow run
+          print("qmatrix=" + json.dumps({"include": [{"study": s, "shard": k} for s in studies for k in range(n) if f"{s}:{k}" not in skip]}))
           print("gmatrix=" + json.dumps({"include": [{"study": s} for s in studies]}))
           PY
 

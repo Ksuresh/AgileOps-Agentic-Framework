@@ -7,3 +7,5 @@ MAX_TOKENS=4000000
 WORKERS=6
 OLLAMA_VERSION=0.40.9
 # resume 1 (2026-11-10): rerun under the step-timeout workflow; completed decisions are skipped
+SKIP=outcome_study16:12 outcome_study16:13 outcome_study16:14 outcome_study16:15 outcome_study16:16 outcome_study16:17 outcome_study16:18 outcome_study16:19 
+# resume 2 (2026-11-10): shards not still running in run 42775925839
