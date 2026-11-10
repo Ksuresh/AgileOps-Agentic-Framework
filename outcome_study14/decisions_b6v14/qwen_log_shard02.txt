@@ -1,0 +1,23 @@
+outcome_study14 qwen: 22 jobs to run
+B6-14E QP-R04-W 3 Patch or block release
+B6-14 QP-X01-W 3 No action (observe)
+B6-14E QP-D01 2 Scale adjustment
+B6-14 QF-S03-W 3 Patch or block release
+B6-14 QF-P04-W 2 Mitigate and monitor
+B6-14E QF-X02 2 Rollback to stable deployment
+B6-14E QF-S02-W 1 Scale adjustment
+B6-14 QF-S03-W 2 Escalate for evidence/human review
+B6-14 QP-X02-W 1 Rollback to stable deployment
+B6-14 QP-S02 3 Patch or block release
+B6-14E QP-K01-W 3 Patch or block release
+B6-14 QP-P01-W 3 No action (observe)
+B6-14 QF-R02-W 2 Rollback to stable deployment
+B6-14E QF-R01-W 2 Rollback to stable deployment
+B6-14 QF-P01 2 No action (observe)
+B6-14E QF-R02 3 Rollback to stable deployment
+B6-14E QP-P01 1 No action (observe)
+B6-14 QF-P03 3 Patch or block release
+B6-14 QF-R01-W 2 Rollback to stable deployment
+B6-14E QF-R04-W 3 Patch or block release
+B6-14 QF-P01-W 3 Mitigate and monitor
+B6-14E QP-L01 3 No action (observe)
