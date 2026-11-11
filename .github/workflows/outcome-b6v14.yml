@@ -1,0 +1,114 @@
+name: Outcome studies - B6 with full v1.4 policy (GPT-5.6 Luna and Qwen3-8B)
+
+on:
+  push:
+    branches: [text-evidence-pilot]
+    paths: ["outcome_study/B6V14_RUN"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    outputs:
+      gpt: ${{ steps.cfg.outputs.gpt }}
+      qwen: ${{ steps.cfg.outputs.qwen }}
+      qmatrix: ${{ steps.cfg.outputs.qmatrix }}
+      gmatrix: ${{ steps.cfg.outputs.gmatrix }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: cfg
+        run: |
+          get() { grep -E "^$1=" outcome_study/B6V14_RUN | cut -d= -f2-; }
+          K=$(get KIND); S=$(get STUDIES); N=$(get NSHARDS); X=$(get SKIP)
+          echo "gpt=$([[ $K == *gpt* ]] && echo 1 || echo 0)" >> $GITHUB_OUTPUT
+          echo "qwen=$([[ $K == *qwen* ]] && echo 1 || echo 0)" >> $GITHUB_OUTPUT
+          python3 - "$S" "$N" "$X" >> $GITHUB_OUTPUT <<'PY'
+          import json, sys
+          studies, n = sys.argv[1].split(), int(sys.argv[2] or 1)
+          skip = set(sys.argv[3].split())  # "study:shard" pairs still running in another workflow run
+          print("qmatrix=" + json.dumps({"include": [{"study": s, "shard": k} for s in studies for k in range(n) if f"{s}:{k}" not in skip]}))
+          print("gmatrix=" + json.dumps({"include": [{"study": s} for s in studies]}))
+          PY
+
+  gpt:
+    needs: plan
+    if: needs.plan.outputs.gpt == '1'
+    runs-on: ubuntu-latest
+    timeout-minutes: 355
+    strategy:
+      fail-fast: false
+      matrix: ${{ fromJson(needs.plan.outputs.gmatrix) }}
+    env:
+      PYTHONPATH: ${{ github.workspace }}
+      OPENAI_MODEL: gpt-5.6-luna
+      STUDY: ${{ matrix.study }}
+      KIND: gpt
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install -r requirements.txt
+      - name: Run
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: |
+          get() { grep -E "^$1=" outcome_study/B6V14_RUN | cut -d= -f2-; }
+          export MAX_CALLS=$(get MAX_CALLS) MAX_TOKENS=$(get MAX_TOKENS) WORKERS=$(get WORKERS) ARMS="$(get ARMS)"
+          mkdir -p $STUDY/decisions_b6v14
+          python outcome_study/decide_b6v14.py 2>&1 | tail -c 60000 > $STUDY/decisions_b6v14/gpt_log_${GITHUB_RUN_ID}.txt; exit ${PIPESTATUS[0]}
+      - name: Commit
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f $STUDY/decisions_b6v14
+          git commit -m "B6-14 GPT on $STUDY: run ${GITHUB_RUN_ID} [skip ci]" || echo "nothing"
+          for i in 1 2 3 4 5 6 7 8; do git pull --rebase origin ${GITHUB_REF_NAME} && git push origin HEAD:${GITHUB_REF_NAME} && break; sleep $((i*9)); done
+
+  qwen:
+    needs: plan
+    if: needs.plan.outputs.qwen == '1'
+    runs-on: ubuntu-latest
+    timeout-minutes: 355
+    strategy:
+      fail-fast: false
+      max-parallel: 20
+      matrix: ${{ fromJson(needs.plan.outputs.qmatrix) }}
+    env:
+      PYTHONPATH: ${{ github.workspace }}
+      STUDY: ${{ matrix.study }}
+      SHARD: ${{ matrix.shard }}
+      KIND: qwen
+      QWEN_MODEL: qwen3:8b
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install pyyaml numpy openai
+      - name: Install Ollama and pull the model
+        run: |
+          get() { grep -E "^$1=" outcome_study/B6V14_RUN | cut -d= -f2-; }
+          curl -fsSL https://ollama.com/install.sh | OLLAMA_VERSION=$(get OLLAMA_VERSION) sh
+          (ollama serve > /tmp/ollama.log 2>&1 &) ; sleep 5
+          ollama pull "$QWEN_MODEL"
+          mkdir -p $STUDY/decisions_b6v14
+          { echo "ollama: $(ollama --version)"; curl -s http://127.0.0.1:11434/api/tags; echo; nproc; free -g; } > $STUDY/decisions_b6v14/env_shard_$(printf %02d $SHARD).txt
+      - name: Run shard
+        timeout-minutes: 335
+        run: |
+          get() { grep -E "^$1=" outcome_study/B6V14_RUN | cut -d= -f2-; }
+          export NSHARDS=$(get NSHARDS) ARMS="$(get ARMS)"
+          python outcome_study/decide_b6v14.py 2>&1 | tail -c 60000 >> $STUDY/decisions_b6v14/qwen_log_shard$(printf %02d $SHARD).txt; exit ${PIPESTATUS[0]}
+      - name: Commit
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f $STUDY/decisions_b6v14
+          git commit -m "B6-14 Qwen on $STUDY shard ${SHARD}: run ${GITHUB_RUN_ID} [skip ci]" || echo "nothing"
+          for i in 1 2 3 4 5 6 7 8 9 10; do git pull --rebase origin ${GITHUB_REF_NAME} && git push origin HEAD:${GITHUB_REF_NAME} && break; sleep $((i*11)); done

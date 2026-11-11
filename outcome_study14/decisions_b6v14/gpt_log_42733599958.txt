@@ -1,0 +1,146 @@
+outcome_study14 gpt: 144 jobs to run
+B6-14E-GPT QP-S04 1 Patch or block release
+B6-14-GPT QF-S03-W 1 Patch or block release
+B6-14E-GPT QF-X01 1 Rollback to stable deployment
+B6-14E-GPT QF-X02-W 1 Rollback to stable deployment
+B6-14E-GPT QP-X01-W 1 Patch or block release
+B6-14-GPT QP-P04 1 No action (observe)
+B6-14-GPT QP-S01-W 1 Patch or block release
+B6-14-GPT QP-S04-W 1 Patch or block release
+B6-14E-GPT QP-K01 1 Patch or block release
+B6-14-GPT QF-S03 1 Patch or block release
+B6-14-GPT QP-S02-W 1 Patch or block release
+B6-14E-GPT QF-R03 1 Rollback to stable deployment
+B6-14E-GPT QP-K02-W 1 Patch or block release
+B6-14E-GPT QP-R01 1 No action (observe)
+B6-14-GPT QF-K01 1 Patch or block release
+B6-14-GPT QP-X01 1 Patch or block release
+B6-14E-GPT QF-S04 1 Patch or block release
+B6-14E-GPT QF-P03-W 1 Patch or block release
+B6-14-GPT QP-R01-W 1 No action (observe)
+B6-14-GPT QP-S01 1 Patch or block release
+B6-14E-GPT QP-C01 1 No action (observe)
+B6-14E-GPT QP-P01 1 No action (observe)
+B6-14E-GPT QF-P01-W 1 Mitigate and monitor
+B6-14E-GPT QP-R01-W 1 No action (observe)
+B6-14-GPT QP-K02-W 1 Patch or block release
+B6-14E-GPT QF-P04-W 1 Mitigate and monitor
+B6-14-GPT QF-P01-W 1 Mitigate and monitor
+B6-14E-GPT QF-P04 1 Mitigate and monitor
+B6-14-GPT QF-L01 1 No action (observe)
+B6-14-GPT QP-S02 1 Patch or block release
+B6-14-GPT QP-L01 1 No action (observe)
+B6-14E-GPT QF-R04 1 Rollback to stable deployment
+B6-14-GPT QP-R03-W 1 Patch or block release
+B6-14-GPT QF-P02-W 1 No action (observe)
+B6-14-GPT QF-S04 1 Patch or block release
+B6-14E-GPT QF-R01 1 Rollback to stable deployment
+B6-14E-GPT QF-P02-W 1 Patch or block release
+B6-14E-GPT QF-S03-W 1 Patch or block release
+B6-14-GPT QF-R01 1 Rollback to stable deployment
+B6-14E-GPT QF-R02-W 1 Rollback to stable deployment
+B6-14-GPT QF-X02-W 1 Rollback to stable deployment
+B6-14E-GPT QP-K02 1 Patch or block release
+B6-14E-GPT QF-X01-W 1 Rollback to stable deployment
+B6-14E-GPT QP-P01-W 1 No action (observe)
+B6-14-GPT QF-X01-W 1 Rollback to stable deployment
+B6-14-GPT QF-R02 1 Rollback to stable deployment
+B6-14E-GPT QF-S01-W 1 Patch or block release
+B6-14E-GPT QF-S03 1 Patch or block release
+B6-14E-GPT QF-S02-W 1 Patch or block release
+B6-14E-GPT QP-S03-W 1 Patch or block release
+B6-14-GPT QP-P04-W 1 No action (observe)
+B6-14-GPT QP-K02 1 Patch or block release
+B6-14E-GPT QP-L02 1 Scale adjustment
+B6-14-GPT QP-C01 1 No action (observe)
+B6-14-GPT QF-R04-W 1 Patch or block release
+B6-14-GPT QF-R02-W 1 Rollback to stable deployment
+B6-14E-GPT QP-P04-W 1 No action (observe)
+B6-14E-GPT QF-K02 1 Patch or block release
+B6-14-GPT QP-R02-W 1 Rollback to stable deployment
+B6-14-GPT QF-R04 1 Rollback to stable deployment
+B6-14-GPT QP-P03 1 Patch or block release
+B6-14-GPT QP-P02-W 1 Patch or block release
+B6-14E-GPT QP-S02-W 1 Patch or block release
+B6-14-GPT QF-P03 1 Patch or block release
+B6-14-GPT QP-R04 1 Rollback to stable deployment
+B6-14E-GPT QP-R04 1 Rollback to stable deployment
+B6-14-GPT QP-R01 1 No action (observe)
+B6-14-GPT QP-K01-W 1 No action (observe)
+B6-14E-GPT QP-X02 1 Rollback to stable deployment
+B6-14E-GPT QF-S04-W 1 Patch or block release
+B6-14E-GPT QP-R04-W 1 Rollback to stable deployment
+B6-14E-GPT QP-S01 1 Patch or block release
+B6-14-GPT QF-D01 1 Scale adjustment
+B6-14E-GPT QF-X02 1 Rollback to stable deployment
+B6-14E-GPT QP-S03 1 Patch or block release
+B6-14-GPT QP-S04 1 Patch or block release
+B6-14-GPT QP-X01-W 1 Patch or block release
+B6-14-GPT QF-R03-W 1 Rollback to stable deployment
+B6-14E-GPT QP-K01-W 1 Patch or block release
+B6-14-GPT QP-R03 1 Patch or block release
+B6-14-GPT QP-D01 1 Scale adjustment
+B6-14E-GPT QF-L02 1 Scale adjustment
+B6-14E-GPT QP-P02 1 Patch or block release
+B6-14-GPT QP-K01 1 Patch or block release
+B6-14E-GPT QP-S01-W 1 Patch or block release
+B6-14-GPT QF-S02-W 1 Patch or block release
+B6-14E-GPT QP-S02 1 Patch or block release
+B6-14E-GPT QF-D01 1 Escalate for evidence/human review
+B6-14E-GPT QF-P01 1 Mitigate and monitor
+B6-14-GPT QF-S04-W 1 Patch or block release
+B6-14-GPT QF-S01 1 Patch or block release
+B6-14E-GPT QF-K01-W 1 Patch or block release
+B6-14-GPT QF-S02 1 Patch or block release
+B6-14-GPT QF-C01 1 No action (observe)
+B6-14-GPT QP-P01-W 1 No action (observe)
+B6-14E-GPT QF-P03 1 Patch or block release
+B6-14E-GPT QF-K01 1 Patch or block release
+B6-14-GPT QP-S03-W 1 Scale adjustment
+B6-14-GPT QP-X02 1 Rollback to stable deployment
+B6-14-GPT QF-S01-W 1 Patch or block release
+B6-14E-GPT QP-R02 1 Rollback to stable deployment
+B6-14-GPT QF-R01-W 1 Mitigate and monitor
+B6-14-GPT QP-P03-W 1 No action (observe)
+B6-14E-GPT QF-K02-W 1 Patch or block release
+B6-14E-GPT QF-S02 1 Patch or block release
+B6-14E-GPT QP-R03 1 Patch or block release
+B6-14-GPT QP-P02 1 Patch or block release
+B6-14-GPT QF-P04 1 Mitigate and monitor
+B6-14E-GPT QP-X01 1 Patch or block release
+B6-14-GPT QF-P03-W 1 Patch or block release
+B6-14E-GPT QF-R02 1 Rollback to stable deployment
+B6-14E-GPT QF-L01 1 No action (observe)
+B6-14-GPT QP-X02-W 1 Rollback to stable deployment
+B6-14E-GPT QP-P04 1 No action (observe)
+B6-14E-GPT QF-S01 1 Patch or block release
+B6-14-GPT QP-P01 1 No action (observe)
+B6-14E-GPT QP-P03-W 1 No action (observe)
+B6-14-GPT QF-K02 1 Patch or block release
+B6-14E-GPT QP-D01 1 Scale adjustment
+B6-14E-GPT QP-S04-W 1 Patch or block release
+B6-14E-GPT QP-R02-W 1 Rollback to stable deployment
+B6-14-GPT QF-X01 1 Patch or block release
+B6-14-GPT QF-P01 1 Mitigate and monitor
+B6-14-GPT QF-L02 1 Scale adjustment
+B6-14-GPT QF-K01-W 1 Patch or block release
+B6-14-GPT QF-P04-W 1 Mitigate and monitor
+B6-14E-GPT QF-P02 1 Patch or block release
+B6-14-GPT QF-R03 1 Rollback to stable deployment
+B6-14-GPT QP-R02 1 Rollback to stable deployment
+B6-14E-GPT QP-R03-W 1 Patch or block release
+B6-14E-GPT QF-R03-W 1 Rollback to stable deployment
+B6-14E-GPT QP-P03 1 Patch or block release
+B6-14-GPT QF-K02-W 1 Patch or block release
+B6-14E-GPT QP-L01 1 No action (observe)
+B6-14-GPT QF-P02 1 Mitigate and monitor
+B6-14E-GPT QP-X02-W 1 Rollback to stable deployment
+B6-14-GPT QP-S03 1 Patch or block release
+B6-14-GPT QP-L02 1 Scale adjustment
+B6-14E-GPT QF-C01 1 No action (observe)
+B6-14E-GPT QF-R04-W 1 Rollback to stable deployment
+B6-14E-GPT QF-R01-W 1 Mitigate and monitor
+B6-14-GPT QF-X02 1 Rollback to stable deployment
+B6-14E-GPT QP-P02-W 1 Patch or block release
+B6-14-GPT QP-R04-W 1 Rollback to stable deployment
+budget: 780 calls 715377 tokens 

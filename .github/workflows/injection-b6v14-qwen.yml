@@ -1,0 +1,63 @@
+name: Study 11c amendment 1 - prompt injection against the v1.4-policy LLM decider (Qwen3-8B)
+
+on:
+  push:
+    branches: [text-evidence-pilot]
+    paths: ["containment_study/INJECT_QWEN_RUN"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.cfg.outputs.matrix }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: cfg
+        run: |
+          N=$(grep -E "^NSHARDS=" containment_study/INJECT_QWEN_RUN | cut -d= -f2-)
+          X=$(grep -E "^SKIP=" containment_study/INJECT_QWEN_RUN | cut -d= -f2-)
+          python3 -c "import json,sys; n=int(sys.argv[1]); skip=set(sys.argv[2].split()); print('matrix='+json.dumps({'shard':[k for k in range(n) if str(k) not in skip]}))" "$N" "$X" >> $GITHUB_OUTPUT
+  qwen:
+    needs: plan
+    runs-on: ubuntu-latest
+    timeout-minutes: 355
+    strategy:
+      fail-fast: false
+      max-parallel: 20
+      matrix: ${{ fromJson(needs.plan.outputs.matrix) }}
+    env:
+      PYTHONPATH: ${{ github.workspace }}
+      SHARD: ${{ matrix.shard }}
+      KIND: qwen
+      QWEN_MODEL: qwen3:8b
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install -r requirements.txt
+      - name: Install Ollama and pull the model
+        run: |
+          get() { grep -E "^$1=" containment_study/INJECT_QWEN_RUN | cut -d= -f2-; }
+          curl -fsSL https://ollama.com/install.sh | OLLAMA_VERSION=$(get OLLAMA_VERSION) sh
+          (ollama serve > /tmp/ollama.log 2>&1 &) ; sleep 5
+          ollama pull "$QWEN_MODEL"
+          mkdir -p containment_study/results/injection_b6v14
+          { echo "ollama: $(ollama --version)"; curl -s http://127.0.0.1:11434/api/tags; echo; nproc; free -g; } > containment_study/results/injection_b6v14/env_qwen_shard_$(printf %02d $SHARD).txt
+      - name: Run shard
+        timeout-minutes: 335
+        run: |
+          export NSHARDS=$(grep -E "^NSHARDS=" containment_study/INJECT_QWEN_RUN | cut -d= -f2-)
+          python containment_study/inject_b6v14.py 2>&1 | tail -c 60000 >> containment_study/results/injection_b6v14/qwen_log_shard$(printf %02d $SHARD).txt; exit ${PIPESTATUS[0]}
+      - name: Commit
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f containment_study/results/injection_b6v14
+          git commit -m "Study 11c amendment 1 (Qwen) shard ${SHARD}: run ${GITHUB_RUN_ID} [skip ci]" || echo "nothing"
+          for i in 1 2 3 4 5 6 7 8 9 10; do git pull --rebase origin ${GITHUB_REF_NAME} && git push origin HEAD:${GITHUB_REF_NAME} && break; sleep $((i*11)); done

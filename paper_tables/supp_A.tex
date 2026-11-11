@@ -18,13 +18,18 @@ Study 16 protocol, cases, analysis script & \texttt{ba9f4bb} & 2026-10-26 01:22 
 Study 16 first outcome measured & \texttt{af3dfbf} & 2026-10-26 04:45 \\
 GPT-5.6 Luna decider protocol and analysis & \texttt{135af50} & 2026-10-26 01:34 \\
 GPT-5.6 Luna first decision & \texttt{57d7406} & 2026-10-26 02:14 \\
+B6 with full v1.4 policy: protocol, runner, analysis & \texttt{01078c9} & 2026-11-10 01:08 \\
+B6 with full v1.4 policy: first decision & \texttt{47d80b8} & 2026-11-10 01:16 \\
+Study 11c (injection, v1.4-policy LLM decider): protocol, runner, analysis & \texttt{219ddc6} & 2026-11-10 04:34 \\
+Study 11c first decision & \texttt{704a455} & 2026-11-10 05:55 \\
 \bottomrule
 \end{tabular}
 \end{table}
 \subsection*{A.1 Amendments made before any outcome was measured}
-\textit{Study 15, amendment 1.} The first calibration run showed (i) that the storefront kept failing for minutes after a backend recovered, because its gRPC client backs off before reconnecting (healthy currency service measured with 66.6\% errors), and (ii) that CPU starvation does not degrade the product-catalog service (p95 $\le$ 498 ms down to a 5m CPU limit). Before any outcome was measured, the storefront was set to restart after every backend change, and the degradation of services that CPU starvation does not affect became the service's own latency-injection setting, mildest violating value first. The superseded calibration is kept in the repository. The same reconnection effect is visible in three Study~14 backend cases (QP-R02, QP-R04, QP-X02), in which the healthy rollback state was measured with 50--100\% errors; they are reported as non-discriminating and favour no decider.
+\textit{Study 15, amendment 1.} The first calibration run showed (i) that the storefront kept failing for minutes after a backend recovered, because its gRPC client backs off before reconnecting (healthy currency service measured with 66.6\% errors), and (ii) that CPU starvation does not degrade the product-catalog service (p95 $\le$ 498 ms down to a 5m CPU limit). Before any outcome was measured, the storefront was set to restart after every backend change, and the degradation of services that CPU starvation does not affect became the service's own latency-injection setting, mildest violating value first. The superseded calibration is kept in the repository. The same reconnection effect is visible in three Study~14 backend cases (QP-R02, QP-R04, QP-X02), in which the healthy rollback state was measured with 50--100\% errors; they are reported as non-discriminating and favor no decider.
 \subsection*{A.2 Execution notes}
 Study~14: five decider batches reached the runner time limit and 24 of 864 LLM decisions were completed by a resumed run with identical settings. Studies~15 and~16: Qwen3-8B decider batches that reached the runner time limit were resumed with identical settings; completed decisions were not rerun (details in each protocol). GPT-5.6 Luna deciders ran once per case under a call and token cap that was not reached (Table~\ref{tab:supp-F1}). In Study~16 no older catalogue image both carried extra critical CVEs and started, so, as pre-specified, its vulnerable-image cases carry an exposed secret instead; no low-risk image qualified for any service, so low-risk cases use the stable image, which carries HIGH/MEDIUM findings.
+B6-14 and B6-14E (second revision): GPT-5.6 Luna ran once per case variant without errors under a call and token cap that was not reached; Qwen3-8B batches that reached the runner time limit were resumed with identical settings, and completed decisions were not rerun (outcome\_study/PROTOCOL\_B6V14.md). In some runs of these deciders at least one LLM output failed the runtime's schema or evidence-reference checks (B6-14E-GPT 88 of 232; B6-14-GPT 89 of 232; B6-14 211 of 696; B6-14E 221 of 696 runs); as in all LLM-decided configurations, such outputs are discarded by the runtime and the coordinator's final action is scored as given. Study~11c ran once, 288 of 288 runs without errors (1,268 calls; cap 1,500), with no deviation from its protocol.
 \subsection*{A.3 Artifact integrity}
 Table~\ref{tab:supp-A2} gives, for each frozen artifact, its first commit and the SHA-256 (first 12 hex digits) of its content at that commit and at the commit used for this paper. Equal hashes mean the artifact is unchanged since it was frozen.
 \begin{table}[H]
@@ -41,6 +46,10 @@ Study 16 cases & \texttt{ba9f4bb} & \texttt{46cadbff9bb6} & \texttt{46cadbff9bb6
 Study 15 analysis script & \texttt{f8d179c} & \texttt{718e30361d6a} & \texttt{718e30361d6a} \\
 Study 16 analysis script & \texttt{ba9f4bb} & \texttt{fe1121a99872} & \texttt{fe1121a99872} \\
 GPT decider runner & \texttt{135af50} & \texttt{a7667fd89d4e} & \texttt{a7667fd89d4e} \\
+B6-14 runner (v1.4 policy text) & \texttt{01078c9} & \texttt{d97f13259bf1} & \texttt{d97f13259bf1} \\
+B6-14 analysis script & \texttt{01078c9} & \texttt{0e7c43c09000} & \texttt{0e7c43c09000} \\
+Study 11c runner & \texttt{219ddc6} & \texttt{bb960f635864} & \texttt{a73abb4e8140} \\
+Study 11c analysis script & \texttt{219ddc6} & \texttt{fc9d156ec3e1} & \texttt{4838e949741b} \\
 \bottomrule
 \end{tabular}
 \end{table}

@@ -1,0 +1,10 @@
+outcome_study15 qwen: 9 jobs to run
+B6-14 UC-P01 2 Mitigate and monitor
+B6-14 UF-S01-W 2 Patch or block release
+B6-14 UC-S02 2 Patch or block release
+B6-14E UC-R01 3 Rollback to stable deployment
+B6-14E UF-X02 2 Rollback to stable deployment
+B6-14 UF-P03-W 3 Patch or block release
+B6-14E UP-R03 2 Rollback to stable deployment
+B6-14 UP-L01 2 No action (observe)
+B6-14E UC-L03 2 Rollback to stable deployment

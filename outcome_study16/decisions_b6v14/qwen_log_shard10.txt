@@ -1,0 +1,3 @@
+outcome_study16 qwen: 2 jobs to run
+B6-14E SC-L03 2 No action (observe)
+B6-14E SC-X01 1 Patch or block release

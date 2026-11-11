@@ -1,0 +1,11 @@
+outcome_study15 qwen: 10 jobs to run
+B6-14E UP-R03-W 1 Rollback to stable deployment
+B6-14 UC-S01 3 Rollback to stable deployment
+B6-14E UC-K02-W 1 Patch or block release
+B6-14 UC-S03 2 Patch or block release
+B6-14E UC-R01-W 3 Rollback to stable deployment
+B6-14 UF-P01-W 1 Rollback to stable deployment
+B6-14E UC-K02 1 Patch or block release
+B6-14 UP-R03-W 3 Rollback to stable deployment
+B6-14 UF-K01 1 Patch or block release
+B6-14E UC-X01 2 Patch or block release

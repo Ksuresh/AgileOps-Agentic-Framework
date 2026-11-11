@@ -1,0 +1,3 @@
+outcome_study15 qwen: 2 jobs to run
+B6-14E UP-K01-W 2 No action (observe)
+B6-14E UC-X01 3 Rollback to stable deployment

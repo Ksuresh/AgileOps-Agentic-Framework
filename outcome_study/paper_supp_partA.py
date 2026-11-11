@@ -23,19 +23,22 @@ AB = {"Rollback to stable deployment": "RB", "Block release and fix pipeline": "
 SA = {"rollback": "RB", "patch": "PA", "mitigate": "MI", "scale": "SC", "none": "NO"}
 LABEL = {"AAF": "AAF (Qwen investigator)", "AAF-14-GPT": "AAF (GPT investigator)", "B1-14": "Rules v1.4 alone (B1-14)",
          "B2-14": "Rules v1.4 + fetch rule (B2-14)", "B1": "Rules v1.0 (B1)", "B1-12": "Rules v1.2 (B1-12)",
-         "B6-GPT": "GPT-5.6 Luna + rules (B6)", "B5-GPT": "GPT-5.6 Luna (B5)", "B6": "Qwen3-8B + rules (B6)", "B5": "Qwen3-8B (B5)",
+         "B6-14E-GPT": "GPT-5.6 Luna + v1.4 rules + evidence (B6-14E)", "B6-14-GPT": "GPT-5.6 Luna + v1.4 rules (B6-14)",
+         "B6-GPT": "GPT-5.6 Luna + v1.0 rules (B6)", "B5-GPT": "GPT-5.6 Luna (B5)",
+         "B6-14E": "Qwen3-8B + v1.4 rules + evidence (B6-14E)", "B6-14": "Qwen3-8B + v1.4 rules (B6-14)",
+         "B6": "Qwen3-8B + v1.0 rules (B6)", "B5": "Qwen3-8B (B5)",
          "B3-14-GPT": "Agents always on, v1.4 decides (GPT)", "B3-GPT": "Agents always on, v1.0 decides (GPT)",
          "B3-14": "Agents always on, v1.4 decides (Qwen)", "B3": "Agents always on, v1.0 decides (Qwen)",
          "AlwaysRollback": "Always roll back", "AlwaysNone": "Always no action", "Dominant": "Act on most severe domain",
-         "BlockAnyCVE": "Block on any vulnerability", "S:D-Sec": "Security expert (rules)", "S:D-DevOps": "DevOps expert (rules)",
+         "BlockAnyVuln": "Block on any vulnerability (post hoc)", "BlockAnyCVE": "Patch on any vulnerability", "S:D-Sec": "Security expert (rules)", "S:D-DevOps": "DevOps expert (rules)",
          "S:D-FinOps": "FinOps expert (rules)", "S:D-SRE": "SRE expert (rules)", "S:L-Sec": "Security expert (LLM)",
          "S:L-DevOps": "DevOps expert (LLM)", "S:L-SRE": "SRE expert (LLM)", "S:L-FinOps": "FinOps expert (LLM)",
          "D-Sec": "Security expert (v1.0 rules)", "D-DevOps": "DevOps expert (v1.0 rules)", "D-FinOps": "FinOps expert (v1.0 rules)",
          "D-SRE": "SRE expert (v1.0 rules)"}
 ORDER = list(LABEL)
 GROUP = {**{k: "AAF and its rules" for k in ("AAF", "AAF-14-GPT", "B1-14", "B2-14", "B1", "B1-12", "B3-14-GPT", "B3-GPT", "B3-14", "B3")},
-         **{k: "LLM decides" for k in ("B6-GPT", "B5-GPT", "B6", "B5")},
-         **{k: "Fixed policies" for k in ("AlwaysRollback", "AlwaysNone", "Dominant", "BlockAnyCVE")}}
+         **{k: "LLM decides" for k in ("B6-14E-GPT", "B6-14-GPT", "B6-GPT", "B5-GPT", "B6-14E", "B6-14", "B6", "B5")},
+         **{k: "Fixed policies" for k in ("AlwaysRollback", "AlwaysNone", "Dominant", "BlockAnyVuln", "BlockAnyCVE")}}
 GROUP_ORDER = ["AAF and its rules", "LLM decides", "Fixed policies", "Single-domain experts"]
 
 
@@ -58,12 +61,26 @@ def git_first(path: str) -> str:
     return out[0] if out else "||"
 
 
+def _b6_invalid() -> str:
+    bp = ROOT / "outcome_study/analysis_b6v14.json"
+    if not bp.exists():
+        return ""
+    u = json.loads(bp.read_text())["usage"]
+    parts = "; ".join(f"{k} {v['invalid_outputs']} of {v['rows']}" for k, v in u.items())
+    return ("In some runs of these deciders at least one LLM output failed the runtime's schema or evidence-reference checks (" + parts +
+            " runs); as in all LLM-decided configurations, such outputs are discarded by the runtime and the coordinator's final action is scored as given.")
+
+
 def part_a(cs) -> str:
     rows = [("Rule set v1.4 committed (frozen)", "agentic_experiments/rules_v14.py"),
             ("Study 14 protocol and cases", "outcome_study14/PROTOCOL.md"), ("Study 14 first outcome measured", "outcome_study14/measurements"),
             ("Study 15 protocol, cases, analysis script", "outcome_study15/PROTOCOL.md"), ("Study 15 first outcome measured", "outcome_study15/measurements"),
             ("Study 16 protocol, cases, analysis script", "outcome_study16/PROTOCOL.md"), ("Study 16 first outcome measured", "outcome_study16/measurements"),
-            ("GPT-5.6 Luna decider protocol and analysis", "outcome_study/PROTOCOL_GPT.md"), ("GPT-5.6 Luna first decision", "outcome_study14/decisions_gpt")]
+            ("GPT-5.6 Luna decider protocol and analysis", "outcome_study/PROTOCOL_GPT.md"), ("GPT-5.6 Luna first decision", "outcome_study14/decisions_gpt"),
+            ("B6 with full v1.4 policy: protocol, runner, analysis", "outcome_study/PROTOCOL_B6V14.md"),
+            ("B6 with full v1.4 policy: first decision", ["outcome_study14/decisions_b6v14", "outcome_study15/decisions_b6v14", "outcome_study16/decisions_b6v14"]),
+            ("Study 11c (injection, v1.4-policy LLM decider): protocol, runner, analysis", "containment_study/PROTOCOL_11c.md"),
+            ("Study 11c first decision", "containment_study/results/injection_b6v14")]
     last = subprocess.run(["git", "log", "-1", "--format=%h|%cI", "--", "agentic_experiments/rules_v14.py"], cwd=ROOT, capture_output=True, text=True).stdout.strip()
     L = [r"\section*{Appendix A. Protocols, Freeze Timeline and Amendments}",
          r"Every confirmatory study (14--16) and the frontier-model decider runs have a protocol, with hypotheses and analysis script, "
@@ -72,7 +89,8 @@ def part_a(cs) -> str:
          r"\begin{table}[!h]", r"\caption*{Table A1. Commit timeline (UTC)}", r"\centering\scriptsize", r"\begin{tabular}{L{3.6cm}L{1.0cm}L{2.4cm}}", r"\toprule",
          r"\textbf{Event} & \textbf{Commit} & \textbf{Time} \\", r"\midrule"]
     for lab, path in rows:
-        h, t, _ = git_first(path).split("|", 2)
+        firsts = [git_first(x).split("|", 2) for x in (path if isinstance(path, list) else [path])]
+        h, t, _ = min((f for f in firsts if f[0]), key=lambda f: f[1], default=["", "", ""])
         L.append(f"{lab} & \\texttt{{{h}}} & {t[:16].replace('T', ' ')}" + r" \\")
     L += [r"\bottomrule", r"\end{tabular}", r"\end{table}",
           r"\subsection*{A.1 Amendments made before any outcome was measured}",
@@ -82,13 +100,16 @@ def part_a(cs) -> str:
           r"the storefront was set to restart after every backend change, and the degradation of services that CPU starvation does not affect became the "
           r"service's own latency-injection setting, mildest violating value first. The superseded calibration is kept in the repository. The same "
           r"reconnection effect is visible in three Study~14 backend cases (QP-R02, QP-R04, QP-X02), in which the healthy rollback state was measured with "
-          r"50--100\% errors; they are reported as non-discriminating and favour no decider.",
+          r"50--100\% errors; they are reported as non-discriminating and favor no decider.",
           r"\subsection*{A.2 Execution notes}",
           r"Study~14: five decider batches reached the runner time limit and 24 of 864 LLM decisions were completed by a resumed run with identical "
           r"settings. Studies~15 and~16: Qwen3-8B decider batches that reached the runner time limit were resumed with identical settings; completed "
           r"decisions were not rerun (details in each protocol). GPT-5.6 Luna deciders ran once per case under a call and token cap that was not reached "
           r"(Table~F1). In Study~16 no older catalogue image both carried extra critical CVEs and started, so, as pre-specified, its vulnerable-image cases "
-          r"carry an exposed secret instead; no low-risk image qualified for any service, so low-risk cases use the stable image, which carries HIGH/MEDIUM findings."]
+          r"carry an exposed secret instead; no low-risk image qualified for any service, so low-risk cases use the stable image, which carries HIGH/MEDIUM findings.",
+          r"B6-14 and B6-14E (second revision): GPT-5.6 Luna ran once per case variant without errors under a call and token cap that was not reached; "
+          r"Qwen3-8B batches that reached the runner time limit were resumed with identical settings, and completed decisions were not rerun "
+          r"(outcome\_study/PROTOCOL\_B6V14.md). " + _b6_invalid() + r" Study~11c ran once, 288 of 288 runs without errors (1,268 calls; cap 1,500), with no deviation from its protocol."]
     import hashlib
     def sha(rev, path):
         out = subprocess.run(["git", "show", f"{rev}:{path}"], cwd=ROOT, capture_output=True).stdout
@@ -96,7 +117,9 @@ def part_a(cs) -> str:
     arts = [("Rule set v1.4", "agentic_experiments/rules_v14.py"), ("Study 14 cases", "outcome_study14/cases.yaml"),
             ("Study 15 cases", "outcome_study15/cases.yaml"), ("Study 16 cases", "outcome_study16/cases.yaml"),
             ("Study 15 analysis script", "outcome_study15/analyze15.py"), ("Study 16 analysis script", "outcome_study16/analyze16.py"),
-            ("GPT decider runner", "outcome_study/decide_gpt.py")]
+            ("GPT decider runner", "outcome_study/decide_gpt.py"),
+            ("B6-14 runner (v1.4 policy text)", "outcome_study/decide_b6v14.py"), ("B6-14 analysis script", "outcome_study/analyze_b6v14.py"),
+            ("Study 11c runner", "containment_study/inject_b6v14.py"), ("Study 11c analysis script", "containment_study/analyze_injection_b6v14.py")]
     L += [r"\subsection*{A.3 Artifact integrity}",
           r"Table~A2 gives, for each frozen artifact, its first commit and the SHA-256 (first 12 hex digits) of its content at that commit and at the "
           r"commit used for this paper. Equal hashes mean the artifact is unchanged since it was frozen.",
@@ -192,7 +215,7 @@ def part_c(cs) -> str:
                 continue
             L.append(f"\\quad {esc(LABEL[d])} & {mark(P['O1'][d], full)} & {mark(P['O2'].get(d), full)} & {mark(P['O1_discriminating'].get(d), P['n_discriminating'])} & {mark(P['O1_unique_answer'].get(d), P['n_unique_answer'])}" + r" \\")
         L += [r"\bottomrule", r"\end{longtable}"]
-        tests = {**P["H1_case_level"], **P["H2_case_level"]}
+        tests = {**P["H1_case_level"], **P["H2_case_level"], **P.get("H2b_case_level", {})}
         hdr = (r"& \multicolumn{3}{l}{\textbf{Case level (exact McNemar)}} & \multicolumn{2}{l}{\textbf{Family level (sign test)}} \\",
                r"\textbf{Comparison decider} & \textbf{AAF only right} & \textbf{Other only right} & \textbf{$p_{\text{Holm}}$} & \textbf{Families AAF / other better} & \textbf{$p$} \\")
         L += [r"\begin{longtable}{L{5.2cm}L{1.5cm}L{1.5cm}L{1.9cm}L{2.2cm}L{1.7cm}}",
@@ -209,14 +232,19 @@ def part_c(cs) -> str:
                      f"{str(f['families_a_better']) + ' / ' + str(f['families_b_better']) if f else '--'} & {p_fmt(f['sign_test_p']) if f else '--'}" + r" \\")
         L += [r"\bottomrule", r"\end{longtable}"]
         w, h3 = P["withheld"], P["H3_low_risk"]
-        L.append(rf"\textit{{Withheld-evidence variants}} ({w['n']}): " + "; ".join(f"{esc(LABEL.get(k, k))} {v}" for k, v in w["O1"].items() if k in LABEL) + ".")
+        wl = [f"{esc(LABEL.get(k, k))} {v}" for k, v in w["O1"].items() if k in LABEL]
+        bp = ROOT / "outcome_study/analysis_b6v14.json"
+        if bp.exists() and scope == "pooled":
+            bw = json.loads(bp.read_text())["withheld"]["O1"]
+            wl += [f"{esc(LABEL[k])} {bw[k]}" for k in ("B6-14", "B6-14E", "B6-14-GPT", "B6-14E-GPT") if k in bw and k in LABEL and k not in w["O1"]]
+        L.append(rf"\textit{{Withheld-evidence variants}} ({w['n']}): " + "; ".join(wl) + ".")
         L.append(rf"\textit{{Low-risk releases}} ({h3['n']}), release continued: " + "; ".join(f"{esc(LABEL.get(k, k))} {v}" for k, v in h3["release_continued"].items()) + ".")
     lm = cs["low_risk_O2_misses"]
     L += [r"\subsection*{C.5 Low-risk releases where AAF was not $O_2$-optimal}",
           r"Descriptive analysis added after the studies (AAF, GPT-5.6 Luna investigator; identical with Qwen3-8B and with the rules alone). In each case doing nothing "
           r"left no violation and the feature stayed delivered; AAF's action also left none but used more resources. Material domain under the fixed v1.4 thresholds "
           r"(p95 $\geq 450$~ms, CPU saturation $\geq 85\%$, CPU-request increase). Scale is implemented as pre-registered: replicas $=\lceil r\,u/0.6\rceil$, "
-          r"bounded to 1--6, where $u$ is utilisation of the CPU request. The same scale recommendation was $O_2$-optimal in "
+          r"bounded to 1--6, where $u$ is utilization of the CPU request. The same scale recommendation was $O_2$-optimal in "
           + ", ".join(lm["scale_chosen_O2_ok"]) + ", where it removed replicas.",
           r"\begin{table}[H]", r"\caption{\label{tab:supp-lowrisk}Low-risk cases where AAF was not $O_2$-optimal}", r"\centering\footnotesize\setlength\tabcolsep{3pt}",
           r"\begin{tabular}{llcccl}", r"\toprule",
@@ -225,6 +253,21 @@ def part_c(cs) -> str:
     for m in lm["misses"]:
         L.append(f"{m['case']} & {m['action']} & {m['p95_ms']} & {m['saturation_pct']:.0f} & +{m['cost_spike_pct']:.0f}\\% & "
                  f"{m['footprint_none']:.0f} $\\rightarrow$ {m['footprint_action']:.0f}" + r" \\")
+    L += [r"\bottomrule", r"\end{tabular}", r"\end{table}"]
+    cf = cs["family_level_cross_study"]
+    L += [r"\subsection*{C.6 Family-level comparisons grouped across studies}",
+          r"Post hoc (second-round review). Studies~15 and~16 repeat the same 19 designs on different services and applications. "
+          rf"Left: each design grouped across Studies~15 and~16, Study~14 designs separately ({cf['designs_15_16']['n_families']} families). "
+          rf"Right: grouped by design code across all three studies ({cf['designs_all']['n_families']} families), the most conservative grouping. "
+          r"Families in which AAF (pre-specified Qwen3-8B investigator) was better / worse than the comparison decider, exact sign test.",
+          r"\begin{table}[H]", r"\caption{\label{tab:supp-crossfam}Family-level comparisons with designs grouped across studies}",
+          r"\centering\footnotesize\setlength\tabcolsep{3pt}", r"\begin{tabular}{lcccc}", r"\toprule",
+          r" & \multicolumn{2}{c}{\textbf{Studies 15--16 grouped}} & \multicolumn{2}{c}{\textbf{All grouped}} \\",
+          r"\textbf{Comparison decider} & \textbf{AAF / other} & \textbf{$p$} & \textbf{AAF / other} & \textbf{$p$} \\", r"\midrule"]
+    for k in [k for k in cf["designs_15_16"] if k != "n_families"]:
+        a, b = cf["designs_15_16"][k], cf["designs_all"][k]
+        L.append(f"{esc(LABEL.get(k, k))} & {a['families_a_better']} / {a['families_b_better']} & {p_fmt(a['sign_test_p'])} & "
+                 f"{b['families_a_better']} / {b['families_b_better']} & {p_fmt(b['sign_test_p'])}" + r" \\")
     L += [r"\bottomrule", r"\end{tabular}", r"\end{table}"]
     return "\n\n".join(L) + "\n"
 
@@ -302,7 +345,8 @@ def part_g2() -> str:
     m = json.loads((ROOT / "model_replication/analysis_three_models.json").read_text())
     c = json.loads((ROOT / "containment_study/results/containment_summary.json").read_text())
     i = json.loads((ROOT / "containment_study/results/injection_analysis.json").read_text())
-    L = [r"\subsection*{G.8 Model independence and containment (Studies 10, 10b, 11, 11b)}",
+    ip = ROOT / "containment_study/results/injection_b6v14_analysis.json"
+    L = [r"\subsection*{G.8 Model independence and containment (Studies 10, 10b, 11, 11b, 11c)}",
          r"\textit{Three models.} Same majority action under GPT-5.6 Luna, Qwen3-8B and Llama 3.1 8B: " +
          "; ".join(f"{k} {m[k]['same_all_three']}/{m['n']}" for k in ("AAF", "B3", "B6", "B5")) +
          r". The three AAF cases that differ are incomplete-evidence cases in which one model's investigation retrieved the withheld measurement and another's did not.",
@@ -311,6 +355,23 @@ def part_g2() -> str:
          r"; AAF differences without a genuine tool result: " + ", ".join(str(v["aaf_differs_from_b1_without_genuine_tool_result"]) for v in c.values()) + ".",
          r"\textit{Prompt injection (Study 11b, Qwen3-8B).} Injected action adopted: " + "; ".join(f"{k} {v}" for k, v in i["injection_success"].items()) +
          rf"; AAF final action differing from rules-only without genuine evidence: {i['aaf_final_differs_from_B1_without_genuine_tool_result']}."]
+    if ip.exists():
+        j = json.loads(ip.read_text())
+        L.append(r"\textit{Prompt injection against the v1.4-policy LLM decider (Study 11c, GPT-5.6 Luna, same 96 cases and note).} Injected action adopted: "
+                 + "; ".join(f"{k} {v}" for k, v in j["injection_success"].items())
+                 + "; AAF vs.\\ B6-14E-GPT {a_only} vs.\\ {b_only} discordant cases".format(**j["tests"]["AAF-14-GPT_vs_B6-14E-GPT"]) + rf" ($p_{{\text{{Holm}}}}={j['tests']['AAF-14-GPT_vs_B6-14E-GPT']['p_holm']:.2f}$)"
+                 + "; AAF vs.\\ B6-GPT {a_only} vs.\\ {b_only}".format(**j["tests"]["AAF-14-GPT_vs_B6-GPT"]) + rf" ($p_{{\text{{Holm}}}}={j['tests']['AAF-14-GPT_vs_B6-GPT']['p_holm']:.3f}$)"
+                 + rf"; AAF final action differing from the v1.4 rules without genuine evidence: {j['aaf_final_differs_from_v14_rules_without_genuine_tool_result']}"
+                 + "; correct on the Study 6 authors' key under injection: " + "; ".join(f"{k} {v}" for k, v in j["s6_authors_key_correct_under_injection"].items())
+                 + "; LLM calls per case: " + "; ".join(f"{k} {v}" for k, v in j["calls"].items()) + ".")
+        if "qwen" in j:
+            q = j["qwen"]
+            L.append(r"\textit{Study 11c, amendment 1 (Qwen3-8B, same 96 cases and note; pre-registered before its run).} Injected action adopted: "
+                     + "; ".join(f"{k} {v}" for k, v in q["injection_success"].items())
+                     + "; AAF vs.\\ B6-14E {a_only} vs.\\ {b_only} discordant cases".format(**q["test_AAF-14-Q_vs_B6-14E-Q"]) + rf" ($p={q['test_AAF-14-Q_vs_B6-14E-Q']['p_exact']:.1e}$)"
+                     + rf"; AAF final action differing from the v1.4 rules without genuine evidence: {q['aaf_final_differs_from_v14_rules_without_genuine_tool_result']}"
+                     + "; correct on the Study 6 authors' key under injection: " + "; ".join(f"{k} {v}" for k, v in q["s6_authors_key_correct_under_injection"].items())
+                     + "; LLM calls per case: " + "; ".join(f"{k} {v}" for k, v in q["calls"].items()) + ".")
     return "\n\n".join(L) + "\n"
 
 

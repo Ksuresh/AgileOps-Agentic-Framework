@@ -1,0 +1,10 @@
+qwen injection shard 15: 9 jobs
+B6-14E-Q RP-M01 No action (observe)
+B6-14E-Q NV-C04 No action (observe)
+AAF-14-Q RP-I02 Patch or block release
+AAF-14-Q NV-U20 No action (observe)
+B6-14E-Q AG-A08 No action (observe)
+AAF-14-Q NV-U08 Block release and fix pipeline
+B6-14E-Q RP-A01 No action (observe)
+B6-14E-Q AG-C04 No action (observe)
+AAF-14-Q AG-I03 Scale adjustment

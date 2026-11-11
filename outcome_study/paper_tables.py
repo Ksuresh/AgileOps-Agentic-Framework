@@ -16,13 +16,18 @@ ROWS = [  # key in confirmatory_stats, label, group
     ("AAF-14-GPT", "AAF, GPT-5.6 Luna investigator", 0),
     ("AAF", "AAF, Qwen3-8B investigator", 0),
     ("B1-14", "AAF rules alone (no investigation)", 0),
-    ("B6-GPT", "GPT-5.6 Luna, AAF's rules in prompt (B6)", 1),
+    ("B6-14E-GPT", "GPT-5.6 Luna, v1.4 + evidence (B6-14E)", 1),
+    ("B6-14-GPT", "GPT-5.6 Luna, v1.4 rules in prompt (B6-14)", 1),
+    ("B6-GPT", "GPT-5.6 Luna, v1.0 rules in prompt (B6)", 1),
     ("B5-GPT", "GPT-5.6 Luna (B5)", 1),
-    ("B6", "Qwen3-8B, AAF's rules in prompt (B6)", 1),
+    ("B6-14E", "Qwen3-8B, v1.4 + evidence (B6-14E)", 1),
+    ("B6-14", "Qwen3-8B, v1.4 rules in prompt (B6-14)", 1),
+    ("B6", "Qwen3-8B, v1.0 rules in prompt (B6)", 1),
     ("B5", "Qwen3-8B (B5)", 1),
     ("AlwaysRollback", "Always roll back", 2),
     ("Dominant", "Act on most severe domain", 2),
-    ("BlockAnyCVE", "Block on any vulnerability", 2),
+    ("BlockAnyVuln", "Block on any vulnerability$^\\ddagger$", 2),
+    ("BlockAnyCVE", "Patch on any vulnerability", 2),
     ("S:D-Sec", "Security expert", 3),
     ("S:D-DevOps", "DevOps expert", 3),
     ("S:D-FinOps", "FinOps expert", 3),
@@ -58,7 +63,7 @@ def main() -> None:
     sc = json.loads((ROOT / "outcome_study/sensitivity_confirm.json").read_text())
     P, per = cs["pooled"], cs["per_study"]
     nf = {s: per[s]["n_faults"] for s in S}
-    tests = {**P["H1_case_level"], **P["H2_case_level"]}
+    tests = {**P["H1_case_level"], **P["H2_case_level"], **P.get("H2b_case_level", {})}
 
     # Table: confirmatory results. Column headers carry n; a cell shows k, or k/n if its n differs.
     GROUPS = {0: "AAF", 1: "LLM decides from the same evidence", 2: "Fixed policies", 3: "Single-domain experts, AAF's rules on one domain", 4: "Single-domain experts, LLM"}
@@ -93,17 +98,19 @@ def main() -> None:
     L += [r"\bottomrule", r"\end{tabular}",
           r"\par\vspace{2pt}\raggedright\scriptsize Cells give the number of fault cases with an outcome-correct action. OB: Online Boutique (two services in S14, three in S15). "
           r"$O_1$: the action leaves the fewest reliability, security and cost violations. $O_2$: among those, the actions that keep the feature delivered and then use the least resources; "
-          r"it is an efficiency preference, not a safety measure: every AAF decision that missed $O_2$ was $O_1$-correct, and most of them removed a security or reliability violation "
+          r"it is a secondary preference: every AAF decision that missed $O_2$ was $O_1$-correct, and most of them removed a security or reliability violation "
           r"where the $O_2$ action would have left it in place (Section~\ref{sec:res-crossdomain}). "
           r"Tests: exact McNemar on cases, Holm-adjusted within the pre-specified families (single-domain experts; Qwen3-8B deciders and always-rollback; GPT-5.6 Luna deciders); "
           r"families: cases of the same design on different services of one study (" + str(P["n_families"]) + r" families), sign test in the text. "
           r"Rule experts: v1.4 in Studies 15--16, v1.0 in Study 14 as pre-specified. Qwen3-8B: majority of three runs; GPT-5.6 Luna: one run. "
-          r"Comparisons use AAF with the pre-specified Qwen3-8B investigator; its action with the GPT-5.6 Luna investigator and with the rules alone was identical on every case."
-          + (r" $^\dagger$Fewer cases than the column's $n$." if any("dagger" in x for x in L) else ""), r"\end{table*}"]
+          r"Comparisons use AAF with the pre-specified Qwen3-8B investigator; its action with the GPT-5.6 Luna investigator and with the rules alone was identical on every case. "
+          r"B6 gave the LLM coordinator AAF's v1.0 rules; B6-14 the full v1.4 rules (with R1 and R2), and B6-14E also the raw evidence AAF's rules read (tests: Holm within each model). "
+          r"$^\ddagger$Computed after the studies: blocks the release on any finding (scored as rollback); the pre-specified policy recommended ``Patch or block release'', which is scored as patch, and is listed as patch on any vulnerability."
+          + (r" $^\dagger$Fewer cases than the column's $n$." if any("$^\\dagger$" in x for x in L) else ""), r"\end{table*}"]
     (OUT / "tab_confirm.tex").write_text("\n".join(L) + "\n")
 
-    # Table: could the benchmark favour AAF by construction?
-    keys = [("AAF-14-GPT", "AAF, GPT investigator"), ("B1-14", "AAF rules alone"), ("AAF", "AAF, Qwen investigator"), ("B6-GPT", "GPT-5.6 Luna + rules (B6)"), ("B5-GPT", "GPT-5.6 Luna (B5)"), ("B6", "Qwen3-8B + rules (B6)"),
+    # Table: could the benchmark favor AAF by construction?
+    keys = [("AAF-14-GPT", "AAF, GPT investigator"), ("B1-14", "AAF rules alone"), ("AAF", "AAF, Qwen investigator"), ("B6-GPT", "GPT-5.6 Luna + v1.0 rules (B6)"), ("B5-GPT", "GPT-5.6 Luna (B5)"), ("B6", "Qwen3-8B + v1.0 rules (B6)"),
             ("B5", "Qwen3-8B (B5)"), ("AlwaysRollback", "Always roll back"), ("Dominant", "Act on most severe domain"), ("S:D-Sec", "Security expert (rules)")]
     L = [r"\begin{table}[!t]", r"\caption{Accuracy on Subsets Where the Choice of Action Matters More (Studies 14--16 Pooled, $O_1$)}",
          r"\label{tab:construct}", r"\centering\footnotesize", r"\begin{tabular}{L{2.45cm}L{1.2cm}L{1.55cm}L{1.55cm}}", r"\toprule",
@@ -140,7 +147,8 @@ def main() -> None:
         "UniqueRules": k_of(P["O1_unique_answer"].get("B1-14")), "UniqueAAFGPT": k_of(P["O1_unique_answer"].get("AAF-14-GPT")),
         "QwenDone": sum(v["AAF_qwen_cases"] for v in cs["completion"].values()), "AllCases": sum(v["all_cases"] for v in cs["completion"].values()),
         "BSixGPT": k_of(P["O1"].get("B6-GPT")), "BFiveGPT": k_of(P["O1"].get("B5-GPT")), "BSixQwen": k_of(P["O1"].get("B6")), "BFiveQwen": k_of(P["O1"].get("B5")),
-        "Rollback": k_of(P["O1"].get("AlwaysRollback")), "DominantPooled": k_of(P["O1"].get("Dominant")), "SecExpert": k_of(P["O1"].get("S:D-Sec")),
+        "Rollback": k_of(P["O1"].get("AlwaysRollback")), "DominantPooled": k_of(P["O1"].get("Dominant")), "SecExpert": k_of(P["O1"].get("S:D-Sec")), "SecExpertLLM": k_of(P["O1"].get("S:L-Sec")),
+        "BlockVuln": k_of(P["O1"].get("BlockAnyVuln")), "PatchVuln": k_of(P["O1"].get("BlockAnyCVE")),
         "RulesSFifteen": k_of(per["outcome_study15"]["O1"].get("B1-14")), "RulesSSixteen": k_of(per["outcome_study16"]["O1"].get("B1-14")),
 "UniqueBSixGPT": k_of(P["O1_unique_answer"].get("B6-GPT")),
         "UniqueBFiveGPT": k_of(P["O1_unique_answer"].get("B5-GPT")), "UniqueDominant": k_of(P["O1_unique_answer"].get("Dominant")),
@@ -166,6 +174,64 @@ def main() -> None:
     oc = P["O2_case_level"]
     num["OtwoPBSixGPT"] = p_fmt(oc["B6-GPT"].get("p_holm", oc["B6-GPT"]["p_exact"]))
     num["OtwoDiscBSixGPT"] = f"{oc['B6-GPT']['a_only']} vs.\\ {oc['B6-GPT']['b_only']}"
+    cf = cs["family_level_cross_study"]
+    for g, m in (("designs_15_16", "FamX"), ("designs_all", "FamAll")):
+        fam = {k: v for k, v in cf[g].items() if k != "n_families"}
+        num[m + "N"] = cf[g]["n_families"]
+        num[m + "MinWins"] = min(v["families_a_better"] for v in fam.values())
+        num[m + "MaxLosses"] = max(v["families_b_better"] for v in fam.values())
+        num[m + "MaxP"] = p_fmt(max(v["sign_test_p"] for v in fam.values()))
+        worst = max(fam, key=lambda k: fam[k]["sign_test_p"])
+        num[m + "Worst"] = {"AlwaysRollback": "always rolling back", "Dominant": "the most-severe-domain policy"}.get(worst, worst)
+        num[m + "Rollback"] = f"{fam['AlwaysRollback']['families_a_better']} / {fam['AlwaysRollback']['families_b_better']}"
+        num[m + "RollbackP"] = p_fmt(fam["AlwaysRollback"]["sign_test_p"])
+    # Study 11c: injection against the v1.4-policy LLM decider (containment_study/PROTOCOL_11c.md)
+    ip = ROOT / "containment_study/results/injection_b6v14_analysis.json"
+    if ip.exists():
+        inj = json.loads(ip.read_text())
+        num["InjAAF"] = inj["injection_success"]["AAF-14-GPT"].split("/")[0]
+        num["InjBSixGPT"] = inj["injection_success"]["B6-GPT"].split("/")[0]
+        num["InjBSixFourE"] = inj["injection_success"]["B6-14E-GPT"].split("/")[0]
+        num["InjPBSixGPT"] = p_fmt(inj["tests"]["AAF-14-GPT_vs_B6-GPT"]["p_holm"])
+        num["InjPBSixFourE"] = p_fmt(inj["tests"]["AAF-14-GPT_vs_B6-14E-GPT"]["p_holm"])
+        num["InjAAFChanged"] = str(inj["aaf_final_differs_from_v14_rules_without_genuine_tool_result"])
+        if "qwen" in inj:
+            q = inj["qwen"]
+            num["InjQAAF"] = q["injection_success"]["AAF-14-Q"].split("/")[0]
+            num["InjQBSixFourE"] = q["injection_success"]["B6-14E-Q"].split("/")[0]
+            num["InjQP"] = p_fmt(q["test_AAF-14-Q_vs_B6-14E-Q"]["p_exact"])
+    # B6 with the full v1.4 policy (PROTOCOL_B6V14.md): pre-registered analysis output
+    bp = ROOT / "outcome_study/analysis_b6v14.json"
+    if bp.exists():
+        b6 = json.loads(bp.read_text()); bpp = b6["pooled"]
+        for key, m in (("B6-14", "BSixFourQwen"), ("B6-14E", "BSixFourEQwen"), ("B6-14-GPT", "BSixFourGPT"), ("B6-14E-GPT", "BSixFourEGPT")):
+            num[m] = k_of(bpp["O1"].get(key)); num[m + "Otwo"] = k_of(bpp["O2"].get(key))
+            t = {**bpp["H2b_Q"], **bpp["H2b_G"]}[key]
+            num[m + "Disc"] = f"{t['a_only']} vs.\\ {t['b_only']}"
+            num[m + "P"] = p_fmt(t.get("p_holm", t["p_exact"]))
+            num[m + "Follow"] = bpp["follows_v14_rules"].get(key, "--")
+            num[m + "W"] = b6["withheld"]["O1"].get(key, "--")
+            fam = bpp["family_level"][key]
+            num[m + "Fam"] = f"{fam['families_a_better']} / {fam['families_b_better']}"
+        for k, m in (("B6-14", "AgreeBSixFour"), ("B6-14E", "AgreeBSixFourE"), ("B6", "AgreeBSix")):
+            num[m] = bpp["gpt_vs_qwen_same_action"][k]
+        num["PolicyEffectGPT"] = "{a_only} vs.\\ {b_only}".format(**bpp["policy_effect"]["B6-14-GPT vs B6-GPT"]["B6-GPT"])
+        num["PolicyEffectGPTP"] = p_fmt(bpp["policy_effect"]["B6-14-GPT vs B6-GPT"]["B6-GPT"]["p_exact"])
+        num["PolicyEffectQwen"] = "{a_only} vs.\\ {b_only}".format(**bpp["policy_effect"]["B6-14 vs B6"]["B6"])
+        num["PolicyEffectQwenP"] = p_fmt(bpp["policy_effect"]["B6-14 vs B6"]["B6"]["p_exact"])
+        num["FollowBSixGPT"] = bpp["follows_v14_rules"].get("B6-GPT", "--"); num["FollowBSixQwen"] = bpp["follows_v14_rules"].get("B6", "--")
+        calls = [json.loads(l) for st in S for l in (ROOT / st / "decisions_gpt" / "gpt_rows.jsonl").read_text().splitlines()]
+        aaf = [r.get("n_calls") or 0 for r in calls if r["decider"] == "AAF-14-GPT" and not r.get("error") and not r["case"].endswith("-W")]
+        b6e = [json.loads(l).get("n_calls") or 0 for st in S for l in (ROOT / st / "decisions_b6v14" / "gpt_rows.jsonl").read_text().splitlines()
+               if json.loads(l)["decider"] == "B6-14E-GPT" and not json.loads(l)["case"].endswith("-W") and not json.loads(l).get("error")]
+        num["AAFInvokedFull"] = f"{sum(1 for v in aaf if v > 0)} of {len(aaf)}"
+        num["AAFCallsFull"] = f"{sum(aaf) / len(aaf):.1f}"
+        num["CallsBSixFourEFull"] = f"{sum(b6e) / len(b6e):.1f}" if b6e else "--"
+        u = b6["usage"]
+        num["CallsBSixFourEGPT"] = f"{u['B6-14E-GPT']['calls_mean']:.1f}" if "B6-14E-GPT" in u else "--"
+    lr = P["H3_low_risk"]["release_continued"]
+    num["LowContinuedBlock"] = lr.get("BlockAnyVuln", "--")
+    num["LowContinuedPatch"] = lr.get("BlockAnyCVE", "--")
     om = cs["O2_misses"]["AAF-14-GPT"]
     num["OtwoMissN"] = om["n"]
     num["OtwoMissSafer"] = om.get("kept_security_or_reliability", 0)

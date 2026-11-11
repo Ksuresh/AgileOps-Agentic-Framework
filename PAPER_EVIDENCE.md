@@ -1,4 +1,4 @@
-# Paper evidence map (IEEE Access, manuscript Access-2026-46118, revision 5)
+# Paper evidence map (IEEE Access, manuscript Access-2026-46118, second revision)
 
 Every claim of the paper, the study and protocol behind it, where the data are, and the command that recomputes it.
 All commands run from the repository root on the committed data, with no cluster, model or API key
@@ -15,11 +15,14 @@ Supplementary Appendix A). "Post hoc" analyses were written after the data and a
 |---|---|---|---|---|
 | AAF outcome-correct on fresh fault cases, primary oracle O1 (H1, H2) | 104/104 (GPT-5.6 Luna and Qwen3-8B investigators; rules alone) | Studies 14-16; `outcome_study1{4,5,6}/PROTOCOL.md`, `outcome_study/PROTOCOL_GPT.md` | `outcome_study1{4,5,6}/measurements/`, `decisions/`, `decisions_gpt/` | `python -m outcome_study.confirmatory_stats` -> `confirmatory_stats.json` (`pooled.O1`) |
 | Stricter oracle O2 (feature kept, then least resources) | AAF 78/104; GPT-5.6 Luna with AAF's rules 63/104 | same | same | `confirmatory_stats.json` (`pooled.O2`, `pooled.O2_case_level`) |
-| Why AAF's O2 misses are not unsafe (post hoc, descriptive) | 26 misses: 15 removed a security/reliability violation O2 would keep; 9 rollbacks that lost the feature; 2 footprint only | same | same | `confirmatory_stats.json` (`O2_misses`) |
+| AAF's O2 misses remained acceptable under O1 (post hoc, descriptive) | 26 misses: 15 removed a security/reliability violation O2 would keep; 9 rollbacks that lost the feature; 2 footprint only | same | same | `confirmatory_stats.json` (`O2_misses`) |
 | AAF beats each single-domain expert (H1, Holm over 8) | e.g. security expert (rules) 62/104, 42 vs 0 discordant | pre-specified per study | same | `confirmatory_stats.json` (`pooled.H1_case_level`); per study: `outcome_study15/analyze15.py`, `outcome_study16/analyze16.py` |
-| AAF beats LLMs deciding from the same evidence and fixed policies (H2) | GPT B6 80, B5 78; Qwen B6 80, B5 74; always roll back 77 | pre-specified (Holm families per protocol) | same | `confirmatory_stats.json` (`pooled.H2_case_level`), `python -m outcome_study.analyze_gpt` -> `outcome_study/analysis_gpt.json` |
+| AAF beats LLMs deciding from the same evidence with no rules (B5) or the v1.0 rules (B6), and fixed policies (H2) | GPT B6 80, B5 78; Qwen B6 80, B5 74; always roll back 77 | pre-specified (Holm families per protocol) | same | `confirmatory_stats.json` (`pooled.H2_case_level`), `python -m outcome_study.analyze_gpt` -> `outcome_study/analysis_gpt.json` |
+| LLM decider with the full v1.4 policy (H2b, pre-registered after the studies) | GPT-5.6 Luna: B6-14 99, B6-14E 104 (AAF not significantly better: 5 vs 0, p_Holm 0.125; 0 vs 0); Qwen3-8B: B6-14 93, B6-14E 95 (AAF better: 11 vs 0, p_Holm 0.002; 9 vs 0, p_Holm 0.004) | `outcome_study/PROTOCOL_B6V14.md` | `outcome_study1{4,5,6}/decisions_b6v14/` | `python -m outcome_study.analyze_b6v14` -> `outcome_study/analysis_b6v14.json` (`pooled.O1`, `pooled.H2b_G`, `pooled.H2b_Q`) |
 | Family-level (design across services) | AAF better in >= 13 families vs every comparator, 0 worse | pre-specified unit of analysis | same | `confirmatory_stats.json` (`pooled.family_level`) |
 | Security priority; low-risk releases continue (H3) | 24/24 continued; O2 18/24 (doing nothing 21/24) | Studies 13-16 | same | `confirmatory_stats.json` (`pooled.H3_low_risk`) |
+| Families grouped across studies (post hoc) | designs across Studies 15-16 (31 families) and across all three (17 families): AAF never worse | Studies 14-16 | same | `confirmatory_stats.json` (`family_level_cross_study`) |
+| A policy that blocks on any finding (post hoc) | 77/104 under O1; stops 24/24 low-risk releases | Studies 14-16 | same | `confirmatory_stats.json` (`BlockAnyVuln`) |
 | Discriminating and unique-answer cases (post hoc) | 98/98 discriminating; 46/46 unique-answer (GPT 23-26) | Studies 14-16 | same | `python -m outcome_study.discriminating`; `confirmatory_stats.json` (`O1_unique_answer`) |
 | Robust to oracle thresholds (post hoc) | rules better than every comparator in 27/27 settings | Studies 14-16 | same | `python -m outcome_study.sensitivity_confirm` -> `outcome_study/sensitivity_confirm.json` |
 | Robust to rule thresholds (post hoc) | 243 settings: S14 34/34, S15 42/42, S16 >= 26/28 | Studies 14-16 | same | `python -m outcome_study.rule_sensitivity` -> `outcome_study/rule_sensitivity.json` |
@@ -42,6 +45,8 @@ Supplementary Appendix A). "Post hoc" analyses were written after the data and a
 |---|---|---|---|---|
 | Simulated LLM faults do not change the action without real evidence | see paper Section V-G | Study 11 | `containment_study/` | `python containment_study/run_containment.py` |
 | Prompt injection not adopted | B5 96/96 adopted, AAF 0/96 | Study 11b | `model_replication/results/*/injection/` | `python containment_study/analyze_injection.py` |
+| Same attack against the v1.4-policy LLM decider (GPT-5.6 Luna) | AAF 0/96, B6 (v1.0) 8/96, B6-14E 2/96 (vs AAF p_Holm 0.5) | Study 11c; `containment_study/PROTOCOL_11c.md` | `containment_study/results/injection_b6v14/gpt_rows.jsonl` | `python containment_study/analyze_injection_b6v14.py` |
+| Same attack, Qwen3-8B (amendment 1) | AAF 0/96, B6-14E 94/96 (p = 1.0e-28) | Study 11c amendment 1 | `containment_study/results/injection_b6v14/qwen_shard_*.jsonl` | same |
 | PM interface keeps the action; claims faithful to the record | 100/100 and 96/96 action kept; 0/576 unsupported numbers; 2.1% of 4,803 claims unsupported or contradicted | Studies 2, 5; claim-level re-test | `llm_evaluation/`, `external_validation/explanations/` | see Supplementary Appendix H |
 
 ## Earlier studies (Section V-I, Supplementary Part B)
