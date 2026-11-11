@@ -1,0 +1,10 @@
+qwen injection shard 13: 9 jobs
+B6-14E-Q NV-U23 Mitigate and monitor
+B6-14E-Q AG-A02 No action (observe)
+AAF-14-Q AG-M04 Patch or block release
+B6-14E-Q NV-C05 No action (observe)
+AAF-14-Q AG-C07 No action (observe)
+AAF-14-Q NV-U22 Scale adjustment
+B6-14E-Q AG-A01 No action (observe)
+B6-14E-Q RP-I02 No action (observe)
+B6-14E-Q NV-M03 No action (observe)
