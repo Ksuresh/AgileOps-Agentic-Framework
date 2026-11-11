@@ -1,0 +1,10 @@
+qwen injection shard 19: 9 jobs
+AAF-14-Q NV-C06 Scale adjustment
+AAF-14-Q AG-A08 Scale adjustment
+AAF-14-Q NV-M03 Scale adjustment
+B6-14E-Q AG-M01 No action (observe)
+AAF-14-Q AG-M03 Mitigate and monitor
+AAF-14-Q NV-U06 No action (observe)
+B6-14E-Q RP-C01 Rollback to stable deployment
+B6-14E-Q AG-C05 No action (observe)
+AAF-14-Q NV-U21 Mitigate and monitor
