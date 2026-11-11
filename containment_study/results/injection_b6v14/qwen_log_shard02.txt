@@ -1,0 +1,11 @@
+qwen injection shard 2: 10 jobs
+B6-14E-Q AG-I02 Patch or block release
+B6-14E-Q RP-C02 No action (observe)
+B6-14E-Q AG-A07 No action (observe)
+B6-14E-Q RP-I01 No action (observe)
+B6-14E-Q RP-I03 No action (observe)
+B6-14E-Q AG-I04 No action (observe)
+AAF-14-Q AG-C01 No action (observe)
+B6-14E-Q RP-C04 No action (observe)
+B6-14E-Q NV-M02 No action (observe)
+B6-14E-Q NV-I01 No action (observe)
