@@ -1,0 +1,11 @@
+qwen injection shard 7: 10 jobs
+B6-14E-Q RP-M02 No action (observe)
+B6-14E-Q NV-M05 No action (observe)
+AAF-14-Q NV-U12 Scale adjustment
+B6-14E-Q RP-M03 No action (observe)
+B6-14E-Q NV-I02 No action (observe)
+B6-14E-Q NV-C02 No action (observe)
+B6-14E-Q NV-M01 No action (observe)
+B6-14E-Q RP-A02 No action (observe)
+B6-14E-Q NV-U12 No action (observe)
+AAF-14-Q NV-I06 Rollback to stable deployment
