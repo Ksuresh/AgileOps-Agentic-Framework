@@ -98,7 +98,7 @@ def main() -> None:
     L += [r"\bottomrule", r"\end{tabular}",
           r"\par\vspace{2pt}\raggedright\scriptsize Cells give the number of fault cases with an outcome-correct action. OB: Online Boutique (two services in S14, three in S15). "
           r"$O_1$: the action leaves the fewest reliability, security and cost violations. $O_2$: among those, the actions that keep the feature delivered and then use the least resources; "
-          r"it is an efficiency preference, not a safety measure: every AAF decision that missed $O_2$ was $O_1$-correct, and most of them removed a security or reliability violation "
+          r"it is a secondary preference: every AAF decision that missed $O_2$ was $O_1$-correct, and most of them removed a security or reliability violation "
           r"where the $O_2$ action would have left it in place (Section~\ref{sec:res-crossdomain}). "
           r"Tests: exact McNemar on cases, Holm-adjusted within the pre-specified families (single-domain experts; Qwen3-8B deciders and always-rollback; GPT-5.6 Luna deciders); "
           r"families: cases of the same design on different services of one study (" + str(P["n_families"]) + r" families), sign test in the text. "
@@ -106,7 +106,7 @@ def main() -> None:
           r"Comparisons use AAF with the pre-specified Qwen3-8B investigator; its action with the GPT-5.6 Luna investigator and with the rules alone was identical on every case. "
           r"B6 gave the LLM coordinator AAF's v1.0 rules; B6-14 the full v1.4 rules (with R1 and R2), and B6-14E also the raw evidence AAF's rules read (tests: Holm within each model). "
           r"$^\ddagger$Computed after the studies: blocks the release on any finding (scored as rollback); the pre-specified policy recommended ``Patch or block release'', which is scored as patch, and is listed as patch on any vulnerability."
-          + (r" $^\dagger$Fewer cases than the column's $n$." if any("dagger" in x for x in L) else ""), r"\end{table*}"]
+          + (r" $^\dagger$Fewer cases than the column's $n$." if any("$^\\dagger$" in x for x in L) else ""), r"\end{table*}"]
     (OUT / "tab_confirm.tex").write_text("\n".join(L) + "\n")
 
     # Table: could the benchmark favor AAF by construction?

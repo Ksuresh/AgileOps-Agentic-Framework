@@ -61,6 +61,16 @@ def git_first(path: str) -> str:
     return out[0] if out else "||"
 
 
+def _b6_invalid() -> str:
+    bp = ROOT / "outcome_study/analysis_b6v14.json"
+    if not bp.exists():
+        return ""
+    u = json.loads(bp.read_text())["usage"]
+    parts = "; ".join(f"{k} {v['invalid_outputs']} of {v['rows']}" for k, v in u.items())
+    return ("In some runs of these deciders at least one LLM output failed the runtime's schema or evidence-reference checks (" + parts +
+            " runs); as in all LLM-decided configurations, such outputs are discarded by the runtime and the coordinator's final action is scored as given.")
+
+
 def part_a(cs) -> str:
     rows = [("Rule set v1.4 committed (frozen)", "agentic_experiments/rules_v14.py"),
             ("Study 14 protocol and cases", "outcome_study14/PROTOCOL.md"), ("Study 14 first outcome measured", "outcome_study14/measurements"),
@@ -99,7 +109,7 @@ def part_a(cs) -> str:
           r"carry an exposed secret instead; no low-risk image qualified for any service, so low-risk cases use the stable image, which carries HIGH/MEDIUM findings.",
           r"B6-14 and B6-14E (second revision): GPT-5.6 Luna ran once per case variant without errors under a call and token cap that was not reached; "
           r"Qwen3-8B batches that reached the runner time limit were resumed with identical settings, and completed decisions were not rerun "
-          r"(outcome\_study/PROTOCOL\_B6V14.md). Study~11c ran once, 288 of 288 runs without errors (1,268 calls; cap 1,500), with no deviation from its protocol."]
+          r"(outcome\_study/PROTOCOL\_B6V14.md). " + _b6_invalid() + r" Study~11c ran once, 288 of 288 runs without errors (1,268 calls; cap 1,500), with no deviation from its protocol."]
     import hashlib
     def sha(rev, path):
         out = subprocess.run(["git", "show", f"{rev}:{path}"], cwd=ROOT, capture_output=True).stdout
@@ -205,7 +215,7 @@ def part_c(cs) -> str:
                 continue
             L.append(f"\\quad {esc(LABEL[d])} & {mark(P['O1'][d], full)} & {mark(P['O2'].get(d), full)} & {mark(P['O1_discriminating'].get(d), P['n_discriminating'])} & {mark(P['O1_unique_answer'].get(d), P['n_unique_answer'])}" + r" \\")
         L += [r"\bottomrule", r"\end{longtable}"]
-        tests = {**P["H1_case_level"], **P["H2_case_level"]}
+        tests = {**P["H1_case_level"], **P["H2_case_level"], **P.get("H2b_case_level", {})}
         hdr = (r"& \multicolumn{3}{l}{\textbf{Case level (exact McNemar)}} & \multicolumn{2}{l}{\textbf{Family level (sign test)}} \\",
                r"\textbf{Comparison decider} & \textbf{AAF only right} & \textbf{Other only right} & \textbf{$p_{\text{Holm}}$} & \textbf{Families AAF / other better} & \textbf{$p$} \\")
         L += [r"\begin{longtable}{L{5.2cm}L{1.5cm}L{1.5cm}L{1.9cm}L{2.2cm}L{1.7cm}}",
@@ -222,7 +232,12 @@ def part_c(cs) -> str:
                      f"{str(f['families_a_better']) + ' / ' + str(f['families_b_better']) if f else '--'} & {p_fmt(f['sign_test_p']) if f else '--'}" + r" \\")
         L += [r"\bottomrule", r"\end{longtable}"]
         w, h3 = P["withheld"], P["H3_low_risk"]
-        L.append(rf"\textit{{Withheld-evidence variants}} ({w['n']}): " + "; ".join(f"{esc(LABEL.get(k, k))} {v}" for k, v in w["O1"].items() if k in LABEL) + ".")
+        wl = [f"{esc(LABEL.get(k, k))} {v}" for k, v in w["O1"].items() if k in LABEL]
+        bp = ROOT / "outcome_study/analysis_b6v14.json"
+        if bp.exists() and scope == "pooled":
+            bw = json.loads(bp.read_text())["withheld"]["O1"]
+            wl += [f"{esc(LABEL[k])} {bw[k]}" for k in ("B6-14", "B6-14E", "B6-14-GPT", "B6-14E-GPT") if k in bw and k in LABEL and k not in w["O1"]]
+        L.append(rf"\textit{{Withheld-evidence variants}} ({w['n']}): " + "; ".join(wl) + ".")
         L.append(rf"\textit{{Low-risk releases}} ({h3['n']}), release continued: " + "; ".join(f"{esc(LABEL.get(k, k))} {v}" for k, v in h3["release_continued"].items()) + ".")
     lm = cs["low_risk_O2_misses"]
     L += [r"\subsection*{C.5 Low-risk releases where AAF was not $O_2$-optimal}",

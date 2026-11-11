@@ -120,8 +120,8 @@ def fig_accuracy(rows, out: Path):
 def fig_groups(rows, out: Path):
     keys = [k for k in ("AAF-14-GPT", "B6-14-GPT", "B6-GPT", "B5-GPT", "AlwaysRollback", "BlockAnyCVE", "D-Sec", "D-DevOps", "D-SRE", "D-FinOps") if k in rows]
     labels = {k: lab for k, lab, _ in SHOW}
-    short = {"AAF-14-GPT": "AAF", "B6-14-GPT": "GPT+v1.4", "B6-GPT": "GPT+v1.0", "B5-GPT": "GPT", "AlwaysRollback": "Rollback", "BlockAnyCVE": "Patch CVE",
-             "D-Sec": "Security", "D-DevOps": "DevOps", "D-SRE": "SRE", "D-FinOps": "FinOps"}
+    short = {"AAF-14-GPT": "AAF", "B6-14-GPT": "GPT+v1.4 (B6-14)", "B6-GPT": "GPT+v1.0", "B5-GPT": "GPT", "AlwaysRollback": "Rollback", "BlockAnyCVE": "Patch CVE",
+             "D-Sec": "Security (rules)", "D-DevOps": "DevOps (rules)", "D-SRE": "SRE (rules)", "D-FinOps": "FinOps (rules)"}
     groups = [g for g in "RPSKXD"]
     import numpy as np
     M = np.zeros((len(groups), len(keys)))
