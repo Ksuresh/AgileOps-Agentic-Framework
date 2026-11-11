@@ -9,5 +9,6 @@ OLLAMA_VERSION=0.40.9
 # resume 1 (2026-11-10): rerun under the step-timeout workflow; completed decisions are skipped
 # resume 2 (2026-11-10): shards not still running in run 42775925839
 # resume 3 (2026-11-11): study16 shards 12-19 only; shards 0-11 are in run 42897579056
-SKIP=outcome_study15:0 outcome_study15:1 outcome_study15:3 outcome_study15:4 outcome_study15:5 outcome_study15:6 outcome_study15:7 outcome_study15:8 outcome_study15:9 outcome_study15:10 outcome_study15:11 outcome_study15:12 outcome_study15:13 outcome_study15:14 outcome_study15:15 outcome_study15:16 outcome_study15:17 outcome_study15:18 outcome_study15:19
 # resume 4 (2026-11-11): study15 shard 2 only (timed out with 2 decisions left); other shards still running
+SKIP=outcome_study15:0 outcome_study15:1 outcome_study15:2 outcome_study15:3 outcome_study15:4 outcome_study15:5 outcome_study15:6 outcome_study15:7 outcome_study15:8 outcome_study15:9 outcome_study15:10 outcome_study15:11 outcome_study15:12 outcome_study15:13 outcome_study15:14 outcome_study15:15 outcome_study15:16 outcome_study15:18
+# resume 5 (2026-11-11): study15 shards 17 and 19 (timed out with 7 and 2 decisions left)
