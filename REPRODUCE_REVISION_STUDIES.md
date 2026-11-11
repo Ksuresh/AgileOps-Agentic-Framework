@@ -135,7 +135,8 @@ Study 11 needs no model: `python containment_study/run_containment.py`. Study 11
 with `INJECT=1`, `RUNS_PER_ARM=1`, `RUN_LABEL=injection`. Study 11c (the same attack against the LLM decider with the full
 v1.4 policy, GPT-5.6 Luna): protocol `containment_study/PROTOCOL_11c.md`, control file `containment_study/INJECT_RUN` ->
 `injection-b6v14.yml` (`containment_study/inject_b6v14.py`; needs `OPENAI_API_KEY`). Outputs
-`containment_study/results/injection_b6v14/`; analysis `python containment_study/analyze_injection_b6v14.py`.
+`containment_study/results/injection_b6v14/`; analysis `python containment_study/analyze_injection_b6v14.py`. Amendment 1 (Qwen3-8B): control file
+`containment_study/INJECT_QWEN_RUN` -> `injection-b6v14-qwen.yml` (`KIND=qwen`, sharded; no API key needed).
 
 ## 7. Integrity checks
 

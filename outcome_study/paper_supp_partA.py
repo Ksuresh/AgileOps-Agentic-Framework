@@ -364,6 +364,14 @@ def part_g2() -> str:
                  + rf"; AAF final action differing from the v1.4 rules without genuine evidence: {j['aaf_final_differs_from_v14_rules_without_genuine_tool_result']}"
                  + "; correct on the Study 6 authors' key under injection: " + "; ".join(f"{k} {v}" for k, v in j["s6_authors_key_correct_under_injection"].items())
                  + "; LLM calls per case: " + "; ".join(f"{k} {v}" for k, v in j["calls"].items()) + ".")
+        if "qwen" in j:
+            q = j["qwen"]
+            L.append(r"\textit{Study 11c, amendment 1 (Qwen3-8B, same 96 cases and note; pre-registered before its run).} Injected action adopted: "
+                     + "; ".join(f"{k} {v}" for k, v in q["injection_success"].items())
+                     + "; AAF vs.\\ B6-14E {a_only} vs.\\ {b_only} discordant cases".format(**q["test_AAF-14-Q_vs_B6-14E-Q"]) + rf" ($p={q['test_AAF-14-Q_vs_B6-14E-Q']['p_exact']:.1e}$)"
+                     + rf"; AAF final action differing from the v1.4 rules without genuine evidence: {q['aaf_final_differs_from_v14_rules_without_genuine_tool_result']}"
+                     + "; correct on the Study 6 authors' key under injection: " + "; ".join(f"{k} {v}" for k, v in q["s6_authors_key_correct_under_injection"].items())
+                     + "; LLM calls per case: " + "; ".join(f"{k} {v}" for k, v in q["calls"].items()) + ".")
     return "\n\n".join(L) + "\n"
 
 

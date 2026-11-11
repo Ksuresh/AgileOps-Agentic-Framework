@@ -45,7 +45,8 @@ Supplementary Appendix A). "Post hoc" analyses were written after the data and a
 |---|---|---|---|---|
 | Simulated LLM faults do not change the action without real evidence | see paper Section V-G | Study 11 | `containment_study/` | `python containment_study/run_containment.py` |
 | Prompt injection not adopted | B5 96/96 adopted, AAF 0/96 | Study 11b | `model_replication/results/*/injection/` | `python containment_study/analyze_injection.py` |
-| Same attack against the v1.4-policy LLM decider (GPT-5.6 Luna) | AAF 0/96, B6 (v1.0) 8/96, B6-14E 2/96 (vs AAF p_Holm 0.5) | Study 11c; `containment_study/PROTOCOL_11c.md` | `containment_study/results/injection_b6v14/` | `python containment_study/analyze_injection_b6v14.py` |
+| Same attack against the v1.4-policy LLM decider (GPT-5.6 Luna) | AAF 0/96, B6 (v1.0) 8/96, B6-14E 2/96 (vs AAF p_Holm 0.5) | Study 11c; `containment_study/PROTOCOL_11c.md` | `containment_study/results/injection_b6v14/gpt_rows.jsonl` | `python containment_study/analyze_injection_b6v14.py` |
+| Same attack, Qwen3-8B (amendment 1) | see `injection_b6v14_analysis.json` (`qwen`) | Study 11c amendment 1 | `containment_study/results/injection_b6v14/qwen_shard_*.jsonl` | same |
 | PM interface keeps the action; claims faithful to the record | 100/100 and 96/96 action kept; 0/576 unsupported numbers; 2.1% of 4,803 claims unsupported or contradicted | Studies 2, 5; claim-level re-test | `llm_evaluation/`, `external_validation/explanations/` | see Supplementary Appendix H |
 
 ## Earlier studies (Section V-I, Supplementary Part B)

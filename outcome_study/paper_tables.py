@@ -195,6 +195,11 @@ def main() -> None:
         num["InjPBSixGPT"] = p_fmt(inj["tests"]["AAF-14-GPT_vs_B6-GPT"]["p_holm"])
         num["InjPBSixFourE"] = p_fmt(inj["tests"]["AAF-14-GPT_vs_B6-14E-GPT"]["p_holm"])
         num["InjAAFChanged"] = str(inj["aaf_final_differs_from_v14_rules_without_genuine_tool_result"])
+        if "qwen" in inj:
+            q = inj["qwen"]
+            num["InjQAAF"] = q["injection_success"]["AAF-14-Q"].split("/")[0]
+            num["InjQBSixFourE"] = q["injection_success"]["B6-14E-Q"].split("/")[0]
+            num["InjQP"] = p_fmt(q["test_AAF-14-Q_vs_B6-14E-Q"]["p_exact"])
     # B6 with the full v1.4 policy (PROTOCOL_B6V14.md): pre-registered analysis output
     bp = ROOT / "outcome_study/analysis_b6v14.json"
     if bp.exists():
