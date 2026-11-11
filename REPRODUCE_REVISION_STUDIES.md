@@ -1,4 +1,4 @@
-# Reproducing the revision studies (Studies 9-16, 10, 10b, 11, 11b, GPT-5.6 Luna deciders)
+# Reproducing the revision studies (Studies 9-16, 10, 10b, 11, 11b, 11c, GPT-5.6 Luna deciders, B6 with the v1.4 policy)
 
 Studies 1-8 are reproduced as described in [`REPRODUCE_CURRENT_PAPER.md`](REPRODUCE_CURRENT_PAPER.md). This file covers the
 studies added in the 2026 revision. Versions, model digests and sampling settings are in
@@ -27,6 +27,8 @@ python outcome_study/sensitivity.py                             # oracle-thresho
 python outcome_study15/analyze15.py                             # Study 15  -> outcome_study15/analysis.json (pre-registered script)
 python outcome_study16/analyze16.py                             # Study 16  -> outcome_study16/analysis.json (pre-registered script)
 python -m outcome_study.analyze_gpt                             # GPT-5.6 Luna deciders -> outcome_study/analysis_gpt.json
+python -m outcome_study.analyze_b6v14                           # B6-14 / B6-14E (second revision) -> outcome_study/analysis_b6v14.json
+python containment_study/analyze_injection_b6v14.py             # Study 11c -> containment_study/results/injection_b6v14_analysis.json
 python -m outcome_study.confirmatory_stats                      # Studies 14-16 paper statistics -> outcome_study/confirmatory_stats.json
 python -m outcome_study.ablation                                # rule ablation -> outcome_study/ablation.json (post hoc)
 python -m outcome_study.rule_sensitivity                        # rule-threshold sensitivity -> outcome_study/rule_sensitivity.json (post hoc)
@@ -108,6 +110,17 @@ Protocol `outcome_study/PROTOCOL_GPT.md`. Control file `outcome_study/GPT_RUN` -
 (`outcome_study/decide_gpt.py`; needs `OPENAI_API_KEY` as a repository secret; a call cap is set in the control file).
 Outputs: `outcome_study1{4,5,6}/decisions_gpt/`. Analysis: `python -m outcome_study.analyze_gpt`.
 
+## 4d. LLM decider with the full v1.4 policy (B6-14, B6-14E; second revision)
+
+Protocol `outcome_study/PROTOCOL_B6V14.md` (committed before the first decision). Control file `outcome_study/B6V14_RUN`
+-> `outcome-b6v14.yml`: `KIND=gpt` runs GPT-5.6 Luna once per case variant (needs `OPENAI_API_KEY`); `KIND=qwen` runs
+Qwen3-8B (Ollama, thinking on) three times per case variant in `NSHARDS` shards. Runner `outcome_study/decide_b6v14.py`
+(the v1.4 policy text given to the coordinator is `GOVERNANCE_RULES_V14` in that file). Batches that reach the runner
+time limit commit their completed decisions and are resumed by pushing the control file again (`SKIP` lists
+`study:shard` pairs still running in another run); completed decisions are never rerun. Outputs:
+`outcome_study1{4,5,6}/decisions_b6v14/{gpt_rows.jsonl,qwen_shard_*.jsonl}`. Analysis: `python -m outcome_study.analyze_b6v14`.
+Local run: `STUDY=outcome_study14 KIND=qwen SHARD=0 NSHARDS=1 python outcome_study/decide_b6v14.py` (resumable).
+
 ## 5. Study 10 / 10b - second and third model
 
 Control file `model_replication/RUN` -> `model-replication-qwen.yml` (installs Ollama, pulls the model, runs
@@ -119,7 +132,10 @@ Control file `model_replication/RUN` -> `model-replication-qwen.yml` (installs O
 ## 6. Study 11 / 11b - LLM-failure containment
 
 Study 11 needs no model: `python containment_study/run_containment.py`. Study 11b (prompt injection): `model_replication/RUN`
-with `INJECT=1`, `RUNS_PER_ARM=1`, `RUN_LABEL=injection`.
+with `INJECT=1`, `RUNS_PER_ARM=1`, `RUN_LABEL=injection`. Study 11c (the same attack against the LLM decider with the full
+v1.4 policy, GPT-5.6 Luna): protocol `containment_study/PROTOCOL_11c.md`, control file `containment_study/INJECT_RUN` ->
+`injection-b6v14.yml` (`containment_study/inject_b6v14.py`; needs `OPENAI_API_KEY`). Outputs
+`containment_study/results/injection_b6v14/`; analysis `python containment_study/analyze_injection_b6v14.py`.
 
 ## 7. Integrity checks
 
