@@ -1,0 +1,11 @@
+qwen injection shard 6: 10 jobs
+AAF-14-Q RP-C04 Patch or block release
+AAF-14-Q AG-A03 No action (observe)
+AAF-14-Q NV-A02 Review scaling policy
+B6-14E-Q AG-C03 No action (observe)
+AAF-14-Q NV-M06 Block release and fix pipeline
+AAF-14-Q RP-I04 Scale adjustment
+AAF-14-Q NV-I02 Mitigate and monitor
+B6-14E-Q NV-I04 No action (observe)
+AAF-14-Q NV-U19 Block release and fix pipeline
+AAF-14-Q NV-U04 Scale adjustment
