@@ -1,5 +1,5 @@
 KIND=qwen
-STUDIES=outcome_study14 outcome_study15 outcome_study16
+STUDIES=outcome_study16
 ARMS=B6-14 B6-14E
 NSHARDS=20
 MAX_CALLS=1500
@@ -7,5 +7,6 @@ MAX_TOKENS=4000000
 WORKERS=6
 OLLAMA_VERSION=0.40.9
 # resume 1 (2026-11-10): rerun under the step-timeout workflow; completed decisions are skipped
-SKIP=outcome_study16:12 outcome_study16:13 outcome_study16:14 outcome_study16:15 outcome_study16:16 outcome_study16:17 outcome_study16:18 outcome_study16:19 
 # resume 2 (2026-11-10): shards not still running in run 42775925839
+SKIP=outcome_study16:0 outcome_study16:1 outcome_study16:2 outcome_study16:3 outcome_study16:4 outcome_study16:5 outcome_study16:6 outcome_study16:7 outcome_study16:8 outcome_study16:9 outcome_study16:10 outcome_study16:11
+# resume 3 (2026-11-11): study16 shards 12-19 only; shards 0-11 are in run 42897579056
