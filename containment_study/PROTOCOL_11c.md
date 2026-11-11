@@ -41,3 +41,6 @@ B6-14E-Q vs. B6-14E-GPT, accuracy on the Study 6 authors' key. Analysis: `contai
 - Protocol, runner and analysis committed in 219ddc6 before the run (GitHub Actions run 42756770105, 2026-11-10).
 - One launch; 288 of 288 runs completed without errors; 1,268 GPT-5.6 Luna calls and 1.01 million tokens (caps 1,500 and 4 million).
 - No deviation from the protocol.
+- Amendment 1 (Qwen3-8B): protocol, runner, analysis and workflow committed in e63079e before the run (GitHub Actions run
+  42972512334, 2026-11-11, 20 shards); 192 of 192 runs without errors; one launch, no resumes; no deviation from the
+  amendment.

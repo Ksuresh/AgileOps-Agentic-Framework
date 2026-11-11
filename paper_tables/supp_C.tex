@@ -49,11 +49,19 @@ Fault cases 34; families 17; discriminating 29; one correct action 11.
 
 \multicolumn{5}{l}{\textit{LLM decides}} \\
 
-\quad GPT-5.6 Luna + rules (B6) & 28/34 & 23/34 & 23/29 & 5/11 \\
+\quad GPT-5.6 Luna + v1.4 rules + evidence (B6-14E) & 34/34 & 23/34 & 29/29 & 11/11 \\
+
+\quad GPT-5.6 Luna + v1.4 rules (B6-14) & 33/34 & 22/34 & 28/29 & 10/11 \\
+
+\quad GPT-5.6 Luna + v1.0 rules (B6) & 28/34 & 23/34 & 23/29 & 5/11 \\
 
 \quad GPT-5.6 Luna (B5) & 29/34 & 16/34 & 24/29 & 7/11 \\
 
-\quad Qwen3-8B + rules (B6) & 29/34 & 21/34 & 24/29 & 6/11 \\
+\quad Qwen3-8B + v1.4 rules + evidence (B6-14E) & 32/34 & 23/34 & 27/29 & 9/11 \\
+
+\quad Qwen3-8B + v1.4 rules (B6-14) & 32/34 & 23/34 & 27/29 & 9/11 \\
+
+\quad Qwen3-8B + v1.0 rules (B6) & 29/34 & 21/34 & 24/29 & 6/11 \\
 
 \quad Qwen3-8B (B5) & 26/34 & 13/34 & 21/29 & 6/11 \\
 
@@ -65,7 +73,9 @@ Fault cases 34; families 17; discriminating 29; one correct action 11.
 
 \quad Act on most severe domain & 21/34 & 15/34 & 16/29 & 4/11 \\
 
-\quad Block on any vulnerability & 26/34 & 20/34 & 21/29 & 4/11 \\
+\quad Block on any vulnerability (post hoc) & 26/34 & 5/34 & 21/29 & 5/11 \\
+
+\quad Patch on any vulnerability & 26/34 & 20/34 & 21/29 & 4/11 \\
 
 \multicolumn{5}{l}{\textit{Single-domain experts}} \\
 
@@ -125,11 +135,19 @@ Fault cases 34; families 17; discriminating 29; one correct action 11.
 
 \multicolumn{6}{l}{\textit{LLM decides}} \\
 
-\quad GPT-5.6 Luna + rules (B6) & 6 & 0 & 0.062 & 6 / 0 & 0.031 \\
+\quad GPT-5.6 Luna + v1.4 rules + evidence (B6-14E) & 0 & 0 & 1.000 & 0 / 0 & 1.000 \\
+
+\quad GPT-5.6 Luna + v1.4 rules (B6-14) & 1 & 0 & 1.000 & 1 / 0 & 1.000 \\
+
+\quad GPT-5.6 Luna + v1.0 rules (B6) & 6 & 0 & 0.062 & 6 / 0 & 0.031 \\
 
 \quad GPT-5.6 Luna (B5) & 5 & 0 & 0.062 & 3 / 0 & 0.250 \\
 
-\quad Qwen3-8B + rules (B6) & 5 & 0 & 0.062 & 5 / 0 & 0.062 \\
+\quad Qwen3-8B + v1.4 rules + evidence (B6-14E) & 2 & 0 & 1.000 & 2 / 0 & 0.500 \\
+
+\quad Qwen3-8B + v1.4 rules (B6-14) & 2 & 0 & 1.000 & 2 / 0 & 0.500 \\
+
+\quad Qwen3-8B + v1.0 rules (B6) & 5 & 0 & 0.062 & 5 / 0 & 0.062 \\
 
 \quad Qwen3-8B (B5) & 8 & 0 & 0.023 & 5 / 0 & 0.062 \\
 
@@ -161,9 +179,9 @@ Fault cases 34; families 17; discriminating 29; one correct action 11.
 
 \end{longtable}
 
-\textit{Withheld-evidence variants} (32): AAF (Qwen investigator) 27/32; AAF (GPT investigator) 29/32; Rules v1.0 (B1) 11/32; Rules v1.4 alone (B1-14) 18/32; Rules v1.4 + fetch rule (B2-14) 32/32; Qwen3-8B (B5) 22/32; GPT-5.6 Luna (B5) 27/32; Qwen3-8B + rules (B6) 25/32; GPT-5.6 Luna + rules (B6) 25/32.
+\textit{Withheld-evidence variants} (32): AAF (Qwen investigator) 27/32; AAF (GPT investigator) 29/32; Rules v1.0 (B1) 11/32; Rules v1.4 alone (B1-14) 18/32; Rules v1.4 + fetch rule (B2-14) 32/32; Qwen3-8B (B5) 22/32; GPT-5.6 Luna (B5) 27/32; Qwen3-8B + v1.0 rules (B6) 25/32; GPT-5.6 Luna + v1.0 rules (B6) 25/32.
 
-\textit{Low-risk releases} (4), release continued: AAF (Qwen investigator) 4/4; AAF (GPT investigator) 4/4; Qwen3-8B (B5) 4/4; Qwen3-8B + rules (B6) 4/4; GPT-5.6 Luna (B5) 4/4; GPT-5.6 Luna + rules (B6) 4/4; Always roll back 0/4; Block on any vulnerability 4/4; Always no action 4/4.
+\textit{Low-risk releases} (4), release continued: AAF (Qwen investigator) 4/4; AAF (GPT investigator) 4/4; Qwen3-8B (B5) 4/4; Qwen3-8B + v1.0 rules (B6) 4/4; GPT-5.6 Luna (B5) 4/4; GPT-5.6 Luna + v1.0 rules (B6) 4/4; Always roll back 0/4; Patch on any vulnerability 4/4; Block on any vulnerability (post hoc) 0/4; Always no action 4/4.
 
 \subsection*{C.2 Study 15}
 
@@ -213,11 +231,19 @@ Fault cases 42; families 14; discriminating 42; one correct action 21.
 
 \multicolumn{5}{l}{\textit{LLM decides}} \\
 
-\quad GPT-5.6 Luna + rules (B6) & 30/42 & 22/42 & 30/42 & 10/21 \\
+\quad GPT-5.6 Luna + v1.4 rules + evidence (B6-14E) & 42/42 & 32/42 & 42/42 & 21/21 \\
+
+\quad GPT-5.6 Luna + v1.4 rules (B6-14) & 41/42 & 32/42 & 41/42 & 20/21 \\
+
+\quad GPT-5.6 Luna + v1.0 rules (B6) & 30/42 & 22/42 & 30/42 & 10/21 \\
 
 \quad GPT-5.6 Luna (B5) & 29/42 & 16/42 & 29/42 & 12/21 \\
 
-\quad Qwen3-8B + rules (B6) & 32/42 & 26/42 & 32/42 & 14/21 \\
+\quad Qwen3-8B + v1.4 rules + evidence (B6-14E) & 37/42 & 28/42 & 37/42 & 17/21 \\
+
+\quad Qwen3-8B + v1.4 rules (B6-14) & 37/42 & 28/42 & 37/42 & 17/21 \\
+
+\quad Qwen3-8B + v1.0 rules (B6) & 32/42 & 26/42 & 32/42 & 14/21 \\
 
 \quad Qwen3-8B (B5) & 27/42 & 14/42 & 27/42 & 11/21 \\
 
@@ -229,7 +255,9 @@ Fault cases 42; families 14; discriminating 42; one correct action 21.
 
 \quad Act on most severe domain & 25/42 & 22/42 & 25/42 & 9/21 \\
 
-\quad Block on any vulnerability & 21/42 & 14/42 & 21/42 & 3/21 \\
+\quad Block on any vulnerability (post hoc) & 30/42 & 12/42 & 30/42 & 12/21 \\
+
+\quad Patch on any vulnerability & 21/42 & 14/42 & 21/42 & 3/21 \\
 
 \multicolumn{5}{l}{\textit{Single-domain experts}} \\
 
@@ -289,11 +317,19 @@ Fault cases 42; families 14; discriminating 42; one correct action 21.
 
 \multicolumn{6}{l}{\textit{LLM decides}} \\
 
-\quad GPT-5.6 Luna + rules (B6) & 12 & 0 & $4.9\times10^{-4}$ & 6 / 0 & 0.031 \\
+\quad GPT-5.6 Luna + v1.4 rules + evidence (B6-14E) & 0 & 0 & 1.000 & 0 / 0 & 1.000 \\
+
+\quad GPT-5.6 Luna + v1.4 rules (B6-14) & 1 & 0 & 1.000 & 1 / 0 & 1.000 \\
+
+\quad GPT-5.6 Luna + v1.0 rules (B6) & 12 & 0 & $4.9\times10^{-4}$ & 6 / 0 & 0.031 \\
 
 \quad GPT-5.6 Luna (B5) & 13 & 0 & $4.9\times10^{-4}$ & 7 / 0 & 0.016 \\
 
-\quad Qwen3-8B + rules (B6) & 10 & 0 & 0.002 & 5 / 0 & 0.062 \\
+\quad Qwen3-8B + v1.4 rules + evidence (B6-14E) & 5 & 0 & 0.125 & 3 / 0 & 0.250 \\
+
+\quad Qwen3-8B + v1.4 rules (B6-14) & 5 & 0 & 0.125 & 4 / 0 & 0.125 \\
+
+\quad Qwen3-8B + v1.0 rules (B6) & 10 & 0 & 0.002 & 5 / 0 & 0.062 \\
 
 \quad Qwen3-8B (B5) & 15 & 0 & $1.8\times10^{-4}$ & 7 / 0 & 0.016 \\
 
@@ -325,9 +361,9 @@ Fault cases 42; families 14; discriminating 42; one correct action 21.
 
 \end{longtable}
 
-\textit{Withheld-evidence variants} (39): AAF (Qwen investigator) 35/39; AAF (GPT investigator) 38/39; Rules v1.0 (B1) 11/39; Rules v1.4 alone (B1-14) 23/39; Rules v1.4 + fetch rule (B2-14) 39/39; Agents always on, v1.4 decides (Qwen) 34/39; Qwen3-8B (B5) 28/39; GPT-5.6 Luna (B5) 32/39; Qwen3-8B + rules (B6) 25/39; GPT-5.6 Luna + rules (B6) 27/39.
+\textit{Withheld-evidence variants} (39): AAF (Qwen investigator) 35/39; AAF (GPT investigator) 38/39; Rules v1.0 (B1) 11/39; Rules v1.4 alone (B1-14) 23/39; Rules v1.4 + fetch rule (B2-14) 39/39; Agents always on, v1.4 decides (Qwen) 34/39; Qwen3-8B (B5) 28/39; GPT-5.6 Luna (B5) 32/39; Qwen3-8B + v1.0 rules (B6) 25/39; GPT-5.6 Luna + v1.0 rules (B6) 27/39.
 
-\textit{Low-risk releases} (12), release continued: AAF (Qwen investigator) 12/12; AAF (GPT investigator) 12/12; Qwen3-8B (B5) 12/12; Qwen3-8B + rules (B6) 12/12; GPT-5.6 Luna (B5) 12/12; GPT-5.6 Luna + rules (B6) 12/12; Always roll back 0/12; Block on any vulnerability 12/12; Always no action 12/12.
+\textit{Low-risk releases} (12), release continued: AAF (Qwen investigator) 12/12; AAF (GPT investigator) 12/12; Qwen3-8B (B5) 12/12; Qwen3-8B + v1.0 rules (B6) 12/12; GPT-5.6 Luna (B5) 12/12; GPT-5.6 Luna + v1.0 rules (B6) 12/12; Always roll back 0/12; Patch on any vulnerability 12/12; Block on any vulnerability (post hoc) 0/12; Always no action 12/12.
 
 \subsection*{C.3 Study 16}
 
@@ -377,11 +413,19 @@ Fault cases 28; families 14; discriminating 27; one correct action 14.
 
 \multicolumn{5}{l}{\textit{LLM decides}} \\
 
-\quad GPT-5.6 Luna + rules (B6) & 22/28 & 18/28 & 21/27 & 8/14 \\
+\quad GPT-5.6 Luna + v1.4 rules + evidence (B6-14E) & 28/28 & 22/28 & 27/27 & 14/14 \\
+
+\quad GPT-5.6 Luna + v1.4 rules (B6-14) & 25/28 & 15/28 & 24/27 & 12/14 \\
+
+\quad GPT-5.6 Luna + v1.0 rules (B6) & 22/28 & 18/28 & 21/27 & 8/14 \\
 
 \quad GPT-5.6 Luna (B5) & 20/28 & 11/28 & 19/27 & 7/14 \\
 
-\quad Qwen3-8B + rules (B6) & 19/28 & 15/28 & 18/27 & 7/14 \\
+\quad Qwen3-8B + v1.4 rules + evidence (B6-14E) & 26/28 & 21/28 & 25/27 & 12/14 \\
+
+\quad Qwen3-8B + v1.4 rules (B6-14) & 24/28 & 18/28 & 23/27 & 10/14 \\
+
+\quad Qwen3-8B + v1.0 rules (B6) & 19/28 & 15/28 & 18/27 & 7/14 \\
 
 \quad Qwen3-8B (B5) & 21/28 & 11/28 & 20/27 & 9/14 \\
 
@@ -393,7 +437,9 @@ Fault cases 28; families 14; discriminating 27; one correct action 14.
 
 \quad Act on most severe domain & 17/28 & 12/28 & 16/27 & 6/14 \\
 
-\quad Block on any vulnerability & 15/28 & 12/28 & 14/27 & 3/14 \\
+\quad Block on any vulnerability (post hoc) & 21/28 & 8/28 & 20/27 & 8/14 \\
+
+\quad Patch on any vulnerability & 15/28 & 12/28 & 14/27 & 3/14 \\
 
 \multicolumn{5}{l}{\textit{Single-domain experts}} \\
 
@@ -453,11 +499,19 @@ Fault cases 28; families 14; discriminating 27; one correct action 14.
 
 \multicolumn{6}{l}{\textit{LLM decides}} \\
 
-\quad GPT-5.6 Luna + rules (B6) & 6 & 0 & 0.031 & 4 / 0 & 0.125 \\
+\quad GPT-5.6 Luna + v1.4 rules + evidence (B6-14E) & 0 & 0 & 1.000 & 0 / 0 & 1.000 \\
+
+\quad GPT-5.6 Luna + v1.4 rules (B6-14) & 3 & 0 & 0.500 & 3 / 0 & 0.250 \\
+
+\quad GPT-5.6 Luna + v1.0 rules (B6) & 6 & 0 & 0.031 & 4 / 0 & 0.125 \\
 
 \quad GPT-5.6 Luna (B5) & 8 & 0 & 0.016 & 5 / 0 & 0.062 \\
 
-\quad Qwen3-8B + rules (B6) & 9 & 0 & 0.012 & 7 / 0 & 0.016 \\
+\quad Qwen3-8B + v1.4 rules + evidence (B6-14E) & 2 & 0 & 0.500 & 2 / 0 & 0.500 \\
+
+\quad Qwen3-8B + v1.4 rules (B6-14) & 4 & 0 & 0.250 & 4 / 0 & 0.125 \\
+
+\quad Qwen3-8B + v1.0 rules (B6) & 9 & 0 & 0.012 & 7 / 0 & 0.016 \\
 
 \quad Qwen3-8B (B5) & 7 & 0 & 0.031 & 5 / 0 & 0.062 \\
 
@@ -489,9 +543,9 @@ Fault cases 28; families 14; discriminating 27; one correct action 14.
 
 \end{longtable}
 
-\textit{Withheld-evidence variants} (26): AAF (Qwen investigator) 25/26; AAF (GPT investigator) 26/26; Rules v1.0 (B1) 4/26; Rules v1.4 alone (B1-14) 12/26; Rules v1.4 + fetch rule (B2-14) 26/26; Agents always on, v1.4 decides (Qwen) 22/26; Qwen3-8B (B5) 19/26; GPT-5.6 Luna (B5) 20/26; Qwen3-8B + rules (B6) 19/26; GPT-5.6 Luna + rules (B6) 16/26.
+\textit{Withheld-evidence variants} (26): AAF (Qwen investigator) 25/26; AAF (GPT investigator) 26/26; Rules v1.0 (B1) 4/26; Rules v1.4 alone (B1-14) 12/26; Rules v1.4 + fetch rule (B2-14) 26/26; Agents always on, v1.4 decides (Qwen) 22/26; Qwen3-8B (B5) 19/26; GPT-5.6 Luna (B5) 20/26; Qwen3-8B + v1.0 rules (B6) 19/26; GPT-5.6 Luna + v1.0 rules (B6) 16/26.
 
-\textit{Low-risk releases} (8), release continued: AAF (Qwen investigator) 8/8; AAF (GPT investigator) 8/8; Qwen3-8B (B5) 8/8; Qwen3-8B + rules (B6) 8/8; GPT-5.6 Luna (B5) 8/8; GPT-5.6 Luna + rules (B6) 8/8; Always roll back 0/8; Block on any vulnerability 8/8; Always no action 8/8.
+\textit{Low-risk releases} (8), release continued: AAF (Qwen investigator) 8/8; AAF (GPT investigator) 8/8; Qwen3-8B (B5) 8/8; Qwen3-8B + v1.0 rules (B6) 8/8; GPT-5.6 Luna (B5) 8/8; GPT-5.6 Luna + v1.0 rules (B6) 8/8; Always roll back 0/8; Patch on any vulnerability 8/8; Block on any vulnerability (post hoc) 0/8; Always no action 8/8.
 
 \subsection*{C.4 Pooled, Studies 14--16}
 
@@ -541,11 +595,19 @@ Fault cases 104; families 45; discriminating 98; one correct action 46.
 
 \multicolumn{5}{l}{\textit{LLM decides}} \\
 
-\quad GPT-5.6 Luna + rules (B6) & 80/104 & 63/104 & 74/98 & 23/46 \\
+\quad GPT-5.6 Luna + v1.4 rules + evidence (B6-14E) & 104/104 & 77/104 & 98/98 & 46/46 \\
+
+\quad GPT-5.6 Luna + v1.4 rules (B6-14) & 99/104 & 69/104 & 93/98 & 42/46 \\
+
+\quad GPT-5.6 Luna + v1.0 rules (B6) & 80/104 & 63/104 & 74/98 & 23/46 \\
 
 \quad GPT-5.6 Luna (B5) & 78/104 & 43/104 & 72/98 & 26/46 \\
 
-\quad Qwen3-8B + rules (B6) & 80/104 & 62/104 & 74/98 & 27/46 \\
+\quad Qwen3-8B + v1.4 rules + evidence (B6-14E) & 95/104 & 72/104 & 89/98 & 38/46 \\
+
+\quad Qwen3-8B + v1.4 rules (B6-14) & 93/104 & 69/104 & 87/98 & 36/46 \\
+
+\quad Qwen3-8B + v1.0 rules (B6) & 80/104 & 62/104 & 74/98 & 27/46 \\
 
 \quad Qwen3-8B (B5) & 74/104 & 38/104 & 68/98 & 26/46 \\
 
@@ -557,7 +619,9 @@ Fault cases 104; families 45; discriminating 98; one correct action 46.
 
 \quad Act on most severe domain & 63/104 & 49/104 & 57/98 & 19/46 \\
 
-\quad Block on any vulnerability & 62/104 & 46/104 & 56/98 & 10/46 \\
+\quad Block on any vulnerability (post hoc) & 77/104 & 25/104 & 71/98 & 25/46 \\
+
+\quad Patch on any vulnerability & 62/104 & 46/104 & 56/98 & 10/46 \\
 
 \multicolumn{5}{l}{\textit{Single-domain experts}} \\
 
@@ -617,11 +681,19 @@ Fault cases 104; families 45; discriminating 98; one correct action 46.
 
 \multicolumn{6}{l}{\textit{LLM decides}} \\
 
-\quad GPT-5.6 Luna + rules (B6) & 24 & 0 & $1.2\times10^{-7}$ & 16 / 0 & $3.1\times10^{-5}$ \\
+\quad GPT-5.6 Luna + v1.4 rules + evidence (B6-14E) & 0 & 0 & 1.000 & 0 / 0 & 1.000 \\
+
+\quad GPT-5.6 Luna + v1.4 rules (B6-14) & 5 & 0 & 0.125 & 5 / 0 & 0.062 \\
+
+\quad GPT-5.6 Luna + v1.0 rules (B6) & 24 & 0 & $1.2\times10^{-7}$ & 16 / 0 & $3.1\times10^{-5}$ \\
 
 \quad GPT-5.6 Luna (B5) & 26 & 0 & $6.0\times10^{-8}$ & 15 / 0 & $6.1\times10^{-5}$ \\
 
-\quad Qwen3-8B + rules (B6) & 24 & 0 & $1.2\times10^{-7}$ & 17 / 0 & $1.5\times10^{-5}$ \\
+\quad Qwen3-8B + v1.4 rules + evidence (B6-14E) & 9 & 0 & 0.004 & 7 / 0 & 0.016 \\
+
+\quad Qwen3-8B + v1.4 rules (B6-14) & 11 & 0 & 0.002 & 10 / 0 & 0.002 \\
+
+\quad Qwen3-8B + v1.0 rules (B6) & 24 & 0 & $1.2\times10^{-7}$ & 17 / 0 & $1.5\times10^{-5}$ \\
 
 \quad Qwen3-8B (B5) & 30 & 0 & $5.6\times10^{-9}$ & 17 / 0 & $1.5\times10^{-5}$ \\
 
@@ -653,13 +725,13 @@ Fault cases 104; families 45; discriminating 98; one correct action 46.
 
 \end{longtable}
 
-\textit{Withheld-evidence variants} (97): AAF (Qwen investigator) 87/97; AAF (GPT investigator) 93/97; Rules v1.0 (B1) 26/97; Rules v1.4 alone (B1-14) 53/97; Rules v1.4 + fetch rule (B2-14) 97/97; Agents always on, v1.4 decides (Qwen) 56/65; Qwen3-8B (B5) 69/97; GPT-5.6 Luna (B5) 79/97; Qwen3-8B + rules (B6) 69/97; GPT-5.6 Luna + rules (B6) 68/97.
+\textit{Withheld-evidence variants} (97): AAF (Qwen investigator) 87/97; AAF (GPT investigator) 93/97; Rules v1.0 (B1) 26/97; Rules v1.4 alone (B1-14) 53/97; Rules v1.4 + fetch rule (B2-14) 97/97; Agents always on, v1.4 decides (Qwen) 56/65; Qwen3-8B (B5) 69/97; GPT-5.6 Luna (B5) 79/97; Qwen3-8B + v1.0 rules (B6) 69/97; GPT-5.6 Luna + v1.0 rules (B6) 68/97; Qwen3-8B + v1.4 rules (B6-14) 83/97; Qwen3-8B + v1.4 rules + evidence (B6-14E) 83/97; GPT-5.6 Luna + v1.4 rules (B6-14) 83/97; GPT-5.6 Luna + v1.4 rules + evidence (B6-14E) 96/97.
 
-\textit{Low-risk releases} (24), release continued: AAF (Qwen investigator) 24/24; AAF (GPT investigator) 24/24; Qwen3-8B (B5) 24/24; Qwen3-8B + rules (B6) 24/24; GPT-5.6 Luna (B5) 24/24; GPT-5.6 Luna + rules (B6) 24/24; Always roll back 0/24; Block on any vulnerability 24/24; Always no action 24/24.
+\textit{Low-risk releases} (24), release continued: AAF (Qwen investigator) 24/24; AAF (GPT investigator) 24/24; Qwen3-8B (B5) 24/24; Qwen3-8B + v1.0 rules (B6) 24/24; GPT-5.6 Luna (B5) 24/24; GPT-5.6 Luna + v1.0 rules (B6) 24/24; Always roll back 0/24; Patch on any vulnerability 24/24; Block on any vulnerability (post hoc) 0/24; Always no action 24/24.
 
 \subsection*{C.5 Low-risk releases where AAF was not $O_2$-optimal}
 
-Descriptive analysis added after the studies (AAF, GPT-5.6 Luna investigator; identical with Qwen3-8B and with the rules alone). In each case doing nothing left no violation and the feature stayed delivered; AAF's action also left none but used more resources. Material domain under the fixed v1.4 thresholds (p95 $\geq 450$~ms, CPU saturation $\geq 85\%$, CPU-request increase). Scale is implemented as pre-registered: replicas $=\lceil r\,u/0.6\rceil$, bounded to 1--6, where $u$ is utilisation of the CPU request. The same scale recommendation was $O_2$-optimal in 14:QP-L02, 15:UP-L04, 16:SC-L04, where it removed replicas.
+Descriptive analysis added after the studies (AAF, GPT-5.6 Luna investigator; identical with Qwen3-8B and with the rules alone). In each case doing nothing left no violation and the feature stayed delivered; AAF's action also left none but used more resources. Material domain under the fixed v1.4 thresholds (p95 $\geq 450$~ms, CPU saturation $\geq 85\%$, CPU-request increase). Scale is implemented as pre-registered: replicas $=\lceil r\,u/0.6\rceil$, bounded to 1--6, where $u$ is utilization of the CPU request. The same scale recommendation was $O_2$-optimal in 14:QP-L02, 15:UP-L04, 16:SC-L04, where it removed replicas.
 
 \begin{table}[H]
 
@@ -688,6 +760,60 @@ Descriptive analysis added after the studies (AAF, GPT-5.6 Luna investigator; id
 16:SF-L01 & mitigate & 296 & 100 & +0\% & 100 $\rightarrow$ 200 \\
 
 16:SF-L04 & scale & 188 & 76 & +100\% & 200 $\rightarrow$ 550 \\
+
+\bottomrule
+
+\end{tabular}
+
+\end{table}
+
+\subsection*{C.6 Family-level comparisons grouped across studies}
+
+Post hoc (second-round review). Studies~15 and~16 repeat the same 19 designs on different services and applications. Left: each design grouped across Studies~15 and~16, Study~14 designs separately (31 families). Right: grouped by design code across all three studies (17 families), the most conservative grouping. Families in which AAF (pre-specified Qwen3-8B investigator) was better / worse than the comparison decider, exact sign test.
+
+\begin{table}[H]
+
+\caption{\label{tab:supp-crossfam}Family-level comparisons with designs grouped across studies}
+
+\centering\footnotesize\setlength\tabcolsep{3pt}
+
+\begin{tabular}{lcccc}
+
+\toprule
+
+ & \multicolumn{2}{c}{\textbf{Studies 15--16 grouped}} & \multicolumn{2}{c}{\textbf{All grouped}} \\
+
+\textbf{Comparison decider} & \textbf{AAF / other} & \textbf{$p$} & \textbf{AAF / other} & \textbf{$p$} \\
+
+\midrule
+
+DevOps expert (rules) & 20 / 0 & $1.9\times10^{-6}$ & 12 / 0 & $4.9\times10^{-4}$ \\
+
+SRE expert (rules) & 26 / 0 & $3.0\times10^{-8}$ & 14 / 0 & $1.2\times10^{-4}$ \\
+
+FinOps expert (rules) & 28 / 0 & $7.5\times10^{-9}$ & 15 / 0 & $6.1\times10^{-5}$ \\
+
+Security expert (rules) & 15 / 0 & $6.1\times10^{-5}$ & 8 / 0 & 0.008 \\
+
+DevOps expert (LLM) & 22 / 0 & $4.8\times10^{-7}$ & 12 / 0 & $4.9\times10^{-4}$ \\
+
+SRE expert (LLM) & 22 / 0 & $4.8\times10^{-7}$ & 12 / 0 & $4.9\times10^{-4}$ \\
+
+FinOps expert (LLM) & 28 / 0 & $7.5\times10^{-9}$ & 16 / 0 & $3.1\times10^{-5}$ \\
+
+Security expert (LLM) & 18 / 0 & $7.6\times10^{-6}$ & 11 / 0 & $9.8\times10^{-4}$ \\
+
+Qwen3-8B (B5) & 12 / 0 & $4.9\times10^{-4}$ & 8 / 0 & 0.008 \\
+
+Qwen3-8B + v1.0 rules (B6) & 13 / 0 & $2.4\times10^{-4}$ & 10 / 0 & 0.002 \\
+
+GPT-5.6 Luna (B5) & 11 / 0 & $9.8\times10^{-4}$ & 9 / 0 & 0.004 \\
+
+GPT-5.6 Luna + v1.0 rules (B6) & 12 / 0 & $4.9\times10^{-4}$ & 7 / 0 & 0.016 \\
+
+Always roll back & 9 / 0 & 0.004 & 5 / 0 & 0.062 \\
+
+Act on most severe domain & 19 / 0 & $3.8\times10^{-6}$ & 12 / 0 & $4.9\times10^{-4}$ \\
 
 \bottomrule
 
