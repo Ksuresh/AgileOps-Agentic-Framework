@@ -1,0 +1,8 @@
+outcome_study16 qwen: 7 jobs to run
+B6-14 SC-K02 1 Patch or block release
+B6-14E SF-K02-W 3 Patch or block release
+B6-14 SF-P01-W 1 No action (observe)
+B6-14E SF-S02-W 3 Patch or block release
+B6-14 SF-K02 2 Patch or block release
+B6-14 SC-R01-W 3 Rollback to stable deployment
+B6-14E SF-R03 1 Rollback to stable deployment
