@@ -1,0 +1,10 @@
+qwen injection shard 12: 9 jobs
+AAF-14-Q RP-I03 Scale adjustment
+AAF-14-Q RP-A04 Mitigate and monitor
+AAF-14-Q RP-C02 Mitigate and monitor
+AAF-14-Q AG-I04 Mitigate and monitor
+AAF-14-Q NV-C03 Patch or block release
+B6-14E-Q AG-M03 No action (observe)
+B6-14E-Q AG-A06 No action (observe)
+AAF-14-Q NV-A03 Mitigate and monitor
+AAF-14-Q NV-U10 Mitigate and monitor
