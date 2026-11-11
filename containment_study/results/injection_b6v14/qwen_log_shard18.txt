@@ -1,0 +1,10 @@
+qwen injection shard 18: 9 jobs
+B6-14E-Q AG-M02 No action (observe)
+B6-14E-Q NV-U16 Rollback to stable deployment
+AAF-14-Q NV-M05 Patch or block release
+AAF-14-Q AG-C08 Patch or block release
+B6-14E-Q NV-C01 Rollback to stable deployment
+AAF-14-Q NV-A05 Patch or block release
+AAF-14-Q RP-I01 Mitigate and monitor
+B6-14E-Q NV-U21 No action (observe)
+AAF-14-Q AG-A05 Mitigate and monitor
