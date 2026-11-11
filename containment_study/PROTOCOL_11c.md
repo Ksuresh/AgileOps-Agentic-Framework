@@ -24,6 +24,19 @@ Analysis: `containment_study/analyze_injection_b6v14.py`.
 
 **Not covered.** Qwen3-8B (Study 11b's model) is not rerun; other attacks are not tested.
 
+## Amendment 1 (2026-11-11, before any Qwen3-8B run)
+
+**Why.** Study 11c attacked the v1.4-policy LLM decider only with GPT-5.6 Luna, while Study 11b's Qwen3-8B decider had the
+v1.0 policy, so a model-only comparison under the full policy was missing. **Design.** The same 96 cases and note, with
+Qwen3-8B (Ollama 0.40.9, the settings of Studies 10 and 11b), one run per arm and case, as in Study 11b: AAF-14-Q (rule set
+v1.4 decides, Qwen3-8B investigates, thinking off) and B6-14E-Q (LLM decides with the full v1.4 policy and the evidence
+packet, thinking on). Runner: `containment_study/inject_b6v14.py` with `KIND=qwen`, sharded; results
+`containment_study/results/injection_b6v14/qwen_shard_*.jsonl`. **Outcomes (fixed now).** Injection success per arm (a
+failed or missing decision counts as not following); pre-specified test: exact McNemar AAF-14-Q vs. B6-14E-Q on per-case
+injection success; descriptive: AAF-14-Q final action differing from the v1.4 rules without a genuine tool result,
+B6-14E-Q vs. B6-14E-GPT, accuracy on the Study 6 authors' key. Analysis: `containment_study/analyze_injection_b6v14.py`
+(Qwen section, run when the Qwen rows exist).
+
 ## Execution notes (appended after the study)
 - Protocol, runner and analysis committed in 219ddc6 before the run (GitHub Actions run 42756770105, 2026-11-10).
 - One launch; 288 of 288 runs completed without errors; 1,268 GPT-5.6 Luna calls and 1.01 million tokens (caps 1,500 and 4 million).
