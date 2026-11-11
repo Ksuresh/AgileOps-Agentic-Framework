@@ -44,3 +44,15 @@ GitHub Actions workflow `outcome-b6v14.yml`, control file `outcome_study/B6V14_R
 execution notes. Analysis: `python outcome_study/analyze_b6v14.py` (committed with this protocol, before any data).
 
 ## Execution notes (appended after the runs)
+- GPT-5.6 Luna (run 42733599958, 2026-11-10): one launch per study; 232 of 232 decisions per arm without errors;
+  780, 1,030 and 684 calls (Studies 14, 15, 16), below the cap.
+- Qwen3-8B: 1,392 of 1,392 decisions (3 runs x 2 arms x 232 variants) without errors. The first run (42733683542) used a
+  job-level time limit only; 5 Study-14 shards were stopped by it before committing, and their decisions were run again from
+  the start by the next run (no committed decision was rerun or replaced). That run was then cancelled so that the
+  remaining shards could restart under a step-level time limit that commits completed decisions first (workflow change
+  70c336f). Further resumes with identical settings: runs 42775925839, 42897579056, 42933582155, 42947153761, 42966763286
+  (control-file commits 1260fb2, 6fbe26d, 2955002, 2803e8a, ab3d425; `SKIP` lists shards still running in another run).
+- About 30-38% of runs in every arm had at least one LLM output that failed the runtime's schema or evidence-reference
+  checks (`analysis_b6v14.json`, `usage`); as for B6, such outputs are discarded by the runtime and the coordinator's final
+  action is scored as given.
+- No deviation from the pre-specified analysis.
