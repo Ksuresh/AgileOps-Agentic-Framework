@@ -1,0 +1,4 @@
+outcome_study16 qwen: 3 jobs to run
+B6-14 SC-X01-W 1 Escalate for evidence/human review
+B6-14E SF-X01 2 Rollback to stable deployment
+B6-14E SC-P01-W 2 Mitigate and monitor
